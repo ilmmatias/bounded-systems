@@ -1,0 +1,787 @@
+# Part I — Formal setup
+
+Take one realized configuration of the bounded system. No time variable is introduced.
+
+Let
+
+[
+G=(N,E)
+]
+
+be its directed acyclic graph.
+
+For (n=|N|), temporarily label the nodes (1,\dots,n). The labels have no physical significance. A relabeling by a permutation matrix (P) changes the adjacency matrix by
+
+[
+A\longmapsto P^{-1}AP.
+]
+
+Therefore, only quantities invariant under permutation similarity count as properties of the system.
+
+Define
+
+[
+A_{ij}
+======
+
+\text{number of realized directed channels }i\to j.
+]
+
+This accommodates both possibilities without deciding between them:
+
+* If parallel edges are impossible, then (A_{ij}\in{0,1}).
+* If parallel edges are possible, then (A_{ij}\in\mathbb N).
+
+## Universal result U1: adjacency nilpotence
+
+Because (G) is a finite DAG, its nodes can be topologically ordered. In that ordering,
+
+[
+A=
+\begin{pmatrix}
+0&*&*&\cdots&*\
+0&0&*&\cdots&*\
+0&0&0&\cdots&*\
+\vdots&\vdots&\vdots&\ddots&*\
+0&0&0&\cdots&0
+\end{pmatrix}.
+]
+
+Thus (A) is strictly upper triangular and
+
+[
+A^n=0.
+]
+
+Consequently,
+
+[
+\boxed{\operatorname{spec}(A)={0}}
+]
+
+for every finite configuration.
+
+So ordinary adjacency eigenvalues cannot distinguish finite bounded systems with the same number of nodes.
+
+## Universal result U2: powers count paths
+
+With our convention,
+
+[
+(A^k)_{ij}
+]
+
+counts the number of directed paths of length (k) from (i) to (j), counting channel multiplicities.
+
+Thus the smallest number (\nu) such that
+
+[
+A^\nu=0
+]
+
+is the nilpotency index, and
+
+[
+\boxed{\text{longest directed-path length}=\nu-1.}
+]
+
+We will record the rank profile
+
+[
+\rho(A)=
+\left(
+\operatorname{rank}A,,
+\operatorname{rank}A^2,\ldots
+\right)
+]
+
+until it reaches zero.
+
+We will also record the singular values
+
+[
+\sigma(A)=
+\sqrt{\operatorname{spec}(A^\mathsf TA)}.
+]
+
+Unlike ordinary eigenvalues, these need not vanish.
+
+---
+
+# Part II — Simple-channel atlas
+
+We first examine the (0/1) sector: at most one realized channel in each direction between a given pair. This is not an additional axiom; it is the smallest finite sector of the full theory.
+
+Let
+
+[
+\varphi=\frac{1+\sqrt5}{2}.
+]
+
+The notation (d^+) and (d^-) denotes the multisets of out-degrees and in-degrees. The notation (L_u) denotes the Laplacian of the underlying undirected graph, obtained by temporarily forgetting edge direction.
+
+## Complete table through three nodes
+
+| Nodes | Configuration            | (\rho(A)) | (\sigma(A))                | (d^+)     | (d^-)     | (\operatorname{spec}(L_u)) |
+| ----: | ------------------------ | --------- | -------------------------- | --------- | --------- | -------------------------- |
+|     1 | isolated node            | ((0))     | ((0))                      | ({0})     | ({0})     | ({0})                      |
+|     2 | two isolated nodes       | ((0))     | ((0,0))                    | ({0,0})   | ({0,0})   | ({0,0})                    |
+|     2 | (1\to2)                  | ((1,0))   | ((1,0))                    | ({1,0})   | ({1,0})   | ({0,2})                    |
+|     3 | three isolated nodes     | ((0))     | ((0,0,0))                  | ({0,0,0}) | ({0,0,0}) | ({0,0,0})                  |
+|     3 | one edge + isolated node | ((1,0))   | ((1,0,0))                  | ({1,0,0}) | ({1,0,0}) | ({0,0,2})                  |
+|     3 | outgoing fork            | ((1,0))   | ((\sqrt2,0,0))             | ({2,0,0}) | ({1,1,0}) | ({0,1,3})                  |
+|     3 | incoming fork            | ((1,0))   | ((\sqrt2,0,0))             | ({1,1,0}) | ({2,0,0}) | ({0,1,3})                  |
+|     3 | chain                    | ((2,1,0)) | ((1,1,0))                  | ({1,1,0}) | ({1,1,0}) | ({0,1,3})                  |
+|     3 | transitive triangle      | ((2,1,0)) | ((\varphi,\varphi^{-1},0)) | ({2,1,0}) | ({2,1,0}) | ({0,3,3})                  |
+
+These are all non-isomorphic simple DAGs with at most three nodes.
+
+---
+
+# Part III — The nontrivial three-node cases
+
+## S1. Outgoing fork
+
+[
+1\to2,\qquad1\to3.
+]
+
+Its adjacency matrix is
+
+[
+A_{\mathrm{out}}=
+\begin{pmatrix}
+0&1&1\
+0&0&0\
+0&0&0
+\end{pmatrix}.
+]
+
+Then
+
+[
+A_{\mathrm{out}}^2=0,
+]
+
+so the longest path has length (1).
+
+Also,
+
+[
+A_{\mathrm{out}}^\mathsf T A_{\mathrm{out}}
+===========================================
+
+\begin{pmatrix}
+0&0&0\
+0&1&1\
+0&1&1
+\end{pmatrix},
+]
+
+whose eigenvalues are
+
+[
+2,0,0.
+]
+
+Therefore,
+
+[
+\sigma(A_{\mathrm{out}})
+========================
+
+(\sqrt2,0,0).
+]
+
+The matrix has rank one because both outgoing channels belong to one source pattern.
+
+## S2. Incoming fork
+
+[
+1\to3,\qquad2\to3.
+]
+
+Its matrix is
+
+[
+A_{\mathrm{in}}=
+\begin{pmatrix}
+0&0&1\
+0&0&1\
+0&0&0
+\end{pmatrix}.
+]
+
+It has the same rank profile and singular values as the outgoing fork:
+
+[
+\rho(A_{\mathrm{in}})=(1,0),
+]
+
+[
+\sigma(A_{\mathrm{in}})
+=======================
+
+(\sqrt2,0,0).
+]
+
+So singular values alone cannot tell whether two channels converge or diverge.
+
+The in- and out-degree multisets do distinguish them:
+
+[
+d^+*{\mathrm{out}}={2,0,0},
+\qquad
+d^-*{\mathrm{out}}={1,1,0},
+]
+
+while
+
+[
+d^+*{\mathrm{in}}={1,1,0},
+\qquad
+d^-*{\mathrm{in}}={2,0,0}.
+]
+
+## S3. Chain
+
+[
+1\to2\to3.
+]
+
+Its matrix is
+
+[
+A_{\mathrm{chain}}=
+\begin{pmatrix}
+0&1&0\
+0&0&1\
+0&0&0
+\end{pmatrix}.
+]
+
+Then
+
+[
+A_{\mathrm{chain}}^2=
+\begin{pmatrix}
+0&0&1\
+0&0&0\
+0&0&0
+\end{pmatrix},
+\qquad
+A_{\mathrm{chain}}^3=0.
+]
+
+Therefore,
+
+[
+\rho(A_{\mathrm{chain}})
+========================
+
+(2,1,0).
+]
+
+Its longest path has length two.
+
+Also,
+
+[
+A_{\mathrm{chain}}^\mathsf T A_{\mathrm{chain}}
+===============================================
+
+\begin{pmatrix}
+0&0&0\
+0&1&0\
+0&0&1
+\end{pmatrix},
+]
+
+so
+
+[
+\sigma(A_{\mathrm{chain}})
+==========================
+
+(1,1,0).
+]
+
+## S4. Transitive triangle
+
+[
+1\to2,\qquad2\to3,\qquad1\to3.
+]
+
+Its matrix is
+
+[
+A_{\triangle}=
+\begin{pmatrix}
+0&1&1\
+0&0&1\
+0&0&0
+\end{pmatrix}.
+]
+
+We again have
+
+[
+A_{\triangle}^2=
+\begin{pmatrix}
+0&0&1\
+0&0&0\
+0&0&0
+\end{pmatrix},
+\qquad
+A_{\triangle}^3=0.
+]
+
+Thus the chain and transitive triangle have the same rank profile:
+
+[
+\rho(A_{\triangle})
+===================
+
+# \rho(A_{\mathrm{chain}})
+
+(2,1,0).
+]
+
+But their singular spectra differ:
+
+[
+\sigma(A_{\triangle})
+=====================
+
+\left(\varphi,\varphi^{-1},0\right),
+]
+
+where
+
+[
+\varphi=\frac{1+\sqrt5}{2}.
+]
+
+The singular spectrum detects the additional direct channel (1\to3).
+
+---
+
+# Part IV — Reachability
+
+Define the binary reachability matrix
+
+[
+R_{ij}
+======
+
+\begin{cases}
+1,&\text{if a nonempty directed path exists from }i\text{ to }j,\
+0,&\text{otherwise}.
+\end{cases}
+]
+
+For the chain,
+
+[
+1\to2\to3,
+]
+
+we obtain
+
+[
+R_{\mathrm{chain}}
+==================
+
+\begin{pmatrix}
+0&1&1\
+0&0&1\
+0&0&0
+\end{pmatrix}.
+]
+
+But this is exactly the adjacency matrix of the transitive triangle:
+
+[
+R_{\mathrm{chain}}=A_{\triangle}.
+]
+
+Therefore,
+
+[
+R_{\mathrm{chain}}
+==================
+
+R_{\triangle}.
+]
+
+This yields our first meaningful information-loss theorem:
+
+> **Reachability cannot distinguish a direct channel from an indirect route when both connect the same ordered pair.**
+
+The chain and transitive triangle have different immediate communication structures but identical eventual communication possibilities.
+
+So we should always retain both:
+
+[
+A=\text{immediate channels}
+]
+
+and
+
+[
+R=\text{eventual reachability}.
+]
+
+---
+
+# Part V — What each invariant sees
+
+The first atlas already lets us characterize the operators.
+
+## Ordinary adjacency spectrum
+
+For all finite cases:
+
+[
+\operatorname{spec}(A)={0}.
+]
+
+It sees only the node count through the multiplicity of zero.
+
+## Nilpotent rank profile
+
+The rank profile detects propagation depth and some branching structure.
+
+But it does not distinguish:
+
+* one edge from a two-edge fork on three nodes;
+* the chain from the transitive triangle;
+* the outgoing fork from the incoming fork.
+
+## Singular values
+
+Singular values distinguish:
+
+* one edge from a fork;
+* a fork from a chain;
+* a chain from a transitive triangle.
+
+But they do not distinguish:
+
+* an outgoing fork from an incoming fork.
+
+## Degree spectra
+
+The paired in- and out-degree multisets distinguish outgoing from incoming forks.
+
+## Underlying Laplacian spectrum
+
+The underlying Laplacian detects disconnectedness and undirected shape.
+
+It does not distinguish the three orientations of the two-edge path:
+
+* outgoing fork;
+* incoming fork;
+* chain.
+
+All three have underlying graph (P_3) and spectrum
+
+[
+{0,1,3}.
+]
+
+## Combined result
+
+For simple DAGs with at most three nodes, the combined data
+
+[
+\left(
+n,,
+\rho(A),,
+\sigma(A),,
+d^+,,
+d^-,,
+\operatorname{spec}(L_u)
+\right)
+]
+
+distinguishes every non-isomorphic configuration.
+
+So our first small classification succeeds completely.
+
+---
+
+# Part VI — Parallel-channel sector
+
+Now we avoid assuming that parallel edges are forbidden.
+
+Let (a,b,c) be positive integer channel multiplicities.
+
+## Two nodes
+
+With (a) channels from (1) to (2),
+
+[
+A=
+\begin{pmatrix}
+0&a\
+0&0
+\end{pmatrix}.
+]
+
+Then
+
+[
+\sigma(A)=(a,0).
+]
+
+So for two nodes, the singular spectrum exactly recovers the number of parallel channels.
+
+## Three-node outgoing or incoming fork
+
+For the outgoing fork,
+
+[
+A=
+\begin{pmatrix}
+0&a&b\
+0&0&0\
+0&0&0
+\end{pmatrix}.
+]
+
+Its singular values are
+
+[
+\sigma(A)
+=========
+
+\left(\sqrt{a^2+b^2},0,0\right).
+]
+
+The incoming fork has the same singular spectrum.
+
+So singular values see the combined quadratic channel weight, but not whether the channels converge or diverge.
+
+## Weighted chain
+
+For
+
+[
+1\xrightarrow{a}2\xrightarrow{b}3,
+]
+
+we have
+
+[
+A=
+\begin{pmatrix}
+0&a&0\
+0&0&b\
+0&0&0
+\end{pmatrix}.
+]
+
+Then
+
+[
+A^2=
+\begin{pmatrix}
+0&0&ab\
+0&0&0\
+0&0&0
+\end{pmatrix}.
+]
+
+Thus (ab) counts the number of two-step channel combinations from (1) to (3).
+
+The singular values are
+
+[
+\sigma(A)
+=========
+
+\left(
+\max(a,b),,
+\min(a,b),,
+0
+\right).
+]
+
+This recovers the two channel multiplicities as an unordered pair, but it does not say which multiplicity occurs upstream.
+
+## Weighted transitive triangle
+
+Let
+
+[
+1\xrightarrow{a}2,
+\qquad
+2\xrightarrow{b}3,
+\qquad
+1\xrightarrow{c}3.
+]
+
+Then
+
+[
+A=
+\begin{pmatrix}
+0&a&c\
+0&0&b\
+0&0&0
+\end{pmatrix}.
+]
+
+Set
+
+[
+S=a^2+b^2+c^2.
+]
+
+The two nonzero squared singular values are
+
+[
+\sigma_{\pm}^2
+==============
+
+\frac{
+S\pm\sqrt{S^2-4a^2b^2}
+}{2}.
+]
+
+The third singular value is zero.
+
+This spectrum depends on the direct channel multiplicity (c), while
+
+[
+A^2_{13}=ab
+]
+
+depends only on the two-step route.
+
+That gives a clean separation between:
+
+* direct-channel structure (c);
+* compositional path structure (ab).
+
+---
+
+# Part VII — First genuine collision
+
+Consider these two weighted chains:
+
+[
+G_1:
+\quad
+1\xrightarrow{a}2\xrightarrow{b}3,
+]
+
+[
+G_2:
+\quad
+1\xrightarrow{b}2\xrightarrow{a}3,
+]
+
+with (a\neq b).
+
+These are not isomorphic as directed weighted graphs. The source, middle, and target are structurally fixed, so an isomorphism cannot exchange the upstream and downstream multiplicities.
+
+Nevertheless, they have the same:
+
+* adjacency eigenvalues;
+* nilpotent rank profile;
+* singular values;
+* in-degree multiset;
+* out-degree multiset;
+* underlying weighted-Laplacian spectrum;
+* binary reachability matrix up to relabeling;
+* path multiplicity (ab).
+
+So our initial spectral package cannot determine whether the larger channel multiplicity comes first or second.
+
+This is our first real spectral collision.
+
+---
+
+# Part VIII — A new operator forced by the collision
+
+To recover directional placement, define for some fixed
+
+[
+\tau>0,\qquad \tau\neq1,
+]
+
+the positive-semidefinite matrix
+
+[
+Q_\tau(A)
+=========
+
+A^\mathsf TA+\tau AA^\mathsf T.
+]
+
+Here:
+
+* (A^\mathsf TA) compares incoming-channel profiles;
+* (AA^\mathsf T) compares outgoing-channel profiles;
+* (\tau\neq1) prevents the two roles from being weighted symmetrically.
+
+For the weighted chain (a) followed by (b),
+
+[
+Q_\tau(a,b)
+===========
+
+\begin{pmatrix}
+\tau a^2&0&0\
+0&a^2+\tau b^2&0\
+0&0&b^2
+\end{pmatrix}.
+]
+
+Its determinant is
+
+[
+\det Q_\tau(a,b)
+================
+
+\tau a^2b^2(a^2+\tau b^2).
+]
+
+After exchanging (a) and (b),
+
+[
+\det Q_\tau(b,a)
+================
+
+\tau a^2b^2(b^2+\tau a^2).
+]
+
+Their difference is
+
+[
+\det Q_\tau(a,b)-\det Q_\tau(b,a)
+=================================
+
+\tau a^2b^2(1-\tau)(a^2-b^2).
+]
+
+Therefore, when
+
+[
+a\neq b
+\quad\text{and}\quad
+\tau\neq1,
+]
+
+the determinants differ, and hence their spectra differ.
+
+So:
+
+[
+\boxed{
+\operatorname{spec}(Q_\tau)
+\text{ distinguishes the two weighted-chain orientations.}
+}
+]
