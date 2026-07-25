@@ -1,4 +1,4 @@
-1. A bounded system is the outermost isolated system containing everything and admitting no  exchange across its boundary.
+1. A bounded system is the outermost isolated system containing everything and admitting no exchange across its boundary.
 2. A bounded system is distinguished from the null system by the presence of nodes.
 3. Every node has a static intrinsic character sufficient to distinguish its existence from nonexistence, but insufficient to distinguish it intrinsically from any other node.
 4. A directed edge permits, but does not require, communication from its source node to its target node. Any state change or interaction between nodes can occur only through such communication.
