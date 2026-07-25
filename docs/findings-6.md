@@ -2,47 +2,47 @@
 
 Let
 
-[
+$$
 G=(V,E,s,r)
-]
+$$
 
 be the possibly infinite system.
 
-A Hilbert realization of (G) on a Hilbert space (\mathcal K) consists of:
+A Hilbert realization of $G$ on a Hilbert space $\mathcal K$ consists of:
 
 1. pairwise orthogonal projections
-   [
+$$
    Q_uQ_v=\delta_{uv}Q_v;
-   ]
+$$
 
-2. one bounded operator (T_e) for each primitive channel (e);
+2. one bounded operator $T_e$ for each primitive channel $e$;
 
 3. the source-target relation
-   [
+$$
    T_e=Q_{r(e)}T_eQ_{s(e)}.
-   ]
+$$
 
 We call the realization nondegenerate when
 
-[
+$$
 \sum_{v\in V}Q_v=I_{\mathcal K}
-]
+$$
 
-in the strong-operator sense. For uncountable (V), this means convergence of the net of finite partial sums.
+in the strong-operator sense. For uncountable $V$, this means convergence of the net of finite partial sums.
 
 No relation such as
 
-[
+$$
 T_e^\ast T_e=Q_{s(e)}
-]
+$$
 
 is assumed. That would say the channel operator is isometric, which A1–A5 do not require.
 
 Likewise, no relation such as
 
-[
+$$
 |T_e|\le1
-]
+$$
 
 is forced by the axioms.
 
@@ -50,112 +50,105 @@ is forced by the axioms.
 
 For a path
 
-[
+$$
 p=e_n\cdots e_1,
-]
+$$
 
 define
 
-[
+$$
 T_p=T_{e_n}\cdots T_{e_1},
-]
+$$
 
 and for a zero-length path,
 
-[
+$$
 T_{1_v}=Q_v.
-]
+$$
 
 Because the node projections are orthogonal,
 
-[
+$$
 T_fT_e=0
-]
+$$
 
-whenever (e) and (f) are not composable.
+whenever $e$ and $f$ are not composable.
 
 Thus all path-algebra multiplication rules hold automatically.
 
-## Theorem 1 — Exact algebraic universality
+## Theorem 1: Exact algebraic universality
 
-Every Hilbert realization ((Q_v,T_e)) determines a unique algebra homomorphism
+Every Hilbert realization $(Q_v,T_e)$ determines a unique algebra homomorphism
 
-[
+$$
 \rho_{\mathrm{alg}}:
 \mathbb C[G]\longrightarrow B(\mathcal K)
-]
+$$
 
 satisfying
 
-[
+$$
 \rho_{\mathrm{alg}}(e_v)=Q_v,
 \qquad
 \rho_{\mathrm{alg}}(e)=T_e.
-]
+$$
 
 It is explicitly given by
 
-[
+$$
 \rho_{\mathrm{alg}}
 \left(
 \sum_{p\in F}c_pp
-\right)
-=======
-
+\right)=
 \sum_{p\in F}c_pT_p.
-]
+$$
 
-Conversely, any representation of (\mathbb C[G]) that sends the node idempotents to pairwise orthogonal projections gives such a channel family.
+Conversely, any representation of $\mathbb C[G]$ that sends the node idempotents to pairwise orthogonal projections gives such a channel family.
 
 Therefore:
 
-[
-\boxed{
+$$
 \mathbb C[G]
 \text{ is the universal algebra for all bounded Hilbert realizations of A1--A5.}
-}
-]
+$$
 
-This is the exact level forced by the axioms.
-
-It requires:
+This universality holds with:
 
 * no node-count restriction;
 * no global adjacency operator;
 * no uniform channel norm;
 * no probability;
-* no time;
-* no additional dynamics.
+* no time or dynamics.
 
 # 3. Why the Fock norm cannot govern every realization
 
 In the Fock realization,
 
-[
+$$
 |L_e|=1.
-]
+$$
 
-But consider a system containing one edge (e:u\to v), and let
+But consider a system containing one edge $e:u\to v$, and let
 
-[
+$$
 T_e=2U,
-]
+$$
 
-where (U:Q_u\mathcal K\to Q_v\mathcal K) is an isometry.
+where $U:Q_u\mathcal K\to Q_v\mathcal K$ is an isometry.
 
 This satisfies the source-target relation perfectly:
 
-[
+$$
 T_e=Q_vT_eQ_u.
-]
+$$
 
 It therefore represents the path algebra.
 
-But a contractive homomorphism from the Fock tensor algebra cannot send (L_e) to (T_e), because
+But a contractive homomorphism from the Fock tensor algebra cannot send $L_e$ to $T_e$, because
 
-[
+$$
 |T_e|=2>|L_e|=1.
-]
+$$
 
 So the earlier proposed statement—
 
@@ -167,51 +160,47 @@ The correct statement is conditional.
 
 # 4. The global row operator
 
-Given a channel family ((T_e)), form the Hilbert direct sum
+Given a channel family $(T_e)$, form the Hilbert direct sum
 
-[
-\mathcal K_E
-============
-
+$$
+\mathcal K_E=
 \bigoplus_{e\in E}Q_{s(e)}\mathcal K.
-]
+$$
 
-Even when (E) is uncountable, each vector of this Hilbert sum has at most countable support.
+Even when $E$ is uncountable, each vector of this Hilbert sum has at most countable support.
 
 Define the row operator initially on finitely supported families by
 
-[
-R_T((h_e)_{e\in E})
-===================
-
+$$
+R_T((h_e)_{e\in E})=
 \sum_{e\in E}T_eh_e.
-]
+$$
 
 The family is called **row contractive** when
 
-[
+$$
 |R_T|\le1.
-]
+$$
 
 This is equivalent to
 
-[
+$$
 \sum_{e\in E}T_eT_e^\ast\le I
-]
+$$
 
 as a strong-operator sum, meaning
 
-[
+$$
 \sum_{e\in F}T_eT_e^\ast\le I
-]
+$$
 
-for every finite (F\subseteq E).
+for every finite $F\subseteq E$.
 
 Since each range lies in its target sector, this can also be checked target by target:
 
-[
+$$
 \sum_{r(e)=v}T_eT_e^\ast\le Q_v.
-]
+$$
 
 This condition allows different channels to interfere within a target sector. It does not require orthogonal ranges.
 
@@ -219,35 +208,33 @@ This condition allows different channels to interfere within a target sector. It
 
 Let
 
-[
-\mathcal T_+(G)
-===============
-
-\overline{\operatorname{alg}}{P_v,L_e}^{|\cdot|}
-]
+$$
+\mathcal T_+(G)=
+\overline\{\operatorname{alg}\}{P_v,L_e}^{|\cdot|}
+$$
 
 be the norm-closed Fock tensor algebra.
 
-## Theorem 2 — Tensor-algebra universality
+## Theorem 2: Tensor-algebra universality
 
-Suppose ((Q_v,T_e)) is a nondegenerate row-contractive realization of (G). Then there is a unique completely contractive homomorphism
+Suppose $(Q_v,T_e)$ is a nondegenerate row-contractive realization of $G$. Then there is a unique completely contractive homomorphism
 
-[
+$$
 \rho_T:
 \mathcal T_+(G)\longrightarrow B(\mathcal K)
-]
+$$
 
 such that
 
-[
+$$
 \rho_T(P_v)=Q_v,
 \qquad
 \rho_T(L_e)=T_e.
-]
+$$
 
-Equivalently, for every matrix of path polynomials (X),
+Equivalently, for every matrix of path polynomials $X$,
 
-[
+$$
 \left|
 \rho_T^{(m)}(X)
 \right|
@@ -255,18 +242,16 @@ Equivalently, for every matrix of path polynomials (X),
 \left|
 X(L)
 \right|.
-]
+$$
 
-Conversely, every completely contractive representation of (\mathcal T_+(G)) whose restriction to the node diagonal is a nondegenerate (^\ast)-representation arises from a row-contractive channel family.
+Conversely, every completely contractive representation of $\mathcal T_+(G)$ whose restriction to the node diagonal is a nondegenerate $^\ast$-representation arises from a row-contractive channel family.
 
 Therefore:
 
-[
-\boxed{
+$$
 \mathcal T_+(G)
 \text{ is universal precisely for row-contractive realizations.}
-}
-]
+$$
 
 ## Why this works for arbitrary cardinality
 
@@ -276,102 +261,88 @@ Its norm inequality therefore reduces to the finite subquiver generated by its s
 
 Thus
 
-[
+$$
 |\rho_T(x)|
 \le
 |\lambda_G(x)|
-]
+$$
 
-for every path polynomial (x).
+for every path polynomial $x$.
 
 The arbitrary-cardinality result then follows by norm completion. No global countability assumption enters.
 
 # 6. The Fock norm as a universal norm
 
-For an algebraic path polynomial (x), define
+For an algebraic path polynomial $x$, define
 
-[
-|x|_{\mathrm{row}}
-==================
-
+$$
+|x|_{\mathrm{row}}=
 \sup
-\left{
+\left\{
 |\rho_{\mathrm{alg}}(x)|:
 \rho_{\mathrm{alg}}
 \text{ comes from a row-contractive realization}
-\right}.
-]
+\right\}.
+$$
 
 Then Theorem 2 says
 
-[
-\boxed{
-|x|_{\mathrm{row}}
-==================
-
+$$
+|x|_{\mathrm{row}}=
 |\lambda_G(x)|.
-}
-]
+$$
 
 At matrix level,
 
-[
-\boxed{
-|X|_{\mathrm{row}}
-==================
-
+$$
+|X|_{\mathrm{row}}=
 |\lambda_G^{(m)}(X)|.
-}
-]
+$$
 
 So the Fock tensor algebra is not an arbitrary completion. Its norm is the largest norm compatible with all row-contractive channel realizations.
 
-Still, the choice to study the row-contractive class is a mathematical choice of representation category—not a new law imposed on the bounded system.
+The row-contractive class is a chosen representation category.
 
 # 7. Isometric channel families
 
 A stronger realization satisfies
 
-[
-T_e^\ast T_f
-============
-
+$$
+T_e^\ast T_f=
 \delta_{e,f}Q_{s(e)}.
-]
+$$
 
 This means:
 
-* every (T_e) is isometric on its source sector;
+* every $T_e$ is isometric on its source sector;
 * distinct primitive channels have orthogonal ranges;
 * parallel channels remain distinct and orthogonal.
 
 Such a family automatically satisfies
 
-[
+$$
 \sum_{r(e)=v}T_eT_e^\ast\le Q_v.
-]
+$$
 
 These are the Toeplitz channel relations.
 
-They give a unique (^\ast)-representation of the corresponding Toeplitz (C^\ast)-algebra:
+They give a unique $^\ast$-representation of the corresponding Toeplitz $C^\ast$-algebra:
 
-[
+$$
 \pi_T:
 \mathcal T_{\mathrm{Toeplitz}}(G)
 \longrightarrow
 B(\mathcal K).
-]
+$$
 
-The Fock family ((P_v,L_e)) is one such isometric realization.
+The Fock family $(P_v,L_e)$ is one such isometric realization.
 
 But again:
 
-[
-\boxed{
+$$
 T_e^\ast T_e=Q_{s(e)}
 \text{ belongs to the representation, not to A1--A5 themselves.}
-}
-]
+$$
 
 The axioms specify which products are composable. They do not specify preservation of a Hilbert norm.
 
@@ -379,9 +350,9 @@ The axioms specify which products are composable. They do not specify preservati
 
 | Level       | Representation conditions                          | Universal object          |
 | ----------- | -------------------------------------------------- | ------------------------- |
-| Algebraic   | (Q_uQ_v=\delta_{uv}Q_v), (T_e=Q_{r(e)}T_eQ_{s(e)}) | (\mathbb C[G])            |
-| Contractive | Algebraic conditions plus (\sum_eT_eT_e^\ast\le I) | (\mathcal T_+(G))         |
-| Isometric   | (T_e^\ast T_f=\delta_{ef}Q_{s(e)})                 | Toeplitz (C^\ast)-algebra |
+| Algebraic   | $Q_uQ_v=\delta_{uv}Q_v$, $T_e=Q_{r(e)}T_eQ_{s(e)}$ | $\mathbb C[G]$            |
+| Contractive | Algebraic conditions plus $\sum_eT_eT_e^\ast\le I$ | $\mathcal T_+(G)$         |
+| Isometric   | $T_e^\ast T_f=\delta_{ef}Q_{s(e)}$                 | Toeplitz $C^\ast$-algebra |
 
 Only the first row is logically forced by the relational axioms.
 
@@ -393,31 +364,31 @@ Some facts do not depend on any norm or completion.
 
 ## Source and target
 
-For every path (p:u\to v),
+For every path $p:u\to v$,
 
-[
+$$
 T_p=Q_vT_pQ_u.
-]
+$$
 
 ## Noncomposable products vanish
 
-If (p) cannot be followed by (q),
+If $p$ cannot be followed by $q$,
 
-[
+$$
 T_qT_p=0.
-]
+$$
 
 ## Oriented noncommutativity
 
 In an acyclic system,
 
-[
+$$
 T_qT_p\ne0
 \quad\Longrightarrow\quad
 T_pT_q=0,
-]
+$$
 
-provided the representation does not annihilate the nonzero path (qp).
+provided the representation does not annihilate the nonzero path $qp$.
 
 A nonfaithful representation may send an allowed path to zero, but it can never make a forbidden composition nonzero.
 
@@ -425,33 +396,31 @@ A nonfaithful representation may send an allowed path to zero, but it can never 
 
 Let
 
-[
+$$
 x\in J
-]
+$$
 
 be a finite linear combination of positive-length paths.
 
-Because (G) is acyclic,
+Because $G$ is acyclic,
 
-[
+$$
 x^N=0
-]
+$$
 
-for some (N).
+for some $N$.
 
 Therefore in every representation,
 
-[
+$$
 \rho_{\mathrm{alg}}(x)^N=0.
-]
+$$
 
 Consequently,
 
-[
-\boxed{
-\sigma(\rho_{\mathrm{alg}}(x))={0}
-}
-]
+$$
+\sigma(\rho_{\mathrm{alg}}(x))=\{0\}
+$$
 
 for every bounded Hilbert realization.
 
@@ -459,23 +428,21 @@ This spectral fact is representation-independent and follows directly from A5.
 
 # 10. Universal spectral containment
 
-Let (x\in\mathcal T_+(G)), and let (\rho_T) be any row-contractive representation.
+Let $x\in\mathcal T_+(G)$, and let $\rho_T$ be any row-contractive representation.
 
 After passing to unitizations when necessary,
 
-[
-\boxed{
+$$
 \sigma(\rho_T(x))
 \subseteq
 \sigma_{\mathcal T_+(G)}(x).
-}
-]
+$$
 
-Indeed, if (x-\lambda I) is invertible in the universal tensor algebra, then
+Indeed, if $x-\lambda I$ is invertible in the universal tensor algebra, then
 
-[
+$$
 \rho_T(x)-\lambda I
-]
+$$
 
 has the image of that inverse as an inverse.
 
@@ -483,9 +450,9 @@ Thus the Fock-tensor spectrum is a **universal spectral enclosure** for every ro
 
 For positive-path polynomials in an acyclic system, this enclosure collapses to
 
-[
+$$
 {0}.
-]
+$$
 
 For infinite-limit elements, it may be much larger.
 
@@ -497,47 +464,43 @@ There is a strict distinction between:
 
 Finite sums of finite paths:
 
-[
+$$
 x=\sum_{p\in F}c_pp.
-]
+$$
 
-If (x\in J), then (x) is nilpotent.
+If $x\in J$, then $x$ is nilpotent.
 
 ### Infinite operator limits
 
 For example,
 
-[
+$$
 S=\sum_{e\in E}L_e
-]
+$$
 
 when this sum exists boundedly.
 
-Such an (S) need not belong to the algebraic path algebra, and it need not be nilpotent. It can have nonzero spectral radius even though every finite partial sum is nilpotent.
+Such an $S$ need not belong to the algebraic path algebra, and it need not be nilpotent. It can have nonzero spectral radius even though every finite partial sum is nilpotent.
 
 Therefore:
 
-[
-\boxed{
+$$
 \text{nontrivial infinite spectrum is a completion phenomenon,}
-}
-]
+$$
 
 while
 
-[
-\boxed{
+$$
 \text{orthogonality, noncommutative composition, and local nilpotence are algebraic consequences.}
-}
-]
+$$
 
 # 12. What is genuinely canonical
 
-We can now separate the hierarchy cleanly.
+The hierarchy is as follows.
 
 ## Forced directly by A1–A5
 
-[
+$$
 \mathsf P(G),
 \qquad
 \mathbb C[G],
@@ -547,14 +510,14 @@ We can now separate the hierarchy cleanly.
 J,
 \qquad
 \text{path-length grading}.
-]
+$$
 
 ## Canonical faithful derived realization
 
-[
+$$
 \lambda_G:
 \mathbb C[G]\hookrightarrow B(\ell^2(\mathsf P(G))).
-]
+$$
 
 This treats distinct finite paths as orthonormal and gives every primitive channel norm one.
 
@@ -562,14 +525,14 @@ It is canonical and label-independent, but it is a chosen free Hilbert realizati
 
 ## Canonical analytic envelopes relative to representation classes
 
-[
+$$
 \mathcal T_+(G)
-]
+$$
 
 for row contractions, and
 
-[
+$$
 \mathcal T_{\mathrm{Toeplitz}}(G)
-]
+$$
 
 for isometric channel families.

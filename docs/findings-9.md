@@ -4,11 +4,11 @@ Acyclicity alone does not guarantee finite height. But when one directional boun
 
 Let
 
-[
+$$
 u\prec v
-]
+$$
 
-mean that a positive-length directed path runs from (u) to (v).
+mean that a positive-length directed path runs from $u$ to $v$.
 
 There are two independent rank theories.
 
@@ -16,113 +16,105 @@ There are two independent rank theories.
 
 Suppose there is no infinite backward chain
 
-[
+$$
 \cdots\to v_2\to v_1\to v_0.
-]
+$$
 
 Equivalently, the predecessor relation is well-founded.
 
 Define the **past rank**
 
-[
-\rho_-(v)
-=========
-
+$$
+\rho_-(v)=
 \sup{\rho_-(u)+1:u\to v}.
-]
+$$
 
 For a source, the predecessor set is empty, so
 
-[
+$$
 \rho_-(v)=0.
-]
+$$
 
 Every edge strictly increases past rank:
 
-[
+$$
 u\to v
 \quad\Longrightarrow\quad
 \rho_-(u)<\rho_-(v).
-]
+$$
 
-More strongly, a path of length (n) from (u) to (v) gives
+More strongly, a path of length $n$ from $u$ to $v$ gives
 
-[
+$$
 \rho_-(v)\ge \rho_-(u)+n.
-]
+$$
 
-Thus (\rho_-) is a canonical transfinite topological ordering.
+Thus $\rho_-$ is a canonical transfinite topological ordering.
 
 ## Existence theorem
 
 Under ordinary set theory with dependent choice, the following are equivalent:
 
 1. every node has a past rank;
-2. every nonempty set of nodes has a (\prec)-minimal element;
+2. every nonempty set of nodes has a $\prec$-minimal element;
 3. there is no infinite backward path.
 
 Hence:
 
-[
-\boxed{
+$$
 \partial^-G=\varnothing
 \iff
 \rho_-\text{ is defined on all nodes}.
-}
-]
+$$
 
 # 2. Future rank
 
 Dually, suppose there is no infinite forward path
 
-[
+$$
 v_0\to v_1\to v_2\to\cdots.
-]
+$$
 
 Define the **future rank**
 
-[
-\rho_+(v)
-=========
-
+$$
+\rho_+(v)=
 \sup{\rho_+(w)+1:v\to w}.
-]
+$$
 
 Sinks have rank zero:
 
-[
+$$
 \rho_+(v)=0.
-]
+$$
 
 Every edge strictly decreases future rank:
 
-[
+$$
 u\to v
 \quad\Longrightarrow\quad
 \rho_+(u)>\rho_+(v).
-]
+$$
 
-For a path of length (n),
+For a path of length $n$,
 
-[
+$$
 \rho_+(u)\ge \rho_+(v)+n.
-]
+$$
 
 The equivalent conditions are:
 
 1. every node has a future rank;
-2. every nonempty set of nodes has a (\prec)-maximal element;
+2. every nonempty set of nodes has a $\prec$-maximal element;
 3. there is no infinite forward path.
 
 Therefore:
 
-[
-\boxed{
+$$
 \partial^+G=\varnothing
 \iff
 \rho_+\text{ is defined on all nodes}.
-}
-]
+$$
 
 The two conditions are independent. A system can have a future rank but no past rank, or vice versa.
 
@@ -130,65 +122,60 @@ The two conditions are independent. A system can have a future rank but no past 
 
 Consider a root with one outgoing finite branch of every possible finite length:
 
-[
+$$
 r\to \text{branch of length }1,
-]
+$$
 
-[
+$$
 r\to \text{branch of length }2,
-]
+$$
 
 and so forth.
 
-Every actual path from (r) is finite, but
+Every actual path from $r$ is finite, but
 
-[
+$$
 \rho_+(r)=\omega.
-]
+$$
 
 The rank is a limit ordinal because the possible finite depths are unbounded:
 
-[
-\rho_+(r)
-=========
-
-# \sup_{n<\omega}n
-
+$$
+\rho_+(r)=
+\sup_{n<\omega}n=
 \omega.
-]
+$$
 
-Now add a node (s\to r). Then
+Now add a node $s\to r$. Then
 
-[
+$$
 \rho_+(s)=\omega+1.
-]
+$$
 
-Transfinite ranks of arbitrary size can occur without any infinite forward path. For an ordinal (\alpha), take nodes indexed by ordinals
+Transfinite ranks of arbitrary size can occur without any infinite forward path. For an ordinal $\alpha$, take nodes indexed by ordinals
 
-[
+$$
 0,1,\ldots,\alpha
-]
+$$
 
 and direct a channel
 
-[
+$$
 \gamma\to\beta
 \qquad\text{whenever }\beta<\gamma.
-]
+$$
 
 Ordinals admit no infinite strictly decreasing sequence, so every forward path is finite, while
 
-[
+$$
 \rho_+(\gamma)=\gamma.
-]
+$$
 
 Thus:
 
-[
-\boxed{
+$$
 \text{ordinal rank measures recursive branching complexity, not one path's length}.
-}
-]
+$$
 
 # 4. Transfinite pruning
 
@@ -198,86 +185,76 @@ The ranks can be constructed without initially assuming that the boundary is emp
 
 Set
 
-[
+$$
 W^+_0=V.
-]
+$$
 
 At every successor stage, remove all sinks in the currently remaining subgraph:
 
-[
-W^+_{\alpha+1}
-==============
+$$
+W^+_{\alpha+1}=
+\left\{
+v\in W^+_\alpha:
+\exists,v\to w\text{ with }w\in W^+_\alpha
+\right\}.
+$$
 
-\left{
-v\in W^+*\alpha:
-\exists,v\to w\text{ with }w\in W^+*\alpha
-\right}.
-]
+At a limit ordinal $\lambda$, define
 
-At a limit ordinal (\lambda), define
-
-[
-W^+_\lambda
-===========
-
+$$
+W^+_\lambda=
 \bigcap_{\beta<\lambda}W^+_\beta.
-]
+$$
 
-A node removed at stage (\alpha+1),
+A node removed at stage $\alpha+1$,
 
-[
-v\in W^+*\alpha\setminus W^+*{\alpha+1},
-]
+$$
+v\in W^+_\alpha\setminus W^+_{\alpha+1},
+$$
 
 has
 
-[
+$$
 \rho_+(v)=\alpha.
-]
+$$
 
 The forward core is
 
-[
-K^+
-===
-
+$$
+K^+=
 \bigcap_\alpha W^+_\alpha.
-]
+$$
 
 ## Source pruning
 
 Similarly,
 
-[
+$$
 W^-_0=V,
-]
+$$
 
-[
-W^-_{\alpha+1}
-==============
-
-\left{
-v\in W^-*\alpha:
-\exists,u\to v\text{ with }u\in W^-*\alpha
-\right},
-]
+$$
+W^-_{\alpha+1}=
+\left\{
+v\in W^-_\alpha:
+\exists,u\to v\text{ with }u\in W^-_\alpha
+\right\},
+$$
 
 and at limits,
 
-[
-W^-_\lambda
-===========
-
+$$
+W^-_\lambda=
 \bigcap_{\beta<\lambda}W^-_\beta.
-]
+$$
 
-A node removed at stage (\alpha+1) has past rank (\alpha).
+A node removed at stage $\alpha+1$ has past rank $\alpha$.
 
 The backward core is
 
-[
+$$
 K^-=\bigcap_\alpha W^-_\alpha.
-]
+$$
 
 # 5. The boundary-core theorem
 
@@ -285,162 +262,140 @@ The transfinite pruning process exactly detects genuine infinite paths.
 
 ## Theorem
 
-[
-\boxed{
+$$
 v\in K^+
 \iff
 \text{an infinite forward path begins at }v.
-}
-]
+$$
 
 Likewise,
 
-[
-\boxed{
+$$
 v\in K^-
 \iff
 \text{an infinite backward path ends at }v.
-}
-]
+$$
 
 ## Proof in the forward direction
 
-If an infinite path begins at (v), none of its nodes can ever be removed as a sink. By transfinite induction, every node of the path remains in every (W^+_\alpha). Hence (v\in K^+).
+If an infinite path begins at $v$, none of its nodes can ever be removed as a sink. By transfinite induction, every node of the path remains in every $W^+_\alpha$. Hence $v\in K^+$.
 
-Conversely, suppose (v\in K^+).
+Conversely, suppose $v\in K^+$.
 
-Assume every successor (w) of (v) is eventually removed. Let (\alpha_w) be a stage after which (w) is absent. Since the successor set is a set, the ordinal
+Assume every successor $w$ of $v$ is eventually removed. Let $\alpha_w$ be a stage after which $w$ is absent. Since the successor set is a set, the ordinal
 
-[
+$$
 \beta=\sup_{v\to w}(\alpha_w+1)
-]
+$$
 
 exists.
 
-At stage (\beta), none of (v)'s successors remains. Therefore (v) becomes a sink and is removed at stage (\beta+1), contradicting (v\in K^+).
+At stage $\beta$, none of $v$'s successors remains. Therefore $v$ becomes a sink and is removed at stage $\beta+1$, contradicting $v\in K^+$.
 
-Thus (v) has a successor in (K^+). Repeating this choice gives an infinite path.
+Thus $v$ has a successor in $K^+$. Repeating this choice gives an infinite path.
 
 So transfinite pruning fixes precisely the weakness of finite-depth tests:
 
 * the infinitely branching finite-tree root survives every finite pruning stage;
-* but it is removed at stage (\omega+1);
+* but it is removed at stage $\omega+1$;
 * an actual infinite-path root survives every ordinal stage.
 
 Therefore:
 
-[
-\boxed{
+$$
 \text{finite-stage survival}
 \neq
 \text{boundary membership},
-}
-]
+$$
 
 but
 
-[
-\boxed{
-\text{survival through all ordinal stages}
-==========================================
-
+$$
+\text{survival through all ordinal stages}=
 \text{boundary membership}.
-}
-]
+$$
 
 # 6. Rank layers
 
 Define the cumulative past-rank sets
 
-[
-V^-_{<\alpha}
-=============
-
-{v:\rho_-(v)<\alpha},
-]
+$$
+V^-_{<\alpha}=
+\{v:\rho_-(v)<\alpha\},
+$$
 
 and layers
 
-[
-L^-_\alpha
-==========
-
-{v:\rho_-(v)=\alpha}.
-]
+$$
+L^-_\alpha=
+\{v:\rho_-(v)=\alpha\}.
+$$
 
 Similarly,
 
-[
-V^+_{<\alpha}
-=============
+$$
+V^+_{<\alpha}=
+\{v:\rho_+(v)<\alpha\},
+$$
 
-{v:\rho_+(v)<\alpha},
-]
-
-[
-L^+_\alpha
-==========
-
-{v:\rho_+(v)=\alpha}.
-]
+$$
+L^+_\alpha=
+\{v:\rho_+(v)=\alpha\}.
+$$
 
 Every layer is an antichain.
 
-Indeed, if (u\prec v), then
+Indeed, if $u\prec v$, then
 
-[
+$$
 \rho_-(u)<\rho_-(v)
-]
+$$
 
 and, when future ranks exist,
 
-[
+$$
 \rho_+(u)>\rho_+(v).
-]
+$$
 
 So two comparable nodes cannot have the same rank.
 
 Edges may skip ordinal layers. Nothing requires
 
-[
+$$
 \rho_-(v)=\rho_-(u)+1
-]
+$$
 
-for an edge (u\to v). The edge only guarantees
+for an edge $u\to v$. The edge only guarantees
 
-[
+$$
 \rho_-(v)\ge \rho_-(u)+1.
-]
+$$
 
 # 7. Global ordinal height
 
 When every node has a past rank, define
 
-[
-\operatorname{ht}_-(G)
-======================
-
+$$
+\operatorname{ht}_-(G)=
 \sup_{v\in V}\bigl(\rho_-(v)+1\bigr).
-]
+$$
 
 When every node has a future rank, define
 
-[
-\operatorname{ht}_+(G)
-======================
-
+$$
+\operatorname{ht}_+(G)=
 \sup_{v\in V}\bigl(\rho_+(v)+1\bigr).
-]
+$$
 
 These are ordinal heights, not node counts and not maximum finite path lengths.
 
-For a system with (|V|=\kappa),
+For a system with $|V|=\kappa$,
 
-[
+$$
 \operatorname{ht}_\pm(G)<\kappa^+.
-]
+$$
 
-The pruning sequence must stabilize before (\kappa^+), since each nonstationary successor stage removes at least one previously remaining node.
+The pruning sequence must stabilize before $\kappa^+$, since each nonstationary successor stage removes at least one previously remaining node.
 
 In a finite DAG, these ranks reduce to familiar longest-path depths.
 
@@ -450,32 +405,30 @@ In an infinite system, they can be arbitrary set-sized ordinals.
 
 Recall
 
-[
+$$
 J=[\mathcal A,\mathcal A]
-]
+$$
 
 and define the primitive-channel bimodule
 
-[
+$$
 \mathcal M=J/J^2.
-]
+$$
 
-For nodes (u,v),
+For nodes $u,v$,
 
-[
+$$
 e_v\mathcal M e_u
-]
+$$
 
-is the vector space of primitive channels from (u) to (v).
+is the vector space of primitive channels from $u$ to $v$.
 
 Pass to the completed diagonal
 
-[
-\widehat{\mathcal D}
-====================
-
+$$
+\widehat{\mathcal D}=
 \prod_{v\in V}\mathbb C e_v,
-]
+$$
 
 where arbitrary sums of node projections exist.
 
@@ -483,116 +436,95 @@ where arbitrary sums of node projections exist.
 
 Let
 
-[
+$$
 F^-_0=0.
-]
+$$
 
 Recursively define
 
-[
-F^-_{\alpha+1}
-==============
-
+$$
+F^-_{\alpha+1}=
 \bigvee
-\left{
+\left\{
 e_v:
 e_v\mathcal M(1-F^-_\alpha)=0
-\right}.
-]
+\right\}.
+$$
 
 At a limit ordinal,
 
-[
-F^-_\lambda
-===========
-
+$$
+F^-_\lambda=
 \bigvee_{\beta<\lambda}F^-_\beta.
-]
+$$
 
 The condition
 
-[
+$$
 e_v\mathcal M(1-F^-_\alpha)=0
-]
+$$
 
-says that every immediate predecessor of (v) has already entered the lower-rank part.
+says that every immediate predecessor of $v$ has already entered the lower-rank part.
 
 Therefore:
 
-[
-\boxed{
-F^-_\alpha
-==========
-
+$$
+F^-_\alpha=
 \sum_{\rho_-(v)<\alpha}e_v.
-}
-]
+$$
 
 The layer projection is
 
-[
-\Delta^-_\alpha
-===============
-
-# F^-*{\alpha+1}-F^-*\alpha
-
+$$
+\Delta^-_\alpha=
+F^-_{\alpha+1}-F^-_\alpha=
 \sum_{\rho_-(v)=\alpha}e_v.
-]
+$$
 
 ## Future-rank projections
 
 Similarly,
 
-[
+$$
 F^+_0=0,
-]
+$$
 
-[
-F^+_{\alpha+1}
-==============
-
+$$
+F^+_{\alpha+1}=
 \bigvee
-\left{
+\left\{
 e_v:
 (1-F^+_\alpha)\mathcal M e_v=0
-\right},
-]
+\right\},
+$$
 
 and
 
-[
-F^+_\lambda
-===========
-
+$$
+F^+_\lambda=
 \bigvee_{\beta<\lambda}F^+_\beta.
-]
+$$
 
 Here
 
-[
+$$
 (1-F^+_\alpha)\mathcal M e_v=0
-]
+$$
 
-says every immediate successor of (v) has already entered the lower future-rank part.
+says every immediate successor of $v$ has already entered the lower future-rank part.
 
 Thus
 
-[
-\boxed{
-F^+_\alpha
-==========
-
+$$
+F^+_\alpha=
 \sum_{\rho_+(v)<\alpha}e_v.
-}
-]
+$$
 
-This is an important reconstruction result:
+Consequently,
 
-[
-\boxed{
+$$
 \text{transfinite ranks are intrinsic to }(\mathcal A,\mathcal D).
-}
-]
+$$
 
 They require neither labels nor an externally supplied ordering.
 
@@ -600,58 +532,52 @@ They require neither labels nor an externally supplied ordering.
 
 The past-rank initial segment
 
-[
+$$
 V^-_{<\alpha}
-]
+$$
 
 is predecessor-closed. No path can begin outside it and terminate inside it.
 
 Therefore:
 
-[
-\boxed{
-F^-*\alpha\mathcal A(1-F^-*\alpha)=0.
-}
-]
+$$
+F^-_\alpha\mathcal A(1-F^-_\alpha)=0.
+$$
 
 Relative to
 
-[
-\mathcal H
-==========
-
-F^-*\alpha\mathcal H
+$$
+\mathcal H=
+F^-_\alpha\mathcal H
 \oplus
-(1-F^-*\alpha)\mathcal H,
-]
+(1-F^-_\alpha)\mathcal H,
+$$
 
 every path operator has block form
 
-[
+$$
 \begin{pmatrix}
-\ast&0\
+\ast&0\\
 \ast&\ast
 \end{pmatrix}.
-]
+$$
 
 The high-rank complement is invariant, while the low-rank part is coinvariant.
 
 Dually, future-rank initial segments are successor-closed:
 
-[
-\boxed{
-(1-F^+*\alpha)\mathcal A F^+*\alpha=0.
-}
-]
+$$
+(1-F^+_\alpha)\mathcal A F^+_\alpha=0.
+$$
 
 Their block form is
 
-[
+$$
 \begin{pmatrix}
-\ast&\ast\
+\ast&\ast\\
 0&\ast
 \end{pmatrix}.
-]
+$$
 
 Thus the ordinal ranks yield two canonical projection nests:
 
@@ -664,121 +590,109 @@ They encode direction through opposite triangularities.
 
 For past rank, define
 
-[
-I^-_\alpha
-==========
-
+$$
+I^-_\alpha=
 \operatorname{span}
-\left{
+\left\{
 p:
 r(p)\notin V^-_{<\alpha}
-\right}.
-]
+\right\}.
+$$
 
-These are paths whose terminal node has past rank at least (\alpha), or belongs to the backward core.
+These are paths whose terminal node has past rank at least $\alpha$, or belongs to the backward core.
 
 Because high past-rank nodes are forward-closed,
 
-[
+$$
 I^-_\alpha
-]
+$$
 
 is a two-sided ideal.
 
 The quotient is
 
-[
-\boxed{
-\mathcal A/I^-*\alpha
+$$
+\mathcal A/I^-_\alpha
 \cong
-\mathcal A!\left(G[V^-*{<\alpha}]\right).
-}
-]
+\mathcal A\!\left(G[V^-_{<\alpha}]\right).
+$$
 
 Equivalently, compression gives
 
-[
-a\mapsto F^-*\alpha aF^-*\alpha.
-]
+$$
+a\mapsto F^-_\alpha aF^-_\alpha.
+$$
 
 The triangular relation ensures this compression is an algebra homomorphism.
 
 For future rank, define
 
-[
-I^+_\alpha
-==========
-
+$$
+I^+_\alpha=
 \operatorname{span}
-\left{
+\left\{
 p:
 s(p)\notin V^+_{<\alpha}
-\right}.
-]
+\right\}.
+$$
 
 Then
 
-[
-\boxed{
-\mathcal A/I^+*\alpha
+$$
+\mathcal A/I^+_\alpha
 \cong
-\mathcal A!\left(G[V^+*{<\alpha}]\right).
-}
-]
+\mathcal A\!\left(G[V^+_{<\alpha}]\right).
+$$
 
 These ordinal quotients provide canonical finite-or-transfinite approximations to the full system.
 
 They differ fundamentally from approximating by node count:
 
-[
-\boxed{
+$$
 \text{rank truncation respects communication direction and causal ancestry}.
-}
-]
+$$
 
 # 11. When both ranks exist
 
 If both boundaries are empty, every node receives a pair
 
-[
+$$
 \bigl(\rho_-(v),\rho_+(v)\bigr).
-]
+$$
 
-For an edge (u\to v),
+For an edge $u\to v$,
 
-[
+$$
 \rho_-(u)<\rho_-(v),
-]
+$$
 
 while
 
-[
+$$
 \rho_+(u)>\rho_+(v).
-]
+$$
 
 So communication moves:
 
 * upward in past rank;
 * downward in future rank.
 
-For a path of length (n),
+For a path of length $n$,
 
-[
+$$
 \rho_-(v)\ge\rho_-(u)+n,
-]
+$$
 
-[
+$$
 \rho_+(u)\ge\rho_+(v)+n.
-]
+$$
 
 The intersections
 
-[
-C_{\alpha,\beta}
-================
-
-{v:\rho_-(v)=\alpha,\ \rho_+(v)=\beta}
-]
+$$
+C_{\alpha,\beta}=
+\{v:\rho_-(v)=\alpha,\ \rho_+(v)=\beta\}
+$$
 
 are antichains.
 
@@ -790,27 +704,25 @@ The coordinate does not necessarily distinguish nodes. Nodes in the same cell re
 
 It may be tempting to define
 
-[
+$$
 R=\sum_v\rho(v)P_v.
-]
+$$
 
-But ordinal values are not ordinary real or complex scalars. There is no canonical order-preserving embedding of arbitrary ordinals into (\mathbb R).
+But ordinal values are not ordinary real or complex scalars. There is no canonical order-preserving embedding of arbitrary ordinals into $\mathbb R$.
 
 Turning transfinite ranks into real numbers would therefore require an arbitrary coding.
 
 The canonical analytic object is not one self-adjoint rank operator. It is the ordinal-indexed projection family
 
-[
-\boxed{
+$$
 {F_\alpha}_{\alpha}
-}
-]
+$$
 
 or equivalently the layer projections
 
-[
+$$
 {\Delta_\alpha}_{\alpha}.
-]
+$$
 
 These projection nests retain the complete ordinal ordering without numerical distortion.
 
@@ -818,17 +730,17 @@ These projection nests retain the complete ordinal ordering without numerical di
 
 Every node belongs to exactly one of the following:
 
-1. a well-founded past layer (L^-_\alpha);
-2. the backward boundary core (K^-);
+1. a well-founded past layer $L^-_\alpha$;
+2. the backward boundary core $K^-$;
 
 and independently:
 
-1. a well-founded future layer (L^+_\beta);
-2. the forward boundary core (K^+).
+1. a well-founded future layer $L^+_\beta$;
+2. the forward boundary core $K^+$.
 
 Thus the node set decomposes into four broad sectors:
 
-[
+$$
 V=
 (V_{\mathrm{wf}}^-\cap V_{\mathrm{wf}}^+)
 \sqcup
@@ -837,7 +749,7 @@ V=
 (K^-\cap V_{\mathrm{wf}}^+)
 \sqcup
 (K^-\cap K^+).
-]
+$$
 
 They represent:
 

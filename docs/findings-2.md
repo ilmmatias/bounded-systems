@@ -2,32 +2,32 @@
 
 | Nodes | Non-isomorphic DAGs | Distinguished by node-level profile | After edge-level lift |
 | ----: | ------------------: | ----------------------------------: | --------------------: |
-|   1–4 |         31 at (n=4) |                                  31 |                    31 |
+|   1–4 |         31 at $n=4$ |                                  31 |                    31 |
 |     5 |                 302 |                                 302 |                   302 |
 |     6 |               5,984 |                               5,980 |             **5,984** |
 
-“Simple” means each ordered pair has either zero or one channel. This does **not** add a prohibition on parallel channels; it is the smallest finite sector. Without a bound on parallel multiplicity, even a fixed node count permits infinitely many configurations.
+“Simple” means each ordered pair has either zero or one channel. As the system doesn't prohibit a bound on parallel multiplicity, even a fixed node count permits infinitely many configurations.
 
 ## How much each invariant contributes
 
 The cumulative number of distinguished isomorphism classes was:
 
-| Cumulative information             |  (n=4) |   (n=5) | (n=6) |
+| Cumulative information             |  $n=4$ |   $n=5$ | $n=6$ |
 | ---------------------------------- | -----: | ------: | ----: |
 | Edge count                         |      7 |      11 |    16 |
-| (+) ranks of (A,A^2,\ldots)        |     15 |      36 |    90 |
-| (+) singular spectrum of (A)       |     20 |     108 | 1,077 |
+| (+) ranks of $A,A^2,\ldots$        |     15 |      36 |    90 |
+| (+) singular spectrum of $A$       |     20 |     108 | 1,077 |
 | (+) in/out Laplacian spectra       |     27 |     189 | 2,237 |
 | (+) underlying Laplacian spectrum  |     30 |     270 | 5,158 |
 | (+) Hermitian orientation spectrum |     30 |     272 | 5,385 |
 | (+) reachability singular spectrum |     30 |     276 | 5,505 |
-| (+) asymmetric Gram spectrum (Q_2) | **31** | **302** | 5,980 |
+| (+) asymmetric Gram spectrum $Q_2$ | **31** | **302** | 5,980 |
 
 Here,
 
-[
+$$
 Q_2(A)=A^\mathsf TA+2AA^\mathsf T.
-]
+$$
 
 Thus, through five nodes, the node-level profile completely distinguishes every simple bounded-system configuration.
 
@@ -37,31 +37,31 @@ At six nodes, four pairs survive.
 
 The simplest surviving pair is:
 
-[
+$$
 G_A:
 \quad
 1\to2\to3\to4\to5\to6,
 \qquad
 3\to5,
-]
+$$
 
 and
 
-[
+$$
 G_B:
 \quad
 1\to2\to3\to4\to5\to6,
 \qquad
 2\to4.
-]
+$$
 
 So both consist of a six-node chain with one shortcut. In one, the shortcut occurs later; in the other, it occurs earlier.
 
 They are not isomorphic as directed graphs. They are, however, **order duals**:
 
-[
+$$
 G_B\cong G_A^{\mathrm{op}},
-]
+$$
 
 where every edge is reversed and the nodes are relabeled.
 
@@ -72,16 +72,14 @@ Every node-level invariant we had constructed agrees:
 * adjacency singular spectrum;
 * in/out degree spectra;
 * underlying Laplacian spectrum;
-* (i(A-A^\mathsf T)) spectrum;
+* $i(A-A^\mathsf T)$ spectrum;
 * reachability singular spectrum;
-* (Q_2(A)) spectrum.
+* $Q_2(A)$ spectrum.
 
 For both graphs,
 
-[
-\chi_{Q_2}(\lambda)
-===================
-
+$$
+\chi_{Q_2}(\lambda)=
 \lambda^6
 -18\lambda^5
 +125\lambda^4
@@ -89,15 +87,15 @@ For both graphs,
 +768\lambda^2
 -681\lambda
 +234.
-]
+$$
 
 All four surviving collisions at six nodes are non-self-dual pairs of this kind:
 
-[
+$$
 G\not\cong G^{\mathrm{op}},
 \qquad
 \Phi_0(G)=\Phi_0(G^{\mathrm{op}}).
-]
+$$
 
 This tells us exactly what the node-level profile was failing to see: **where directed compositional structure sits relative to the two ends of the order**.
 
@@ -105,70 +103,66 @@ This tells us exactly what the node-level profile was failing to see: **where di
 
 A4 makes edges the communication channels. So rather than inventing an arbitrary stronger matrix, we can derive another graph directly from edge composition.
 
-Define the **directed line graph** (\mathcal L(G)):
+Define the **directed line graph** $\mathcal L(G)$:
 
-* each node of (\mathcal L(G)) represents an edge of (G);
+* each node of $\mathcal L(G)$ represents an edge of $G$;
 * there is an edge
-  [
+$$
   e\to f
-  ]
-  in (\mathcal L(G)) exactly when the target of (e) is the source of (f).
+$$
+  in $\mathcal L(G)$ exactly when the target of $e$ is the source of $f$.
 
 In other words:
 
-[
+$$
 e=(u\to v),\qquad f=(v\to w)
-]
+$$
 
 produces
 
-[
+$$
 e\to f.
-]
+$$
 
 This graph records which communication channels may be used consecutively.
 
-If (S) and (T) are the source and target incidence matrices,
+If $S$ and $T$ are the source and target incidence matrices,
 
-[
+$$
 S_{v,e}=1\iff v=s(e),
-]
+$$
 
-[
+$$
 T_{v,e}=1\iff v=t(e),
-]
+$$
 
 then the line-graph adjacency matrix is
 
-[
+$$
 C=T^\mathsf TS.
-]
+$$
 
 Indeed,
 
-[
+$$
 C_{ef}=1
 \iff
 t(e)=s(f).
-]
+$$
 
 We then apply the same asymmetric Gram construction at the edge level:
 
-[
-Q_2^{(E)}
-=========
-
+$$
+Q_2^{(E)}=
 C^\mathsf TC+2CC^\mathsf T.
-]
+$$
 
 ## It resolves all four six-node collisions
 
 For the chain-with-late-shortcut graph,
 
-[
-\chi_{Q_2^{(E)}}(\lambda)
-=========================
-
+$$
+\chi_{Q_2^{(E)}}(\lambda)=
 \lambda^6
 -18\lambda^5
 +127\lambda^4
@@ -176,14 +170,12 @@ For the chain-with-late-shortcut graph,
 +816\lambda^2
 -728\lambda
 +240.
-]
+$$
 
 For the chain-with-early-shortcut graph,
 
-[
-\chi_{Q_2^{(E)}}(\lambda)
-=========================
-
+$$
+\chi_{Q_2^{(E)}}(\lambda)=
 \lambda^6
 -18\lambda^5
 +127\lambda^4
@@ -191,71 +183,67 @@ For the chain-with-early-shortcut graph,
 +780\lambda^2
 -640\lambda
 +192.
-]
+$$
 
 They differ.
 
 The same edge-level operator separates the other three surviving pairs. Therefore:
 
-[
-\boxed{
+$$
 \text{The augmented profile distinguishes all 5,984 simple DAGs on six nodes.}
-}
-]
+$$
 
 # A better conceptual structure has emerged
 
-The line graph is not merely a technical patch. It suggests a hierarchy naturally generated by A4.
+The line graph suggests a hierarchy naturally generated by A4.
 
 Define:
 
-[
+$$
 G^{(0)}=G,
-]
+$$
 
-[
+$$
 G^{(1)}=\mathcal L(G),
-]
+$$
 
-[
+$$
 G^{(2)}=\mathcal L(\mathcal L(G)),
-]
+$$
 
 and generally,
 
-[
+$$
 G^{(r+1)}=\mathcal L(G^{(r)}).
-]
+$$
 
 The objects at each level have a direct interpretation:
 
-* nodes of (G^{(0)}): original nodes;
-* nodes of (G^{(1)}): communication channels;
-* nodes of (G^{(2)}): composable pairs of channels;
-* nodes of (G^{(3)}): composable triples of channels;
+* nodes of $G^{(0)}$: original nodes;
+* nodes of $G^{(1)}$: communication channels;
+* nodes of $G^{(2)}$: composable pairs of channels;
+* nodes of $G^{(3)}$: composable triples of channels;
 * and so on.
 
-Equivalently, nodes of (G^{(r)}) represent directed paths of length (r) in the original system.
+Equivalently, nodes of $G^{(r)}$ represent directed paths of length $r$ in the original system.
 
 Because a finite DAG has a finite maximum path length, this tower eventually terminates.
 
 We can therefore define a **communication spectral tower**:
 
-[
-\mathfrak S(G)
-==============
-
+$$
+\mathfrak S(G)=
 \left(
 \Phi(G^{(0)}),
 \Phi(G^{(1)}),
 \Phi(G^{(2)}),
 \ldots
 \right),
-]
+$$
 
-where (\Phi) contains whichever spectra and rank profiles we choose at each level.
+where $\Phi$ contains whichever spectra and rank profiles we choose at each level.
 
-This is particularly well matched to your principles:
+This matches the base axioms:
 
 * A3 says differences cannot be intrinsic to nodes.
 * A4 places meaningful transmission in edges.
@@ -266,7 +254,7 @@ This is particularly well matched to your principles:
 
 For finite simple configurations up to six nodes, define
 
-[
+$$
 \Phi_0(G)=
 \Bigl(
 |N|,
@@ -280,16 +268,14 @@ For finite simple configurations up to six nodes, define
 \operatorname{spec}(R^\mathsf TR),
 \operatorname{spec}(Q_2(A))
 \Bigr).
-]
+$$
 
 Then augment it with
 
-[
+$$
 \operatorname{spec}\left(
 Q_2\bigl(A_{\mathcal L(G)}\bigr)
 \right).
-]
+$$
 
 The resulting fingerprint separates every non-isomorphic simple DAG with at most six nodes.
-
-This is computational evidence, not a theorem that it will classify every finite DAG. In fact, we should expect further spectral collisions eventually. The important part is that the first failure produced a mathematically natural next operator rather than an arbitrary patch.

@@ -2,23 +2,21 @@
 
 The first bridge proposal was direct:
 
-[
-\boxed{
+$$
 \text{estimate a route-side local generator and compare it with }J_{\mathrm{config}}.
-}
-]
+$$
 
 The route sampler generated exact uniform labeled DAGs and resolved routes at relative horizons
 
-[
+$$
 \rho=\frac18,\frac14,\frac38.
-]
+$$
 
 Initial samples at
 
-[
+$$
 N=64,128,256
-]
+$$
 
 produced all required records, but the first bridge analysis returned
 
@@ -34,9 +32,9 @@ The failure was not a runtime or normalization error. It indicated that the prop
 
 A first closure probe regressed local route transitions separately at each route position.
 
-At (N=64), the augmented local dictionary achieved high within-position fit:
+At $N=64$, the augmented local dictionary achieved high within-position fit:
 
-| horizon | base (R^2) | degree-two (R^2) | augmented (R^2) |
+| horizon | base $R^2$ | degree-two $R^2$ | augmented $R^2$ |
 |---:|---:|---:|---:|
 | 8 | 0.878 | 0.946 | 0.980 |
 | 16 | 0.836 | 0.944 | 0.976 |
@@ -50,41 +48,39 @@ However, a strong fit conditional on route position is not the same as an autono
 
 The decisive test pooled route positions and then left one position out.
 
-For (N=64), the augmented pooled fit remained high:
+For $N=64$, the augmented pooled fit remained high:
 
-[
+$$
 0.950,
 0.911,
 0.886
-]
+$$
 
 at horizons 8, 16, and 24.
 
 But the leave-one-position-out values collapsed:
 
-[
+$$
 0.781,
 0.120,
 -1.820.
-]
+$$
 
-The same behavior strengthened with size and horizon. At (N=256), the leave-one-position-out augmented values were approximately
+The same behavior strengthened with size and horizon. At $N=256$, the leave-one-position-out augmented values were approximately
 
-[
+$$
 0.064,
 -1.018,
 -4.196.
-]
+$$
 
 The corresponding route-time target became even worse.
 
 Therefore
 
-[
-\boxed{
+$$
 \text{position-conditioned predictability does not transfer across route position.}
-}
-]
+$$
 
 The local profile was not an autonomous route state.
 
@@ -94,17 +90,15 @@ A node-overlap sampler emitted multiple nodes from each graph and route position
 
 The route-position class was almost perfectly recoverable:
 
-[
-\boxed{
+$$
 \text{classification accuracy}\approx0.999-1.000.
-}
-]
+$$
 
 Thus route position was strongly encoded in the local coordinates.
 
 But overlap coverage decreased rapidly. Representative coverage values were:
 
-| (N) | short horizon | middle horizon | long horizon |
+| $N$ | short horizon | middle horizon | long horizon |
 |---:|---:|---:|---:|
 | 64 | 0.662 | 0.450 | 0.313 |
 | 128 | 0.081 | 0.027 | 0.019 |
@@ -114,9 +108,9 @@ The finite local states occupied increasingly disjoint position-dependent region
 
 Adding the explicit route-time coordinate produced negligible gain, typically of order
 
-[
+$$
 10^{-4}
-]
+$$
 
 and sometimes negative.
 
@@ -131,7 +125,7 @@ The analysis compared:
 * local state plus graph profile;
 * both global additions.
 
-The global additions improved fit only slightly, generally by a few thousandths to a few hundredths. More importantly, permuting the graph-profile context across graphs produced essentially no positive gain.
+The global additions improved fit only slightly, generally by a few thousandths to a few hundredths. Permuting the graph-profile context across graphs produced essentially no positive gain.
 
 The between-graph variance was small compared with the unresolved within-route variation.
 
@@ -143,23 +137,23 @@ A route jet records present and nearby route-position features. Depths up to fou
 
 For every horizon and position in the pilot, the best predictive depth was
 
-[
-\boxed{k=0},
-]
+$$
+k=0,
+$$
 
 meaning the present local profile outperformed deeper deterministic jets.
 
 The deepest-jet fits often deteriorated severely. For example, at horizon 24 and position zero, the fit fell from about
 
-[
+$$
 0.545
-]
+$$
 
 to
 
-[
+$$
 0.095.
-]
+$$
 
 Thus deterministic finite route history did not provide the missing autonomous coordinate.
 
@@ -173,7 +167,7 @@ The next probes added:
 
 These features gave small, inconsistent gains. Some short-horizon positions improved by a few hundredths, while others worsened. The best depth remained zero throughout the pilot summaries.
 
-The cross-covariance gain reached about (0.071) in one horizon-position cell, but did not form a stable monotone pattern and did not repair long-horizon closure.
+The cross-covariance gain reached about $0.071$ in one horizon-position cell, but did not form a stable monotone pattern and did not repair long-horizon closure.
 
 # 8. Singular bridge discovery
 
@@ -181,11 +175,11 @@ Although full closure failed, the cross-moment operators exhibited a sharp singu
 
 At each relative horizon, the fourth singular value was much smaller than the third. Representative ratios were
 
-[
+$$
 0.00227,
 0.000257,
 0.00453.
-]
+$$
 
 The right singular geometry was stable:
 
@@ -211,11 +205,9 @@ because the left sector remained too weakly conditioned at the available sizes.
 
 This was the decisive conceptual change:
 
-[
-\boxed{
+$$
 \text{the route/configuration bridge should be tested one-sidedly first.}
-}
-]
+$$
 
 # 10. What the failed closure tests ruled out
 
@@ -243,12 +235,10 @@ This suggested that the route process may select the same **state sector** as co
 
 # 12. Methodological conclusion
 
-Negative results were essential here. Had only the high within-position (R^2) been reported, the route process would have appeared closed. The leave-one-position-out and overlap tests showed that this was an interpolation artifact on position-separated support.
+Negative results were essential here. Had only the high within-position $R^2$ been reported, the route process would have appeared closed. The leave-one-position-out and overlap tests showed that this was an interpolation artifact on position-separated support.
 
 The correct lesson is
 
-[
-\boxed{
+$$
 \text{high local predictability is not evidence of autonomous continuum closure.}
-}
-]
+$$

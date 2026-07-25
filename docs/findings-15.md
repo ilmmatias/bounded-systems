@@ -1,8 +1,8 @@
 # 1. Serial diamonds: ambiguity without syzygies
 
-Consider (k) binary ambiguity gadgets arranged consecutively:
+Consider $k$ binary ambiguity gadgets arranged consecutively:
 
-[
+$$
 v_0
 \overset{p_1^0,p_1^1}{\longrightarrow}
 v_1
@@ -10,227 +10,209 @@ v_1
 \cdots
 \overset{p_k^0,p_k^1}{\longrightarrow}
 v_k,
-]
+$$
 
 with no cross-links between gadgets.
 
 A complete route is determined by a bit string
 
-[
-\epsilon=(\epsilon_1,\ldots,\epsilon_k)\in{0,1}^k,
-]
+$$
+\epsilon=(\epsilon_1,\ldots,\epsilon_k)\in\{0,1\}^k,
+$$
 
-so there are (2^k) routes from (v_0) to (v_k).
+so there are $2^k$ routes from $v_0$ to $v_k$.
 
 Put
 
-[
+$$
 d_i=p_i^1-p_i^0.
-]
+$$
 
-For a subset (S\subseteq{1,\ldots,k}), replacing the factor at position (i\in S) by (d_i) produces an (|S|)-fold alternating route box. Modulo one higher power of (I), the ordinary route choices outside (S) do not matter.
+For a subset $S\subseteq\{1,\ldots,k\}$, replacing the factor at position $i\in S$ by $d_i$ produces an $|S|$-fold alternating route box. Modulo one higher power of $I$, the ordinary route choices outside $S$ do not matter.
 
 Consequently,
 
-[
-\boxed{
-\dim e_{v_k}\left(I^m/I^{m+1}\right)e_{v_0}
-===========================================
-
+$$
+\dim e_{v_k}\left(I^m/I^{m+1}\right)e_{v_0}=
 \binom{k}{m}.
-}
-]
+$$
 
 The whole route corner decomposes as
 
-[
-2^k
-===
-
+$$
+2^k=
 \sum_{m=0}^{k}\binom{k}{m},
-]
+$$
 
 where:
 
-* (m=0) is the one-dimensional reachability direction;
-* (m=1) consists of individual diamond effects;
-* (m=2) consists of pairwise alternating rectangles;
-* (m=3) consists of alternating cubes;
+* $m=0$ is the one-dimensional reachability direction;
+* $m=1$ consists of individual diamond effects;
+* $m=2$ consists of pairwise alternating rectangles;
+* $m=3$ consists of alternating cubes;
 * and so on.
 
 This is essentially a Boolean or Walsh decomposition of the orthogonal route space.
 
 Yet there are no higher dependencies among these boxes: every product corresponds uniquely to its selected set of ambiguity positions. For this family,
 
-[
+$$
 \operatorname{gr}_I A
 \cong
 T_B(I/I^2)
-]
+$$
 
 on the relevant corners, so
 
-[
+$$
 H_{n,m}^{\mathrm{rt}}=0
 \qquad(n\ge2).
-]
+$$
 
 There is plenty of higher-order ambiguity, but no higher syzygy.
 
 # 2. The (2\times2) directed grid
 
-Take the Hasse-directed square grid from ((0,0)) to ((2,2)), with horizontal and vertical edges increasing coordinates.
+Take the Hasse-directed square grid from $(0,0)$ to $(2,2)$, with horizontal and vertical edges increasing coordinates.
 
 There are
 
-[
+$$
 \binom{4}{2}=6
-]
+$$
 
 monotone routes between the two extreme nodes.
 
 The full endpoint route corner has dimension six. Its route ideal has dimension five:
 
-[
+$$
 \dim e_{(2,2)}Ie_{(0,0)}=5.
-]
+$$
 
 Direct calculation gives
 
-[
+$$
 \dim e_{(2,2)}I^2e_{(0,0)}=1,
 \qquad
 I^3=0
-]
+$$
 
 in that corner. Therefore:
 
-[
-\boxed{
+$$
 \begin{aligned}
-\dim C_0&=1,\
-\dim C_1&=4,\
+\dim C_0&=1,\\
+\dim C_1&=4,\\
 \dim C_2&=1.
 \end{aligned}
-}
-]
+$$
 
 The unique second-order direction is an alternating four-route rectangle formed by composing two compatible square ambiguities.
 
 Moreover, the relevant multiplication map
 
-[
+$$
 C_1\otimes_B C_1\longrightarrow C_2
-]
+$$
 
 is an isomorphism. Hence
 
-[
+$$
 H_{2,2}^{\mathrm{rt}}=0.
-]
+$$
 
-Again, the second-order box is real, but it is not a syzygy. It is simply the product of two first-order ambiguities.
+The second-order box is the product of two first-order ambiguities, not a syzygy.
 
 # 3. The Boolean rank-three interval reveals the flaw
 
-Now consider the Boolean lattice (B_3), directed by adding one element at a time.
+Now consider the Boolean lattice $B_3$, directed by adding one element at a time.
 
 Between
 
-[
+$$
 \varnothing
 \quad\text{and}\quad
 {1,2,3},
-]
+$$
 
 the six saturated paths are the six permutations:
 
-[
+$$
 123,\ 132,\ 312,\ 321,\ 231,\ 213.
-]
+$$
 
 Adjacent paths differ by exchanging the order in which two elements are added. These six local diamond moves form a hexagon:
 
-[
+$$
 123\to132\to312\to321\to231\to213\to123.
-]
+$$
 
 Let
 
-[
+$$
 \begin{aligned}
-r_1&=132-123,\
-r_2&=312-132,\
-r_3&=321-312,\
-r_4&=231-321,\
-r_5&=213-231,\
+r_1&=132-123,\\
+r_2&=312-132,\\
+r_3&=321-312,\\
+r_4&=231-321,\\
+r_5&=213-231,\\
 r_6&=123-213.
 \end{aligned}
-]
+$$
 
 Then immediately,
 
-[
-\boxed{
+$$
 r_1+r_2+r_3+r_4+r_5+r_6=0.
-}
-]
+$$
 
 This is a genuine relation among six contextualized local diamond relations.
 
-But in (B_3),
+But in $B_3$,
 
-[
+$$
 I^2=0.
-]
+$$
 
 There is not enough rank to concatenate two nontrivial ambiguous intervals: each ambiguity requires at least two rank steps, while the whole interval has only three.
 
 Therefore the previous bar construction has
 
-[
+$$
 C_2=0
-]
+$$
 
 and hence no degree-two chains capable of recording the hexagonal dependency.
 
 So:
 
-[
-\boxed{
+$$
 \text{the hexagon is a syzygy among local relation generators,}
-}
-]
+$$
 
 but
 
-[
-\boxed{
+$$
 \text{it is not a product relation in the }I\text{-adic associated graded.}
-}
-]
+$$
 
-This disproves the stronger interpretation we had given to (H^{\mathrm{rt}}_{n,m}).
+This disproves the stronger interpretation we had given to $H^{\mathrm{rt}}_{n,m}$.
 
 # 4. What the previous complex actually measures
 
 The corrected interpretation is:
 
-[
-\boxed{
+$$
 C_m=I^m/I^{m+1}
-}
-]
+$$
 
-measures actual (m)-fold multiplicative route ambiguity.
+measures actual $m$-fold multiplicative route ambiguity.
 
 And
 
-[
-\boxed{
+$$
 H_{n,m}^{\mathrm{rt}}
-}
-]
+$$
 
 measures dependencies among **factorizations of those multiplicative ambiguity elements**.
 
@@ -242,45 +224,41 @@ The ordinary reduced bar construction is the standard complex for an augmented a
 
 Let
 
-[
+$$
 J\subset A
-]
+$$
 
 be the positive-path ideal and
 
-[
+$$
 I=\ker(A\to B)
-]
+$$
 
 the parallel-route ideal.
 
 Define
 
-[
-\boxed{
-R_2
-===
-
+$$
+R_2=
 I/(JI+IJ).
-}
-]
+$$
 
 This removes every route relation obtained merely by adding nonempty path context before or after a smaller relation.
 
-Thus (R_2) records the locally irreducible route-identification laws.
+Thus $R_2$ records the locally irreducible route-identification laws.
 
 Examples:
 
-* two parallel primitive channels give one element of (R_2);
+* two parallel primitive channels give one element of $R_2$;
 * one elementary diamond gives one element;
 * a shortcut versus a composite route gives one element;
 * a larger diamond obtained by prefixing and suffixing a smaller diamond does not give a new element.
 
-For (B_3),
+For $B_3$,
 
-[
+$$
 \dim R_2=6,
-]
+$$
 
 one generator for each rank-two Boolean diamond. Their transported images satisfy the one hexagonal syzygy above.
 
@@ -290,92 +268,85 @@ The presentation of an incidence algebra as a path algebra modulo the ideal iden
 
 Let
 
-[
+$$
 D=\bigoplus_{v\in V}\mathbb K e_v
-]
+$$
 
 be the node diagonal, and let
 
-[
+$$
 M=J/J^2
-]
+$$
 
 be the primitive-channel bimodule.
 
 The reachability algebra is
 
-[
+$$
 B=A/I.
-]
+$$
 
 The first terms of a route-presentation bimodule resolution have the form
 
-[
+$$
 P_0=B\otimes_D B,
-]
+$$
 
-[
+$$
 P_1=B\otimes_D M\otimes_D B,
-]
+$$
 
-[
+$$
 P_2=B\otimes_D R_2\otimes_D B.
-]
+$$
 
 ## Multiplication differential
 
 Define
 
-[
+$$
 d_0:P_0\to B
-]
+$$
 
 by
 
-[
+$$
 d_0(b_L\otimes b_R)=b_Lb_R.
-]
+$$
 
 ## Channel differential
 
-For a primitive edge (e), let (\bar e) denote its reachability image in (B). Define
+For a primitive edge $e$, let $\bar e$ denote its reachability image in $B$. Define
 
-[
-d_1(b_L\otimes e\otimes b_R)
-============================
-
-## b_L\bar e\otimes b_R
-
+$$
+d_1(b_L\otimes e\otimes b_R)=
+b_L\bar e\otimes b_R-
 b_L\otimes\bar e b_R.
-]
+$$
 
 Then
 
-[
+$$
 d_0d_1=0.
-]
+$$
 
 # 7. The noncommutative path derivative
 
 For a path
 
-[
+$$
 p=e_n\cdots e_1,
-]
+$$
 
 define its path derivative
 
-[
-\boxed{
-\partial p
-==========
-
+$$
+\partial p=
 \sum_{j=1}^{n}
-\overline{e_n\cdots e_{j+1}}
+\overline\{e_n\cdots e_{j+1}\}
 \otimes e_j\otimes
-\overline{e_{j-1}\cdots e_1}.
-}
-]
+\overline\{e_{j-1}\cdots e_1\}.
+$$
 
 Empty prefixes or suffixes are interpreted as their corresponding node identities.
 
@@ -383,43 +354,39 @@ This formula marks every possible place at which the path can be cut around one 
 
 It satisfies the Leibniz rule
 
-[
-\partial(qp)
-============
-
+$$
+\partial(qp)=
 \bar q,\partial p
 +
 (\partial q),\bar p.
-]
+$$
 
 For a route relation
 
-[
+$$
 r=\sum_pc_pp\in I,
-]
+$$
 
 define
 
-[
-d_2(1\otimes[r]\otimes1)
-========================
-
+$$
+d_2(1\otimes[r]\otimes1)=
 \sum_pc_p,\partial p.
-]
+$$
 
-Extend (B)-bilinearly.
+Extend $B$-bilinearly.
 
-Because every path in (r) has the same reachability image,
+Because every path in $r$ has the same reachability image,
 
-[
+$$
 d_1d_2=0.
-]
+$$
 
 So we obtain
 
-[
+$$
 P_2\xrightarrow{d_2}P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}B\to0.
-]
+$$
 
 This now records local relations and their contexts correctly.
 
@@ -427,54 +394,48 @@ This now records local relations and their contexts correctly.
 
 Let
 
-[
+$$
 Z_2=\ker d_2.
-]
+$$
 
-Elements of (Z_2) are identities among contextualized local route relations.
+Elements of $Z_2$ are identities among contextualized local route relations.
 
-For (B_3), the hexagonal sum gives an element of (Z_2).
+For $B_3$, the hexagonal sum gives an element of $Z_2$.
 
 To remove identities obtained merely by surrounding a smaller identity with ordinary reachability context, take the local third-generator module schematically as
 
-[
-\boxed{
-R_3
-===
-
+$$
+R_3=
 Z_2/
 \left(
 \operatorname{rad}(B)Z_2
 +
 Z_2\operatorname{rad}(B)
 \right),
-}
-]
+$$
 
-where (\operatorname{rad}(B)) is the strict-reachability ideal.
+where $\operatorname{rad}(B)$ is the strict-reachability ideal.
 
 Then
 
-[
+$$
 P_3=B\otimes_D R_3\otimes_D B.
-]
+$$
 
 A differential
 
-[
+$$
 d_3:P_3\to P_2
-]
+$$
 
 chooses representatives of the local syzygies.
 
 The process continues:
 
-[
-R_4
-===
-
+$$
+R_4=
 \text{local generators of }\ker d_3,
-]
+$$
 
 and so on.
 
@@ -482,40 +443,38 @@ For finite systems, or finite ordinal-rank bands, this can be implemented throug
 
 # 9. Boolean lattices and permutohedral coherence
 
-For the Boolean interval of rank (d):
+For the Boolean interval of rank $d$:
 
-* complete routes are permutations of (d) elements;
+* complete routes are permutations of $d$ elements;
 * elementary diamond relations are adjacent exchanges;
 * independent exchanges produce square coherence diagrams;
 * overlapping exchanges produce hexagonal braid diagrams.
 
 The two-dimensional faces of a permutohedron are exactly of the commuting-square and braid-polygon types, and higher faces encode higher compatibility among these moves.
 
-Thus the (B_3) hexagon is not accidental. It is the first permutohedral coherence cell.
+Thus the $B_3$ hexagon is the first permutohedral coherence cell.
 
-For larger (d), one obtains:
+For larger $d$, one obtains:
 
-[
+$$
 \begin{array}{c|l}
-\text{dimension}&\text{meaning}\
+\text{dimension}&\text{meaning}\\
 \hline
-0&\text{complete routes/permutations}\
-1&\text{elementary diamond replacements}\
-2&\text{square and hexagonal coherences}\
-3&\text{coherences among those coherences}\
+0&\text{complete routes/permutations}\\
+1&\text{elementary diamond replacements}\\
+2&\text{square and hexagonal coherences}\\
+3&\text{coherences among those coherences}\\
 \vdots&\vdots
 \end{array}
-]
+$$
 
 The full permutohedron is a convex polytope, so its cellular complex is contractible. This means the hierarchy of coherence cells can be very rich even though its final reduced homology vanishes.
 
-That distinction is important:
+The distinction is:
 
-[
-\boxed{
+$$
 \text{vanishing homology does not mean absence of higher coherence.}
-}
-]
+$$
 
 It can mean that every ambiguity loop is coherently filled at a higher dimension.
 

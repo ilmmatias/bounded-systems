@@ -2,74 +2,66 @@
 
 A stable limit cannot arise from one fixed finite graph by merely renaming its edges. We require either:
 
-* a refinement family (G_\delta);
+* a refinement family $G_\delta$;
 * increasingly fine profile coordinates;
 * or block increments built from increasingly long finite path segments.
 
-Let (Z_{\delta,x}) be the unscaled profile displacement associated with one coarse block beginning near profile point (x), and let
+Let $Z_{\delta,x}$ be the unscaled profile displacement associated with one coarse block beginning near profile point $x$, and let
 
-[
+$$
 Y_{\delta,x}=\delta Z_{\delta,x}.
-]
+$$
 
 Assume the block displacement has a regularly varying tail:
 
-[
+$$
 \Pr_h\bigl(|Z_{\delta,x}|>r\bigr)
 \sim
 r^{-\alpha}L_x(r),
 \qquad
 0<\alpha<2,
-]
+$$
 
-where (L_x) is slowly varying.
+where $L_x$ is slowly varying.
 
 A displacement of macroscopic order occurs when
 
-[
+$$
 |Z_{\delta,x}|\gtrsim\delta^{-1}.
-]
+$$
 
 Its probability is therefore
 
-[
-a_\delta(x)
-===========
-
+$$
+a_\delta(x)=
 \Pr_h\bigl(
 |Z_{\delta,x}|>\delta^{-1}
 \bigr)
 \sim
 \delta^\alpha L_x(\delta^{-1}).
-]
+$$
 
 Hence the intrinsic stable time scale is
 
-[
-\boxed{
+$$
 \tau=n,a_\delta
 \sim
 n\delta^\alpha L(\delta^{-1}).
-}
-]
+$$
 
 For a pure power law,
 
-[
-\boxed{
+$$
 \tau=n\delta^\alpha.
-}
-]
+$$
 
 Thus the dynamical exponent is not chosen independently:
 
-[
-\boxed{
+$$
 z=\alpha.
-}
-]
+$$
 
-The Gaussian regime is the boundary case (z=2). For (0<\alpha<2), macroscopic motion is dominated by heavy-tailed route blocks rather than finite quadratic variation.
+The Gaussian regime is the boundary case $z=2$. For $0<\alpha<2$, macroscopic motion is dominated by heavy-tailed route blocks rather than finite quadratic variation.
 
 ---
 
@@ -77,141 +69,113 @@ The Gaussian regime is the boundary case (z=2). For (0<\alpha<2), macroscopic mo
 
 Let
 
-[
+$$
 K_{\delta,h}(x,dy)
-]
+$$
 
 be the derived one-block profile-increment law.
 
 The stable candidate is determined by the vague convergence
 
-[
-\boxed{
+$$
 \frac1{a_\delta}
 K_{\delta,h}(x,dy)
 ;\xrightarrow[\delta\to0]{v};
 \nu_h(x,dy)
-}
-]
+$$
 
 on
 
-[
-\mathbb R^d\setminus{0}.
-]
+$$
+\mathbb R^d\setminus\{0\}.
+$$
 
 For a stable-like limit, the Lévy kernel has radial-angular decomposition
 
-[
-\boxed{
-\nu_h(x,dy)
-===========
-
+$$
+\nu_h(x,dy)=
 \frac{dr}{r^{1+\alpha}}
 \Lambda_h(x,d\theta),
 \qquad
 y=r\theta,
-}
-]
+$$
 
-up to a normalization absorbed into the finite angular measure (\Lambda_h).
+up to a normalization absorbed into the finite angular measure $\Lambda_h$.
 
 Equivalently, when the angular measure has a density,
 
-[
-\boxed{
-\nu_h(x,dy)
-===========
-
+$$
+\nu_h(x,dy)=
 \frac{q_h(x,\widehat y)}
 {|y|^{d+\alpha}},dy.
-}
-]
+$$
 
 Stable-like operators of this form are standard pure-jump Lévy-type generators; existence and uniqueness of their martingale problems require regularity and nondegeneracy assumptions on the state-dependent angular coefficient.
 
 The parameters already separate naturally:
 
-[
-\boxed{
-\alpha
-======
-
+$$
+\alpha=
 \text{radial route-tail exponent},
-}
-]
+$$
 
 while
 
-[
-\boxed{
-\Lambda_h(x,d\theta)
-====================
-
+$$
+\Lambda_h(x,d\theta)=
 \text{directional profile-jump structure}.
-}
-]
+$$
 
-So (\alpha) is one scalar, but the full stable regime also carries an angular spectral measure.
+So $\alpha$ is one scalar, but the full stable regime also carries an angular spectral measure.
 
 # 3. The general stable-like profile generator
 
 Using the fixed truncation
 
-[
-\chi(y)=y\mathbf1_{{|y|<1}},
-]
+$$
+\chi(y)=y\mathbf1_{\{|y|<1\}},
+$$
 
 define
 
-[
-\boxed{
+$$
 \begin{aligned}
 \mathcal L_{\alpha,0}f(x)
 ={}&
-b(x)\cdot\nabla f(x)\
+b(x)\cdot\nabla f(x)\\
 &+
-\int_{\mathbb R^d\setminus{0}}
+\int_{\mathbb R^d\setminus\{0\}}
 \left[
 f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 \right]
-\nu_0(x,dy)\
+\nu_0(x,dy)\\
 &-c(x)f(x).
 \end{aligned}
-}
-]
+$$
 
-For (\alpha<1), the compensation term may be omitted when the integral is absolutely convergent; retaining one fixed truncation convention simply transfers the difference into the drift. The standard stable-like generator has precisely this nonlocal form.
+For $\alpha<1$, the compensation term may be omitted when the integral is absolutely convergent; retaining one fixed truncation convention simply transfers the difference into the drift. The standard stable-like generator has precisely this nonlocal form.
 
 Let the critical positive profile satisfy
 
-[
-\boxed{
-\mathcal L_{\alpha,0}h
-======================
-
+$$
+\mathcal L_{\alpha,0}h=
 \kappa h,
 \qquad
 h>0.
-}
-]
+$$
 
 Write
 
-[
+$$
 u=\log h.
-]
+$$
 
 Then the derived Markov generator is the exact Doob transform
 
-[
-\boxed{
-\mathcal L_{\alpha}^{h}f
-========================
-
+$$
+\mathcal L_{\alpha}^{h}f=
 h^{-1}\mathcal L_{\alpha,0}(hf)-\kappa f.
-}
-]
+$$
 
 Ground-state and Doob transforms of nonlocal Lévy generators produce state-dependent drift and jump intensities of this kind. 
 
@@ -219,50 +183,38 @@ Ground-state and Doob transforms of nonlocal Lévy generators produce state-depe
 
 Define
 
-[
-r_h(x,y)
-========
-
-# \frac{h(x+y)}{h(x)}
-
+$$
+r_h(x,y)=
+\frac{h(x+y)}{h(x)}=
 e^{u(x+y)-u(x)}.
-]
+$$
 
 Direct substitution gives
 
-[
-\boxed{
-\nu_h(x,dy)
-===========
-
+$$
+\nu_h(x,dy)=
 r_h(x,y)\nu_0(x,dy).
-}
-]
+$$
 
 The transformed drift is
 
-[
-\boxed{
-b_h(x)
-======
-
+$$
+b_h(x)=
 b(x)
 +
 \int
 \chi(y)
 \bigl[r_h(x,y)-1\bigr]
 \nu_0(x,dy).
-}
-]
+$$
 
 Therefore
 
-[
-\boxed{
+$$
 \begin{aligned}
 \mathcal L_{\alpha}^{h}f(x)
 ={}&
-b_h(x)\cdot\nabla f(x)\
+b_h(x)\cdot\nabla f(x)\\
 &+
 \int
 \left[
@@ -270,89 +222,74 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 \right]
 \nu_h(x,dy).
 \end{aligned}
-}
-]
+$$
 
 This is the exact stable analogue of the discrete transformation
 
-[
-P_h(e\mid v)
-============
-
+$$
+P_h(e\mid v)=
 \frac{h(r(e))}
 {\lambda h(v)}.
-]
+$$
 
 The discrete profile reweights channels by a successor-to-current ratio. The stable continuum profile reweights every displacement by
 
-[
+$$
 \frac{h(x+y)}{h(x)}.
-]
+$$
 
 # 5. Can the (h)-transform change (\alpha)?
 
-Yes. This is an important point.
+The $h$-transform can change $\alpha$.
 
 Suppose the untransformed radial kernel is
 
-[
-\nu_0(dr,d\theta)
-=================
-
+$$
+\nu_0(dr,d\theta)=
 r^{-1-\alpha}dr,\Lambda_0(d\theta).
-]
+$$
 
 If
 
-[
+$$
 \frac{h(x+r\theta)}{h(x)}
 \longrightarrow
 q_h(x,\theta)
-]
+$$
 
-as (r\to\infty), with a finite nonzero limit, then
+as $r\to\infty$, with a finite nonzero limit, then
 
-[
-\boxed{
+$$
 \alpha_h=\alpha
-}
-]
+$$
 
 and only the angular measure changes:
 
-[
-\boxed{
-\Lambda_h(x,d\theta)
-====================
-
+$$
+\Lambda_h(x,d\theta)=
 q_h(x,\theta)\Lambda_0(x,d\theta).
-}
-]
+$$
 
 More generally, suppose
 
-[
+$$
 \frac{h(x+r\theta)}{h(x)}
 \sim
 r^\gamma q_h(x,\theta).
-]
+$$
 
 Then
 
-[
-r^{-1-\alpha}r^\gamma
-=====================
-
+$$
+r^{-1-\alpha}r^\gamma=
 r^{-1-(\alpha-\gamma)}.
-]
+$$
 
 So, when the transformed measure remains admissible,
 
-[
-\boxed{
+$$
 \alpha_h=\alpha-\gamma.
-}
-]
+$$
 
 Thus the positive profile can do more than bias the directions of anomalous propagation: sufficiently strong asymptotic profile growth can change the stable universality class itself.
 
@@ -362,18 +299,17 @@ The stable exponent is preserved only when the profile is asymptotically neutral
 
 Divide
 
-[
+$$
 \mathcal L_{\alpha,0}h=\kappa h
-]
+$$
 
-by (h=e^u). We obtain
+by $h=e^u$. We obtain
 
-[
-\boxed{
+$$
 \begin{aligned}
 \kappa+c(x)
 ={}&
-b(x)\cdot\nabla u(x)\
+b(x)\cdot\nabla u(x)\\
 &+
 \int
 \left[
@@ -383,31 +319,27 @@ e^{u(x+y)-u(x)}
 \right]
 \nu_0(x,dy).
 \end{aligned}
-}
-]
+$$
 
 This is the stable/nonlocal Hamilton–Jacobi profile equation.
 
 For the stable-like kernel
 
-[
-\nu_0(x,dy)
-===========
-
+$$
+\nu_0(x,dy)=
 \frac{q_0(x,\widehat y)}
 {|y|^{d+\alpha}},dy,
-]
+$$
 
 it becomes
 
-[
-\boxed{
+$$
 \begin{aligned}
 \kappa+c(x)
 ={}&
-b(x)\cdot\nabla u(x)\
+b(x)\cdot\nabla u(x)\\
 &+
-\int_{\mathbb R^d\setminus{0}}
+\int_{\mathbb R^d\setminus\{0\}}
 \frac{
 e^{u(x+y)-u(x)}
 -1
@@ -417,8 +349,7 @@ e^{u(x+y)-u(x)}
 }
 q_0(x,\widehat y),dy.
 \end{aligned}
-}
-]
+$$
 
 This is the exact profile equation of the stable regime.
 
@@ -428,50 +359,44 @@ It reduces to the quadratic viscous Hamilton–Jacobi equation only when the jum
 
 Take a smooth family of critical profiles
 
-[
-h_\varepsilon
-=============
-
+$$
+h_\varepsilon=
 h\exp\left(
 \varepsilon\phi
 +\frac{\varepsilon^2}{2}\chi
 +o(\varepsilon^2)
 \right)
-]
+$$
 
-with the same eigenvalue (\kappa).
+with the same eigenvalue $\kappa$.
 
 Differentiating
 
-[
+$$
 h_\varepsilon^{-1}
-\mathcal L_{\alpha,0}h_\varepsilon
-==================================
-
+\mathcal L_{\alpha,0}h_\varepsilon=
 \kappa
-]
+$$
 
 once gives
 
-[
-\boxed{
+$$
 \mathcal L_\alpha^h\phi=0.
-}
-]
+$$
 
 So tangent vectors to the fixed-critical-value stable profile manifold are harmonic functions of the transformed stable process.
 
 This exactly parallels the discrete equation
 
-[
+$$
 (P_h-I)\phi=0.
-]
+$$
 
 # 8. Second variation: the nonlocal quadratic form survives
 
 Differentiate again. The Hessian of the exponential jump term is
 
-[
+$$
 \int
 r_h(x,y)
 \bigl[
@@ -481,261 +406,192 @@ r_h(x,y)
 \psi(x+y)-\psi(x)
 \bigr]
 \nu_0(x,dy).
-]
+$$
 
 Since
 
-[
+$$
 r_h\nu_0=\nu_h,
-]
+$$
 
 define
 
-[
-\boxed{
-g_{\alpha,h,x}(\phi,\psi)
-=========================
-
+$$
+g_{\alpha,h,x}(\phi,\psi)=
 \int
 \Delta_y\phi(x),
 \Delta_y\psi(x),
 \nu_h(x,dy),
-}
-]
+$$
 
 where
 
-[
-\Delta_y\phi(x)
-===============
-
+$$
+\Delta_y\phi(x)=
 \phi(x+y)-\phi(x).
-]
+$$
 
 The stable carré du champ is
 
-[
-\boxed{
-\Gamma_{\alpha,h}(\phi,\psi)
-============================
-
+$$
+\Gamma_{\alpha,h}(\phi,\psi)=
 \frac12g_{\alpha,h}(\phi,\psi).
-}
-]
+$$
 
 The second-order profile equation is therefore
 
-[
-\boxed{
--\mathcal L_\alpha^h\chi
-========================
-
-# g_{\alpha,h}(\phi,\phi)
-
+$$
+-\mathcal L_\alpha^h\chi=
+g_{\alpha,h}(\phi,\phi)=
 2\Gamma_{\alpha,h}(\phi).
-}
-]
+$$
 
 This is the exact nonlocal replacement for
 
-[
-(I-P_h)\chi
-===========
-
+$$
+(I-P_h)\chi=
 \mathsf Q_h(\phi).
-]
+$$
 
-So the quadratic-profile structure did not disappear in the stable regime. It became nonlocal:
+The quadratic-profile structure becomes nonlocal in the stable regime:
 
-[
-\boxed{
+$$
 \text{local edge variance}
 \quad\longrightarrow\quad
 \text{integrated squared jump difference}.
-}
-]
+$$
 
-Although an (\alpha)-stable coordinate process generally has no finite global second moment for (\alpha<2), the Dirichlet/carré-du-champ form is finite on suitable bounded or sufficiently regular test functions because the small-jump singularity is controlled by the squared difference. Fractional and stable generators are naturally represented by such nonlocal quadratic forms.
+Although an $\alpha$-stable coordinate process generally has no finite global second moment for $\alpha<2$, the Dirichlet/carré-du-champ form is finite on suitable bounded or sufficiently regular test functions because the small-jump singularity is controlled by the squared difference. Fractional and stable generators are naturally represented by such nonlocal quadratic forms.
 
 # 9. Information geometry of stable jump intensities
 
 Under the profile perturbation,
 
-[
-\nu_{h_\varepsilon}(x,dy)
-=========================
-
+$$
+\nu_{h_\varepsilon}(x,dy)=
 e^{u_\varepsilon(x+y)-u_\varepsilon(x)}
 \nu_0(x,dy).
-]
+$$
 
 Its infinitesimal log-intensity score is
 
-[
-\boxed{
+$$
 \left.
 \partial_\varepsilon
 \log\nu_{h_\varepsilon}(x,dy)
-\right|_{\varepsilon=0}
-=======================
-
+\right|_{\varepsilon=0}=
 \Delta_y\phi(x).
-}
-]
+$$
 
 Hence the local information-rate Hessian is
 
-[
-\boxed{
-\mathcal I_{\alpha,h,x}(\phi,\psi)
-==================================
-
+$$
+\mathcal I_{\alpha,h,x}(\phi,\psi)=
 \int
 \Delta_y\phi,
 \Delta_y\psi,
 \nu_h(x,dy).
-}
-]
+$$
 
 Therefore, whenever the relative-entropy-rate integral is finite,
 
-[
-\boxed{
-\mathcal I_{\alpha,h}
-=====================
-
-# g_{\alpha,h}
-
+$$
+\mathcal I_{\alpha,h}=
+g_{\alpha,h}=
 2\Gamma_{\alpha,h}.
-}
-]
+$$
 
 This is the stable continuation of the identity we found in the Gaussian regime:
 
-[
-\boxed{
-\text{profile Fisher tensor}
-============================
-
+$$
+\text{profile Fisher tensor}=
 \text{jump carré du champ}.
-}
-]
+$$
 
 # 10. Symmetric anisotropic stable dispersion
 
 Assume first that the stable kernel is translation invariant and symmetric:
 
-[
+$$
 \nu_0(dy)=\nu_0(-dy).
-]
+$$
 
 Then
 
-[
-\mathcal L_{\alpha,0}e^{ik\cdot x}
-==================================
-
+$$
+\mathcal L_{\alpha,0}e^{ik\cdot x}=
 -\psi_\alpha(k)e^{ik\cdot x},
-]
+$$
 
 where
 
-[
-\boxed{
-\psi_\alpha(k)
-==============
-
+$$
+\psi_\alpha(k)=
 \int_{\mathbb R^d}
 \bigl[
 1-\cos(k\cdot y)
 \bigr]
 \nu_0(dy).
-}
-]
+$$
 
 For an anisotropic symmetric stable measure,
 
-[
-\boxed{
-\psi_{\alpha,\Lambda}(k)
-========================
-
+$$
+\psi_{\alpha,\Lambda}(k)=
 \int_{S^{d-1}}
 |k\cdot\theta|^\alpha
 \Lambda(d\theta),
-}
-]
+$$
 
-with normalization absorbed into (\Lambda).
+with normalization absorbed into $\Lambda$.
 
 This is the correct dispersion relation in the general symmetric stable regime.
 
 It is homogeneous:
 
-[
-\boxed{
-\psi_{\alpha,\Lambda}(ck)
-=========================
-
+$$
+\psi_{\alpha,\Lambda}(ck)=
 |c|^\alpha
 \psi_{\alpha,\Lambda}(k).
-}
-]
+$$
 
 Therefore the spatial and compositional scales obey
 
-[
-\boxed{
+$$
 x\sim\tau^{1/\alpha}.
-}
-]
+$$
 
 # 11. Isotropic stable regime
 
-For rotationally invariant (\Lambda),
+For rotationally invariant $\Lambda$,
 
-[
-\boxed{
-\psi_\alpha(k)
-==============
-
+$$
+\psi_\alpha(k)=
 D_\alpha|k|^\alpha.
-}
-]
+$$
 
 The generator is
 
-[
-\boxed{
-\mathcal L_{\alpha,0}
-=====================
-
+$$
+\mathcal L_{\alpha,0}=
 -D_\alpha(-\Delta)^{\alpha/2}.
-}
-]
+$$
 
-The isotropic fractional Laplacian is the generator of the isotropic (\alpha)-stable Lévy process and has Fourier multiplier (|k|^\alpha). 
+The isotropic fractional Laplacian is the generator of the isotropic $\alpha$-stable Lévy process and has Fourier multiplier $|k|^\alpha$.
 
 The profile equation becomes
 
-[
-\boxed{
+$$
 -D_\alpha
 \frac{(-\Delta)^{\alpha/2}h}{h}
--c
-==
-
+-c=
 \kappa.
-}
-]
+$$
 
 In logarithmic form,
 
-[
-\boxed{
-\kappa+c
-========
-
+$$
+\kappa+c=
 C_{d,\alpha}D_\alpha
 \int
 \frac{
@@ -745,80 +601,61 @@ e^{u(x+y)-u(x)}
 }{
 |y|^{d+\alpha}
 },dy.
-}
-]
+$$
 
 The transformed density equation is
 
-[
-\boxed{
-\partial_\tau\rho
-=================
-
+$$
+\partial_\tau\rho=
 (\mathcal L_\alpha^h)^\ast\rho.
-}
-]
+$$
 
-For constant (h), this reduces to the fractional heat equation
+For constant $h$, this reduces to the fractional heat equation
 
-[
-\boxed{
-\partial_\tau\rho
-=================
-
+$$
+\partial_\tau\rho=
 -D_\alpha(-\Delta)^{\alpha/2}\rho.
-}
-]
+$$
 
 # 12. Ground-state form and the one-particle operator
 
-Assume the untransformed stable kernel is symmetric. Then the (h)-transformed process is naturally represented on
+Assume the untransformed stable kernel is symmetric. Then the $h$-transformed process is naturally represented on
 
-[
+$$
 L^2(h^2dx).
-]
+$$
 
 Define
 
-[
-\boxed{
-B_{\alpha,h}
-============
-
+$$
+B_{\alpha,h}=
 -\mathcal L_\alpha^h.
-}
-]
+$$
 
 Its quadratic form is
 
-[
-\boxed{
+$$
 \begin{aligned}
-\mathcal E_{\alpha,h}(f,g)
-==========================
-
+\mathcal E_{\alpha,h}(f,g)=
 \frac12
 \int dx\int
 &
-\bigl[f(x+y)-f(x)\bigr]\
+\bigl[f(x+y)-f(x)\bigr]\\
 &\times
-\bigl[g(x+y)-g(x)\bigr]\
+\bigl[g(x+y)-g(x)\bigr]\\
 &\times
 h(x)h(x+y),
 \nu_0(dy).
 \end{aligned}
-}
-]
+$$
 
 Subject to the usual domain and integrability conditions,
 
-[
-\boxed{
+$$
 B_{\alpha,h}\ge0
-}
-]
+$$
 
-and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator shifted by its ground-state eigenvalue into the negative of a Markov generator on the weighted (L^2) space. 
+and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator shifted by its ground-state eigenvalue into the negative of a Markov generator on the weighted $L^2$ space.
 
 This is the operator whose continuum existence and spectral data can be investigated later.
 
@@ -826,78 +663,59 @@ This is the operator whose continuum existence and spectral data can be investig
 
 Let
 
-[
+$$
 \mathfrak k_{\alpha,h}
-]
+$$
 
-be the one-particle fluctuation space on which (B_{\alpha,h}) acts.
+be the one-particle fluctuation space on which $B_{\alpha,h}$ acts.
 
 In the degree-preserving linearized regime, pass to
 
-[
+$$
 \Gamma_s(\mathfrak k_{\alpha,h}).
-]
+$$
 
 The dissipative fluctuation generator is
 
-[
-\boxed{
-H_{\alpha,\mathrm{diss}}
-========================
-
+$$
+H_{\alpha,\mathrm{diss}}=
 d\Gamma(B_{\alpha,h}).
-}
-]
+$$
 
 The path-growth gauge contributes
 
-[
-\boxed{
-H_{\mathrm{gauge}}
-==================
-
+$$
+H_{\mathrm{gauge}}=
 \beta N,
 \qquad
 \beta=\log\lambda=-2\log R.
-}
-]
+$$
 
-Because (d\Gamma(B_{\alpha,h})) preserves particle number,
+Because $d\Gamma(B_{\alpha,h})$ preserves particle number,
 
-[
-\boxed{
+$$
 [d\Gamma(B_{\alpha,h}),N]=0.
-}
-]
+$$
 
 Therefore the stable critical fluctuation equation closes as
 
-[
-\boxed{
-\partial_\tau\Psi
-=================
-
+$$
+\partial_\tau\Psi=
 *
-
 \left[
 d\Gamma(B_{\alpha,h})
 +i\beta N
 \right]\Psi.
-}
-]
+$$
 
 Equivalently,
 
-[
-\boxed{
-\Psi_\tau
-=========
-
+$$
+\Psi_\tau=
 e^{-\tau d\Gamma(B_{\alpha,h})}
 e^{-i\beta\tau N}
 \Psi_0.
-}
-]
+$$
 
 This is the stable counterpart of the Gaussian quadratic equation.
 
@@ -905,54 +723,44 @@ This is the stable counterpart of the Gaussian quadratic equation.
 
 For the homogeneous isotropic case,
 
-[
-B_\alpha
-========
-
+$$
+B_\alpha=
 D_\alpha(-\Delta)^{\alpha/2}.
-]
+$$
 
 On the one-particle Fourier side,
 
-[
-\boxed{
-\widehat{B_\alpha f}(k)
-=======================
-
+$$
+\widehat{B_\alpha f}(k)=
 D_\alpha|k|^\alpha\widehat f(k).
-}
-]
+$$
 
-On the (n)-particle sector,
+On the $n$-particle sector,
 
-[
+$$
 d\Gamma(B_\alpha)
-]
+$$
 
 acts by
 
-[
-\boxed{
+$$
 D_\alpha
 \sum_{j=1}^n|k_j|^\alpha.
-}
-]
+$$
 
 Meanwhile,
 
-[
+$$
 N=n.
-]
+$$
 
 Hence the exact mode evolution is
 
-[
-\boxed{
+$$
 \widehat\Psi_n(
 k_1,\ldots,k_n;\tau
 )
 =
-
 \exp
 \left[
 -\tau D_\alpha
@@ -962,44 +770,31 @@ k_1,\ldots,k_n;\tau
 \widehat\Psi_n(
 k_1,\ldots,k_n;0
 ).
-}
-]
+$$
 
 Thus the complex spectral rate is
 
-[
-\boxed{
+$$
 \Omega_{\alpha,n}
-(k_1,\ldots,k_n)
-================
-
+(k_1,\ldots,k_n)=
 D_\alpha\sum_{j=1}^n|k_j|^\alpha
 +i\beta n.
-}
-]
+$$
 
 For one excitation,
 
-[
-\boxed{
-\Omega_\alpha(k)
-================
-
+$$
+\Omega_\alpha(k)=
 D_\alpha|k|^\alpha+i\log\lambda.
-}
-]
+$$
 
 In position space, the one-particle equation is
 
-[
-\boxed{
-\partial_\tau\psi
-=================
-
+$$
+\partial_\tau\psi=
 -D_\alpha(-\Delta)^{\alpha/2}\psi
 -i(\log\lambda)\psi.
-}
-]
+$$
 
 This is the explicit equation of the homogeneous isotropic stable regime.
 
@@ -1007,108 +802,82 @@ This is the explicit equation of the homogeneous isotropic stable regime.
 
 Because
 
-[
+$$
 B_{\alpha,h}\ge0
-]
+$$
 
 in the symmetric ground-state case, the holomorphic family
 
-[
-\boxed{
+$$
 e^{-zB_{\alpha,h}},
 \qquad
 \Re z\ge0,
-}
-]
+$$
 
 contains two boundary evolutions.
 
-For real (z=\tau>0),
+For real $z=\tau>0$,
 
-[
-\boxed{
-\partial_\tau\psi
-=================
-
+$$
+\partial_\tau\psi=
 -B_{\alpha,h}\psi,
-}
-]
+$$
 
 the stable diffusion.
 
-For imaginary (z=it),
+For imaginary $z=it$,
 
-[
-\boxed{
-i\partial_t\psi
-===============
-
+$$
+i\partial_t\psi=
 B_{\alpha,h}\psi,
-}
-]
+$$
 
 the associated fractional unitary evolution.
 
 In the homogeneous isotropic case,
 
-[
-\boxed{
-i\partial_t\psi
-===============
-
+$$
+i\partial_t\psi=
 D_\alpha(-\Delta)^{\alpha/2}\psi.
-}
-]
+$$
 
-Thus the fractional diffusion and fractional Schrödinger-type evolutions are analytic continuations of the same stable operator. The original path-length gauge supplies the additional commuting phase (\beta N).
+Thus the fractional diffusion and fractional Schrödinger-type evolutions are analytic continuations of the same stable operator. The original path-length gauge supplies the additional commuting phase $\beta N$.
 
 # 16. (\alpha) and (\beta) are different invariants
 
 We now have two exponents:
 
-[
-\boxed{
-\alpha
-======
-
+$$
+\alpha=
 \text{profile-displacement tail/scaling exponent},
-}
-]
+$$
 
 and
 
-[
-\boxed{
-\beta=\log\lambda
-=================
-
+$$
+\beta=\log\lambda=
 \text{route-multiplicity growth/gauge parameter}.
-}
-]
+$$
 
 Nothing derived so far forces a universal relation
 
-[
+$$
 \alpha=f(\beta).
-]
+$$
 
 They encode different structural sectors:
 
-* (\alpha) comes from the radial tail of coarse profile increments;
-* (\beta) comes from critical route growth.
+* $\alpha$ comes from the radial tail of coarse profile increments;
+* $\beta$ comes from critical route growth.
 
 A relation between them would be additional structure to discover in a particular family, not something that should be inserted universally.
 
 The homogeneous stable mode exposes both independently:
 
-[
-\boxed{
-\Omega_\alpha(k)
-================
-
+$$
+\Omega_\alpha(k)=
 D_\alpha|k|^\alpha+i\beta.
-}
-]
+$$
 
 Its real part is anomalous profile relaxation.
 
@@ -1122,29 +891,29 @@ To prove that a particular graph/profile family actually converges to this regim
 
 Show
 
-[
+$$
 \Pr_h(|Z_\delta|>r)
 \sim
 r^{-\alpha}L(r).
-]
+$$
 
 ### Angular convergence
 
 Show the directions of large profile displacements converge to
 
-[
+$$
 \Lambda_0(x,d\theta).
-]
+$$
 
 ### (h)-tilt stability
 
 Determine the asymptotics of
 
-[
+$$
 \frac{h(x+r\theta)}{h(x)}.
-]
+$$
 
-This decides whether (\alpha) survives or changes.
+This decides whether $\alpha$ survives or changes.
 
 ### Anti-clustering
 
@@ -1152,21 +921,20 @@ Show that one large route block does not force an uncontrolled cluster of equall
 
 ### Small-jump centering
 
-For (\alpha>1), control the truncated first moment needed to determine the drift.
+For $\alpha>1$, control the truncated first moment needed to determine the drift.
 
 ### Generator convergence
 
 Show
 
-[
+$$
 \mathcal L_{\delta}^h f
 \longrightarrow
 \mathcal L_\alpha^h f
-]
+$$
 
 on a core of test functions.
 
 ### Martingale-problem uniqueness
 
 Prove that the candidate stable-like operator determines a unique limiting process. Stable-like martingale problems are known to be well posed under suitable conditions, but those conditions must be verified for the operator produced by the graph family.
-

@@ -2,68 +2,57 @@
 
 Fix:
 
-* a root (o);
-* a weight (t>0);
-* the reachable node set (V_o);
+* a root $o$;
+* a weight $t>0$;
+* the reachable node set $V_o$;
 * finite Green values
-  [
+$$
   G_t(o,x)>0.
-  ]
+$$
 
-For every reachable node (x), define its normalized Green profile
+For every reachable node $x$, define its normalized Green profile
 
-[
-\kappa_x(v)
-===========
-
-# K_t(v,x)
-
+$$
+\kappa_x(v)=
+K_t(v,x)=
 \frac{G_t(v,x)}{G_t(o,x)}.
-]
+$$
 
-If (d(o,v)) is the shortest path length from (o) to (v), prefixing a shortest path (o\to v) gives
+If $d(o,v)$ is the shortest path length from $o$ to $v$, prefixing a shortest path $o\to v$ gives
 
-[
+$$
 G_t(o,x)\ge t^{d(o,v)}G_t(v,x).
-]
+$$
 
 Therefore
 
-[
+$$
 0\le \kappa_x(v)\le t^{-d(o,v)}.
-]
+$$
 
 Define the compact profile product
 
-[
-\boxed{
-\mathcal P_t
-============
-
+$$
+\mathcal P_t=
 \prod_{v\in V_o}
 [0,t^{-d(o,v)}].
-}
-]
+$$
 
 The node map is
 
-[
+$$
 \iota_t:V_o\longrightarrow\mathcal P_t,
 \qquad
 x\longmapsto\kappa_x.
-]
+$$
 
 The weighted Martin compactification is the closure
 
-[
-\boxed{
-\mathcal M_t
-============
-
+$$
+\mathcal M_t=
 \overline{\iota_t(V_o)}
 \subseteq\mathcal P_t.
-}
-]
+$$
 
 This is the usual structural idea behind Martin compactification: embed points by their normalized Green kernels and take the closure.
 
@@ -71,44 +60,40 @@ This is the usual structural idea behind Martin compactification: embed points b
 
 For a finite node set
 
-[
+$$
 F\Subset V_o,
-]
+$$
 
 let
 
-[
+$$
 \operatorname{pr}*F:
 \mathcal P_t
 \longrightarrow
-\prod*{v\in F}[0,t^{-d(o,v)}]
-]
+\prod_{v\in F}[0,t^{-d(o,v)}]
+$$
 
 be coordinate restriction.
 
 Define
 
-[
-\boxed{
-\mathcal M_{t,F}
-================
-
+$$
+\mathcal M_{t,F}=
 \overline{
 \operatorname{pr}_F\bigl(\iota_t(V_o)\bigr)
 }.
-}
-]
+$$
 
-Thus (\mathcal M_{t,F}) is everything that can arise as a limit of observations made at only the nodes in (F).
+Thus $\mathcal M_{t,F}$ is everything that can arise as a limit of observations made at only the nodes in $F$.
 
-If (F\subseteq F'), restriction gives a continuous surjection
+If $F\subseteq F'$, restriction gives a continuous surjection
 
-[
+$$
 r_{F',F}:
 \mathcal M_{t,F'}
 \longrightarrow
 \mathcal M_{t,F}.
-]
+$$
 
 Hence the finite profile spaces form an inverse system.
 
@@ -116,55 +101,53 @@ Hence the finite profile spaces form an inverse system.
 
 There is a canonical homeomorphism
 
-[
-\boxed{
+$$
 \mathcal M_t
 \cong
 \varprojlim_{F\Subset V_o}
 \mathcal M_{t,F}.
-}
-]
+$$
 
 ## Proof
 
-Every (h\in\mathcal M_t) determines the compatible family
+Every $h\in\mathcal M_t$ determines the compatible family
 
-[
+$$
 \bigl(h|_F\bigr)_F.
-]
+$$
 
 This gives an injective map into the inverse limit because two profiles agreeing on every finite subset agree at every node.
 
 Conversely, suppose
 
-[
+$$
 (y_F)*F
 \in
-\varprojlim_F\mathcal M*{t,F}.
-]
+\varprojlim_F\mathcal M_{t,F}.
+$$
 
 Compatibility determines one function
 
-[
+$$
 y:V_o\to[0,\infty)
-]
+$$
 
-whose restriction to (F) is (y_F).
+whose restriction to $F$ is $y_F$.
 
-Take a basic product neighborhood of (y). It depends on only finitely many coordinates, say those in (F). Since
+Take a basic product neighborhood of $y$. It depends on only finitely many coordinates, say those in $F$. Since
 
-[
+$$
 y_F\in
 \overline{
 \operatorname{pr}_F(\iota_t(V_o))
 },
-]
+$$
 
-that neighborhood contains the finite projection of some normalized Green column. Therefore every basic neighborhood of (y) intersects (\iota_t(V_o)), so
+that neighborhood contains the finite projection of some normalized Green column. Therefore every basic neighborhood of $y$ intersects $\iota_t(V_o)$, so
 
-[
+$$
 y\in\overline{\iota_t(V_o)}=\mathcal M_t.
-]
+$$
 
 Inverse limits provide the natural setting for reconstructing compact spaces from compatible finite-coordinate data.
 
@@ -172,41 +155,35 @@ Inverse limits provide the natural setting for reconstructing compact spaces fro
 
 If we instead use the raw images
 
-[
-Y_{t,F}
-=======
-
+$$
+Y_{t,F}=
 \operatorname{pr}_F(\iota_t(V_o)),
-]
+$$
 
 the formula
 
-[
+$$
 \mathcal M_t
 \stackrel{?}{=}
 \varprojlim_FY_{t,F}
-]
+$$
 
 can fail.
 
 A limiting coordinate value may be approximated arbitrarily well without being attained by any actual node. It belongs to
 
-[
+$$
 \overline{Y_{t,F}}
-]
+$$
 
-but not necessarily to (Y_{t,F}).
+but not necessarily to $Y_{t,F}$.
 
 Thus the corrected formula is
 
-[
-\boxed{
-\mathcal M_t
-============
-
+$$
+\mathcal M_t=
 \varprojlim_F\overline{Y_{t,F}}.
-}
-]
+$$
 
 If every finite profile image is already closed—for example, in certain finite or discrete situations—the closures can be omitted.
 
@@ -214,33 +191,31 @@ If every finite profile image is already closed—for example, in certain finite
 
 This gives a distinction that had previously been somewhat blurred.
 
-Suppose (X_t) is a set of Martin-regular tail ends and
+Suppose $X_t$ is a set of Martin-regular tail ends and
 
-[
+$$
 \Phi_t:X_t\to\mathcal P_t,
 \qquad
 \Phi_t(\xi)=h_\xi.
-]
+$$
 
 Then there are two separate steps:
 
-[
-\boxed{
+$$
 X_t
 \xrightarrow{\text{profile quotient}}
 \Phi_t(X_t)
 \xrightarrow{\text{closure}}
 \overline{\Phi_t(X_t)}.
-}
-]
+$$
 
 ## Profile quotient
 
 This identifies different histories satisfying
 
-[
+$$
 h_\xi=h_\eta.
-]
+$$
 
 It removes route information.
 
@@ -252,23 +227,21 @@ It does not identify existing points; it adjoins new ones.
 
 Therefore:
 
-[
-\boxed{
+$$
 \text{collapse}
 \neq
 \text{completion}.
-}
-]
+$$
 
 The first is measured by Martin defect fibers.
 
 The second is measured by the difference
 
-[
+$$
 \overline{\Phi_t(X_t)}
 \setminus
 \Phi_t(X_t).
-]
+$$
 
 # 6. Not every Martin point must come from one ray
 
@@ -282,13 +255,11 @@ It need not be generated by:
 
 Consequently, the closure of regular ray profiles can be smaller than the full Martin compactification:
 
-[
-\boxed{
+$$
 \overline{\Phi_t(X_t)}
 \subseteq
 \mathcal M_t.
-}
-]
+$$
 
 Equality requires an additional ray-generation theorem.
 
@@ -296,61 +267,51 @@ A1–A5 alone do not provide one, especially in systems with infinite branching 
 
 So the primary node compactification remains
 
-[
-\mathcal M_t
-============
-
-\overline{{\kappa_x:x\in V_o}},
-]
+$$
+\mathcal M_t=
+\overline\{\{\kappa_x:x\in V_o\}\},
+$$
 
 while regular rays supply a distinguished subset of its boundary.
 
 # 7. The finite-observable algebra
 
-For finite (F), let
+For finite $F$, let
 
-[
-\mathcal A_F
-============
-
-\left{
+$$
+\mathcal A_F=
+\left\{
 f\circ\operatorname{pr}*F:
-f\in C(\mathcal M*{t,F})
-\right}
+f\in C(\mathcal M_{t,F})
+\right\}
 \subseteq C(\mathcal M_t).
-]
+$$
 
 These are continuous observables depending on only finitely many node Green ratios.
 
-If (F,F') are finite, then sums and products of an (F)-observable and an (F')-observable depend only on
+If $F,F'$ are finite, then sums and products of an $F$-observable and an $F'$-observable depend only on
 
-[
+$$
 F\cup F'.
-]
+$$
 
 Therefore
 
-[
-\mathcal A_{\mathrm{fin}}
-=========================
-
+$$
+\mathcal A_{\mathrm{fin}}=
 \bigcup_{F\Subset V_o}\mathcal A_F
-]
+$$
 
 is a unital self-adjoint algebra.
 
-It separates points of (\mathcal M_t): two different profiles differ at some node (v), and the coordinate observable at (v) distinguishes them.
+It separates points of $\mathcal M_t$: two different profiles differ at some node $v$, and the coordinate observable at $v$ distinguishes them.
 
 By Stone–Weierstrass,
 
-[
-\boxed{
-\overline{\mathcal A_{\mathrm{fin}}}^{|\cdot|_\infty}
-=====================================================
-
+$$
+\overline\{\mathcal A_{\mathrm{fin}}\}^{|\cdot|_\infty}=
 C(\mathcal M_t).
-}
-]
+$$
 
 Thus every continuous node-level Martin observable is uniformly approximable by observables involving only finitely many nodes.
 
@@ -358,160 +319,142 @@ This does **not** mean finite node observations recover route history. They reco
 
 # 8. Exact algebraic defect intersection
 
-Return to a set (X_t) of Martin-regular ends.
+Return to a set $X_t$ of Martin-regular ends.
 
-For finite (F\Subset V_o), define
+For finite $F\Subset V_o$, define
 
-[
+$$
 \xi\sim_F\eta
 \iff
 h_\xi(v)=h_\eta(v)
 \quad
 \forall v\in F.
-]
+$$
 
 Let
 
-[
-\mathfrak D_F
-=============
-
+$$
+\mathfrak D_F=
 \operatorname{span}
-{
+\{
 \delta_\xi-\delta_\eta:
 \xi\sim_F\eta
-}
+\}
 \subseteq k^{(X_t)}.
-]
+$$
 
 Let full Martin equivalence be
 
-[
+$$
 \xi\sim_M\eta
 \iff
 h_\xi=h_\eta,
-]
+$$
 
 with defect module
 
-[
-\mathfrak D_M
-=============
-
+$$
+\mathfrak D_M=
 \operatorname{span}
-{
+\{
 \delta_\xi-\delta_\eta:
 \xi\sim_M\eta
-}.
-]
+\}.
+$$
 
 Then:
 
-[
-\boxed{
-\mathfrak D_M
-=============
-
+$$
+\mathfrak D_M=
 \bigcap_{F\Subset V_o}
 \mathfrak D_F.
-}
-]
+$$
 
 ## Proof
 
 The inclusion
 
-[
+$$
 \mathfrak D_M\subseteq\mathfrak D_F
-]
+$$
 
 is immediate.
 
 For the reverse inclusion, take
 
-[
+$$
 \mu=\sum_{i=1}^m c_i\delta_{\xi_i}
-]
+$$
 
-in every (\mathfrak D_F).
+in every $\mathfrak D_F$.
 
-Only finitely many histories occur in its support. For every pair among these histories that have different full profiles, choose one node that distinguishes their profiles. The union of these distinguishing nodes is a finite set (F_0).
+Only finitely many histories occur in its support. For every pair among these histories that have different full profiles, choose one node that distinguishes their profiles. The union of these distinguishing nodes is a finite set $F_0$.
 
-On the finite support of (\mu), the (F_0)-equivalence classes are exactly the full Martin-equivalence classes.
+On the finite support of $\mu$, the $F_0$-equivalence classes are exactly the full Martin-equivalence classes.
 
 Since
 
-[
+$$
 \mu\in\mathfrak D_{F_0},
-]
+$$
 
 the sum of its coefficients in every full Martin class is zero. Hence
 
-[
+$$
 \mu\in\mathfrak D_M.
-]
+$$
 
 The finite-support condition is essential to this exact argument.
 
 # 9. Dual observable interpretation
 
-The algebraic dual of (k^{(X_t)}) is the space of all functions
+The algebraic dual of $k^{(X_t)}$ is the space of all functions
 
-[
+$$
 a:X_t\to k.
-]
+$$
 
-The annihilator of (\mathfrak D_F) is
+The annihilator of $\mathfrak D_F$ is
 
-[
-\boxed{
-\mathfrak D_F^\perp
-===================
-
-{
+$$
+\mathfrak D_F^\perp=
+\{
 a:a(\xi)=a(\eta)
 \text{ whenever }\xi\sim_F\eta
-}.
-}
-]
+\}.
+$$
 
-These are precisely the functions factoring through the finite profile quotient
+These functions factor through the finite profile quotient
 
-[
-X_t/!\sim_F.
-]
+$$
+X_t/\!\sim_F.
+$$
 
 Likewise,
 
-[
-\boxed{
-\mathfrak D_M^\perp
-===================
-
-{
+$$
+\mathfrak D_M^\perp=
+\{
 a:a\text{ is constant on full Martin fibers}
-}.
-}
-]
+\}.
+$$
 
 So the two sides are exact dual shadows:
 
-[
-\boxed{
+$$
 \begin{array}{c|c}
-\text{Defect module}&\text{Observable space}\
+\text{Defect module}&\text{Observable space}\\
 \hline
 \mathfrak D_F&
-\text{distinctions invisible on }F\
+\text{distinctions invisible on }F\\
 \mathfrak D_F^\perp&
-\text{observables determined by }F\
+\text{observables determined by }F\\
 \mathfrak D_M&
-\text{distinctions invisible to every node}\
+\text{distinctions invisible to every node}\\
 \mathfrak D_M^\perp&
 \text{all functions of the full node profile}
 \end{array}
-}
-]
+$$
 
 # 10. Canonical observation-depth filtration
 
@@ -521,56 +464,48 @@ There is also a canonical one-parameter filtration relative to the root.
 
 Define
 
-[
-B_n(o)
-======
+$$
+B_n(o)=
+\{v\in V_o:d(o,v)\le n\}.
+$$
 
-{v\in V_o:d(o,v)\le n}.
-]
-
-No finiteness of (B_n(o)) is assumed.
+No finiteness of $B_n(o)$ is assumed.
 
 Define
 
-[
+$$
 \xi\sim_n\eta
 \iff
 h_\xi(v)=h_\eta(v)
 \quad
 \forall v\in B_n(o),
-]
+$$
 
 and let
 
-[
-\mathfrak D_n
-=============
-
+$$
+\mathfrak D_n=
 \operatorname{span}
-{
+\{
 \delta_\xi-\delta_\eta:
 \xi\sim_n\eta
-}.
-]
+\}.
+$$
 
 Then
 
-[
+$$
 \mathfrak D_{n+1}\subseteq\mathfrak D_n
-]
+$$
 
 and
 
-[
-\boxed{
-\mathfrak D_M
-=============
-
+$$
+\mathfrak D_M=
 \bigcap_{n\ge0}\mathfrak D_n.
-}
-]
+$$
 
-Every reachable node lies at some finite compositional distance from (o), so agreement on every (B_n(o)) is exactly agreement at every reachable node.
+Every reachable node lies at some finite compositional distance from $o$, so agreement on every $B_n(o)$ is exactly agreement at every reachable node.
 
 This filtration uses only compositional depth already intrinsic to the graph.
 
@@ -578,89 +513,78 @@ This filtration uses only compositional depth already intrinsic to the graph.
 
 For two regular ends, define
 
-[
-\boxed{
-s_t(\xi,\eta)
-=============
-
+$$
+s_t(\xi,\eta)=
 \min
-\left{
+\left\{
 d(o,v):
 h_\xi(v)\ne h_\eta(v)
-\right},
-}
-]
+\right\},
+$$
 
 when their profiles differ.
 
 If their node profiles are identical, set
 
-[
+$$
 s_t(\xi,\eta)=\infty.
-]
+$$
 
 Then
 
-[
-\boxed{
+$$
 \xi\sim_n\eta
 \iff
 s_t(\xi,\eta)>n.
-}
-]
+$$
 
-This is not an externally imposed distance. It is an intrinsic observation threshold:
+This intrinsic observation threshold is
 
-[
-\boxed{
-s_t(\xi,\eta)
-=============
-
+$$
+s_t(\xi,\eta)=
 \text{first compositional depth at which a node observable separates them}.
-}
-]
+$$
 
 Examples:
 
 * In a unique-route rooted tree, it is the depth at which the two rays first diverge.
 * For two histories in a diamond followed by a common tail,
-  [
+$$
   s_t=\infty,
-  ]
+$$
   because no node Green profile distinguishes them.
 * In complete layered mixing, every pair has
-  [
+$$
   s_t=\infty.
-  ]
+$$
 
 # 12. Exact defect layer at depth (n)
 
 Let
 
-[
-C_n=X_t/!\sim_n
-]
+$$
+C_n=X_t/\!\sim_n
+$$
 
-be the set of depth-(n) profile classes.
+be the set of depth-$n$ profile classes.
 
 There is a refinement map
 
-[
+$$
 \rho_n:C_{n+1}\to C_n.
-]
+$$
 
-For a coarse class (c\in C_n), let
+For a coarse class $c\in C_n$, let
 
-[
+$$
 \rho_n^{-1}(c)
-]
+$$
 
-be the collection of finer classes into which it splits at depth (n+1).
+be the collection of finer classes into which it splits at depth $n+1$.
 
 Then there is a canonical exact sequence
 
-[
-\boxed{
+$$
 0
 \longrightarrow
 \mathfrak D_{n+1}
@@ -671,56 +595,47 @@ Then there is a canonical exact sequence
 \widetilde{k}^{(\rho_n^{-1}(c))}
 \longrightarrow
 0.
-}
-]
+$$
 
 The last map takes a zero-total combination inside a coarse class and records the total coefficient carried by each finer subclass.
 
-Its kernel consists exactly of combinations already having zero total inside every finer class, namely (\mathfrak D_{n+1}).
+Its kernel consists exactly of combinations already having zero total inside every finer class, namely $\mathfrak D_{n+1}$.
 
 Therefore:
 
-[
-\boxed{
+$$
 \mathfrak D_n/\mathfrak D_{n+1}
 \cong
 \bigoplus_{c\in C_n}
 \widetilde{k}^{(\rho_n^{-1}(c))}.
-}
-]
+$$
 
-This is the precise module of distinctions first becoming visible at observation depth (n+1).
+This is the precise module of distinctions first becoming visible at observation depth $n+1$.
 
 # 13. Finite partition count
 
-If (C_n) and (C_{n+1}) are finite, then
+If $C_n$ and $C_{n+1}$ are finite, then
 
-[
+$$
 \dim
 \left(
 \mathfrak D_n/\mathfrak D_{n+1}
-\right)
-=======
-
+\right)=
 \sum_{c\in C_n}
 \left(
 |\rho_n^{-1}(c)|-1
 \right).
-]
+$$
 
 Hence
 
-[
-\boxed{
+$$
 \dim
 \left(
 \mathfrak D_n/\mathfrak D_{n+1}
-\right)
-=======
-
+\right)=
 |C_{n+1}|-|C_n|.
-}
-]
+$$
 
 The number of newly distinguishable profile directions is exactly the increase in the number of observation classes.
 
@@ -730,31 +645,29 @@ For infinite class sets, cardinal subtraction is not canonical, so the direct-su
 
 The profile classes form a canonical refinement diagram:
 
-* level (n): classes in (C_n);
-* an edge from (c'\in C_{n+1}) to (c\in C_n) when
-  [
+* level $n$: classes in $C_n$;
+* an edge from $c'\in C_{n+1}$ to $c\in C_n$ when
+$$
   \rho_n(c')=c.
-  ]
+$$
 
 A history determines a compatible descending chain of profile classes
 
-[
+$$
 c_0\leftarrow c_1\leftarrow c_2\leftarrow\cdots.
-]
+$$
 
 Two histories have the same full Martin profile exactly when they determine the same branch through every level.
 
 Thus:
 
-[
-\boxed{
+$$
 \text{finite observation}
 \longrightarrow
 \text{successive profile refinement}
 \longrightarrow
 \text{full node asymptotic profile}.
-}
-]
+$$
 
 The defect quotient at each level records the new branch splitting at that level.
 
@@ -770,39 +683,35 @@ These come from actual regular histories.
 
 These are coherent limits in the compact finite-profile spaces
 
-[
+$$
 \mathcal M_{t,B_n(o)}.
-]
+$$
 
 A completed branch may fail to come from one actual history.
 
 Therefore the inverse-limit completion contains:
 
-[
-\boxed{
+$$
 \text{realized profile branches}
-}
-]
+$$
 
 and possibly
 
-[
-\boxed{
+$$
 \text{generalized coherent branches}.
-}
-]
+$$
 
-This is exactly analogous to completing finite paths by adding boundary points, except that the coordinates are normalized Green observations rather than path prefixes.
+This parallels the completion of finite paths by boundary points, with normalized Green observations in place of path prefixes.
 
 # 16. Special zero-dimensional case
 
 If all finite profile spaces are finite and discrete, then
 
-[
+$$
 \mathcal M_t
 \cong
 \varprojlim_F\mathcal M_{t,F}
-]
+$$
 
 is a profinite space.
 
@@ -811,7 +720,7 @@ In that case:
 * clopen cylinder sets come from finite node observations;
 * every profile is determined by a compatible system of finite discrete profiles;
 * the finite-observable algebra is the locally constant algebra;
-* its uniform completion is (C(\mathcal M_t)).
+* its uniform completion is $C(\mathcal M_t)$.
 
 Inverse limits of finite discrete spaces are exactly the standard profinite construction.
 

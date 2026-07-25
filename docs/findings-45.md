@@ -1,96 +1,86 @@
 # 1. Minimal first-pass cylinder dictionary
 
-Let (A) be the adjacency matrix of a DAG, including channel multiplicities, and let
+Let $A$ be the adjacency matrix of a DAG, including channel multiplicities, and let
 
-[
+$$
 \mathbf 1=(1,\ldots,1)^\mathsf T.
-]
+$$
 
 Define
 
-[
+$$
 d^+=A\mathbf1,
 \qquad
 d^-=A^\mathsf T\mathbf1.
-]
+$$
 
 These are the out- and in-degree vectors.
 
 The four second-order aggregate vectors are
 
-[
+$$
 q^{++}=A^2\mathbf1=A d^+,
-]
+$$
 
-[
+$$
 q^{--}=(A^\mathsf T)^2\mathbf1=A^\mathsf T d^-,
-]
+$$
 
-[
+$$
 q^{+-}=AA^\mathsf T\mathbf1=A d^-,
-]
+$$
 
-[
+$$
 q^{-+}=A^\mathsf TA\mathbf1=A^\mathsf T d^+.
-]
+$$
 
-Their meanings at node (u) are:
+Their meanings at node $u$ are:
 
-[
-q^{++}(u)
-=========
+$$
+q^{++}(u)=
+\#\{\text{directed length-two routes starting at }u\},
+$$
 
-#{\text{directed length-two routes starting at }u},
-]
+$$
+q^{--}(u)=
+\#\{\text{directed length-two routes ending at }u\},
+$$
 
-[
-q^{--}(u)
-=========
-
-#{\text{directed length-two routes ending at }u},
-]
-
-[
-q^{+-}(u)
-=========
-
+$$
+q^{+-}(u)=
 \sum_v
-#\bigl(N^+(u)\cap N^+(v)\bigr),
-]
+\#\bigl(N^+(u)\cap N^+(v)\bigr),
+$$
 
-[
-q^{-+}(u)
-=========
-
+$$
+q^{-+}(u)=
 \sum_v
-#\bigl(N^-(u)\cap N^-(v)\bigr).
-]
+\#\bigl(N^-(u)\cap N^-(v)\bigr).
+$$
 
 Therefore define the normalized node coordinate
 
-[
-\boxed{
+$$
 X_G(u)=
 \begin{pmatrix}
-d^+(u)/n\
-d^-(u)/n\
-q^{++}(u)/n^2\
-q^{--}(u)/n^2\
-q^{+-}(u)/n^2\
+d^+(u)/n\\
+d^-(u)/n\\
+q^{++}(u)/n^2\\
+q^{--}(u)/n^2\\
+q^{+-}(u)/n^2\\
 q^{-+}(u)/n^2
 \end{pmatrix}
 \in\mathbb R^6.
-}
-]
+$$
 
-This is exactly the first-moment projection of the implemented second-order pair profile.
+This is the first-moment projection of the implemented second-order pair profile.
 
 It is:
 
 * label invariant;
 * comparable across system sizes;
 * sparse-matrix computable;
-* bounded in a fixed compact subset of (\mathbb R^6);
+* bounded in a fixed compact subset of $\mathbb R^6$;
 * sensitive to direction, two-step flow, divergence and reconvergence.
 
 No manually selected graph statistic has been added.
@@ -99,17 +89,17 @@ No manually selected graph statistic has been added.
 
 The direct-relation frequencies are already determined by the first two coordinates:
 
-[
-\frac{#{v:u\to v}}n=\frac{d^+(u)}n,
-]
+$$
+\frac{\#\{v:u\to v\}}n=\frac{d^+(u)}n,
+$$
 
-[
-\frac{#{v:v\to u}}n=\frac{d^-(u)}n.
-]
+$$
+\frac{\#\{v:v\to u\}}n=\frac{d^-(u)}n.
+$$
 
-Equality contributes (1/n), and incomparability is the remainder. Thus those relation-count cylinders add no independent first-order information.
+Equality contributes $1/n$, and incomparability is the remainder. Thus those relation-count cylinders add no independent first-order information.
 
-Partner-degree averages that do not depend on (u) are also graph-global constants and do not contribute to node motion.
+Partner-degree averages that do not depend on $u$ are also graph-global constants and do not contribute to node motion.
 
 So these six coordinates are the minimal nonredundant linear node cylinders supplied by the current communication record.
 
@@ -117,8 +107,7 @@ So these six coordinates are the minimal nonredundant linear node cylinders supp
 
 Before normalization, define the exact integer signature
 
-[
-\boxed{
+$$
 S_G(u)=
 \left(
 d^+(u),
@@ -128,104 +117,91 @@ q^{--}(u),
 q^{+-}(u),
 q^{-+}(u)
 \right).
-}
-]
+$$
 
 Group nodes into classes
 
-[
-C_a={u:S_G(u)=s_a},
+$$
+C_a=\{u:S_G(u)=s_a\},
 \qquad
 a=1,\ldots,m.
-]
+$$
 
 Each class has one normalized coordinate
 
-[
+$$
 \xi_a=X_G(u),
 \qquad u\in C_a.
-]
+$$
 
-This means the first-pass state space of a graph has at most (n) states, usually fewer.
+This means the first-pass state space of a graph has at most $n$ states, usually fewer.
 
-The exact profile-refinement hierarchy will later replace (S_G(u)) by increasingly refined node colors. But this six-integer signature is the smallest useful starting point.
+The exact profile-refinement hierarchy will later replace $S_G(u)$ by increasingly refined node colors. But this six-integer signature is the smallest useful starting point.
 
 # 3. Route counting
 
-For a selected route horizon (p), compute
+For a selected route horizon $p$, compute
 
-[
+$$
 r_0=\mathbf1,
 \qquad
 r_{k+1}=Ar_k,
-]
+$$
 
 and
 
-[
+$$
 \ell_0=\mathbf1,
 \qquad
 \ell_{k+1}=A^\mathsf T\ell_k.
-]
+$$
 
 Thus
 
-[
-r_k(v)=#{\text{length-}k\text{ routes starting at }v},
-]
+$$
+r_k(v)=\#\{\text{length-}k\text{ routes starting at }v\},
+$$
 
-[
-\ell_k(v)=#{\text{length-}k\text{ routes ending at }v}.
-]
+$$
+\ell_k(v)=\#\{\text{length-}k\text{ routes ending at }v\}.
+$$
 
-The total number of length-(p) routes is
+The total number of length-$p$ routes is
 
-[
-\boxed{
+$$
 T_p=\sum_v r_p(v).
-}
-]
+$$
 
-For an edge (e:v\to w) of multiplicity (m_e), define its route-flow numerator
+For an edge $e:v\to w$ of multiplicity $m_e$, define its route-flow numerator
 
-[
-\boxed{
-W_e^{(p)}
-=========
-
+$$
+W_e^{(p)}=
 m_e
 \sum_{j=0}^{p-1}
 \ell_j(v),
 r_{p-j-1}(w).
-}
-]
+$$
 
-This counts how many edge occurrences across all length-(p) routes use (e), summed over every possible route position.
+This counts how many edge occurrences across all length-$p$ routes use $e$, summed over every possible route position.
 
 The normalized route-averaged edge flow is
 
-[
-\boxed{
-f_e^{(p)}
-=========
-
+$$
+f_e^{(p)}=
 \frac{W_e^{(p)}}{pT_p}.
-}
-]
+$$
 
-A crucial exact audit identity is
+The exact audit identity is
 
-[
-\boxed{
+$$
 \sum_eW_e^{(p)}=pT_p,
-}
-]
+$$
 
 hence
 
-[
+$$
 \sum_ef_e^{(p)}=1.
-]
+$$
 
 A failure of this identity means the route-flow implementation is wrong.
 
@@ -233,154 +209,119 @@ A failure of this identity means the route-flow implementation is wrong.
 
 Define the integer class-flow matrix
 
-[
-\boxed{
-W_{ab}^{(p)}
-============
-
-\sum_{\substack{e:v\to w\v\in C_a,\ w\in C_b}}
+$$
+W_{ab}^{(p)}=
+\sum_{\substack{e:v\to w\\v\in C_a,\ w\in C_b}}
 W_e^{(p)}.
-}
-]
+$$
 
 Then
 
-[
+$$
 \sum_{a,b}W_{ab}^{(p)}=pT_p.
-]
+$$
 
 Its normalized version is
 
-[
-F_{ab}^{(p)}
-============
-
+$$
+F_{ab}^{(p)}=
 \frac{W_{ab}^{(p)}}{pT_p}.
-]
+$$
 
 Define the source mass
 
-[
-\pi_a^{\mathrm{out}}
-====================
-
+$$
+\pi_a^{\mathrm{out}}=
 \sum_bF_{ab}^{(p)}
-]
+$$
 
 and target mass
 
-[
-\pi_b^{\mathrm{in}}
-===================
-
+$$
+\pi_b^{\mathrm{in}}=
 \sum_aF_{ab}^{(p)}.
-]
+$$
 
-Whenever (\pi_a^{\mathrm{out}}>0), the empirical route transition matrix is
+Whenever $\pi_a^{\mathrm{out}}>0$, the empirical route transition matrix is
 
-[
-\boxed{
-K_{ab}^{(p)}
-============
-
+$$
+K_{ab}^{(p)}=
 \frac{F_{ab}^{(p)}}{\pi_a^{\mathrm{out}}}.
-}
-]
+$$
 
 Thus
 
-[
+$$
 \sum_bK_{ab}^{(p)}=1.
-]
+$$
 
 The corresponding finite generator is
 
-[
-\boxed{
-L_{ab}^{(p)}
-============
-
+$$
+L_{ab}^{(p)}=
 \frac{
 K_{ab}^{(p)}-\delta_{ab}
 }{
 a_{G,p}
 },
-}
-]
+$$
 
-where (a_{G,p}) is the continuum-time scale extracted below.
+where $a_{G,p}$ is the continuum-time scale extracted below.
 
 This is the first directly computable approximation to the continuum profile operator.
 
 # 5. Local coefficient fields
 
-At class (a), define
+At class $a$, define
 
-[
+$$
 \Delta\xi_{ab}=\xi_b-\xi_a.
-]
+$$
 
 The local drift is
 
-[
-\boxed{
-b_a^{(p)}
-=========
-
+$$
+b_a^{(p)}=
 \frac1{a_{G,p}}
 \sum_bK_{ab}^{(p)}\Delta\xi_{ab}.
-}
-]
+$$
 
 The local raw quadratic tensor is
 
-[
-\boxed{
-A_a^{(p)}
-=========
-
+$$
+A_a^{(p)}=
 \frac1{a_{G,p}}
 \sum_b
 K_{ab}^{(p)}
 \Delta\xi_{ab}
 \Delta\xi_{ab}^\mathsf T.
-}
-]
+$$
 
 The local covariance is
 
-[
-\boxed{
-\Sigma_a^{(p)}
-==============
-
-## A_a^{(p)}
-
+$$
+\Sigma_a^{(p)}=
+A_a^{(p)}-
 a_{G,p},
 b_a^{(p)}
 b_a^{(p)\mathsf T}.
-}
-]
+$$
 
-That final factor is important because the unscaled conditional mean is
+The final factor appears because the unscaled conditional mean is
 
-[
+$$
 a_{G,p}b_a^{(p)}.
-]
+$$
 
 The local third tensor is
 
-[
-\boxed{
-C_a^{(3,p)}
-===========
-
+$$
+C_a^{(3,p)}=
 \frac1{a_{G,p}}
 \sum_b
 K_{ab}^{(p)}
 \Delta\xi_{ab}^{\otimes3}.
-}
-]
+$$
 
 These classwise tensors determine whether different profile regions have different continuum regimes.
 
@@ -388,266 +329,207 @@ These classwise tensors determine whether different profile regions have differe
 
 The route-averaged mean increment is
 
-[
-\boxed{
-m_{G,p}
-=======
-
+$$
+m_{G,p}=
 \sum_{a,b}
 F_{ab}^{(p)}
 \Delta\xi_{ab}.
-}
-]
+$$
 
 The raw quadratic tensor is
 
-[
-\boxed{
-Q_{G,p}
-=======
-
+$$
+Q_{G,p}=
 \sum_{a,b}
 F_{ab}^{(p)}
 \Delta\xi_{ab}
 \Delta\xi_{ab}^\mathsf T.
-}
-]
+$$
 
 The centered covariance is
 
-[
-\boxed{
-C_{G,p}
-=======
-
-## Q_{G,p}
-
+$$
+C_{G,p}=
+Q_{G,p}-
 m_{G,p}m_{G,p}^\mathsf T.
-}
-]
+$$
 
 The third moment is
 
-[
-\boxed{
-M_{G,p}^{(3)}
-=============
-
+$$
+M_{G,p}^{(3)}=
 \sum_{a,b}
 F_{ab}^{(p)}
 \Delta\xi_{ab}^{\otimes3}.
-}
-]
+$$
 
 The canonical first-pass time scale is
 
-[
-\boxed{
-a_{G,p}
-=======
-
+$$
+a_{G,p}=
 \operatorname{tr}C_{G,p}.
-}
-]
+$$
 
 When
 
-[
+$$
 a_{G_n,p_n}\to0,
-]
+$$
 
-one primitive edge represents (a_{G_n,p_n}) units of continuum time.
+one primitive edge represents $a_{G_n,p_n}$ units of continuum time.
 
 # 7. An exact telescoping identity for the drift
 
 There is a useful simplification that should be built into the analysis.
 
-Under the uniform length-(p) route ensemble,
+Under the uniform length-$p$ route ensemble,
 
-[
+$$
 \sum_{j=0}^{p-1}
 \left[
 X(V_{j+1})-X(V_j)
-\right]
-=======
-
+\right]=
 X(V_p)-X(V_0).
-]
+$$
 
-After expectation and division by (p),
+After expectation and division by $p$,
 
-[
-\boxed{
-m_{G,p}
-=======
-
+$$
+m_{G,p}=
 \frac{
-\mathbb E_p[X(V_p)]
--------------------
-
+\mathbb E_p[X(V_p)]-
 \mathbb E_p[X(V_0)]
 }{
 p
 }.
-}
-]
+$$
 
 Equivalently,
 
-[
-\boxed{
-m_{G,p}
-=======
-
+$$
+m_{G,p}=
 \sum_a
 \left(
-\pi_a^{\mathrm{in}}
--------------------
-
+\pi_a^{\mathrm{in}}-
 \pi_a^{\mathrm{out}}
 \right)\xi_a.
-}
-]
+$$
 
-Because (X) is bounded,
+Because $X$ is bounded,
 
-[
-\boxed{
+$$
 |m_{G,p}|
 \le
 \frac{\operatorname{diam}(X_G)}p.
-}
-]
+$$
 
-This has an important consequence:
+Consequently:
 
 > The globally route-averaged drift is a horizon-boundary effect.
 
-It normally disappears as (p\to\infty). Therefore global mean drift cannot be used alone to decide whether the local continuum dynamics has drift.
+It normally disappears as $p\to\infty$. Therefore global mean drift cannot be used alone to decide whether the local continuum dynamics has drift.
 
 The local quantities
 
-[
+$$
 b_a^{(p)}
-]
+$$
 
 must be retained. They can remain nonzero even while the globally averaged drift vanishes.
 
 This also gives another exact audit:
 
-[
-\boxed{
-p,m_{G,p}
-=========
-
+$$
+p,m_{G,p}=
 \mathbb E_p[X(V_p)]-\mathbb E_p[X(V_0)].
-}
-]
+$$
 
 # 8. Markov-closure or lumpability defect
 
 A class transition matrix is exact only if nodes with the same profile class have the same conditional transition law over classes.
 
-For remaining horizon (k), define
+For remaining horizon $k$, define
 
-[
-P_k(v,w)
-========
-
+$$
+P_k(v,w)=
 \frac{
 A_{vw}r_{k-1}(w)
 }{
 r_k(v)
 }.
-]
+$$
 
-For (v\in C_a), let
+For $v\in C_a$, let
 
-[
-P_k(v,C_b)
-==========
-
+$$
+P_k(v,C_b)=
 \sum_{w\in C_b}P_k(v,w).
-]
+$$
 
 Exact lumpability requires
 
-[
-P_k(v,C_b)
-==========
-
+$$
+P_k(v,C_b)=
 P_k(v',C_b)
-]
+$$
 
-for every (v,v'\in C_a).
+for every $v,v'\in C_a$.
 
 Define a route-weighted mean class transition
 
-[
-\overline P_{ab,k}
-==================
-
+$$
+\overline P_{ab,k}=
 \sum_{v\in C_a}
 \omega_{a,k}(v)
 P_k(v,C_b),
-]
+$$
 
-where (\omega_{a,k}) is the route-occupancy distribution inside (C_a).
+where $\omega_{a,k}$ is the route-occupancy distribution inside $C_a$.
 
 The squared closure defect is
 
-[
-\boxed{
-\mathfrak E_{a,k}^2
-===================
-
+$$
+\mathfrak E_{a,k}^2=
 \sum_{v\in C_a}
 \omega_{a,k}(v)
 \sum_b
 \left[
-P_k(v,C_b)
-----------
-
+P_k(v,C_b)-
 \overline P_{ab,k}
 \right]^2.
-}
-]
+$$
 
 Aggregate it as
 
-[
-\boxed{
-\mathfrak E_{G,p}
-=================
-
-\max_{\substack{k\text{ in bulk}\a}}
+$$
+\mathfrak E_{G,p}=
+\max_{\substack{k\text{ in bulk}\\a}}
 \mathfrak E_{a,k}.
-}
-]
+$$
 
 Interpretation:
 
-[
+$$
 \mathfrak E_{G,p}=0
-]
+$$
 
 means the six-coordinate state is exactly Markov-complete at that horizon.
 
-[
+$$
 \mathfrak E_{G_n,p_n}\to0
-]
+$$
 
 means it becomes asymptotically Markov-complete.
 
 If it does not vanish, increase the profile dictionary:
 
-[
+$$
 6\text{-coordinate signature}
 \longrightarrow
 \text{full one-round pair-profile histogram}
 \longrightarrow
 \text{stabilized profile}.
-]
+$$
 
 This provides a data-driven stopping rule for refinement depth.
 
@@ -655,110 +537,85 @@ This provides a data-driven stopping rule for refinement depth.
 
 The finite route law depends on the remaining horizon. We must test whether an autonomous bulk generator emerges.
 
-At route position (j), let
+At route position $j$, let
 
-[
+$$
 k=p-j
-]
+$$
 
 be the remaining horizon, and compute the class transition matrix
 
-[
+$$
 K^{(p,j)}.
-]
+$$
 
-Choose a bulk fraction (0<\varepsilon<1/2), for example (\varepsilon=0.2), and define
+Choose a bulk fraction $0<\varepsilon<1/2$, for example $\varepsilon=0.2$, and define
 
-[
-J_{\mathrm{bulk}}
-=================
-
-{
+$$
+J_{\mathrm{bulk}}=
+\{
 j:
 \varepsilon p\le j\le(1-\varepsilon)p
-}.
-]
+\}.
+$$
 
 Let
 
-[
-\overline K_{\mathrm{bulk}}
-===========================
-
+$$
+\overline K_{\mathrm{bulk}}=
 \frac1{|J_{\mathrm{bulk}}|}
 \sum_{j\in J_{\mathrm{bulk}}}
 K^{(p,j)}.
-]
+$$
 
 The plateau defect is
 
-[
-\boxed{
-\mathfrak P_{G,p}
-=================
-
+$$
+\mathfrak P_{G,p}=
 \max_{j\in J_{\mathrm{bulk}}}
 \left|
-K^{(p,j)}
----------
-
+K^{(p,j)}-
 \overline K_{\mathrm{bulk}}
 \right|_{\mathrm{row},\pi}.
-}
-]
+$$
 
 A convenient route-weighted norm is
 
-[
-|M|_{\mathrm{row},\pi}^2
-========================
-
+$$
+|M|_{\mathrm{row},\pi}^2=
 \sum_a\pi_a
 \sum_bM_{ab}^2.
-]
+$$
 
 The autonomous continuum generator requires
 
-[
-\boxed{
+$$
 \mathfrak P_{G_n,p_n}\to0.
-}
-]
+$$
 
-If it converges instead to a nonzero profile as a function of (j/p), the continuum limit is nonautonomous.
+If it converges instead to a nonzero profile as a function of $j/p$, the continuum limit is nonautonomous.
 
 # 10. Small-jump and Gaussian-closure diagnostics
 
 Define the maximal route-relevant jump
 
-[
-\boxed{
-J_{\max}
-========
-
+$$
+J_{\max}=
 \max_{e:f_e^{(p)}>0}
 |\Delta X_e|.
-}
-]
+$$
 
 The basic small-jump ratio is
 
-[
-\boxed{
-\mathfrak J_{G,p}
-=================
-
+$$
+\mathfrak J_{G,p}=
 \frac{J_{\max}}{\sqrt{a_{G,p}}}.
-}
-]
+$$
 
 For a conventional triangular-array diffusion limit, the stronger useful condition is that the largest absolute jump tends to zero and the Lindeberg contribution vanishes:
 
-[
-\boxed{
-\mathfrak L_{G,p}(\epsilon)
-===========================
-
+$$
+\mathfrak L_{G,p}(\epsilon)=
 \frac1{a_{G,p}}
 \sum_e
 f_e^{(p)}
@@ -768,37 +625,32 @@ f_e^{(p)}
 |\Delta X_e|>\epsilon
 }
 }.
-}
-]
+$$
 
 The Gaussian closure requires
 
-[
+$$
 \mathfrak L_{G_n,p_n}(\epsilon)\to0
-]
+$$
 
-for every (\epsilon>0).
+for every $\epsilon>0$.
 
 The scaled third-moment diagnostic is
 
-[
-\boxed{
-\mathfrak K_{3,G,p}
-===================
-
+$$
+\mathfrak K_{3,G,p}=
 \frac{
 |M_{G,p}^{(3)}|
 }{
 a_{G,p}
 }.
-}
-]
+$$
 
 In an ordinary diffusive regime,
 
-[
+$$
 \mathfrak K_{3,G_n,p_n}\to0.
-]
+$$
 
 If it remains finite or diverges, inspect the full jump measure rather than forcing a diffusion approximation.
 
@@ -806,79 +658,63 @@ If it remains finite or diverges, inspect the full jump measure rather than forc
 
 Compute
 
-[
+$$
 T_0,T_1,\ldots,T_h,
-]
+$$
 
-where (h) is the graph height.
+where $h$ is the graph height.
 
 The finite route-growth sequence is
 
-[
-\boxed{
-\beta_p
-=======
-
+$$
+\beta_p=
 \log\frac{T_{p+1}}{T_p}.
-}
-]
+$$
 
-For finite DAGs, it must eventually collapse because (T_p=0) past the maximum path length. We are looking for an interior plateau in graph families of increasing height.
+For finite DAGs, it must eventually collapse because $T_p=0$ past the maximum path length. We are looking for an interior plateau in graph families of increasing height.
 
 Define
 
-[
-\overline\beta_{\mathrm{bulk}}
-==============================
-
+$$
+\overline\beta_{\mathrm{bulk}}=
 \frac1{|P_{\mathrm{bulk}}|}
 \sum_{p\in P_{\mathrm{bulk}}}\beta_p
-]
+$$
 
 and
 
-[
-\boxed{
-\mathfrak B_G
-=============
-
+$$
+\mathfrak B_G=
 \max_{p\in P_{\mathrm{bulk}}}
 |\beta_p-\overline\beta_{\mathrm{bulk}}|.
-}
-]
+$$
 
 If
 
-[
+$$
 \mathfrak B_{G_n}\to0,
-]
+$$
 
 then
 
-[
-\beta_0
-=======
-
+$$
+\beta_0=
 \lim\overline\beta_{\mathrm{bulk}}
-]
+$$
 
 is the carrier route-growth rate.
 
 The finite residual gauge rate is
 
-[
-\boxed{
-\Omega
-======
-
+$$
+\Omega=
 \lim_n
 \frac{
 \overline\beta_{\mathrm{bulk}}(G_n)-\beta_0
 }{
 a_{G_n,p_n}
 }.
-}
-]
+$$
 
 This is the coefficient entering the continuum master resolvent.
 
@@ -979,19 +815,19 @@ For large route counts, use:
 
 * unsigned 128-bit integers where safe;
 * arbitrary-precision integers when required;
-* or mantissa-plus-log representations for very large (n).
+* or mantissa-plus-log representations for very large $n$.
 
 The identity
 
-[
+$$
 \sum_eW_e=pT_p
-]
+$$
 
 makes overflow or normalization errors easy to detect.
 
 # 13. Suggested output record
 
-A compact binary output record for each ((G,p)) should contain:
+A compact binary output record for each $(G,p)$ should contain:
 
 ```text
 graph_id
@@ -1022,15 +858,15 @@ class_flow_sparse[(source_class, target_class, weight)]
 
 The symmetric tensor sizes are:
 
-[
+$$
 \frac{6(6+1)}2=21
-]
+$$
 
 for the quadratic tensor and
 
-[
+$$
 \binom{6+3-1}{3}=56
-]
+$$
 
 for the symmetric cubic tensor.
 
@@ -1042,46 +878,38 @@ The progression should be:
 
 ## Level 0: six-coordinate dictionary
 
-[
-\boxed{
+$$
 X^{[0]}=
 (d^+,d^-,A^2\mathbf1,(A^\mathsf T)^2\mathbf1,
 AA^\mathsf T\mathbf1,A^\mathsf TA\mathbf1).
-}
-]
+$$
 
 This is extremely cheap and directly reuses the existing communication counts.
 
 ## Level 1: full one-round node histogram
 
-Let (c_1(u,v)) be the canonical one-round ordered-pair profile key. Define
+Let $c_1(u,v)$ be the canonical one-round ordered-pair profile key. Define
 
-[
-\boxed{
-x_u(c,d)
-========
-
+$$
+x_u(c,d)=
 \frac1n
-#{
+\#\{
 v:
 (c_1(u,v),c_1(v,u))=(c,d)
-}.
-}
-]
+\}.
+$$
 
 Use sparse histograms and a square-root embedding
 
-[
-\boxed{
+$$
 Y_u(c,d)=\sqrt{x_u(c,d)}.
-}
-]
+$$
 
 Then
 
-[
+$$
 |Y_u-Y_w|_2^2
-]
+$$
 
 is twice the squared Hellinger distance between their exact one-round node profiles.
 
@@ -1089,11 +917,11 @@ This supplies a canonical information-geometric metric without choosing arbitrar
 
 ## Level (r): stabilized profile histograms
 
-Replace (c_1) by (c_r), stopping when:
+Replace $c_1$ by $c_r$, stopping when:
 
-[
+$$
 \mathfrak E_{G,p,r}
-]
+$$
 
 is below tolerance or reaches zero exactly.
 
@@ -1101,61 +929,47 @@ Thus the required refinement depth is selected dynamically by Markov closure, no
 
 # 15. The first computable convergence criterion
 
-For a graph sequence (G_n), horizons (p_n), and profile levels (r_n), the diffusion candidate is supported when all of the following occur:
+For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when all of the following occur:
 
-[
-\boxed{
+$$
 a_n\to0,
-}
-]
+$$
 
-[
-\boxed{
+$$
 \mathfrak L_n(\epsilon)\to0
 \quad\forall\epsilon>0,
-}
-]
+$$
 
-[
-\boxed{
+$$
 \mathfrak K_{3,n}\to0,
-}
-]
+$$
 
-[
-\boxed{
+$$
 \mathfrak E_n\to0,
-}
-]
+$$
 
-[
-\boxed{
+$$
 \mathfrak P_n\to0,
-}
-]
+$$
 
 and the scaled local tensors
 
-[
+$$
 b_{a,n},
 \qquad
 A_{a,n}
-]
+$$
 
 converge as functions of the profile coordinate.
 
 If small jumps fail, retain the empirical class-jump measure
 
-[
-\boxed{
-\nu_n(\xi_a,dz)
-===============
-
+$$
+\nu_n(\xi_a,dz)=
 \frac1{a_n}
 \sum_b
 K_{ab}^{(p_n)}
 \delta_{\xi_b-\xi_a}(dz)
-}
-]
+$$
 
 and test it for Lévy convergence instead.
