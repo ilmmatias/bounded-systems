@@ -328,12 +328,14 @@ A nonzero hidden-sector initial condition or external forcing adds a source to t
 
 Define the gauge-covariant generalized derivative by
 
-$$
-\mathcal L_\tau
-\left[\mathfrak D_{G}^{\Phi}\Psi\right](q)=
-\Phi(Z_q)\widetilde\Psi(q)-
+```math
+\mathcal{L}_{\tau}
+\left[\mathfrak{D}_{G}^{\Phi}\Psi\right](q)
+=
+\Phi(Z_q)\widetilde{\Psi}(q)
+-
 \frac{\Phi(Z_q)}{Z_q}\Psi_0.
-$$
+```
 
 Define the clock-renormalized memory kernel through
 
