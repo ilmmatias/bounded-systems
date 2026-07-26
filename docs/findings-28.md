@@ -12,7 +12,7 @@ Parallel channels appear separately in the sum.
 With the earlier convention
 
 $$
-A(w,v)=\#\{e:v\to w\},
+A(w,v)=\left|\{e:v\to w\}\right|,
 $$
 
 this is
@@ -874,11 +874,7 @@ For fixed $R$, define the endpoint-factorized harmonic cone
 
 $$
 \mathscr H_R=
-\left\{
-h\ge0:
-h(v)=R^2\sum_{e:s(e)=v}h(r(e))
-\text{ at regular vertices}
-\right\},
+\left\lbrace h\ge0: h(v)=R^2\sum_{e:s(e)=v}h(r(e)) \text{ at regular vertices} \right\rbrace,
 $$
 
 with finite-subset inequalities at infinite emitters.
@@ -897,11 +893,7 @@ But the full boundary cone is larger:
 
 $$
 \mathscr P=
-\left\{
-\Psi\ge0:
-\Psi(q)=\sum_e\Psi(qe)
-\text{ on the prefix tree}
-\right\}.
+\left\lbrace \Psi\ge0: \Psi(q)=\sum_e\Psi(qe) \text{ on the prefix tree} \right\rbrace.
 $$
 
 The endpoint-factorized cone is the subcone satisfying

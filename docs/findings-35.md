@@ -10,10 +10,7 @@ and consider normalized positive profiles
 
 $$
 \mathcal H_\lambda^+=
-\left\{
-h>0:
-\mathcal A_+h=\lambda h,\quad h(o)=1
-\right\}.
+\left\lbrace h>0: \mathcal A_+h=\lambda h,\quad h(o)=1 \right\rbrace.
 $$
 
 Write

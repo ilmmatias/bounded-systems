@@ -328,15 +328,7 @@ Define the approximate observation lag
 $$
 \ell_t(n,\varepsilon)=
 \min
-\left\{
-m:
-\begin{array}{l}
-\mathrm{pref}_m(\xi)=
-\mathrm{pref}*m(\eta)[1mm]
-\Longrightarrow
-d_{B_n(o)}(h_\xi,h_\eta)<\varepsilon
-\end{array}
-\right\}.
+\left\lbrace m: \begin{array}{l} \mathrm{pref}_m(\xi)= \mathrm{pref}*m(\eta)[1mm] \Longrightarrow d_{B_n(o)}(h_\xi,h_\eta <\varepsilon \end{array} \right\rbrace.
 $$
 
 Set it to $\infty$ when no finite $m$ works.

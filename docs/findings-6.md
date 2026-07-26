@@ -278,11 +278,7 @@ For an algebraic path polynomial $x$, define
 $$
 |x|_{\mathrm{row}}=
 \sup
-\left\{
-|\rho_{\mathrm{alg}}(x)|:
-\rho_{\mathrm{alg}}
-\text{ comes from a row-contractive realization}
-\right\}.
+\left\lbrace |\rho_{\mathrm{alg}}(x)|: \rho_{\mathrm{alg}} \text{ comes from a row-contractive realization} \right\rbrace.
 $$
 
 Then Theorem 2 says

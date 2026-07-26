@@ -286,10 +286,7 @@ on the natural domain
 
 $$
 \mathrm{Dom}(N)=
-\left\{
-\sum_pa_p\xi_p:
-\sum_p |p|^2|a_p|^2<\infty
-\right\}.
+\left\lbrace \sum_pa_p\xi_p: \sum_p |p|^2|a_p|^2<\infty \right\rbrace.
 $$
 
 The operator measures primitive-channel composition depth.
@@ -489,7 +486,7 @@ Let
 
 $$
 N_n(v)=
-\#\{p:|p|=n,\ s(p)=v\}.
+\left|\{p:|p|=n,\ s(p)=v\}\right|.
 $$
 
 This is the number of length-$n$ communication paths beginning at $v$.

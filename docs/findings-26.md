@@ -74,10 +74,7 @@ where $M_n=\infty$ includes unbounded finite fiber sizes, and
 $$
 \delta_{\mathrm{nc}}=
 \inf
-\left\{
-n\ge1:
-N_n(v,u)\text{ is infinite for some }u,v
-\right\}.
+\left\lbrace n\ge1: N_n(v,u)\text{ is infinite for some }u,v \right\rbrace.
 $$
 
 Then
@@ -183,12 +180,7 @@ An already-infinite route family has been prefixed or suffixed by another path f
 Every product is finite, but
 
 $$
-\left|
-\left\{
-w:
-N_m(v,w)N_n(w,u)>0
-\right\}
-\right|
+\left| \left\lbrace w: N_m(v,w)N_n(w,u)>0 \right\rbrace \right|
 $$
 
 is infinite.
@@ -250,11 +242,7 @@ $$
 |\Sigma_{m+n}|
 \le
 \min
-\left\{
-|\Sigma_m|,|S_+^n|,
-;
-|\Sigma_n|,|S_-^m|
-\right\}.
+\left\lbrace |\Sigma_m|,|S_+^n|, ; |\Sigma_n|,|S_-^m| \right\rbrace.
 $$
 
 But these inequalities can be strict because they replace the actual compatibility pattern of intermediate nodes by global suprema.
@@ -727,10 +715,7 @@ The weighted route-defect space is
 
 $$
 \mathcal D_{v,u}(z)=
-\left\{
-x:
-\sum_{p:u\to v}z^{|p|}x_p=0
-\right\}.
+\left\lbrace x: \sum_{p:u\to v}z^{|p|}x_p=0 \right\rbrace.
 $$
 
 Hence
@@ -841,10 +826,7 @@ $$
 R_{\mathrm{col}}
 \ge
 \max
-\left\{
-\frac1{r(S_+)},
-\frac1{r(S_-)}
-\right\}.
+\left\lbrace \frac1{r(S_+)}, \frac1{r(S_-)} \right\rbrace.
 $$
 
 The endpoint-collapse generating operator can remain bounded beyond the radius at which the global Fock route sum ceases to converge.

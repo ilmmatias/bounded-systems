@@ -101,11 +101,7 @@ So the pure asymptotic defect module has an exact homological realization:
 
 $$
 H_1(K_h,A_h;k)=
-\left\{
-(c_\tau):
-\text{finite support},\\
-\sum_\tau c_\tau=0
-\right\}.
+\left\lbrace (c_\tau): \text{finite support},\\ \sum_\tau c_\tau=0 \right\rbrace.
 $$
 
 Globally,

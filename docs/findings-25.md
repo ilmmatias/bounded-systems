@@ -358,10 +358,7 @@ where
 
 $$
 \mathcal F_{m,n}(v,u)=
-\left\{
-\sum_wc_we_w:
-\sum_wc_w\sqrt{a_w}=0
-\right\}.
+\left\lbrace \sum_wc_we_w: \sum_wc_w\sqrt{a_w}=0 \right\rbrace.
 $$
 
 The two parts have different meanings.
@@ -392,7 +389,7 @@ Let
 
 $$
 k_{m,n}(v,u)=
-\#\{w:a_w>0\}.
+\left|\{w:a_w>0\}\right|.
 $$
 
 Then:
@@ -489,11 +486,7 @@ For fixed $m,n,u,v$, define
 
 $$
 W_{m,n}(v,u)=
-\left\{
-w:
-N_n(w,u)>0,;
-N_m(v,w)>0
-\right\}.
+\left\lbrace w: N_n(w,u)>0,; N_m(v,w)>0 \right\rbrace.
 $$
 
 This is the set of nodes through which a length-$(m+n)$ path can pass at the prescribed cut.
@@ -502,10 +495,7 @@ The factorization defect is the weighted reduced space on this set:
 
 $$
 \mathcal F_{m,n}(v,u)=
-\left\{
-(c_w):
-\sum_wc_w\sqrt{a_w}=0
-\right\}.
+\left\lbrace (c_w): \sum_wc_w\sqrt{a_w}=0 \right\rbrace.
 $$
 
 When the set is finite and nonempty,
@@ -802,11 +792,7 @@ Thus, when the operators are bounded,
 $$
 |\Sigma_{m+n}|
 \le
-\min\left\{
-|\Sigma_m|,|S_+^n|,
-;
-|\Sigma_n|,|S_-^m|
-\right\}.
+\min\left\lbrace |\Sigma_m|,|S_+^n|, ; |\Sigma_n|,|S_-^m| \right\rbrace.
 $$
 
 This separates propagation caused by forward branching from propagation caused by backward reconvergence.

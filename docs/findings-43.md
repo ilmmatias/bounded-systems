@@ -325,9 +325,9 @@ Thus
 
 $$
 R_k(v)=
-\#\{
+\left|\{
 \text{resolved length-}k\text{ paths starting at }v
-\}.
+\}\right|.
 $$
 
 For a simple DAG,
@@ -743,14 +743,14 @@ The first new global tables should be:
 
 $$
 c_{n,r}=
-\#\{\text{distinct }r\text{-round profiles}\},
+\left|\{\text{distinct }r\text{-round profiles}\}\right|,
 $$
 
 $$
 s_n(k)=
-\#\{
+\left|\{
 G:r_{\mathrm{stab}}(G)=k
-\},
+\}\right|,
 $$
 
 $$

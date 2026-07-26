@@ -635,10 +635,7 @@ At $N=1$, the route-resolved page has an $m$-dimensional path corner.
 The vertical route differential contains the $(m-1)$-dimensional defect space
 
 $$
-\left\{
-\sum_i c_ie_i:
-\sum_i c_i=0
-\right\}.
+\left\lbrace \sum_i c_ie_i: \sum_i c_i=0 \right\rbrace.
 $$
 
 But after vertical homology, all $m$ channels become the same one-dimensional reachability arrow.

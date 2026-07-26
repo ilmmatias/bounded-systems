@@ -454,7 +454,7 @@ The marked algebra gives exact formulas.
 ## Direct channels
 
 $$
-\#\{e:u\to v\}=
+\left|\{e:u\to v\}\right|=
 \dim e_v\mathcal A_1e_u.
 $$
 
@@ -465,14 +465,14 @@ $$
 $$
 
 $$
-\#\{e:u\to v\}=
+\left|\{e:u\to v\}\right|=
 \dim e_v(J/J^2)e_u.
 $$
 
-## Length-(n) paths
+## Length-$n$ paths
 
 $$
-\#\{\text{paths of length }n:u\to v\}=
+\left|\{\text{paths of length }n:u\to v\}\right|=
 \dim e_v\mathcal A_ne_u.
 $$
 

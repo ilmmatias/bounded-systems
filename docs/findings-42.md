@@ -459,10 +459,7 @@ $$
 \nu_h
 \left(
 x,
-\left\{
-y:|y|>1,\ \widehat y\in B
-\right\}
-\right).
+\left\lbrace y:|y|>1,\ \widehat y\in B \right\rbrace \right).
 $$
 
 For a symmetric stable kernel, the characteristic symbol is

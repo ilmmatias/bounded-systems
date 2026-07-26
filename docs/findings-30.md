@@ -32,9 +32,7 @@ $$
 \mathrm{Cl}_t(\xi)=
 \bigcap_{N\ge1}
 \overline\{
-\left\{
-K_t(,\cdot,,x_n^\xi):n\ge N
-\right\}
+\left\lbrace K_t(,\cdot,,x_n^\xi):n\ge N \right\rbrace
 \}.
 $$
 
@@ -332,13 +330,13 @@ So the prefix boundary is the full $b$-symbol product space.
 Take $v\in V_k$ and $x\in V_n$, with $n>k$. Then
 
 $$
-\#\mathsf P(v,x)=b^{n-k-1}
+\left|\mathsf P(v,x)\right|=b^{n-k-1}
 $$
 
 and
 
 $$
-\#\mathsf P(o,x)=b^{n-1}.
+\left|\mathsf P(o,x)\right|=b^{n-1}.
 $$
 
 All such paths have their level-determined lengths, so
@@ -505,11 +503,7 @@ Define
 
 $$
 \mathcal R_t^M=
-\left\{
-(\xi,\eta)\in
-X_{\mathrm{pre}}\times X_{\mathrm{pre}}:
-\pi_t(\xi)=\pi_t(\eta)
-\right\}.
+\left\lbrace (\xi,\eta)\in X_{\mathrm{pre}}\times X_{\mathrm{pre}}: \pi_t(\xi)=\pi_t(\eta) \right\rbrace.
 $$
 
 This equivalence relation contains the eventual-tail relation but can be much larger.
@@ -546,10 +540,7 @@ So a single node Martin direction can conceal anything from one history to an en
 At finite depth, a route fiber $S$ had the defect space
 
 $$
-\left\{
-(c_p):
-\sum_pc_p=0
-\right\}.
+\left\lbrace (c_p): \sum_pc_p=0 \right\rbrace.
 $$
 
 The exact boundary analogue is obtained from a fiber $F_h$.
@@ -558,10 +549,7 @@ Let $\mathcal M(F_h)$ be the finite signed measures on $F_h$. Define
 
 $$
 \mathfrak D_t(h)=
-\left\{
-\nu\in\mathcal M(F_h):
-\nu(F_h)=0
-\right\}.
+\left\lbrace \nu\in\mathcal M(F_h): \nu(F_h)=0 \right\rbrace.
 $$
 
 Every difference

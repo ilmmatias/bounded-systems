@@ -43,15 +43,15 @@ These concatenations are strictly compatible with regrouping. Whether we first c
 Thus the primary thin-coherence object is not merely
 
 $$
-{\Delta(u,v)}_{u<v},
+\{\Delta(u,v)\}_{u<v},
 $$
 
 but
 
 $$
 \left(
-{\Delta(u,v)}_{u<v},
-{\text{all interval-concatenation maps}}
+\{\Delta(u,v)\}_{u<v},
+\{\text{all interval-concatenation maps}\}
 \right).
 $$
 
@@ -206,7 +206,7 @@ For finite posets, these groups identify with extension groups between the corre
 $$
 H^n\mathscr E_G(v,u)
 \cong
-\mathrm{Ext}_{B(P_G)}^n(S_u,S_v),
+\operatorname{Ext}_{B(P_G)}^n(S_u,S_v),
 $$
 
 subject to the usual left/right module convention.
@@ -214,11 +214,11 @@ subject to the usual left/right module convention.
 The induced product
 
 $$
-\mathrm{Ext}^p(S_v,S_w)
+\operatorname{Ext}^p(S_v,S_w)
 \otimes
-\mathrm{Ext}^q(S_u,S_v)
+\operatorname{Ext}^q(S_u,S_v)
 \longrightarrow
-\mathrm{Ext}^{p+q}(S_u,S_w)
+\operatorname{Ext}^{p+q}(S_u,S_w)
 $$
 
 is the Yoneda product. Incidence algebras can be presented as path algebras modulo the parallel-path ideal, while their projective resolutions and Ext groups are governed by the combinatorics of the poset intervals.
@@ -363,7 +363,7 @@ Composing the $d$ cover classes along that chain gives the top degree class. Exc
 
 $$
 \eta_{\pi(d)}\cdots\eta_{\pi(1)}=
-\mathrm{sgn}(\pi),\omega.
+\operatorname{sgn}(\pi),\omega.
 $$
 
 The diamond relations account for adjacent exchanges, while the higher interval topology ensures that all sequences of such exchanges are coherently compatible.
@@ -557,8 +557,8 @@ The correct object is the **compositional interval system**:
 $$
 \mathbf{Int}(G)=
 \left(
-{\Delta(u,v)}_{u<v},
-{\text{concatenation-at-}v}_{u<v<w}
+\{\Delta(u,v)\}_{u<v},
+\{\text{concatenation-at-}v\}_{u<v<w}
 \right),
 $$
 

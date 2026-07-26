@@ -19,7 +19,7 @@ define the deletion multiplicity
 $$
 d(G,H)
 =
-\#\{v\in V(H):H-v\cong G\}.
+\left|\{v\in V(H):H-v\cong G\}\right|.
 $$
 
 If

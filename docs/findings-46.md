@@ -12,9 +12,7 @@ define
 
 $$
 d(G,H)=
-\#\left\{
-v\in V(H):H-v\cong G
-\right\}.
+\left|\left\lbrace v\in V(H):H-v\cong G \right\rbrace\right|.
 $$
 
 Thus $d(G,H)$ counts how many vertices of $H$ can be deleted to obtain the isomorphism class $G$.
@@ -140,7 +138,7 @@ $$
 Thus the weighted number of paths from the empty graph to $H$ is precisely
 
 $$
-\#\{\text{labeled realizations of }H\}=
+\left|\{\text{labeled realizations of }H\}\right|=
 \dim(H).
 $$
 

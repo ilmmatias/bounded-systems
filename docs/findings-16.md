@@ -546,12 +546,7 @@ For a finite reachability poset, the global dimension of its incidence algebra i
 $$
 \mathrm{gldim}B=
 \max
-\left\{
-n:
-\widetilde H^{n-2}
-\bigl(\Delta(u,v);k\bigr)\ne0
-\text{ for some }u<v
-\right\}.
+\left\lbrace n: \widetilde H^{n-2} \bigl(\Delta(u,v);k\bigr)\ne0 \text{ for some }u<v \right\rbrace.
 $$
 
 Examples:

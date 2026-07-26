@@ -14,12 +14,7 @@ $$
 
 $$
 T_{m+1}=
-\inf\left\{
-n>T_m:
-\Pi_\delta(X_n)
-\neq
-\Pi_\delta(X_{T_m})
-\right\}.
+\inf\left\lbrace n>T_m: \Pi_\delta(X_n) \neq \Pi_\delta(X_{T_m}) \right\rbrace.
 $$
 
 The intrinsic block lengths are

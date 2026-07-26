@@ -193,10 +193,7 @@ At every successor stage, remove all sinks in the currently remaining subgraph:
 
 $$
 W^+_{\alpha+1}=
-\left\{
-v\in W^+_\alpha:
-\exists,v\to w\text{ with }w\in W^+_\alpha
-\right\}.
+\left\lbrace v\in W^+_\alpha: \exists,v\to w\text{ with }w\in W^+_\alpha \right\rbrace.
 $$
 
 At a limit ordinal $\lambda$, define
@@ -235,10 +232,7 @@ $$
 
 $$
 W^-_{\alpha+1}=
-\left\{
-v\in W^-_\alpha:
-\exists,u\to v\text{ with }u\in W^-_\alpha
-\right\},
+\left\lbrace v\in W^-_\alpha: \exists,u\to v\text{ with }u\in W^-_\alpha \right\rbrace,
 $$
 
 and at limits,
@@ -445,10 +439,7 @@ Recursively define
 $$
 F^-_{\alpha+1}=
 \bigvee
-\left\{
-e_v:
-e_v\mathcal M(1-F^-_\alpha)=0
-\right\}.
+\left\lbrace e_v: e_v\mathcal M(1-F^-_\alpha)=0 \right\rbrace.
 $$
 
 At a limit ordinal,
@@ -492,10 +483,7 @@ $$
 $$
 F^+_{\alpha+1}=
 \bigvee
-\left\{
-e_v:
-(1-F^+_\alpha)\mathcal M e_v=0
-\right\},
+\left\lbrace e_v: (1-F^+_\alpha)\mathcal M e_v=0 \right\rbrace,
 $$
 
 and
@@ -593,10 +581,7 @@ For past rank, define
 $$
 I^-_\alpha=
 \mathrm{span}
-\left\{
-p:
-r(p)\notin V^-_{<\alpha}
-\right\}.
+\left\lbrace p: r(p)\notin V^-_{<\alpha} \right\rbrace.
 $$
 
 These are paths whose terminal node has past rank at least $\alpha$, or belongs to the backward core.
@@ -630,10 +615,7 @@ For future rank, define
 $$
 I^+_\alpha=
 \mathrm{span}
-\left\{
-p:
-s(p)\notin V^+_{<\alpha}
-\right\}.
+\left\lbrace p: s(p)\notin V^+_{<\alpha} \right\rbrace.
 $$
 
 Then

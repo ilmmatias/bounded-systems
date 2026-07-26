@@ -280,10 +280,7 @@ For finite $F$, let
 
 $$
 \mathcal A_F=
-\left\{
-f\circ\mathrm{pr}*F:
-f\in C(\mathcal M_{t,F})
-\right\}
+\left\lbrace f\circ\mathrm{pr}*F: f\in C(\mathcal M_{t,F}) \right\rbrace
 \subseteq C(\mathcal M_t).
 $$
 
@@ -516,10 +513,7 @@ For two regular ends, define
 $$
 s_t(\xi,\eta)=
 \min
-\left\{
-d(o,v):
-h_\xi(v)\ne h_\eta(v)
-\right\},
+\left\lbrace d(o,v): h_\xi(v)\ne h_\eta(v) \right\rbrace,
 $$
 
 when their profiles differ.

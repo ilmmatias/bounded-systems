@@ -140,7 +140,7 @@ Thus:
 
 $$
 \dim e_v(J/J^2)e_u=
-\#\{e:u\to v\}.
+\left|\{e:u\to v\}\right|.
 $$
 
 ## Strengthened reconstruction theorem
@@ -345,9 +345,7 @@ Define
 
 $$
 F^n\widehat{\mathcal A}=
-\left\{
-X:X(p)=0\text{ whenever }|p|<n
-\right\}.
+\left\lbrace X:X(p)=0\text{ whenever }|p|<n \right\rbrace.
 $$
 
 Then
@@ -464,7 +462,7 @@ e_v\mathbf Ee_u=
 \sum_{e:u\to v}e.
 $$
 
-## Length-(n) paths
+## Length-$n$ paths
 
 The coefficient of $z^n$ is
 
@@ -581,10 +579,7 @@ contains almost no information.
 But the full marked resolvent family
 
 $$
-\left\{
-e_v(1-z\mathbf E)^{-1}e_u:
-u,v\in V
-\right\}
+\left\lbrace e_v(1-z\mathbf E)^{-1}e_u: u,v\in V \right\rbrace
 $$
 
 contains every finite directed path.

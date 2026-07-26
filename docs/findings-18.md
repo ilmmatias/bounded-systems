@@ -364,10 +364,7 @@ The route-collapse kernel is
 
 $$
 I_{v,u}=
-\left\{
-\sum_pc_pp:
-\sum_pc_p=0
-\right\}.
+\left\lbrace \sum_pc_pp: \sum_pc_p=0 \right\rbrace.
 $$
 
 But

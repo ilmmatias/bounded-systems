@@ -38,24 +38,24 @@ Their meanings at node $u$ are:
 
 $$
 q^{++}(u)=
-\#\{\text{directed length-two routes starting at }u\},
+\left|\{\text{directed length-two routes starting at }u\}\right|,
 $$
 
 $$
 q^{--}(u)=
-\#\{\text{directed length-two routes ending at }u\},
+\left|\{\text{directed length-two routes ending at }u\}\right|,
 $$
 
 $$
 q^{+-}(u)=
 \sum_v
-\#\bigl(N^+(u)\cap N^+(v)\bigr),
+\left|\bigl(N^+(u)\cap N^+(v)\bigr)\right|,
 $$
 
 $$
 q^{-+}(u)=
 \sum_v
-\#\bigl(N^-(u)\cap N^-(v)\bigr).
+\left|\bigl(N^-(u)\cap N^-(v)\bigr)\right|.
 $$
 
 Therefore define the normalized node coordinate
@@ -90,11 +90,11 @@ No manually selected graph statistic has been added.
 The direct-relation frequencies are already determined by the first two coordinates:
 
 $$
-\frac{\#\{v:u\to v\}}n=\frac{d^+(u)}n,
+\frac{\left|\{v:u\to v\}\right|}n=\frac{d^+(u)}n,
 $$
 
 $$
-\frac{\#\{v:v\to u\}}n=\frac{d^-(u)}n.
+\frac{\left|\{v:v\to u\}\right|}n=\frac{d^-(u)}n.
 $$
 
 Equality contributes $1/n$, and incomparability is the remainder. Thus those relation-count cylinders add no independent first-order information.
@@ -159,11 +159,11 @@ $$
 Thus
 
 $$
-r_k(v)=\#\{\text{length-}k\text{ routes starting at }v\},
+r_k(v)=\left|\{\text{length-}k\text{ routes starting at }v\}\right|,
 $$
 
 $$
-\ell_k(v)=\#\{\text{length-}k\text{ routes ending at }v\}.
+\ell_k(v)=\left|\{\text{length-}k\text{ routes ending at }v\}\right.
 $$
 
 The total number of length-$p$ routes is
@@ -893,10 +893,10 @@ Let $c_1(u,v)$ be the canonical one-round ordered-pair profile key. Define
 $$
 x_u(c,d)=
 \frac1n
-\#\{
+\left|\{
 v:
 (c_1(u,v),c_1(v,u))=(c,d)
-\}.
+\}\right|.
 $$
 
 Use sparse histograms and a square-root embedding

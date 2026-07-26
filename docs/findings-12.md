@@ -115,12 +115,7 @@ be the set of attained route lengths. Define its reduced finite-support coeffici
 
 $$
 \widetilde{\mathbb K}^{(L(u,v))}=
-\left\{
-(a_n)_{n\in L(u,v)}:
-a_n=0\text{ except finitely often},
-\quad
-\sum_na_n=0
-\right\}.
+\left\lbrace (a_n)_{n\in L(u,v)}: a_n=0\text{ except finitely often}, \quad \sum_na_n=0 \right\rbrace.
 $$
 
 There is a canonical exact sequence
@@ -254,10 +249,7 @@ orthogonally, where
 
 $$
 \overline{I_{v,u}}=
-\left\{
-\sum_jc_jL_{p_j}:
-\sum_jc_j=0
-\right\}.
+\left\lbrace \sum_jc_jL_{p_j}: \sum_jc_j=0 \right\rbrace.
 $$
 
 Thus:

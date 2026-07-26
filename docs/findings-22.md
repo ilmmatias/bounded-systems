@@ -3,7 +3,7 @@
 Let
 
 $$
-A(v,u)=\#\{e:u\to v\}
+A(v,u)=\left|\{e:u\to v\}\right|
 $$
 
 be the primitive-channel multiplicity kernel.
@@ -12,7 +12,7 @@ Define
 
 $$
 N_n(v,u)=
-\#\{\text{length-}n\text{ paths }u\to v\}.
+\left|\{\text{length-}n\text{ paths }u\to v\}\right|.
 $$
 
 Whenever ordinary arithmetic is available,
@@ -337,7 +337,7 @@ Let
 
 $$
 R_n(u)=
-\#\{v:d(u,v)=n\}
+\left|\{v:d(u,v)=n\}\right|
 $$
 
 be the number of nodes whose shortest distance from $u$ is exactly $n$.

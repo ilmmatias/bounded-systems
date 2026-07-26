@@ -32,10 +32,7 @@ For a fixed endpoint pair, these relations give exactly the augmentation kernel
 
 $$
 I_{v,u}=
-\left\{
-\sum_{p:u\to v}c_pp:
-\sum_pc_p=0
-\right\}.
+\left\lbrace \sum_{p:u\to v}c_pp: \sum_pc_p=0 \right\rbrace.
 $$
 
 Thus we can describe $I$ without choosing a preferred route:
@@ -629,9 +626,9 @@ For a finite system—or a finite ordinal-rank band—the complex can be constru
 3. Build $I$ from route differences.
 4. Generate $I^2,I^3,\ldots$ using route-choice boxes.
 5. Form
-$$
-   C_m=I^m/I^{m+1}.
-$$
+    $$
+    C_m=I^m/I^{m+1}.
+    $$
 6. Compute the left and right $B$-actions by concatenating any path representative of each reachability arrow.
 7. Form the balanced tensor products over $B$.
 8. Build the merge differentials.

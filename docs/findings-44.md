@@ -93,12 +93,12 @@ Thus:
 
 $$
 r_k(v)=
-\#\{\text{length-}k\text{ routes starting at }v\},
+\left|\{\text{length-}k\text{ routes starting at }v\}\right|,
 $$
 
 $$
 \ell_j(v)=
-\#\{\text{length-}j\text{ routes ending at }v\}.
+\left|\{\text{length-}j\text{ routes ending at }v\}\right|.
 $$
 
 The total number of length-$p$ routes is

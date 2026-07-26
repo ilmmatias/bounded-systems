@@ -35,10 +35,7 @@ $$
 \mathfrak D_\pi=
 \ker\Sigma_\pi^0=
 \bigoplus_{y\in Y}
-\left\{
-f\in k^{(X_y)}:
-\sum_{x\in X_y}f(x)=0
-\right\}.
+\left\lbrace f\in k^{(X_y)}: \sum_{x\in X_y}f(x)=0 \right\rbrace.
 $$
 
 Thus we have the exact sequence
@@ -532,10 +529,7 @@ For a set $S$, write
 
 $$
 \widetilde{k}^{(S)}=
-\left\{
-f\in k^{(S)}:
-\sum_{s\in S}f(s)=0
-\right\}.
+\left\lbrace f\in k^{(S)}: \sum_{s\in S}f(s)=0 \right\rbrace.
 $$
 
 There is a canonical exact sequence

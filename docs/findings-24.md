@@ -134,14 +134,7 @@ Then $\Sigma_n^0$ is unbounded, but it is closable. Its closure has domain
 
 $$
 \mathrm{Dom}(\Sigma_n)=
-\left\{
-x\in\mathcal H_n:
-\sum_{u,v}
-\left|
-\sum_{p\in\mathsf P_n(u,v)}x_p
-\right|^2
-<\infty
-\right\}.
+\left\lbrace x\in\mathcal H_n: \sum_{u,v} \left| \sum_{p\in\mathsf P_n(u,v)}x_p \right|^2 <\infty \right\rbrace.
 $$
 
 It is a densely defined closed operator.
@@ -243,10 +236,7 @@ Also define the route-defect space
 
 $$
 \mathcal D_n(v,u)=
-\left\{
-\sum_pc_p\xi_p:
-\sum_pc_p=0
-\right\}.
+\left\lbrace \sum_pc_p\xi_p: \sum_pc_p=0 \right\rbrace.
 $$
 
 These give an orthogonal decomposition
@@ -485,9 +475,7 @@ $$
 the singular values retain only the multiset
 
 $$
-\left\{
-\sqrt{N_n(v,u)}
-\right\}_{u,v}.
+\left\lbrace \sqrt{N_n(v,u)} \right\rbrace_{u,v}.
 $$
 
 They no longer say which multiplicity belongs to which endpoint pair.
@@ -557,10 +545,7 @@ $$
 $$
 d(u,v)=
 \min
-\left\{
-n:
-Z_n\eta_{v,u}=\eta_{v,u}
-\right\}.
+\left\lbrace n: Z_n\eta_{v,u}=\eta_{v,u} \right\rbrace.
 $$
 
 ## Geodesic multiplicity
@@ -830,7 +815,7 @@ Thus the unrestricted hierarchy is:
 $$
 \begin{aligned}
 \text{all cardinalities:}&\quad
-N_n^\#,\ Z_n,\ d,\\
+N_n^\mathcal{\#},\ Z_n,\ d,\\
 \text{finite route fibers:}&\quad
 \Sigma_n,\ D_n,\\
 \text{uniformly finite fibers:}&\quad

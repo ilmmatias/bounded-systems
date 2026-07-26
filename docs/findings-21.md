@@ -33,13 +33,13 @@ For nodes $u,v$, define
 
 $$
 N_n(v,u)=
-\#\{p:u\to v,\ |p|=n\}.
+\left|\{p:u\to v,\ |p|=n\}\right|.
 $$
 
 The cardinal-valued path-counting series
 
 $$
-\mathcal P^\#_G(v,u;z)=
+\mathcal P^\mathrm{\#}_G(v,u;z)=
 \delta_{uv}
 +
 \sum_{n\ge1}N_n(v,u)z^n
@@ -82,7 +82,7 @@ Let
 
 $$
 A_G(v,u)=
-\#\{e:u\to v\}.
+\left|\{e:u\to v\}\right|.
 $$
 
 This is the primitive-channel multiplicity kernel.
@@ -208,7 +208,7 @@ So even when route counts are infinite and scalar endpoint summation is unavaila
 The reduction is:
 
 $$
-\mathcal P^\#
+\mathcal P^\mathcal{\#}
 \longrightarrow
 \mathcal S
 \longrightarrow
@@ -756,7 +756,7 @@ They should not be treated as one algebra homomorphism.
 For any set-sized system, even with infinitely many routes:
 
 * $R_G(z)$ exists formally;
-* the cardinal path-count series $\mathcal P^\#_G$ exists;
+* the cardinal path-count series $\mathcal P^\mathcal{\#}_G$ exists;
 * the support series $\mathcal S_G$ exists;
 * $d(u,v)$ exists for reachable pairs;
 * the filtered interval complexes exist;

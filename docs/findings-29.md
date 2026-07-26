@@ -146,11 +146,7 @@ Let
 
 $$
 \mathscr H_t(o)=
-\left\{
-h\ge0:
-h(o)=1,\quad
-h(v)=t\sum_{v\to w}h(w)
-\right\}
+\left\lbrace h\ge0: h(o)=1,\quad h(v)=t\sum_{v\to w}h(w) \right\rbrace
 $$
 
 in a setting where the sums are defined.
