@@ -298,7 +298,7 @@ Define the quotient sheaf
 
 $$
 \mathscr Q_t=
-\operatorname{coker}
+\mathrm{coker}
 \left(
 \underline{k}_{Y_t}
 \longrightarrow
@@ -565,7 +565,7 @@ Let
 
 $$
 \mathfrak D_F=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\tau-\delta_\sigma:
 \tau\sim_F\sigma

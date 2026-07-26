@@ -57,7 +57,7 @@ This is essentially a Boolean or Walsh decomposition of the orthogonal route spa
 Yet there are no higher dependencies among these boxes: every product corresponds uniquely to its selected set of ambiguity positions. For this family,
 
 $$
-\operatorname{gr}_I A
+\mathrm{gr}_I A
 \cong
 T_B(I/I^2)
 $$
@@ -408,13 +408,13 @@ $$
 R_3=
 Z_2/
 \left(
-\operatorname{rad}(B)Z_2
+\mathrm{rad}(B)Z_2
 +
-Z_2\operatorname{rad}(B)
+Z_2\mathrm{rad}(B)
 \right),
 $$
 
-where $\operatorname{rad}(B)$ is the strict-reachability ideal.
+where $\mathrm{rad}(B)$ is the strict-reachability ideal.
 
 Then
 

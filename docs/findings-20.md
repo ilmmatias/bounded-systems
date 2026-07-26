@@ -452,7 +452,7 @@ $$
 \bigl(
 (N,\alpha),(M,\beta)
 \bigr)=
-\operatorname{rank}
+\mathrm{rank}
 \left[
 M_n(N,\alpha)
 \to

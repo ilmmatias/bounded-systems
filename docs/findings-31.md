@@ -370,7 +370,7 @@ Therefore the propagated finite route ideal is exactly the algebraic span of eve
 
 $$
 I,k^{(X_{\mathrm{pre}})}=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_{\mathrm{tail}}\eta
@@ -502,7 +502,7 @@ Define the algebraic tail-defect module
 
 $$
 \mathfrak D_{\mathrm{tail}}=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_{\mathrm{tail}}\eta
@@ -513,7 +513,7 @@ Define the Martin-defect module
 
 $$
 \mathfrak D_M=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_t^M\eta
@@ -726,7 +726,7 @@ $$
 Therefore
 
 $$
-\operatorname{im}d_1=
+\mathrm{im}d_1=
 \widetilde{k}^{(\overline F_h)}.
 $$
 

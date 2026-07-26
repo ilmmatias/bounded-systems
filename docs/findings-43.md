@@ -495,7 +495,7 @@ Define the root-mean-square edge-profile scale
 
 $$
 \delta_{n,p,r}^2=
-\operatorname{tr}C_{n,p,r}.
+\mathrm{tr}C_{n,p,r}.
 $$
 
 The regime is determined by comparing the mean with this scale.
@@ -727,7 +727,7 @@ For every processed graph and every selected $p,r$, the next data pass should em
 
 $$
 \begin{aligned}
-&n,\quad |E|,\quad \text{height},\quad |\operatorname{Aut}(G)|,\\
+&n,\quad |E|,\quad \text{height},\quad |\mathrm{Aut}(G)|,\\
 &r_{\mathrm{stab}}(G),\\
 &\text{canonical hashes of }\mu_{G,r},\\
 &T_p,\quad T_{p+1}/T_p,\\
@@ -755,7 +755,7 @@ $$
 
 $$
 \delta_{n,p,r}^2=
-\operatorname{tr}C_{n,p,r},
+\mathrm{tr}C_{n,p,r},
 $$
 
 $$
@@ -781,7 +781,7 @@ For a sequence $G_n$, choose $r_n=o(n)$ and $p_n\to\infty$. Suppose:
 
 $$
 \delta_n^2=
-\operatorname{tr}C_{n,p_n,r_n}
+\mathrm{tr}C_{n,p_n,r_n}
 \to0,
 $$
 

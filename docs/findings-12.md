@@ -244,7 +244,7 @@ $$
 Then
 
 $$
-\operatorname{span}\{L_{p_1},\ldots,L_{p_m}\}=
+\mathrm{span}\{L_{p_1},\ldots,L_{p_m}\}=
 \mathbb K\omega_{v,u}
 \oplus
 \overline{I_{v,u}},
@@ -300,7 +300,7 @@ If $\mathscr P(u,v)$ is infinite, then
 
 $$
 \overline{I_{v,u}}^{|\cdot|}=
-\overline\{\operatorname{span}\}
+\overline\{\mathrm{span}\}
 {L_p:p\in\mathscr P(u,v)}.
 $$
 
@@ -515,7 +515,7 @@ The last assertion follows because a nonzero path polynomial has bounded path le
 Define the associated graded route algebra
 
 $$
-\operatorname{gr}_I(A)=
+\mathrm{gr}_I(A)=
 B
 \oplus
 I/I^2
@@ -598,7 +598,7 @@ $$
 \Psi:
 T_B(\mathcal N)
 \longrightarrow
-\operatorname{gr}_I(A),
+\mathrm{gr}_I(A),
 $$
 
 where
@@ -745,7 +745,7 @@ $$
 The corresponding joint leading piece is
 
 $$
-\operatorname{gr}^{m,n}_{I,J}(A)=
+\mathrm{gr}^{m,n}_{I,J}(A)=
 \frac{I^m\cap J^n}
 {
 (I^{m+1}\cap J^n)

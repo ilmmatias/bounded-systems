@@ -330,9 +330,7 @@ Define the gauge-covariant generalized derivative by
 
 $$
 \mathcal L_\tau
-\left[
-\mathfrak D_{G}^{\Phi}\Psi
-\right](q)=
+\left[\mathfrak D_{G}^{\Phi}\Psi\right](q)=
 \Phi(Z_q)\widetilde\Psi(q)-
 \frac{\Phi(Z_q)}{Z_q}\Psi_0.
 $$

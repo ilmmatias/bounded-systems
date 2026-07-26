@@ -82,7 +82,7 @@ Let
 
 $$
 \mathfrak D_n^{\mathrm{obs}}=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\tau-\delta_\sigma:
 \tau\equiv_{B_n(o)}\sigma
@@ -126,7 +126,7 @@ $$
 Consequently,
 
 $$
-\operatorname{gr}_{\mathrm{obs}}\mathfrak D=
+\mathrm{gr}_{\mathrm{obs}}\mathfrak D=
 \bigoplus_{n\ge0}
 \mathfrak D_n^{\mathrm{obs}}/
 \mathfrak D_{n+1}^{\mathrm{obs}}
@@ -318,7 +318,7 @@ In continuous-profile situations, the covering numbers remain meaningful even wh
 Let
 
 $$
-\operatorname{pref}_m(\xi)
+\mathrm{pref}_m(\xi)
 $$
 
 denote the length-$m$ prefix of an infinite history.
@@ -331,8 +331,8 @@ $$
 \left\{
 m:
 \begin{array}{l}
-\operatorname{pref}_m(\xi)=
-\operatorname{pref}*m(\eta)[1mm]
+\mathrm{pref}_m(\xi)=
+\mathrm{pref}*m(\eta)[1mm]
 \Longrightarrow
 d_{B_n(o)}(h_\xi,h_\eta)<\varepsilon
 \end{array}
@@ -812,7 +812,7 @@ The observation-refinement geometry now has four distinct components.
 ## Exact splitting
 
 $$
-\operatorname{gr}_{\mathrm{obs}}\mathfrak D
+\mathrm{gr}_{\mathrm{obs}}\mathfrak D
 $$
 
 records which history distinctions first become exactly visible at each observation layer.

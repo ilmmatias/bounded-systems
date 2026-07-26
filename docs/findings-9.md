@@ -376,14 +376,14 @@ $$
 When every node has a past rank, define
 
 $$
-\operatorname{ht}_-(G)=
+\mathrm{ht}_-(G)=
 \sup_{v\in V}\bigl(\rho_-(v)+1\bigr).
 $$
 
 When every node has a future rank, define
 
 $$
-\operatorname{ht}_+(G)=
+\mathrm{ht}_+(G)=
 \sup_{v\in V}\bigl(\rho_+(v)+1\bigr).
 $$
 
@@ -392,7 +392,7 @@ These are ordinal heights, not node counts and not maximum finite path lengths.
 For a system with $|V|=\kappa$,
 
 $$
-\operatorname{ht}_\pm(G)<\kappa^+.
+\mathrm{ht}_\pm(G)<\kappa^+.
 $$
 
 The pruning sequence must stabilize before $\kappa^+$, since each nonstationary successor stage removes at least one previously remaining node.
@@ -592,7 +592,7 @@ For past rank, define
 
 $$
 I^-_\alpha=
-\operatorname{span}
+\mathrm{span}
 \left\{
 p:
 r(p)\notin V^-_{<\alpha}
@@ -629,7 +629,7 @@ For future rank, define
 
 $$
 I^+_\alpha=
-\operatorname{span}
+\mathrm{span}
 \left\{
 p:
 s(p)\notin V^+_{<\alpha}

@@ -680,7 +680,7 @@ $$
 Consequently,
 
 $$
-\operatorname{supp}h\subseteq K^+,
+\mathrm{supp}h\subseteq K^+,
 $$
 
 where $K^+$ is the infinite-future core obtained by transfinite sink pruning.

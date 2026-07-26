@@ -130,7 +130,7 @@ Therefore
 
 $$
 F_N^{\mathrm{len}}C_{r,q}^{\mathrm{RF}}=
-\operatorname{span}
+\mathrm{span}
 \{x:\Lambda(x)\le N\}
 $$
 
@@ -152,7 +152,7 @@ $$
 \end{cases}
 $$
 
-For a generator $x$, let $\operatorname{Int}(x)$ be all nodes other than $u,v$ appearing:
+For a generator $x$, let $\mathrm{Int}(x)$ be all nodes other than $u,v$ appearing:
 
 * as factorization nodes $v_1,\ldots,v_r$;
 * or internally inside any path $p_i^{(j)}$.
@@ -161,7 +161,7 @@ Define
 
 $$
 \Theta^-(x)=
-\sup{\tau^-(w):w\in\operatorname{Int}(x)},
+\sup{\tau^-(w):w\in\mathrm{Int}(x)},
 $$
 
 with the supremum of the empty set taken to be $0$.
@@ -177,7 +177,7 @@ For an ordinal stage $\alpha$, define
 
 $$
 F_\alpha^{\mathrm{rk}}C_{r,q}^{\mathrm{RF}}=
-\operatorname{span}
+\mathrm{span}
 \{x:\Theta^-(x)\le\alpha\}.
 $$
 
@@ -216,7 +216,7 @@ Thus we obtain a functor from the product order
 
 $$
 \mathbb N\times
-\bigl(\operatorname{RankStages}(G)\cup\{\infty\}\bigr)
+\bigl(\mathrm{RankStages}(G)\cup\{\infty\}\bigr)
 $$
 
 to double complexes.

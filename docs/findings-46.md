@@ -48,7 +48,7 @@ Deletion multiplicity is not yet the multiplicity of labeled one-node extensions
 Let
 
 $$
-a(G)=|\operatorname{Aut}(G)|
+a(G)=|\mathrm{Aut}(G)|
 $$
 
 be the automorphism-group size.
@@ -63,8 +63,8 @@ A double count gives
 $$
 e(G,H)=
 d(G,H),
-\frac{|\operatorname{Aut}(G)|}
-{|\operatorname{Aut}(H)|}.
+\frac{|\mathrm{Aut}(G)|}
+{|\mathrm{Aut}(H)|}.
 $$
 
 Although written as a ratio, this is always a nonnegative integer.
@@ -78,9 +78,9 @@ d(E_n,E_{n+1})=n+1,
 $$
 
 $$
-|\operatorname{Aut}(E_n)|=n!,
+|\mathrm{Aut}(E_n)|=n!,
 \qquad
-|\operatorname{Aut}(E_{n+1})|=(n+1)!.
+|\mathrm{Aut}(E_{n+1})|=(n+1)!.
 $$
 
 Hence
@@ -105,7 +105,7 @@ Define the dimension of an unlabeled DAG class by
 
 $$
 \dim(G)=
-\frac{n!}{|\operatorname{Aut}(G)|}.
+\frac{n!}{|\mathrm{Aut}(G)|}.
 $$
 
 This is the number of labeled realizations of $G$ on $[n]$.
@@ -243,7 +243,7 @@ $$
 \Pr(H)
 \propto
 \dim(H)=
-\frac{N!}{|\operatorname{Aut}(H)|},
+\frac{N!}{|\mathrm{Aut}(H)|},
 $$
 
 which is the distribution induced by uniform counting of labeled DAGs.
@@ -441,7 +441,7 @@ $$
 while
 
 $$
-\operatorname{Cov}(
+\mathrm{Cov}(
 X_{n+1}-X_n\mid G_n
 )
 =

@@ -350,7 +350,7 @@ There are exactly two possibilities:
 Therefore:
 
 $$
-\operatorname{Spec}({\Pi_p})
+\mathrm{Spec}({\Pi_p})
 \cong
 \mathsf P(G)\sqcup\partial^+G.
 $$
@@ -414,7 +414,7 @@ $$
 So the infinite path is not represented by a nonzero vector lying in
 
 $$
-\bigcap_n\operatorname{Ran}\Pi_{p_n}.
+\bigcap_n\mathrm{Ran}\Pi_{p_n}.
 $$
 
 That intersection is zero.
@@ -475,7 +475,7 @@ $$
 Its degree-$n$ support is exactly the set of length-$n$ paths:
 
 $$
-\operatorname{supp}(\mathbf E^n)=
+\mathrm{supp}(\mathbf E^n)=
 \mathsf P_n(G).
 $$
 
@@ -483,9 +483,9 @@ Path factorization supplies the truncation maps
 
 $$
 \pi_n:
-\operatorname{supp}(\mathbf E^{n+1})
+\mathrm{supp}(\mathbf E^{n+1})
 \to
-\operatorname{supp}(\mathbf E^n).
+\mathrm{supp}(\mathbf E^n).
 $$
 
 Therefore:
@@ -493,7 +493,7 @@ Therefore:
 $$
 \partial^+_vG=
 \varprojlim_n
-\operatorname{supp}
+\mathrm{supp}
 \left(
 e_{\bullet}\mathbf E^ne_v
 \right),

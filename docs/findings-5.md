@@ -272,7 +272,7 @@ where
 
 $$
 \mathcal H_n=
-\overline\{\operatorname{span}\}
+\overline\{\mathrm{span}\}
 {\xi_p:|p|=n}.
 $$
 
@@ -285,7 +285,7 @@ $$
 on the natural domain
 
 $$
-\operatorname{Dom}(N)=
+\mathrm{Dom}(N)=
 \left\{
 \sum_pa_p\xi_p:
 \sum_p |p|^2|a_p|^2<\infty

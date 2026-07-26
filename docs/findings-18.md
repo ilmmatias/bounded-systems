@@ -61,20 +61,20 @@ $$
 with:
 
 $$
-\operatorname{Ob}(\mathfrak R_G)=V
+\mathrm{Ob}(\mathfrak R_G)=V
 $$
 
 and mapping simplicial sets
 
 $$
-\operatorname{Map}_{\mathfrak R_G}(u,v)=
+\mathrm{Map}_{\mathfrak R_G}(u,v)=
 E\bigl(\mathscr P_G(u,v)\bigr).
 $$
 
 Consequently,
 
 $$
-\operatorname{Map}_{\mathfrak R_G}(u,v)_n=
+\mathrm{Map}_{\mathfrak R_G}(u,v)_n=
 \mathscr P_G(u,v)^{n+1}.
 $$
 
@@ -92,14 +92,14 @@ Given
 
 $$
 (p_0,\ldots,p_n)\in
-\operatorname{Map}_{\mathfrak R_G}(u,v)_n
+\mathrm{Map}_{\mathfrak R_G}(u,v)_n
 $$
 
 and
 
 $$
 (q_0,\ldots,q_n)\in
-\operatorname{Map}_{\mathfrak R_G}(v,w)_n,
+\mathrm{Map}_{\mathfrak R_G}(v,w)_n,
 $$
 
 define composition coordinatewise:
@@ -136,7 +136,7 @@ $$
 we have
 
 $$
-\operatorname{Map}_{\mathfrak R_G}(u,v)_0=
+\mathrm{Map}_{\mathfrak R_G}(u,v)_0=
 \mathscr P_G(u,v).
 $$
 
@@ -145,7 +145,7 @@ Composition of zero-simplices is ordinary path concatenation.
 Therefore:
 
 $$
-\operatorname{sk}_0\mathfrak R_G=
+\mathrm{sk}_0\mathfrak R_G=
 \mathsf P(G).
 $$
 
@@ -165,7 +165,7 @@ Therefore:
 
 $$
 \pi_0
-\operatorname{Map}_{\mathfrak R_G}(u,v)=
+\mathrm{Map}_{\mathfrak R_G}(u,v)=
 \begin{cases}
 {\ast},&u\le v,\\
 \varnothing,&u\nleq v.
@@ -183,7 +183,7 @@ We have therefore obtained the exact interpolation
 
 $$
 \mathsf P(G)=
-\operatorname{sk}_0\mathfrak R_G
+\mathrm{sk}_0\mathfrak R_G
 \quad\longrightarrow\quad
 \mathfrak R_G
 \quad\longrightarrow\quad
@@ -244,7 +244,7 @@ So the complete object should be regarded as
 $$
 \left(
 \mathfrak R_G,;
-\mathsf P(G)=\operatorname{sk}_0\mathfrak R_G
+\mathsf P(G)=\mathrm{sk}_0\mathfrak R_G
 \right),
 $$
 
@@ -261,7 +261,7 @@ $$
 Therefore
 
 $$
-\operatorname{Map}_{\mathfrak R_G}(v,v)=
+\mathrm{Map}_{\mathfrak R_G}(v,v)=
 E({1_v})
 \cong\Delta^0.
 $$
@@ -271,7 +271,7 @@ There is exactly one endomorphism vertex and no nontrivial route loop.
 Thus acyclicity becomes:
 
 $$
-\operatorname{Map}_{\mathfrak R_G}(v,v)
+\mathrm{Map}_{\mathfrak R_G}(v,v)
 \text{ has exactly the identity as its marked vertex}.
 $$
 
@@ -373,15 +373,15 @@ $$
 But
 
 $$
-\operatorname{im}d_1=
-\operatorname{span}\{p_1-p_0\}.
+\mathrm{im}d_1=
+\mathrm{span}\{p_1-p_0\}.
 $$
 
 Therefore:
 
 $$
 I_{v,u}=
-\operatorname{im}
+\mathrm{im}
 \left(
 d_1:
 C_1^{\mathrm{route}}(v,u)
@@ -393,7 +393,7 @@ $$
 Globally,
 
 $$
-I=\operatorname{im}d_1.
+I=\mathrm{im}d_1.
 $$
 
 So the familiar exact sequence
@@ -592,7 +592,7 @@ $$
 \text{factorizations through endpoints}\\
 \text{contractible resolution}&
 \text{possibly nontrivial topology}\\
-I=\operatorname{im}d_1&
+I=\mathrm{im}d_1&
 \widetilde H_*(\Delta(u,v))
 \end{array}
 $$
@@ -700,7 +700,7 @@ Consequently, after the conventional index shift,
 
 $$
 H_*\bigl(
-\operatorname{Tot}
+\mathrm{Tot}
 \mathbb B^{\mathrm{RF}}(v,u)
 \bigr)
 \cong
@@ -728,7 +728,7 @@ The vertical route complexes are contractible, so their individual route vertice
 Therefore the primary object cannot be merely
 
 $$
-H_*\operatorname{Tot}\mathbb B^{\mathrm{RF}}.
+H_*\mathrm{Tot}\mathbb B^{\mathrm{RF}}.
 $$
 
 We must retain at least the filtered bicomplex itself:

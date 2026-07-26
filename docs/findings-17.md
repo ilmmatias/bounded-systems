@@ -206,7 +206,7 @@ For finite posets, these groups identify with extension groups between the corre
 $$
 H^n\mathscr E_G(v,u)
 \cong
-\operatorname{Ext}_{B(P_G)}^n(S_u,S_v),
+\mathrm{Ext}_{B(P_G)}^n(S_u,S_v),
 $$
 
 subject to the usual left/right module convention.
@@ -214,11 +214,11 @@ subject to the usual left/right module convention.
 The induced product
 
 $$
-\operatorname{Ext}^p(S_v,S_w)
+\mathrm{Ext}^p(S_v,S_w)
 \otimes
-\operatorname{Ext}^q(S_u,S_v)
+\mathrm{Ext}^q(S_u,S_v)
 \longrightarrow
-\operatorname{Ext}^{p+q}(S_u,S_w)
+\mathrm{Ext}^{p+q}(S_u,S_w)
 $$
 
 is the Yoneda product. Incidence algebras can be presented as path algebras modulo the parallel-path ideal, while their projective resolutions and Ext groups are governed by the combinatorics of the poset intervals.
@@ -363,7 +363,7 @@ Composing the $d$ cover classes along that chain gives the top degree class. Exc
 
 $$
 \eta_{\pi(d)}\cdots\eta_{\pi(1)}=
-\operatorname{sgn}(\pi),\omega.
+\mathrm{sgn}(\pi),\omega.
 $$
 
 The diamond relations account for adjacent exchanges, while the higher interval topology ensures that all sequences of such exchanges are coherently compatible.

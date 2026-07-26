@@ -133,7 +133,7 @@ $$
 Then $\Sigma_n^0$ is unbounded, but it is closable. Its closure has domain
 
 $$
-\operatorname{Dom}(\Sigma_n)=
+\mathrm{Dom}(\Sigma_n)=
 \left\{
 x\in\mathcal H_n:
 \sum_{u,v}
@@ -496,7 +496,7 @@ With the marked pair diagonal,
 
 $$
 \mathcal D_{\mathrm{pair}}=
-\operatorname{alg}{E_{v,u}},
+\mathrm{alg}{E_{v,u}},
 $$
 
 we recover
@@ -580,7 +580,7 @@ Thus the min-plus data arise from the positive tower by:
 $$
 {D_n}
 \longrightarrow
-{\operatorname{supp}D_n}
+{\mathrm{supp}D_n}
 \longrightarrow
 \text{first supported }n.
 $$
@@ -634,7 +634,7 @@ Loses:
 Primary objects:
 
 $$
-Z_n=\operatorname{supp}D_n
+Z_n=\mathrm{supp}D_n
 $$
 
 and
@@ -660,7 +660,7 @@ $$
 \mathcal H_n
 \xrightarrow{\Sigma_n}
 D_n
-\xrightarrow{\operatorname{supp}}
+\xrightarrow{\mathrm{supp}}
 Z_n
 \xrightarrow{\min n}
 d.
@@ -798,7 +798,7 @@ $$
 &d\text{-ary tree}&d\text{-parallel funnel}\\
 \hline
 |\Sigma_n|&1&d^{n/2}\\
-\operatorname{rank}D_n&d^n&1\\
+\mathrm{rank}D_n&d^n&1\\
 |D_n|&1&d^n
 \end{array}
 $$

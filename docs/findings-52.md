@@ -215,7 +215,7 @@ E(e,p,w_+,w_-)
 (e,e,p,p,w_+,w_-)^\mathsf T.
 $$
 
-Any vector in $\operatorname{Range}E$ has equal first two components. A vector
+Any vector in $\mathrm{Range}E$ has equal first two components. A vector
 
 $$
 \alpha b+\beta c
@@ -238,11 +238,11 @@ $$
 Therefore
 
 $$
-\operatorname{Range}E
+\mathrm{Range}E
 \cap
-\operatorname{span}\{b,c\}
+\mathrm{span}\{b,c\}
 =
-\operatorname{span}\{c\}.
+\mathrm{span}\{c\}.
 $$
 
 Since
@@ -254,11 +254,11 @@ $$
 we obtain the exact identity
 
 $$
-\operatorname{Range}E
+\mathrm{Range}E
 \cap
-\operatorname{Range}G_0
+\mathrm{Range}G_0
 =
-\operatorname{span}\{Er_0\}.
+\mathrm{span}\{Er_0\}.
 $$
 
 This is independent of $q$ and of the detailed nondegenerate covariance of $(t,t^2)$.
@@ -284,7 +284,7 @@ $$
 The matrix equals
 
 $$
-\operatorname{Cov}_{t\sim U[0,1]}(t,t^2).
+\mathrm{Cov}_{t\sim U[0,1]}(t,t^2).
 $$
 
 The leading covariance fit errors were below one percent, usually below a few thousandths, and the empirical leading subspace angles were very small in the quenched ensemble.

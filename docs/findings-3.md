@@ -118,7 +118,7 @@ be the category whose:
 Acyclicity gives:
 
 $$
-\operatorname{End}_{\mathsf P(G)}(v)=\{1_v\}.
+\mathrm{End}_{\mathsf P(G)}(v)=\{1_v\}.
 $$
 
 There are no nonidentity endomorphisms because any positive-length path from $v$ back to $v$ would be a directed cycle.
@@ -244,7 +244,7 @@ Let
 $$
 J
 =
-\operatorname{span}\{p:|p|\ge1\}.
+\mathrm{span}\{p:|p|\ge1\}.
 $$
 
 Then
@@ -267,7 +267,7 @@ where
 
 $$
 \mathcal A_n=
-\operatorname{span}\{p:|p|=n\}.
+\mathrm{span}\{p:|p|=n\}.
 $$
 
 Multiplication respects the grading:
@@ -282,7 +282,7 @@ And
 
 $$
 J^n=
-\operatorname{span}\{p:|p|\ge n\}.
+\mathrm{span}\{p:|p|\ge n\}.
 $$
 
 ## A general infinite theorem

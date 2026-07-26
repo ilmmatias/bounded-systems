@@ -296,7 +296,7 @@ Let
 $$
 N
 =
-\operatorname{span}\{
+\mathrm{span}\{
 \varepsilon_{v,u}:u<v
 \}.
 $$

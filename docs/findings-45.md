@@ -367,7 +367,7 @@ The canonical first-pass time scale is
 
 $$
 a_{G,p}=
-\operatorname{tr}C_{G,p}.
+\mathrm{tr}C_{G,p}.
 $$
 
 When
@@ -420,7 +420,7 @@ Because $X$ is bounded,
 $$
 |m_{G,p}|
 \le
-\frac{\operatorname{diam}(X_G)}p.
+\frac{\mathrm{diam}(X_G)}p.
 $$
 
 Consequently:

@@ -159,7 +159,7 @@ remain states. Weak-* compactness gives cluster states
 
 $$
 \varphi_{u,\partial}=
-\operatorname*{w^\ast-lim}_{r\uparrow R_u^+}
+\mathrm*{w^\ast-lim}_{r\uparrow R_u^+}
 \varphi_{u,r},
 $$
 
@@ -218,8 +218,8 @@ Let $q:u\to w$ be a finite path.
 Denote by $P[q]$ the projection onto the span of all finite paths beginning with $q$:
 
 $$
-\operatorname{Ran}P[q]=
-\overline\{\operatorname{span}\}
+\mathrm{Ran}P[q]=
+\overline\{\mathrm{span}\}
 {\xi_{qt}:s(t)=w}.
 $$
 

@@ -37,10 +37,10 @@ Because $G$ is a finite DAG, its nodes can be topologically ordered. In that ord
 $$
 A=
 \begin{pmatrix}
-0&*&*&\cdots&*\\
-0&0&*&\cdots&*\\
-0&0&0&\cdots&*\\
-\vdots&\vdots&\vdots&\ddots&*\\
+0&\ast&\ast&\cdots&\ast\\
+0&0&\ast&\cdots&\ast\\
+0&0&0&\cdots&\ast\\
+\vdots&\vdots&\vdots&\ddots&\ast\\
 0&0&0&\cdots&0
 \end{pmatrix}.
 $$
@@ -54,7 +54,7 @@ $$
 Consequently,
 
 $$
-\operatorname{spec}(A)=\{0\}
+\mathrm{spec}(A) = \{0\}
 $$
 
 for every finite configuration.
@@ -88,8 +88,8 @@ We will record the rank profile
 $$
 \rho(A)=
 \left(
-\operatorname{rank}A,
-\operatorname{rank}A^2,\ldots
+\mathrm{rank}A,
+\mathrm{rank}A^2,\ldots
 \right)
 $$
 
@@ -99,7 +99,7 @@ We will also record the singular values
 
 $$
 \sigma(A)=
-\sqrt{\operatorname{spec}(A^\mathsf TA)}.
+\sqrt{\mathrm{spec}(A^\mathsf TA)}.
 $$
 
 Unlike ordinary eigenvalues, these need not vanish.
@@ -120,7 +120,7 @@ The notation $d^+$ and $d^-$ denotes the multisets of out-degrees and in-degrees
 
 ## Complete table through three nodes
 
-| Nodes | Configuration            | $\rho(A)$ | $\sigma(A)$                | $d^+$       | $d^-$       | $\operatorname{spec}(L_u)$ |
+| Nodes | Configuration            | $\rho(A)$ | $\sigma(A)$                | $d^+$       | $d^-$       | $\mathrm{spec}(L_u)$ |
 | ----: | ------------------------ | --------- | -------------------------- | ----------- | ----------- | -------------------------- |
 |     1 | isolated node            | $(0)$     | $(0)$                      | $\{0\}$     | $\{0\}$     | $\{0\}$                    |
 |     2 | two isolated nodes       | $(0)$     | $(0,0)$                    | $\{0,0\}$   | $\{0,0\}$   | $\{0,0\}$                  |
@@ -420,7 +420,7 @@ The first atlas already lets us characterize the operators.
 For all finite cases:
 
 $$
-\operatorname{spec}(A)=\{0\}.
+\mathrm{spec}(A)=\{0\}.
 $$
 
 It sees only the node count through the multiplicity of zero.
@@ -476,7 +476,7 @@ n,
 \sigma(A),
 d^+,
 d^-,
-\operatorname{spec}(L_u)
+\mathrm{spec}(L_u)
 \right)
 $$
 
@@ -739,6 +739,6 @@ the determinants differ, and hence their spectra differ.
 So:
 
 $$
-\operatorname{spec}(Q_\tau)
+\mathrm{spec}(Q_\tau)
 \text{ distinguishes the two weighted-chain orientations.}
 $$

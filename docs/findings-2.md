@@ -260,20 +260,20 @@ $$
 |N|,
 |E|,
 \rho(A),
-\operatorname{spec}(A^\mathsf TA),
-\operatorname{spec}(L_{\mathrm{out}}),
-\operatorname{spec}(L_{\mathrm{in}}),
-\operatorname{spec}(L_u),
-\operatorname{spec}(i(A-A^\mathsf T)),
-\operatorname{spec}(R^\mathsf TR),
-\operatorname{spec}(Q_2(A))
+\mathrm{spec}(A^\mathsf TA),
+\mathrm{spec}(L_{\mathrm{out}}),
+\mathrm{spec}(L_{\mathrm{in}}),
+\mathrm{spec}(L_u),
+\mathrm{spec}(i(A-A^\mathsf T)),
+\mathrm{spec}(R^\mathsf TR),
+\mathrm{spec}(Q_2(A))
 \Bigr).
 $$
 
 Then augment it with
 
 $$
-\operatorname{spec}\left(
+\mathrm{spec}\left(
 Q_2\bigl(A_{\mathcal L(G)}\bigr)
 \right).
 $$

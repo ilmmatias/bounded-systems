@@ -26,7 +26,7 @@ $$
 we have
 
 $$
-\operatorname{Cov}(S_{\lfloor nt\rfloor},S_{\lfloor ns\rfloor})=
+\mathrm{Cov}(S_{\lfloor nt\rfloor},S_{\lfloor ns\rfloor})=
 \sum_{j\le nt}
 \sum_{k\le ns}
 C_{jk}.
@@ -36,7 +36,7 @@ A continuum candidate is determined by a normalization $a_n$ satisfying
 
 $$
 a_n^{-2}
-\operatorname{Cov}
+\mathrm{Cov}
 \left(
 S_{\lfloor nt\rfloor},
 S_{\lfloor ns\rfloor}
@@ -95,7 +95,7 @@ $$
 Therefore
 
 $$
-\operatorname{Cov}
+\mathrm{Cov}
 (
 \Delta M_j^\phi,
 \Delta M_k^\psi
@@ -132,7 +132,7 @@ $$
 Then
 
 $$
-\operatorname{Var}(S_n)=
+\mathrm{Var}(S_n)=
 nC(0)
 +
 \sum_{m=1}^{n-1}
@@ -153,7 +153,7 @@ $$
 then
 
 $$
-\operatorname{Var}(S_n)
+\mathrm{Var}(S_n)
 \sim
 n\Sigma_{\mathrm{eff}},
 $$
@@ -200,7 +200,7 @@ Then
 
 $$
 \begin{aligned}
-\operatorname{Var}(S_n)
+\mathrm{Var}(S_n)
 &\sim
 2Q
 \sum_{m=1}^{n-1}
@@ -286,11 +286,11 @@ The integer $m$ is the Hermite rank.
 The leading covariance behaves as
 
 $$
-\operatorname{Cov}(\xi_0,\xi_k)
+\mathrm{Cov}(\xi_0,\xi_k)
 \sim
 m!c_m^2
 \left[
-\operatorname{Cov}(G_0,G_k)
+\mathrm{Cov}(G_0,G_k)
 \right]^m
 \sim
 \widetilde c,k^{-m\eta}L(k)^m.

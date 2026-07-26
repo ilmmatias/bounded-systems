@@ -570,7 +570,7 @@ $$
 Therefore every scalar endpoint series satisfies the coarse convergence bound
 
 $$
-\operatorname{rad}
+\mathrm{rad}
 M_d(v,u;\cdot)
 \ge
 \frac{1}{2r(S_+)^2}=
@@ -689,7 +689,7 @@ $$
 \longmapsto
 \left(
 \nu_z\mathcal P(v,u;z),
-\operatorname{lc}_z\mathcal P(v,u;z)
+\mathrm{lc}_z\mathcal P(v,u;z)
 \right)=
 \left(
 d(u,v),

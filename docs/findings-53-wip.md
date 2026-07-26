@@ -119,7 +119,7 @@ With asymptotically uniform latent route-source position,
 $$
 \Sigma
 =
-\operatorname{Cov}(t,t^2)
+\mathrm{Cov}(t,t^2)
 =
 \begin{pmatrix}
 1/12&1/12\\
@@ -175,7 +175,7 @@ The route jump has two endpoint contributions, giving the intrinsic denominator
 
 $$
 \alpha(q)
-=2\operatorname{tr}\Omega
+=2\mathrm{tr}\Omega
 =\frac{2q(1-q)(2q^2+3)}3.
 $$
 

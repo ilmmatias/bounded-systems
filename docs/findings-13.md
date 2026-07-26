@@ -1,4 +1,4 @@
-# 1. Why (\operatorname{Tor}^A(B,B)) is not the right higher invariant
+# 1. Why (\mathrm{Tor}^A(B,B)) is not the right higher invariant
 
 Recall
 
@@ -12,16 +12,16 @@ where $I$ is the route-collapse ideal.
 One might study
 
 $$
-\operatorname{Tor}^A_n(B,B).
+\mathrm{Tor}^A_n(B,B).
 $$
 
 Its first group does recover
 
 $$
-\operatorname{Tor}^A_1(B,B)\cong I/I^2.
+\mathrm{Tor}^A_1(B,B)\cong I/I^2.
 $$
 
-But path algebras are hereditary in the standard quiver setting, so their module homology vanishes above degree one. Thus $\operatorname{Tor}^A_n(B,B)$ can be zero for $n\ge2$ even though the route relations possess nontrivial compositions and dependencies.
+But path algebras are hereditary in the standard quiver setting, so their module homology vanishes above degree one. Thus $\mathrm{Tor}^A_n(B,B)$ can be zero for $n\ge2$ even though the route relations possess nontrivial compositions and dependencies.
 
 The reason is structural: $A$ is the free path algebra. Resolving $B$ over the free algebra asks how complicated $B$ is as an $A$-module, not how route ambiguities interact internally.
 
@@ -32,7 +32,7 @@ The correct algebra is instead the associated graded route algebra.
 Define
 
 $$
-C=\operatorname{gr}_I A=
+C=\mathrm{gr}_I A=
 \bigoplus_{m\ge0}C_m,
 $$
 
@@ -313,7 +313,7 @@ H_{2,m}^{\mathrm{rt}}=
 C_m
 \right)
 }{
-\operatorname{span}
+\mathrm{span}
 \{
 [xy|z]-[x|yz]:
 \deg x+\deg y+\deg z=m

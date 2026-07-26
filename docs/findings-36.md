@@ -162,7 +162,7 @@ The second-order profile regime therefore lives naturally on the symmetric Fock 
 $$
 \Gamma_s(\mathfrak t_h)=
 \bigoplus_{n\ge0}
-\operatorname{Sym}^n\mathfrak t_h.
+\mathrm{Sym}^n\mathfrak t_h.
 $$
 
 Let
@@ -175,7 +175,7 @@ $$
 be its number operator:
 
 $$
-N_h\big|_{\operatorname{Sym}^n\mathfrak t_h}=
+N_h\big|_{\mathrm{Sym}^n\mathfrak t_h}=
 nI.
 $$
 
@@ -224,7 +224,7 @@ define its quadratic profile image formally by
 
 $$
 \mathscr S_h\xi_p=
-\operatorname{Sym}
+\mathrm{Sym}
 \left(
 \sqrt{P_h(e_1\mid v_0)},j_{e_1}
 \otimes\cdots\otimes
@@ -536,14 +536,14 @@ and
 
 $$
 (I-P_h)\chi=
-\operatorname{Var}_{P_h}(\phi).
+\mathrm{Var}_{P_h}(\phi).
 $$
 
 The third derivative of the log-sum-exp is the third centered cumulant. Therefore
 
 $$
 (I-P_h)\zeta=
-3,\operatorname{Cov}_{P_h}(\phi,\chi)
+3,\mathrm{Cov}_{P_h}(\phi,\chi)
 +
 \kappa_{3,P_h}(\phi),
 $$
@@ -568,7 +568,7 @@ $$
 (I-P_h)\chi=\kappa_2(\phi),\\
 \text{third order:}&\quad
 (I-P_h)\zeta
-=3\operatorname{Cov}(\phi,\chi)+\kappa_3(\phi).
+=3\mathrm{Cov}(\phi,\chi)+\kappa_3(\phi).
 \end{aligned}
 $$
 

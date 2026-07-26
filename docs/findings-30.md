@@ -29,7 +29,7 @@ $$
 It need not converge. Its canonical cluster set is
 
 $$
-\operatorname{Cl}_t(\xi)=
+\mathrm{Cl}_t(\xi)=
 \bigcap_{N\ge1}
 \overline\{
 \left\{
@@ -47,7 +47,7 @@ Because every coordinate is bounded by prefixing estimates, the ambient product 
 Call $\xi$ **$t$-Martin regular** when
 
 $$
-\operatorname{Cl}*t(\xi)={h_\xi}
+\mathrm{Cl}*t(\xi)={h_\xi}
 $$
 
 is a singleton.
@@ -127,8 +127,8 @@ If two rays have an eventual common tail, their node sequences are eventually id
 $$
 \xi\sim_{\mathrm{tail}}\eta
 \Longrightarrow
-\operatorname{Cl}_t(\xi)=
-\operatorname{Cl}_t(\eta).
+\mathrm{Cl}_t(\xi)=
+\mathrm{Cl}_t(\eta).
 $$
 
 In particular, for regular rays,
@@ -696,7 +696,7 @@ $$
 but the compact cluster set
 
 $$
-\operatorname{Cl}_t(\xi).
+\mathrm{Cl}_t(\xi).
 $$
 
 Several distinctions arise:
@@ -704,7 +704,7 @@ Several distinctions arise:
 ### Singleton cluster set
 
 $$
-\operatorname{Cl}_t(\xi)={h}.
+\mathrm{Cl}_t(\xi)={h}.
 $$
 
 The ray has a well-defined node shadow.
@@ -718,8 +718,8 @@ The same route history presents different node asymptotic profiles along differe
 Two nonregular rays may have
 
 $$
-\operatorname{Cl}_t(\xi)=
-\operatorname{Cl}_t(\eta)
+\mathrm{Cl}_t(\xi)=
+\mathrm{Cl}_t(\eta)
 $$
 
 even though neither has a unique limit.

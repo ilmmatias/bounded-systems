@@ -67,7 +67,7 @@ $$
 let
 
 $$
-\operatorname{pr}*F:
+\mathrm{pr}*F:
 \mathcal P_t
 \longrightarrow
 \prod_{v\in F}[0,t^{-d(o,v)}]
@@ -80,7 +80,7 @@ Define
 $$
 \mathcal M_{t,F}=
 \overline{
-\operatorname{pr}_F\bigl(\iota_t(V_o)\bigr)
+\mathrm{pr}_F\bigl(\iota_t(V_o)\bigr)
 }.
 $$
 
@@ -139,7 +139,7 @@ Take a basic product neighborhood of $y$. It depends on only finitely many coord
 $$
 y_F\in
 \overline{
-\operatorname{pr}_F(\iota_t(V_o))
+\mathrm{pr}_F(\iota_t(V_o))
 },
 $$
 
@@ -157,7 +157,7 @@ If we instead use the raw images
 
 $$
 Y_{t,F}=
-\operatorname{pr}_F(\iota_t(V_o)),
+\mathrm{pr}_F(\iota_t(V_o)),
 $$
 
 the formula
@@ -281,7 +281,7 @@ For finite $F$, let
 $$
 \mathcal A_F=
 \left\{
-f\circ\operatorname{pr}*F:
+f\circ\mathrm{pr}*F:
 f\in C(\mathcal M_{t,F})
 \right\}
 \subseteq C(\mathcal M_t).
@@ -335,7 +335,7 @@ Let
 
 $$
 \mathfrak D_F=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_F\eta
@@ -355,7 +355,7 @@ with defect module
 
 $$
 \mathfrak D_M=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_M\eta
@@ -485,7 +485,7 @@ and let
 
 $$
 \mathfrak D_n=
-\operatorname{span}
+\mathrm{span}
 \{
 \delta_\xi-\delta_\eta:
 \xi\sim_n\eta

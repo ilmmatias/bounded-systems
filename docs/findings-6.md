@@ -210,7 +210,7 @@ Let
 
 $$
 \mathcal T_+(G)=
-\overline\{\operatorname{alg}\}{P_v,L_e}^{|\cdot|}
+\overline\{\mathrm{alg}\}{P_v,L_e}^{|\cdot|}
 $$
 
 be the norm-closed Fock tensor algebra.

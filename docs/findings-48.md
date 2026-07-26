@@ -131,7 +131,7 @@ The observed non-rigid mass and total-variation distance decreased rapidly:
 The mechanism is clear: if almost every large DAG is rigid, then
 
 $$
-\dim(G)=\frac{n!}{|\operatorname{Aut}(G)|}
+\dim(G)=\frac{n!}{|\mathrm{Aut}(G)|}
 $$
 
 becomes the common value $n!$ on almost all mass, so labeled and equal-class weighting become asymptotically indistinguishable.

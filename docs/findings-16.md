@@ -184,7 +184,7 @@ For a finite poset $P$, let $B=B(P)$ be its incidence algebra over a field $k$, 
 The normalized relative bar resolution yields
 
 $$
-\operatorname{Ext}^n_B(S_u,S_v)
+\mathrm{Ext}^n_B(S_u,S_v)
 \cong
 \widetilde H^{,n-2}\bigl(\Delta(u,v);k\bigr)
 $$
@@ -204,7 +204,7 @@ Finite incidence algebras admit projective resolutions of their simple modules a
 Over a field and for finite intervals,
 
 $$
-\dim_k\operatorname{Ext}^n_B(S_u,S_v)=
+\dim_k\mathrm{Ext}^n_B(S_u,S_v)=
 \dim_k\widetilde H_{n-2}(\Delta(u,v);k).
 $$
 
@@ -459,7 +459,7 @@ $$
 \mu(u,v)=
 \sum_{n\ge1}
 (-1)^n
-\dim_k\operatorname{Ext}^n_B(S_u,S_v).
+\dim_k\mathrm{Ext}^n_B(S_u,S_v).
 $$
 
 So Möbius inversion retains only the alternating total of all higher coherence dimensions.
@@ -544,7 +544,7 @@ Higher syzygies require correspondingly larger ordinal separation.
 For a finite reachability poset, the global dimension of its incidence algebra is the largest $n$ for which some simple-module Ext group is nonzero:
 
 $$
-\operatorname{gldim}B=
+\mathrm{gldim}B=
 \max
 \left\{
 n:
@@ -558,7 +558,7 @@ Examples:
 
 $$
 \begin{array}{c|c}
-P&\operatorname{gldim}B(P)\\
+P&\mathrm{gldim}B(P)\\
 \hline
 \text{total order}&1\\
 \text{diamond }B_2&2\\

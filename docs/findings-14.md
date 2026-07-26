@@ -41,7 +41,7 @@ $$
 Thus we can describe $I$ without choosing a preferred route:
 
 $$
-I=\operatorname{span}
+I=\mathrm{span}
 \{\delta(p,q):s(p)=s(q),\ r(p)=r(q)\}.
 $$
 
@@ -173,7 +173,7 @@ Because $I$ is spanned by route differences,
 
 $$
 I^m=
-\operatorname{span}{\text{(m)-box defects}}.
+\mathrm{span}{\text{(m)-box defects}}.
 $$
 
 Therefore

@@ -767,7 +767,7 @@ and
 
 $$
 \partial_\tau\rho=
--\operatorname{div}_g
+-\mathrm{div}_g
 \left(
 \rho\nabla_g u
 \right)

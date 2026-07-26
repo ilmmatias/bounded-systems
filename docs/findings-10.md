@@ -491,7 +491,7 @@ Consequently,
 
 $$
 R^-_{<\lambda}(z)=
-\operatorname*{coef\!-\!lim}_{\alpha<\lambda}
+\mathrm*{coef\!-\!lim}_{\alpha<\lambda}
 R^-_{<\alpha}(z).
 $$
 
@@ -501,7 +501,7 @@ Dually,
 
 $$
 R^+_{<\lambda}(z)=
-\operatorname*{coef\!-\!lim}_{\alpha<\lambda}
+\mathrm*{coef\!-\!lim}_{\alpha<\lambda}
 R^+_{<\alpha}(z).
 $$
 

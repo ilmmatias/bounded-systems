@@ -25,7 +25,7 @@ $$
 If
 
 $$
-a(G)=|\operatorname{Aut}(G)|,
+a(G)=|\mathrm{Aut}(G)|,
 $$
 
 the number of labeled one-vertex extensions of a fixed labeled realization of $G$ that belong to the class $H$ is
@@ -142,7 +142,7 @@ $$
 Consequently the endpoint law is proportional to
 
 $$
-\dim(H)=\frac{N!}{|\operatorname{Aut}(H)|},
+\dim(H)=\frac{N!}{|\mathrm{Aut}(H)|},
 $$
 
 which is the law induced by uniform labeled DAG counting.
