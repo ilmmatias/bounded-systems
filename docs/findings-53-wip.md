@@ -1,12 +1,12 @@
 # 1. Evolution of the clock question
 
-The first state-line analyses at sizes through 288 produced route/configuration clock ratios near
+The first state-line analyses through $N=288$ gave route/configuration clock ratios near
 
 ```math
 9.
 ```
 
-This suggested the provisional candidate
+This suggested
 
 ```math
 \lambda_{\mathrm{route}}\approx-18
@@ -18,33 +18,33 @@ relative to
 \lambda_{\mathrm{config}}=-2.
 ```
 
-The finite Schur decomposition supported a genuine slow scalar, but exact $-18$ remained unresolved. Larger exact-uniform samples at
+The finite Schur decomposition established a genuine slow scalar. Larger exact-uniform samples at
 
 ```math
 N=384,480,576,672,768
 ```
 
-moved the extrapolated rate downward.
+shifted the fitted rate upward toward zero and reduced the spread between route horizons.
 
 # 2. High-size exact-uniform clock fits
 
-The combined low- and high-size Schur fits gave
+The combined low- and high-size Schur fits gave:
 
 | $\rho$ | rate estimate | clock ratio |
 |---:|---:|---:|
-| 1/8 | -18.011 | 9.006 |
-| 1/4 | -17.692 | 8.846 |
-| 3/8 | -17.567 | 8.783 |
+| $1/8$ | $-18.011$ | $9.006$ |
+| $1/4$ | $-17.692$ | $8.846$ |
+| $3/8$ | $-17.567$ | $8.783$ |
 
-The high-size-only fits gave
+The high-size-only fits gave:
 
 | $\rho$ | rate estimate | clock ratio |
 |---:|---:|---:|
-| 1/8 | -17.612 | 8.806 |
-| 1/4 | -17.472 | 8.736 |
-| 3/8 | -17.416 | 8.708 |
+| $1/8$ | $-17.612$ | $8.806$ |
+| $1/4$ | $-17.472$ | $8.736$ |
+| $3/8$ | $-17.416$ | $8.708$ |
 
-Thus all three horizons moved below nine and toward one another.
+All three horizons moved below nine and toward a common value.
 
 # 3. Common-limit model
 
@@ -59,50 +59,28 @@ L+\frac{a_\rho}{N}
 gave
 
 ```math
-L=-17.500109.
-```
-
-The corresponding ratio was
-
-```math
+L=-17.500109,
+\qquad
 \kappa=8.7500545.
 ```
 
-The common-limit model predicted better than three independent limits and much better than fixed $-18$. However, the paired-bootstrap interval was broad:
+The common-limit model predicted better than three independent limits and substantially better than a fixed value of $-18$. Its paired-bootstrap interval remained broad:
 
 ```math
-L\in[-18.0175,-16.9773]
+L\in[-18.0175,-16.9773].
 ```
 
-at 95%.
-
-Therefore $-18$ was strongly disfavored as the finite-size model but only narrowly not rejected as an asymptotic limit.
-
-The value
+The numerical proximity to
 
 ```math
 8.75=\frac{35}{4}
 ```
 
-was recognized after inspecting the fit. This post-hoc pattern is not an exact result.
+was recognized after fitting and carries no exact status.
 
-# 4. Why an analytic calculation became necessary
+# 4. Analytic surrogate calculation
 
-The high-size extrapolation could not distinguish nearby candidates such as
-
-```math
--17.5
-```
-
-and
-
-```math
--\frac{120}{7}\approx-17.142857.
-```
-
-The route latent geometry supplied a way to compute the scalar directly in the ordered-Bernoulli surrogate, without fitting an arbitrary rational number.
-
-# 5. Leading latent covariance
+The ordered-Bernoulli latent-position model permits a direct calculation of the route clock.
 
 For forward-edge probability $q$, define
 
@@ -114,7 +92,7 @@ b=(-q,q,-q^2,0,0,q^2)^\mathsf T,
 c=\frac{q^2}{2}(0,0,1,1,-1,-1)^\mathsf T.
 ```
 
-With asymptotically uniform latent route-source position,
+With asymptotically uniform latent position,
 
 ```math
 \Sigma
@@ -124,26 +102,31 @@ With asymptotically uniform latent route-source position,
 \begin{pmatrix}
 1/12&1/12\\
 1/12&4/45
-\end{pmatrix}.
+\end{pmatrix},
 ```
 
-The leading state covariance is
+and
 
 ```math
 G_0=[b\ c]\Sigma[b\ c]^\mathsf T.
 ```
 
-Its graph-profile intersection is exactly the line $Er_0$.
+The graph-profile range intersects the leading latent range on the exact state line $Er_0$.
 
-# 6. First-order edge-noise covariance
+# 5. First-order edge-noise covariance
 
-For a vertex at latent position $t$, the influence vectors of one outgoing edge to $y>t$ and one incoming edge from $x<t$ are
+For a vertex at latent position $t$, the outgoing and incoming edge influence vectors are
 
 ```math
 g_+(t,y)
 =
 \begin{pmatrix}
-1\\0\\q(1-y)\\0\\qy\\0
+1\\
+0\\
+q(1-y)\\
+0\\
+qy\\
+0
 \end{pmatrix},
 ```
 
@@ -153,7 +136,12 @@ and
 g_-(t,x)
 =
 \begin{pmatrix}
-0\\1\\0\\qx\\0\\q(1-x)
+0\\
+1\\
+0\\
+qx\\
+0\\
+q(1-x)
 \end{pmatrix}.
 ```
 
@@ -165,31 +153,31 @@ The first-order local-noise covariance is
 q(1-q)
 \int_0^1
 \left[
-\int_t^1g_+g_+^\mathsf Tdy
+\int_t^1g_+g_+^\mathsf T\,dy
 +
-\int_0^tg_-g_-^\mathsf Tdx
+\int_0^tg_-g_-^\mathsf T\,dx
 \right]dt.
 ```
 
-The route jump has two endpoint contributions, giving the intrinsic denominator
+The two route endpoints give the intrinsic denominator
 
 ```math
 \alpha(q)
-=2\mathrm{tr}\Omega
-=\frac{2q(1-q)(2q^2+3)}3.
+=
+2\mathrm{tr}\Omega
+=
+\frac{2q(1-q)(2q^2+3)}{3}.
 ```
 
-# 7. Singular solvability condition
+# 6. Singular solvability condition
 
-Because $G_0$ has rank two, the equation
+The leading covariance $G_0$ has rank two. The equation
 
 ```math
 G_0z=Er_0
 ```
 
-does not uniquely determine the dual vector.
-
-The bounded limit selected by the full finite covariance must additionally satisfy
+therefore leaves a family of dual vectors. The bounded finite-$N$ limit imposes
 
 ```math
 K^\mathsf T\Omega z=0,
@@ -197,7 +185,7 @@ K^\mathsf T\Omega z=0,
 
 where the columns of $K$ span $\ker G_0$.
 
-The symbolic solution family is
+The symbolic solution is
 
 ```math
 z=
@@ -206,13 +194,14 @@ z=
 -qz_5-40\sqrt3/q^3\\
 z_4+120\sqrt3/q^4\\
 z_5+120\sqrt3/q^4\\
-z_4\\z_5
+z_4\\
+z_5
 \end{pmatrix}.
 ```
 
-Two free coordinates remain, but the scalar route action is independent of both.
+The scalar route action is independent of the two free coordinates.
 
-# 8. Exact surrogate numerator and clock law
+# 7. Exact surrogate clock law
 
 Let
 
@@ -220,46 +209,48 @@ Let
 L=\frac1{\sqrt3}(0,0,1,0,-1,-1).
 ```
 
-The symbolic calculation gives
+The symbolic contraction gives
 
 ```math
-L\Omega z
-=\frac{10(1-q)}q.
+L\Omega z=\frac{10(1-q)}{q}.
 ```
 
-Therefore
+Hence
 
 ```math
+\boxed{
 \lambda_{\mathrm{route}}(q)
-=-\frac{L\Omega z}{\alpha(q)}
-=-\frac{15}{q^2(2q^2+3)}.
+=
+-\frac{15}{q^2(2q^2+3)}
+}
 ```
 
-Relative to the configuration eigenvalue $-2$,
+and
 
 ```math
+\boxed{
 \kappa(q)
-=\frac{15}{2q^2(2q^2+3)}.
+=
+\frac{15}{2q^2(2q^2+3)}.
+}
 ```
 
-At
-
-```math
-q=\frac12,
-```
-
-this becomes
+At $q=1/2$,
 
 ```math
 \lambda_{\mathrm{route}}
-=-\frac{120}{7},
+=
+-\frac{120}{7},
 \qquad
-\kappa=\frac{60}{7}\approx8.57142857.
+\kappa
+=
+\frac{60}{7}
+\approx8.57142857.
 ```
 
-# 9. Fresh multi-(q) predictions
+# 8. Fresh multi-$q$ confirmation
 
-The analytic law made two predictions not used in its derivation:
+The analytic law predicted:
 
 ```math
 q=\frac13:
@@ -268,7 +259,12 @@ q=\frac13:
 \approx-41.89655,
 ```
 
-and
+```math
+q=\frac12:
+\qquad
+\lambda=-\frac{120}{7}
+\approx-17.14286,
+```
 
 ```math
 q=\frac23:
@@ -277,60 +273,37 @@ q=\frac23:
 \approx-8.67857.
 ```
 
-Together with $q=1/2$, these were tested in a fresh planted-route experiment at sizes
+Fresh planted-route experiments at
 
 ```math
-N=192,288,384,480,576.
+N=192,288,384,480,576
 ```
 
-# 10. Multi-(q) confirmatory results
-
-The common-limit fits were:
+gave:
 
 | $q$ | analytic rate | fitted rate | relative error | 95% bootstrap interval |
 |---:|---:|---:|---:|---:|
-| 1/3 | -41.89655 | -42.13690 | 0.574% | [-42.8700, -41.3659] |
-| 1/2 | -17.14286 | -17.55217 | 2.388% | [-18.0247, -17.0706] |
-| 2/3 | -8.67857 | -8.92117 | 2.795% | [-9.4264, -8.4745] |
+| $1/3$ | $-41.89655$ | $-42.13690$ | $0.574\%$ | $[-42.8700,-41.3659]$ |
+| $1/2$ | $-17.14286$ | $-17.55217$ | $2.388\%$ | $[-18.0247,-17.0706]$ |
+| $2/3$ | $-8.67857$ | $-8.92117$ | $2.795\%$ | $[-9.4264,-8.4745]$ |
 
-Every analytic prediction lay inside its bootstrap interval. The largest-size right-state angles were below one degree.
-
-The frozen verdict was
-
-```text
-ANALYTIC_FORMULA_SUPPORTED
-```
-
-for the planted ordered-Bernoulli route ensemble.
-
-# 11. Collapsed constant check
-
-The formula is equivalent to
+Every analytic prediction lay inside its bootstrap interval. The collapsed quantity
 
 ```math
--\lambda(q)q^2(2q^2+3)=15.
+-\lambda(q)q^2(2q^2+3)
 ```
 
-Using the independently fitted limits gave approximately
+was approximately
 
 ```math
-15.086,
-15.358,
-15.419.
+15.086,\qquad15.358,\qquad15.419.
 ```
 
-Thus three clock scales spanning nearly a factor of five collapsed onto the predicted constant 15 within about three percent.
+The planted ordered-Bernoulli ensemble therefore supports the exact constant $15$.
 
-# 12. Exact-uniform transfer problem
+# 9. Exact-uniform transfer observable
 
-The surrogate result does not automatically imply
-
-```math
-\lambda_{\mathrm{uniform\ DAG}}
-=-\frac{120}{7}.
-```
-
-Define for the exact uniform-DAG route process
+For the exact uniform-DAG route process, define
 
 ```math
 \alpha_N=N\mathbb E[a],
@@ -352,14 +325,15 @@ and
 \eta_N=-N\,LH_Nz_N.
 ```
 
-Then the pooled moment clock is
+The pooled moment clock is
 
 ```math
 \lambda_N^{\mathrm{moment}}
-=-\frac{\eta_N}{\alpha_N}.
+=
+-\frac{\eta_N}{\alpha_N}.
 ```
 
-At $q=1/2$, the surrogate theorem predicts
+At $q=1/2$, direct transfer of the surrogate theorem would require
 
 ```math
 \alpha=\frac7{12},
@@ -369,161 +343,675 @@ At $q=1/2$, the surrogate theorem predicts
 \lambda=-\frac{120}{7}.
 ```
 
-# 13. Existing numerator audits
+# 10. High-size exact-uniform numerator audit
 
-## Exact uniform-DAG data through (N=288)
-
-The direct extrapolation gave
+The extended exact-uniform fit through $N=768$ gave the 95% intervals
 
 ```math
-\alpha\approx0.603257,
+\alpha\in[0.592968,0.595012],
+```
+
+```math
+\eta\in[10.4519,10.7746],
+```
+
+```math
+-\eta/\alpha\in[-18.1411,-17.5923].
+```
+
+The three surrogate targets
+
+```math
+\frac7{12},
 \qquad
-\eta\approx11.009646,
-```
-
-and
-
-```math
--\eta/\alpha\approx-18.2503.
-```
-
-All three exact surrogate targets were disfavored under the simple linear correction model.
-
-## Quenched ordered-Bernoulli control
-
-The corresponding quenched control gave
-
-```math
-\alpha\approx0.598960,
+10,
 \qquad
-\eta\approx10.753079,
+-\frac{120}{7}
 ```
 
-and
+were disfavored under the fitted correction model.
+
+This result establishes a finite exact-uniform discrepancy. Its asymptotic interpretation still depends on the correction law because the quenched and planted controls showed corrections with the same sign.
+
+# 11. Aggregation order
+
+The analytic scalar uses
 
 ```math
--\eta/\alpha\approx-17.9529.
+Q\,\mathbb E[aC]\,\mathbb E[G]^+E.
 ```
 
-The bias had the same sign as the exact-uniform estimate, suggesting a substantial finite-size or estimator correction rather than an immediately isolated exact-ensemble effect.
-
-## Fresh planted (q=1/2) control
-
-Using the fresh planted data through $N=576$ gave
-
-```math
-\alpha\approx0.589206,
-\qquad
-\eta\approx10.255667,
-```
-
-and
-
-```math
--\eta/\alpha\approx-17.4059.
-```
-
-The numerator target $10$ and clock target $-120/7$ were supported, while the denominator target $7/12$ was narrowly disfavored because the interval was precise enough to resolve a remaining one-percent finite-size offset.
-
-This validates the numerator estimator in the ensemble for which the symbolic law was derived.
-
-# 14. Why mean-of-fits is not the analytic scalar
-
-The planted control also produced a mean-of-fits slow value near
-
-```math
--18.88,
-```
-
-which differs from the pooled moment ratio.
-
-There is no contradiction. The analytic object is
-
-```math
-Q\,\mathbb E[aC]\,\mathbb E[G]^+E,
-```
-
-whereas mean-of-fits uses
+A mean-of-fits statistic uses
 
 ```math
 \mathbb E[QCG^+E].
 ```
 
-Singular inversion does not commute with graph averaging. The common state line is robust, but the finite scalar estimator depends on the prescribed aggregation order.
+Singular inversion and graph averaging do not commute. The state line is common across estimators, while the scalar depends on the prescribed aggregation order.
 
-# 15. Current high-size exact run
+# 12. Exact route-balance identity
 
-A new exact geometry run is currently generating the matrices required for the direct numerator audit at
+The exact sampler was extended to emit the matrices required for a channel-by-channel balance audit at
 
 ```math
-N=384,480,576,672,768.
+N=384,\qquad N=768,
 ```
 
-The intended outputs are:
+with 200 graph samples per size and relative horizons
 
-1. a combined fit using sizes 96 through 768;
-2. a high-size-only fit using sizes 384 through 768;
-3. bootstrap intervals for $\alpha$, $\eta$, and $-\eta/\alpha$;
-4. comparison with both the surrogate numerator $10$ and the descriptive post-hoc value
+```math
+\rho=\frac18,\frac14,\frac38.
+```
+
+The wedge-wedge balance decomposed as
+
+```math
+T_{WW}
+=
+T_{WW}^{\mathrm{boundary}}
++
+T_{WW}^{\mathrm{noise}}
++
+T_{WW}^{\mathrm{current}}.
+```
+
+The six-block means were
+
+```math
+T_{WW}=-0.938523,
+```
+
+```math
+T_{WW}^{\mathrm{boundary}}=-0.572917,
+```
+
+```math
+T_{WW}^{\mathrm{noise}}=-0.673410,
+```
+
+```math
+T_{WW}^{\mathrm{current}}=+0.307803.
+```
+
+The matrix identity held to about $10^{-8}$ after all reductions and to machine precision in the emitted per-record balance.
+
+# 13. Clustered uncertainty for the balance channels
+
+Graph-cluster bootstrapping gave:
+
+| component | point estimate | 95% interval |
+|---|---:|---:|
+| total | $-0.9385$ | $[-1.3622,-0.5544]$ |
+| boundary | $-0.5729$ | $[-0.8150,-0.3372]$ |
+| noise | $-0.6734$ | $[-0.9902,-0.3762]$ |
+| current | $+0.3078$ | $[-0.0686,+0.6695]$ |
+
+The boundary and noise channels were negative in every bootstrap draw. The current channel was positive in $94.62\%$ of draws.
+
+# 14. Inverse/comotion cancellation
+
+The centered noise mechanism obeyed
+
+```math
+T_{\mathrm{noise}}
+=
+T_{\mathrm{inverse}}
++
+T_{\mathrm{comotion}}.
+```
+
+The six-block means were
+
+```math
+T_{\mathrm{noise}}=-0.371449,
+```
+
+```math
+T_{\mathrm{inverse}}=-2.601722,
+```
+
+```math
+T_{\mathrm{comotion}}=+2.230273.
+```
+
+The two large terms cancel by about $86\%$. Their bootstrap intervals were disjoint from zero:
+
+```math
+T_{\mathrm{inverse}}
+\in[-2.9899,-2.2271],
+```
+
+```math
+T_{\mathrm{comotion}}
+\in[1.8324,2.6312].
+```
+
+A single scalar transport coefficient did not close this cancellation. The best vector fit had
+
+```math
+R^2\approx0.378,
+```
+
+and left a scalar residual of approximately
+
+```math
+0.642.
+```
+
+# 15. Structural defect sectors
+
+The centered defect decomposed into the fixed structural sectors:
+
+| sector | contribution |
+|---|---:|
+| state | $+0.02045$ |
+| wedge | $-0.68472$ |
+| embedded-fast remainder | $+0.01270$ |
+| escape | $+0.22162$ |
+| local | $+0.05851$ |
+
+The wedge sector supplied the dominant negative contribution. Escape supplied the dominant positive correction. Their combined value was
+
+```math
+-0.463108.
+```
+
+The bootstrap intervals for wedge, escape, local, and wedge-plus-escape excluded zero.
+
+# 16. Sector transfer ledger
+
+The source and defect sectors differ through inverse-mediated transfer.
+
+For the wedge row,
+
+```math
+\text{source}=+1.94294,
+\qquad
+\text{defect}=-0.68472,
+```
+
+so the net exchange was
+
+```math
+-2.62766.
+```
+
+For the state row,
+
+```math
+\text{source}=-1.76360,
+\qquad
+\text{defect}=+0.02045,
+```
+
+so the net exchange was
+
+```math
++1.78405.
+```
+
+The largest receiver-donor transfers were:
+
+| receiver $\leftarrow$ donor | contribution |
+|---|---:|
+| state $\leftarrow$ state | $+1.75269$ |
+| wedge $\leftarrow$ state | $-1.57139$ |
+| wedge $\leftarrow$ embedded-fast | $-1.11115$ |
+| embedded-fast $\leftarrow$ embedded-fast | $+0.83344$ |
+| escape $\leftarrow$ embedded-fast | $+0.21856$ |
+
+The transfer ledger closed to machine precision.
+
+# 17. Dominant transfer paths
+
+The two large negative wedge transfers are already present at quadratic order:
+
+```math
+T_{W\leftarrow S}^{\mathrm{exact}}=-1.57139,
+\qquad
+T_{W\leftarrow S}^{(2)}=-0.94161,
+```
+
+```math
+T_{W\leftarrow F}^{\mathrm{exact}}=-1.11115,
+\qquad
+T_{W\leftarrow F}^{(2)}=-0.64339.
+```
+
+State-mediated paths captured about $73\%$ of each exact transfer.
+
+The positive escape transfer had a different path structure:
+
+```math
+T_{E\leftarrow F}^{\mathrm{exact}}=+0.21856.
+```
+
+Its direct quadratic birth was only
+
+```math
++0.04254,
+```
+
+while the dominant nonstate path ran through the wedge sector:
+
+```math
+F\to W\to E:
+\qquad
++0.17630.
+```
+
+# 18. Three-node Schur network
+
+The reduced state-wedge-escape Schur network separated direct and feedback contributions:
+
+| transfer | direct | feedback | exact |
+|---|---:|---:|---:|
+| wedge $\leftarrow$ state | $-1.56857$ | $-0.00282$ | $-1.57139$ |
+| wedge $\leftarrow$ embedded-fast | $-1.10035$ | $-0.01080$ | $-1.11115$ |
+| escape $\leftarrow$ embedded-fast | $+0.05160$ | $+0.16696$ | $+0.21856$ |
+
+The negative wedge transfers are almost entirely direct. The positive escape transfer is mostly Schur feedback.
+
+The embedded-fast backbone is
+
+```math
+T_F
+=
+-1.10035+0.16696
+=
+-0.93339.
+```
+
+# 19. Scalar-kernel reduction
+
+Freezing the response weight changed the dominant direct wedge kernels only slightly:
+
+```math
+T_{W\leftarrow S}^{\mathrm{direct}}
+=
+-1.56857,
+\qquad
+T_{W\leftarrow S}^{\mathrm{frozen}}
+=
+-1.58235,
+```
+
+```math
+T_{W\leftarrow F}^{\mathrm{direct}}
+=
+-1.10035,
+\qquad
+T_{W\leftarrow F}^{\mathrm{frozen}}
+=
+-1.08079.
+```
+
+The escape feedback also survived response freezing:
+
+```math
+T_{E\leftarrow F}^{\mathrm{feedback}}
+=
++0.16696,
+\qquad
+T_{E\leftarrow F}^{\mathrm{frozen}}
+=
++0.14852.
+```
+
+A one-kernel closure failed. The escape kernel retained an order-one directional residual after projection onto the wedge kernel.
+
+# 20. Cumulant normal form
+
+The embedded-fast wedge contribution decomposed as
+
+```math
+-1.100352
+=
+-1.100548
++0.000565
+-0.028906
++0.028537.
+```
+
+The terms are, respectively:
+
+1. exact wedge contribution;
+2. quadratic covariance;
+3. cubic term;
+4. response covariance;
+5. Schur correction.
+
+The cubic wedge term is negligible, and the last two corrections nearly cancel.
+
+The escape feedback decomposed as
+
+```math
++0.166962
+=
++0.156145
++0.020351
+-0.009534.
+```
+
+The leading term is cubic.
+
+The resulting backbone normal form is
+
+```math
+\boxed{
+T_F
+=
+-1.100548
++
+0.156710
++
+0.010448
+=
+-0.933390.
+}
+```
+
+The negative term is a resolved second-order covariance. The positive restoration is structurally third order.
+
+# 21. Statistical status of the two cumulant orders
+
+The quadratic wedge term had bootstrap interval
+
+```math
+[-1.37027,-0.82211]
+```
+
+and was negative in every draw.
+
+The cubic escape term had interval
+
+```math
+[-0.03593,+0.34730]
+```
+
+and was positive in $94.42\%$ of draws.
+
+The current data therefore establish the quadratic law and give strong directional evidence for a positive cubic law. A two-sided 95% confirmation of the cubic sign requires more graphs.
+
+# 22. Donor-plane geometry
+
+Define the embedded-fast donor vectors
+
+```math
+v_2
+=
+\mathbb E[h_{SW}H_{FW}],
+```
+
+```math
+v_3
+=
+\mathbb E[h_{WE}h_{SW}H_{FE}].
+```
+
+Their clock contractions are
+
+```math
+T_2=-\bar B\langle v_2,y_F\rangle,
+```
+
+```math
+T_3=+\bar B\langle v_3,y_F\rangle.
+```
+
+The pooled geometry was
+
+```math
+\cos(v_2,y_F)=0.9145,
+```
+
+```math
+\cos(v_3,y_F)=0.7049,
+```
+
+```math
+\cos(v_2,v_3)=0.7234.
+```
+
+A shared-axis fit gave
+
+```math
+R^2=0.5299,
+\qquad
+\gamma_{\mathrm{axis}}=0.1554,
+\qquad
+\gamma_{\mathrm{clock}}=0.1421.
+```
+
+The pooled cubic split was
+
+```math
+0.156145
+=
+0.167215-0.011070.
+```
+
+The residual changed sign between $N=384$ and $N=768$, and the bootstrap intervals for the cubic geometry were broad. The data do not yet establish a common full donor axis.
+
+# 23. Clock-adapted scaling
+
+Write
+
+```math
+\widehat y_F
+=
+\frac{y_F}{\|y_F\|},
+```
+
+```math
+v_k
+=
+a_k\widehat y_F+v_k^\perp.
+```
+
+Then
+
+```math
+T_2=-\bar B\|y_F\|a_2,
+```
+
+```math
+T_3=+\bar B\|y_F\|a_3.
+```
+
+The two-size exponents, using $X_N\sim N^{-p}$, were
+
+```math
+p_{\bar B}=0.0423,
+```
+
+```math
+p_{\|y_F\|}=-0.5294,
+```
+
+```math
+p_{a_2}=0.3229,
+\qquad
+p_{a_3}=0.4361,
+```
+
+```math
+p_{T_2}=-0.1651,
+\qquad
+p_{T_3}=-0.0569.
+```
+
+The only sharply resolved exponent was
+
+```math
+\|y_F\|\asymp N^{1/2},
+```
+
+with bootstrap interval
+
+```math
+p_{\|y_F\|}
+\in[-0.5459,-0.5126].
+```
+
+The point estimates are compatible with $a_2,a_3\asymp N^{-1/2}$, but their exponent intervals remain wide.
+
+# 24. Debiased moment signal
+
+A plug-in U-statistic removed the dominant positive norm floor of the estimated donor means.
+
+For the clock-parallel quadratic vector,
+
+```math
+\widehat{\|v_2^\parallel\|^2}
+=
+1.3454\times10^{-5},
+```
+
+with interval
+
+```math
+[7.72\times10^{-6},2.12\times10^{-5}].
+```
+
+This signal was positive in every bootstrap draw.
+
+For the clock-parallel cubic vector,
+
+```math
+\widehat{\|v_3^\parallel\|^2}
+=
+-1.51\times10^{-8},
+```
+
+with interval
+
+```math
+[-2.99\times10^{-7},1.21\times10^{-6}].
+```
+
+The negative point estimate means the squared mean is below the estimated finite-sample norm floor.
+
+At $N=768$, the debiased clock-null cubic square was also negative:
+
+```math
+-9.57\times10^{-8}.
+```
+
+The apparent high-$N$ alignment of $v_3$ is therefore unresolved at 200 graphs.
+
+# 25. Repeated cross-fit
+
+A repeated five-fold cross-fit estimated the whitener, structural frame, and donor mean only on training graphs and evaluated each score on held-out graphs. Fold assignments were shared across the three horizons of each graph.
+
+With ten repeated splits, the out-of-fold means were
+
+```math
+T_2^{\mathrm{OOF}}=-1.14752,
+```
+
+```math
+T_3^{\mathrm{OOF}}=+0.18043,
+```
+
+```math
+T_F^{\mathrm{OOF}}=-0.96710.
+```
+
+All six $(N,\rho)$ blocks had positive cubic means.
+
+Split sensitivity was small:
+
+```math
+\mathrm{SD}_{\mathrm{split}}(T_2)=0.01517,
+```
+
+```math
+\mathrm{SD}_{\mathrm{split}}(T_3)=0.01359.
+```
+
+Graph-cluster bootstrap intervals were
+
+```math
+T_2^{\mathrm{OOF}}
+\in[-1.4601,-0.8400],
+```
+
+```math
+T_3^{\mathrm{OOF}}
+\in[-0.0499,+0.4155].
+```
+
+The cross-fitted cubic score was positive in $93.26\%$ of bootstrap draws. Graph-to-graph variance, rather than fold construction, is the remaining limitation.
+
+# 26. Current claim boundary
+
+The exact-uniform route mechanism now supports the following statements.
+
+1. The state line $r_0$ is exact and independently selected by route geometry and configuration dynamics.
+2. The planted ordered-Bernoulli clock law is
    ```math
-   \frac{245}{24}\approx10.20833,
+   \lambda_{\mathrm{route}}(q)
+   =
+   -\frac{15}{q^2(2q^2+3)}.
    ```
-   which would accompany a rate of $-17.5$ if $\alpha=7/12$.
+3. Direct transfer of the $q=1/2$ surrogate scalar to the exact uniform-DAG ensemble is disfavored under the current high-size correction model.
+4. The exact-uniform finite-size backbone contains a decisive negative quadratic covariance.
+5. The positive escape restoration is generated by a cubic kernel and has a stable positive point estimate across sizes, horizons, and cross-fit splits.
+6. The population sign and asymptotic scaling of the cubic moment remain unresolved at the current sample count.
+7. The full donor-vector alignment is also unresolved because the cubic perpendicular component has reached the sampling-noise floor.
 
-The value $245/24$ is not a preregistered exact candidate.
+# 27. Registered replication
 
-# 16. Computational implementation note
-
-The current exact sampler has two phases:
-
-1. serial arbitrary-precision counting-table construction;
-2. 32-thread graph sampling and route analysis.
-
-The table builder stores all powers
+The next experiment appends 800 independent graphs at each existing size:
 
 ```math
-2^0,2^1,\ldots,2^{N^2},
-```
-
-as separate GMP integers. Its raw limb storage scales as approximately
-
-```math
-O(N^4)\text{ bits}.
-```
-
-This explains the single-core startup phase and memory use of roughly 14 GB at $N=672$, increasing into the low tens of gigabytes at $N=768$.
-
-The sampled results remain valid, but future engineering should replace the global power table by shifts or a rolling recurrence and should use dynamic worker scheduling in the parallel phase.
-
-# 17. Current decision tree
-
-If the exact high-size audit finds
-
-```math
-\alpha_N\to\frac7{12},
+N=384,
 \qquad
-\eta_N\to10,
+N=768.
 ```
 
-then
+The new graph IDs are
 
 ```math
-\lambda_{\mathrm{exact}}
-=-\frac{120}{7}
+200,\ldots,999,
 ```
 
-is strongly supported.
-
-If
+with the same three horizons:
 
 ```math
-\alpha_N\to\frac7{12},
+N=384:
 \qquad
-\eta_N\to\eta_\ast\ne10,
+p=48,96,144,
 ```
 
-then exact uniform-DAG weighting renormalizes the numerator while preserving the state line and intrinsic denominator.
+```math
+N=768:
+\qquad
+p=96,192,288.
+```
 
-If exact and planted estimates retain the same finite-size displacement, the remaining problem is the correction model rather than ensemble transfer.
+The new-only confirmation set will be analyzed before pooling with the original 200 graphs.
 
-### ... UNFINISHED/WIP, CURRENTLY HERE ... ###
+The registered directional target is
+
+```math
+H_0:T_3\le0,
+\qquad
+H_1:T_3>0.
+```
+
+The combined analysis will also report a two-sided graph-cluster bootstrap interval. A third size will be added after the cubic sign is resolved.
+
+# 28. Current status
+
+The replication sampler has been reconstructed and patched with an append-only sample offset. The $800+800$ confirmation run is in progress.
+
+The next update to this finding should contain:
+
+1. the new-only cross-fitted quadratic and cubic scores;
+2. the new-only directional test for $T_3>0$;
+3. the combined 1,000-graph precision estimates;
+4. the six blockwise cubic signs;
+5. the revised donor-moment and norm-floor audits;
+6. the decision on a third size, provisionally $N=1536$.

@@ -1,0 +1,13 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 80
+BreakBeforeBraces: Attach
+PointerAlignment: Left
+SortIncludes: true
+MaxEmptyLinesToKeep: 1
+AlignConsecutiveDeclarations: false
+AlignConsecutiveAssignments: false
+Standard: Latest
+UseTab: Never
+...
