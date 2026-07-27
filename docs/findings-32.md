@@ -2,33 +2,33 @@
 
 Fix a Martin fiber
 
-$$
+```math
 F_h=\{\text{histories with Martin shadow }h\}.
-$$
+```
 
 Partition it into eventual-tail classes:
 
-$$
+```math
 F_h=\coprod_{\tau\in\overline F_h}T_\tau,
-$$
+```
 
 where
 
-$$
+```math
 \overline F_h=F_h/\!\sim_{\mathrm{tail}}.
-$$
+```
 
 Define two simplicial sets:
 
-$$
+```math
 K_h=E(F_h)
-$$
+```
 
 and
 
-$$
+```math
 A_h=\coprod_{\tau\in\overline F_h}E(T_\tau).
-$$
+```
 
 Here:
 
@@ -37,9 +37,9 @@ Here:
 
 Thus the pair
 
-$$
+```math
 (K_h,A_h)
-$$
+```
 
 isolates the genuinely asymptotic part of Martin collapse.
 
@@ -51,66 +51,66 @@ Every $E(T_\tau)$ is contractible, and $K_h$ is contractible.
 
 Therefore
 
-$$
+```math
 H_j(A_h;k)=0
 \qquad(j\ge1),
-$$
+```
 
 while
 
-$$
+```math
 H_0(A_h;k)
 \cong
 k^{(\overline F_h)}.
-$$
+```
 
 Also,
 
-$$
+```math
 H_0(K_h;k)\cong k.
-$$
+```
 
 The map
 
-$$
+```math
 H_0(A_h;k)\longrightarrow H_0(K_h;k)
-$$
+```
 
 is coefficient summation:
 
-$$
+```math
 (c_\tau)_\tau\longmapsto\sum_\tau c_\tau.
-$$
+```
 
 The long exact sequence of the pair therefore gives
 
-$$
+```math
 H_1(K_h,A_h;k)
 \cong
 \widetilde{k}^{(\overline F_h)}
-$$
+```
 
 and
 
-$$
+```math
 H_n(K_h,A_h;k)=0
 \qquad(n\neq1).
-$$
+```
 
 So the pure asymptotic defect module has an exact homological realization:
 
-$$
+```math
 H_1(K_h,A_h;k)=
 \left\lbrace (c_\tau): \text{finite support},\\ \sum_\tau c_\tau=0 \right\rbrace.
-$$
+```
 
 Globally,
 
-$$
+```math
 \mathfrak D_M/\mathfrak D_{\mathrm{tail}}
 \cong
 \bigoplus_h H_1(K_h,A_h;k).
-$$
+```
 
 This identifies the previous algebraic exact sequence with relative simplicial homology.
 
@@ -120,10 +120,10 @@ This identifies the previous algebraic exact sequence with relative simplicial h
 
 The result also gives a useful negative theorem:
 
-$$
+```math
 H_n(K_h,A_h)=0
 \qquad(n\ge2).
-$$
+```
 
 Therefore a Martin fiber containing many tail ends does not, merely because it is large, possess higher-dimensional mixing homology.
 
@@ -133,29 +133,29 @@ For example:
 
 There is only one tail class:
 
-$$
+```math
 |\overline F_h|=1.
-$$
+```
 
 Hence
 
-$$
+```math
 H_1(K_h,A_h)=0.
-$$
+```
 
 All collapse is inherited from a finite route defect.
 
 ### Two genuinely different tails with one Martin shadow
 
-$$
+```math
 |\overline F_h|=2.
-$$
+```
 
 Then
 
-$$
+```math
 H_1(K_h,A_h)\cong k.
-$$
+```
 
 There is one independent asymptotic end difference.
 
@@ -163,26 +163,26 @@ There is one independent asymptotic end difference.
 
 There may be infinitely many tail classes. Then
 
-$$
+```math
 H_1(K_h,A_h)
 \cong
 \widetilde{k}^{(\overline F_h)}
-$$
+```
 
 is enormous, but still
 
-$$
+```math
 H_n(K_h,A_h)=0
 \qquad(n\ge2).
-$$
+```
 
 Thus:
 
-$$
+```math
 \text{large asymptotic multiplicity}
 \neq
 \text{higher homological complexity}.
-$$
+```
 
 This is analogous to the earlier discovery that many route ambiguities need not produce higher route syzygies.
 
@@ -197,29 +197,29 @@ If higher structure does not live inside the indiscrete equivalence relation of 
 
 The relevant object is the complete quotient map
 
-$$
+```math
 \bar\pi_t:Z_t\longrightarrow Y_t,
-$$
+```
 
 where
 
-$$
+```math
 Z_t=X_{\mathrm{pre}}/\!\sim_{\mathrm{tail}}
-$$
+```
 
 is the tail-end space and
 
-$$
+```math
 Y_t=Z_t/\!\sim_t^M
-$$
+```
 
 is the node Martin quotient.
 
 Set-theoretically,
 
-$$
+```math
 \bar\pi_t^{-1}(h)=\overline F_h.
-$$
+```
 
 The new information is the variation of the fibers with $h$, beyond their individual cardinalities.
 
@@ -229,48 +229,48 @@ The new information is the variation of the fibers with $h$, beyond their indivi
 
 Assume for now that $Z_t$ and $Y_t$ carry suitable topologies and that
 
-$$
+```math
 \bar\pi_t:Z_t\to Y_t
-$$
+```
 
 is continuous.
 
 Define the iterated fiber products
 
-$$
+```math
 Z_t^{[q]}=
 \underbrace{
 Z_t\times_{Y_t}\cdots\times_{Y_t}Z_t
 }_{q+1\text{ factors}}.
-$$
+```
 
 Thus:
 
-$$
+```math
 Z_t^{[0]}=Z_t,
-$$
+```
 
-$$
+```math
 Z_t^{[1]}=
 \{(\tau_0,\tau_1):
 \bar\pi_t(\tau_0)=\bar\pi_t(\tau_1)\},
-$$
+```
 
 and
 
-$$
+```math
 Z_t^{[2]}=
 \{(\tau_0,\tau_1,\tau_2):
 \bar\pi_t(\tau_0)=\bar\pi_t(\tau_1)=\bar\pi_t(\tau_2)\}.
-$$
+```
 
 Deleting one coordinate gives the face maps.
 
 The resulting simplicial space
 
-$$
+```math
 Z_t^{[\bullet]}
-$$
+```
 
 is the Čech nerve, or kernel-pair nerve, of the quotient map. Čech complexes are built precisely from these iterated fiber products and their alternating face maps.
 
@@ -284,15 +284,15 @@ Let $\underline{k}_{Z_t}$ and $\underline{k}_{Y_t}$ denote constant sheaves.
 
 Pulling a locally constant function back along $\bar\pi_t$ gives a natural map
 
-$$
+```math
 \underline{k}_{Y_t}
 \longrightarrow
 \bar\pi_{t*}\underline{k}_{Z_t}.
-$$
+```
 
 Define the quotient sheaf
 
-$$
+```math
 \mathscr Q_t=
 \mathrm{coker}
 \left(
@@ -300,35 +300,35 @@ $$
 \longrightarrow
 \bar\pi_{t*}\underline{k}_{Z_t}
 \right).
-$$
+```
 
 This is the sheaf of hidden tail-end distinctions.
 
 For a finite discrete fiber
 
-$$
+```math
 \overline F_h=\{\tau_1,\ldots,\tau_r\}
-$$
+```
 
 that varies locally trivially, the stalk is
 
-$$
+```math
 (\mathscr Q_t)_h
 \cong
 k^r/k(1,\ldots,1).
-$$
+```
 
 Its dimension is
 
-$$
+```math
 r-1.
-$$
+```
 
 This is dual to the zero-total defect module
 
-$$
+```math
 \widetilde{k}^{(\overline F_h)}.
-$$
+```
 
 The difference is useful:
 
@@ -343,9 +343,9 @@ Suppose every Martin fiber contains exactly $r$ tail ends locally.
 
 Even though every fiber has the same simple defect space
 
-$$
+```math
 k^{r-1},
-$$
+```
 
 the hidden ends can be permuted when one moves around $Y_t$.
 
@@ -353,9 +353,9 @@ Then $\mathscr Q_t$ is not necessarily a trivial product sheaf. It can be a nont
 
 For $r=2$, exchanging the two hidden ends acts on
 
-$$
+```math
 k^2/k(1,1)
-$$
+```
 
 by multiplication by $-1$.
 
@@ -367,9 +367,9 @@ Thus two quotient systems can have:
 
 This is the first genuine higher-level information absent from the isolated modules
 
-$$
+```math
 \widetilde{k}^{(\overline F_h)}.
-$$
+```
 
 This is topology in the **variation of fibers**, not inside one fiber.
 
@@ -379,9 +379,9 @@ This is topology in the **variation of fibers**, not inside one fiber.
 
 More generally, retain the derived sheaves
 
-$$
+```math
 R^q\bar\pi_{t*}\underline{k}_{Z_t}.
-$$
+```
 
 Informally:
 
@@ -390,7 +390,7 @@ Informally:
 
 Under standard sheaf-theoretic hypotheses, the quotient map has a Leray spectral sequence
 
-$$
+```math
 E_2^{p,q}=
 H^p
 \left(
@@ -399,19 +399,19 @@ R^q\bar\pi_{t*}\underline{k}
 \right)
 \Longrightarrow
 H^{p+q}(Z_t;k).
-$$
+```
 
 The Leray spectral sequence is the standard mechanism relating the cohomology of a source space, its target, and the derived pushforwards of a sheaf.
 
 This separates two directions:
 
-$$
+```math
 q=\text{cohomology inside collapse fibers},
-$$
+```
 
-$$
+```math
 p=\text{global organization over Martin directions}.
-$$
+```
 
 That is the correct setting for higher topology.
 
@@ -423,18 +423,18 @@ Graph prefix boundaries and spectra of cylinder Boolean algebras are frequently 
 
 If the relevant fibers are zero-dimensional compact spaces and the chosen cohomology theory has no positive-degree fiber cohomology, then
 
-$$
+```math
 R^q\bar\pi_{t*}\underline{k}=0
 \qquad(q>0).
-$$
+```
 
 In that regime the Leray system has only the $q=0$ row.
 
 There is still potentially nontrivial information, but it lies in
 
-$$
+```math
 H^p(Y_t;\mathscr Q_t),
-$$
+```
 
 not in higher homology of one Martin fiber.
 
@@ -463,49 +463,49 @@ There is, however, a canonical set-theoretic replacement.
 
 For every finite node set
 
-$$
+```math
 F\subseteq V,
-$$
+```
 
 define the finite-observation map
 
-$$
+```math
 \pi_{t,F}(\tau)=
 \bigl(h_\tau(v)\bigr)_{v\in F}.
-$$
+```
 
 Two tail ends are $F$-equivalent when
 
-$$
+```math
 \tau\sim_F\sigma
 \iff
 h_\tau(v)=h_\sigma(v)
 \quad\forall v\in F.
-$$
+```
 
 If
 
-$$
+```math
 F\subseteq F',
-$$
+```
 
 then
 
-$$
+```math
 \sim_{F'}
 \subseteq
 \sim_F.
-$$
+```
 
 More node observables produce a finer partition.
 
 The complete Martin relation is
 
-$$
+```math
 \sim_t^M=
 \bigcap_{F\subseteq V,;F\text{ finite}}
 \sim_F.
-$$
+```
 
 Indeed, two functions on $V$ agree exactly when they agree on every finite subset—and in fact on every singleton.
 
@@ -515,37 +515,37 @@ Indeed, two functions on $V$ agree exactly when they agree on every finite subse
 
 Let
 
-$$
+```math
 Y_{t,F}=Z_t/\!\sim_F.
-$$
+```
 
 Whenever
 
-$$
+```math
 F\subseteq F',
-$$
+```
 
 there is a natural forgetting map
 
-$$
+```math
 Y_{t,F'}
 \longrightarrow
 Y_{t,F}.
-$$
+```
 
 Thus the finite-observation quotients form an inverse system:
 
-$$
+```math
 {Y_{t,F}}_{F\Subset V}.
-$$
+```
 
 The full Martin quotient maps into its inverse limit:
 
-$$
+```math
 Y_t
 \longrightarrow
 \varprojlim_{F\Subset V}Y_{t,F}.
-$$
+```
 
 It is injective because the node coordinates separate distinct Martin functions.
 
@@ -559,34 +559,34 @@ It records exactly how much node information is needed to distinguish asymptotic
 
 Let
 
-$$
+```math
 \mathfrak D_F=
 \mathrm{span}
 \{
 \delta_\tau-\delta_\sigma:
 \tau\sim_F\sigma
 \}.
-$$
+```
 
 For
 
-$$
+```math
 F\subseteq F',
-$$
+```
 
 the relation becomes finer, so
 
-$$
+```math
 \mathfrak D_{F'}
 \subseteq
 \mathfrak D_F.
-$$
+```
 
 The quotient
 
-$$
+```math
 \mathfrak D_F/\mathfrak D_{F'}
-$$
+```
 
 consists of distinctions that:
 
@@ -595,7 +595,7 @@ consists of distinctions that:
 
 This produces a decreasing, finite-observable filtration:
 
-$$
+```math
 \mathfrak D_\varnothing
 \supseteq
 \mathfrak D_F
@@ -603,7 +603,7 @@ $$
 \mathfrak D_{F'}
 \supseteq
 \mathfrak D_M.
-$$
+```
 
 At $F=\varnothing$, all tail ends are identified.
 
@@ -619,13 +619,13 @@ For a finite observation set $F$, partition the tail ends according to their $F$
 
 For one $F$-fiber $B$, subdivide it into the finer $F'$-fibers
 
-$$
+```math
 B=\coprod_{\lambda\in\Lambda}B_\lambda.
-$$
+```
 
 Exactly the same relative-nerve calculation gives
 
-$$
+```math
 H_1
 \left(
 E(B),
@@ -634,7 +634,7 @@ k
 \right)
 \cong
 \widetilde{k}^{(\Lambda)},
-$$
+```
 
 and all other relative homology vanishes.
 
@@ -650,28 +650,27 @@ The proposed “higher homology of the quotient end relation” is replaced by t
 
 ## Fiberwise asymptotic defect
 
-$$
+```math
 H_1(K_h,A_h)
 \cong
 \widetilde{k}^{(\overline F_h)}.
-$$
+```
 
 This measures how many genuine ends are collapsed at $h$.
 
 ## Global hidden-end sheaf
 
-$$
+```math
 \mathscr Q_t=
 \bar\pi_{t*}\underline{k}_{Z_t}/\underline{k}_{Y_t}.
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-$$
+```
 
 This measures how the hidden-end defect spaces vary and twist over the Martin quotient.
 
 ## Finite-observable pro-system
 
-$$
+```math
 {Y_{t,F},\mathfrak D_F}_{F\Subset V}.
-$$
+```
 
 This remains canonical without topological regularity assumptions and records the progressive separation of ends by node Green observables.

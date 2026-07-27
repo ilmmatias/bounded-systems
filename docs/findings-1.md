@@ -4,26 +4,26 @@ Take one realized configuration of the bounded system. No time variable is intro
 
 Let
 
-$$
+```math
 G=(N,E)
-$$
+```
 
 be its directed acyclic graph.
 
 For $n=|N|$, temporarily label the nodes $(1,\dots,n)$. The labels have no physical significance. A relabeling by a permutation matrix $P$ changes the adjacency matrix by
 
-$$
+```math
 A\longmapsto P^{-1}AP.
-$$
+```
 
 Therefore, only quantities invariant under permutation similarity count as properties of the system.
 
 Define
 
-$$
+```math
 A_{ij}=
 \text{number of realized directed channels }i\to j.
-$$
+```
 
 This accommodates both possibilities without deciding between them:
 
@@ -34,7 +34,7 @@ This accommodates both possibilities without deciding between them:
 
 Because $G$ is a finite DAG, its nodes can be topologically ordered. In that ordering,
 
-$$
+```math
 A=
 \begin{pmatrix}
 0&\ast&\ast&\cdots&\ast\\
@@ -43,19 +43,19 @@ A=
 \vdots&\vdots&\vdots&\ddots&\ast\\
 0&0&0&\cdots&0
 \end{pmatrix}.
-$$
+```
 
 Thus $A$ is strictly upper triangular and
 
-$$
+```math
 A^n=0.
-$$
+```
 
 Consequently,
 
-$$
+```math
 \mathrm{spec}(A) = \{0\}
-$$
+```
 
 for every finite configuration.
 
@@ -65,42 +65,42 @@ So ordinary adjacency eigenvalues cannot distinguish finite bounded systems with
 
 With our convention,
 
-$$
+```math
 (A^k)_{ij}
-$$
+```
 
 counts the number of directed paths of length $k$ from $i$ to $j$, counting channel multiplicities.
 
 Thus the smallest number $\nu$ such that
 
-$$
+```math
 A^\nu=0
-$$
+```
 
 is the nilpotency index, and
 
-$$
+```math
 \text{longest directed-path length}=\nu-1.
-$$
+```
 
 We will record the rank profile
 
-$$
+```math
 \rho(A)=
 \left(
 \mathrm{rank}A,
 \mathrm{rank}A^2,\ldots
 \right)
-$$
+```
 
 until it reaches zero.
 
 We will also record the singular values
 
-$$
+```math
 \sigma(A)=
 \sqrt{\mathrm{spec}(A^\mathsf TA)}.
-$$
+```
 
 Unlike ordinary eigenvalues, these need not vanish.
 
@@ -112,9 +112,9 @@ We first examine the $0/1$ sector: at most one realized channel in each directio
 
 Let
 
-$$
+```math
 \varphi=\frac{1+\sqrt5}{2}.
-$$
+```
 
 The notation $d^+$ and $d^-$ denotes the multisets of out-degrees and in-degrees. The notation $L_u$ denotes the Laplacian of the underlying undirected graph, obtained by temporarily forgetting edge direction.
 
@@ -140,121 +140,121 @@ These are all non-isomorphic simple DAGs with at most three nodes.
 
 ## S1. Outgoing fork
 
-$$
+```math
 1\to2,\qquad1\to3.
-$$
+```
 
 Its adjacency matrix is
 
-$$
+```math
 A_{\mathrm{out}}=
 \begin{pmatrix}
 0&1&1\\
 0&0&0\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Then
 
-$$
+```math
 A_{\mathrm{out}}^2=0,
-$$
+```
 
 so the longest path has length $1$.
 
 Also,
 
-$$
+```math
 A_{\mathrm{out}}^\mathsf T A_{\mathrm{out}}=
 \begin{pmatrix}
 0&0&0\\
 0&1&1\\
 0&1&1
 \end{pmatrix},
-$$
+```
 
 whose eigenvalues are
 
-$$
+```math
 2,0,0.
-$$
+```
 
 Therefore,
 
-$$
+```math
 \sigma(A_{\mathrm{out}})=
 (\sqrt2,0,0).
-$$
+```
 
 The matrix has rank one because both outgoing channels belong to one source pattern.
 
 ## S2. Incoming fork
 
-$$
+```math
 1\to3,\qquad2\to3.
-$$
+```
 
 Its matrix is
 
-$$
+```math
 A_{\mathrm{in}}=
 \begin{pmatrix}
 0&0&1\\
 0&0&1\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 It has the same rank profile and singular values as the outgoing fork:
 
-$$
+```math
 \rho(A_{\mathrm{in}})=(1,0),
-$$
+```
 
-$$
+```math
 \sigma(A_{\mathrm{in}})=
 (\sqrt2,0,0).
-$$
+```
 
 So singular values alone cannot tell whether two channels converge or diverge.
 
 The in- and out-degree multisets do distinguish them:
 
-$$
+```math
 d^+_{\mathrm{out}}=\{2,0,0\},
 \qquad
 d^-_{\mathrm{out}}=\{1,1,0\},
-$$
+```
 
 while
 
-$$
+```math
 d^+_{\mathrm{in}}=\{1,1,0\},
 \qquad
 d^-_{\mathrm{in}}=\{2,0,0\}.
-$$
+```
 
 ## S3. Chain
 
-$$
+```math
 1\to2\to3.
-$$
+```
 
 Its matrix is
 
-$$
+```math
 A_{\mathrm{chain}}=
 \begin{pmatrix}
 0&1&0\\
 0&0&1\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Then
 
-$$
+```math
 A_{\mathrm{chain}}^2=
 \begin{pmatrix}
 0&0&1\\
@@ -263,55 +263,55 @@ A_{\mathrm{chain}}^2=
 \end{pmatrix},
 \qquad
 A_{\mathrm{chain}}^3=0.
-$$
+```
 
 Therefore,
 
-$$
+```math
 \rho(A_{\mathrm{chain}})=
 (2,1,0).
-$$
+```
 
 Its longest path has length two.
 
 Also,
 
-$$
+```math
 A_{\mathrm{chain}}^\mathsf T A_{\mathrm{chain}}=
 \begin{pmatrix}
 0&0&0\\
 0&1&0\\
 0&0&1
 \end{pmatrix},
-$$
+```
 
 so
 
-$$
+```math
 \sigma(A_{\mathrm{chain}})=
 (1,1,0).
-$$
+```
 
 ## S4. Transitive triangle
 
-$$
+```math
 1\to2,\qquad2\to3,\qquad1\to3.
-$$
+```
 
 Its matrix is
 
-$$
+```math
 A_{\triangle}=
 \begin{pmatrix}
 0&1&1\\
 0&0&1\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 We again have
 
-$$
+```math
 A_{\triangle}^2=
 \begin{pmatrix}
 0&0&1\\
@@ -320,28 +320,28 @@ A_{\triangle}^2=
 \end{pmatrix},
 \qquad
 A_{\triangle}^3=0.
-$$
+```
 
 Thus the chain and transitive triangle have the same rank profile:
 
-$$
+```math
 \rho(A_{\triangle})=
 \rho(A_{\mathrm{chain}})=
 (2,1,0).
-$$
+```
 
 But their singular spectra differ:
 
-$$
+```math
 \sigma(A_{\triangle})=
 \left(\varphi,\varphi^{-1},0\right),
-$$
+```
 
 where
 
-$$
+```math
 \varphi=\frac{1+\sqrt5}{2}.
-$$
+```
 
 The singular spectrum detects the additional direct channel $1\to3$.
 
@@ -351,63 +351,63 @@ The singular spectrum detects the additional direct channel $1\to3$.
 
 Define the binary reachability matrix
 
-$$
+```math
 R_{ij}=
 \begin{cases}
 1,&\text{if a nonempty directed path exists from }i\text{ to }j,\\
 0,&\text{otherwise}.
 \end{cases}
-$$
+```
 
 For the chain,
 
-$$
+```math
 1\to2\to3,
-$$
+```
 
 we obtain
 
-$$
+```math
 R_{\mathrm{chain}}=
 \begin{pmatrix}
 0&1&1\\
 0&0&1\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 But this is exactly the adjacency matrix of the transitive triangle:
 
-$$
+```math
 R_{\mathrm{chain}}=A_{\triangle}.
-$$
+```
 
 Therefore,
 
-$$
+```math
 R_{\mathrm{chain}}=
 R_{\triangle}.
-$$
+```
 
 This yields our first meaningful information-loss theorem:
 
-$$
+```math
 \text{Reachability cannot distinguish a direct channel from an indirect route when both connect the same ordered pair.}
-$$
+```
 
 The chain and transitive triangle have different immediate communication structures but identical eventual communication possibilities.
 
 Both profiles must therefore be retained:
 
-$$
+```math
 A=\text{immediate channels}
-$$
+```
 
 and
 
-$$
+```math
 R=\text{eventual reachability}.
-$$
+```
 
 ---
 
@@ -419,9 +419,9 @@ The first atlas already lets us characterize the operators.
 
 For all finite cases:
 
-$$
+```math
 \mathrm{spec}(A)=\{0\}.
-$$
+```
 
 It sees only the node count through the multiplicity of zero.
 
@@ -461,15 +461,15 @@ It does not distinguish the three orientations of the two-edge path:
 
 All three have underlying graph $P_3$ and spectrum
 
-$$
+```math
 \{0,1,3\}.
-$$
+```
 
 ## Combined result
 
 For simple DAGs with at most three nodes, the combined data
 
-$$
+```math
 \left(
 n,
 \rho(A),
@@ -478,7 +478,7 @@ d^+,
 d^-,
 \mathrm{spec}(L_u)
 \right)
-$$
+```
 
 distinguishes every non-isomorphic configuration.
 
@@ -496,19 +496,19 @@ Let $a,b,c$ be positive integer channel multiplicities.
 
 With $a$ channels from $1$ to $2$,
 
-$$
+```math
 A=
 \begin{pmatrix}
 0&a\\
 0&0
 \end{pmatrix}.
-$$
+```
 
 Then
 
-$$
+```math
 \sigma(A)=(a,0).
-$$
+```
 
 So for two nodes, the singular spectrum exactly recovers the number of parallel channels.
 
@@ -516,21 +516,21 @@ So for two nodes, the singular spectrum exactly recovers the number of parallel 
 
 For the outgoing fork,
 
-$$
+```math
 A=
 \begin{pmatrix}
 0&a&b\\
 0&0&0\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Its singular values are
 
-$$
+```math
 \sigma(A)=
 \left(\sqrt{a^2+b^2},0,0\right).
-$$
+```
 
 The incoming fork has the same singular spectrum.
 
@@ -540,44 +540,44 @@ So singular values see the combined quadratic channel weight, but not whether th
 
 For
 
-$$
+```math
 1\xrightarrow{a}2\xrightarrow{b}3,
-$$
+```
 
 we have
 
-$$
+```math
 A=
 \begin{pmatrix}
 0&a&0\\
 0&0&b\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Then
 
-$$
+```math
 A^2=
 \begin{pmatrix}
 0&0&ab\\
 0&0&0\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Thus $ab$ counts the number of two-step channel combinations from $1$ to $3$.
 
 The singular values are
 
-$$
+```math
 \sigma(A)=
 \left(
 \max(a,b),
 \min(a,b),
 0
 \right).
-$$
+```
 
 This recovers the two channel multiplicities as an unordered pair, but it does not say which multiplicity occurs upstream.
 
@@ -585,47 +585,47 @@ This recovers the two channel multiplicities as an unordered pair, but it does n
 
 Let
 
-$$
+```math
 1\xrightarrow{a}2,
 \qquad
 2\xrightarrow{b}3,
 \qquad
 1\xrightarrow{c}3.
-$$
+```
 
 Then
 
-$$
+```math
 A=
 \begin{pmatrix}
 0&a&c\\
 0&0&b\\
 0&0&0
 \end{pmatrix}.
-$$
+```
 
 Set
 
-$$
+```math
 S=a^2+b^2+c^2.
-$$
+```
 
 The two nonzero squared singular values are
 
-$$
+```math
 \sigma_{\pm}^2=
 \frac{
 S\pm\sqrt{S^2-4a^2b^2}
 }{2}.
-$$
+```
 
 The third singular value is zero.
 
 This spectrum depends on the direct channel multiplicity $c$, while
 
-$$
+```math
 A^2_{13}=ab
-$$
+```
 
 depends only on the two-step route.
 
@@ -640,17 +640,17 @@ That gives a clean separation between:
 
 Consider these two weighted chains:
 
-$$
+```math
 G_1:
 \quad
 1\xrightarrow{a}2\xrightarrow{b}3,
-$$
+```
 
-$$
+```math
 G_2:
 \quad
 1\xrightarrow{b}2\xrightarrow{a}3,
-$$
+```
 
 with $a\neq b$.
 
@@ -677,16 +677,16 @@ This is the first spectral collision.
 
 To recover directional placement, define for some fixed
 
-$$
+```math
 \tau>0,\qquad \tau\neq1,
-$$
+```
 
 the positive-semidefinite matrix
 
-$$
+```math
 Q_\tau(A)=
 A^\mathsf TA+\tau AA^\mathsf T.
-$$
+```
 
 Here:
 
@@ -696,49 +696,49 @@ Here:
 
 For the weighted chain $a$ followed by $b$,
 
-$$
+```math
 Q_\tau(a,b)=
 \begin{pmatrix}
 \tau a^2&0&0\\
 0&a^2+\tau b^2&0\\
 0&0&b^2
 \end{pmatrix}.
-$$
+```
 
 Its determinant is
 
-$$
+```math
 \det Q_\tau(a,b)=
 \tau a^2b^2(a^2+\tau b^2).
-$$
+```
 
 After exchanging $a$ and $b$,
 
-$$
+```math
 \det Q_\tau(b,a)=
 \tau a^2b^2(b^2+\tau a^2).
-$$
+```
 
 Their difference is
 
-$$
+```math
 \det Q_\tau(a,b)-\det Q_\tau(b,a)=
 \tau a^2b^2(1-\tau)(a^2-b^2).
-$$
+```
 
 Therefore, when
 
-$$
+```math
 a\neq b
 \quad\text{and}\quad
 \tau\neq1,
-$$
+```
 
 the determinants differ, and hence their spectra differ.
 
 So:
 
-$$
+```math
 \mathrm{spec}(Q_\tau)
 \text{ distinguishes the two weighted-chain orientations.}
-$$
+```

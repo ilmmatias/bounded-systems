@@ -2,60 +2,60 @@
 
 Let
 
-$$
+```math
 \mathfrak D_n
-$$
+```
 
 be the set of non-isomorphic simple DAGs with $n$ vertices. For
 
-$$
+```math
 G\in\mathfrak D_n,
 \qquad
 H\in\mathfrak D_{n+1},
-$$
+```
 
 define the deletion multiplicity
 
-$$
+```math
 d(G,H)
 =
 \left|\{v\in V(H):H-v\cong G\}\right|.
-$$
+```
 
 If
 
-$$
+```math
 a(G)=|\mathrm{Aut}(G)|,
-$$
+```
 
 the number of labeled one-vertex extensions of a fixed labeled realization of $G$ that belong to the class $H$ is
 
-$$
+```math
 e(G,H)
 =
 d(G,H)
 \frac{a(G)}{a(H)}.
-$$
+```
 
 The computation built the sparse incidence operator
 
-$$
+```math
 B_n(G,H)=e(G,H).
-$$
+```
 
 The two fundamental audits were checked for every emitted successor class:
 
-$$
+```math
 \sum_G d(G,H)=n+1,
-$$
+```
 
 and
 
-$$
+```math
 \sum_G \dim(G)e(G,H)=\dim(H),
 \qquad
 \dim(G)=\frac{n!}{a(G)}.
-$$
+```
 
 The first verifies deletion accounting. The second independently verifies the automorphism ratio and the labeled-history interpretation.
 
@@ -63,7 +63,7 @@ The first verifies deletion accounting. The second independently verifies the au
 
 The canonical class counts used by the pipeline were
 
-$$
+```math
 1,
 2,
 6,
@@ -72,19 +72,19 @@ $$
 5984,
 243668,
 20286025
-$$
+```
 
 for orders
 
-$$
+```math
 n=1,2,3,4,5,6,7,8.
-$$
+```
 
 The eight-vertex level therefore contains
 
-$$
+```math
 20{,}286{,}025
-$$
+```
 
 non-isomorphic DAG classes.
 
@@ -135,39 +135,39 @@ For a terminal level $N=8$, the finite-horizon route counts were computed for tw
 
 The terminal weight was constant:
 
-$$
+```math
 w_N(H)=1.
-$$
+```
 
 Consequently the endpoint law is proportional to
 
-$$
+```math
 \dim(H)=\frac{N!}{|\mathrm{Aut}(H)|},
-$$
+```
 
 which is the law induced by uniform labeled DAG counting.
 
 The exact backward computation reported
 
-$$
+```math
 Z_{8,\mathrm{labeled}}=783{,}702{,}329{,}343.
-$$
+```
 
 ## Uniform-class terminal sector
 
 The terminal weight was
 
-$$
+```math
 w_N(H)=\frac1{\dim(H)}.
-$$
+```
 
 so every terminal isomorphism class receives equal endpoint mass.
 
 The corresponding exact normalizer was
 
-$$
+```math
 Z_{8,\mathrm{class}}=817{,}932{,}528{,}000.
-$$
+```
 
 These two sectors were retained separately because neither weighting is selected directly by A1–A5.
 
@@ -175,47 +175,47 @@ These two sectors were retained separately because neither weighting is selected
 
 For either terminal weight, define
 
-$$
+```math
 R_{N,N}(H)=w_N(H),
-$$
+```
 
 and recursively
 
-$$
+```math
 R_{n,N}(G)
 =
 \sum_H e(G,H)R_{n+1,N}(H).
-$$
+```
 
 The finite up transition is
 
-$$
+```math
 U_n^{N,w}(G,H)
 =
 \frac{e(G,H)R_{n+1,N}(H)}{R_{n,N}(G)}.
-$$
+```
 
 The level measure is
 
-$$
+```math
 \mu_n^{N,w}(G)
 =
 \frac{\dim(G)R_{n,N}(G)}{Z_{N,w}}.
-$$
+```
 
 Together with the canonical down transition
 
-$$
+```math
 D_n(H,G)=\frac{d(G,H)}{n+1},
-$$
+```
 
 the pipeline checked the exact intertwining identity
 
-$$
+```math
 \mu_n^{N,w}(G)U_n^{N,w}(G,H)
 =
 \mu_{n+1}^{N,w}(H)D_n(H,G).
-$$
+```
 
 This was verified in exact arithmetic for both terminal sectors.
 
@@ -223,7 +223,7 @@ This was verified in exact arithmetic for both terminal sectors.
 
 For both sectors, the backward mass pass completed with status `PASS` at every level. The state counts were
 
-$$
+```math
 1,
 2,
 6,
@@ -232,7 +232,7 @@ $$
 5984,
 243668,
 20286025.
-$$
+```
 
 The largest emitted files were the level-eight mass and weight tables. Each level-eight mass table was about 1.06 GB, and each level-eight weight table was about 415 MB. This size reflects the number of terminal classes, not an approximation or sampling step.
 
@@ -248,9 +248,9 @@ for both sectors. The transition law remained fully determined by the emitted ma
 
 The graph-level dictionary used for this first configuration pass was the normalized eight-coordinate profile already motivated in `findings-46.md`. Its role is to provide a finite cylindrical projection
 
-$$
+```math
 x_n(G)\in\mathbb R^8
-$$
+```
 
 on which one-node extension increments can be measured.
 
@@ -268,38 +268,38 @@ This pass did not claim that eight coordinates are the final profile space. It s
 
 For every incidence edge
 
-$$
+```math
 G\to H,
-$$
+```
 
 the scaled profile increment was
 
-$$
+```math
 F_n(G,H)
 =
 (n+1)\bigl(x_{n+1}(H)-x_n(G)\bigr).
-$$
+```
 
 With transition weight
 
-$$
+```math
 u(G,H)=U_n^{N,w}(G,H),
-$$
+```
 
 the pass accumulated, per predecessor class,
 
-$$
+```math
 b_n(G)=\sum_Hu(G,H)F_n(G,H),
-$$
+```
 
 and
 
-$$
+```math
 a_n(G)
 =
 \sum_Hu(G,H)F_n(G,H)F_n(G,H)^\mathsf T
 -b_n(G)b_n(G)^\mathsf T.
-$$
+```
 
 The full third tensor was disabled in the large run:
 
@@ -329,9 +329,9 @@ At this stage the calculation was still finite-horizon. The level-eight terminal
 
 To distinguish terminal-boundary effects from bulk behavior, the same analysis was repeated with terminal horizons
 
-$$
+```math
 N=4,5,6,7,8.
-$$
+```
 
 The comparison produced 25 rows per sector: five profile or coefficient summaries at each of five horizons. This was the first explicit finite-horizon convergence diagnostic for the configuration process.
 
@@ -347,24 +347,24 @@ The growth from 243,668 classes at level seven to 20,286,025 at level eight show
 
 The finite construction established the following without Monte Carlo approximation:
 
-$$
+```math
 \text{the DAG Bratteli incidence operator is explicitly computable,}
-$$
+```
 
-$$
+```math
 \text{both canonical terminal sectors define exact coherent measures,}
-$$
+```
 
 and
 
-$$
+```math
 \text{conditional graph-profile drift and covariance can be streamed exactly.}
-$$
+```
 
 It also exposed the exhaustive bottleneck:
 
-$$
+```math
 |\mathfrak D_8|=20{,}286{,}025
-$$
+```
 
 is manageable for a terminal profile table, but the next full incidence level would be too large for routine iteration.

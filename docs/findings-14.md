@@ -2,45 +2,45 @@
 
 For two paths with identical endpoints,
 
-$$
+```math
 p,q:u\to v,
-$$
+```
 
 write
 
-$$
+```math
 \delta(p,q)=p-q\in I.
-$$
+```
 
 These symbols obey
 
-$$
+```math
 \delta(p,p)=0,
-$$
+```
 
-$$
+```math
 \delta(p,q)=-\delta(q,p),
-$$
+```
 
 and
 
-$$
+```math
 \delta(p,q)+\delta(q,r)=\delta(p,r).
-$$
+```
 
 For a fixed endpoint pair, these relations give exactly the augmentation kernel
 
-$$
+```math
 I_{v,u}=
 \left\lbrace \sum_{p:u\to v}c_pp: \sum_pc_p=0 \right\rbrace.
-$$
+```
 
 Thus we can describe $I$ without choosing a preferred route:
 
-$$
+```math
 I=\mathrm{span}
 \{\delta(p,q):s(p)=s(q),\ r(p)=r(q)\}.
-$$
+```
 
 Choosing one reference route per endpoint pair would give a smaller basis, but it would not be canonical.
 
@@ -48,114 +48,114 @@ Choosing one reference route per endpoint pair would give a smaller basis, but i
 
 Suppose two route ambiguities are composable:
 
-$$
+```math
 p_0,p_1:u\to w,
-$$
+```
 
-$$
+```math
 q_0,q_1:w\to v.
-$$
+```
 
 Set
 
-$$
+```math
 r=p_1-p_0,
 \qquad
 s=q_1-q_0.
-$$
+```
 
 Their product is
 
-$$
+```math
 sr=
 q_1p_1-q_1p_0-q_0p_1+q_0p_0.
-$$
+```
 
 This is the signed sum around a square of four complete routes:
 
-$$
+```math
 \begin{matrix}
 q_1p_1 &\longleftrightarrow& q_1p_0\\
 \updownarrow &&\updownarrow\\
 q_0p_1 &\longleftrightarrow& q_0p_0.
 \end{matrix}
-$$
+```
 
 It belongs to $I^2$.
 
 Consequently, at first ambiguity order,
 
-$$
+```math
 C_1=I/I^2,
-$$
+```
 
 the rectangle vanishes:
 
-$$
+```math
 q_1p_1-q_1p_0
 \equiv
 q_0p_1-q_0p_0
 \pmod{I^2}.
-$$
+```
 
 This says that transporting the first ambiguity through either choice of the second route gives the same first-order class.
 
 Similarly,
 
-$$
+```math
 q_1p_1-q_0p_1
 \equiv
 q_1p_0-q_0p_0
 \pmod{I^2}.
-$$
+```
 
 But at second order,
 
-$$
+```math
 C_2=I^2/I^3,
-$$
+```
 
 the rectangle itself may survive as a nonzero interaction:
 
-$$
+```math
 [sr]\in C_2.
-$$
+```
 
 So the same alternating square has two interpretations:
 
-$$
+```math
 \begin{aligned}
 \text{in }C_1:&\quad \text{a relation among transported ambiguities},\\
 \text{in }C_2:&\quad \text{an actual second-order ambiguity}.
 \end{aligned}
-$$
+```
 
 # 3. Higher route-choice boxes
 
 Let
 
-$$
+```math
 p_i^0,p_i^1:v_{i-1}\to v_i
 \qquad(1\le i\le m)
-$$
+```
 
 be $m$ composable pairs of alternative routes.
 
 Define the $m$-box defect
 
-$$
+```math
 \Box(p_1^0,p_1^1;\ldots;p_m^0,p_m^1)=
 (p_m^1-p_m^0)\cdots(p_1^1-p_1^0).
-$$
+```
 
 Expanding gives
 
-$$
+```math
 \Box=
 \sum_{\epsilon\in\{0,1\}^m}
 (-1)^{m-|\epsilon|}
 p_m^{\epsilon_m}\cdots p_1^{\epsilon_1}.
-$$
+```
 
 It is the alternating sum of the $2^m$ complete routes obtained by independently choosing one of the two possibilities at each ambiguity sector.
 
@@ -168,16 +168,16 @@ For example:
 
 Because $I$ is spanned by route differences,
 
-$$
+```math
 I^m=
 \mathrm{span}{\text{(m)-box defects}}.
-$$
+```
 
 Therefore
 
-$$
+```math
 C_m=I^m/I^{m+1}
-$$
+```
 
 can be described combinatorially as:
 
@@ -189,23 +189,23 @@ No labels, weights, or preferred routes are required.
 
 Recall
 
-$$
+```math
 B=A/I.
-$$
+```
 
 An element
 
-$$
+```math
 \varepsilon_{b,a}\in B
-$$
+```
 
 represents the unique route-insensitive morphism from $a$ to $b$.
 
 To act on a class
 
-$$
+```math
 [x]\in C_m,
-$$
+```
 
 choose any actual path $t:a\to b$ representing $\varepsilon_{b,a}$, and concatenate it with $x$.
 
@@ -213,27 +213,27 @@ The result is independent of the chosen path modulo $I^{m+1}$.
 
 Indeed, if $t'$ is another representative, then
 
-$$
+```math
 t-t'\in I.
-$$
+```
 
 Since $x\in I^m$,
 
-$$
+```math
 (t-t')x\in I^{m+1}.
-$$
+```
 
 Thus
 
-$$
+```math
 [tx]=[t'x]\in C_m.
-$$
+```
 
 This proves:
 
-$$
+```math
 B\text{ acts canonically on every }C_m
-$$
+```
 
 even though no canonical route representative of a reachability relation exists.
 
@@ -243,10 +243,10 @@ Suppose $X\in C_a$ and $Y\in C_b$, with a reachability context $c\in B$ between 
 
 The balanced tensor product imposes
 
-$$
+```math
 (Xc)\otimes_B Y=
 X\otimes_B(cY).
-$$
+```
 
 Combinatorially, a route-insensitive path segment sitting between two ambiguity boxes may be attached to either adjacent box.
 
@@ -260,20 +260,20 @@ This corrects the earlier simplified description in which tensor products were t
 
 For total ambiguity order $m$ and bar degree $n$, define
 
-$$
+```math
 \mathfrak C_{n,m}(G)=
 \bigoplus_{\substack{
 m_1+\cdots+m_n=m\\
 m_i\ge1
 }}
 C_{m_n}\otimes_B\cdots\otimes_B C_{m_1}.
-$$
+```
 
 A generator can be pictured as
 
-$$
+```math
 [X_1|X_2|\cdots|X_n],
-$$
+```
 
 where:
 
@@ -284,24 +284,24 @@ where:
 
 Define the differential by merging adjacent boxes:
 
-$$
+```math
 d[X_1|\cdots|X_n]=
 \sum_{i=1}^{n-1}
 (-1)^{i-1}
 [X_1|\cdots|X_{i+1}X_i|\cdots|X_n].
-$$
+```
 
 The merged block has ambiguity order
 
-$$
+```math
 m_i+m_{i+1}.
-$$
+```
 
 Associativity of path concatenation gives
 
-$$
+```math
 d^2=0.
-$$
+```
 
 This is the reduced relative bar construction written in route-choice language. Relative and reduced bar constructions are the standard mechanism for an algebra augmented over a base algebra; the present construction specializes that mechanism to the canonical augmentation $C\to B$.
 
@@ -309,43 +309,43 @@ This is the reduced relative bar construction written in route-choice language. 
 
 ## Degree ((1,1))
 
-$$
+```math
 \mathfrak C_{1,1}=C_1=I/I^2.
-$$
+```
 
 Hence
 
-$$
+```math
 H_{1,1}^{\mathrm{rt}}=I/I^2.
-$$
+```
 
 These are first-order route ambiguities, including their path-context transports.
 
 ## Degree ((2,2))
 
-$$
+```math
 \mathfrak C_{2,2}=
 C_1\otimes_BC_1.
-$$
+```
 
 The differential is
 
-$$
+```math
 d_2:
 C_1\otimes_BC_1\to C_2,
 \qquad
 [s|r]\mapsto[sr].
-$$
+```
 
 Therefore
 
-$$
+```math
 H_{2,2}^{\mathrm{rt}}=
 \ker\!\left(
 C_1\otimes_BC_1
 \longrightarrow C_2
 \right).
-$$
+```
 
 A pair of composable ambiguities is not automatically a second syzygy.
 
@@ -353,17 +353,17 @@ It is a second syzygy only when its associated rectangle vanishes in $I^2/I^3$, 
 
 ## Degree ((3,3))
 
-$$
+```math
 \mathfrak C_{3,3}=
 C_1\otimes_BC_1\otimes_BC_1.
-$$
+```
 
 For composable $r,s,t$,
 
-$$
+```math
 d_3[t|s|r]=
 [ts|r]-[t|sr].
-$$
+```
 
 This compares the two ways of grouping the same three ambiguity choices.
 
@@ -373,50 +373,50 @@ A third homology class requires a nontrivial combination for which those adjacen
 
 Suppose exactly two routes connect $u$ to $v$:
 
-$$
+```math
 p_0,p_1:u\to v,
-$$
+```
 
 and assume no other route ambiguity composes with this one.
 
 Let
 
-$$
+```math
 r=p_1-p_0.
-$$
+```
 
 Then
 
-$$
+```math
 I=\mathbb K r,
 \qquad
 I^2=0.
-$$
+```
 
 Thus
 
-$$
+```math
 C_1\cong\mathbb K r,
 \qquad
 C_m=0\quad(m\ge2).
-$$
+```
 
 Also,
 
-$$
+```math
 C_1\otimes_BC_1=0,
-$$
+```
 
 because $r$ cannot be composed with itself in an acyclic system.
 
 Therefore
 
-$$
+```math
 H_{1,1}^{\mathrm{rt}}\cong\mathbb K,
 \qquad
 H_{n,m}^{\mathrm{rt}}=0
 \quad(n\ge2).
-$$
+```
 
 The same result applies to:
 
@@ -432,130 +432,130 @@ The path-length bifiltration distinguishes those cases.
 
 Suppose there are two route pairs
 
-$$
+```math
 p_0,p_1:u\to w,
-$$
+```
 
 and
 
-$$
+```math
 q_0,q_1:w\to v.
-$$
+```
 
 Define
 
-$$
+```math
 r=p_1-p_0,
 \qquad
 s=q_1-q_0.
-$$
+```
 
 There are four complete routes from $u$ to $v$:
 
-$$
+```math
 q_0p_0,\quad q_0p_1,\quad q_1p_0,\quad q_1p_1.
-$$
+```
 
 Their second-order interaction is
 
-$$
+```math
 sr=
 q_1p_1-q_1p_0-q_0p_1+q_0p_0.
-$$
+```
 
 Assuming no further ambiguity sector makes this element belong to $I^3$,
 
-$$
+```math
 [sr]\ne0\in C_2.
-$$
+```
 
 Therefore
 
-$$
+```math
 d_2[s|r]=[sr]\ne0,
-$$
+```
 
 so
 
-$$
+```math
 [s|r]
-$$
+```
 
 is not a second-homology class.
 
 Thus:
 
-$$
+```math
 \text{two consecutive diamonds create second-order ambiguity,}
-$$
+```
 
 but not necessarily a second syzygy.
 
 The local irreducible module
 
-$$
+```math
 \mathcal R=I/(JI+IJ)
-$$
+```
 
 contains the two elementary diamonds.
 
 By contrast,
 
-$$
+```math
 C_1=I/I^2
-$$
+```
 
 also contains their route-context transports, such as
 
-$$
+```math
 q_0r,
 \qquad
 sp_0,
-$$
+```
 
 in the larger endpoint corner $u\to v$.
 
 Thus:
 
-$$
+```math
 \mathcal R\text{ counts local ambiguity sources, while }C_1
 \text{ records their first-order effects throughout the system}.
-$$
+```
 
 # 10. What produces a genuine quadratic syzygy
 
 Suppose there are several composable pairs of first-order ambiguity classes:
 
-$$
+```math
 (s_j,r_j).
-$$
+```
 
 A quadratic bar cycle has the form
 
-$$
+```math
 Z=\sum_j c_j[s_j|r_j]
-$$
+```
 
 with
 
-$$
+```math
 d_2Z=
 \sum_jc_j[s_jr_j]=
 0
 \quad\text{in }C_2.
-$$
+```
 
 Equivalently,
 
-$$
+```math
 \sum_jc_js_jr_j\in I^3.
-$$
+```
 
 Therefore:
 
-$$
+```math
 \text{a genuine quadratic syzygy is a dependency among rectangle defects}.
-$$
+```
 
 It does not arise merely because multiple route choices exist.
 
@@ -575,41 +575,41 @@ A bar separator partitions those coordinates into consecutive blocks.
 
 For example, a three-choice cube can appear as:
 
-$$
+```math
 [1|1|1],
-$$
+```
 
-$$
+```math
 [2|1],
-$$
+```
 
-$$
+```math
 [1|2],
-$$
+```
 
 or
 
-$$
+```math
 [3],
-$$
+```
 
 where the numbers are ambiguity orders.
 
 The differential removes one separator:
 
-$$
+```math
 [1|1|1]
 \longmapsto
 [2|1]-[1|2].
-$$
+```
 
 Then
 
-$$
+```math
 [2|1]
 \quad\text{and}\quad
 [1|2]
-$$
+```
 
 both map to the same three-box, with opposite signs.
 
@@ -626,9 +626,9 @@ For a finite system—or a finite ordinal-rank band—the complex can be constru
 3. Build $I$ from route differences.
 4. Generate $I^2,I^3,\ldots$ using route-choice boxes.
 5. Form
-    $$
+    ```math
     C_m=I^m/I^{m+1}.
-    $$
+    ```
 6. Compute the left and right $B$-actions by concatenating any path representative of each reachability arrow.
 7. Form the balanced tensor products over $B$.
 8. Build the merge differentials.
@@ -653,8 +653,8 @@ What may fail is computational stabilization. Increasing finite path-supported t
 
 Therefore finite calculations should be stated as:
 
-$$
+```math
 \text{homology of a specified rank or path-supported truncation},
-$$
+```
 
 unless an independent theorem proves stabilization.

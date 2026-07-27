@@ -2,9 +2,9 @@
 
 The exhaustive construction reached
 
-$$
+```math
 |\mathfrak D_8|=20{,}286{,}025.
-$$
+```
 
 Although finite level-eight profile tables were practical, extending the complete incidence construction further would grow far faster than the scientific information gained from another single level.
 
@@ -31,9 +31,9 @@ The required counts were stored in arbitrary-precision integer tables and invert
 
 Consequently,
 
-$$
+```math
 \Pr(G)=\frac1{A_N}
-$$
+```
 
 for every labeled DAG $G$ on $[N]$.
 
@@ -45,15 +45,15 @@ At startup the counting tables were checked against the known labeled-DAG totals
 
 The census implementation also independently recovered the unlabeled class counts
 
-$$
+```math
 1,1,2,6,31,302,5984
-$$
+```
 
 when including the empty level, and the labeled count at six vertices
 
-$$
+```math
 3{,}781{,}503.
-$$
+```
 
 Every deletion-integrality, dimension, class-count, and labeled-count audit passed through the implemented exact census range.
 
@@ -61,15 +61,15 @@ Every deletion-integrality, dimension, class-count, and labeled-count audit pass
 
 The decisive sampler audit used
 
-$$
+```math
 200{,}000
-$$
+```
 
 independent samples at
 
-$$
+```math
 N=7,
-$$
+```
 
 where the exact 243,668-class census was already available.
 
@@ -86,9 +86,9 @@ status=PASS
 
 Thus every tested profile mean agreed with the exact census well within one standard deviation, and the sampled covariance differed from the exact covariance by only about
 
-$$
+```math
 0.412\%
-$$
+```
 
 in relative Frobenius norm.
 
@@ -101,17 +101,17 @@ This validated both:
 
 A terminal sample at size $N$ was restricted to the first $n$ labels at selected checkpoints. Because the full labeled DAG is uniform and restriction preserves the labeled Bratteli process,
 
-$$
+```math
 G_N\mapsto G_n=G_N|_{[n]}
-$$
+```
 
 produces exact samples from the finite-horizon configuration process.
 
 For each checkpoint, the sampler emitted the normalized graph profile and the scaled increment
 
-$$
+```math
 F_n=(n+1)(x_{n+1}-x_n).
-$$
+```
 
 This supplied direct large-$N$ observations of the drift field proposed in `findings-46.md`.
 
@@ -130,17 +130,17 @@ The observed non-rigid mass and total-variation distance decreased rapidly:
 
 The mechanism is clear: if almost every large DAG is rigid, then
 
-$$
+```math
 \dim(G)=\frac{n!}{|\mathrm{Aut}(G)|}
-$$
+```
 
 becomes the common value $n!$ on almost all mass, so labeled and equal-class weighting become asymptotically indistinguishable.
 
 The data therefore support
 
-$$
+```math
 \text{asymptotic rigidity and convergence of the two canonical sectors.}
-$$
+```
 
 This remains a numerical conclusion at the processed levels, not a proof for all $n$.
 
@@ -148,30 +148,30 @@ This remains a numerical conclusion at the processed levels, not a proof for all
 
 The first large-$N$ configuration dictionary used the normalized coordinates
 
-$$
+```math
 x=
 (x_1,x_2,x_3,x_4,x_5,x_6),
-$$
+```
 
 where the pairs correspond to mean out/in degree, directed two-path density, and the two wedge-type densities.
 
 Order duality implies the limiting equalities
 
-$$
+```math
 x_1=x_2,
 \qquad
 x_3=x_4,
 \qquad
 x_5=x_6.
-$$
+```
 
 The large samples showed convergence toward approximately
 
-$$
+```math
 x_\ast
 \approx
 (0.2503,0.2503,0.0418,0.0418,0.0840,0.0840).
-$$
+```
 
 The edge coordinate approached one quarter from above. The two-path coordinate stabilized earlier, while the wedge coordinates exhibited the slowest visible finite-size drift.
 
@@ -179,37 +179,37 @@ The edge coordinate approached one quarter from above. The two-path coordinate s
 
 A static profile plateau alone would not establish a hydrodynamic fixed point. The relevant quantity is the scaled conditional drift
 
-$$
+```math
 \overline b_n
 =
 \mathbb E[(n+1)(x_{n+1}-x_n)].
-$$
+```
 
 The sampled trajectories showed that the mean scaled drift decreased from roughly
 
-$$
+```math
 2\times10^{-3}
-$$
+```
 
 near size one hundred to roughly
 
-$$
+```math
 10^{-3}
-$$
+```
 
 near size two hundred fifty.
 
 The decay was consistent with a remaining boundary correction of order
 
-$$
+```math
 O(n^{-1}).
-$$
+```
 
 Thus the scaled drift itself approached zero, beyond the slowdown caused by the raw $1/n$ step size:
 
-$$
+```math
 b(x_\ast)=0
-$$
+```
 
 to the resolution of the sampled dictionary.
 
@@ -219,17 +219,17 @@ The edge-density value near $1/4$ is compatible with the layered structure of ty
 
 This gives the heuristic product
 
-$$
+```math
 \frac12\times\frac12=\frac14.
-$$
+```
 
 The two-path and wedge coordinates probe higher local moments and therefore retain larger finite-size corrections. At this stage no exact values were assigned to
 
-$$
+```math
 0.0418
 \quad\text{or}\quad
 0.0840.
-$$
+```
 
 # 10. What was resolved about the measure problem
 
@@ -244,9 +244,9 @@ Instead it established:
 
 The working conclusion is
 
-$$
+```math
 \text{the labeled/class distinction is likely a finite-size effect for the bulk profile.}
-$$
+```
 
 Other harmonic boundary sectors remain possible and were not excluded by this argument.
 

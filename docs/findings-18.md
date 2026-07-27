@@ -2,32 +2,32 @@
 
 For a set $S$, define a simplicial set $E(S)$ by
 
-$$
+```math
 E(S)_n=S^{n+1}.
-$$
+```
 
 Thus:
 
-$$
+```math
 E(S)_0=S,
-$$
+```
 
-$$
+```math
 E(S)_1=S\times S,
-$$
+```
 
-$$
+```math
 E(S)_2=S\times S\times S,
-$$
+```
 
 and so on.
 
 The face map $d_i$ deletes the $i$-th entry:
 
-$$
+```math
 d_i(s_0,\ldots,s_n)=
 (s_0,\ldots,\widehat{s_i},\ldots,s_n),
-$$
+```
 
 while the degeneracy $s_i$ repeats the $i$-th entry.
 
@@ -46,43 +46,43 @@ But it remains richly marked:
 
 Let
 
-$$
+```math
 \mathscr P_G(u,v)
-$$
+```
 
 be the set of finite paths from $u$ to $v$, including the identity path when $u=v$.
 
 Define a simplicial category
 
-$$
+```math
 \mathfrak R_G
-$$
+```
 
 with:
 
-$$
+```math
 \mathrm{Ob}(\mathfrak R_G)=V
-$$
+```
 
 and mapping simplicial sets
 
-$$
+```math
 \mathrm{Map}_{\mathfrak R_G}(u,v)=
 E\bigl(\mathscr P_G(u,v)\bigr).
-$$
+```
 
 Consequently,
 
-$$
+```math
 \mathrm{Map}_{\mathfrak R_G}(u,v)_n=
 \mathscr P_G(u,v)^{n+1}.
-$$
+```
 
 An $n$-simplex is an ordered collection
 
-$$
+```math
 (p_0,\ldots,p_n)
-$$
+```
 
 of $n+1$ routes with the same source and target.
 
@@ -90,32 +90,32 @@ of $n+1$ routes with the same source and target.
 
 Given
 
-$$
+```math
 (p_0,\ldots,p_n)\in
 \mathrm{Map}_{\mathfrak R_G}(u,v)_n
-$$
+```
 
 and
 
-$$
+```math
 (q_0,\ldots,q_n)\in
 \mathrm{Map}_{\mathfrak R_G}(v,w)_n,
-$$
+```
 
 define composition coordinatewise:
 
-$$
+```math
 (q_0,\ldots,q_n)\circ(p_0,\ldots,p_n)=
 (q_0p_0,\ldots,q_np_n).
-$$
+```
 
 Faces and degeneracies act coordinatewise, so they commute with composition.
 
 The identity at $u$ in degree $n$ is
 
-$$
+```math
 (1_u,\ldots,1_u).
-$$
+```
 
 Path concatenation is associative, so this simplicial composition is strictly associative.
 
@@ -129,33 +129,33 @@ This single object contains both categories we previously kept separate.
 
 Since
 
-$$
+```math
 E(S)_0=S,
-$$
+```
 
 we have
 
-$$
+```math
 \mathrm{Map}_{\mathfrak R_G}(u,v)_0=
 \mathscr P_G(u,v).
-$$
+```
 
 Composition of zero-simplices is ordinary path concatenation.
 
 Therefore:
 
-$$
+```math
 \mathrm{sk}_0\mathfrak R_G=
 \mathsf P(G).
-$$
+```
 
 ## Its connected components recover reachability
 
 If $\mathscr P_G(u,v)\ne\varnothing$, then
 
-$$
+```math
 E(\mathscr P_G(u,v))
-$$
+```
 
 is connected and contractible.
 
@@ -163,25 +163,25 @@ If there is no path, it is empty.
 
 Therefore:
 
-$$
+```math
 \pi_0
 \mathrm{Map}_{\mathfrak R_G}(u,v)=
 \begin{cases}
 {\ast},&u\le v,\\
 \varnothing,&u\nleq v.
 \end{cases}
-$$
+```
 
 Hence:
 
-$$
+```math
 \pi_0\mathfrak R_G=
 \mathsf R(G).
-$$
+```
 
 We have therefore obtained the exact interpolation
 
-$$
+```math
 \mathsf P(G)=
 \mathrm{sk}_0\mathfrak R_G
 \quad\longrightarrow\quad
@@ -189,7 +189,7 @@ $$
 \quad\longrightarrow\quad
 \pi_0\mathfrak R_G=
 \mathsf R(G).
-$$
+```
 
 The middle object retains actual paths while coherently realizing their collapse to reachability.
 
@@ -199,26 +199,26 @@ Regard $\mathsf R(G)$ as a simplicial category with discrete mapping spaces.
 
 There is a canonical enriched functor
 
-$$
+```math
 \epsilon:
 \mathfrak R_G\longrightarrow\mathsf R(G)
-$$
+```
 
 which fixes nodes and sends every tuple
 
-$$
+```math
 (p_0,\ldots,p_n)
-$$
+```
 
 to the unique reachability arrow having those endpoints.
 
 For every comparable pair $u\le v$, its mapping-space component is
 
-$$
+```math
 E(\mathscr P_G(u,v))
 \longrightarrow
 {\ast}.
-$$
+```
 
 This is a weak homotopy equivalence because its source is contractible.
 
@@ -232,21 +232,21 @@ In the language of simplicial categories, it is therefore a Dwyer–Kan-type equ
 
 However, this must be interpreted carefully:
 
-$$
+```math
 \text{the weak-equivalence type of }\mathfrak R_G
 \text{ remembers only reachability}.
-$$
+```
 
 The original route structure is retained by its **marked zero-skeleton**.
 
 So the complete object should be regarded as
 
-$$
+```math
 \left(
 \mathfrak R_G,;
 \mathsf P(G)=\mathrm{sk}_0\mathfrak R_G
 \right),
-$$
+```
 
 not merely as the unmarked homotopy type of $\mathfrak R_G$.
 
@@ -254,26 +254,26 @@ not merely as the unmarked homotopy type of $\mathfrak R_G$.
 
 Under A5,
 
-$$
+```math
 \mathscr P_G(v,v)=\{1_v\}.
-$$
+```
 
 Therefore
 
-$$
+```math
 \mathrm{Map}_{\mathfrak R_G}(v,v)=
 E({1_v})
 \cong\Delta^0.
-$$
+```
 
 There is exactly one endomorphism vertex and no nontrivial route loop.
 
 Thus acyclicity becomes:
 
-$$
+```math
 \mathrm{Map}_{\mathfrak R_G}(v,v)
 \text{ has exactly the identity as its marked vertex}.
-$$
+```
 
 If directed cycles were allowed, this mapping space would have additional marked vertices corresponding to nonempty closed paths, even though its unmarked homotopy type would still be contractible.
 
@@ -285,56 +285,56 @@ Choose a commutative coefficient ring $k$.
 
 For each endpoint pair define
 
-$$
+```math
 C_n^{\mathrm{route}}(v,u)=
 k^{(\mathscr P_G(u,v)^{n+1})},
-$$
+```
 
 the free $k$-module on $(n+1)$-tuples of routes.
 
 The simplicial differential is
 
-$$
+```math
 d_n(p_0,\ldots,p_n)=
 \sum_{i=0}^{n}
 (-1)^i
 (p_0,\ldots,\widehat{p_i},\ldots,p_n).
-$$
+```
 
 At low degree:
 
-$$
+```math
 d_1(p_0,p_1)=p_1-p_0,
-$$
+```
 
 and
 
-$$
+```math
 d_2(p_0,p_1,p_2)=
 (p_1,p_2)-
 (p_0,p_2)
 +
 (p_0,p_1).
-$$
+```
 
 There is an augmentation
 
-$$
+```math
 \varepsilon:
 C_0^{\mathrm{route}}(v,u)
 \longrightarrow
 k,\varepsilon_{v,u}
-$$
+```
 
 sending every route $p:u\to v$ to the unique thin reachability arrow:
 
-$$
+```math
 \varepsilon(p)=\varepsilon_{v,u}.
-$$
+```
 
 Because $E(\mathscr P_G(u,v))$ is contractible whenever it is nonempty, this augmented chain complex is exact:
 
-$$
+```math
 \cdots
 \to
 C_2^{\mathrm{route}}(v,u)
@@ -345,7 +345,7 @@ C_0^{\mathrm{route}}(v,u)
 \to
 k\varepsilon_{v,u}
 \to0.
-$$
+```
 
 Normalized chains on simplicial sets and dg categories are standard linearizations of simplicial higher structures.
 
@@ -353,30 +353,30 @@ Normalized chains on simplicial sets and dg categories are standard linearizatio
 
 Recall that
 
-$$
+```math
 A_{v,u}=
 e_vA(G)e_u=
 k^{(\mathscr P_G(u,v))}=
 C_0^{\mathrm{route}}(v,u).
-$$
+```
 
 The route-collapse kernel is
 
-$$
+```math
 I_{v,u}=
 \left\lbrace \sum_pc_pp: \sum_pc_p=0 \right\rbrace.
-$$
+```
 
 But
 
-$$
+```math
 \mathrm{im}d_1=
 \mathrm{span}\{p_1-p_0\}.
-$$
+```
 
 Therefore:
 
-$$
+```math
 I_{v,u}=
 \mathrm{im}
 \left(
@@ -385,30 +385,30 @@ C_1^{\mathrm{route}}(v,u)
 \to
 C_0^{\mathrm{route}}(v,u)
 \right).
-$$
+```
 
 Globally,
 
-$$
+```math
 I=\mathrm{im}d_1.
-$$
+```
 
 So the familiar exact sequence
 
-$$
+```math
 0\to I\to A(G)\to B(P_G)\to0
-$$
+```
 
 is merely the degree-zero end of the full route-resolution complex:
 
-$$
+```math
 \cdots
 \to C_2^{\mathrm{route}}
 \to C_1^{\mathrm{route}}
 \to A(G)
 \to B(P_G)
 \to0.
-$$
+```
 
 This is the canonical “all route relations” resolution that we were approaching earlier.
 
@@ -416,43 +416,43 @@ This is the canonical “all route relations” resolution that we were approach
 
 A one-simplex
 
-$$
+```math
 (p,q)
-$$
+```
 
 has boundary
 
-$$
+```math
 q-p.
-$$
+```
 
 It witnesses the identification of two routes.
 
 A two-simplex
 
-$$
+```math
 (p,q,r)
-$$
+```
 
 has boundary
 
-$$
+```math
 (q,r)-(p,r)+(p,q).
-$$
+```
 
 Thus:
 
-$$
+```math
 [p,r]=[p,q]+[q,r]
-$$
+```
 
 at the level of route-identification chains.
 
 It says that the direct identification $p\sim r$ agrees coherently with identifying
 
-$$
+```math
 p\sim q\sim r.
-$$
+```
 
 A three-simplex gives the tetrahedral coherence among these triangular identifications.
 
@@ -460,7 +460,7 @@ Higher simplices continue indefinitely.
 
 Therefore:
 
-$$
+```math
 \begin{aligned}
 C_0 &: \text{actual routes},\\
 C_1 &: \text{pairwise route identifications},\\
@@ -468,7 +468,7 @@ C_2 &: \text{coherences among identifications},\\
 C_3 &: \text{coherences among those coherences},\\
 &\ \vdots
 \end{aligned}
-$$
+```
 
 Because every mapping simplicial set is contractible, this full hierarchy has no residual positive-degree homology. Every coherence cycle is filled at a higher level.
 
@@ -478,23 +478,23 @@ Thus the collapse to one reachability arrow is completely coherent.
 
 Let
 
-$$
+```math
 S=\mathscr P_G(u,v).
-$$
+```
 
 ## Finite (S)
 
 If $|S|=m<\infty$, then
 
-$$
+```math
 C_0^{\mathrm{route}}(v,u)\cong k^m.
-$$
+```
 
 The augmentation kernel has rank
 
-$$
+```math
 m-1.
-$$
+```
 
 In the Fock Hilbert realization, this is the codimension-one route-defect subspace orthogonal to the equal-route vector.
 
@@ -508,29 +508,29 @@ The algebraic resolution remains perfectly defined:
 
 But the augmentation
 
-$$
+```math
 \sum_pc_pp\longmapsto\sum_pc_p
-$$
+```
 
 does not extend boundedly to
 
-$$
+```math
 \ell^2(S).
-$$
+```
 
 Correspondingly, its kernel is norm dense in the entire Fock route corner.
 
 The simplicial resolution explains the earlier analytic singularity:
 
-$$
+```math
 \text{route collapse is exact algebraically,}
-$$
+```
 
 but
 
-$$
+```math
 \text{it need not be a bounded Hilbert-space quotient}.
-$$
+```
 
 Orthogonality and coherent route identification coexist, but they belong to different categorical levels.
 
@@ -542,9 +542,9 @@ We can now distinguish two kinds of higher coherence that had previously been mi
 
 At fixed endpoints $u,v$, the simplicial set
 
-$$
+```math
 E(\mathscr P_G(u,v))
-$$
+```
 
 records how all actual routes collapse to one thin arrow.
 
@@ -556,15 +556,15 @@ Its first boundary produces the route ideal $I_{v,u}$.
 
 The order complex
 
-$$
+```math
 \Delta(u,v)
-$$
+```
 
 records the possible factorizations
 
-$$
+```math
 u<w_1<\cdots<w_r<v
-$$
+```
 
 of the thin arrow $u\le v$ through intermediate nodes.
 
@@ -572,13 +572,13 @@ It need not be contractible.
 
 Its reduced homology gives the interval-coherence groups
 
-$$
+```math
 \widetilde H_*(\Delta(u,v)).
-$$
+```
 
 Thus:
 
-$$
+```math
 \begin{array}{c|c}
 \text{Route direction}&
 \text{Factorization direction}\\
@@ -592,7 +592,7 @@ $$
 I=\mathrm{im}d_1&
 \widetilde H_*(\Delta(u,v))
 \end{array}
-$$
+```
 
 This is the conceptual separation we needed.
 
@@ -600,15 +600,15 @@ This is the conceptual separation we needed.
 
 Let
 
-$$
+```math
 \mathcal C^{\mathrm{route}}(b,a)
-$$
+```
 
 denote the augmented route-resolution chain complex for paths $a\to b$.
 
 For $u<v$, form
 
-$$
+```math
 \mathbb B_r(v,u)=
 \bigoplus_{
 u=v_0<v_1<\cdots<v_{r+1}=v
@@ -616,7 +616,7 @@ u=v_0<v_1<\cdots<v_{r+1}=v
 \mathcal C^{\mathrm{route}}(v_{r+1},v_r)
 \otimes_k\cdots\otimes_k
 \mathcal C^{\mathrm{route}}(v_1,v_0).
-$$
+```
 
 There are now two differentials.
 
@@ -624,9 +624,9 @@ There are now two differentials.
 
 This applies the route-resolution differential inside one tensor factor:
 
-$$
+```math
 d_{\mathrm{route}}.
-$$
+```
 
 It changes route-coherence degree but leaves the intermediate-node chain fixed.
 
@@ -634,9 +634,9 @@ It changes route-coherence degree but leaves the intermediate-node chain fixed.
 
 This removes an intermediate node by composing the two adjacent route-resolution factors:
 
-$$
+```math
 d_{\mathrm{fact}}.
-$$
+```
 
 It changes factorization degree but preserves total route-resolution degree.
 
@@ -644,24 +644,24 @@ The standard bar construction organizes precisely such iterated compositions, wh
 
 With the usual total-complex signs,
 
-$$
+```math
 d_{\mathrm{tot}}=
 d_{\mathrm{route}}
 +
 (-1)^{\deg_{\mathrm{route}}}d_{\mathrm{fact}},
-$$
+```
 
 and
 
-$$
+```math
 d_{\mathrm{tot}}^2=0.
-$$
+```
 
 The primary combined object is the filtered bicomplex
 
-$$
+```math
 \mathbb B_{\bullet,\bullet}^{\mathrm{RF}}(v,u),
-$$
+```
 
 where “RF” means route–factorization.
 
@@ -671,48 +671,48 @@ Take vertical homology first.
 
 For every comparable pair $a<b$,
 
-$$
+```math
 H_j\mathcal C^{\mathrm{route}}(b,a)=
 \begin{cases}
 k,&j=0,\\
 0,&j>0.
 \end{cases}
-$$
+```
 
 Therefore each tensor product in vertical homology becomes one copy of $k$ for every strict node chain
 
-$$
+```math
 u=v_0<v_1<\cdots<v_{r+1}=v.
-$$
+```
 
 The remaining horizontal differential deletes intermediate nodes with alternating signs.
 
 This gives the augmented simplicial chain complex of the open interval:
 
-$$
+```math
 \Delta(u,v).
-$$
+```
 
 Consequently, after the conventional index shift,
 
-$$
+```math
 H_*\bigl(
 \mathrm{Tot}
 \mathbb B^{\mathrm{RF}}(v,u)
 \bigr)
 \cong
 \widetilde H_*(\Delta(u,v);k).
-$$
+```
 
 So interval topology is obtained by:
 
-$$
+```math
 \text{resolve every thin factor by its actual routes}
 \quad\longrightarrow\quad
 \text{compose those resolved factors}
 \quad\longrightarrow\quad
 \text{take total homology}.
-$$
+```
 
 This unifies the resolved and thin layers.
 
@@ -724,19 +724,19 @@ The vertical route complexes are contractible, so their individual route vertice
 
 Therefore the primary object cannot be merely
 
-$$
+```math
 H_*\mathrm{Tot}\mathbb B^{\mathrm{RF}}.
-$$
+```
 
 We must retain at least the filtered bicomplex itself:
 
-$$
+```math
 \left(
 \mathbb B^{\mathrm{RF}},
 F_{\mathrm{route}},
 F_{\mathrm{fact}}
 \right).
-$$
+```
 
 Its pages have different meanings:
 
@@ -751,31 +751,31 @@ The intermediate pages of the spectral sequence identify which structural inform
 
 Let
 
-$$
+```math
 u\to a\to v,
 \qquad
 u\to b\to v.
-$$
+```
 
 There are two complete routes:
 
-$$
+```math
 p_a,\quad p_b:u\to v.
-$$
+```
 
 ## Vertical route resolution
 
 The one-simplex
 
-$$
+```math
 (p_a,p_b)
-$$
+```
 
 has boundary
 
-$$
+```math
 p_b-p_a.
-$$
+```
 
 This is the route-collapse relation.
 
@@ -783,15 +783,15 @@ This is the route-collapse relation.
 
 The open interval is
 
-$$
+```math
 (u,v)=\{a,b\}.
-$$
+```
 
 Its order complex consists of two isolated points, so
 
-$$
+```math
 \widetilde H_0(\Delta(u,v))\cong k.
-$$
+```
 
 This is the independent degree-two factorization relation.
 
@@ -808,9 +808,9 @@ From bottom to top, there are six saturated routes.
 
 The route mapping space is
 
-$$
+```math
 E({p_1,\ldots,p_6}),
-$$
+```
 
 which is contractible.
 
@@ -827,28 +827,28 @@ Thus all six routes collapse completely coherently to one reachability arrow.
 
 The open interval order complex is a six-cycle:
 
-$$
+```math
 \Delta(\varnothing,[3])\simeq S^1.
-$$
+```
 
 Therefore:
 
-$$
+```math
 \widetilde H_1\cong k.
-$$
+```
 
 This is the nontrivial third-level coherence among the six diamond relations.
 
 So:
 
-$$
+```math
 \text{route-collapse coherence is contractible,}
-$$
+```
 
 while
 
-$$
+```math
 \text{factorization coherence can be topologically nontrivial.}
-$$
+```
 
 This resolves the apparent tension in the previous constructions.

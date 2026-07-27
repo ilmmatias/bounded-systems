@@ -15,25 +15,25 @@ The analysis searched specifically for a mode with Jacobian rate closer to zero 
 
 The refined sampler emitted exact uniform labeled-DAG trajectories at:
 
-$$
+```math
 N=128,
 \qquad
 N=256.
-$$
+```
 
 For each terminal size, 100,000 independent samples were generated.
 
 The checkpoint sets were
 
-$$
+```math
 64,80,96,112
-$$
+```
 
 for terminal 128 and
 
-$$
+```math
 128,160,192,224
-$$
+```
 
 for terminal 256.
 
@@ -45,17 +45,17 @@ The audit compared:
 
 ## Original first-moment dictionary
 
-$$
+```math
 r0\_\mathrm{first\_moments}
-$$
+```
 
 with effective numerical rank four after exact symmetry reduction.
 
 ## Refined degree-two dictionary
 
-$$
+```math
 r1\_\mathrm{degree2}
-$$
+```
 
 with numerical rank varying between approximately 12 and 18, depending on interval and singular-value cutoff.
 
@@ -65,12 +65,12 @@ The rank variation was expected: several new coordinates become nearly linearly 
 
 The pseudoinverse threshold was varied over
 
-$$
+```math
 10^{-7},
 3\times10^{-8},
 10^{-8},
 3\times10^{-9}.
-$$
+```
 
 This moved the retained refined rank substantially, for example:
 
@@ -83,83 +83,83 @@ A genuine slow mode should remain visible over a stable range of thresholds. A m
 
 At the reference cutoff
 
-$$
+```math
 \mathrm{rcond}=10^{-8},
-$$
+```
 
 the original dictionary produced slowest rates between approximately
 
-$$
+```math
 -2.034
 \quad\text{and}\quad
 -2.010.
-$$
+```
 
 The refined dictionary produced slowest rates between approximately
 
-$$
+```math
 -2.013
 \quad\text{and}\quad
 -1.984.
-$$
+```
 
 The shortest late interval
 
-$$
+```math
 96\to112
-$$
+```
 
 had refined rank 16 and slowest rate
 
-$$
+```math
 -1.98385.
-$$
+```
 
 Across the full cutoff sweep, no refined mode crossed the preregistered slow threshold
 
-$$
+```math
 -1.8.
-$$
+```
 
 # 6. Terminal-256 results
 
 At
 
-$$
+```math
 \mathrm{rcond}=10^{-8},
-$$
+```
 
 the original dictionary again gave slowest rates close to $-2$, while the refined dictionary ranged from approximately
 
-$$
+```math
 -2.006
-$$
+```
 
 to
 
-$$
+```math
 -1.935.
-$$
+```
 
 The least negative estimate occurred for the earliest interval
 
-$$
+```math
 128\to160,
-$$
+```
 
 where finite-size effects and covariance conditioning are strongest.
 
 Later and longer intervals moved closer to $-2$, including
 
-$$
+```math
 -2.00037
-$$
+```
 
 for
 
-$$
+```math
 192\to224.
-$$
+```
 
 No interval produced a mode slower than $-1.8$.
 
@@ -167,14 +167,14 @@ No interval produced a mode slower than $-1.8$.
 
 The refined dictionary changed the multistep $R^2$ only in the third or fourth decimal place. For example, representative pairs gave:
 
-$$
+```math
 R^2\approx0.64,
 0.44,
 0.32,
 0.69,
 0.50,
 0.73
-$$
+```
 
 for both the original and refined dictionaries.
 
@@ -198,15 +198,15 @@ status=PASS
 
 relative to the threshold
 
-$$
+```math
 J>-1.8.
-$$
+```
 
 Therefore
 
-$$
+```math
 \text{the }J\approx-2\text{ slow sector survives the first dictionary refinement.}
-$$
+```
 
 No evidence appeared for a hidden mode that would close the relaxation gap.
 

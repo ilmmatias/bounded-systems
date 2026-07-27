@@ -2,21 +2,21 @@
 
 For
 
-$$
+```math
 u<v<w,
-$$
+```
 
 a strict chain from $u$ to $w$ that passes through $v$ decomposes uniquely into:
 
-$$
+```math
 u<\cdots<v
 \qquad\text{and}\qquad
 v<\cdots<w.
-$$
+```
 
 At the simplicial level, this gives a canonical concatenation pattern
 
-$$
+```math
 \Delta(u,v)
 \quad+\quad
 v
@@ -24,36 +24,36 @@ v
 \Delta(v,w)
 \longrightarrow
 \Delta(u,w).
-$$
+```
 
 For a longer sequence
 
-$$
+```math
 u=v_0<v_1<\cdots<v_r=w,
-$$
+```
 
 the same construction concatenates factorization chains from every interval
 
-$$
+```math
 (v_{i-1},v_i).
-$$
+```
 
 These concatenations are strictly compatible with regrouping. Whether we first combine the intervals around $v_1$ or those around $v_2$, the resulting full chain is the same.
 
 Thus the primary thin-coherence object is not merely
 
-$$
+```math
 \{\Delta(u,v)\}_{u<v},
-$$
+```
 
 but
 
-$$
+```math
 \left(
 \{\Delta(u,v)\}_{u<v},
 \{\text{all interval-concatenation maps}\}
 \right).
-$$
+```
 
 This type of cochain, operadic, and brace-compatible structure on posets and their incidence algebras is part of the broader cohomology-comparison framework.
 
@@ -61,33 +61,33 @@ This type of cochain, operadic, and brace-compatible structure on posets and the
 
 Fix a coefficient field $k$. Define a graded category
 
-$$
+```math
 \mathscr E_G
-$$
+```
 
 whose objects are the nodes of $G$.
 
 For $u<v$, set
 
-$$
+```math
 \mathscr E_G^n(v,u)=
-\widetilde C^{,n-2}
+\widetilde C^{\,n-2}
 \bigl(\Delta(u,v);k\bigr),
-$$
+```
 
 where $\widetilde C^\bullet$ is the augmented reduced simplicial cochain complex.
 
 Also define
 
-$$
+```math
 \mathscr E_G^0(u,u)=k,1_u,
-$$
+```
 
 and
 
-$$
+```math
 \mathscr E_G^\bullet(v,u)=0
-$$
+```
 
 when $u$ and $v$ are incomparable or $v<u$.
 
@@ -99,12 +99,12 @@ The shift by two gives the expected degrees:
 
 The differential is the shifted simplicial coboundary:
 
-$$
+```math
 d:
 \mathscr E_G^n(v,u)
 \longrightarrow
 \mathscr E_G^{n+1}(v,u).
-$$
+```
 
 This construction uses finite chains only, so it is defined for arbitrary set-sized posets, with no local-finiteness or countability assumption.
 
@@ -112,82 +112,81 @@ This construction uses finite chains only, so it is defined for arbitrary set-si
 
 Take
 
-$$
+```math
 f\in
 \mathscr E_G^q(v,u)=
 \widetilde C^{q-2}(\Delta(u,v);k),
-$$
+```
 
 and
 
-$$
+```math
 g\in
 \mathscr E_G^p(w,v)=
 \widetilde C^{p-2}(\Delta(v,w);k).
-$$
+```
 
 Their composite
 
-$$
+```math
 g\star_v f
 \in
 \mathscr E_G^{p+q}(w,u)
-$$
+```
 
 is supported on chains whose distinguished $q$-th intermediate node is $v$.
 
 Explicitly, for
 
-$$
+```math
 u<x_1<\cdots<x_{p+q-1}<w,
-$$
+```
 
 define, up to the standard suspension sign,
 
-$$
+```math
 (g\star_v f)
 (x_1<\cdots<x_{p+q-1})=
 \begin{cases}
-\pm,
-g(x_{q+1}<\cdots<x_{p+q-1}),
-f(x_1<\cdots<x_{q-1}),
-&x_q=v,[2mm]
+\pm\,g(x_{q+1}<\cdots<x_{p+q-1})
+\,f(x_1<\cdots<x_{q-1}),
+&x_q=v,\\[2mm]
 0,&x_q\ne v.
 \end{cases}
-$$
+```
 
 When $q=1$, the list supplied to $f$ is empty; that is exactly the augmented degree-$-1$ cover class.
 
 The degrees work because:
 
-$$
+```math
 (q-2)+(p-2)+2=p+q-2.
-$$
+```
 
 The extra two positions arise from joining the lower factorization, the intermediate node $v$, and the upper factorization.
 
 With the standard signs,
 
-$$
+```math
 d(g\star f)=
 dg\star f
 +
 (-1)^p g\star df,
-$$
+```
 
 and composition is associative:
 
-$$
+```math
 h\star(g\star f)=
 (h\star g)\star f.
-$$
+```
 
 Therefore:
 
-$$
+```math
 \mathscr E_G
 \text{ is a differential graded category.}
-$$
+```
 
 Its noncommutativity is directional. A product exists only when endpoints match in the correct order; reversing it is generally impossible or zero.
 
@@ -195,146 +194,146 @@ Its noncommutativity is directional. A product exists only when endpoints match 
 
 Taking cohomology gives
 
-$$
+```math
 H^n\mathscr E_G(v,u)=
-\widetilde H^{,n-2}
+\widetilde H^{\,n-2}
 \bigl(\Delta(u,v);k\bigr).
-$$
+```
 
 For finite posets, these groups identify with extension groups between the corresponding simple modules of the incidence algebra:
 
-$$
+```math
 H^n\mathscr E_G(v,u)
 \cong
 \operatorname{Ext}_{B(P_G)}^n(S_u,S_v),
-$$
+```
 
 subject to the usual left/right module convention.
 
 The induced product
 
-$$
+```math
 \operatorname{Ext}^p(S_v,S_w)
 \otimes
 \operatorname{Ext}^q(S_u,S_v)
 \longrightarrow
 \operatorname{Ext}^{p+q}(S_u,S_w)
-$$
+```
 
 is the Yoneda product. Incidence algebras can be presented as path algebras modulo the parallel-path ideal, while their projective resolutions and Ext groups are governed by the combinatorics of the poset intervals.
 
 Thus the isolated groups from the previous step assemble into a graded category:
 
-$$
+```math
 \mathcal Y_G=
 H^\bullet(\mathscr E_G).
-$$
+```
 
 # 5. A three-node chain
 
 Consider
 
-$$
+```math
 u<v<w.
-$$
+```
 
 Both covers give degree-one classes:
 
-$$
+```math
 \eta_{v,u}\in H^1\mathscr E_G(v,u),
-$$
+```
 
-$$
+```math
 \eta_{w,v}\in H^1\mathscr E_G(w,v).
-$$
+```
 
 Their cochain composite is supported on the single intermediate node $v$.
 
 But
 
-$$
+```math
 \Delta(u,w)={v}
-$$
+```
 
 is contractible, so
 
-$$
+```math
 \widetilde H^0(\Delta(u,w))=0.
-$$
+```
 
 Therefore
 
-$$
+```math
 \eta_{w,v}\eta_{v,u}=0.
-$$
+```
 
 The reachability arrows still compose:
 
-$$
+```math
 u\le v\le w
 \implies
 u\le w.
-$$
+```
 
 The unique two-step factorization creates no independent degree-two coherence class.
 
 So:
 
-$$
+```math
 \text{reachability composition}
 \neq
 \text{Yoneda-coherence composition}.
-$$
+```
 
 # 6. A diamond
 
 Let
 
-$$
+```math
 0<a<1,
 \qquad
 0<b<1,
-$$
+```
 
 with $a$ and $b$ incomparable.
 
 There are four cover classes:
 
-$$
+```math
 \eta_{a,0},\quad
 \eta_{1,a},\quad
 \eta_{b,0},\quad
 \eta_{1,b}.
-$$
+```
 
 The open interval
 
-$$
+```math
 (0,1)=\{a,b\}
-$$
+```
 
 consists of two isolated points, so
 
-$$
+```math
 H^2\mathscr E_G(1,0)=
 \widetilde H^0({a,b};k)
 \cong k.
-$$
+```
 
 The two cover products are the cochains supported at $a$ and $b$. Reduced cohomology identifies their sum with zero. With consistent orientation,
 
-$$
+```math
 \eta_{1,a}\eta_{a,0}=
 -\eta_{1,b}\eta_{b,0}
 \ne0.
-$$
+```
 
 This is dual to the incidence-algebra relation identifying the two parallel paths:
 
-$$
+```math
 (0\to a\to1)=
 (0\to b\to1).
-$$
+```
 
 The original relation uses equality; its dual Yoneda relation appears with an alternating sign.
 
@@ -342,29 +341,29 @@ The original relation uses equality; its dual Yoneda relation appears with an al
 
 For the Boolean lattice $B_d$,
 
-$$
+```math
 \Delta(\varnothing,[d])
 \simeq S^{d-2},
-$$
+```
 
 so
 
-$$
+```math
 H^d\mathscr E_G([d],\varnothing)\cong k.
-$$
+```
 
 Every saturated chain corresponds to a permutation
 
-$$
+```math
 \pi\in S_d.
-$$
+```
 
 Composing the $d$ cover classes along that chain gives the top degree class. Exchanging two adjacent steps reverses its orientation, so after a consistent choice of generator $\omega$,
 
-$$
+```math
 \eta_{\pi(d)}\cdots\eta_{\pi(1)}=
 \operatorname{sgn}(\pi),\omega.
-$$
+```
 
 The diamond relations account for adjacent exchanges, while the higher interval topology ensures that all sequences of such exchanges are coherently compatible.
 
@@ -374,17 +373,17 @@ This exterior-like behavior is consistent with the fact that graded incidence al
 
 The graded category
 
-$$
+```math
 H^\bullet(\mathscr E_G)
-$$
+```
 
 retains the cohomology groups and their binary product. But it forgets the actual cochain complexes and the specific null-homotopies inside them.
 
 For example, a product may vanish in cohomology because it is a coboundary:
 
-$$
+```math
 g\star f=dh.
-$$
+```
 
 The cohomology category remembers only that the product is zero. It forgets the cochain $h$ witnessing why it is zero.
 
@@ -394,52 +393,52 @@ When several such null-homotopies interact, that forgotten information produces 
 
 Transfer the dg category $\mathscr E_G$ to its cohomology. The result is a minimal $A_\infty$ category with operations
 
-$$
+```math
 m_r:
 H^\bullet\mathscr E_G(v_r,v_{r-1})
 \otimes\cdots\otimes
 H^\bullet\mathscr E_G(v_1,v_0)
 \longrightarrow
 H^\bullet\mathscr E_G(v_r,v_0)
-$$
+```
 
 of degree
 
-$$
+```math
 2-r.
-$$
+```
 
 Here:
 
-$$
+```math
 m_1=0,
-$$
+```
 
-$$
+```math
 m_2=\text{Yoneda product},
-$$
+```
 
 while
 
-$$
+```math
 m_3,m_4,\ldots
-$$
+```
 
 record higher dependencies among products and null-homotopies.
 
 For example,
 
-$$
+```math
 m_3(c,b,a)
-$$
+```
 
 may be nonzero when
 
-$$
+```math
 m_2(b,a)=0
 \qquad\text{and}\qquad
 m_2(c,b)=0,
-$$
+```
 
 but the chosen reasons for those two vanishings fail to fit together trivially. This is closely related to a triple Massey product.
 
@@ -451,15 +450,15 @@ This point matters for the project.
 
 The operations
 
-$$
+```math
 m_3,m_4,\ldots
-$$
+```
 
 are not new interaction rules placed on the bounded system.
 
 They arise through the sequence
 
-$$
+```math
 \text{reachability order}
 \longrightarrow
 \text{interval cochain dg category}
@@ -467,7 +466,7 @@ $$
 \text{cohomology compression}
 \longrightarrow
 A_\infty\text{ correction data}.
-$$
+```
 
 The full dg category is already strictly associative.
 
@@ -475,17 +474,17 @@ Higher $A_\infty$ operations appear only because we replace that full chain-leve
 
 So the correct interpretation is:
 
-$$
+```math
 A_\infty\text{ operations measure compression loss, not added dynamics}.
-$$
+```
 
 # 11. What is canonical
 
 A transferred minimal $A_\infty$ structure requires choices such as representatives and contracting homotopies. Therefore the individual formulas for
 
-$$
+```math
 m_3,m_4,\ldots
-$$
+```
 
 are not absolutely canonical.
 
@@ -493,19 +492,19 @@ But the resulting $A_\infty$ quasi-isomorphism type is canonical.
 
 The more directly canonical object is the dg category itself:
 
-$$
+```math
 \mathscr E_G.
-$$
+```
 
 The hierarchy is:
 
-$$
+```math
 \mathscr E_G
 \longrightarrow
 H^\bullet(\mathscr E_G)
 \longrightarrow
 \bigl(H^\bullet(\mathscr E_G),m_2,m_3,\ldots\bigr).
-$$
+```
 
 The first object is large and strict.
 
@@ -519,20 +518,20 @@ Suppose the reachability poset is finite, graded, and its intervals satisfy the 
 
 That degree concentration forces
 
-$$
+```math
 m_r=0
 \qquad(r\ge3)
-$$
+```
 
 in the grading-compatible minimal model.
 
 Thus the ordinary Yoneda algebra with its binary product is sufficient:
 
-$$
+```math
 \text{Koszul case}
 \implies
 \text{no essential higher }A_\infty\text{ products}.
-$$
+```
 
 For a non-Koszul or nongraded incidence structure, the binary product may not retain all relation data. Nonzero higher operations can then be essential.
 
@@ -542,9 +541,9 @@ The Cohen–Macaulay characterization of Koszul incidence algebras gives the top
 
 Previously, we treated the individual interval homotopy types
 
-$$
+```math
 {\Delta(u,v)}
-$$
+```
 
 as the primary thin-coherence invariant.
 
@@ -554,19 +553,19 @@ Two systems could have intervals with matching homotopy types while differing in
 
 The correct object is the **compositional interval system**:
 
-$$
+```math
 \mathbf{Int}(G)=
 \left(
 \{\Delta(u,v)\}_{u<v},
 \{\text{concatenation-at-}v\}_{u<v<w}
 \right),
-$$
+```
 
 or equivalently its cochain realization
 
-$$
+```math
 \mathscr E_G.
-$$
+```
 
 The separate homotopy groups and Ext groups are shadows of this richer object.
 
@@ -585,29 +584,29 @@ Therefore the complete framework now has two distinct layers.
 
 ## Resolved communication layer
 
-$$
+```math
 \bigl(A(G),D(G),{e\in E}\bigr)
-$$
+```
 
 retains nodes, primitive channels, and all actual routes.
 
 ## Derived thin layer
 
-$$
+```math
 \mathscr E_G
-$$
+```
 
 retains the factorization topology and higher coherence of the reachability order.
 
 They are linked by the route-collapse map
 
-$$
+```math
 Q:A(G)\to B(P_G).
-$$
+```
 
 Thus the combined object is
 
-$$
+```math
 \mathbf B_{\mathrm{der}}(G)=
 \left(
 A(G),
@@ -615,7 +614,7 @@ D(G),
 Q,
 \mathscr E_G
 \right).
-$$
+```
 
 The first component is already sufficient to reconstruct $G$. The additional components expose systematic derived invariants that spectra and path counts do not reveal.
 
@@ -632,8 +631,8 @@ For infinite posets, the identification with Ext over a particular completed inc
 
 But the primary construction
 
-$$
+```math
 \mathscr E_G
-$$
+```
 
 itself is unconditional.

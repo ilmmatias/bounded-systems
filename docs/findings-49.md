@@ -2,33 +2,33 @@
 
 From the configuration recursion
 
-$$
+```math
 x_{n+1}=x_n+\frac1{n+1}F_n,
-$$
+```
 
 the hydrodynamic drift is
 
-$$
+```math
 b(x)=\lim\mathbb E[F_n\mid x_n=x].
-$$
+```
 
 At a fixed profile
 
-$$
+```math
 b(x_\ast)=0,
-$$
+```
 
 define
 
-$$
+```math
 J=Db(x_\ast).
-$$
+```
 
 The central-limit normalization contributes an additional one-half identity, so the positive relaxation operator is
 
-$$
+```math
 B=-\left(J+\frac12I\right).
-$$
+```
 
 The finite-data task was therefore not to fit an arbitrary spectral law, but to estimate the derivative of the exact sampled drift field.
 
@@ -55,9 +55,9 @@ The main Jacobian extraction used:
 
 At each checkpoint, the scaled increment
 
-$$
+```math
 F=(n+1)\Delta x
-$$
+```
 
 was regressed against profile displacement from the local mean.
 
@@ -67,9 +67,9 @@ Bootstrap resampling retained trajectory pairing across checkpoints.
 
 The initial reduced estimate of
 
-$$
+```math
 \widehat B=-\left(\widehat J+\frac12I\right)
-$$
+```
 
 showed:
 
@@ -88,23 +88,23 @@ A symmetry-adapted audit isolated two especially clean Jacobian directions.
 
 The normal direction had
 
-$$
+```math
 J_{\mathrm{normal}}\approx-3,
-$$
+```
 
 while the odd/antisymmetric direction had
 
-$$
+```math
 J_{\mathrm{odd}}\approx-2.
-$$
+```
 
 The corresponding fluctuation relaxation values are
 
-$$
+```math
 B_{\mathrm{normal}}\approx\frac52,
 \qquad
 B_{\mathrm{odd}}\approx\frac32.
-$$
+```
 
 These values explain the separated eigenvalue near $2.5$ and part of the lower cluster near $1.5$.
 
@@ -129,32 +129,32 @@ A one-step regression can create misleading eigenvalues if the projected process
 
 For terminal 128, examples included
 
-$$
+```math
 96\to112,
 96\to120,
 96\to126,
 112\to120,
 112\to126,
 120\to126.
-$$
+```
 
 For terminal 256, the corresponding doubled intervals were analyzed.
 
 Across all 12 pairs:
 
-$$
+```math
 J_{\mathrm{normal}}
 \approx
 -3.05\text{ to }-2.98,
-$$
+```
 
 and
 
-$$
+```math
 J_{\mathrm{odd}}
 \approx
 -2.07\text{ to }-2.04
-$$
+```
 
 apart from ordinary sampling variation.
 
@@ -170,31 +170,31 @@ The decline with interval length reflects nonlinear and stochastic accumulation,
 
 A finite-size surrogate transfer calculation at
 
-$$
+```math
 96\to112
-$$
+```
 
 gave the exact or high-precision rates
 
-$$
+```math
 J_{\mathrm{normal}}=-3,
 \qquad
 J_{\mathrm{edge}}=-2,
 \qquad
 J_{\mathrm{mixed}}=-2.0460410676.
-$$
+```
 
 Comparing the surrogate with all 12 empirical semigroup pairs produced
 
-$$
+```math
 \text{mean matrix defect}=0.0236841,
-$$
+```
 
 and
 
-$$
+```math
 \text{median matrix defect}=0.0199061.
-$$
+```
 
 Thus the finite sampled transfer maps were within a few percent of the reduced analytic surrogate.
 
@@ -204,11 +204,11 @@ To determine whether the observed matrix discrepancy was meaningful, the 100,000
 
 Across 200 replicates, the empirical matrix-defect distribution had
 
-$$
+```math
 q_{0.50}=0.0352025,
 \qquad
 q_{0.975}=0.0705461.
-$$
+```
 
 The exact-versus-surrogate discrepancy near $0.02-0.024$ was below the median same-law sampling defect. Therefore no statistically resolved disagreement with the surrogate transfer matrix was detected at that sample size.
 
@@ -218,15 +218,15 @@ Rather than comparing only full matrices, the analysis tested the predicted eige
 
 The errors in the edge, mixed-even, mixed-odd, and normal observables were generally of order
 
-$$
+```math
 10^{-3}\text{ to }10^{-2}.
-$$
+```
 
 The largest listed normal-observable error was approximately
 
-$$
+```math
 -0.0111,
-$$
+```
 
 while most errors were several times smaller.
 
@@ -236,30 +236,30 @@ Every pair passed, verifying the action on predeclared observables in addition t
 
 The combined evidence supports the following chain:
 
-$$
+```math
 \text{large-size profile reaches }x_\ast,
-$$
+```
 
-$$
+```math
 \text{scaled drift linearizes with stable }J,
-$$
+```
 
-$$
+```math
 \text{multistep maps follow one semigroup to finite accuracy,}
-$$
+```
 
 and
 
-$$
+```math
 B=-\left(J+\frac12I\right)
 \text{ has a positive spectral gap.}
-$$
+```
 
 The smallest observed relaxation rate is near
 
-$$
+```math
 \frac32,
-$$
+```
 
 well separated from zero.
 

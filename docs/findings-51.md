@@ -2,21 +2,21 @@
 
 The first bridge proposal was direct:
 
-$$
+```math
 \text{estimate a route-side local generator and compare it with }J_{\mathrm{config}}.
-$$
+```
 
 The route sampler generated exact uniform labeled DAGs and resolved routes at relative horizons
 
-$$
+```math
 \rho=\frac18,\frac14,\frac38.
-$$
+```
 
 Initial samples at
 
-$$
+```math
 N=64,128,256
-$$
+```
 
 produced all required records, but the first bridge analysis returned
 
@@ -50,37 +50,37 @@ The decisive test pooled route positions and then left one position out.
 
 For $N=64$, the augmented pooled fit remained high:
 
-$$
+```math
 0.950,
 0.911,
 0.886
-$$
+```
 
 at horizons 8, 16, and 24.
 
 But the leave-one-position-out values collapsed:
 
-$$
+```math
 0.781,
 0.120,
 -1.820.
-$$
+```
 
 The same behavior strengthened with size and horizon. At $N=256$, the leave-one-position-out augmented values were approximately
 
-$$
+```math
 0.064,
 -1.018,
 -4.196.
-$$
+```
 
 The corresponding route-time target became even worse.
 
 Therefore
 
-$$
+```math
 \text{position-conditioned predictability does not transfer across route position.}
-$$
+```
 
 The local profile was not an autonomous route state.
 
@@ -90,9 +90,9 @@ A node-overlap sampler emitted multiple nodes from each graph and route position
 
 The route-position class was almost perfectly recoverable:
 
-$$
+```math
 \text{classification accuracy}\approx0.999-1.000.
-$$
+```
 
 Thus route position was strongly encoded in the local coordinates.
 
@@ -108,9 +108,9 @@ The finite local states occupied increasingly disjoint position-dependent region
 
 Adding the explicit route-time coordinate produced negligible gain, typically of order
 
-$$
+```math
 10^{-4}
-$$
+```
 
 and sometimes negative.
 
@@ -137,23 +137,23 @@ A route jet records present and nearby route-position features. Depths up to fou
 
 For every horizon and position in the pilot, the best predictive depth was
 
-$$
+```math
 k=0,
-$$
+```
 
 meaning the present local profile outperformed deeper deterministic jets.
 
 The deepest-jet fits often deteriorated severely. For example, at horizon 24 and position zero, the fit fell from about
 
-$$
+```math
 0.545
-$$
+```
 
 to
 
-$$
+```math
 0.095.
-$$
+```
 
 Thus deterministic finite route history did not provide the missing autonomous coordinate.
 
@@ -175,11 +175,11 @@ Although full closure failed, the cross-moment operators exhibited a sharp singu
 
 At each relative horizon, the fourth singular value was much smaller than the third. Representative ratios were
 
-$$
+```math
 0.00227,
 0.000257,
 0.00453.
-$$
+```
 
 The right singular geometry was stable:
 
@@ -205,9 +205,9 @@ because the left sector remained too weakly conditioned at the available sizes.
 
 This was the decisive conceptual change:
 
-$$
+```math
 \text{the route/configuration bridge should be tested one-sidedly first.}
-$$
+```
 
 # 10. What the failed closure tests ruled out
 
@@ -239,6 +239,6 @@ Negative results were essential here. Had only the high within-position $R^2$ be
 
 The correct lesson is
 
-$$
+```math
 \text{high local predictability is not evidence of autonomous continuum closure.}
-$$
+```

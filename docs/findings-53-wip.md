@@ -2,27 +2,27 @@
 
 The first state-line analyses at sizes through 288 produced route/configuration clock ratios near
 
-$$
+```math
 9.
-$$
+```
 
 This suggested the provisional candidate
 
-$$
+```math
 \lambda_{\mathrm{route}}\approx-18
-$$
+```
 
 relative to
 
-$$
+```math
 \lambda_{\mathrm{config}}=-2.
-$$
+```
 
 The finite Schur decomposition supported a genuine slow scalar, but exact $-18$ remained unresolved. Larger exact-uniform samples at
 
-$$
+```math
 N=384,480,576,672,768
-$$
+```
 
 moved the extrapolated rate downward.
 
@@ -50,29 +50,29 @@ Thus all three horizons moved below nine and toward one another.
 
 A paired high-size fit to
 
-$$
+```math
 \lambda_{N,\rho}
 =
 L+\frac{a_\rho}{N}
-$$
+```
 
 gave
 
-$$
+```math
 L=-17.500109.
-$$
+```
 
 The corresponding ratio was
 
-$$
+```math
 \kappa=8.7500545.
-$$
+```
 
 The common-limit model predicted better than three independent limits and much better than fixed $-18$. However, the paired-bootstrap interval was broad:
 
-$$
+```math
 L\in[-18.0175,-16.9773]
-$$
+```
 
 at 95%.
 
@@ -80,9 +80,9 @@ Therefore $-18$ was strongly disfavored as the finite-size model but only narrow
 
 The value
 
-$$
+```math
 8.75=\frac{35}{4}
-$$
+```
 
 was recognized after inspecting the fit. This post-hoc pattern is not an exact result.
 
@@ -90,15 +90,15 @@ was recognized after inspecting the fit. This post-hoc pattern is not an exact r
 
 The high-size extrapolation could not distinguish nearby candidates such as
 
-$$
+```math
 -17.5
-$$
+```
 
 and
 
-$$
+```math
 -\frac{120}{7}\approx-17.142857.
-$$
+```
 
 The route latent geometry supplied a way to compute the scalar directly in the ordered-Bernoulli surrogate, without fitting an arbitrary rational number.
 
@@ -106,17 +106,17 @@ The route latent geometry supplied a way to compute the scalar directly in the o
 
 For forward-edge probability $q$, define
 
-$$
+```math
 b=(-q,q,-q^2,0,0,q^2)^\mathsf T,
-$$
+```
 
-$$
+```math
 c=\frac{q^2}{2}(0,0,1,1,-1,-1)^\mathsf T.
-$$
+```
 
 With asymptotically uniform latent route-source position,
 
-$$
+```math
 \Sigma
 =
 \mathrm{Cov}(t,t^2)
@@ -125,13 +125,13 @@ $$
 1/12&1/12\\
 1/12&4/45
 \end{pmatrix}.
-$$
+```
 
 The leading state covariance is
 
-$$
+```math
 G_0=[b\ c]\Sigma[b\ c]^\mathsf T.
-$$
+```
 
 Its graph-profile intersection is exactly the line $Er_0$.
 
@@ -139,27 +139,27 @@ Its graph-profile intersection is exactly the line $Er_0$.
 
 For a vertex at latent position $t$, the influence vectors of one outgoing edge to $y>t$ and one incoming edge from $x<t$ are
 
-$$
+```math
 g_+(t,y)
 =
 \begin{pmatrix}
 1\\0\\q(1-y)\\0\\qy\\0
 \end{pmatrix},
-$$
+```
 
 and
 
-$$
+```math
 g_-(t,x)
 =
 \begin{pmatrix}
 0\\1\\0\\qx\\0\\q(1-x)
 \end{pmatrix}.
-$$
+```
 
 The first-order local-noise covariance is
 
-$$
+```math
 \Omega
 =
 q(1-q)
@@ -169,37 +169,37 @@ q(1-q)
 +
 \int_0^tg_-g_-^\mathsf Tdx
 \right]dt.
-$$
+```
 
 The route jump has two endpoint contributions, giving the intrinsic denominator
 
-$$
+```math
 \alpha(q)
 =2\mathrm{tr}\Omega
 =\frac{2q(1-q)(2q^2+3)}3.
-$$
+```
 
 # 7. Singular solvability condition
 
 Because $G_0$ has rank two, the equation
 
-$$
+```math
 G_0z=Er_0
-$$
+```
 
 does not uniquely determine the dual vector.
 
 The bounded limit selected by the full finite covariance must additionally satisfy
 
-$$
+```math
 K^\mathsf T\Omega z=0,
-$$
+```
 
 where the columns of $K$ span $\ker G_0$.
 
 The symbolic solution family is
 
-$$
+```math
 z=
 \begin{pmatrix}
 -qz_4-40\sqrt3/q^3\\
@@ -208,7 +208,7 @@ z_4+120\sqrt3/q^4\\
 z_5+120\sqrt3/q^4\\
 z_4\\z_5
 \end{pmatrix}.
-$$
+```
 
 Two free coordinates remain, but the scalar route action is independent of both.
 
@@ -216,72 +216,72 @@ Two free coordinates remain, but the scalar route action is independent of both.
 
 Let
 
-$$
+```math
 L=\frac1{\sqrt3}(0,0,1,0,-1,-1).
-$$
+```
 
 The symbolic calculation gives
 
-$$
+```math
 L\Omega z
 =\frac{10(1-q)}q.
-$$
+```
 
 Therefore
 
-$$
+```math
 \lambda_{\mathrm{route}}(q)
 =-\frac{L\Omega z}{\alpha(q)}
 =-\frac{15}{q^2(2q^2+3)}.
-$$
+```
 
 Relative to the configuration eigenvalue $-2$,
 
-$$
+```math
 \kappa(q)
 =\frac{15}{2q^2(2q^2+3)}.
-$$
+```
 
 At
 
-$$
+```math
 q=\frac12,
-$$
+```
 
 this becomes
 
-$$
+```math
 \lambda_{\mathrm{route}}
 =-\frac{120}{7},
 \qquad
 \kappa=\frac{60}{7}\approx8.57142857.
-$$
+```
 
 # 9. Fresh multi-(q) predictions
 
 The analytic law made two predictions not used in its derivation:
 
-$$
+```math
 q=\frac13:
 \qquad
 \lambda=-\frac{1215}{29}
 \approx-41.89655,
-$$
+```
 
 and
 
-$$
+```math
 q=\frac23:
 \qquad
 \lambda=-\frac{243}{28}
 \approx-8.67857.
-$$
+```
 
 Together with $q=1/2$, these were tested in a fresh planted-route experiment at sizes
 
-$$
+```math
 N=192,288,384,480,576.
-$$
+```
 
 # 10. Multi-(q) confirmatory results
 
@@ -307,17 +307,17 @@ for the planted ordered-Bernoulli route ensemble.
 
 The formula is equivalent to
 
-$$
+```math
 -\lambda(q)q^2(2q^2+3)=15.
-$$
+```
 
 Using the independently fitted limits gave approximately
 
-$$
+```math
 15.086,
 15.358,
 15.419.
-$$
+```
 
 Thus three clock scales spanning nearly a factor of five collapsed onto the predicted constant 15 within about three percent.
 
@@ -325,49 +325,49 @@ Thus three clock scales spanning nearly a factor of five collapsed onto the pred
 
 The surrogate result does not automatically imply
 
-$$
+```math
 \lambda_{\mathrm{uniform\ DAG}}
 =-\frac{120}{7}.
-$$
+```
 
 Define for the exact uniform-DAG route process
 
-$$
+```math
 \alpha_N=N\mathbb E[a],
-$$
+```
 
-$$
+```math
 G_N=\mathbb E[G],
 \qquad
 H_N=\mathbb E[aC],
-$$
+```
 
-$$
+```math
 z_N=G_N^+Er_0,
-$$
+```
 
 and
 
-$$
+```math
 \eta_N=-N\,LH_Nz_N.
-$$
+```
 
 Then the pooled moment clock is
 
-$$
+```math
 \lambda_N^{\mathrm{moment}}
 =-\frac{\eta_N}{\alpha_N}.
-$$
+```
 
 At $q=1/2$, the surrogate theorem predicts
 
-$$
+```math
 \alpha=\frac7{12},
 \qquad
 \eta=10,
 \qquad
 \lambda=-\frac{120}{7}.
-$$
+```
 
 # 13. Existing numerator audits
 
@@ -375,17 +375,17 @@ $$
 
 The direct extrapolation gave
 
-$$
+```math
 \alpha\approx0.603257,
 \qquad
 \eta\approx11.009646,
-$$
+```
 
 and
 
-$$
+```math
 -\eta/\alpha\approx-18.2503.
-$$
+```
 
 All three exact surrogate targets were disfavored under the simple linear correction model.
 
@@ -393,17 +393,17 @@ All three exact surrogate targets were disfavored under the simple linear correc
 
 The corresponding quenched control gave
 
-$$
+```math
 \alpha\approx0.598960,
 \qquad
 \eta\approx10.753079,
-$$
+```
 
 and
 
-$$
+```math
 -\eta/\alpha\approx-17.9529.
-$$
+```
 
 The bias had the same sign as the exact-uniform estimate, suggesting a substantial finite-size or estimator correction rather than an immediately isolated exact-ensemble effect.
 
@@ -411,17 +411,17 @@ The bias had the same sign as the exact-uniform estimate, suggesting a substanti
 
 Using the fresh planted data through $N=576$ gave
 
-$$
+```math
 \alpha\approx0.589206,
 \qquad
 \eta\approx10.255667,
-$$
+```
 
 and
 
-$$
+```math
 -\eta/\alpha\approx-17.4059.
-$$
+```
 
 The numerator target $10$ and clock target $-120/7$ were supported, while the denominator target $7/12$ was narrowly disfavored because the interval was precise enough to resolve a remaining one-percent finite-size offset.
 
@@ -431,23 +431,23 @@ This validates the numerator estimator in the ensemble for which the symbolic la
 
 The planted control also produced a mean-of-fits slow value near
 
-$$
+```math
 -18.88,
-$$
+```
 
 which differs from the pooled moment ratio.
 
 There is no contradiction. The analytic object is
 
-$$
+```math
 Q\,\mathbb E[aC]\,\mathbb E[G]^+E,
-$$
+```
 
 whereas mean-of-fits uses
 
-$$
+```math
 \mathbb E[QCG^+E].
-$$
+```
 
 Singular inversion does not commute with graph averaging. The common state line is robust, but the finite scalar estimator depends on the prescribed aggregation order.
 
@@ -455,9 +455,9 @@ Singular inversion does not commute with graph averaging. The common state line 
 
 A new exact geometry run is currently generating the matrices required for the direct numerator audit at
 
-$$
+```math
 N=384,480,576,672,768.
-$$
+```
 
 The intended outputs are:
 
@@ -465,9 +465,9 @@ The intended outputs are:
 2. a high-size-only fit using sizes 384 through 768;
 3. bootstrap intervals for $\alpha$, $\eta$, and $-\eta/\alpha$;
 4. comparison with both the surrogate numerator $10$ and the descriptive post-hoc value
-$$
+   ```math
    \frac{245}{24}\approx10.20833,
-$$
+   ```
    which would accompany a rate of $-17.5$ if $\alpha=7/12$.
 
 The value $245/24$ is not a preregistered exact candidate.
@@ -481,15 +481,15 @@ The current exact sampler has two phases:
 
 The table builder stores all powers
 
-$$
+```math
 2^0,2^1,\ldots,2^{N^2},
-$$
+```
 
 as separate GMP integers. Its raw limb storage scales as approximately
 
-$$
+```math
 O(N^4)\text{ bits}.
-$$
+```
 
 This explains the single-core startup phase and memory use of roughly 14 GB at $N=672$, increasing into the low tens of gigabytes at $N=768$.
 
@@ -499,28 +499,28 @@ The sampled results remain valid, but future engineering should replace the glob
 
 If the exact high-size audit finds
 
-$$
+```math
 \alpha_N\to\frac7{12},
 \qquad
 \eta_N\to10,
-$$
+```
 
 then
 
-$$
+```math
 \lambda_{\mathrm{exact}}
 =-\frac{120}{7}
-$$
+```
 
 is strongly supported.
 
 If
 
-$$
+```math
 \alpha_N\to\frac7{12},
 \qquad
 \eta_N\to\eta_\ast\ne10,
-$$
+```
 
 then exact uniform-DAG weighting renormalizes the numerator while preserving the state line and intrinsic denominator.
 

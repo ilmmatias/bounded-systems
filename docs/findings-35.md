@@ -2,42 +2,42 @@
 
 Fix the critical eigenvalue
 
-$$
+```math
 \lambda=R^{-2},
-$$
+```
 
 and consider normalized positive profiles
 
-$$
+```math
 \mathcal H_\lambda^+=
 \left\lbrace h>0: \mathcal A_+h=\lambda h,\quad h(o)=1 \right\rbrace.
-$$
+```
 
 Write
 
-$$
+```math
 u=\log h.
-$$
+```
 
 The harmonic equation becomes the exact nonlinear profile equation
 
-$$
+```math
 \mathcal F_v(u)=
 \log\left(
 \sum_{e:s(e)=v}e^{u(r(e))}
 \right)
 -u(v)-\log\lambda
 =0.
-$$
+```
 
 Define the derived edge kernel
 
-$$
+```math
 P_h(e\mid v)=
 \frac{h(r(e))}{\lambda h(v)}=
 \frac{e^{u(r(e))}}
 {\sum_{f:s(f)=v}e^{u(r(f))}}.
-$$
+```
 
 Thus the outgoing channel law is the softmax of the successor log-profiles. This is precisely a generalized Doob $h$-transform of the channel-counting operator, obtained from the positive eigenpair $(h,\lambda)$.
 
@@ -49,7 +49,7 @@ No probability was added here: normalization of the positive harmonic profile pr
 
 Take a smooth profile curve through $h$:
 
-$$
+```math
 h_\varepsilon(v)=
 h(v)
 \exp\left(
@@ -57,46 +57,46 @@ h(v)
 +\frac{\varepsilon^2}{2}\chi(v)
 +o(\varepsilon^2)
 \right).
-$$
+```
 
 Normalization gives
 
-$$
+```math
 \phi(o)=0,
 \qquad
 \chi(o)=0.
-$$
+```
 
 Here
 
-$$
+```math
 \phi=
 \left.\frac{d}{d\varepsilon}\log h_\varepsilon\right|_0
-$$
+```
 
 is a tangent score.
 
 Differentiate $\mathcal F_v(u_\varepsilon)=0$. Since
 
-$$
+```math
 D\mathcal F_v(u)[\phi]=
 \sum_{e:s(e)=v}P_h(e\mid v)\phi(r(e))
 -\phi(v),
-$$
+```
 
 the tangent equation is
 
-$$
+```math
 P_h\phi=\phi.
-$$
+```
 
 Explicitly,
 
-$$
+```math
 \phi(v)=
 \sum_{e:s(e)=v}
 P_h(e\mid v)\phi(r(e)).
-$$
+```
 
 So tangent vectors to the fixed-$\lambda$ profile manifold are harmonic observables of the derived dynamics.
 
@@ -110,30 +110,30 @@ Differentiate a second time.
 
 The Hessian of the log-sum-exp term is a covariance:
 
-$$
+```math
 D^2\mathcal F_v(u)[\phi,\psi]=
 \sum_eP_h(e\mid v)\phi(r(e))\psi(r(e))-
 (P_h\phi)(v)(P_h\psi)(v).
-$$
+```
 
 For tangent fields $P_h\phi=\phi$ and $P_h\psi=\psi$, this becomes
 
-$$
+```math
 \mathsf Q_v(\phi,\psi)=
 \sum_{e:s(e)=v}
 P_h(e\mid v)
 \bigl[\phi(r(e))-\phi(v)\bigr]
 \bigl[\psi(r(e))-\psi(v)\bigr].
-$$
+```
 
 In particular,
 
-$$
+```math
 \mathsf Q_v(\phi)=
 \sum_{e:s(e)=v}
 P_h(e\mid v)
 \bigl[\phi(r(e))-\phi(v)\bigr]^2.
-$$
+```
 
 This is the local quadratic variation—equivalently, the local carré du champ—on the profile tangent space.
 
@@ -151,39 +151,39 @@ After quotienting null directions, it is a genuine local metric.
 
 Let $X,Y\in T_h\mathcal H_\lambda^+$, with score fields
 
-$$
+```math
 \phi_X=X\log h,
 \qquad
 \phi_Y=Y\log h.
-$$
+```
 
 The local metric is therefore
 
-$$
+```math
 g_v(X,Y)=
 \mathsf Q_v(\phi_X,\phi_Y).
-$$
+```
 
 Now perturb the outgoing kernel:
 
-$$
+```math
 P_\varepsilon(e\mid v)=
 P_{h_\varepsilon}(e\mid v).
-$$
+```
 
 Its score is
 
-$$
+```math
 \left.
 \frac{d}{d\varepsilon}
 \log P_\varepsilon(e\mid v)
 \right|_0=
 \phi_X(r(e))-\phi_X(v).
-$$
+```
 
 Hence
 
-$$
+```math
 \lim_{\varepsilon\to0}
 \frac{2}{\varepsilon^2}
 D_{\mathrm{KL}}
@@ -193,14 +193,14 @@ P_{h_\varepsilon}(\cdot\mid v)
 P_h(\cdot\mid v)
 \right)=
 g_v(X,X).
-$$
+```
 
 So the quadratic variation and the Fisher metric are literally the same tensor in this regime:
 
-$$
+```math
 \text{local quadratic variation}=
 \text{local Fisher information}.
-$$
+```
 
 The general fact that KL divergence has Fisher information as its second-order local term is standard; here the explicit tensor is forced by the harmonic profile equation.
 
@@ -210,69 +210,69 @@ The general fact that KL divergence has Fisher information as its second-order l
 
 Expanding
 
-$$
+```math
 \mathcal F_v(u_\varepsilon)=0
-$$
+```
 
 to second order gives
 
-$$
+```math
 D\mathcal F_v[\chi]
 +
 D^2\mathcal F_v[\phi,\phi]
 =0.
-$$
+```
 
 Therefore
 
-$$
+```math
 (P_h-I)\chi+\mathsf Q(\phi)=0,
-$$
+```
 
 or
 
-$$
+```math
 (I-P_h)\chi=
 \mathsf Q(\phi).
-$$
+```
 
 This is the exact local second-order equation.
 
 Equivalently, defining
 
-$$
+```math
 \Gamma_h(\phi)=
 \frac12\mathsf Q(\phi),
-$$
+```
 
 we have
 
-$$
+```math
 (I-P_h)\chi=
 2\Gamma_h(\phi).
-$$
+```
 
 That is the equation we were approaching.
 
 The first-order deformation is harmonic:
 
-$$
+```math
 (I-P_h)\phi=0,
-$$
+```
 
 while its second-order logarithmic correction is sourced by its own quadratic variation:
 
-$$
+```math
 \text{profile curvature}=
 \text{Green response to local fluctuation energy}.
-$$
+```
 
 Formally, after choosing a boundary condition or complementary harmonic gauge,
 
-$$
+```math
 \chi=
 (I-P_h)^{-1}\mathsf Q(\phi).
-$$
+```
 
 The inverse is the derived Green operator of the effective dynamics.
 
@@ -282,51 +282,51 @@ The inverse is the derived Green operator of the effective dynamics.
 
 Because the original eigenprofile equation is linear in $h$, a mixture-affine deformation
 
-$$
+```math
 h_\varepsilon=h+\varepsilon\dot h=
 h(1+\varepsilon\phi)
-$$
+```
 
 remains harmonic whenever
 
-$$
+```math
 \mathcal A_+\dot h=\lambda\dot h.
-$$
+```
 
 But
 
-$$
+```math
 \log(1+\varepsilon\phi)=
 \varepsilon\phi-\frac{\varepsilon^2}{2}\phi^2+O(\varepsilon^3),
-$$
+```
 
 so in exponential coordinates
 
-$$
+```math
 \chi=-\phi^2.
-$$
+```
 
 Then
 
-$$
+```math
 (I-P_h)(-\phi^2)=
 P_h(\phi^2)-\phi^2=
 \mathsf Q(\phi),
-$$
+```
 
 exactly as required.
 
 The quadratic equation gives the exact conversion between:
 
-$$
+```math
 \text{affine harmonic coordinates }h
-$$
+```
 
 and
 
-$$
+```math
 \text{exponential/information coordinates }u=\log h.
-$$
+```
 
 ---
 
@@ -334,55 +334,55 @@ $$
 
 Let $X_n$ be the node process generated by $P_h$:
 
-$$
+```math
 \Pr(X_{n+1}=r(e)\mid X_n=v)=P_h(e\mid v).
-$$
+```
 
 For every tangent score $\phi$,
 
-$$
+```math
 P_h\phi=\phi,
-$$
+```
 
 so
 
-$$
+```math
 M_n^\phi=\phi(X_n)
-$$
+```
 
 is a martingale.
 
 Its one-step conditional quadratic variation is
 
-$$
+```math
 \mathbb E_h
 \left[
 (M_{n+1}^\phi-M_n^\phi)^2
 \mid X_n=v
 \right]=
 \mathsf Q_v(\phi).
-$$
+```
 
 For two tangent fields,
 
-$$
+```math
 \mathbb E_h
 \left[
 \Delta M_n^\phi\Delta M_n^\psi
 \mid X_n=v
 \right]=
 \mathsf Q_v(\phi,\psi).
-$$
+```
 
 Therefore the predictable quadratic covariation is
 
-$$
+```math
 \left\langle
 M^\phi,M^\psi
 \right\rangle_N=
 \sum_{n=0}^{N-1}
 \mathsf Q_{X_n}(\phi,\psi).
-$$
+```
 
 The metric is the pathwise fluctuation tensor of the dynamics encoded by the harmonic profile.
 
@@ -392,13 +392,13 @@ The metric is the pathwise fluctuation tensor of the dynamics encoded by the har
 
 For a length-$N$ route
 
-$$
+```math
 p=e_N\cdots e_1,
-$$
+```
 
 the derived path probability telescopes:
 
-$$
+```math
 \begin{aligned}
 \mathbb P_h(p)
 &=
@@ -408,60 +408,60 @@ $$
 \lambda^{-N}
 \frac{h(v_N)}{h(o)}.
 \end{aligned}
-$$
+```
 
 Thus all equal-length routes with the same endpoint have equal weight.
 
 For a parameter coordinate $\theta^a$, define
 
-$$
+```math
 \phi_a(v)=\partial_a\log h_\theta(v).
-$$
+```
 
 Since $h(o)=1$,
 
-$$
+```math
 \partial_a\log\mathbb P_h(p)=
 \phi_a(v_N).
-$$
+```
 
 The Fisher metric of the complete length-$N$ path law is therefore
 
-$$
+```math
 G^{(N)}_{ab}=
 \mathbb E_h
 \left[
 \phi_a(X_N)\phi_b(X_N)
 \right].
-$$
+```
 
 But the martingale isometry gives
 
-$$
+```math
 G^{(N)}_{ab}=
 \mathbb E_h
 \left[
 \sum_{n=0}^{N-1}
 \mathsf Q_{X_n}(\phi_a,\phi_b)
 \right].
-$$
+```
 
 So we have the exact identity
 
-$$
+```math
 \text{endpoint Fisher information}=
 \text{accumulated local quadratic variation}.
-$$
+```
 
 The identity holds without stationarity or cycles.
 
 If the limit exists,
 
-$$
+```math
 \overline G_{ab}=
 \lim_{N\to\infty}
 \frac1N G^{(N)}_{ab}
-$$
+```
 
 is the asymptotic information-rate metric of the regime.
 
@@ -473,48 +473,48 @@ Now introduce a refinement scale $\delta$ for the graph/profile geometry. This i
 
 Suppose outgoing edges produce local profile-coordinate increments
 
-$$
+```math
 \Delta_e x^i=
 x^i(r(e))-x^i(v)=
 O(\delta),
-$$
+```
 
 and set the continuum compositional time
 
-$$
+```math
 \tau=n\delta^2.
-$$
+```
 
 Define the first and second local moments
 
-$$
+```math
 b_h^i(x)=
 \lim_{\delta\to0}
 \frac1{\delta^2}
 \sum_eP_h(e\mid x)\Delta_e x^i,
-$$
+```
 
-$$
+```math
 a_h^{ij}(x)=
 \lim_{\delta\to0}
 \frac1{\delta^2}
 \sum_eP_h(e\mid x)
 \Delta_e x^i\Delta_e x^j.
-$$
+```
 
 The tensor $a_h^{ij}$ is the continuum local quadratic variation.
 
 For harmonic profile coordinates,
 
-$$
+```math
 P_hx^i=x^i,
-$$
+```
 
 so
 
-$$
+```math
 b_h^i=0
-$$
+```
 
 at leading order.
 
@@ -522,30 +522,30 @@ Under the usual vanishing-jump, tightness and martingale-limit conditions, the r
 
 The limiting generator in harmonic coordinates is
 
-$$
+```math
 \mathcal L_hf=
 \frac12a_h^{ij}(x)
 \partial_i\partial_j f.
-$$
+```
 
 More generally, with nonzero drift,
 
-$$
+```math
 \mathcal L_hf=
 b_h^i\partial_i f
 +
 \frac12a_h^{ij}\partial_i\partial_jf.
-$$
+```
 
 The corresponding density equation is
 
-$$
+```math
 \partial_\tau\rho=
 -\partial_i(b_h^i\rho)
 +
 \frac12
 \partial_i\partial_j(a_h^{ij}\rho).
-$$
+```
 
 That is the effective Fokker–Planck equation of the profile regime.
 
@@ -555,57 +555,57 @@ That is the effective Fokker–Planck equation of the profile regime.
 
 We can go further. Let the continuum limit of the normalized untransformed channel operator be
 
-$$
+```math
 \mathcal L_0=
 b^i\nabla_i
 +
 \frac12a^{ij}\nabla_i\nabla_j
 -c.
-$$
+```
 
 Suppose the critical profile satisfies
 
-$$
+```math
 \mathcal L_0h=\kappa h.
-$$
+```
 
 The continuum Doob transform is
 
-$$
+```math
 \mathcal L^hf=
 h^{-1}\mathcal L_0(hf)-\kappa f.
-$$
+```
 
 Write again
 
-$$
+```math
 u=\log h.
-$$
+```
 
 Using the product rule,
 
-$$
+```math
 \mathcal L^hf=
 \frac12a^{ij}\nabla_i\nabla_jf
 +
 \left(
 b^i+a^{ij}\nabla_j u
 \right)\nabla_i f.
-$$
+```
 
 Therefore the profile-induced drift is
 
-$$
+```math
 b_h^i=
 b^i+a^{ij}\nabla_j\log h.
-$$
+```
 
 This is the continuum version of the discrete edge splitting
 
-$$
+```math
 P_h(e\mid v)=
 \frac{h(r(e))}{\lambda h(v)}.
-$$
+```
 
 The logarithmic gradient of the positive profile is the additional effective drift.
 
@@ -615,22 +615,22 @@ The logarithmic gradient of the positive profile is the additional effective dri
 
 Divide the eigenprofile equation
 
-$$
+```math
 \mathcal L_0h=\kappa h
-$$
+```
 
 by $h=e^u$. Since
 
-$$
+```math
 \frac{\nabla_i\nabla_jh}{h}=
 \nabla_i\nabla_j u
 +
 \nabla_i u\nabla_j u,
-$$
+```
 
 we obtain
 
-$$
+```math
 \kappa=
 b^i\nabla_i u
 +
@@ -641,31 +641,31 @@ b^i\nabla_i u
 \nabla_i u\nabla_j u
 \right)
 -c.
-$$
+```
 
 This is the stationary viscous Hamilton–Jacobi equation for the logarithmic profile.
 
 Equivalently, the linear form is
 
-$$
+```math
 \mathcal L_0h=\kappa h.
-$$
+```
 
 The nonlinear and linear equations are related by the intrinsic exponential transformation
 
-$$
+```math
 h=e^u.
-$$
+```
 
 For a time-dependent profile satisfying
 
-$$
+```math
 \partial_\tau h=\mathcal L_0h,
-$$
+```
 
 the logarithmic field satisfies
 
-$$
+```math
 \partial_\tau u=
 b^i\nabla_i u
 +
@@ -676,7 +676,7 @@ b^i\nabla_i u
 \nabla_i u\nabla_j u
 \right)
 -c.
-$$
+```
 
 So the local quadratic variation produces the second-order term, while positivity/exponential normalization produces the quadratic gradient term.
 
@@ -688,13 +688,13 @@ That is the equation of this regime.
 
 Substituting
 
-$$
+```math
 b_h^i=b^i+a^{ij}\nabla_j u
-$$
+```
 
 into the Fokker–Planck equation gives
 
-$$
+```math
 \partial_\tau\rho=
 -\nabla_i
 \left[
@@ -708,11 +708,11 @@ b^i+a^{ij}\nabla_j\log h
 \left(
 a^{ij}\rho
 \right).
-$$
+```
 
 Thus the two coupled equations are
 
-$$
+```math
 \begin{aligned}
 \kappa
 &=
@@ -722,7 +722,7 @@ b\cdot\nabla u
 \left(
 \nabla^2u+\nabla u\otimes\nabla u
 \right)
--c,[1mm]
+-c,\\[1mm]
 \partial_\tau\rho
 &=
 -\nabla\cdot
@@ -732,7 +732,7 @@ b\cdot\nabla u
 +
 \frac12\nabla\nabla:(a\rho).
 \end{aligned}
-$$
+```
 
 The first determines the profile potential.
 
@@ -744,13 +744,13 @@ The second transports the resulting effective state.
 
 If the base drift vanishes and the quadratic-variation tensor is the inverse of a smooth metric,
 
-$$
+```math
 a^{ij}=g^{ij},
-$$
+```
 
 then
 
-$$
+```math
 \kappa=
 \frac12
 \left(
@@ -758,11 +758,11 @@ $$
 +
 |\nabla u|_g^2
 \right)-c,
-$$
+```
 
 and
 
-$$
+```math
 \partial_\tau\rho=
 -\mathrm{div}_g
 \left(
@@ -770,7 +770,7 @@ $$
 \right)
 +
 \frac12\Delta_g\rho.
-$$
+```
 
 So the effective motion is diffusion on the profile manifold with drift generated by the critical Martin/harmonic profile.
 
@@ -782,27 +782,27 @@ The same local Fisher tensor gives a deterministic continuum equation when one a
 
 For a curve $\theta(\tau)$ in profile space, the accumulated infinitesimal KL cost is
 
-$$
+```math
 \mathcal S[\theta]=
 \frac12
 \int
 G_{ab}(\theta)
 \dot\theta^a\dot\theta^b,d\tau.
-$$
+```
 
 The stationary curves satisfy
 
-$$
+```math
 \ddot\theta^a
 +
 \Gamma^a{}_{bc}(\theta)
 \dot\theta^b\dot\theta^c
 =0,
-$$
+```
 
 where
 
-$$
+```math
 \Gamma^a{}_{bc}=
 \frac12G^{ad}
 \left(
@@ -810,18 +810,18 @@ $$
 +\partial_cG_{db}
 -\partial_dG_{bc}
 \right).
-$$
+```
 
 Thus the same quadratic variation yields two complementary equations:
 
-$$
+```math
 \text{fluctuating regime}
 \longrightarrow
 \text{Fokker–Planck/diffusion equation},
-$$
+```
 
-$$
+```math
 \text{least-information regime}
 \longrightarrow
 \text{geodesic equation}.
-$$
+```
