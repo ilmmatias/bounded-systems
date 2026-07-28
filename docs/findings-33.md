@@ -312,7 +312,7 @@ C(\mathcal M_t).
 
 Thus every continuous node-level Martin observable is uniformly approximable by observables involving only finitely many nodes.
 
-This does **not** mean finite node observations recover route history. They recover all continuous information on the already-compressed node compactification.
+This does not mean finite node observations recover route history. They recover all continuous information on the already-compressed node compactification.
 
 # 8. Exact algebraic defect intersection
 
@@ -552,7 +552,7 @@ Examples:
   s_t=\infty.
   ```
 
-# 12. Exact defect layer at depth (n)
+# 12. Exact defect layer at depth $n$
 
 Let
 

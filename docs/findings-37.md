@@ -102,7 +102,7 @@ This is the general Markovian replacement for the Fokker–Planck equation.
 
 ---
 
-# 3. The exact nonlocal (h)-transform
+# 3. The exact nonlocal $h$-transform
 
 The harmonic profile still determines the effective dynamics.
 
@@ -393,7 +393,7 @@ when the jump measure has finite mass:
 
 This is a compound-Poisson or finite-activity jump-diffusion regime.
 
-The point is that the third and higher Taylor coefficients do **not** vanish here, because $y$ is not small. They resum into the full nonlocal expression
+The point is that the third and higher Taylor coefficients do not vanish here, because $y$ is not small. They resum into the full nonlocal expression
 
 ```math
 f(x+y)-f(x).

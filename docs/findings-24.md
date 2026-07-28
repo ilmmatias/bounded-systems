@@ -149,7 +149,7 @@ N_n(v,u)
 
 is infinite for at least one pair.
 
-Then the algebraic collapse map is **not closable**.
+Then the algebraic collapse map is not closable.
 
 To see this, choose distinct paths
 
@@ -576,7 +576,7 @@ And the geodesic multiplicity is the first nonzero diagonal value.
 
 We can state the relationship more sharply than before.
 
-## Resolved (\ell^2) geometry
+## Resolved $\ell^2$ geometry
 
 Primary object:
 
@@ -724,7 +724,7 @@ Thus:
 
 # 12. Tree and funnel revisited
 
-## (d)-ary tree
+## $d$-ary tree
 
 At depth $n$, every reached endpoint has one route:
 
@@ -752,7 +752,7 @@ But there are $d^n$ such endpoints, so
 
 Route growth comes entirely from branching.
 
-## (d)-parallel funnel
+## $d$-parallel funnel
 
 At depth $n$, one endpoint receives
 

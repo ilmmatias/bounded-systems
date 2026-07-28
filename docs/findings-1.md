@@ -1,6 +1,6 @@
-# Part I: Formal setup
+# 1. Formal setup
 
-Take one realized configuration of the bounded system. No time variable is introduced.
+Take one realized configuration of the system.
 
 Let
 
@@ -10,7 +10,7 @@ G=(N,E)
 
 be its directed acyclic graph.
 
-For $n=|N|$, temporarily label the nodes $(1,\dots,n)$. The labels have no physical significance. A relabeling by a permutation matrix $P$ changes the adjacency matrix by
+For $n=|N|$, temporarily label the nodes $(1,\dots,n)$. A relabeling by a permutation matrix $P$ changes the adjacency matrix by
 
 ```math
 A\longmapsto P^{-1}AP.
@@ -25,12 +25,7 @@ A_{ij}=
 \text{number of realized directed channels }i\to j.
 ```
 
-This accommodates both possibilities without deciding between them:
-
-* If parallel edges are impossible, then $A_{ij}\in\{0,1\}$.
-* If parallel edges are possible, then $A_{ij}\in\mathbb N$.
-
-## Universal result U1: adjacency nilpotence
+## Adjacency nilpotence
 
 Because $G$ is a finite DAG, its nodes can be topologically ordered. In that ordering,
 
@@ -59,9 +54,7 @@ Consequently,
 
 for every finite configuration.
 
-So ordinary adjacency eigenvalues cannot distinguish finite bounded systems with the same number of nodes.
-
-## Universal result U2: powers count paths
+## Powers count paths
 
 With our convention,
 
@@ -102,11 +95,7 @@ We will also record the singular values
 \sqrt{\mathrm{spec}(A^\mathsf TA)}.
 ```
 
-Unlike ordinary eigenvalues, these need not vanish.
-
----
-
-# Part II: Simple-channel atlas
+# 2. Simple-channel atlas
 
 We first examine the $0/1$ sector: at most one realized channel in each direction between a given pair, which is the smallest finite sector of the full theory.
 
@@ -132,13 +121,9 @@ The notation $d^+$ and $d^-$ denotes the multisets of out-degrees and in-degrees
 |     3 | chain                    | $(2,1,0)$ | $(1,1,0)$                  | $\{1,1,0\}$ | $\{1,1,0\}$ | $\{0,1,3\}$                |
 |     3 | transitive triangle      | $(2,1,0)$ | $(\varphi,\varphi^{-1},0)$ | $\{2,1,0\}$ | $\{2,1,0\}$ | $\{0,3,3\}$                |
 
-These are all non-isomorphic simple DAGs with at most three nodes.
+# 3. The nontrivial three-node cases
 
----
-
-# Part III: The nontrivial three-node cases
-
-## S1. Outgoing fork
+## Outgoing fork
 
 ```math
 1\to2,\qquad1\to3.
@@ -187,9 +172,7 @@ Therefore,
 (\sqrt2,0,0).
 ```
 
-The matrix has rank one because both outgoing channels belong to one source pattern.
-
-## S2. Incoming fork
+## Incoming fork
 
 ```math
 1\to3,\qquad2\to3.
@@ -235,7 +218,7 @@ d^+_{\mathrm{in}}=\{1,1,0\},
 d^-_{\mathrm{in}}=\{2,0,0\}.
 ```
 
-## S3. Chain
+## Chain
 
 ```math
 1\to2\to3.
@@ -292,7 +275,7 @@ so
 (1,1,0).
 ```
 
-## S4. Transitive triangle
+## Transitive triangle
 
 ```math
 1\to2,\qquad2\to3,\qquad1\to3.
@@ -343,11 +326,7 @@ where
 \varphi=\frac{1+\sqrt5}{2}.
 ```
 
-The singular spectrum detects the additional direct channel $1\to3$.
-
----
-
-# Part IV: Reachability
+# 4. Reachability
 
 Define the binary reachability matrix
 
@@ -389,12 +368,6 @@ R_{\mathrm{chain}}=
 R_{\triangle}.
 ```
 
-This yields our first meaningful information-loss theorem:
-
-```math
-\text{Reachability cannot distinguish a direct channel from an indirect route when both connect the same ordered pair.}
-```
-
 The chain and transitive triangle have different immediate communication structures but identical eventual communication possibilities.
 
 Both profiles must therefore be retained:
@@ -409,84 +382,7 @@ and
 R=\text{eventual reachability}.
 ```
 
----
-
-# Part V: What each invariant sees
-
-The first atlas already lets us characterize the operators.
-
-## Ordinary adjacency spectrum
-
-For all finite cases:
-
-```math
-\mathrm{spec}(A)=\{0\}.
-```
-
-It sees only the node count through the multiplicity of zero.
-
-## Nilpotent rank profile
-
-The rank profile detects propagation depth and some branching structure, but does not distinguish:
-
-* one edge from a two-edge fork on three nodes;
-* the chain from the transitive triangle;
-* the outgoing fork from the incoming fork.
-
-## Singular values
-
-Singular values distinguish:
-
-* one edge from a fork;
-* a fork from a chain;
-* a chain from a transitive triangle.
-
-But they do not distinguish:
-
-* an outgoing fork from an incoming fork.
-
-## Degree spectra
-
-The paired in- and out-degree multisets distinguish outgoing from incoming forks.
-
-## Underlying Laplacian spectrum
-
-The underlying Laplacian detects disconnectedness and undirected shape.
-
-It does not distinguish the three orientations of the two-edge path:
-
-* outgoing fork;
-* incoming fork;
-* chain.
-
-All three have underlying graph $P_3$ and spectrum
-
-```math
-\{0,1,3\}.
-```
-
-## Combined result
-
-For simple DAGs with at most three nodes, the combined data
-
-```math
-\left(
-n,
-\rho(A),
-\sigma(A),
-d^+,
-d^-,
-\mathrm{spec}(L_u)
-\right)
-```
-
-distinguishes every non-isomorphic configuration.
-
-So our first small classification succeeds completely.
-
----
-
-# Part VI: Parallel-channel sector
+# 5. Parallel-channel sector
 
 Now we avoid assuming that parallel edges are forbidden.
 
@@ -510,8 +406,6 @@ Then
 \sigma(A)=(a,0).
 ```
 
-So for two nodes, the singular spectrum exactly recovers the number of parallel channels.
-
 ## Three-node outgoing or incoming fork
 
 For the outgoing fork,
@@ -531,10 +425,6 @@ Its singular values are
 \sigma(A)=
 \left(\sqrt{a^2+b^2},0,0\right).
 ```
-
-The incoming fork has the same singular spectrum.
-
-So singular values see the combined quadratic channel weight, but not whether the channels converge or diverge.
 
 ## Weighted chain
 
@@ -566,8 +456,6 @@ A^2=
 \end{pmatrix}.
 ```
 
-Thus $ab$ counts the number of two-step channel combinations from $1$ to $3$.
-
 The singular values are
 
 ```math
@@ -578,8 +466,6 @@ The singular values are
 0
 \right).
 ```
-
-This recovers the two channel multiplicities as an unordered pair, but it does not say which multiplicity occurs upstream.
 
 ## Weighted transitive triangle
 
@@ -616,27 +502,12 @@ The two nonzero squared singular values are
 \sigma_{\pm}^2=
 \frac{
 S\pm\sqrt{S^2-4a^2b^2}
-}{2}.
+}{2},
 ```
 
-The third singular value is zero.
+and the third singular value is zero.
 
-This spectrum depends on the direct channel multiplicity $c$, while
-
-```math
-A^2_{13}=ab
-```
-
-depends only on the two-step route.
-
-That gives a clean separation between:
-
-* direct-channel structure $c$;
-* compositional path structure $ab$.
-
----
-
-# Part VII: First genuine collision
+# 6. First genuine collision
 
 Consider these two weighted chains:
 
@@ -654,26 +525,13 @@ G_2:
 
 with $a\neq b$.
 
-The directed weighted graphs are nonisomorphic. The source, middle, and target are structurally fixed, so an isomorphism cannot exchange the upstream and downstream multiplicities.
+The directed weighted graphs are nonisomorphic. The source, middle, and target are structurally fixed, so an isomorphism cannot exchange the upstream and downstream multiplicities. Nevertheless, they share identical adjacency eigenvalues, singular values, degree multisets, and underlying weighted-Laplacian spectra, as well as the same path multiplicity $ab$.
 
-Nevertheless, they have the same:
-
-* adjacency eigenvalues;
-* nilpotent rank profile;
-* singular values;
-* in-degree multiset;
-* out-degree multiset;
-* underlying weighted-Laplacian spectrum;
-* binary reachability matrix up to relabeling;
-* path multiplicity $ab$.
-
-So our initial spectral package cannot determine whether the larger channel multiplicity comes first or second.
-
-This is the first spectral collision.
+Therefore, our initial spectral package cannot determine whether the larger channel multiplicity comes first or second.
 
 ---
 
-# Part VIII: A new operator forced by the collision
+# 7. A new operator forced by the collision
 
 To recover directional placement, define for some fixed
 

@@ -480,7 +480,7 @@ The coefficient extraction does not depend on the topological ordering used to e
 
 # 10. Avoiding a premature graph ensemble
 
-The coefficients above are defined **per graph**.
+The coefficients above are defined per graph.
 
 The axioms do not select a probability measure over non-isomorphic DAGs. In particular, two natural averages differ:
 
@@ -523,7 +523,7 @@ then study:
 
 This prevents an ensemble convention from being mistaken for derived dynamics.
 
-# 11. No need to choose a single (r_n) immediately
+# 11. No need to choose a single $r_n$ immediately
 
 A diagonal sequence $r_n\to\infty$ is useful computationally, but it is not mathematically necessary at first.
 
@@ -612,37 +612,15 @@ a_n=a_{G_n,p_n,r}.
 
 Suppose:
 
-1. **Vanishing jumps**
-   ```math
-   \sup_{\text{route-relevant }e}
-   d_r(x(s(e)),x(r(e)))\to0.
-   ```
+1. Vanishing jumps: $\sup_{\text{route-relevant }e}d_r(x(s(e)),x(r(e)))\to0$.
+2. Cylinder generator convergence: For every polynomial cylinder $F$, $\mathcal G_nF\to\mathcal GF$ uniformly on the relevant embedded states.
+3. Quadratic convergence: $\Gamma_n(F,G)\to\Gamma(F,G)$.
+4. Lindeberg condition: $\frac1{a_n}\mathbb E\left[d_r(\Delta X_n)^2 \mathbf1_{\{d_r(\Delta X_n)>\varepsilon\}} \right]\to0$.
 
-2. **Cylinder generator convergence**
-   For every polynomial cylinder $F$,
-```math
-   \mathcal G_nF\to\mathcal GF
-```
-   uniformly on the relevant embedded states.
-
-3. **Quadratic convergence**
-   ```math
-   \Gamma_n(F,G)\to\Gamma(F,G).
-   ```
-
-4. **Lindeberg condition**
-   ```math
-   \frac1{a_n}
-   \mathbb E\left[
-   d_r(\Delta X_n)^2
-   \mathbf1_{\{d_r(\Delta X_n)>\varepsilon\}}
-   \right]\to0.
-   ```
-
-5. **Bulk plateau**
+5. Bulk plateau
    the coefficients become independent of the normalized route position away from both horizon boundaries.
 
-6. **Uniqueness**
+6. Uniqueness
    the martingale problem for $\mathcal G$ on the cylinder core is unique.
 
 Then

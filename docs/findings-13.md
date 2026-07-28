@@ -1,4 +1,4 @@
-# 1. Why (\mathrm{Tor}^A(B,B)) is not the right higher invariant
+# 1. Why $\mathrm{Tor}^A(B,B)$ is not the right higher invariant
 
 Recall
 
@@ -51,7 +51,7 @@ C_+=
 \bigoplus_{m\ge1}C_m.
 ```
 
-The integer $m$ is **ambiguity order**:
+The integer $m$ is ambiguity order:
 
 * $C_1=I/I^2$: one route ambiguity;
 * $C_2=I^2/I^3$: products of two route ambiguities;
@@ -156,7 +156,7 @@ d_{n-1}d_n=0.
 
 This is the standard reduced bar mechanism: neighboring factors are composed, while the alternating signs make the different ways of composing cancel. Bar resolutions are the canonical large resolutions used for associative algebras; quiver-with-relations theory often replaces them with smaller equivalent resolutions for calculation.
 
-Define the **route-syzygy homology**
+Define the route-syzygy homology
 
 ```math
 H_n^{\mathrm{rt}}(G)=
@@ -383,7 +383,7 @@ H_2^{\mathrm{rt}}(G)
 S/(T_+S+ST_+).
 ```
 
-Thus the earlier object $S$ should be called the **route-relation ideal**, while its indecomposable quotient—or equivalently $H_2^{\mathrm{rt}}$—is the space of independent relations among route ambiguities.
+Thus the earlier object $S$ should be called the route-relation ideal, while its indecomposable quotient—or equivalently $H_2^{\mathrm{rt}}$—is the space of independent relations among route ambiguities.
 
 # 8. Third and higher homology
 
@@ -557,7 +557,7 @@ Thus:
 \bar s\bar r\in I^2/I^3
 ```
 
-is **actual second-order ambiguity**, not a second syzygy.
+is actual second-order ambiguity, not a second syzygy.
 
 A second syzygy exists only when two-factor ambiguity expressions satisfy a dependency.
 

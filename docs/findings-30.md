@@ -42,7 +42,7 @@ Because every coordinate is bounded by prefixing estimates, the ambient product 
 
 ### Martin-regular ray
 
-Call $\xi$ **$t$-Martin regular** when
+Call $\xi$ $t$-Martin regular when
 
 ```math
 \mathrm{Cl}_t(\xi)={h_\xi}
@@ -139,7 +139,7 @@ In particular, for regular rays,
 
 ## Cofinal reconvergence
 
-Say that $\xi$ and $\eta$ **reconverge cofinally** when there are sequences
+Say that $\xi$ and $\eta$ reconverge cofinally when there are sequences
 
 ```math
 n_k,m_k\to\infty
@@ -401,11 +401,7 @@ Assume now that:
 
 1. the prefix boundary $X_{\mathrm{pre}}$ is compact;
 2. every boundary path is $t$-Martin regular;
-3. for every node $v$, the function
-   ```math
-   k_v(\xi)=h_\xi(v)
-   ```
-   is continuous on $X_{\mathrm{pre}}$.
+3. for every node $v$, the function $k_v(\xi)=h_\xi(v)$ is continuous on $X_{\mathrm{pre}}$.
 
 Define
 

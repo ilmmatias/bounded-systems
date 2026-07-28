@@ -71,7 +71,7 @@ H_{n,m}^{\mathrm{rt}}=0
 
 There is plenty of higher-order ambiguity, but no higher syzygy.
 
-# 2. The (2\times2) directed grid
+# 2. The $2\times2$ directed grid
 
 Take the Hasse-directed square grid from $(0,0)$ to $(2,2)$, with horizontal and vertical edges increasing coordinates.
 
@@ -214,7 +214,7 @@ And
 H_{n,m}^{\mathrm{rt}}
 ```
 
-measures dependencies among **factorizations of those multiplicative ambiguity elements**.
+measures dependencies among factorizations of those multiplicative ambiguity elements.
 
 It does not necessarily measure dependencies among a minimal collection of local route-identification laws.
 
@@ -262,7 +262,7 @@ For $B_3$,
 
 one generator for each rank-two Boolean diamond. Their transported images satisfy the one hexagonal syzygy above.
 
-The presentation of an incidence algebra as a path algebra modulo the ideal identifying parallel paths is standard; this ideal is often called the **parallel ideal**.
+The presentation of an incidence algebra as a path algebra modulo the ideal identifying parallel paths is standard; this ideal is often called the parallel ideal.
 
 # 6. The beginning of the corrected resolution
 

@@ -52,7 +52,7 @@ RQ.
 
 Each equality identifies a precise structural regime.
 
-## No reconvergence at depth (n)
+## No reconvergence at depth $n$
 
 ```math
 Q=T
@@ -71,7 +71,7 @@ Operatorially,
 
 Endpoint collapse has caused no amplification because every route remains in its own endpoint sector.
 
-This is **lengthwise thinness at $(u,n)$**. It does not yet imply a unique route overall: there might still be paths of different lengths connecting the same endpoints.
+This is lengthwise thinness at $(u,n)$. It does not yet imply a unique route overall: there might still be paths of different lengths connecting the same endpoints.
 
 ---
 
@@ -191,20 +191,9 @@ Neither introduces a probability law or dynamics. They are normalized expression
 
 The following are equivalent:
 
-1. For every $u,v,n$,
-   ```math
-   N_n(v,u)\le1.
-   ```
-2. For every $u,n$,
-   ```math
-   \sum_vN_n(v,u)^2=
-   \sum_vN_n(v,u).
-   ```
-3. For every $u,n$,
-   ```math
-   |A^n\delta_u|_2=
-   |S_+^nP_u|.
-   ```
+1. For every $u,v,n$, $N_n(v,u)\le1$.
+2. For every $u,n$, $\sum_vN_n(v,u)^2=\sum_vN_n(v,u)$.
+3. For every $u,n$, $|A^n\delta_u|_2=|S_+^nP_u|$.
 
 Such a system has no equal-length reconvergence.
 
@@ -226,24 +215,12 @@ The following are equivalent:
 
 1. For every ordered pair $(u,v)$, there is at most one finite path $u\to v$.
 2. The path category is thin.
-3. For every $(u,v)$, at most one length $n$ has
-   ```math
-   N_n(v,u)=1,
-   ```
+3. For every $(u,v)$, at most one length $n$ has $N_n(v,u)=1$,
    and all other $N_m(v,u)$ vanish.
 4. Every path is geodesic and no two paths have the same endpoints.
-5. The route-excess kernel vanishes:
-   ```math
-   X_G(z)=0.
-   ```
-6. The route-counting kernel equals the shortest monomial kernel:
-   ```math
-   \mathcal P_G(z)=\zeta_d(z).
-   ```
-7. Whenever the scalar inverses exist,
-   ```math
-   M_d(z)=I-zA_G.
-   ```
+5. The route-excess kernel vanishes: $X_G(z)=0$.
+6. The route-counting kernel equals the shortest monomial kernel: $\mathcal P_G(z)=\zeta_d(z)$.
+7. Whenever the scalar inverses exist, $M_d(z)=I-zA_G$.
 
 Thus:
 
@@ -309,7 +286,7 @@ Q_n(u)=T_n(u)^2.
 
 Consider two families with the same integer $d\ge2$.
 
-## (d)-ary branching tree
+## $d$-ary branching tree
 
 Every node has $d$ distinct children and there is no reconvergence.
 
@@ -636,7 +613,7 @@ r(S_+)=
 \left(\sup_uT_n(u)\right)^{1/(2n)}.
 ```
 
-Equality of this spectral radius does **not** require equality of:
+Equality of this spectral radius does not require equality of:
 
 * endpoint counts $R_n$;
 * reconvergence maxima $M_n$;

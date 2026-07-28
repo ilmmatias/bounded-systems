@@ -238,7 +238,7 @@ The discrete profile reweights channels by a successor-to-current ratio. The sta
 \frac{h(x+y)}{h(x)}.
 ```
 
-# 5. Can the (h)-transform change (\alpha)?
+# 5. Can the $h$-transform change $\alpha$?
 
 The $h$-transform can change $\alpha$.
 
@@ -842,7 +842,7 @@ D_\alpha(-\Delta)^{\alpha/2}\psi.
 
 Thus the fractional diffusion and fractional Schrödinger-type evolutions are analytic continuations of the same stable operator. The original path-length gauge supplies the additional commuting phase $\beta N$.
 
-# 16. (\alpha) and (\beta) are different invariants
+# 16. $\alpha$ and $\beta$ are different invariants
 
 We now have two exponents:
 
@@ -904,7 +904,7 @@ Show the directions of large profile displacements converge to
 \Lambda_0(x,d\theta).
 ```
 
-### (h)-tilt stability
+### $h$-tilt stability
 
 Determine the asymptotics of
 

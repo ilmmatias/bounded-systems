@@ -14,7 +14,7 @@ For $u<v$, define the open interval
 (u,v)=\{w\in V:u<w<v\}.
 ```
 
-Its **order complex**
+Its order complex
 
 ```math
 \Delta(u,v)
@@ -76,7 +76,7 @@ for $n\ge1$, with the convention
 
 The shift by two is meaningful.
 
-## (n=1): primitive cover generators
+## $n=1$: primitive cover generators
 
 If $u\lessdot v$, then
 
@@ -98,7 +98,7 @@ If an intermediate node exists, then
 \mathcal K_1(v,u)=0.
 ```
 
-## (n=2): independent route-identification relations
+## $n=2$: independent route-identification relations
 
 Here
 
@@ -111,7 +111,7 @@ Reduced $H_0$ measures how many connected components the factorization space has
 
 A nonzero class means that distinct families of factorizations from $u$ to $v$ cannot be connected through elementary refinements and coarsenings without imposing an independent relation.
 
-## (n=3): relations among relations
+## $n=3$: relations among relations
 
 Now
 
@@ -122,7 +122,7 @@ Now
 
 These are loops in the factorization complex: coherent cycles of relations that require a third-level filling.
 
-## Higher (n)
+## Higher $n$
 
 ```math
 \mathcal K_n(v,u)=
@@ -312,7 +312,7 @@ with
 u\to b\to v.
 ```
 
-## The Boolean interval (B_3)
+## The Boolean interval $B_3$
 
 Between
 
@@ -661,7 +661,7 @@ is defined independently of:
 
 What requires more care in the infinite case is identifying these groups with Ext groups of a particular completed incidence algebra. The combinatorial homology itself has no such problem.
 
-So for the unrestricted bounded-system theory, the safest primary definition is:
+So for the unrestricted theory, the safest primary definition is:
 
 ```math
 \mathcal K_n(v,u)=

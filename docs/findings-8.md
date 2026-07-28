@@ -355,7 +355,7 @@ Therefore:
 \mathsf P(G)\sqcup\partial^+G.
 ```
 
-The infinite boundary is precisely the set of **non-principal prefix characters**—those whose selected prefix chain has no maximal finite element.
+The infinite boundary is precisely the set of non-principal prefix characters—those whose selected prefix chain has no maximal finite element.
 
 Consequently,
 

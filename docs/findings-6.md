@@ -10,17 +10,9 @@ be the possibly infinite system.
 
 A Hilbert realization of $G$ on a Hilbert space $\mathcal K$ consists of:
 
-1. pairwise orthogonal projections
-   ```math
-   Q_uQ_v=\delta_{uv}Q_v;
-   ```
-
+1. pairwise orthogonal projections $Q_uQ_v=\delta_{uv}Q_v$;
 2. one bounded operator $T_e$ for each primitive channel $e$;
-
-3. the source-target relation
-   ```math
-   T_e=Q_{r(e)}T_eQ_{s(e)}.
-   ```
+3. the source-target relation $T_e=Q_{r(e)}T_eQ_{s(e)}$.
 
 We call the realization nondegenerate when
 
@@ -150,9 +142,9 @@ But a contractive homomorphism from the Fock tensor algebra cannot send $L_e$ to
 |T_e|=2>|L_e|=1.
 ```
 
-So the earlier proposed statement—
+So the earlier proposed statement
 
-> every channel family factors through the Fock tensor algebra—
+> every channel family factors through the Fock tensor algebra
 
 was too strong.
 
@@ -176,7 +168,7 @@ R_T((h_e)_{e\in E})=
 \sum_{e\in E}T_eh_e.
 ```
 
-The family is called **row contractive** when
+The family is called row contractive when
 
 ```math
 |R_T|\le1.
@@ -442,7 +434,7 @@ Indeed, if $x-\lambda I$ is invertible in the universal tensor algebra, then
 
 has the image of that inverse as an inverse.
 
-Thus the Fock-tensor spectrum is a **universal spectral enclosure** for every row-contractive realization.
+Thus the Fock-tensor spectrum is a universal spectral enclosure for every row-contractive realization.
 
 For positive-path polynomials in an acyclic system, this enclosure collapses to
 
@@ -516,8 +508,6 @@ J,
 ```
 
 This treats distinct finite paths as orthonormal and gives every primitive channel norm one.
-
-It is canonical and label-independent, but it is a chosen free Hilbert realization—not a claim that the system intrinsically carries that Hilbert norm.
 
 ## Canonical analytic envelopes relative to representation classes
 

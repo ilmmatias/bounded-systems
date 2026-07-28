@@ -46,7 +46,7 @@ These may be infinite. The operator conclusions below apply when the relevant qu
 
 ---
 
-# 2. Exact (\ell^2)-to-(\ell^1) growth identity
+# 2. Exact $\ell^2$-to-$\ell^1$ growth identity
 
 Let
 
@@ -122,7 +122,7 @@ The square root appears because route counts are $\ell^1$ mass, whereas Fock rou
 
 ---
 
-# 3. Backward growth and node-space (\ell^2)
+# 3. Backward growth and node-space $\ell^2$
 
 A backward Fock construction gives
 
@@ -535,7 +535,7 @@ This is the requested direct inequality linking:
 * route multiplicity;
 * orthogonal Fock growth.
 
-The factor $2^{L-1}$ cannot be improved for the **unsigned number of factorization chains**: one unique path of length $L$ has $2^{L-1}$ possible cut subsets. But its signed Möbius coefficient may cancel all the way to zero.
+The factor $2^{L-1}$ cannot be improved for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets. But its signed Möbius coefficient may cancel all the way to zero.
 
 ---
 

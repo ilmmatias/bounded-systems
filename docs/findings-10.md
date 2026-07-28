@@ -353,7 +353,7 @@ A crossing path consists uniquely of:
 
 It cannot cross back because past rank cannot decrease.
 
-So every path crosses a past-rank cut **at most once**.
+So every path crosses a past-rank cut at most once.
 
 ---
 
@@ -798,7 +798,7 @@ The full spectral radius
 r(S)
 ```
 
-collapses all this into one global exponential growth number. The filtered family retains **where** the growth occurs.
+collapses all this into one global exponential growth number. The filtered family retains where the growth occurs.
 
 ---
 

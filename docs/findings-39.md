@@ -509,7 +509,7 @@ They must not be conflated.
 
 ## Coarse-event gauge
 
-Suppose gauge degree advances once per **coarse profile transition**.
+Suppose gauge degree advances once per coarse profile transition.
 
 Then the operational generator is
 
@@ -563,7 +563,7 @@ But the gauge originally derived from the path algebra was
 e^{it|p|}L_p.
 ```
 
-It counts **primitive edge length**, not coarse profile transitions.
+It counts primitive edge length, not coarse profile transitions.
 
 If $W_m$ counts primitive edges hidden inside one coarse event, then gauge phase continues to accumulate through the entire block, even while the coarse profile remains unchanged.
 
@@ -799,23 +799,20 @@ identifies the fractional order only after the necessary decoupling or joint-lim
 
 The anomalous-clock candidate is now fully specified. A later convergence proof must establish:
 
-1. **Coarse-block definition:** specify $\Pi_\delta$ and the renewal epochs $T_m$.
+1. Coarse-block definition: specify $\Pi_\delta$ and the renewal epochs $T_m$.
 
-2. **Regular variation:**
-   ```math
-   \Pr(W>n)\sim c n^{-\gamma}L(n).
-   ```
+2. Regular variation: $\Pr(W>n)\sim c n^{-\gamma}L(n)$.
 
-3. **Operational-process convergence:** prove the profile process indexed by coarse transitions converges to the generator $\mathcal L^h$ or $\mathcal L_\alpha^h$.
+3. Operational-process convergence: prove the profile process indexed by coarse transitions converges to the generator $\mathcal L^h$ or $\mathcal L_\alpha^h$.
 
-4. **Clock convergence:** prove the accumulated block lengths converge to a subordinator with exponent $\Phi$.
+4. Clock convergence: prove the accumulated block lengths converge to a subordinator with exponent $\Phi$.
 
-5. **Joint convergence:** determine whether the spatial/profile process and clock are asymptotically independent or coupled.
+5. Joint convergence: determine whether the spatial/profile process and clock are asymptotically independent or coupled.
 
-6. **Inverse-map convergence:** pass from the accumulated clock to its inverse renewal count.
+6. Inverse-map convergence: pass from the accumulated clock to its inverse renewal count.
 
-7. **Age control:** identify initial-age effects and whether the process begins at a renewal epoch.
+7. Age control: identify initial-age effects and whether the process begins at a renewal epoch.
 
-8. **Gauge bookkeeping:** verify whether phase accrues per primitive edge or per coarse transition.
+8. Gauge bookkeeping: verify whether phase accrues per primitive edge or per coarse transition.
 
 These are later proof obligations, not unresolved ambiguity in the candidate equation.

@@ -389,7 +389,7 @@ The cohomology category remembers only that the product is zero. It forgets the 
 
 When several such null-homotopies interact, that forgotten information produces higher operations.
 
-# 9. The minimal (A_\infty) category
+# 9. The minimal $A_\infty$ category
 
 Transfer the dg category $\mathscr E_G$ to its cohomology. The result is a minimal $A_\infty$ category with operations
 
@@ -454,7 +454,7 @@ The operations
 m_3,m_4,\ldots
 ```
 
-are not new interaction rules placed on the bounded system.
+are not new interaction rules placed on the system.
 
 They arise through the sequence
 
@@ -551,7 +551,7 @@ That was incomplete.
 
 Two systems could have intervals with matching homotopy types while differing in how the intervals sit inside larger intervals and how their classes compose.
 
-The correct object is the **compositional interval system**:
+The correct object is the compositional interval system:
 
 ```math
 \mathbf{Int}(G)=

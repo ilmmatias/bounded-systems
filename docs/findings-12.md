@@ -88,7 +88,7 @@ For each attained length $n$, define
 
 by coefficient summation.
 
-The **same-length defect space** is
+The same-length defect space is
 
 ```math
 I^{\mathrm{same}}_{v,u}=
@@ -381,7 +381,7 @@ JI+IJ,
 
 where $J$ is the positive-path ideal.
 
-Define the **indecomposable route-relation module**
+Define the indecomposable route-relation module
 
 ```math
 \mathcal R=
@@ -603,7 +603,7 @@ B
 \oplus\cdots.
 ```
 
-Define the **route-syzygy ideal**
+Define the route-syzygy ideal
 
 ```math
 \mathfrak S=\ker\Psi.

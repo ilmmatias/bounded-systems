@@ -185,7 +185,7 @@ So this marked graded algebra is a complete invariant of the underlying communic
 
 # 3. Algebra isomorphisms need not permute channels
 
-The theorem proves that an underlying system isomorphism **exists**. It does not prove that every algebra isomorphism $\Phi$ is induced directly by an edge permutation.
+The theorem proves that an underlying system isomorphism exists. It does not prove that every algebra isomorphism $\Phi$ is induced directly by an edge permutation.
 
 Consider two nodes $u,v$ and two parallel channels
 
@@ -357,10 +357,7 @@ J(G)=
 The following are equivalent:
 
 1. $G$ contains no directed cycle.
-2. For every $v\in V$ and $n\ge1$,
-   ```math
-   e_v\mathcal A_n(G)e_v=0.
-   ```
+2. For every $v\in V$ and $n\ge1$, $e_v\mathcal A_n(G)e_v=0$.
 3. Every element of $J(G)$ is nilpotent.
 4. $J(G)$ is locally nilpotent: every finitely generated subalgebra of $J(G)$ is nilpotent.
 

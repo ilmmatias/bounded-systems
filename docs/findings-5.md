@@ -573,7 +573,7 @@ The Fock operator is a pure isometry, so
 \sigma(S)=\{z:|z|\le1\}.
 ```
 
-## Regular (d)-branching tree
+## Regular $d$-branching tree
 
 If every node has exactly $d$ outgoing channels, then
 
@@ -668,7 +668,7 @@ and
 \text{channel composition is intrinsically noncommutative}.
 ```
 
-# 12. Why the (C^\ast)-envelope should not be primary
+# 12. Why the $C^\ast$-envelope should not be primary
 
 Tensor-algebra theory shows that the $C^\ast$-envelope of a $C^\ast$-correspondence tensor algebra is its Cuntz–Pimsner algebra.
 

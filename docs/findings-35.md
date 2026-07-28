@@ -147,7 +147,7 @@ After quotienting null directions, it is a genuine local metric.
 
 ---
 
-# 4. The (\varepsilon\to0) metric
+# 4. The $\varepsilon\to0$ metric
 
 Let $X,Y\in T_h\mathcal H_\lambda^+$, with score fields
 

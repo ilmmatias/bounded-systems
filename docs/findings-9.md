@@ -22,7 +22,7 @@ Suppose there is no infinite backward chain
 
 Equivalently, the predecessor relation is well-founded.
 
-Define the **past rank**
+Define the past rank
 
 ```math
 \rho_-(v)=
@@ -75,7 +75,7 @@ Dually, suppose there is no infinite forward path
 v_0\to v_1\to v_2\to\cdots.
 ```
 
-Define the **future rank**
+Define the future rank
 
 ```math
 \rho_+(v)=

@@ -237,7 +237,7 @@ However, this must be interpreted carefully:
 \text{ remembers only reachability}.
 ```
 
-The original route structure is retained by its **marked zero-skeleton**.
+The original route structure is retained by its marked zero-skeleton.
 
 So the complete object should be regarded as
 
@@ -482,7 +482,7 @@ Let
 S=\mathscr P_G(u,v).
 ```
 
-## Finite (S)
+## Finite $S$
 
 If $|S|=m<\infty$, then
 
@@ -498,7 +498,7 @@ m-1.
 
 In the Fock Hilbert realization, this is the codimension-one route-defect subspace orthogonal to the equal-route vector.
 
-## Infinite (S)
+## Infinite $S$
 
 The algebraic resolution remains perfectly defined:
 
@@ -800,7 +800,7 @@ These are related but not identical:
 * vertically, $p_a-p_b$ is a boundary implementing the collapse;
 * horizontally, the two disconnected factorization components create a nontrivial interval-coherence class.
 
-# 15. Boolean (B_3) example
+# 15. Boolean $B_3$ example
 
 From bottom to top, there are six saturated routes.
 

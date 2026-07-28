@@ -154,11 +154,7 @@ Therefore $\Sigma_{m+n}$ is closable exactly when
 
 Since these are nonnegative cardinal sums, this means precisely:
 
-1. every contributing product
-   ```math
-   N_m(v,w)N_n(w,u)
-   ```
-   is finite; and
+1. every contributing product $N_m(v,w)N_n(w,u)$ is finite; and
 2. only finitely many intermediate nodes $w$ contribute positively for each endpoint pair.
 
 Hence nonclosability at depth $m+n$ has two distinct causes.
@@ -831,7 +827,7 @@ R_{\mathrm{col}}
 
 The endpoint-collapse generating operator can remain bounded beyond the radius at which the global Fock route sum ceases to converge.
 
-## (d)-ary tree
+## $d$-ary tree
 
 Here
 
@@ -859,7 +855,7 @@ so the global Fock resolvent has radius
 
 Branching destroys global route summability long before endpoint reconvergence becomes singular.
 
-## (d)-parallel funnel
+## $d$-parallel funnel
 
 Here
 

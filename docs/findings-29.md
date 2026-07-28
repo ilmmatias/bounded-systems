@@ -75,7 +75,7 @@ where $C_v=t^{-|q_v|}$ for one chosen route $q_v:o\to v$.
 
 Its closure is compact in the product topology.
 
-We may therefore define the **weighted node Martin compactification**
+We may therefore define the weighted node Martin compactification
 
 ```math
 \overline V_t^{\,M}=
@@ -151,7 +151,7 @@ Let
 
 in a setting where the sums are defined.
 
-A nonzero positive harmonic function $h$ is **minimal** when
+A nonzero positive harmonic function $h$ is minimal when
 
 ```math
 0\le g\le h,\qquad g\text{ harmonic}
@@ -182,7 +182,7 @@ h=ah_1+(1-a)h_2,
 
 then $ah_1\le h$; minimality forces $h_1=h$, and similarly $h_2=h$. The converse follows by normalizing any harmonic $0\le g\le h$.
 
-The **minimal Martin boundary** consists of boundary kernels that are minimal harmonic. The full Martin boundary can be larger than its minimal part; full and minimal boundaries coincide only in special systems.
+The minimal Martin boundary consists of boundary kernels that are minimal harmonic. The full Martin boundary can be larger than its minimal part; full and minimal boundaries coincide only in special systems.
 
 Under the familiar countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. For the completely unrestricted A1–A5 setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, while a full integral-representation theorem requires additional analytic assumptions. 
 

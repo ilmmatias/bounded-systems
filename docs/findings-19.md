@@ -574,7 +574,7 @@ p_{\mathrm{via};w}.
 
 Their difference lies in the route-collapse ideal.
 
-## At length budget (N=1)
+## At length budget $N=1$
 
 The unfactored arrow is admitted because
 
@@ -604,7 +604,7 @@ Therefore
 
 At this resolution, $u<v$ looks primitive.
 
-## At (N=2)
+## At $N=2$
 
 The vertex $w$ appears. The interval complex becomes one point and is contractible:
 
@@ -690,7 +690,7 @@ Hence
 
 The diamond relation is born only when both competing factorizations are accessible.
 
-# 14. Example: Boolean (B_3)
+# 14. Example: Boolean $B_3$
 
 For the bottom and top of $B_3$, every saturated factorization has total length three.
 

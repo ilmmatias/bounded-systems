@@ -237,7 +237,7 @@ B\text{ acts canonically on every }C_m
 
 even though no canonical route representative of a reachability relation exists.
 
-# 5. What tensoring over (B) means combinatorially
+# 5. What tensoring over $B$ means combinatorially
 
 Suppose $X\in C_a$ and $Y\in C_b$, with a reachability context $c\in B$ between them.
 
@@ -307,7 +307,7 @@ This is the reduced relative bar construction written in route-choice language. 
 
 # 7. Low-degree form
 
-## Degree ((1,1))
+## Degree $(1,1)$
 
 ```math
 \mathfrak C_{1,1}=C_1=I/I^2.
@@ -321,7 +321,7 @@ H_{1,1}^{\mathrm{rt}}=I/I^2.
 
 These are first-order route ambiguities, including their path-context transports.
 
-## Degree ((2,2))
+## Degree $(2,2)$
 
 ```math
 \mathfrak C_{2,2}=
@@ -351,7 +351,7 @@ A pair of composable ambiguities is not automatically a second syzygy.
 
 It is a second syzygy only when its associated rectangle vanishes in $I^2/I^3$, or when a linear combination of rectangles cancels.
 
-## Degree ((3,3))
+## Degree $(3,3)$
 
 ```math
 \mathfrak C_{3,3}=
@@ -625,10 +625,7 @@ For a finite system—or a finite ordinal-rank band—the complex can be constru
 2. Group them by source and target.
 3. Build $I$ from route differences.
 4. Generate $I^2,I^3,\ldots$ using route-choice boxes.
-5. Form
-    ```math
-    C_m=I^m/I^{m+1}.
-    ```
+5. Form $C_m=I^m/I^{m+1}$.
 6. Compute the left and right $B$-actions by concatenating any path representative of each reachability arrow.
 7. Form the balanced tensor products over $B$.
 8. Build the merge differentials.

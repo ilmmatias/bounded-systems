@@ -301,7 +301,7 @@ while
 \zeta_d(v,u;z)=z^d.
 ```
 
-Define the **route-excess kernel**
+Define the route-excess kernel
 
 ```math
 X_G(z)=\mathcal P_G(z)-\zeta_d(z).

@@ -467,7 +467,7 @@ It therefore factors through
 
 Its spectrum is the remainder of the discrete route set after all individual finite routes have been removed.
 
-We can call this the **route-choice corona**:
+We can call this the route-choice corona:
 
 ```math
 \partial_{\mathrm{route}}(v,u).
@@ -584,7 +584,7 @@ but their cylinder states converge nontrivially.
 
 ---
 
-# 12. Example: the (d)-ary tree
+# 12. Example: the $d$-ary tree
 
 Suppose each node has $d$ outgoing edges to distinct children.
 

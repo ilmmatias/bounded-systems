@@ -392,7 +392,7 @@ z^3.
 
 The geodesic direct/factorized contributions cancel. The genuine diamond coherence appears only when the longer branch becomes available.
 
-## Boolean interval (B_3)
+## Boolean interval $B_3$
 
 Every strict factorization chain from bottom to top has total cost three. The alternating chain count is the ordinary Möbius value $-1$. Thus
 
@@ -413,7 +413,7 @@ With several parallel channels $u\to v$ and no intermediate node,
 
 The result is independent of channel multiplicity.
 
-That multiplicity existed on the route-resolved page but disappeared under vertical collapse. This confirms that the weighted Möbius series is still a **thin** invariant.
+That multiplicity existed on the route-resolved page but disappeared under vertical collapse. This confirms that the weighted Möbius series is still a thin invariant.
 
 # 8. Two-parameter persistence remains primary
 

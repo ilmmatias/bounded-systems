@@ -50,7 +50,7 @@ or about $0.00503%$.
 
 Thus the pair profile is already extremely close to injective at $n=8$, but stabilized refinement is the exact finite coordinate.
 
-# 2. A normalized 2-WL profile space valid for every (n)
+# 2. A normalized 2-WL profile space valid for every $n$
 
 Raw WL color integers cannot be compared across different graph sizes. We need a recursively defined, normalized object.
 
@@ -294,7 +294,7 @@ the operational profile jump is
 x_{G,r}(w)-x_{G,r}(u).
 ```
 
-Unlike the graph-level deletion increment, this edge increment is **not automatically small** as $n\to\infty$.
+Unlike the graph-level deletion increment, this edge increment is not automatically small as $n\to\infty$.
 
 That gives a decisive test:
 
@@ -578,7 +578,7 @@ then the limiting object is nonlocal.
 
 The jump measure is obtained directly from the empirical edge-jump law.
 
-# 10. Emergence of (h) and (\lambda)
+# 10. Emergence of $h$ and $\lambda$
 
 The correct positive harmonic profile arises from finite route counts.
 
@@ -661,7 +661,7 @@ b(\tau,x)\cdot\nabla f
 \frac12a(\tau,x):\nabla^2f.
 ```
 
-The autonomous master equation previously derived requires a stronger **bulk plateau condition**:
+The autonomous master equation previously derived requires a stronger bulk plateau condition:
 
 ```math
 P_k(e\mid v)

@@ -371,7 +371,7 @@ This is the first genuine higher-level information absent from the isolated modu
 \widetilde{k}^{(\overline F_h)}.
 ```
 
-This is topology in the **variation of fibers**, not inside one fiber.
+This is topology in the variation of fibers, not inside one fiber.
 
 ---
 
@@ -640,7 +640,7 @@ and all other relative homology vanishes.
 
 Thus each refinement step creates only first-order distinctions.
 
-Higher complexity arises through the **organization of many refinement steps**, not through one equivalence-relation fiber.
+Higher complexity arises through the organization of many refinement steps, not through one equivalence-relation fiber.
 
 ---
 

@@ -332,7 +332,7 @@ A strict comparable pair $u<v$ survives in $N/N^2$ exactly when no node lies str
 u<w<v.
 ```
 
-Such a pair is a **cover relation**, written
+Such a pair is a cover relation, written
 
 ```math
 u\lessdot v.
@@ -350,11 +350,7 @@ This need not agree with the original edge set.
 Two losses occur:
 
 1. parallel original edges become one relation;
-2. an original shortcut edge $u\to v$ disappears from $N/N^2$ whenever
-   ```math
-   u<w<v
-   ```
-   for some $w$.
+2. an original shortcut edge $u\to v$ disappears from $N/N^2$ whenever $u<w<v$ for some $w$.
 
 So the reachability quotient reconstructs the Hasse diagram of the order, not the original communication channels.
 
@@ -416,7 +412,7 @@ exactly when the poset has a uniform finite bound on strict-chain length.
 
 # 10. The incidence algebra
 
-The finite-support algebra always exists. A much larger completion is available when the poset is **locally finite**.
+The finite-support algebra always exists. A much larger completion is available when the poset is locally finite.
 
 A poset is locally finite when every closed interval
 
@@ -734,7 +730,7 @@ Therefore the quotient map
 Q:\mathcal A(G)\to\mathcal C_c(P_G)
 ```
 
-does **not** automatically extend to
+does not automatically extend to
 
 ```math
 \widehat{\mathcal A}(G).
@@ -880,7 +876,7 @@ The information loss is:
 \text{interval aggregation}.
 ```
 
-The full bounded-system object remains
+The full object remains
 
 ```math
 (\mathcal A(G),\mathcal D(G)),

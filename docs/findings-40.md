@@ -178,7 +178,7 @@ a_n=\sqrt n
 
 and the limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$. Functional central limit theorems for additive functionals of stationary reversible Markov processes give a rigorous version of this phenomenon under operator-domain conditions.
 
-Thus summable route correlation does **not** create a new continuum regime. It renormalizes the quadratic tensor.
+Thus summable route correlation does not create a new continuum regime. It renormalizes the quadratic tensor.
 
 ---
 
@@ -298,11 +298,11 @@ m!c_m^2
 
 Three cases follow.
 
-## (m\eta>1)
+## $m\eta>1$
 
 The transformed correlation is summable. The ordinary Brownian central-limit regime is restored.
 
-## (m\eta<1)
+## $m\eta<1$
 
 The correlation remains nonsummable. The normalization is
 
@@ -318,7 +318,7 @@ and the limit is generally the $m$-th Hermite process.
 * $m=2$: Rosenblatt process;
 * $m\ge3$: higher non-Gaussian Hermite process.
 
-## (m\eta=1)
+## $m\eta=1$
 
 This is the borderline case, typically involving a logarithmic normalization.
 
@@ -403,7 +403,7 @@ e^{-\tau D_h}.
 
 Generalized Langevin reductions likewise arise by eliminating unresolved degrees of freedom, producing a memory term and colored forcing; under equilibrium assumptions these are connected by a fluctuation–dissipation relation.
 
-A fluctuation–dissipation identity is **not** automatic under A1–A5. It additionally requires a suitable symmetric or equilibrium state.
+A fluctuation–dissipation identity is not automatic under A1–A5. It additionally requires a suitable symmetric or equilibrium state.
 
 ---
 
@@ -527,7 +527,7 @@ x_0+\widetilde\eta_h(q).
 
 This is the closed linear equation of the power-law route-memory regime.
 
-It is **not** the same as the inverse-stable-clock equation
+It is not the same as the inverse-stable-clock equation
 
 ```math
 (q^\gamma+B_h)\widetilde x=
@@ -818,7 +818,7 @@ on the instantaneous profile space. Its natural object is the memory resolvent a
 
 For Hermite rank $m\ge2$, the limit is non-Gaussian.
 
-It lies in the $m$-th Wiener chaos of an underlying Gaussian correlation field, but that does **not** imply that its effective dynamics is the second quantization of a one-particle operator.
+It lies in the $m$-th Wiener chaos of an underlying Gaussian correlation field, but that does not imply that its effective dynamics is the second quantization of a one-particle operator.
 
 Therefore, in the higher-Hermite regime,
 

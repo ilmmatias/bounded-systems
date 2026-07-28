@@ -492,24 +492,10 @@ for any unit vector $e$, when isotropy holds.
 
 Suppose on every compact profile region:
 
-1. for every continuous $g$ vanishing near zero,
-
-   ```math
-   \int g,d\nu_\delta^h
-   \to
-   \int g,d\nu_h;
-   ```
-
-2. the truncated drifts converge,
-
-   ```math
-   b_\delta^\chi\to b_h^\chi;
-   ```
-
+1. for every continuous $g$ vanishing near zero, $\int g,d\nu_\delta^h \to \int g,d\nu_h$;
+2. the truncated drifts converge, $b_\delta^\chi\to b_h^\chi$;
 3. the residual small-jump covariance converges to $a_h$;
-
 4. the family satisfies compact containment;
-
 5. the martingale problem for the limiting Lévy-type operator is unique.
 
 Then
@@ -522,7 +508,7 @@ where $X$ has generator $\mathcal L^h$.
 
 This is the exact proof program for Gaussian, stable and mixed jump regimes. They differ only in which parts of the characteristic triplet survive.
 
-# 9. Convergence of the (h)-transform itself
+# 9. Convergence of the $h$-transform itself
 
 The transformed transition law contains the ratio
 

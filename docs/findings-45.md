@@ -915,7 +915,7 @@ is twice the squared Hellinger distance between their exact one-round node profi
 
 This supplies a canonical information-geometric metric without choosing arbitrary weights among profile fields.
 
-## Level (r): stabilized profile histograms
+## Level $r$: stabilized profile histograms
 
 Replace $c_1$ by $c_r$, stopping when:
 

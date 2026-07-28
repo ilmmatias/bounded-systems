@@ -365,7 +365,7 @@ At an infinite emitter,
 
 for every finite edge set $F$.
 
-This is a harmonic law on the **prefix tree of actual paths**.
+This is a harmonic law on the prefix tree of actual paths.
 
 The node eigenvector form occurs only when
 
@@ -757,7 +757,7 @@ The derived cylinder split assigns weight one to the unique continuation.
 
 ---
 
-## (d)-ary tree
+## $d$-ary tree
 
 Every node has $d$ distinct children.
 

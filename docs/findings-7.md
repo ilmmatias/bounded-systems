@@ -303,7 +303,7 @@ Let
 \mathbb C^{\mathsf P(G)}
 ```
 
-be the space of **all** formal coefficient functions on finite paths.
+be the space of all formal coefficient functions on finite paths.
 
 An element has the form
 
@@ -382,7 +382,7 @@ X^n\longrightarrow0
 
 in the path-length topology.
 
-This is **topological nilpotence**, not algebraic nilpotence.
+This is topological nilpotence, not algebraic nilpotence.
 
 Accordingly,
 
@@ -602,7 +602,7 @@ The earlier spectral collisions were therefore not accidental. They were manifes
 
 There is another clean completion effect.
 
-Let the **weak components** be the connected components obtained after forgetting edge directions.
+Let the weak components be the connected components obtained after forgetting edge directions.
 
 In the algebraic path algebra, a central element must be diagonal and constant along every edge. Because algebraic elements have finite support, a nonzero constant can occur only on a finite weak component.
 

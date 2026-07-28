@@ -231,7 +231,7 @@ The failures did not erase the entire bridge. They exposed three robust remnants
 2. a stable right singular subspace;
 3. a candidate one-dimensional graph-profile direction inside that subspace.
 
-This suggested that the route process may select the same **state sector** as configuration dynamics without sharing the same complete local generator or left observable.
+This suggested that the route process may select the same state sector as configuration dynamics without sharing the same complete local generator or left observable.
 
 # 12. Methodological conclusion
 

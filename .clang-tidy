@@ -1,0 +1,26 @@
+---
+Checks:
+    - '-*'
+
+    # Compiler diagnostics and path-sensitive static analysis.
+    - 'clang-diagnostic-*'
+    - 'clang-analyzer-*'
+
+    # Correctness checks.
+    - 'bugprone-*'
+    - 'cert-*'
+    - 'concurrency-*'
+    - 'misc-*'
+    - 'portability-*'
+
+    # Readability checks.
+    - 'misc-include-cleaner'
+
+    # Remove the overly noisy warnings.
+    - '-bugprone-easily-swappable-parameters'
+    - '-misc-non-private-member-variables-in-classes'
+
+WarningsAsErrors: ''
+
+FormatStyle: file
+...

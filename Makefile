@@ -1,55 +1,55 @@
-# Build the C++ passes and regenerate all artifacts
+# Build the artifact generator and reproduce the finite-DAG data products.
 #
-#   make              build both binaries
-#   make gen          regenerate data for N=1..7
-#   make gen-<n>      regenerate data only for a specific N
-#   make -j7 gen      regenerate multiple N values in parallel
-#   make clean        remove binaries and artifacts
+#   make
+#   make findings-2
+#   THREADS=32 SORT_MEM=2G make findings-43
+#   make clean
 
-CXX      ?= g++
+CXX      ?= clang++
+CPPFLAGS ?=
 CXXFLAGS ?= -O3 -march=native -std=c++23 -Wall -Wextra
-OMPFLAGS ?= -fopenmp
+LTOFLAGS ?= -flto=thin
+LDFLAGS  ?=
+LDLIBS   ?=
 
-SRC  := src
-BIN  := bin
-DATA := data
+SRC   := src
+BIN   := bin
+DATA  := data
 
-NODES := 1 2 3 4 5 6 7
+SOURCES := \
+    $(SRC)/artifact.cxx \
+    $(SRC)/digraph6.cxx \
+    $(SRC)/graph.cxx \
+    $(SRC)/spectral_profile.cxx \
+    $(SRC)/wl_profile.cxx
 
-PROGRAMS     := $(BIN)/enumerate $(BIN)/profile
-GEN_TARGETS := $(NODES:%=gen-%)
+HEADERS := \
+    $(SRC)/digraph6.hxx \
+    $(SRC)/graph.hxx \
+    $(SRC)/spectral_profile.hxx \
+    $(SRC)/wl_profile.hxx
 
-.PHONY: all gen clean $(GEN_TARGETS)
+PROGRAM := $(BIN)/artifact
 
-all: $(PROGRAMS)
+.PHONY: all clean
+.PHONY: findings-2 findings-43
 
-gen: $(GEN_TARGETS)
+all: $(PROGRAM)
+
+findings-2: $(PROGRAM)
+	@scripts/generate_spectral.sh 4 $(DATA)/findings-2/n4
+	@scripts/generate_spectral.sh 5 $(DATA)/findings-2/n5
+	@scripts/generate_spectral.sh 6 $(DATA)/findings-2/n6
+
+findings-43: $(PROGRAM)
+	@scripts/generate_wl.sh 7 $(DATA)/findings-43/n7
+	@scripts/generate_wl.sh 8 $(DATA)/findings-43/n8
 
 $(BIN) $(DATA):
 	mkdir -p $@
 
-$(BIN)/%: $(SRC)/%.cpp | $(BIN)
-	$(CXX) $(CXXFLAGS) $(OMPFLAGS) -o $@ $<
-
-# "gen-N" is expanded into gen-1, gen-2, ..., gen-7.
-# In this rule, $* is the corresponding N value.
-$(GEN_TARGETS): gen-%: $(PROGRAMS) | $(DATA)
-	@echo "  enumerate n=$*"
-	@$(BIN)/enumerate $* > $(DATA)/catalog-$*.txt.tmp
-	@mv $(DATA)/catalog-$*.txt.tmp $(DATA)/catalog-$*.txt
-
-	@echo "  profile n=$* level=4"
-	@EMIT_JSON=$(DATA)/table-$*.json \
-	 DUMP_COLLISIONS=$(DATA)/collisions-$*-node.txt \
-	 DUMP_LEVEL=4 \
-	   $(BIN)/profile $* $(DATA)/catalog-$*.txt \
-	   > $(DATA)/separation-$*.txt 2>/dev/null
-
-	@echo "  profile n=$* level=5"
-	@DUMP_COLLISIONS=$(DATA)/collisions-$*-full.txt \
-	 DUMP_LEVEL=5 \
-	   $(BIN)/profile $* $(DATA)/catalog-$*.txt \
-	   >/dev/null 2>/dev/null
+$(PROGRAM): $(SOURCES) $(HEADERS) | $(BIN)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(LTOFLAGS) $(LDFLAGS) -o $@ $(SOURCES) $(LDLIBS)
 
 clean:
 	rm -rf $(BIN) $(DATA)

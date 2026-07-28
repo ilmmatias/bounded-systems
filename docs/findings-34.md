@@ -458,8 +458,8 @@ k^{(\mathcal G_t)}
 
 This is the clean separation between:
 
-* **collapse**, measured by the kernel $\mathfrak D_M$;
-* **completion**, measured by the cokernel $k^{(\mathcal G_t)}$.
+* collapse, measured by the kernel $\mathfrak D_M$;
+* completion, measured by the cokernel $k^{(\mathcal G_t)}$.
 
 Several histories can collapse to one branch, while other branches can be added without being represented by any history.
 
@@ -470,11 +470,7 @@ Several histories can collapse to one branch, while other branches can be added 
 Suppose:
 
 1. $X$ is compact;
-2. every finite-coordinate profile map
-   ```math
-   \Phi_F:X\to\mathbb R^F
-   ```
-   is continuous.
+2. every finite-coordinate profile map $\Phi_F:X\to\mathbb R^F$ is continuous.
 
 Let
 
@@ -492,7 +488,7 @@ Then
 \varprojlim_{F\Subset V_o}Y_F.
 ```
 
-In particular, every coherent family of **realized finite profiles** is realized by at least one point of $X$.
+In particular, every coherent family of realized finite profiles is realized by at least one point of $X$.
 
 ### Proof
 
@@ -648,7 +644,7 @@ The essential hypothesis is the uniform convergence of deep node columns toward 
 
 # 11. Examples
 
-### Unique-route (d)-ary tree
+### Unique-route $d$-ary tree
 
 At depth $n$, a ray profile is determined by its length-$n$ prefix.
 

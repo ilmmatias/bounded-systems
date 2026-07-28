@@ -844,7 +844,7 @@ where
 \delta x_G=x_{n,r}(G)-x_\ast
 ```
 
-and (+) denotes the Moore–Penrose pseudoinverse.
+and $+$ denotes the Moore–Penrose pseudoinverse.
 
 The fluctuation relaxation matrix is then
 
