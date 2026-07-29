@@ -116,7 +116,7 @@ Therefore:
 \rho_+\text{ is defined on all nodes}.
 ```
 
-The two conditions are independent. A system can have a future rank but no past rank, or vice versa.
+The conditions are independent: a system can have a future rank but no past rank, or vice versa.
 
 # 3. Transfinite rank does not mean an infinitely long path
 
@@ -152,7 +152,7 @@ Now add a node $s\to r$. Then
 \rho_+(s)=\omega+1.
 ```
 
-Transfinite ranks of arbitrary size can occur without any infinite forward path. For an ordinal $\alpha$, take nodes indexed by ordinals
+Arbitrarily large transfinite ranks can occur without any infinite forward path. For an ordinal $\alpha$, take nodes indexed by ordinals
 
 ```math
 0,1,\ldots,\alpha
@@ -272,7 +272,7 @@ v\in K^-
 
 ## Proof in the forward direction
 
-If an infinite path begins at $v$, none of its nodes can ever be removed as a sink. By transfinite induction, every node of the path remains in every $W^+_\alpha$. Hence $v\in K^+$.
+If an infinite path begins at $v$, none of its nodes is ever removed as a sink. Transfinite induction shows that every path node remains in every $W^+_\alpha$, so $v\in K^+$.
 
 Conversely, suppose $v\in K^+$.
 
@@ -389,7 +389,7 @@ For a system with $|V|=\kappa$,
 \mathrm{ht}_\pm(G)<\kappa^+.
 ```
 
-The pruning sequence must stabilize before $\kappa^+$, since each nonstationary successor stage removes at least one previously remaining node.
+The pruning sequence must stabilize before $\kappa^+$ because each nonstationary successor stage removes at least one remaining node.
 
 In a finite DAG, these ranks reduce to familiar longest-path depths.
 
@@ -680,7 +680,7 @@ are antichains.
 
 This gives a canonical two-dimensional ordinal coordinate system without assigning labels to individual nodes.
 
-The coordinate does not necessarily distinguish nodes. Nodes in the same cell remain intrinsically indistinguishable unless their channel relations differ.
+The coordinate need not distinguish nodes: those in the same cell remain intrinsically indistinguishable unless their channel relations differ.
 
 # 12. Why there is no canonical numeric rank operator
 
@@ -690,11 +690,11 @@ It may be tempting to define
 R=\sum_v\rho(v)P_v.
 ```
 
-But ordinal values are not ordinary real or complex scalars. There is no canonical order-preserving embedding of arbitrary ordinals into $\mathbb R$.
+Ordinal values are not ordinary real or complex scalars; arbitrary ordinals have no canonical order-preserving embedding into $\mathbb R$.
 
 Turning transfinite ranks into real numbers would therefore require an arbitrary coding.
 
-The canonical analytic object is not one self-adjoint rank operator. It is the ordinal-indexed projection family
+The canonical analytic object is an ordinal-indexed projection family, not one self-adjoint rank operator.
 
 ```math
 {F_\alpha}_{\alpha}
@@ -740,4 +740,4 @@ They represent:
 * infinite past but finite future;
 * infinite in both directions.
 
-The last sector contains all nodes lying on bi-infinite chains, though it can also contain nodes connected to separate backward and forward infinite branches that do not form a unique bi-infinite route.
+The last sector contains all nodes on bi-infinite chains but can also contain nodes connected to separate backward and forward infinite branches that do not form a unique bi-infinite route.

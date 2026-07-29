@@ -1,4 +1,4 @@
-## 1. The complete fixed-depth inequality chain
+# 1. The complete fixed-depth inequality chain
 
 We have
 
@@ -12,7 +12,7 @@ and also
 Q\ge\frac{T^2}{R}.
 ```
 
-### Proof
+## Proof
 
 Since every nonzero $a_v$ is a positive integer,
 
@@ -71,7 +71,7 @@ Operatorially,
 
 Endpoint collapse has caused no amplification because every route remains in its own endpoint sector.
 
-This is lengthwise thinness at $(u,n)$. It does not yet imply a unique route overall: there might still be paths of different lengths connecting the same endpoints.
+This is lengthwise thinness at $(u,n)$ but does not yet imply a unique route overall: paths of different lengths might connect the same endpoints.
 
 ---
 
@@ -250,7 +250,7 @@ Every length-$n$ path from $u$, when one exists, terminates at the single node
 f^n(u).
 ```
 
-Conversely, if every source has only one possible endpoint at every positive length, then the length-one case implies that all outgoing channels from each node share one target.
+Conversely, if each source has only one possible endpoint at every positive length, the length-one case implies that its outgoing channels share one target.
 
 Therefore:
 
@@ -374,7 +374,7 @@ r(S_+)
 \text{ alone cannot distinguish expansion from reconvergence}.
 ```
 
-This is a clean infinite obstruction to treating one spectral radius as a complete structural descriptor.
+This is an infinite obstruction to treating one spectral radius as a complete structural descriptor.
 
 ---
 
@@ -419,13 +419,13 @@ G_{r,L}(v,u)
 \binom{L-1}{r-1}N_L(v,u).
 ```
 
-### First equality
+## First equality
 
 ```math
 c_{r,L}=G_{r,L}
 ```
 
-if and only if every factor occurring in every cost-$L$, $r$-step chain has a unique geodesic.
+if and only if all factors in every cost-$L$, $r$-step chain have unique geodesics.
 
 ### Second equality
 
@@ -434,7 +434,7 @@ G_{r,L}=
 \binom{L-1}{r-1}N_L
 ```
 
-if and only if every length-$L$ path, cut at any chosen $r-1$ positions, is geodesic on every resulting segment.
+if and only if every segment obtained by cutting any length-$L$ path at any $r-1$ positions is geodesic.
 
 Thus the earlier bound
 
@@ -510,7 +510,7 @@ This is purely an Euler-type cancellation. It does not imply that the filtered i
 
 Suppose there is exactly one path from $u$ to $v$, of length $L$.
 
-Its $L-1$ internal vertices are the only possible intermediate nodes in $(u,v)$. Every factorization is obtained by choosing a subset of those internal vertices.
+Its $L-1$ internal vertices are the only possible intermediate nodes in $(u,v)$, and every factorization chooses a subset of them.
 
 Therefore the number of $r$-factor chains is
 
@@ -558,7 +558,7 @@ In the extremal case:
 \text{maximal factorization abundance can coexist with zero Möbius complexity}.
 ```
 
-The reason is that every factorization is merely a different placement of cuts along the same route. There is no genuine route ambiguity.
+Every factorization merely places cuts differently along the same route, so there is no genuine route ambiguity.
 
 ---
 
@@ -584,7 +584,7 @@ Therefore
 m_2=-1+2=1.
 ```
 
-The cancellation that would occur for a single route fails because there is one additional independent factorization branch.
+The cancellation for a single route fails because there is one additional independent factorization branch.
 
 For an asymmetric diamond whose second branch appears only at cost three, the cost-two terms cancel, while
 
@@ -592,7 +592,7 @@ For an asymmetric diamond whose second branch appears only at cost three, the co
 m_3=1.
 ```
 
-Thus the first nonzero Möbius coefficient identifies the first budget at which route-independent factorization multiplicity survives cancellation.
+The first nonzero Möbius coefficient identifies the first budget at which route-independent factorization multiplicity survives cancellation.
 
 ---
 
@@ -605,7 +605,7 @@ Recall
 \sup_uT_n(u).
 ```
 
-Thus two systems have the same forward Fock spectral radius whenever their maximal total route counts have the same exponential growth:
+Two systems have the same forward Fock spectral radius whenever their maximal total route counts have the same exponential growth:
 
 ```math
 r(S_+)=
@@ -622,7 +622,7 @@ Equality of this spectral radius does not require equality of:
 * interval topology;
 * Möbius coefficients.
 
-The extremal tree/funnel pair demonstrates that every one of those can differ exponentially while $r(S_+)$ remains identical.
+The extremal tree/funnel pair shows that all can differ exponentially while $r(S_+)$ remains identical.
 
 So the correct hierarchy is now:
 

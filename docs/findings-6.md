@@ -28,7 +28,7 @@ No relation such as
 T_e^\ast T_e=Q_{s(e)}
 ```
 
-is assumed. That would say the channel operator is isometric, which A1–A5 do not require.
+is assumed, making the channel operator isometric, although A1–A5 do not require this.
 
 Likewise, no relation such as
 
@@ -95,7 +95,7 @@ It is explicitly given by
 \sum_{p\in F}c_pT_p.
 ```
 
-Conversely, any representation of $\mathbb C[G]$ that sends the node idempotents to pairwise orthogonal projections gives such a channel family.
+Conversely, any representation of $\mathbb C[G]$ sending the node idempotents to pairwise orthogonal projections gives such a channel family.
 
 Therefore:
 
@@ -188,7 +188,7 @@ as a strong-operator sum, meaning
 
 for every finite $F\subseteq E$.
 
-Since each range lies in its target sector, this can also be checked target by target:
+Because each range lies in its target sector, this can be checked targetwise:
 
 ```math
 \sum_{r(e)=v}T_eT_e^\ast\le Q_v.
@@ -287,7 +287,7 @@ At matrix level,
 |\lambda_G^{(m)}(X)|.
 ```
 
-So the Fock tensor algebra is not an arbitrary completion. Its norm is the largest norm compatible with all row-contractive channel realizations.
+Thus the Fock tensor algebra is not an arbitrary completion: its norm is the largest compatible with all row-contractive channel realizations.
 
 The row-contractive class is a chosen representation category.
 
@@ -332,7 +332,7 @@ T_e^\ast T_e=Q_{s(e)}
 \text{ belongs to the representation, not to A1--A5 themselves.}
 ```
 
-The axioms specify which products are composable. They do not specify preservation of a Hilbert norm.
+The axioms specify which products are composable, not preservation of a Hilbert norm.
 
 # 8. The three universality levels
 
@@ -378,7 +378,7 @@ T_pT_q=0,
 
 provided the representation does not annihilate the nonzero path $qp$.
 
-A nonfaithful representation may send an allowed path to zero, but it can never make a forbidden composition nonzero.
+A nonfaithful representation may annihilate an allowed path but can never make a forbidden composition nonzero.
 
 ## Finite positive-path expressions are nilpotent
 
@@ -448,7 +448,7 @@ For infinite-limit elements, it may be much larger.
 
 There is a strict distinction between:
 
-### Algebraic processes
+## Algebraic processes
 
 Finite sums of finite paths:
 

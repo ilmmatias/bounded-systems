@@ -1,4 +1,4 @@
-## 1. Endpoint decomposition
+# 1. Endpoint decomposition
 
 For $u\le v$, let
 
@@ -136,7 +136,7 @@ The last map sends a route combination to the total coefficient contributed by e
 
 Thus the endpoint defect has two distinct parts.
 
-### Same-length ambiguity
+## Same-length ambiguity
 
 Several routes have equal compositional depth:
 
@@ -172,7 +172,7 @@ u\to w\to v.
 
 Their difference belongs to the cross-length part.
 
-There is generally no canonical splitting of the exact sequence: choosing one representative path for each length would be arbitrary.
+Generally, the exact sequence has no canonical splitting: choosing a representative path for each length would be arbitrary.
 
 ---
 
@@ -270,13 +270,13 @@ This is a direct realization of the orthogonality constraint you emphasized.
 
 Now suppose that infinitely many distinct routes connect $u$ to $v$.
 
-The algebraic summation map still exists on finite-support combinations. But it has no bounded extension to
+The algebraic summation map exists on finite-support combinations but has no bounded extension to
 
 ```math
 \ell^2(\mathscr P(u,v)).
 ```
 
-To see this, select $N$ distinct routes and take coefficients $1/\sqrt N$. Their coefficient norm is one, but their sum is
+Select $N$ distinct routes with coefficients $1/\sqrt N$: their coefficient norm is one, but their sum is
 
 ```math
 \sqrt N.
@@ -327,11 +327,11 @@ But
 \longrightarrow0.
 ```
 
-Hence $L_p$ lies in the norm closure of the route-defect space. Since $p$ was arbitrary, the entire route corner lies in that closure.
+Thus $L_p$ lies in the norm closure of the route-defect space; since $p$ was arbitrary, the entire route corner does.
 
 ## Consequence
 
-For infinitely many routes, there is no surviving one-dimensional “equal-route direction” inside the Fock Hilbert geometry.
+With infinitely many routes, no one-dimensional “equal-route direction” survives in the Fock Hilbert geometry.
 
 Instead,
 
@@ -365,7 +365,7 @@ Suppose
 r=p-q\in I
 ```
 
-is a route defect from $u$ to $v$, and let $a,b$ be positive paths composable on the left and right. Then
+is a route defect from $u$ to $v$; let $a,b$ be positive paths composable on the left and right. Then
 
 ```math
 arb
@@ -496,10 +496,7 @@ Consequently:
 
 * $I$ is locally nilpotent;
 * every algebraic route defect is nilpotent;
-* and
-  ```math
-  \bigcap_{m\ge1}I^m=0.
-  ```
+* $\bigcap_{m\ge1}I^m=0$.
 
 The last assertion follows because a nonzero path polynomial has bounded path lengths, while every element of $I^m$ is supported on paths of length at least $m$.
 
@@ -885,11 +882,11 @@ The finite experiments therefore give:
 
 # 13. Relation to existing path homology
 
-There are established homology theories built from allowed directed paths, beginning with the path-homology construction of Grigor’yan, Lin, Muranov, and Yau. More recent work extends such ideas to quivers, marked categories, and marked algebras.
+Established homology theories for allowed directed paths begin with the path-homology construction of Grigor’yan, Lin, Muranov, and Yau; recent work extends these ideas to quivers, marked categories, and marked algebras.
 
 Those theories are not automatically identical to the route-syzygy structure above.
 
-Their starting point is typically a chain complex with a boundary operation on directed paths. Our starting point is instead the exact quotient
+They typically start from a chain complex with a boundary operation on directed paths; we start instead from the exact quotient
 
 ```math
 A\to B
@@ -909,4 +906,4 @@ rather than directly asking:
 \text{which directed path chains are cycles or boundaries?}
 ```
 
-The language of path algebras modulo relation ideals and higher relations is standard in quiver theory, including approaches based on reduction systems and diamond conditions, but the particular relation ideal here is canonically fixed by the reachability collapse rather than selected as external data.
+Path algebras modulo relation ideals and higher relations are standard in quiver theory, including reduction-system and diamond-condition approaches, but here the reachability collapse canonically fixes the relation ideal rather than supplying it as external data.

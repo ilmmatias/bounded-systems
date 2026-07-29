@@ -109,7 +109,7 @@ Since $N_1=A$, the primitive-channel multiplicity kernel,
 N_n=A^n.
 ```
 
-So the whole multiplicity tower is already determined by the direct-channel kernel, provided ordinary scalar convolution is defined.
+The multiplicity tower is determined by the direct-channel kernel, provided ordinary scalar convolution is defined.
 
 ---
 
@@ -272,7 +272,7 @@ C_{m,n}
 \right).
 ```
 
-So the equal-route direction at total depth is a weighted superposition over every admissible intermediate node.
+The equal-route direction at total depth is a weighted superposition over every admissible intermediate node.
 
 It is a simple tensor only when exactly one $w$ contributes.
 
@@ -363,7 +363,7 @@ where
 
 The two parts have different meanings.
 
-### Internal route defects
+## Internal route defects
 
 ```math
 \bigoplus_wF_w
@@ -486,10 +486,10 @@ For fixed $m,n,u,v$, define
 
 ```math
 W_{m,n}(v,u)=
-\left\lbrace w: N_n(w,u)>0,; N_m(v,w)>0 \right\rbrace.
+\left\lbrace w: N_n(w,u)>0,\; N_m(v,w)>0 \right\rbrace.
 ```
 
-This is the set of nodes through which a length-$(m+n)$ path can pass at the prescribed cut.
+This set consists of nodes through which a length-$(m+n)$ path can pass at the prescribed cut.
 
 The factorization defect is the weighted reduced space on this set:
 
@@ -516,9 +516,9 @@ W_{m,n}(v,u)
 
 when the admissible intermediate nodes are viewed as a discrete complex.
 
-Thus the first factorization-defect layer is exactly the degree-zero shadow of the interval complexes derived earlier.
+The first factorization-defect layer is exactly the degree-zero shadow of the interval complexes derived earlier.
 
-Iterating cuts produces chains of intermediate nodes, and those chains assemble into the full order complex
+Iterated cuts produce chains of intermediate nodes that assemble into the full order complex.
 
 ```math
 \Delta(u,v).
@@ -792,7 +792,7 @@ Thus, when the operators are bounded,
 ```math
 |\Sigma_{m+n}|
 \le
-\min\left\lbrace |\Sigma_m|,|S_+^n|, ; |\Sigma_n|,|S_-^m| \right\rbrace.
+\min\left\lbrace |\Sigma_m|,|S_+^n|,|\Sigma_n|,|S_-^m| \right\rbrace.
 ```
 
 This separates propagation caused by forward branching from propagation caused by backward reconvergence.
@@ -831,7 +831,7 @@ over the Boolean semiring.
 
 ## Equal-route sectors
 
-The normalized equal-route direction at depth $m+n$ is a weighted sum over intermediate nodes. It is not generally the tensor product of the normalized lower-depth equal-route directions.
+The normalized equal-route direction at depth $m+n$ is a weighted sum over intermediate nodes, not generally the tensor product of the normalized lower-depth equal-route directions.
 
 The obstruction is exactly reconvergence through multiple intermediate sectors.
 

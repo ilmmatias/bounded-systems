@@ -294,7 +294,7 @@ The channel data are not absent from the algebra. They live in multiplication, c
 
 The Fock norm completion is useful, but it depends on a Hilbert-space norm.
 
-Before choosing any norm, there is a more primitive completion that works for every set-sized system.
+Before any norm is chosen, a more primitive completion works for every set-sized system.
 
 Let
 
@@ -320,7 +320,7 @@ Define multiplication by path convolution. For a fixed path $r$,
 \sum_{r=qp}X(q)Y(p).
 ```
 
-This sum is always finite: a path of length $n$ has only $n+1$ possible cuts into an initial and final segment.
+The sum is always finite because a path of length $n$ has only $n+1$ cuts into initial and final segments.
 
 Therefore multiplication is well-defined even if:
 
@@ -507,7 +507,7 @@ R_G(z)
 
 has nonzero terms of arbitrarily high degree.
 
-This may arise either from an actual infinite chain or from finite chains of unbounded lengths. That distinction requires the infinite-path boundary, which is the next layer.
+This may arise from an actual infinite chain or finite chains of unbounded lengths; distinguishing them requires the infinite-path boundary, the next layer.
 
 # 8. Formal spectrum versus operator spectrum
 
@@ -548,7 +548,7 @@ for a regular $d$-branching system.
 
 There is no contradiction.
 
-The inverse series exists formally for every nonzero $\lambda$, but it may fail to converge in operator norm. Operator spectrum detects failure of analytic convergence, not failure of formal path composition.
+For every nonzero $\lambda$, the inverse series exists formally but may fail to converge in operator norm; operator spectrum detects failure of analytic convergence, not failure of formal path composition.
 
 This gives three distinct tiers:
 
@@ -596,7 +596,7 @@ This suggests the correct hierarchy:
 \text{full finite-path structure}.
 ```
 
-The earlier spectral collisions were therefore not accidental. They were manifestations of discarding the node corners and the multiplication structure.
+The earlier spectral collisions were not accidental but reflected the loss of the node corners and multiplication structure.
 
 # 10. The algebraic and formal centers
 

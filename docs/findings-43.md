@@ -20,7 +20,7 @@ They play different roles:
 * $r\to\infty$ removes observational/profile collapse;
 * $p\to\infty$ constructs the operational dynamics and asymptotic harmonic profile.
 
-The existing exhaustive data already demonstrates why $r$ matters. The second-order pair profile classifies every non-isomorphic simple DAG through seven nodes. At eight nodes, one 2-WL round leaves only $509$ collision classes containing $1020$ graphs, while stabilized 2-WL separates all $20{,}286{,}025$ configurations.
+Exhaustive data show why $r$ matters: the second-order pair profile classifies every non-isomorphic simple DAG through seven nodes; at eight nodes, one 2-WL round leaves only $509$ collision classes containing $1020$ graphs, whereas stabilized 2-WL separates all $20{,}286{,}025$ configurations.
 
 Numerically,
 
@@ -46,13 +46,13 @@ The fraction of graphs involved in collisions is
 5.03\times10^{-5},
 ```
 
-or about $0.00503%$.
+or about $0.00503\%$.
 
-Thus the pair profile is already extremely close to injective at $n=8$, but stabilized refinement is the exact finite coordinate.
+Thus, the pair profile is extremely close to injective at $n=8$, whereas stabilized refinement is the exact finite coordinate.
 
 # 2. A normalized 2-WL profile space valid for every $n$
 
-Raw WL color integers cannot be compared across different graph sizes. We need a recursively defined, normalized object.
+Because raw WL color integers are incomparable across graph sizes, we need a recursively defined normalized object.
 
 Let
 
@@ -88,7 +88,7 @@ z_r^G(w,v)
 }.
 ```
 
-This is the normalized empirical distribution of all ways a third node $w$ relates the ordered pair $(u,v)$.
+This normalized empirical distribution records all ways a third node $w$ relates to the ordered pair $(u,v)$.
 
 Set
 
@@ -128,7 +128,7 @@ This has the properties we need:
 * naturally measure-valued;
 * directly computable with sparse canonical hashes.
 
-The explicit second-order communication profile already used in the exhaustive computations is precisely a finite-coordinate realization of the first refinement: its entries count degrees, length-two routes, common targets and common sources. 
+The explicit second-order communication profile used in the exhaustive computations is precisely a finite-coordinate realization of the first refinement, counting degrees, length-two routes, common targets, and common sources.
 
 # 3. Compactness of the finite-observation profile spaces
 
@@ -184,7 +184,7 @@ This already proves one part of continuum existence:
 
 > For every fixed observation depth $r$, every sequence of finite DAG profiles has a convergent subsequence.
 
-It does not yet prove convergence of the operational path process, but it proves that its candidate state space is compact.
+This proves that its candidate state space is compact, but not yet convergence of the operational path process.
 
 # 4. Stability under one-node refinement
 
@@ -196,7 +196,7 @@ For surviving ordered pairs $u,v\neq a$,
 z_0^H(u,v)=z_0^G(u,v).
 ```
 
-At the next refinement round, the empirical measure over intermediate nodes changes by removing one atom and renormalizing. Inductively,
+At the next refinement round, removing one atom and renormalizing changes the empirical measure over intermediate nodes. Inductively,
 
 ```math
 d_r\left(
@@ -304,7 +304,7 @@ That gives a decisive test:
 
 is the condition for a local differential limit.
 
-If a nonzero fraction of channel jumps remains macroscopic, the continuum limit is a jump or Lévy operator instead.
+If a nonzero fraction of channel jumps remains macroscopic, the continuum limit is a jump or Lévy operator.
 
 The limiting jump data determine whether the regime is Gaussian or anomalous.
 
@@ -395,7 +395,7 @@ L_j(v)=
 
 be the number of length-$j$ paths ending at $v$.
 
-Under the uniform counting measure on all resolved length-$p$ paths, the probability that the path is at $v$ after $j$ steps is
+Under the uniform counting measure on resolved length-$p$ paths, the probability of being at $v$ after $j$ steps is
 
 ```math
 \rho_{p,j}(v)=
@@ -681,7 +681,64 @@ must become independent of $j/p$.
 
 That is now a directly testable numerical condition.
 
-# 12. Gauge coefficient from route growth
+# 12. The first concrete continuum theorem
+
+For a sequence $G_n$, choose $r_n=o(n)$ and $p_n\to\infty$. Suppose:
+
+```math
+\delta_n^2=
+\mathrm{tr}C_{n,p_n,r_n}
+\to0,
+```
+
+```math
+\frac{M^{(1)}_{n,p_n,r_n}}{\delta_n^2}
+\to b,
+```
+
+```math
+\frac{C_{n,p_n,r_n}}{\delta_n^2}
+\to a,
+```
+
+the Lindeberg quantity vanishes, the coefficient fields are tight on compact profile spaces, and the finite-horizon bulk plateau exists.
+
+Then the route-weighted node-profile process, rescaled by
+
+```math
+\tau=j\delta_n^2,
+```
+
+converges—subject to uniqueness of the limiting martingale problem—to
+
+```math
+dX_\tau=
+b(X_\tau)\,d\tau
++
+\sigma(X_\tau)\,dW_\tau,
+\qquad
+\sigma\sigma^\mathsf T=a.
+```
+
+If Lindeberg fails but the scaled edge-jump measures converge, the same construction yields the corresponding Lévy-type operator.
+
+This gives the computable bridge:
+
+```math
+\text{finite DAG}
+\to
+\text{normalized pair profiles}
+\to
+\text{uniform resolved-route kernel}
+\to
+\text{exact increment tensors}
+\to
+\text{continuum coefficients}.
+```
+
+Dynamic programming and sparse profile hashing compute every quantity in that chain, without diagonalizing the nilpotent adjacency matrix or assuming the continuum regime in advance.
+
+# 13. Gauge coefficient from route growth
 
 The per-edge route-growth parameter is
 
@@ -721,7 +778,7 @@ This is the coefficient that enters
 Z_q=qI+i\Omega N.
 ```
 
-# 13. What the computation should output now
+# 14. What the computation should output now
 
 For every processed graph and every selected $p,r$, the next data pass should emit:
 
@@ -774,60 +831,3 @@ and the scaled ratios
 ```
 
 Those three ratios immediately distinguish ballistic, Gaussian and non-Gaussian scaling.
-
-# 14. The first concrete continuum theorem
-
-For a sequence $G_n$, choose $r_n=o(n)$ and $p_n\to\infty$. Suppose:
-
-```math
-\delta_n^2=
-\mathrm{tr}C_{n,p_n,r_n}
-\to0,
-```
-
-```math
-\frac{M^{(1)}_{n,p_n,r_n}}{\delta_n^2}
-\to b,
-```
-
-```math
-\frac{C_{n,p_n,r_n}}{\delta_n^2}
-\to a,
-```
-
-the Lindeberg quantity vanishes, the coefficient fields are tight on the compact profile spaces, and the finite-horizon bulk plateau exists.
-
-Then the route-weighted node-profile process, rescaled by
-
-```math
-\tau=j\delta_n^2,
-```
-
-converges—subject to uniqueness of the limiting martingale problem—to
-
-```math
-dX_\tau=
-b(X_\tau),d\tau
-+
-\sigma(X_\tau),dW_\tau,
-\qquad
-\sigma\sigma^\mathsf T=a.
-```
-
-If Lindeberg fails but the scaled edge-jump measures converge, the same construction yields the corresponding Lévy-type operator.
-
-This gives the computable bridge:
-
-```math
-\text{finite DAG}
-\to
-\text{normalized pair profiles}
-\to
-\text{uniform resolved-route kernel}
-\to
-\text{exact increment tensors}
-\to
-\text{continuum coefficients}.
-```
-
-Every quantity in that chain can be computed by dynamic programming and sparse profile hashing, without diagonalizing the nilpotent adjacency matrix or assuming the continuum regime in advance.

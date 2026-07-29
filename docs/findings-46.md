@@ -172,7 +172,7 @@ D_n(H,G)=
 
 It requires no ensemble choice and no positive eigenfunction.
 
-This will become extremely useful: every coherent infinite growth law on the DAG Bratteli diagram has the same cotransition probabilities $D_n$.
+Every coherent infinite growth law on the DAG Bratteli diagram has cotransition probabilities $D_n$.
 
 # 5. Finite-horizon route counts on the configuration graph
 
@@ -485,7 +485,7 @@ Its variance is therefore order
 \frac1{n^2}.
 ```
 
-If one tried to use $a_n=1/n^2$ as the direct continuum-time increment, then the total future time would be
+If $a_n=1/n^2$ were used directly as the continuum-time increment, the total future time would be:
 
 ```math
 \sum_{n=n_0}^\infty\frac1{n^2}<\infty.
@@ -592,9 +592,9 @@ dY_s=
 \left[
 Db_r^h(x(s))
 +\frac12I
-\right]Y_s,ds
+\right]Y_s\,ds
 +
-\sigma_r^h(x(s)),dW_s,
+\sigma_r^h(x(s))\,dW_s,
 ```
 
 where
@@ -618,9 +618,9 @@ At a fixed profile $x_\ast$,
 dY_s=
 \left(
 J_r+\frac12I
-\right)Y_s,ds
+\right)Y_s\,ds
 +
-\sigma_\ast,dW_s.
+\sigma_\ast\,dW_s.
 ```
 
 Define the positive relaxation operator, when stable, by
@@ -650,7 +650,7 @@ So the spectral problem has finally become concrete:
 
 # 14. Stationary fluctuation covariance
 
-If $B_r$ is stable, meaning its spectrum lies in the open right half-plane, the OU covariance $C_r$ satisfies the Lyapunov equation
+If $B_r$ is stable, with spectrum in the open right half-plane, the OU covariance $C_r$ satisfies the Lyapunov equation
 
 ```math
 B_rC_r+C_rB_r^\mathsf T=
@@ -664,7 +664,7 @@ C_r=
 \int_0^\infty
 e^{-sB_r}
 a_r^h(x_\ast)
-e^{-sB_r^\mathsf T},ds.
+e^{-sB_r^\mathsf T}\,ds.
 ```
 
 This gives a direct numerical route to:

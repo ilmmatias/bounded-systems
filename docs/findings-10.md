@@ -53,7 +53,7 @@ The families
 {F^+_\alpha}_\alpha
 ```
 
-are linearly ordered projection nests. In an operator realization, they give the usual triangular block structure associated with a nest of invariant or coinvariant subspaces.
+are linearly ordered projection nests, giving in an operator realization the usual triangular block structure associated with a nest of invariant or coinvariant subspaces.
 
 ---
 
@@ -93,7 +93,7 @@ and
 n\le \rho_+(u)-\rho_+(v).
 ```
 
-For transfinite ranks, ordinary subtraction is not canonical, so the ordinal inequalities are the correct formulation.
+For transfinite ranks, ordinal inequalities are the correct formulation because ordinary subtraction is not canonical.
 
 A path therefore moves:
 
@@ -322,12 +322,12 @@ R_P(z)
 +
 R_Q(z)
 +
-zR_Q(z),Q\mathbf EP,R_P(z).
+zR_Q(z)\,Q\mathbf EP\,R_P(z).
 ```
 
 The three terms have exact interpretations.
 
-### Paths remaining below the cut
+## Paths remaining below the cut
 
 ```math
 R_P(z).
@@ -342,7 +342,7 @@ R_Q(z).
 ### Paths crossing the cut
 
 ```math
-zR_Q(z),Q\mathbf EP,R_P(z).
+zR_Q(z)\,Q\mathbf EP\,R_P(z).
 ```
 
 A crossing path consists uniquely of:
@@ -367,7 +367,7 @@ P=F^+_\gamma,
 Q=1-P.
 ```
 
-The projection $P$ contains nodes whose future rank is below $\gamma$, meaning nodes near the terminating end of the system.
+The projection $P$ contains nodes of future rank below $\gamma$, near the system's terminating end.
 
 Future-rank initial segments are successor-closed. Therefore
 
@@ -385,7 +385,7 @@ R_P(z)
 +
 R_Q(z)
 +
-zR_P(z),P\mathbf EQ,R_Q(z).
+zR_P(z)\,P\mathbf EQ\,R_Q(z).
 ```
 
 A crossing path consists of:
@@ -485,7 +485,7 @@ F^-_\lambda=
 \bigvee_{\alpha<\lambda}F^-_\alpha.
 ```
 
-Every finite path lying entirely below rank $\lambda$ already lies below some earlier rank $\alpha<\lambda$, because it contains only finitely many nodes.
+Every finite path entirely below rank $\lambda$ lies below some earlier rank $\alpha<\lambda$, since it has only finitely many nodes.
 
 Consequently,
 
@@ -523,7 +523,7 @@ F^-_\beta-F^-_\alpha.
 
 Any path whose source and target lie in this band must remain inside it.
 
-Indeed, past rank strictly increases along the path, so every intermediate rank lies between the source and target ranks.
+Past rank strictly increases along the path, so every intermediate rank lies between the source and target ranks.
 
 Therefore
 
@@ -543,7 +543,7 @@ The compression is the formal resolvent of the induced rank-band subsystem.
 
 The same holds for future-rank bands.
 
-This is stronger than arbitrary node compression. For a random node subset, a path can leave the subset and later reenter. A convex ordinal band forbids that.
+This is stronger than arbitrary node compression: a path can leave and later reenter a random node subset, which a convex ordinal band forbids.
 
 ---
 
@@ -593,7 +593,7 @@ K^-\mathbf EW^-
 R_{W^-}(z).
 ```
 
-The cross term represents paths that begin in the past-well-founded region and eventually enter the backward-infinite core.
+The cross term represents paths beginning in the past-well-founded region and eventually entering the backward-infinite core.
 
 Once such a path enters $K^-$, it cannot leave.
 
@@ -635,7 +635,7 @@ W^+\mathbf EK^+
 R_{K^+}(z).
 ```
 
-This cross term represents paths that begin in the forward-infinite core but eventually branch into a future-well-founded terminating region.
+The cross term represents paths beginning in the forward-infinite core but eventually branching into a future-well-founded terminating region.
 
 ---
 
@@ -728,7 +728,7 @@ It is supported only on the partial order
 \eta>\theta.
 ```
 
-Nodes in the same cell remain distinguishable only through finer channel structure; rank coordinates do not artificially label them.
+Within a cell, nodes remain distinguishable only through finer channel structure; rank coordinates do not artificially label them.
 
 ---
 
@@ -798,7 +798,7 @@ The full spectral radius
 r(S)
 ```
 
-collapses all this into one global exponential growth number. The filtered family retains where the growth occurs.
+collapses this information into one global exponential growth number; the filtered family retains where growth occurs.
 
 ---
 
@@ -834,7 +834,7 @@ z(I-zS_Q)^{-1}C(I-zS_P)^{-1}
 
 is the complete cross-rank transfer function.
 
-The spectral set of $S$ is contained in the union of the spectra of its diagonal blocks:
+The spectral set of $S$ lies in the union of its diagonal blocks' spectra:
 
 ```math
 \sigma(S)
@@ -844,7 +844,7 @@ The spectral set of $S$ is contained in the union of the spectra of its diagonal
 
 In infinite-dimensional triangular operator matrices, equality need not hold.
 
-Even when the spectral set changes little, the cross term can make resolvent norms very large. It therefore contributes to:
+Even when the spectral set changes little, the cross term can make resolvent norms very large, contributing to:
 
 * transient amplification;
 * pseudospectral behavior;

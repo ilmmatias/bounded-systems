@@ -158,7 +158,7 @@ then
 
 The critical growth scale has become a positive adjacency eigenvalue.
 
-Positive vectors satisfying adjacency inequalities, with equality at regular vertices and possible defects at sinks or infinite emitters, also arise naturally in graph-operator-algebra treatments of harmonic and boundary weights.
+Positive vectors satisfying adjacency inequalities, with equality at regular vertices and possible defects at sinks or infinite emitters, arise naturally in graph-operator-algebra treatments of harmonic and boundary weights.
 
 ---
 
@@ -178,7 +178,7 @@ Hence
 h_r(v)\le r^{-2|q|}.
 ```
 
-So for each node reachable from $u$, the normalized ratios are bounded on every interval bounded away from $r=0$.
+For each node reachable from $u$, the normalized ratios are bounded on every interval bounded away from $r=0$.
 
 This is why pointwise cluster functions can exist even while the unnormalized partition functions diverge.
 
@@ -222,9 +222,9 @@ At a sink, a purely harmonic vector must satisfy
 h(v)=0.
 ```
 
-At an infinite emitter, strict inequality can remain. It represents boundary mass that cannot be assigned to any finite collection of outgoing cylinders.
+At an infinite emitter, strict inequality can remain, representing boundary mass that cannot be assigned to any finite collection of outgoing cylinders.
 
-The same equality/inequality distinction is standard in graph-algebra formulations: equality is imposed at ordinary vertices, while sinks and infinite emitters may carry a positive defect.
+Graph-algebra formulations likewise impose equality at ordinary vertices, while sinks and infinite emitters may carry a positive defect.
 
 ---
 
@@ -284,7 +284,7 @@ R^{2|q|}h(v)\\
 
 Thus the adjacency eigenvector equation is exactly the cylinder-conservation equation.
 
-For arbitrary directed graphs, the boundary-path space is naturally realized as the spectrum of the graph diagonal, so these consistent cylinder values define boundary-state data.
+For arbitrary directed graphs, the boundary-path space is naturally the spectrum of the graph diagonal, so consistent cylinder values define boundary-state data.
 
 ---
 
@@ -450,7 +450,7 @@ They do not classify arbitrary route-sensitive boundary states.
 
 # 9. When node compression loses nothing
 
-If every node reachable from $u$ is reached by at most one path, then the endpoint uniquely determines the prefix.
+If every node reachable from $u$ is reached by at most one path, the endpoint uniquely determines the prefix.
 
 In that case, given any prefix-harmonic weight $\Psi$ and any fixed $R>0$, we may define
 
@@ -715,7 +715,7 @@ h(v)>0
 \text{an infinite forward path begins at }v.
 ```
 
-At an infinite emitter this implication can fail because positive superharmonic defect may remain at the emitter itself.
+At an infinite emitter, this implication can fail because positive superharmonic defect may remain there.
 
 ---
 
@@ -790,7 +790,7 @@ Thus
 \pi_h(e\mid v)=\frac1d.
 ```
 
-The equal cylinder splitting is derived from the symmetry and path growth; it was not externally assigned.
+The equal cylinder splitting is derived from symmetry and path growth, not externally assigned.
 
 ---
 
@@ -864,7 +864,7 @@ The two route cylinders receive equal weight
 \frac12.
 ```
 
-But a general route-sensitive prefix state could favor one branch over the other. That asymmetry is precisely what the node eigenvector compression cannot retain.
+A general route-sensitive prefix state could favor one branch over the other, an asymmetry that the node eigenvector compression cannot retain.
 
 ---
 

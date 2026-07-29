@@ -98,7 +98,7 @@ because a sufficiently long branch supplies a path of length $k$.
 
 But every chosen branch eventually terminates. There is no infinite path.
 
-The failure is caused by infinite branching at $v$: every desired length can be obtained by choosing a different first edge.
+Infinite branching at $v$ causes the failure: choosing a different first edge realizes every desired length.
 
 # 3. Infinite paths as an inverse limit
 
@@ -180,7 +180,7 @@ with every $p_n$ extending the preceding one.
 Thus:
 
 ```math
-\forall n,;\mathsf P_n(v)\ne\varnothing
+\forall n,\;\mathsf P_n(v)\ne\varnothing
 \not\Rightarrow
 \varprojlim_n\mathsf P_n(v)\ne\varnothing.
 ```
@@ -247,13 +247,13 @@ The compatibility conditions
 
 define closed subsets.
 
-Every finite collection of compatibility conditions is satisfiable: choose a sufficiently long finite path and take all its prefixes.
+Every finite set of compatibility conditions is satisfiable by taking all prefixes of a sufficiently long finite path.
 
 Compactness implies that all compatibility conditions can be satisfied simultaneously.
 
 Thus the inverse limit is nonempty.
 
-This identifies exactly what the infinitely branching counterexample lacks: its prefix levels are infinite discrete spaces and therefore are not compact.
+The infinitely branching counterexample fails exactly because its prefix levels are infinite discrete spaces and therefore are not compact.
 
 # 7. The completed prefix space
 
@@ -446,13 +446,13 @@ Z(p)
 
 Thus $p$ is isolated in the prefix space.
 
-If $v$ emits infinitely many edges, no finite list of exclusions removes every proper extension of $p$. The point $p$ need not be isolated.
+If $v$ emits infinitely many edges, no finite exclusion list removes every proper extension of $p$, so $p$ need not be isolated.
 
 This explains the rooted counterexample topologically.
 
-For the infinitely branching root $v$, longer and longer finite branches can converge back to the finite path $1_v$, rather than converging to an infinite branch.
+For the infinitely branching root $v$, increasingly long finite branches can converge to the finite path $1_v$ rather than an infinite branch.
 
-Under finite branching, every finite path is isolated. Therefore an accumulation point of paths whose lengths tend to infinity must be an actual infinite path.
+Under finite branching, every finite path is isolated; hence any accumulation point of arbitrarily long paths must be an actual infinite path.
 
 That is the topological form of König’s lemma.
 
@@ -501,7 +501,7 @@ e_{\bullet}\mathbf E^ne_v
 
 with the source corner fixed at $v$.
 
-So the full marked formal resolvent does determine the infinite boundary. It does not do so through any single coefficient or spectral value, but through the inverse system formed by all degrees simultaneously.
+The full marked formal resolvent determines the infinite boundary through the inverse system of all degrees, not through any single coefficient or spectral value.
 
 The correct hierarchy is:
 
@@ -531,7 +531,7 @@ define
 
 This syntactic operation deletes the first primitive channel from a channel factorization.
 
-For finite paths, it reduces compositional length by one. For infinite paths, it produces the remaining infinite tail.
+It reduces finite-path length by one and produces the remaining infinite tail of an infinite path.
 
 ## Acyclicity theorem
 
@@ -569,7 +569,7 @@ Two infinite paths are tail equivalent when
 
 for some $m,n\ge0$.
 
-This means the paths may begin differently but eventually merge into the same infinite communication route.
+The paths may begin differently but eventually merge into the same infinite communication route.
 
 Tail equivalence records confluence:
 
@@ -581,7 +581,7 @@ Tail equivalence records confluence:
 \end{matrix}
 ```
 
-It is invisible to simple path counts and often invisible to aggregate spectra, but it is intrinsic to the full path structure.
+Although invisible to simple path counts and often to aggregate spectra, it is intrinsic to the full path structure.
 
 # 14. Forward and backward boundaries
 
@@ -650,7 +650,7 @@ has both and contains a bi-infinite path.
 
 # 15. Exact classification of depth phenomena
 
-We can now classify the main possibilities.
+The main possibilities are:
 
 | Property                                               | Algebraic/formal signature            | Boundary signature                    |
 | ------------------------------------------------------ | ------------------------------------- | ------------------------------------- |
@@ -660,4 +660,4 @@ We can now classify the main possibilities.
 | Actual infinite path                                   | compatible prefixes at all depths     | $\partial^+_vG\ne\varnothing$         |
 | Bi-infinite chain                                      | compatible forward and backward tails | $\partial^{\mathbb Z}G\ne\varnothing$ |
 
-This is the first layer of the theory that distinguishes genuine infinite structure from mere absence of a finite height bound.
+This layer first distinguishes genuine infinite structure from mere absence of a finite height bound.

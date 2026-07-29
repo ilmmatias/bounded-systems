@@ -37,7 +37,7 @@ run_shard() {
     fi
 
     "$directg" -aq "-s${shard}/${shards}" "$undirected" \
-        | "$root/bin/artifact" wl-scan 2> "$log.tmp" \
+        | "$root/bin/driver" wl-scan 2> "$log.tmp" \
         | LC_ALL=C sort --parallel=1 \
             -S "$sort_memory" -k1,1 \
         > "$records.tmp"
@@ -60,6 +60,6 @@ wait
 
 echo "merging exact one-round profile buckets"
 LC_ALL=C sort -m -k1,1 "$output"/shards/*.tsv \
-    | "$root/bin/artifact" wl-reduce \
+    | "$root/bin/driver" wl-reduce \
         --vertices "$vertex_count" \
         --output "$output"

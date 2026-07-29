@@ -220,7 +220,7 @@ For $u<v$,
 \mathfrak m_\alpha(u,v;z).
 ```
 
-Indeed, the $m$-fold convolution term sums over strict $m$-factor chains, and multiplication of their weights gives
+The $m$-fold convolution term sums over strict $m$-factor chains, whose weight products give
 
 ```math
 z^{d_\alpha(x_0,x_1)}
@@ -394,7 +394,7 @@ The geodesic direct/factorized contributions cancel. The genuine diamond coheren
 
 ## Boolean interval $B_3$
 
-Every strict factorization chain from bottom to top has total cost three. The alternating chain count is the ordinary Möbius value $-1$. Thus
+Every strict bottom-to-top factorization chain has total cost three, and the alternating chain count is the ordinary Möbius value $-1$. Thus
 
 ```math
 \mathfrak m(\varnothing,[3];z)=
@@ -413,7 +413,7 @@ With several parallel channels $u\to v$ and no intermediate node,
 
 The result is independent of channel multiplicity.
 
-That multiplicity existed on the route-resolved page but disappeared under vertical collapse. This confirms that the weighted Möbius series is still a thin invariant.
+That multiplicity appeared on the route-resolved page but vanished under vertical collapse, confirming that the weighted Möbius series remains a thin invariant.
 
 # 8. Two-parameter persistence remains primary
 
@@ -466,7 +466,7 @@ Rank invariants and their generalizations are central tools in multiparameter pe
 
 # 9. Persistent Euler rank
 
-The pointwise Euler value knows only what exists at one scale. We can retain some survival information by defining
+The pointwise Euler value records only what exists at one scale; some survival information is retained by defining
 
 ```math
 \Xi
@@ -492,7 +492,7 @@ At equal parameter values,
 
 For distinct parameter values, $\Xi$ is the signed number of coherence classes that persist across the specified rectangle in parameter space.
 
-It is finer than the pointwise Euler profile but still much coarser than the full graded rank invariant:
+It refines the pointwise Euler profile but remains much coarser than the full graded rank invariant:
 
 ```math
 {\rho_n}_n
@@ -514,7 +514,7 @@ N\in\mathbb N,
 
 so the variable $z$ is canonical.
 
-Transfinite rank is different. There is no canonical real or complex scalar corresponding to an arbitrary ordinal, and ordinal addition is not a commutative grading law suitable for an ordinary power series.
+Transfinite rank differs: no canonical real or complex scalar corresponds to an arbitrary ordinal, and ordinal addition is not a commutative grading law for an ordinary power series.
 
 Therefore we should retain
 
@@ -545,11 +545,11 @@ At a limit ordinal $\lambda$, no finite chain first appears only at $\lambda$. E
 
 Homology commutes with this filtered union at the algebraic chain level. Scalar Euler characteristics, however, need not commute with it unless suitable finite-type assumptions hold.
 
-If all ranks happen to be natural numbers, one may introduce a second formal variable $y$. That is a valid specialization, but not the unrestricted cardinality-independent construction.
+If all ranks are natural numbers, one may introduce a second formal variable $y$; this is a valid specialization, but not the unrestricted cardinality-independent construction.
 
 # 11. Exact information-loss hierarchy
 
-We can now state precisely what each level retains.
+The levels retain:
 
 ## Full bifiltered route–factorization complex
 
@@ -616,7 +616,7 @@ Loses:
 * torsion;
 * cancellations between even and odd coherence.
 
-Euler-characteristic profiles are computationally economical precisely because they compress a filtered complex to one alternating scalar per scale.
+Euler-characteristic profiles are computationally economical because they compress a filtered complex to one alternating scalar per scale.
 
 ## Weighted Möbius series
 
@@ -670,7 +670,7 @@ Similarly,
 
 has ordinary integer coefficients when there are finitely many factorization chains of every exact cost.
 
-If infinitely many positive and negative terms occur at one cost, A1–A5 provide no canonical subtraction of infinite cardinals. In that case:
+If one cost has infinitely many positive and negative terms, A1–A5 provide no canonical subtraction of infinite cardinals. Then:
 
 ```math
 \text{retain the chain complex or persistence module;}

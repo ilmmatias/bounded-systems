@@ -23,7 +23,7 @@ Its first group does recover
 
 But path algebras are hereditary in the standard quiver setting, so their module homology vanishes above degree one. Thus $\mathrm{Tor}^A_n(B,B)$ can be zero for $n\ge2$ even though the route relations possess nontrivial compositions and dependencies.
 
-The reason is structural: $A$ is the free path algebra. Resolving $B$ over the free algebra asks how complicated $B$ is as an $A$-module, not how route ambiguities interact internally.
+Structurally, $A$ is the free path algebra, so resolving $B$ over it measures the complexity of $B$ as an $A$-module, not the internal interaction of route ambiguities.
 
 The correct algebra is instead the associated graded route algebra.
 
@@ -64,7 +64,7 @@ This grading exists even when route equalities mix original path lengths. For in
 e-p
 ```
 
-may compare a length-one path with a length-three path, but it still has ambiguity order one.
+may compare a length-one path with a length-three path while still having ambiguity order one.
 
 Set
 
@@ -154,7 +154,7 @@ Associativity gives
 d_{n-1}d_n=0.
 ```
 
-This is the standard reduced bar mechanism: neighboring factors are composed, while the alternating signs make the different ways of composing cancel. Bar resolutions are the canonical large resolutions used for associative algebras; quiver-with-relations theory often replaces them with smaller equivalent resolutions for calculation.
+This is the standard reduced bar mechanism: neighboring factors are composed, and alternating signs cancel the different compositions. Bar resolutions are the canonical large resolutions for associative algebras; quiver-with-relations theory often uses smaller equivalent resolutions for calculation.
 
 Define the route-syzygy homology
 
@@ -327,7 +327,7 @@ It records linear dependencies among two-stage ambiguity factorizations, after t
 
 ## Quadratic case
 
-For $m=2$, no three-factor chain can have total degree two. Therefore there are no incoming degree-three boundaries:
+For $m=2$, no three-factor chain has total degree two, so there are no incoming degree-three boundaries:
 
 ```math
 H_{2,2}^{\mathrm{rt}}=
@@ -606,7 +606,7 @@ x\otimes y\otimes z
 xy\otimes z-x\otimes yz.
 ```
 
-A class survives precisely when the two adjacent ways of composing its ambiguity factors cancel in a nontrivial linear combination.
+A class survives precisely when the two adjacent compositions of its ambiguity factors cancel in a nontrivial linear combination.
 
 This is the first level that can detect coherence among quadratic route relations.
 
@@ -757,7 +757,7 @@ I_{\mathbb Z},
 H_{n,m}^{\mathrm{rt}}(G;\mathbb Z).
 ```
 
-Then a field-valued version is obtained by scalar extension, subject to the usual possible torsion effects.
+A field-valued version then follows by scalar extension, subject to the usual possible torsion effects.
 
 Thus the most coefficient-neutral invariant is
 
@@ -777,7 +777,7 @@ Because the bar complex uses finite algebraic sums, it is independent of:
 * Hilbert norm;
 * convergence convention.
 
-The infinite-route result established earlier shows that route-collapse coefficient summation can become unbounded in Fock norm.
+The earlier infinite-route result shows that route-collapse coefficient summation can be unbounded in Fock norm.
 
 Therefore there is no automatic canonical Hilbert completion of the route-syzygy complex.
 

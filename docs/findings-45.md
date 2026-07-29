@@ -97,11 +97,11 @@ The direct-relation frequencies are already determined by the first two coordina
 \frac{\left|\{v:v\to u\}\right|}n=\frac{d^-(u)}n.
 ```
 
-Equality contributes $1/n$, and incomparability is the remainder. Thus those relation-count cylinders add no independent first-order information.
+Equality contributes $1/n$; incomparability is the remainder, so these relation-count cylinders add no independent first-order information.
 
 Partner-degree averages that do not depend on $u$ are also graph-global constants and do not contribute to node motion.
 
-So these six coordinates are the minimal nonredundant linear node cylinders supplied by the current communication record.
+These six coordinates are the minimal nonredundant linear node cylinders supplied by the current communication record.
 
 # 2. Integer node signatures
 
@@ -182,7 +182,7 @@ m_e
 r_{p-j-1}(w).
 ```
 
-This counts how many edge occurrences across all length-$p$ routes use $e$, summed over every possible route position.
+This counts the occurrences of $e$ in all length-$p$ routes, summed over all route positions.
 
 The normalized route-averaged edge flow is
 
@@ -427,7 +427,7 @@ Consequently:
 
 > The globally route-averaged drift is a horizon-boundary effect.
 
-It normally disappears as $p\to\infty$. Therefore global mean drift cannot be used alone to decide whether the local continuum dynamics has drift.
+It normally vanishes as $p\to\infty$; therefore, global mean drift alone cannot determine whether the local continuum dynamics has drift.
 
 The local quantities
 
@@ -671,7 +671,7 @@ The finite route-growth sequence is
 \log\frac{T_{p+1}}{T_p}.
 ```
 
-For finite DAGs, it must eventually collapse because $T_p=0$ past the maximum path length. We are looking for an interior plateau in graph families of increasing height.
+For finite DAGs, it must eventually collapse because $T_p=0$ beyond the maximum path length; we seek an interior plateau in graph families of increasing height.
 
 Define
 
@@ -718,7 +718,54 @@ a_{G_n,p_n}
 
 This is the coefficient entering the continuum master resolvent.
 
-# 12. Streaming implementation
+# 12. The first computable convergence criterion
+
+For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when all of the following occur:
+
+```math
+a_n\to0,
+```
+
+```math
+\mathfrak L_n(\epsilon)\to0
+\quad\forall\epsilon>0,
+```
+
+```math
+\mathfrak K_{3,n}\to0,
+```
+
+```math
+\mathfrak E_n\to0,
+```
+
+```math
+\mathfrak P_n\to0,
+```
+
+and the scaled local tensors
+
+```math
+b_{a,n},
+\qquad
+A_{a,n}
+```
+
+converge as functions of the profile coordinate.
+
+If small jumps fail, retain the empirical class-jump measure
+
+```math
+\nu_n(\xi_a,dz)=
+\frac1{a_n}
+\sum_b
+K_{ab}^{(p_n)}
+\delta_{\xi_b-\xi_a}(dz)
+```
+
+and test it for Lévy convergence instead.
+
+# 13. Streaming implementation
 
 The first-pass implementation can be written as follows.
 
@@ -825,7 +872,7 @@ The identity
 
 makes overflow or normalization errors easy to detect.
 
-# 13. Suggested output record
+# 14. Suggested output record
 
 A compact binary output record for each $(G,p)$ should contain:
 
@@ -872,7 +919,7 @@ for the symmetric cubic tensor.
 
 So the full low-order coefficient record remains small.
 
-# 14. Hierarchy beyond the six-coordinate pass
+# 15. Hierarchy beyond the six-coordinate pass
 
 The progression should be:
 
@@ -926,50 +973,3 @@ Replace $c_1$ by $c_r$, stopping when:
 is below tolerance or reaches zero exactly.
 
 Thus the required refinement depth is selected dynamically by Markov closure, not merely by graph-isomorphism separation.
-
-# 15. The first computable convergence criterion
-
-For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when all of the following occur:
-
-```math
-a_n\to0,
-```
-
-```math
-\mathfrak L_n(\epsilon)\to0
-\quad\forall\epsilon>0,
-```
-
-```math
-\mathfrak K_{3,n}\to0,
-```
-
-```math
-\mathfrak E_n\to0,
-```
-
-```math
-\mathfrak P_n\to0,
-```
-
-and the scaled local tensors
-
-```math
-b_{a,n},
-\qquad
-A_{a,n}
-```
-
-converge as functions of the profile coordinate.
-
-If small jumps fail, retain the empirical class-jump measure
-
-```math
-\nu_n(\xi_a,dz)=
-\frac1{a_n}
-\sum_b
-K_{ab}^{(p_n)}
-\delta_{\xi_b-\xi_a}(dz)
-```
-
-and test it for Lévy convergence instead.

@@ -1,4 +1,4 @@
-# Build the artifact generator and reproduce the finite-DAG data products.
+# Build the main driver and reproduce the finite-DAG data products.
 #
 #   make
 #   make findings-2
@@ -17,8 +17,8 @@ BIN   := bin
 DATA  := data
 
 SOURCES := \
-    $(SRC)/artifact.cxx \
     $(SRC)/digraph6.cxx \
+    $(SRC)/driver.cxx \
     $(SRC)/graph.cxx \
     $(SRC)/spectral_profile.cxx \
     $(SRC)/wl_profile.cxx
@@ -29,12 +29,17 @@ HEADERS := \
     $(SRC)/spectral_profile.hxx \
     $(SRC)/wl_profile.hxx
 
-PROGRAM := $(BIN)/artifact
+PROGRAM := $(BIN)/driver
 
-.PHONY: all clean
+.PHONY: all clean check-docs
 .PHONY: findings-2 findings-43
 
 all: $(PROGRAM)
+
+check-docs:
+	@npm --prefix tools/check-docs ci --ignore-scripts --silent
+	@npm --prefix tools/check-docs run check --silent
+	@npm --prefix tools/check-docs run validate --silent
 
 findings-2: $(PROGRAM)
 	@scripts/generate_spectral.sh 4 $(DATA)/findings-2/n4

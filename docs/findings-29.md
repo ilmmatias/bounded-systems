@@ -16,9 +16,9 @@ t\sum_{e:s(e)=v}G_t(r(e),x).
 
 At a finite emitter, this is an ordinary finite sum.
 
-At an infinite emitter, it is an equality in the extended nonnegative reals; to use scalar Martin kernels, we restrict to endpoint pairs for which the value is finite.
+At an infinite emitter, this equality is in the extended nonnegative reals; we restrict scalar Martin kernels to endpoint pairs for which the value is finite.
 
-The standard Martin construction likewise begins with a Green kernel and normalizes its columns by a reference state. 
+The standard Martin construction likewise begins with a Green kernel and normalizes its columns by a reference state.
 
 ---
 
@@ -91,7 +91,7 @@ The added points constitute its node Martin boundary
 \overline V_t^{\,M}\setminus V_o.
 ```
 
-For countable transient Markov kernels, this is the usual Martin compactification; the product-closure formulation above remains meaningful for arbitrary set-sized systems whenever the Green columns are finite. Standard Martin theory defines convergence exactly through coordinatewise convergence of the normalized kernels. 
+For countable transient Markov kernels, this is the usual Martin compactification; for arbitrary set-sized systems, the product-closure formulation remains meaningful whenever the Green columns are finite. Standard Martin convergence is exactly coordinatewise convergence of the normalized kernels.
 
 ---
 
@@ -136,7 +136,7 @@ h(v)
 t\sum_{e\in F}h(r(e)).
 ```
 
-Thus node Martin boundary points produce exactly the harmonic or superharmonic functions derived in the preceding section.
+Node Martin boundary points yield exactly the harmonic or superharmonic functions derived in the preceding section.
 
 ---
 
@@ -182,9 +182,9 @@ h=ah_1+(1-a)h_2,
 
 then $ah_1\le h$; minimality forces $h_1=h$, and similarly $h_2=h$. The converse follows by normalizing any harmonic $0\le g\le h$.
 
-The minimal Martin boundary consists of boundary kernels that are minimal harmonic. The full Martin boundary can be larger than its minimal part; full and minimal boundaries coincide only in special systems.
+The minimal Martin boundary comprises the boundary kernels that are minimal harmonic; the full boundary can be larger and coincides with its minimal part only in special systems.
 
-Under the familiar countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. For the completely unrestricted A1–A5 setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, while a full integral-representation theorem requires additional analytic assumptions. 
+Under the countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. In the unrestricted A1–A5 setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, but a full integral-representation theorem requires additional analytic assumptions.
 
 ---
 
@@ -219,7 +219,7 @@ Indeed,
 
 This is a static normalized ensemble of paths ending at $x$, not an external temporal law.
 
-Now let $p:o\to v$ be a finite path. The probability that the selected terminal route begins with $p$ is
+For a finite path $p:o\to v$, the probability that the selected terminal route begins with $p$ is
 
 ```math
 \begin{aligned}
@@ -326,7 +326,7 @@ This distribution is independent of the eventual destination $x$.
 
 Consequences:
 
-### Equal-length routes
+## Equal-length routes
 
 If
 
@@ -737,7 +737,7 @@ At a boundary limit $h$,
 t\frac{h(r(e))}{h(v)}.
 ```
 
-So endpoint-factorized Martin states are precisely those whose cylinder splitting forgets previous route history once the current node is known.
+Endpoint-factorized Martin states are precisely those whose cylinder splitting forgets route history once the current node is known.
 
 This memorylessness follows algebraically from collapsing all histories ending at the same node.
 
@@ -783,7 +783,7 @@ It merges or averages histories according to their weighted route multiplicities
 
 Retains only extreme endpoint-factorized harmonic functions.
 
-The maps are conceptually
+The maps are
 
 ```math
 \text{route histories}

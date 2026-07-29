@@ -288,7 +288,7 @@ does not lie in $\ell^2$.
 
 There is therefore no normalized equal-route direction orthogonal to the route defects.
 
-Indeed, the finite-support zero-sum vectors are dense in the entire fiber. For any fixed route $p$, choose distinct alternatives $q_1,\ldots,q_N$ and define
+The finite-support zero-sum vectors are dense in the entire fiber. For any fixed route $p$, choose distinct alternatives $q_1,\ldots,q_N$ and define
 
 ```math
 y_N=
@@ -380,7 +380,7 @@ Equivalently,
 U_n|\Sigma_n|.
 ```
 
-The general polar-decomposition theorem applies to closed densely defined Hilbert-space operators; here the decomposition is visible directly from the endpoint blocks.
+The general polar-decomposition theorem applies to closed densely defined Hilbert-space operators, whereas here the endpoint blocks display the decomposition directly.
 
 The initial projection is
 
@@ -511,7 +511,7 @@ The family
 {D_n}_{n\ge0}
 ```
 
-is a canonical positive shadow of the resolved path system whenever the endpoint multiplicities are finite.
+is a canonical positive shadow of the resolved path system for finite endpoint multiplicities.
 
 It contains all path counts:
 
@@ -668,7 +668,7 @@ N_n(v,u)<\infty,\\
 
 They control different operators.
 
-### Endpoint collapse
+## Endpoint collapse
 
 ```math
 \Sigma_n
@@ -808,7 +808,7 @@ What fails is precisely the Hilbert-space endpoint-summation operator:
 \Sigma_n^0
 ```
 
-is nonclosable, and no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$ represents an infinite cardinal as an ordinary scalar eigenvalue.
+is nonclosable; no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$ represents an infinite cardinal as an ordinary scalar eigenvalue.
 
 Thus the unrestricted hierarchy is:
 
@@ -823,4 +823,4 @@ N_n^\mathcal{\#},\ Z_n,\ d,\\
 \end{aligned}
 ```
 
-The analytic failure marks the boundary of the Hilbert representation without changing the underlying relational data.
+The analytic failure marks the Hilbert representation's boundary without changing the underlying relational data.

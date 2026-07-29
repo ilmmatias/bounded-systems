@@ -28,7 +28,41 @@ secondary=NOT_EVALUATED_OR_FAIL
 
 The failure was not a runtime or normalization error. It indicated that the proposed projected route state did not satisfy the assumptions needed for a direct generator comparison.
 
-# 2. Per-position route closure looked deceptively strong
+# 2. What survived
+
+The failures did not erase the entire bridge. They exposed three robust remnants:
+
+1. a low-rank route cross-moment operator;
+2. a stable right singular subspace;
+3. a candidate one-dimensional graph-profile direction inside that subspace.
+
+The route process may therefore select the same state sector as configuration dynamics without sharing the same complete local generator or left observable.
+
+# 3. What the failed closure tests ruled out
+
+The combined diagnostics disfavor the following simple model:
+
+> A route endpoint carries a finite six- or low-order-jet profile whose conditional next-step law is autonomous and can be identified directly with the configuration hydrodynamic Jacobian.
+
+The reason is structural rather than statistical:
+
+* route position is strongly encoded;
+* state supports separate with size;
+* leaving out one position destroys prediction;
+* deeper deterministic and covariance jets do not restore transfer;
+* a common left observable is unstable.
+
+# 4. Methodological conclusion
+
+Reporting only the high within-position $R^2$ would have made the route process appear closed; the leave-one-position-out and overlap tests showed that this was an interpolation artifact on position-separated support.
+
+The correct lesson is
+
+```math
+\text{high local predictability is not evidence of autonomous continuum closure.}
+```
+
+# 5. Per-position route closure looked deceptively strong
 
 A first closure probe regressed local route transitions separately at each route position.
 
@@ -42,9 +76,9 @@ At $N=64$, the augmented local dictionary achieved high within-position fit:
 
 This initially suggested that a finite local closure might exist.
 
-However, a strong fit conditional on route position is not the same as an autonomous state law.
+A strong fit conditional on route position does not establish an autonomous state law.
 
-# 3. Autonomy test
+# 6. Autonomy test
 
 The decisive test pooled route positions and then left one position out.
 
@@ -84,9 +118,9 @@ Therefore
 
 The local profile was not an autonomous route state.
 
-# 4. State-overlap analysis
+# 7. State-overlap analysis
 
-A node-overlap sampler emitted multiple nodes from each graph and route position to determine whether failure came merely from poor support overlap.
+A node-overlap sampler emitted multiple nodes per graph and route position to test whether failure resulted merely from poor support overlap.
 
 The route-position class was almost perfectly recoverable:
 
@@ -114,7 +148,7 @@ Adding the explicit route-time coordinate produced negligible gain, typically of
 
 and sometimes negative.
 
-# 5. Graph-context test
+# 8. Graph-context test
 
 The next possibility was that a local node profile required a small graph-global context variable.
 
@@ -125,13 +159,13 @@ The analysis compared:
 * local state plus graph profile;
 * both global additions.
 
-The global additions improved fit only slightly, generally by a few thousandths to a few hundredths. Permuting the graph-profile context across graphs produced essentially no positive gain.
+The global additions improved fit only slightly, generally by a few thousandths to a few hundredths; permuting graph-profile context across graphs produced essentially no positive gain.
 
 The between-graph variance was small compared with the unresolved within-route variation.
 
 Therefore no simple graph-global scalar or low-dimensional graph profile repaired closure.
 
-# 6. Route jets
+# 9. Route jets
 
 A route jet records present and nearby route-position features. Depths up to four were tested.
 
@@ -157,7 +191,7 @@ to
 
 Thus deterministic finite route history did not provide the missing autonomous coordinate.
 
-# 7. Covariance and cross-covariance jets
+# 10. Covariance and cross-covariance jets
 
 The next probes added:
 
@@ -169,7 +203,7 @@ These features gave small, inconsistent gains. Some short-horizon positions impr
 
 The cross-covariance gain reached about $0.071$ in one horizon-position cell, but did not form a stable monotone pattern and did not repair long-horizon closure.
 
-# 8. Singular bridge discovery
+# 11. Singular bridge discovery
 
 Although full closure failed, the cross-moment operators exhibited a sharp singular structure.
 
@@ -188,9 +222,9 @@ The right singular geometry was stable:
 
 The left geometry was not stable under the original exact-pair bootstrap. Its upper confidence angles reached roughly 12-16 degrees, and left-null residual intervals exceeded the preregistered limit.
 
-Thus the original two-sided bridge failed because the left observable was not shared, even though the right state geometry was much cleaner.
+The original two-sided bridge thus failed because the left observable was not shared, although the right state geometry was much cleaner.
 
-# 9. Sector-adapted left tests
+# 12. Sector-adapted left tests
 
 A second singular-sector analysis replaced the exact left vector by a fitted left sector. Point estimates improved dramatically, with sector angles often below one degree.
 
@@ -207,38 +241,4 @@ This was the decisive conceptual change:
 
 ```math
 \text{the route/configuration bridge should be tested one-sidedly first.}
-```
-
-# 10. What the failed closure tests ruled out
-
-The combined diagnostics disfavor the following simple model:
-
-> A route endpoint carries a finite six- or low-order-jet profile whose conditional next-step law is autonomous and can be identified directly with the configuration hydrodynamic Jacobian.
-
-The reason is structural rather than statistical:
-
-* route position is strongly encoded;
-* state supports separate with size;
-* leaving out one position destroys prediction;
-* deeper deterministic and covariance jets do not restore transfer;
-* a common left observable is unstable.
-
-# 11. What survived
-
-The failures did not erase the entire bridge. They exposed three robust remnants:
-
-1. a low-rank route cross-moment operator;
-2. a stable right singular subspace;
-3. a candidate one-dimensional graph-profile direction inside that subspace.
-
-This suggested that the route process may select the same state sector as configuration dynamics without sharing the same complete local generator or left observable.
-
-# 12. Methodological conclusion
-
-Negative results were essential here. Had only the high within-position $R^2$ been reported, the route process would have appeared closed. The leave-one-position-out and overlap tests showed that this was an interpolation artifact on position-separated support.
-
-The correct lesson is
-
-```math
-\text{high local predictability is not evidence of autonomous continuum closure.}
 ```

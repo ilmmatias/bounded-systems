@@ -1,6 +1,6 @@
 # 1. From a failed full bridge to a one-sided bridge
 
-The route closure studies showed that a common full local generator was too strong a demand. The stable object was the right state geometry.
+Requiring a common full local generator was too strong; the stable object was the right state geometry.
 
 The revised bridge question became:
 
@@ -14,7 +14,33 @@ Only the candidate state direction is compared; the complete route state may rem
 * different full finite matrices;
 * different time normalizations.
 
-# 2. The candidate state line
+# 2. Central bridge conclusion
+
+The bridge now has a mechanism-level form:
+
+```math
+\text{latent order covariance uniquely selects }r_0,
+```
+
+while
+
+```math
+J_{\mathrm{config}}r_0=-2r_0.
+```
+
+Therefore
+
+```math
+\text{configuration dynamics and route geometry independently select}
+```
+
+```math
+\text{the same exact one-dimensional state sector.}
+```
+
+This is stronger than numerical alignment of two fitted eigenvectors. One side is a configuration semigroup direction; the other follows from an exact intersection of latent covariance and graph-profile ranges.
+
+# 3. The candidate state line
 
 The singular route analysis identified the four-coordinate graph-profile vector
 
@@ -22,7 +48,7 @@ The singular route analysis identified the four-coordinate graph-profile vector
 r_0=(0,1,-1,-1)^\mathsf T.
 ```
 
-Its interpretation is a fluctuation that leaves the edge coordinate unchanged while increasing the directed two-path coordinate and decreasing both wedge coordinates in the corresponding ratio.
+This fluctuation leaves the edge coordinate unchanged, increases the directed two-path coordinate, and decreases both wedge coordinates in the corresponding ratio.
 
 Using the normalized vector
 
@@ -32,7 +58,7 @@ Using the normalized vector
 
 the route right singular vector converged toward this line.
 
-# 3. Independent confirmatory design
+# 4. Independent confirmatory design
 
 A fresh state-line experiment used independent sizes and seeds:
 
@@ -58,7 +84,7 @@ The sample counts were
 
 The design was fixed before the confirmatory analysis.
 
-# 4. Confirmatory state-line results
+# 5. Confirmatory state-line results
 
 The results were:
 
@@ -80,7 +106,7 @@ while exact clock ratio nine remained unresolved.
 
 Thus the state line passed independently of the later scalar-clock interpretation.
 
-# 5. Configuration dynamics on the same line
+# 6. Configuration dynamics on the same line
 
 The configuration semigroup and constrained Jacobian analysis had already identified an odd/tangent mode with
 
@@ -102,7 +128,7 @@ and
 
 This is the first direct bridge between the two continuum constructions.
 
-# 6. Regression geometry and singular scaling
+# 7. Regression geometry and singular scaling
 
 A dedicated route-geometry sampler measured the cross-moment and covariance matrices through sizes 96 to 288.
 
@@ -116,9 +142,9 @@ Across all three relative horizons:
 
 This established the singular hierarchy needed for a finite slow state embedded in otherwise fast route coordinates.
 
-# 7. Corrected Kramers-Moyal reduction
+# 8. Corrected Kramers-Moyal reduction
 
-The uncorrected Kramers-Moyal reduction mixed the first-order drift cancellation with the singular covariance scaling. After separating these terms, the corrected analysis found:
+The uncorrected Kramers-Moyal reduction mixed first-order drift cancellation with singular covariance scaling; separating them yielded the corrected findings:
 
 | $\rho$ | corrected angle | null residual | slow clock estimate |
 |---:|---:|---:|---:|
@@ -132,9 +158,9 @@ The diagnosis was
 FIRST_ORDER_DRIFT_CANCELLATION_SUPPORTED
 ```
 
-The state-sector result therefore came from cancellation in a singular covariance geometry, not from an ordinary nonsingular local regression.
+Thus, the state-sector result arose from cancellation in singular covariance geometry, not ordinary nonsingular local regression.
 
-# 8. Ordered-Bernoulli surrogate transfer
+# 9. Ordered-Bernoulli surrogate transfer
 
 An ordered-Bernoulli DAG surrogate with forward-edge probability one half reproduced the route singular structure.
 
@@ -153,15 +179,15 @@ structure=REPRODUCED
 quantitative=MATCH
 ```
 
-Thus the simple ordered latent-position model captured both the singular state geometry and most finite quantitative structure.
+Thus, the simple ordered latent-position model captured the singular state geometry and most finite quantitative structure.
 
-# 9. Planted versus quenched route conditioning
+# 10. Planted versus quenched route conditioning
 
 A planted-route ensemble was then compared with the quenched ordered-Bernoulli route law.
 
 At the shortest relative horizon, forcing a route produced large finite-size changes and failed the initial quantitative comparison. At the two longer horizons, the singular structure and clock remained compatible.
 
-Pooling route records before inversion reduced the discrepancy and restored the rank-three cancellation, but a residual matrix mismatch remained.
+Pooling route records before inversion reduced the discrepancy and restored rank-three cancellation but left a residual matrix mismatch.
 
 This showed that:
 
@@ -169,7 +195,7 @@ This showed that:
 * mean-of-fits and pooled estimators need not agree as full matrices;
 * route conditioning changes finite left geometry more strongly than the right state sector.
 
-# 10. Failure of simple pathwise factorization
+# 11. Failure of simple pathwise factorization
 
 A direct attempt to factor the pooled null correction into a pathwise kernel failed.
 
@@ -179,9 +205,9 @@ The residual component had high cosine alignment with the expected sign directio
 0.83\text{ to }0.97.
 ```
 
-Therefore the finite correction is not generated by a simple single-path observable. It is an ensemble-level singular perturbation.
+Thus, the finite correction is an ensemble-level singular perturbation, not the product of a simple single-path observable.
 
-# 11. Asymptotic matrix pencil
+# 12. Asymptotic matrix pencil
 
 The covariance/cross-moment matrices displayed singular-value exponents approximately
 
@@ -191,9 +217,9 @@ The covariance/cross-moment matrices displayed singular-value exponents approxim
 
 for the relevant reduced pencil.
 
-Attempts to recover the slow line from a naive leading/subleading matrix expansion were numerically unstable because the leading covariance range itself has an internal weak direction. The correct treatment required identifying the latent geometry of the leading range.
+Naive leading/subleading matrix expansions were numerically unstable because the leading covariance range has an internal weak direction; correct treatment required identifying its latent geometry.
 
-# 12. Latent order-position basis
+# 13. Latent order-position basis
 
 For forward-edge probability $q$, the leading six-coordinate local profile depends on latent position $t$ through two centered polynomial directions:
 
@@ -263,7 +289,7 @@ we obtain the exact identity
 
 This is independent of $q$ and of the detailed nondegenerate covariance of $(t,t^2)$.
 
-# 13. Empirical latent covariance
+# 14. Empirical latent covariance
 
 The fitted latent covariance was approximately
 
@@ -287,7 +313,7 @@ The matrix equals
 \mathrm{Cov}_{t\sim U[0,1]}(t,t^2).
 ```
 
-The leading covariance fit errors were below one percent, usually below a few thousandths, and the empirical leading subspace angles were very small in the quenched ensemble.
+Leading covariance fit errors were below one percent, usually below a few thousandths, and empirical leading-subspace angles were very small in the quenched ensemble.
 
 The latent-geometry analysis therefore returned
 
@@ -295,7 +321,7 @@ The latent-geometry analysis therefore returned
 mechanism=SUPPORTED
 ```
 
-# 14. Covariance eigenvalue hierarchy
+# 15. Covariance eigenvalue hierarchy
 
 The geometric decomposition of the six-dimensional covariance was
 
@@ -309,11 +335,11 @@ The geometric decomposition of the six-dimensional covariance was
 
 The two $O(1)$ modes are the latent linear and quadratic position directions. The graph-profile range intersects them in exactly one line, $Er_0$.
 
-This explains why a finite state sector survives after inversion while generic graph-coordinate directions acquire an $O(N)$ fast action.
+Thus, a finite state sector survives inversion, whereas generic graph-coordinate directions acquire an $O(N)$ fast action.
 
-# 15. Schur-complement form of the slow sector
+# 16. Schur-complement form of the slow sector
 
-Choose a basis whose first vector is $r_0$ and whose remaining vectors span the fast graph-profile complement. Write the finite route operator as
+Choose a basis beginning with $r_0$, with the remaining vectors spanning the fast graph-profile complement, and write the finite route operator as
 
 ```math
 A_N=
@@ -339,7 +365,7 @@ Because the fast block scales with $N$,
 a_N-b_ND_N^{-1}c_N+O(N^{-1}).
 ```
 
-The nonlinear Schur residual was at machine precision, and the static approximation differed from the directly extracted slow value by substantially less than one percent in the confirmatory analyses.
+The nonlinear Schur residual was at machine precision; in the confirmatory analyses, the static approximation differed from the directly extracted slow value by substantially less than one percent.
 
 Thus the route scalar separates into:
 
@@ -349,30 +375,4 @@ Thus the route scalar separates into:
 \text{fast-sector feedback}.
 ```
 
-A common right state line does not imply a common left observable; the feedback term is precisely where left-geometry differences enter.
-
-# 16. Central bridge conclusion
-
-The bridge now has a mechanism-level form:
-
-```math
-\text{latent order covariance uniquely selects }r_0,
-```
-
-while
-
-```math
-J_{\mathrm{config}}r_0=-2r_0.
-```
-
-Therefore
-
-```math
-\text{configuration dynamics and route geometry independently select}
-```
-
-```math
-\text{the same exact one-dimensional state sector.}
-```
-
-This is stronger than numerical alignment of two fitted eigenvectors. One side is a configuration semigroup direction; the other follows from an exact intersection of latent covariance and graph-profile ranges.
+A common right state line does not imply a common left observable; left-geometry differences enter precisely through the feedback term.

@@ -23,10 +23,7 @@ Its order complex
 is the simplicial complex whose:
 
 * vertices are intermediate nodes $w\in(u,v)$;
-* $r$-simplices are strict chains
-  ```math
-  u<w_0<w_1<\cdots<w_r<v.
-  ```
+* $r$-simplices are strict chains $u<w_0<w_1<\cdots<w_r<v$.
 
 An $r$-simplex represents a factorization of the single reachability arrow
 
@@ -40,7 +37,7 @@ into $r+2$ nonidentity reachability morphisms:
 u\to w_0\to w_1\to\cdots\to w_r\to v.
 ```
 
-Deleting one intermediate node composes the two neighboring factors. Thus the simplicial boundary is exactly the “merge adjacent factors” operation that appeared in the bar complexes.
+Deleting an intermediate node composes its neighboring factors, so the simplicial boundary is exactly the “merge adjacent factors” operation from the bar complexes.
 
 For
 
@@ -57,7 +54,7 @@ the boundary is
 [w_0<\cdots<\widehat{w_i}<\cdots<w_r].
 ```
 
-This construction is defined for any set-sized interval, finite or infinite. Every simplex and every boundary contain only finitely many terms.
+This construction applies to any set-sized interval, finite or infinite; every simplex and boundary has only finitely many terms.
 
 # 2. Canonical coherence groups
 
@@ -109,7 +106,7 @@ Here
 
 Reduced $H_0$ measures how many connected components the factorization space has, minus one.
 
-A nonzero class means that distinct families of factorizations from $u$ to $v$ cannot be connected through elementary refinements and coarsenings without imposing an independent relation.
+A nonzero class means distinct families of factorizations from $u$ to $v$ cannot be connected by elementary refinements and coarsenings without an independent relation.
 
 ## $n=3$: relations among relations
 
@@ -159,7 +156,7 @@ The thin reachability algebra
 B(P)
 ```
 
-imposes the rule that every two paths with the same endpoints become equal. It can be obtained from a path algebra by the parallel-path ideal, and this presentation of incidence algebras is standard.
+imposes equality of every two paths with the same endpoints; it is the quotient of a path algebra by the parallel-path ideal, a standard presentation of incidence algebras.
 
 Different choices of relation generators—diamonds, shortcuts, arbitrary path pairs—can produce different-looking resolutions. But
 
@@ -179,7 +176,7 @@ The full complex is canonical even when a minimal cellular presentation is not.
 
 # 4. Relation to Ext groups
 
-For a finite poset $P$, let $B=B(P)$ be its incidence algebra over a field $k$, and let $S_u,S_v$ be the simple modules at $u,v$.
+For a finite poset $P$, let $B=B(P)$ be its incidence algebra over a field $k$, with simple modules $S_u,S_v$ at $u,v$.
 
 The normalized relative bar resolution yields
 
@@ -199,7 +196,7 @@ u<w_0<\cdots<w_{n-2}<v
 
 contains $n$ strict reachability factors.
 
-Finite incidence algebras admit projective resolutions of their simple modules and Ext calculations entirely from the underlying poset; incidence-algebra cohomology is likewise computed by simplicial chain complexes of poset chains.
+For finite incidence algebras, projective resolutions of simple modules and Ext calculations derive entirely from the underlying poset, while simplicial chain complexes of poset chains compute incidence-algebra cohomology.
 
 Over a field and for finite intervals,
 
@@ -348,11 +345,11 @@ giving
 
 This is the canonical home of the hexagonal relation among the six diamond relations.
 
-The earlier $I$-adic complex missed it because it searched for products of ambiguity ideals. The interval complex instead records relations among contextualized local relations.
+The earlier $I$-adic complex missed it by searching for products of ambiguity ideals; the interval complex records relations among contextualized local relations.
 
 # 6. Boolean intervals of arbitrary rank
 
-For the Boolean lattice $B_d$, the open interval between bottom and top consists of all nonempty proper subsets of a $d$-element set.
+For the Boolean lattice $B_d$, the open bottom-to-top interval comprises all nonempty proper subsets of a $d$-element set.
 
 Its order complex is the barycentric subdivision of the boundary of a $(d-1)$-simplex. Therefore
 
@@ -390,11 +387,11 @@ d&\text{highest coherence}\\
 \end{array}
 ```
 
-The complete interval may contain $d!$ saturated routes, but their minimal higher coherence between bottom and top is concentrated in degree $d$.
+The complete interval may have $d!$ saturated routes, but their minimal higher bottom-to-top coherence is concentrated in degree $d$.
 
 # 7. The full homotopy type is primary
 
-Homology is already more informative than the Möbius number, but it is still a compression.
+Homology is more informative than the Möbius number but remains a compression.
 
 Two interval complexes can have identical homology while having different:
 
@@ -442,7 +439,7 @@ When the reachability interval is finite, its Möbius function satisfies
 \widetilde\chi\bigl(\Delta(u,v)\bigr).
 ```
 
-This follows directly from the alternating-chain expression for $\mu$: an $r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
+This follows from the alternating-chain expression for $\mu$: an $r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
 
 Over a field $k$,
 
@@ -541,7 +538,7 @@ Higher syzygies require correspondingly larger ordinal separation.
 
 # 10. Finite global dimension
 
-For a finite reachability poset, the global dimension of its incidence algebra is the largest $n$ for which some simple-module Ext group is nonzero:
+For a finite reachability poset, its incidence algebra has global dimension equal to the largest $n$ with a nonzero simple-module Ext group:
 
 ```math
 \mathrm{gldim}B=
@@ -562,7 +559,7 @@ B_d&d
 \end{array}
 ```
 
-A long chain does not itself increase global dimension: its intervals are simplices and therefore contractible.
+A long chain alone does not increase global dimension because its intervals are contractible simplices.
 
 What increases homological dimension is not mere path length but topologically nontrivial multiplicity of factorizations.
 
@@ -659,7 +656,7 @@ is defined independently of:
 * countability;
 * bounded degree.
 
-What requires more care in the infinite case is identifying these groups with Ext groups of a particular completed incidence algebra. The combinatorial homology itself has no such problem.
+In the infinite case, identifying these groups with Ext groups of a particular completed incidence algebra requires more care; the combinatorial homology has no such problem.
 
 So for the unrestricted theory, the safest primary definition is:
 

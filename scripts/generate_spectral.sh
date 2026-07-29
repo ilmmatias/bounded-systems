@@ -17,6 +17,6 @@ mkdir -p "$output"
 
 "$geng" -q "$vertex_count" \
     | "$directg" -aq \
-    | "$root/bin/artifact" spectral \
+    | "$root/bin/driver" spectral \
         --vertices "$vertex_count" \
         --output "$output"

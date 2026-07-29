@@ -31,9 +31,9 @@ d_i(s_0,\ldots,s_n)=
 
 while the degeneracy $s_i$ repeats the $i$-th entry.
 
-Equivalently, $E(S)$ is the nerve of the indiscrete groupoid whose objects are the elements of $S$ and which has exactly one isomorphism between every ordered pair of objects.
+Equivalently, $E(S)$ is the nerve of the indiscrete groupoid on $S$, with exactly one isomorphism between each ordered pair of objects.
 
-If $S\ne\varnothing$, this groupoid has an initial and terminal object after choosing any element, so its nerve is contractible. Nerves of categories and their contractibility in the presence of initial or terminal objects are standard categorical constructions.
+If $S\ne\varnothing$, choosing any element gives this groupoid an initial and terminal object, so its nerve is contractible; these are standard categorical constructions.
 
 But it remains richly marked:
 
@@ -119,7 +119,7 @@ The identity at $u$ in degree $n$ is
 
 Path concatenation is associative, so this simplicial composition is strictly associative.
 
-Thus $\mathfrak R_G$ is a genuine simplicially enriched category. Simplicial categories are categories whose morphism objects are simplicial sets, with composition defined simplicially; their homotopy-coherent nerves are standard models of higher categorical structure.
+Thus $\mathfrak R_G$ is a genuine simplicially enriched category: its morphism objects are simplicial sets, and composition is simplicial. Its homotopy-coherent nerve is a standard model of higher categorical structure.
 
 # 3. The two visible truncations
 
@@ -228,7 +228,7 @@ Thus $\epsilon$:
 * induces weak equivalences on all nonempty mapping spaces;
 * induces an isomorphism on $\pi_0$.
 
-In the language of simplicial categories, it is therefore a Dwyer–Kan-type equivalence. Mapping-space equivalences are the central notion used to compare simplicial categories and their corresponding higher categories.
+In simplicial-category language, it is therefore a Dwyer–Kan-type equivalence; mapping-space equivalences are central to comparing simplicial categories and their corresponding higher categories.
 
 However, this must be interpreted carefully:
 
@@ -243,7 +243,7 @@ So the complete object should be regarded as
 
 ```math
 \left(
-\mathfrak R_G,;
+\mathfrak R_G,\;
 \mathsf P(G)=\mathrm{sk}_0\mathfrak R_G
 \right),
 ```
@@ -536,7 +536,7 @@ Orthogonality and coherent route identification coexist, but they belong to diff
 
 # 10. Two distinct coherence directions
 
-We can now distinguish two kinds of higher coherence that had previously been mixed together.
+Higher coherence has two previously conflated forms.
 
 ## Vertical coherence: identifying routes
 
@@ -640,7 +640,7 @@ d_{\mathrm{fact}}.
 
 It changes factorization degree but preserves total route-resolution degree.
 
-The standard bar construction organizes precisely such iterated compositions, while homotopy limits and colimits are commonly expressed through bar and cobar totalizations.
+The standard bar construction organizes these iterated compositions, while homotopy limits and colimits are commonly expressed by bar and cobar totalizations.
 
 With the usual total-complex signs,
 
@@ -745,7 +745,7 @@ Its pages have different meanings:
 * later pages see factorization topology;
 * the terminal homology sees only the surviving thin coherence.
 
-The intermediate pages of the spectral sequence identify which structural information is lost at each compression stage, in addition to determining the limiting group.
+The spectral sequence's intermediate pages identify the structural information lost at each compression stage and determine the limiting group.
 
 # 14. Diamond example
 

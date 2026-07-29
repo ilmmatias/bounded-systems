@@ -10,7 +10,7 @@ G_\delta=(V_\delta,E_\delta),
 
 We need the following derived data.
 
-### Profile embedding
+## Profile embedding
 
 A map into a finite-dimensional smooth profile stratum,
 
@@ -191,7 +191,7 @@ p_\delta^h(e\mid x)
 \end{aligned}
 ```
 
-Thus the continuum diffusion tensor is exactly the scaled limit of the discrete quadratic variation already derived.
+The continuum diffusion tensor is exactly the scaled limit of the derived discrete quadratic variation.
 
 # 4. A direct diffusion-limit theorem
 
@@ -235,7 +235,7 @@ Then for every $f\in C_c^3(M)$,
 
 uniformly on compact sets.
 
-### Proof
+## Proof
 
 Taylor expansion gives
 
@@ -321,13 +321,13 @@ M_\delta^f(\tau)=
 f(X_\delta(\tau))
 -f(X_\delta(0))
 -\int_0^\tau
-\mathcal L_\delta^hf(X_\delta(s)),ds
+\mathcal L_\delta^hf(X_\delta(s))\,ds
 \end{aligned}
 ```
 
 is a martingale.
 
-Bounds on the drift and quadratic variation of these martingales establish tightness in the Skorokhod path space.
+Drift and quadratic-variation bounds for these martingales establish tightness in Skorokhod path space.
 
 ## Uniqueness of the limiting martingale problem
 
@@ -336,7 +336,7 @@ Every subsequential limit $X$ satisfies
 ```math
 f(X_\tau)-f(X_0)
 -\int_0^\tau
-\mathcal L^hf(X_s),ds
+\mathcal L^hf(X_s)\,ds
 ```
 
 is a martingale.
@@ -347,7 +347,7 @@ If the martingale problem for $\mathcal L^h$ is unique, all subsequences have th
 X_\delta\Rightarrow X.
 ```
 
-For example, local Lipschitz regularity of $b_h$ and a sufficiently regular nondegenerate $a_h$ gives a standard uniqueness route. Degenerate profile metrics require a more careful argument.
+For example, local Lipschitz regularity of $b_h$ and sufficiently regular, nondegenerate $a_h$ provide a standard uniqueness route; degenerate profile metrics require greater care.
 
 # 6. General jump-coefficient extraction
 
@@ -370,7 +370,7 @@ p_\delta^h(e\mid v)
 \delta_{Y_\delta(e)}(dy).
 ```
 
-The limiting measure is generally infinite near $y=0$, so convergence is tested against continuous functions $g$ that vanish in a neighborhood of zero:
+The limiting measure is generally infinite near $y=0$, so test convergence against continuous functions $g$ vanishing in a neighborhood of zero:
 
 ```math
 \int g(y)\nu_\delta^h(x,dy)
@@ -492,7 +492,7 @@ for any unit vector $e$, when isotropy holds.
 
 Suppose on every compact profile region:
 
-1. for every continuous $g$ vanishing near zero, $\int g,d\nu_\delta^h \to \int g,d\nu_h$;
+1. for every continuous $g$ vanishing near zero, $\int g\,d\nu_\delta^h \to \int g\,d\nu_h$;
 2. the truncated drifts converge, $b_\delta^\chi\to b_h^\chi$;
 3. the residual small-jump covariance converges to $a_h$;
 4. the family satisfies compact containment;
@@ -506,7 +506,7 @@ X_\delta\Rightarrow X,
 
 where $X$ has generator $\mathcal L^h$.
 
-This is the exact proof program for Gaussian, stable and mixed jump regimes. They differ only in which parts of the characteristic triplet survive.
+The exact proof program applies to Gaussian, stable and mixed jump regimes, which differ only in the surviving parts of the characteristic triplet.
 
 # 9. Convergence of the $h$-transform itself
 
@@ -629,7 +629,7 @@ Write
 e^{a_\delta\kappa_\delta},
 ```
 
-where $\Lambda_\delta$ is the dominant combinatorial growth factor that is removed before taking the local generator limit.
+where $\Lambda_\delta$ is the dominant combinatorial growth factor removed before taking the local generator limit.
 
 Define the renormalized transfer
 
@@ -656,7 +656,7 @@ Now
 
 can have a finite continuum limit.
 
-Thus $\Lambda_\delta$ is not an ignorable normalization. It is one of the principal coefficients that must be extracted from path growth.
+Thus $\Lambda_\delta$ is not an ignorable normalization but one of the principal coefficients that must be extracted from path growth.
 
 # 11. Correct continuum gauge coefficient
 
@@ -848,7 +848,7 @@ C_\delta&D_\delta
 \end{pmatrix}.
 ```
 
-The opposite off-diagonal signs make the coupling conservative between visible and hidden sectors while $H_\delta,D_\delta$ provide dissipation.
+The opposite off-diagonal signs conservatively couple the visible and hidden sectors, while $H_\delta,D_\delta$ provide dissipation.
 
 Eliminating the hidden block gives
 

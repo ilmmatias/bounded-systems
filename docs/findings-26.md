@@ -1,4 +1,4 @@
-## 1. Three depthwise multiplicity quantities
+# 1. Three depthwise multiplicity quantities
 
 For length $n$, define
 
@@ -49,7 +49,7 @@ M_n\le B_n^+,
 M_n\le B_n^-.
 ```
 
-So bounded total forward or backward path growth implies bounded endpoint collapse at that depth.
+Bounded total forward or backward path growth implies bounded endpoint collapse at that depth.
 
 The converse fails sharply.
 
@@ -87,7 +87,7 @@ Then
 \delta_{\mathrm{nc}}.
 ```
 
-The first failure concerns branching somewhere from a source. The second concerns lack of a uniform endpoint-fiber bound. The third requires an infinite route fiber.
+The third failure requires an infinite route fiber; the first two concern source branching and lack of a uniform endpoint-fiber bound.
 
 Use $+\infty$ if the corresponding failure never occurs.
 
@@ -218,7 +218,7 @@ When all route fibers are finite,
 N_m(v,w)N_n(w,u).
 ```
 
-Therefore $\Sigma_{m+n}$ is bounded if and only if the weighted number of admissible cut sectors is uniformly bounded over all endpoint pairs.
+Thus, $\Sigma_{m+n}$ is bounded if and only if admissible cut-sector weight is uniformly bounded over all endpoint pairs.
 
 This gives the sufficient estimates
 
@@ -238,10 +238,10 @@ Consequently,
 |\Sigma_{m+n}|
 \le
 \min
-\left\lbrace |\Sigma_m|,|S_+^n|, ; |\Sigma_n|,|S_-^m| \right\rbrace.
+\left\lbrace |\Sigma_m|,|S_+^n|,|\Sigma_n|,|S_-^m| \right\rbrace.
 ```
 
-But these inequalities can be strict because they replace the actual compatibility pattern of intermediate nodes by global suprema.
+These inequalities can be strict because global suprema replace the actual compatibility pattern of intermediate nodes.
 
 ---
 
@@ -302,7 +302,7 @@ is infinite.
 
 Similarly, any path entering $u$ propagates the singularity backward in compositional depth.
 
-Thus singularity propagates exactly along available extensions, not merely because the integer depth increases.
+Singularity propagates exactly along available extensions, not merely with increasing integer depth.
 
 ---
 
@@ -416,7 +416,7 @@ The first nonclosable collapse can occur at any prescribed finite compositional 
 
 Suppose every node has finitely many outgoing primitive channels, counting multiplicity.
 
-Then, for each fixed source $u$ and each finite $n$, only finitely many length-$n$ paths begin at $u$.
+For each fixed source $u$ and finite $n$, only finitely many length-$n$ paths begin at $u$.
 
 Therefore
 
@@ -671,7 +671,7 @@ in the appropriate diagonal operator sense.
 
 This packages the entire multiplicity tower into one positive object.
 
-It is the Hilbert-space form of the endpoint path-count series, evaluated at the squared modulus because route amplitudes combine quadratically.
+This Hilbert-space form of the endpoint path-count series uses the squared modulus because route amplitudes combine quadratically.
 
 ---
 
@@ -731,7 +731,7 @@ The all-length polar decomposition is
 
 where $U(z)$ sends each weighted equal-route direction to its endpoint-pair basis vector and kills the weighted defect space.
 
-The variable $z$ does not represent time. It weights the intrinsic path-length grading already present in the path algebra.
+The variable $z$ weights the path algebra’s intrinsic path-length grading; it does not represent time.
 
 ---
 
@@ -825,7 +825,7 @@ R_{\mathrm{col}}
 \left\lbrace \frac1{r(S_+)}, \frac1{r(S_-)} \right\rbrace.
 ```
 
-The endpoint-collapse generating operator can remain bounded beyond the radius at which the global Fock route sum ceases to converge.
+The endpoint-collapse generating operator can remain bounded beyond the global Fock route sum’s convergence radius.
 
 ## $d$-ary tree
 

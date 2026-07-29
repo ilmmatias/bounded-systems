@@ -1,6 +1,47 @@
-# 1. Why refinement robustness was necessary
+# 1. Robust conclusion
 
-The first configuration spectrum was extracted from six graph-profile coordinates. A stable gap in that projection could still be artificial if an omitted profile coordinate relaxed more slowly.
+Across:
+
+* two terminal sizes;
+* six checkpoint pairs per terminal size;
+* four singular-value cutoffs;
+* retained ranks from 12 through 18;
+
+all audits reported
+
+```text
+slower_modes=0
+status=PASS
+```
+
+relative to the threshold
+
+```math
+J>-1.8.
+```
+
+Therefore
+
+```math
+\text{the }J\approx-2\text{ slow sector survives the first dictionary refinement.}
+```
+
+No evidence appeared for a hidden mode that would close the relaxation gap.
+
+# 2. What this does and does not establish
+
+This is stronger than repeating the original fit with more samples: it tests a nested observable space and shows that the slow spectral boundary is stable when degree-two moments are added.
+
+It does not prove the same gap for every higher refinement; in particular, the following remain untested:
+
+* full one-round node-profile histograms;
+* sparse Hellinger embeddings of refined pair colors;
+* stabilized WL profile coordinates;
+* non-polynomial cylinder observables.
+
+# 3. Why refinement robustness was necessary
+
+The first configuration spectrum used six graph-profile coordinates, so its stable projected gap could still be artificial if an omitted coordinate relaxed more slowly.
 
 The next test therefore enlarged the emitted trajectory dictionary to 27 features containing:
 
@@ -9,9 +50,9 @@ The next test therefore enlarged the emitted trajectory dictionary to 27 feature
 * duality-related partners;
 * exact redundant combinations retained initially and removed numerically by rank truncation.
 
-The analysis searched specifically for a mode with Jacobian rate closer to zero than the established $J\approx-2$ slow sector.
+The analysis specifically sought a mode with Jacobian rate closer to zero than the established $J\approx-2$ slow sector.
 
-# 2. Exact trajectory generation
+# 4. Exact trajectory generation
 
 The refined sampler emitted exact uniform labeled-DAG trajectories at:
 
@@ -37,9 +78,9 @@ for terminal 128 and
 
 for terminal 256.
 
-The full $N=128$ run completed in about 5.6 seconds wall time, while the $N=256$ run completed in about 58 seconds on 32 hardware threads.
+The full $N=128$ run took about 5.6 seconds wall time; the $N=256$ run took about 58 seconds on 32 hardware threads.
 
-# 3. Two nested dictionaries
+# 5. Two nested dictionaries
 
 The audit compared:
 
@@ -61,7 +102,7 @@ with numerical rank varying between approximately 12 and 18, depending on interv
 
 The rank variation was expected: several new coordinates become nearly linearly dependent as the profile concentrates near its fixed point.
 
-# 4. Singular-value cutoff sweep
+# 6. Singular-value cutoff sweep
 
 The pseudoinverse threshold was varied over
 
@@ -77,9 +118,9 @@ This moved the retained refined rank substantially, for example:
 * terminal 128: roughly 13-18;
 * terminal 256: roughly 12-18.
 
-A genuine slow mode should remain visible over a stable range of thresholds. A mode that appears only when near-null covariance directions are inverted is not reliable.
+A genuine slow mode should persist over a stable threshold range; one appearing only when near-null covariance directions are inverted is not reliable.
 
-# 5. Terminal-128 results
+# 7. Terminal-128 results
 
 At the reference cutoff
 
@@ -121,7 +162,7 @@ Across the full cutoff sweep, no refined mode crossed the preregistered slow thr
 -1.8.
 ```
 
-# 6. Terminal-256 results
+# 8. Terminal-256 results
 
 At
 
@@ -163,9 +204,9 @@ for
 
 No interval produced a mode slower than $-1.8$.
 
-# 7. Predictive fit did not materially improve
+# 9. Predictive fit did not materially improve
 
-The refined dictionary changed the multistep $R^2$ only in the third or fourth decimal place. For example, representative pairs gave:
+The refined dictionary changed multistep $R^2$ only in the third or fourth decimal place; for example, representative pairs gave:
 
 ```math
 R^2\approx0.64,
@@ -178,48 +219,7 @@ R^2\approx0.64,
 
 for both the original and refined dictionaries.
 
-This means the extra features did not uncover a large missing deterministic component. Their scientific value was instead spectral: they tested whether a hidden slow direction existed.
-
-# 8. Robust conclusion
-
-Across:
-
-* two terminal sizes;
-* six checkpoint pairs per terminal size;
-* four singular-value cutoffs;
-* retained ranks from 12 through 18;
-
-all audits reported
-
-```text
-slower_modes=0
-status=PASS
-```
-
-relative to the threshold
-
-```math
-J>-1.8.
-```
-
-Therefore
-
-```math
-\text{the }J\approx-2\text{ slow sector survives the first dictionary refinement.}
-```
-
-No evidence appeared for a hidden mode that would close the relaxation gap.
-
-# 9. What this does and does not establish
-
-This result is stronger than repeating the original fit with more samples. It tests a nested observable space and shows that the slow spectral boundary is stable when degree-two moments are added.
-
-It does not prove that every higher refinement has the same gap. In particular, the following remain untested:
-
-* full one-round node-profile histograms;
-* sparse Hellinger embeddings of refined pair colors;
-* stabilized WL profile coordinates;
-* non-polynomial cylinder observables.
+The extra features did not uncover a large missing deterministic component; their scientific value was spectral, testing whether a hidden slow direction existed.
 
 # 10. Practical stopping rule
 

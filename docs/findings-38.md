@@ -107,10 +107,10 @@ Equivalently, when the angular measure has a density,
 ```math
 \nu_h(x,dy)=
 \frac{q_h(x,\widehat y)}
-{|y|^{d+\alpha}},dy.
+{|y|^{d+\alpha}}\,dy.
 ```
 
-Stable-like operators of this form are standard pure-jump Lévy-type generators; existence and uniqueness of their martingale problems require regularity and nondegeneracy assumptions on the state-dependent angular coefficient.
+Such stable-like operators are standard pure-jump Lévy-type generators; well-posed martingale problems require regularity and nondegeneracy of the state-dependent angular coefficient.
 
 The parameters already separate naturally:
 
@@ -153,7 +153,7 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 \end{aligned}
 ```
 
-For $\alpha<1$, the compensation term may be omitted when the integral is absolutely convergent; retaining one fixed truncation convention simply transfers the difference into the drift. The standard stable-like generator has precisely this nonlocal form.
+For $\alpha<1$, the compensation term may be omitted when the integral converges absolutely; a fixed truncation convention merely transfers the difference into the drift. The standard stable-like generator has this nonlocal form.
 
 Let the critical positive profile satisfy
 
@@ -177,7 +177,7 @@ Then the derived Markov generator is the exact Doob transform
 h^{-1}\mathcal L_{\alpha,0}(hf)-\kappa f.
 ```
 
-Ground-state and Doob transforms of nonlocal Lévy generators produce state-dependent drift and jump intensities of this kind. 
+Ground-state and Doob transforms of nonlocal Lévy generators produce state-dependent drift and jump intensities of this kind.
 
 # 4. Exact transformation of the stable jump kernel
 
@@ -246,7 +246,7 @@ Suppose the untransformed radial kernel is
 
 ```math
 \nu_0(dr,d\theta)=
-r^{-1-\alpha}dr,\Lambda_0(d\theta).
+r^{-1-\alpha}dr\,\Lambda_0(d\theta).
 ```
 
 If
@@ -291,7 +291,7 @@ So, when the transformed measure remains admissible,
 \alpha_h=\alpha-\gamma.
 ```
 
-Thus the positive profile can do more than bias the directions of anomalous propagation: sufficiently strong asymptotic profile growth can change the stable universality class itself.
+Sufficiently strong asymptotic positive-profile growth can change the stable universality class beyond biasing anomalous-propagation directions.
 
 The stable exponent is preserved only when the profile is asymptotically neutral at the radial power-law scale.
 
@@ -328,7 +328,7 @@ For the stable-like kernel
 ```math
 \nu_0(x,dy)=
 \frac{q_0(x,\widehat y)}
-{|y|^{d+\alpha}},dy,
+{|y|^{d+\alpha}}\,dy,
 ```
 
 it becomes
@@ -347,7 +347,7 @@ e^{u(x+y)-u(x)}
 }{
 |y|^{d+\alpha}
 }
-q_0(x,\widehat y),dy.
+q_0(x,\widehat y)\,dy.
 \end{aligned}
 ```
 
@@ -384,7 +384,7 @@ once gives
 \mathcal L_\alpha^h\phi=0.
 ```
 
-So tangent vectors to the fixed-critical-value stable profile manifold are harmonic functions of the transformed stable process.
+Tangent vectors to the fixed-critical-value stable profile manifold are harmonic functions of the transformed stable process.
 
 This exactly parallels the discrete equation
 
@@ -461,7 +461,7 @@ The quadratic-profile structure becomes nonlocal in the stable regime:
 \text{integrated squared jump difference}.
 ```
 
-Although an $\alpha$-stable coordinate process generally has no finite global second moment for $\alpha<2$, the Dirichlet/carré-du-champ form is finite on suitable bounded or sufficiently regular test functions because the small-jump singularity is controlled by the squared difference. Fractional and stable generators are naturally represented by such nonlocal quadratic forms.
+Although an $\alpha$-stable coordinate process generally has no finite global second moment for $\alpha<2$, the Dirichlet/carré-du-champ form remains finite on suitable bounded or sufficiently regular test functions because the squared difference controls the small-jump singularity. Such nonlocal quadratic forms naturally represent fractional and stable generators.
 
 # 9. Information geometry of stable jump intensities
 
@@ -577,7 +577,7 @@ The generator is
 -D_\alpha(-\Delta)^{\alpha/2}.
 ```
 
-The isotropic fractional Laplacian is the generator of the isotropic $\alpha$-stable Lévy process and has Fourier multiplier $|k|^\alpha$.
+The isotropic fractional Laplacian generates the isotropic $\alpha$-stable Lévy process with Fourier multiplier $|k|^\alpha$.
 
 The profile equation becomes
 
@@ -655,7 +655,7 @@ Subject to the usual domain and integrability conditions,
 B_{\alpha,h}\ge0
 ```
 
-and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator shifted by its ground-state eigenvalue into the negative of a Markov generator on the weighted $L^2$ space.
+and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator, shifted by its ground-state eigenvalue, to the negative Markov generator on weighted $L^2$.
 
 This is the operator whose continuum existence and spectral data can be investigated later.
 
@@ -840,11 +840,11 @@ i\partial_t\psi=
 D_\alpha(-\Delta)^{\alpha/2}\psi.
 ```
 
-Thus the fractional diffusion and fractional Schrödinger-type evolutions are analytic continuations of the same stable operator. The original path-length gauge supplies the additional commuting phase $\beta N$.
+Fractional diffusion and fractional Schrödinger-type evolution are analytic continuations of the same stable operator; the path-length gauge supplies the commuting phase $\beta N$.
 
 # 16. $\alpha$ and $\beta$ are different invariants
 
-We now have two exponents:
+The two exponents are:
 
 ```math
 \alpha=
@@ -869,7 +869,7 @@ They encode different structural sectors:
 * $\alpha$ comes from the radial tail of coarse profile increments;
 * $\beta$ comes from critical route growth.
 
-A relation between them would be additional structure to discover in a particular family, not something that should be inserted universally.
+Any relation between them is additional structure of a particular family, not a universal assumption.
 
 The homogeneous stable mode exposes both independently:
 
@@ -884,9 +884,9 @@ Its imaginary part is compositional gauge phase.
 
 # 17. The exact later convergence tests
 
-To prove that a particular graph/profile family actually converges to this regime, the required checks are now concrete.
+The required concrete checks for convergence of a particular graph/profile family to this regime are:
 
-### Radial regular variation
+## Radial regular variation
 
 Show
 
@@ -916,7 +916,7 @@ This decides whether $\alpha$ survives or changes.
 
 ### Anti-clustering
 
-Show that one large route block does not force an uncontrolled cluster of equally large blocks, unless the cluster is explicitly incorporated into the limiting Lévy measure.
+Show that one large route block does not force an uncontrolled cluster of equally large blocks unless incorporated explicitly into the limiting Lévy measure.
 
 ### Small-jump centering
 
@@ -936,4 +936,4 @@ on a core of test functions.
 
 ### Martingale-problem uniqueness
 
-Prove that the candidate stable-like operator determines a unique limiting process. Stable-like martingale problems are known to be well posed under suitable conditions, but those conditions must be verified for the operator produced by the graph family.
+Prove that the candidate stable-like operator determines a unique limiting process. Its martingale problem is known to be well posed under suitable conditions, which must be verified for the graph-family operator.

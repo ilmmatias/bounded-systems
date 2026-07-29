@@ -66,7 +66,7 @@ For computation, choose a countable dense dictionary
 \varphi_1,\varphi_2,\ldots
 ```
 
-and increase the number of retained cylinders. The final operator is independent of that particular dense enumeration.
+and retain more cylinders. The final operator is independent of the chosen dense enumeration.
 
 # 2. Exact finite-horizon route kernel
 
@@ -123,7 +123,7 @@ This is normalized because
 \sum_wA_{vw}r_{k-1}(w)=r_k(v).
 ```
 
-No stochastic law was independently chosen. $P_k$ is obtained by uniformly counting all resolved routes with $k$ remaining edges.
+No stochastic law was independently chosen; $P_k$ uniformly counts all resolved routes with $k$ remaining edges.
 
 # 3. Exact edge-flow matrices
 
@@ -340,7 +340,7 @@ for the quadratic tensor. This is radically cheaper than enumerating the $T_p$ r
 
 # 7. Local coefficients rather than only global averages
 
-The global tensor tells us the average regime. A state-dependent continuum operator requires local conditional coefficients.
+The global tensor gives the average regime; a state-dependent continuum operator requires local conditional coefficients.
 
 For a node $v$ with $r_k(v)>0$, define
 
@@ -387,11 +387,11 @@ b_{G,r,k}^i\partial_iF
 \text{higher terms}.
 ```
 
-Therefore the local drift and diffusion fields are directly computable at every node and every remaining horizon.
+The local drift and diffusion fields are thus directly computable at every node and remaining horizon.
 
 # 8. The intrinsic time normalization
 
-There is no external clock in the axioms, so the continuum time scale is determined only up to a global multiplicative constant.
+Because the axioms contain no external clock, the continuum time scale is determined only up to a global multiplicative constant.
 
 A coordinate-independent normalization can nevertheless be defined using the canonical metric $d_r$ on $\mathcal Y_r$:
 
@@ -484,7 +484,7 @@ The coefficients above are defined per graph.
 
 The axioms do not select a probability measure over non-isomorphic DAGs. In particular, two natural averages differ:
 
-### Equal unlabeled weighting
+## Equal unlabeled weighting
 
 ```math
 \frac1{|\mathfrak G_n|}
@@ -673,7 +673,7 @@ Consequently,
 \mathbb R^d.
 ```
 
-Finite cylinder observables suffice to define and compute the operator, and the projective limit assembles them.
+Finite cylinder observables define and compute the operator, which the projective limit assembles.
 
 # 14. The first executable numerical pass
 

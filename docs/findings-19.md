@@ -81,7 +81,7 @@ for every $j$.
 
 These are the factorization directions.
 
-The two face operations commute: deleting one route realization and merging two factors can be done in either order.
+Deleting one route realization commutes with merging two factors.
 
 After taking free modules and normalized chains, we obtain a double complex
 
@@ -94,7 +94,7 @@ Here:
 * $q$ measures coherent route identification;
 * $r$ measures intermediate-node factorization.
 
-The horizontal degree has the same conventional two-step shift as before: $r=0$, with no intermediate nodes, corresponds to the empty simplex of the open interval.
+As before, the horizontal degree has the conventional two-step shift: $r=0$, with no intermediate nodes, represents the open interval's empty simplex.
 
 # 2. Intrinsic path-length filtration
 
@@ -136,7 +136,7 @@ F_N^{\mathrm{len}}C_{r,q}^{\mathrm{RF}}=
 
 is a sub-double-complex.
 
-This filtration uses only the number of primitive channels in a path. It introduces no time scale or arbitrary damping parameter.
+This filtration counts only primitive channels in a path, introducing no time scale or arbitrary damping parameter.
 
 # 3. Intrinsic ordinal-rank filtration
 
@@ -290,7 +290,7 @@ d_\alpha(v_{i-1},v_i)
 \le N.
 ```
 
-For $r=0$, this is the empty simplex corresponding to the unfactored arrow $u<v$, and it is admitted precisely when
+For $r=0$, this is the empty simplex for the unfactored arrow $u<v$, admitted precisely when
 
 ```math
 d_\alpha(u,v)\le N.
@@ -365,13 +365,13 @@ exactly when
 
 and all intermediate factorization nodes are admitted.
 
-Consequently, after taking vertical homology, the horizontal complex is precisely the augmented simplicial chain complex of
+After vertical homology, the horizontal complex is precisely the augmented simplicial chain complex of
 
 ```math
 \Delta^{N,\alpha}(u,v).
 ```
 
-Hence the route-first spectral sequence has only one nonzero row after vertical homology and collapses immediately afterward:
+Hence the route-first spectral sequence has only one nonzero row after vertical homology and collapses immediately:
 
 ```math
 E^1
@@ -443,7 +443,7 @@ So each endpoint pair and coherence degree determines a two-parameter persistenc
 \mathcal K_m^{N,\alpha}(v,u).
 ```
 
-There is no general complete barcode classification for persistence with two or more independent parameters. The persistence module itself, or derived rank and restriction invariants, must remain primary.
+No general complete barcode classification exists for persistence with two or more independent parameters; the persistence module itself, or derived rank and restriction invariants, must remain primary.
 
 # 9. Recovery of the unfiltered coherence
 
@@ -735,7 +735,7 @@ becomes available only once the cutoff includes
 
 Therefore the temporary cover-like class dies exactly when the intermediate rank layer containing $w$ enters.
 
-For a diamond with intermediate nodes $a,b$, its degree-two coherence appears only after both rank layers have entered.
+In a diamond with intermediate nodes $a,b$, degree-two coherence appears only after both rank layers enter.
 
 Thus the ordinal filtration records:
 

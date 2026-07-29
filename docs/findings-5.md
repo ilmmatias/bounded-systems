@@ -48,7 +48,7 @@ L_e\xi_p=
 
 Here $ep$ means: first traverse $p$, then traverse $e$.
 
-These are the standard left-regular or Fock operators associated with a directed graph; the countable case is the starting point of free semigroupoid algebra theory.
+These are the standard left-regular or Fock operators for a directed graph; the countable case initiates free semigroupoid algebra theory.
 
 ## Forced relations
 
@@ -79,7 +79,7 @@ L_e^\ast L_f=0
 \qquad(e\ne f).
 ```
 
-This remains true for parallel channels. Although they share source and target, they produce orthogonal path vectors.
+This remains true for parallel channels, which share source and target but produce orthogonal path vectors.
 
 The projections satisfy
 
@@ -167,7 +167,7 @@ Define
 
 This permits precisely those infinite approximations that converge in operator norm.
 
-For countable graphs this is the graph tensor algebra or norm-closed quiver algebra. Such tensor algebras are instances of tensor algebras of $C^\ast$-correspondences.
+For countable graphs, this is the graph tensor algebra, or norm-closed quiver algebra, an instance of a tensor algebra of a $C^\ast$-correspondence.
 
 ## Weak-operator level
 
@@ -178,7 +178,7 @@ Define
 \overline{\mathcal A_{\mathrm{alg}}(G)}^{\mathrm{WOT}}.
 ```
 
-This admits bounded global operators obtained as weak or strong limits of uniformly bounded finite sums.
+This admits bounded global operators as weak or strong limits of uniformly bounded finite sums.
 
 In the standard countable setting, this is called the free semigroupoid algebra.
 
@@ -191,7 +191,7 @@ Define
 C^\ast(P_v,L_e:v\in V,e\in E).
 ```
 
-This includes the adjoints $L_e^\ast$, but those adjoints are not reverse communication channels. They are operator-theoretic devices that test and remove path prefixes.
+This includes the adjoints $L_e^\ast$, which are not reverse communication channels but operator-theoretic devices for testing and removing path prefixes.
 
 The hierarchy is therefore
 
@@ -209,7 +209,7 @@ with the self-adjoint Fock algebra generated alongside them.
 
 ## Cardinality limitation
 
-The definitions above extend directly to arbitrary cardinality. Many published structure and classification theorems, however, are stated for finite or countable graphs and need not extend to a nonseparable $\mathcal H_G$. The arbitrary-cardinality results here are those proved directly from the definitions.
+The definitions extend directly to arbitrary cardinality. However, many published structure and classification theorems are stated for finite or countable graphs and need not extend to a nonseparable $\mathcal H_G$; the arbitrary-cardinality results here are proved directly from the definitions.
 
 # 4. Norm and weak closure retain different infinities
 
@@ -257,7 +257,7 @@ whereas the weakly closed diagonal is
 \cong\ell^\infty(V).
 ```
 
-This is a concrete example of infinite information appearing only after a topology is selected: the choice specifies which limits of finite path expressions are retained.
+This concretely illustrates infinite information appearing only after selecting a topology, which specifies which limits of finite path expressions are retained.
 
 # 5. Compositional depth and the gauge action
 
@@ -464,7 +464,7 @@ This result is entirely structural. It says:
 \text{A uniformly weighted bounded aggregate exists exactly under uniform finite branching.}
 ```
 
-If one node has infinitely many outgoing channels, an equal nonzero Hilbert coefficient on all of them cannot be square-summable.
+If a node has infinitely many outgoing channels, equal nonzero Hilbert coefficients on all of them cannot be square-summable.
 
 The individual channel family remains valid; only its unweighted aggregate fails to be bounded.
 
@@ -601,7 +601,7 @@ is an isometry.
 
 Take a disjoint union of finite chains whose lengths are unbounded.
 
-There is no infinite directed path, but for every $n$ some component contains a path of length $n$. Hence
+No infinite directed path exists, but for every $n$ some component contains a path of length $n$. Hence
 
 ```math
 \sup_vN_n(v)=1
@@ -613,7 +613,7 @@ for all $n$, and again
 r(S)=1.
 ```
 
-Indeed, the direct sum of increasingly large nilpotent shifts has spectrum equal to the closed unit disk.
+The direct sum of increasingly large nilpotent shifts has the closed unit disk as its spectrum.
 
 Consequently,
 
@@ -674,7 +674,7 @@ Tensor-algebra theory shows that the $C^\ast$-envelope of a $C^\ast$-corresponde
 
 That invariant should not replace the Fock algebra as the primary construction.
 
-Passing from the Toeplitz/Fock algebra to a Cuntz–Pimsner or Cuntz–Krieger quotient can remove defect projections and impose coisometric boundary relations. Those relations are not stated in A1–A5.
+A Cuntz–Pimsner or Cuntz–Krieger quotient of the Toeplitz/Fock algebra can remove defect projections and impose coisometric boundary relations not stated in A1–A5.
 
 So our hierarchy should be:
 

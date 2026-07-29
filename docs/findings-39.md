@@ -23,7 +23,7 @@ The intrinsic block lengths are
 W_m=T_{m+1}-T_m.
 ```
 
-Each $W_m$ is the number of primitive edge events that occur before the observable profile changes again.
+Each $W_m$ counts primitive edge events before the next observable profile change.
 
 The accumulated primitive length after $m$ coarse transitions is
 
@@ -63,7 +63,7 @@ N(n)\sim \frac{n}{\mathbb E[W]}.
 
 The two clocks differ only by a constant conversion factor.
 
-If the operational profile process has generator $\mathcal L^h$, then the coarse process still has an ordinary first-order evolution equation, with a rescaled generator.
+If the operational profile process has generator $\mathcal L^h$, the coarse process has an ordinary first-order evolution equation with a rescaled generator.
 
 Thus:
 
@@ -108,7 +108,7 @@ q^\gamma L(q^{-1})
 
 as $q\downarrow0$.
 
-After the corresponding normalization, the partial-sum clock converges to a $\gamma$-stable subordinator $D_s$, while the rescaled renewal count converges to its inverse
+Correspondingly normalized, the partial-sum clock converges to a $\gamma$-stable subordinator $D_s$, and the rescaled renewal count to its inverse
 
 ```math
 E_\tau=
@@ -161,8 +161,8 @@ Its evolution family is
 ```math
 S_\gamma(\tau)f=
 \int_0^\infty
-T_sf,
-\ell_\gamma(\tau,s),ds,
+T_s f\,
+\ell_\gamma(\tau,s)\,ds,
 ```
 
 where $\ell_\gamma(\tau,s)$ is the density of the inverse stable clock.
@@ -177,7 +177,7 @@ Take the Laplace transform in primitive-scale time:
 
 ```math
 \widetilde u(q)=
-\int_0^\infty e^{-q\tau}u(\tau),d\tau.
+\int_0^\infty e^{-q\tau}u(\tau)\,d\tau.
 ```
 
 For the inverse $\gamma$-stable clock,
@@ -222,7 +222,7 @@ And for densities,
 (\mathcal L^h)^\ast\rho.
 ```
 
-The inverse-stable time change and the Caputo equation are two representations of the same limiting evolution.
+The inverse-stable time change and the Caputo equation equivalently represent the limiting evolution.
 
 ---
 
@@ -237,7 +237,7 @@ u_0
 \frac1{\Gamma(\gamma)}
 \int_0^\tau
 (\tau-s)^{\gamma-1}
-\mathcal L^hu(s),ds.
+\mathcal L^hu(s)\,ds.
 ```
 
 Thus the current profile change depends on the complete earlier profile evolution.
@@ -255,7 +255,7 @@ The memory kernel results from:
 2. grouping them into profile-constant blocks;
 3. forgetting the age inside the current block.
 
-General semi-Markov processes obey Volterra-type evolution equations, with the fractional equation appearing for heavy-tailed renewal laws.
+General semi-Markov processes satisfy Volterra-type evolution equations; the fractional equation arises for heavy-tailed renewal laws.
 
 ---
 
@@ -276,7 +276,7 @@ But the enlarged state
 (Z_\tau,A_\tau)
 ```
 
-is semi-Markov and can often be represented as a Markov process on the extended profile-age space.
+is semi-Markov and often admits a Markov representation on the extended profile-age space.
 
 So the temporal memory has a precise source:
 
@@ -285,7 +285,7 @@ So the temporal memory has a precise source:
 \text{discarded position inside an unresolved route block}.
 ```
 
-This is completely aligned with the earlier route-collapse results. A resolved history retains enough information for local evolution; compression to the current profile discards information and creates an effective memory kernel.
+This agrees with the earlier route-collapse results: a resolved history permits local evolution, whereas compression to the current profile discards information and creates an effective memory kernel.
 
 ---
 
@@ -334,7 +334,7 @@ u_0
 +
 \int_0^\tau
 M_\Phi(\tau-s)
-\mathcal L^hu(s),ds,
+\mathcal L^hu(s)\,ds,
 ```
 
 where
@@ -565,7 +565,7 @@ e^{it|p|}L_p.
 
 It counts primitive edge length, not coarse profile transitions.
 
-If $W_m$ counts primitive edges hidden inside one coarse event, then gauge phase continues to accumulate through the entire block, even while the coarse profile remains unchanged.
+If $W_m$ counts primitive edges hidden within one coarse event, gauge phase accumulates throughout the block while the coarse profile remains unchanged.
 
 Therefore the original gauge is more faithfully represented by
 
@@ -634,7 +634,7 @@ Its Laplace transform is
 (q+i\beta N)^{\gamma-1}\Psi_0.
 ```
 
-Here the fractional power uses the principal branch. Since $q>0$, the spectrum of $q+i\beta N$ lies in the open right half-plane, so this functional calculus is well defined on the natural domain.
+The fractional power uses the principal branch. Since $q>0$, the spectrum of $q+i\beta N$ lies in the open right half-plane, making this functional calculus well defined on the natural domain.
 
 This is the correct fractional substantial derivative associated with the original path-length gauge.
 
@@ -705,7 +705,7 @@ The coarse-event equation
 -(\mathbb H+i\beta N)\Psi
 ```
 
-would be appropriate after redefining the gauge so that one gauge unit corresponds to one coarse profile transition.
+would apply after redefining the gauge so that one gauge unit corresponds to one coarse profile transition.
 
 But our original gauge was already fixed by
 
@@ -714,21 +714,18 @@ But our original gauge was already fixed by
 \text{number of primitive channels}.
 ```
 
-Therefore, when the clock anomaly comes from random numbers of primitive edges per coarse transition, the canonical equation is
+Thus, when random numbers of primitive edges per coarse transition cause the clock anomaly, the canonical equation is
 
 ```math
 {}^CD_{\tau,i\beta N}^{\gamma}\Psi=
 -\mathbb H_h\Psi.
 ```
 
-The gauge does not get subordinated because it measures the very microscopic count from which the anomalous coarse clock was constructed.
+The gauge is not subordinated because it measures the microscopic count from which the anomalous coarse clock was constructed.
 
-That also gives a useful physical distinction:
+This also gives a physical distinction:
 
-* a neutral mode $\omega=0$ retains pure gauge oscillation,
-  ```math
-  e^{-i\beta n\tau};
-  ```
+* a neutral mode $\omega=0$ retains the pure gauge oscillation $e^{-i\beta n\tau}$;
 * a stable mode $\omega>0$ has algebraic relaxation multiplied by that phase.
 
 Under coarse-event subordination, even a neutral gauge mode would undergo renewal-induced dephasing through
@@ -763,7 +760,7 @@ J_m
 W_m
 ```
 
-separate, then the limiting clock can be represented by one scalar inverse subordinator independent of the operational profile process.
+separate, the limiting clock can be represented by a scalar inverse subordinator independent of the operational profile process.
 
 If long blocks preferentially produce particular directions or jump sizes, then the joint kernel
 
@@ -773,15 +770,11 @@ Q_h(x,dy,dw)
 
 must be retained.
 
-The resulting equation has an operator-valued memory kernel and is generally semi-Markov rather than a scalar Caputo equation. General semi-Markov processes lead to abstract Volterra equations, with ordinary fractional derivatives only as special cases.
+The resulting equation has an operator-valued memory kernel and is generally semi-Markov, satisfying an abstract Volterra equation; ordinary fractional derivatives are only special cases.
 
 Similarly:
 
-* state-dependent tail exponent
-  ```math
-  \gamma=\gamma(x)
-  ```
-  suggests variable-order memory;
+* a state-dependent tail exponent $\gamma=\gamma(x)$ suggests variable-order memory;
 * mixtures of tail exponents suggest distributed-order equations;
 * directional waiting laws couple temporal and spatial symbols.
 

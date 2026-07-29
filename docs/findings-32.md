@@ -125,11 +125,11 @@ H_n(K_h,A_h)=0
 \qquad(n\ge2).
 ```
 
-Therefore a Martin fiber containing many tail ends does not, merely because it is large, possess higher-dimensional mixing homology.
+Thus, a Martin fiber containing many tail ends does not by size alone possess higher-dimensional mixing homology.
 
 For example:
 
-### Diamond followed by one common tail
+## Diamond followed by one common tail
 
 There is only one tail class:
 
@@ -184,13 +184,13 @@ Thus:
 \text{higher homological complexity}.
 ```
 
-This is analogous to the earlier discovery that many route ambiguities need not produce higher route syzygies.
+Similarly, many route ambiguities need not produce higher route syzygies.
 
 ---
 
 # 4. Where higher structure can actually reside
 
-If higher structure does not live inside the indiscrete equivalence relation of one fiber, it must come from one of two sources:
+If higher structure is not in the indiscrete equivalence relation of one fiber, it must come from one of two sources:
 
 1. the topology of the tail-end space and the Martin quotient;
 2. the way the fibers vary and twist over different Martin directions.
@@ -272,9 +272,9 @@ The resulting simplicial space
 Z_t^{[\bullet]}
 ```
 
-is the Čech nerve, or kernel-pair nerve, of the quotient map. Čech complexes are built precisely from these iterated fiber products and their alternating face maps.
+is the Čech, or kernel-pair, nerve of the quotient map, built from these iterated fiber products and their alternating face maps.
 
-Fiberwise it is still contractible. Globally, however, its topology records how collapse fibers fit together over $Y_t$.
+It remains fiberwise contractible, but globally its topology records how collapse fibers fit together over $Y_t$.
 
 ---
 
@@ -401,7 +401,7 @@ R^q\bar\pi_{t*}\underline{k}
 H^{p+q}(Z_t;k).
 ```
 
-The Leray spectral sequence is the standard mechanism relating the cohomology of a source space, its target, and the derived pushforwards of a sheaf.
+The Leray spectral sequence is the standard tool relating the cohomology of a source, its target, and a sheaf's derived pushforwards.
 
 This separates two directions:
 
@@ -503,11 +503,11 @@ The complete Martin relation is
 
 ```math
 \sim_t^M=
-\bigcap_{F\subseteq V,;F\text{ finite}}
+\bigcap_{F\subseteq V,\;F\text{ finite}}
 \sim_F.
 ```
 
-Indeed, two functions on $V$ agree exactly when they agree on every finite subset—and in fact on every singleton.
+Two functions on $V$ agree exactly when they agree on every finite subset, indeed on every singleton.
 
 ---
 
@@ -609,7 +609,7 @@ At $F=\varnothing$, all tail ends are identified.
 
 At the full Martin level, only ends with identical complete Green-ratio profiles remain identified.
 
-No arbitrary metric or external resolution scale has been introduced. The index is the directed set of finite subsets of the already-existing node set.
+No arbitrary metric or external resolution scale is introduced; the index is the directed set of finite subsets of the existing node set.
 
 ---
 

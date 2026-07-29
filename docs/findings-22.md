@@ -118,7 +118,7 @@ r(S_+)=
 \right)^{1/(2n)}.
 ```
 
-The square root appears because route counts are $\ell^1$ mass, whereas Fock routes are mutually orthogonal and therefore combine by Pythagoras.
+The square root arises because route counts are $\ell^1$ mass, while mutually orthogonal Fock routes combine by Pythagoras.
 
 ---
 
@@ -151,7 +151,7 @@ This separates two directional sources of growth:
 * forward branching;
 * backward reconvergence.
 
-A highly branching but nonreconverging tree can have large $S_+$ but small endpoint concentration. A system in which many routes repeatedly merge can make both directional quantities large.
+A highly branching nonreconverging tree can have large $S_+$ but small endpoint concentration, whereas repeated merging of many routes can make both directional quantities large.
 
 ---
 
@@ -297,7 +297,7 @@ So the first two pieces of the scalar path series are:
 \end{aligned}
 ```
 
-The min-plus reduction keeps only the valuation. It discards the leading coefficient and every higher coefficient.
+The min-plus reduction retains only the valuation, discarding the leading and all higher coefficients.
 
 ## Fock meaning of geodesic multiplicity
 
@@ -318,7 +318,7 @@ Orthogonality gives
 |\Gamma_{v,u}|^2=g(v,u).
 ```
 
-Hence the first scalar correction discarded by tropicalization is itself the square of a canonical Fock norm.
+Thus, the first scalar correction discarded by tropicalization is the square of a canonical Fock norm.
 
 The three geometries meet in the exact formula
 
@@ -469,7 +469,7 @@ Equality occurs when there is no cancellation between even- and odd-length facto
 
 # 8. Bounding Möbius coefficients by actual routes
 
-For each comparable pair, select one shortest path. This selection is needed only for the counting proof; the resulting inequality is independent of the selection.
+For each comparable pair, select one shortest path only for the counting proof; the resulting inequality is independent of this selection.
 
 Given a factorization chain
 
@@ -535,7 +535,7 @@ This is the requested direct inequality linking:
 * route multiplicity;
 * orthogonal Fock growth.
 
-The factor $2^{L-1}$ cannot be improved for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets. But its signed Möbius coefficient may cancel all the way to zero.
+The factor $2^{L-1}$ is optimal for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets, although its signed Möbius coefficient may cancel to zero.
 
 ---
 

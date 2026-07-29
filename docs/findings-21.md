@@ -1,4 +1,4 @@
-## 1. The full noncommutative resolvent
+# 1. The full noncommutative resolvent
 
 In the formal path completion,
 
@@ -13,7 +13,7 @@ Its inverse is simply
 R_G(z)^{-1}=1-z\mathbf E.
 ```
 
-Therefore the complete set of all finite routes has an extremely simple inverse: identity minus the primitive-channel element.
+The complete set of finite routes has inverse identity minus the primitive-channel element.
 
 All composite paths disappear under inversion, leaving precisely the primitive channels.
 
@@ -109,7 +109,7 @@ Therefore:
 
 Endpoint route summation preserves the local inversion property.
 
-We now have:
+Hence:
 
 ```math
 \begin{aligned}
@@ -120,7 +120,7 @@ R_G(z)^{-1}&=1-z\mathbf E,
 \end{aligned}
 ```
 
-The coefficient of $z$ in $\mathcal P_G$ already recovers $A_G$, so the complete path-count kernel determines the underlying directed multigraph up to isomorphism when the node diagonal remains marked.
+The coefficient of $z$ in $\mathcal P_G$ recovers $A_G$, so the complete path-count kernel determines the underlying directed multigraph up to isomorphism when the node diagonal remains marked.
 
 It does not canonically distinguish two parallel edges inside their multiplicity space.
 
@@ -175,7 +175,7 @@ Thus:
 \text{ to }\ell^1.
 ```
 
-Consequently, route collapse is algebraically meaningful on finite-support expressions but may fail as a bounded operation on the Fock completion.
+Route collapse is algebraically meaningful on finite-support expressions but may fail to be bounded on the Fock completion.
 
 ---
 
@@ -203,7 +203,7 @@ d(u,v)=\min L(u,v).
 
 This minimum always exists because path lengths are natural numbers.
 
-So even when route counts are infinite and scalar endpoint summation is unavailable, shortest compositional distance remains unconditionally defined.
+Shortest compositional distance remains unconditionally defined even when route counts are infinite and scalar endpoint summation is unavailable.
 
 The reduction is:
 
@@ -318,7 +318,7 @@ X_G(v,u;z)=
 
 It separates two losses.
 
-### Geodesic multiplicity
+## Geodesic multiplicity
 
 ```math
 N_d(v,u)-1.
@@ -658,7 +658,7 @@ The contrast can now be stated sharply.
 R_G^{-1}=1-z\mathbf E.
 ```
 
-All routes are retained individually, so inversion merely removes their free compositions and recovers primitive channels.
+With all routes retained individually, inversion merely removes their free compositions and recovers primitive channels.
 
 ## Endpoint-counting level
 

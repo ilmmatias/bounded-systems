@@ -67,7 +67,7 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 where
 
 ```math
-\chi(y)=y,\mathbf1_{\{|y|<1\}}
+\chi(y)=y\,\mathbf1_{\{|y|<1\}}
 ```
 
 is a conventional truncation.
@@ -89,7 +89,7 @@ a_h=
 \text{limiting rate of nonvanishing jumps}.
 ```
 
-Existence and uniqueness of a process with such a nonlocal generator is naturally formulated through its martingale problem; well-posedness is known under various regularity and nondegeneracy assumptions but is not automatic for arbitrary coefficients.
+Existence and uniqueness of a process with such a nonlocal generator are formulated through its martingale problem; well-posedness holds under various regularity and nondegeneracy assumptions but is not automatic for arbitrary coefficients.
 
 The density equation is simply
 
@@ -360,7 +360,7 @@ b_h\cdot\nabla f
 
 This is the quadratic regime already closed.
 
-Central-limit results for dependent or nonhomogeneous Markov triangular arrays require appropriate mixing or correlation control, which is one of the conditions that must eventually be checked for the graph-derived kernels.
+Central-limit results for dependent or nonhomogeneous Markov triangular arrays require appropriate mixing or correlation control, which must eventually be checked for the graph-derived kernels.
 
 ---
 
@@ -369,7 +369,7 @@ Central-limit results for dependent or nonhomogeneous Markov triangular arrays r
 Suppose most increments vanish, but finite displacements $y=O(1)$ occur with probability
 
 ```math
-a_\delta,\nu(x,dy)+o(a_\delta).
+a_\delta\,\nu(x,dy)+o(a_\delta).
 ```
 
 Then
@@ -393,7 +393,7 @@ when the jump measure has finite mass:
 
 This is a compound-Poisson or finite-activity jump-diffusion regime.
 
-The point is that the third and higher Taylor coefficients do not vanish here, because $y$ is not small. They resum into the full nonlocal expression
+Because $y$ is not small, the third and higher Taylor coefficients do not vanish but resum into the full nonlocal expression
 
 ```math
 f(x+y)-f(x).
@@ -411,7 +411,7 @@ Suppose the increment distribution has heavy tails with index
 0<\alpha<2.
 ```
 
-The quadratic moment may not exist, and diffusive scaling is wrong. The natural scaling is typically
+The quadratic moment may not exist, making diffusive scaling wrong; the natural scaling is typically
 
 ```math
 a_\delta=\delta^\alpha.
@@ -423,7 +423,7 @@ The limiting jump kernel has the form
 \nu(x,dy)
 \sim
 \frac{c(x,\widehat y)}
-{|y|^{d+\alpha}},dy.
+{|y|^{d+\alpha}}\,dy.
 ```
 
 For an isotropic symmetric kernel,
@@ -439,7 +439,7 @@ After the harmonic transform,
 \nu_h(x,dy)=
 e^{u(x+y)-u(x)}
 \frac{c(x,\widehat y)}
-{|y|^{d+\alpha}},dy.
+{|y|^{d+\alpha}}\,dy.
 ```
 
 The effective equation is
@@ -451,7 +451,7 @@ The effective equation is
 
 with a profile-biased fractional or stable-like operator.
 
-Stable limits can arise for heavy-tailed additive functionals of Markov chains under suitable mixing and operator assumptions, while state-dependent stable-like generators require their own martingale-problem analysis.
+Stable limits can arise for heavy-tailed additive functionals of Markov chains under suitable mixing and operator assumptions, whereas state-dependent stable-like generators require separate martingale-problem analysis.
 
 The critical-profile equation becomes
 
@@ -464,7 +464,7 @@ e^{u(x+y)-u(x)}
 -\chi(y)\cdot\nabla u
 \right]
 \frac{c(x,\widehat y)}
-{|y|^{d+\alpha}},dy
+{|y|^{d+\alpha}}\,dy
 -c,
 ```
 
@@ -551,7 +551,7 @@ Then the coarse profile clock has no finite mean. In scaling limits it can be re
 
 where $\partial_\tau^\gamma$ is the Caputo-type fractional derivative.
 
-Time changes by inverse stable subordinators are known to convert ordinary Kolmogorov or Fokker–Planck equations into time-fractional ones.
+Inverse-stable-subordinator time changes convert ordinary Kolmogorov or Fokker–Planck equations into time-fractional equations.
 
 The distribution of microscopic path lengths between coarse profile events can therefore generate fractional time.
 
@@ -559,7 +559,7 @@ The distribution of microscopic path lengths between coarse profile events can t
 
 # 11. Regime VII: long-range history dependence
 
-Acyclicity prevents exact recurrence, but it does not force successive profile increments to be independent or short-range correlated.
+Acyclicity prevents exact recurrence but does not imply independent or short-range-correlated successive profile increments.
 
 Reconvergence and common deep ancestry can produce correlations
 
@@ -600,7 +600,7 @@ Possible limits include:
 * operator fractional Brownian motion;
 * Rosenblatt or higher Hermite processes.
 
-Long-range dependent systems can have Gaussian or non-Gaussian functional limits depending on their dependence structure and Hermite rank.
+Long-range-dependent systems can have Gaussian or non-Gaussian functional limits according to their dependence structure and Hermite rank.
 
 This regime is different from Lévy dynamics:
 
@@ -616,16 +616,16 @@ This regime is different from Lévy dynamics:
 
 The profile state alone is then generally not Markovian.
 
-One must either enlarge the state to include sufficient history or use a memory equation such as
+One must enlarge the state to include sufficient history or use a memory equation such as
 
 ```math
 \partial_\tau\rho(\tau)=
 \int_0^\tau
 K(\tau-s)
-(\mathcal L^h)^\ast\rho(s),ds.
+(\mathcal L^h)^\ast\rho(s)\,ds.
 ```
 
-Unlike the Lévy case, there is no single universal memory kernel determined solely by a tail exponent. The detailed route-correlation structure matters.
+Unlike the Lévy case, no single universal memory kernel is determined solely by a tail exponent; the detailed route-correlation structure matters.
 
 ---
 
@@ -711,7 +711,7 @@ For a mixed Gaussian–jump limit, the fluctuation space takes the schematic for
 \Gamma_s\!\left(L^2(\nu_h)\right).
 ```
 
-Square-integrable functionals of Poisson random measures admit a Wiener–Itô/Fock-space chaos representation, so this is the jump counterpart of the Gaussian fluctuation construction.
+Square-integrable functionals of Poisson random measures admit a Wiener–Itô/Fock-space chaos representation, the jump counterpart of the Gaussian fluctuation construction.
 
 There remains a total chaos number operator
 
@@ -863,4 +863,4 @@ The anomalous spatial regimes are exactly the cases
 \nu\ne0.
 ```
 
-The anomalous-clock and long-memory regimes occur when no closed Markov generator on the instantaneous profile manifold suffices.
+Anomalous-clock and long-memory regimes arise when no closed Markov generator on the instantaneous profile manifold suffices.

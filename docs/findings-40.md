@@ -8,7 +8,7 @@ Let
 \xi_k\in T_h\mathcal M
 ```
 
-be a centered profile increment associated with the $k$-th route block. The primary covariance is therefore the two-index kernel
+be the centered profile increment for the $k$-th route block. Its primary covariance is the two-index kernel
 
 ```math
 C_{jk}=
@@ -106,7 +106,7 @@ Therefore
 
 So the linear harmonic fluctuation sector is already whitened by the Doob-transformed dynamics.
 
-This means long-range dependence can appear only through something that the harmonic martingale description has omitted:
+Thus, long-range dependence can arise only from something omitted by the harmonic martingale description:
 
 ```math
 \begin{aligned}
@@ -176,7 +176,7 @@ Under appropriate mixing or martingale-approximation hypotheses, the normalizati
 a_n=\sqrt n
 ```
 
-and the limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$. Functional central limit theorems for additive functionals of stationary reversible Markov processes give a rigorous version of this phenomenon under operator-domain conditions.
+The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$; functional central limit theorems for additive functionals of stationary reversible Markov processes establish this phenomenon under operator-domain conditions.
 
 Thus summable route correlation does not create a new continuum regime. It renormalizes the quadratic tensor.
 
@@ -241,7 +241,7 @@ t^{2H}
 
 That is the covariance of a vector or operator-valued fractional Brownian field.
 
-Fractional Brownian limits under long-range dependence, and the possibility of non-Gaussian Rosenblatt-type limits, go back to the noncentral limit theory of Taqqu and Dobrushin–Major.
+Fractional Brownian limits under long-range dependence and possible non-Gaussian Rosenblatt-type limits go back to the noncentral limit theory of Taqqu and Dobrushin–Major.
 
 So the correlation exponent and Hurst exponent are related by
 
@@ -365,7 +365,7 @@ y(\tau)=
 e^{-\tau D_h}y_0-
 \int_0^\tau
 e^{-(\tau-s)D_h}
-Cx(s),ds.
+Cx(s)\,ds.
 ```
 
 Substitution gives the exact visible equation
@@ -374,7 +374,7 @@ Substitution gives the exact visible equation
 \dot x(\tau)=
 -B_hx(\tau)-
 \int_0^\tau
-K_h(\tau-s)x(s),ds
+K_h(\tau-s)x(s)\,ds
 +
 \eta_h(\tau),
 ```
@@ -393,7 +393,7 @@ and
 C^\ast e^{-\tau D_h}y_0.
 ```
 
-This is a generalized Langevin/Volterra equation, but here it has been obtained directly by eliminating the hidden route sector.
+This generalized Langevin/Volterra equation follows directly from eliminating the hidden route sector.
 
 The memory kernel and fluctuating term have the same hidden propagator:
 
@@ -401,9 +401,9 @@ The memory kernel and fluctuating term have the same hidden propagator:
 e^{-\tau D_h}.
 ```
 
-Generalized Langevin reductions likewise arise by eliminating unresolved degrees of freedom, producing a memory term and colored forcing; under equilibrium assumptions these are connected by a fluctuation–dissipation relation.
+Eliminating unresolved degrees of freedom likewise yields generalized Langevin reductions with a memory term and colored forcing, connected under equilibrium assumptions by a fluctuation–dissipation relation.
 
-A fluctuation–dissipation identity is not automatic under A1–A5. It additionally requires a suitable symmetric or equilibrium state.
+A fluctuation–dissipation identity is not automatic under A1–A5; it requires a suitable symmetric or equilibrium state.
 
 ---
 
@@ -422,7 +422,7 @@ Its spectral resolution gives
 ```math
 e^{-\tau D_h}=
 \int_{[0,\infty)}
-e^{-\omega\tau},dE_h(\omega).
+e^{-\omega\tau}\,dE_h(\omega).
 ```
 
 Hence
@@ -446,7 +446,7 @@ Suppose its low-frequency density behaves as
 ```math
 d\Sigma_h(\omega)
 \sim
-A_h\omega^{\eta-1},d\omega,
+A_h\omega^{\eta-1}\,d\omega,
 \qquad
 \omega\downarrow0,
 ```
@@ -478,7 +478,7 @@ Therefore:
 
 This is the precise spectral bridge.
 
-Acyclicity forbids exact cyclic recurrence, but it does not forbid arbitrarily slow hidden modes. Infinite depth and repeated route reconvergence can generate a continuum of relaxation scales accumulating at zero.
+Acyclicity forbids exact cyclic recurrence but not arbitrarily slow hidden modes; infinite depth and repeated route reconvergence can generate a continuum of relaxation scales accumulating at zero.
 
 ---
 
@@ -510,7 +510,7 @@ The visible equation becomes
 \frac{\kappa_h}
 {\Gamma(1-\eta)}
 \int_0^\tau
-(\tau-s)^{-\eta}x(s),ds
+(\tau-s)^{-\eta}x(s)\,ds
 +
 \eta_h(\tau).
 ```
@@ -560,9 +560,9 @@ One may obtain
 
 ```math
 dX_\tau=
--B_hX_\tau,d\tau
+-B_hX_\tau\,d\tau
 +
-\sigma_h,dB_H(\tau),
+\sigma_h\,dB_H(\tau),
 ```
 
 where $B_H$ is fractional Brownian motion with
@@ -581,7 +581,7 @@ Alternatively, hidden-route elimination produces
 \dot X_\tau=
 -B_hX_\tau-
 \int_0^\tau
-K_h(\tau-s)X_s,ds
+K_h(\tau-s)X_s\,ds
 +
 \eta_h(\tau).
 ```
@@ -638,7 +638,7 @@ For the power kernel,
 \frac{\sin(\pi\eta)}{\pi}
 \int_0^\infty
 e^{-\omega\tau}
-\omega^{\eta-1},d\omega.
+\omega^{\eta-1}\,d\omega.
 ```
 
 Thus the fractional memory is exactly a continuum of hidden exponential modes with density
@@ -664,7 +664,7 @@ G=i\beta N,
 \beta=\log\lambda.
 ```
 
-As before, the original gauge counts primitive channel composition, so it should not be subordinated or erased by profile compression.
+The original gauge counts primitive channel composition and therefore should not be subordinated to or erased by profile compression.
 
 Move to the interaction-picture variable
 
@@ -678,7 +678,7 @@ Suppose $\Phi$ obeys the memory equation
 \dot\Phi=
 -\mathbb B_h\Phi-
 \int_0^\tau
-K_h(\tau-s)\Phi(s),ds
+K_h(\tau-s)\Phi(s)\,ds
 +
 \eta_h.
 ```
@@ -694,7 +694,7 @@ Transforming back gives
 \int_0^\tau
 K_h(\tau-s)
 e^{-G(\tau-s)}
-\Psi(s),ds\\
+\Psi(s)\,ds\\
 &+
 \eta_{h,G}(\tau),
 \end{aligned}
@@ -702,7 +702,7 @@ e^{-G(\tau-s)}
 
 assuming $G$ commutes with $\mathbb B_h$ and $K_h$.
 
-The memory of a past state therefore carries the gauge phase accumulated over the intervening primitive compositional depth.
+A past state's memory therefore carries the gauge phase accumulated over the intervening primitive compositional depth.
 
 ---
 
@@ -804,7 +804,7 @@ The Gaussian fluctuation representation is
 
 There remains a number operator $N$, so the path-growth gauge grading survives.
 
-But because the covariance is nonlocal in compositional depth, the dissipative dynamics is no longer generally generated by a time-local operator
+Nonlocal covariance in compositional depth means that the dissipative dynamics is no longer generally generated by a time-local operator
 
 ```math
 d\Gamma(B_h)
@@ -818,7 +818,7 @@ on the instantaneous profile space. Its natural object is the memory resolvent a
 
 For Hermite rank $m\ge2$, the limit is non-Gaussian.
 
-It lies in the $m$-th Wiener chaos of an underlying Gaussian correlation field, but that does not imply that its effective dynamics is the second quantization of a one-particle operator.
+It belongs to the $m$-th Wiener chaos of an underlying Gaussian correlation field, but its effective dynamics need not be the second quantization of a one-particle operator.
 
 Therefore, in the higher-Hermite regime,
 
@@ -945,7 +945,7 @@ The profile equation is
 \dot x(\tau)=
 -B_hx(\tau)-
 \int_0^\tau
-K_h(\tau-s)x(s),ds
+K_h(\tau-s)x(s)\,ds
 +
 \eta_h(\tau).
 ```
@@ -958,7 +958,7 @@ Its primitive-gauge fluctuation lift is
 \int_0^\tau
 K_h(\tau-s)
 e^{-i\beta N(\tau-s)}
-\Psi(s),ds
+\Psi(s)\,ds
 +
 \eta_{h,\beta}(\tau).
 ```

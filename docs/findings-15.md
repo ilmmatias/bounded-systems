@@ -28,7 +28,7 @@ Put
 d_i=p_i^1-p_i^0.
 ```
 
-For a subset $S\subseteq\{1,\ldots,k\}$, replacing the factor at position $i\in S$ by $d_i$ produces an $|S|$-fold alternating route box. Modulo one higher power of $I$, the ordinary route choices outside $S$ do not matter.
+For $S\subseteq\{1,\ldots,k\}$, replacing each factor at position $i\in S$ by $d_i$ yields an $|S|$-fold alternating route box; modulo one higher power of $I$, ordinary route choices outside $S$ do not matter.
 
 Consequently,
 
@@ -54,7 +54,7 @@ where:
 
 This is essentially a Boolean or Walsh decomposition of the orthogonal route space.
 
-Yet there are no higher dependencies among these boxes: every product corresponds uniquely to its selected set of ambiguity positions. For this family,
+For this family, there are no higher dependencies among these boxes: each product corresponds uniquely to its selected ambiguity positions.
 
 ```math
 \mathrm{gr}_I A
@@ -107,7 +107,7 @@ in that corner. Therefore:
 \end{aligned}
 ```
 
-The unique second-order direction is an alternating four-route rectangle formed by composing two compatible square ambiguities.
+Composing two compatible square ambiguities yields the unique second-order direction, an alternating four-route rectangle.
 
 Moreover, the relevant multiplication map
 
@@ -141,7 +141,7 @@ the six saturated paths are the six permutations:
 123,\ 132,\ 312,\ 321,\ 231,\ 213.
 ```
 
-Adjacent paths differ by exchanging the order in which two elements are added. These six local diamond moves form a hexagon:
+Adjacent paths exchange the order of adding two elements; the six local diamond moves form a hexagon:
 
 ```math
 123\to132\to312\to321\to231\to213\to123.
@@ -218,7 +218,7 @@ measures dependencies among factorizations of those multiplicative ambiguity ele
 
 It does not necessarily measure dependencies among a minimal collection of local route-identification laws.
 
-The ordinary reduced bar construction is the standard complex for an augmented algebra and its derived tensor products, but that is a different question from finding a coherent presentation by generators, relations, and relations among relations.
+The ordinary reduced bar construction is standard for an augmented algebra and its derived tensor products, but finding a coherent presentation by generators, relations, and relations among relations is a different question.
 
 # 5. The correct local relation module
 
@@ -262,7 +262,7 @@ For $B_3$,
 
 one generator for each rank-two Boolean diamond. Their transported images satisfy the one hexagonal syzygy above.
 
-The presentation of an incidence algebra as a path algebra modulo the ideal identifying parallel paths is standard; this ideal is often called the parallel ideal.
+The standard presentation of an incidence algebra as a path algebra uses the ideal identifying parallel paths, often called the parallel ideal.
 
 # 6. The beginning of the corrected resolution
 
@@ -350,7 +350,7 @@ define its path derivative
 
 Empty prefixes or suffixes are interpreted as their corresponding node identities.
 
-This formula marks every possible place at which the path can be cut around one primitive channel.
+This formula marks every possible cut around one primitive channel.
 
 It satisfies the Leibniz rule
 
@@ -450,7 +450,7 @@ For the Boolean interval of rank $d$:
 * independent exchanges produce square coherence diagrams;
 * overlapping exchanges produce hexagonal braid diagrams.
 
-The two-dimensional faces of a permutohedron are exactly of the commuting-square and braid-polygon types, and higher faces encode higher compatibility among these moves.
+The two-dimensional faces of a permutohedron are exactly the commuting-square and braid-polygon types; higher faces encode compatibility among these moves.
 
 Thus the $B_3$ hexagon is the first permutohedral coherence cell.
 
@@ -468,7 +468,7 @@ For larger $d$, one obtains:
 \end{array}
 ```
 
-The full permutohedron is a convex polytope, so its cellular complex is contractible. This means the hierarchy of coherence cells can be very rich even though its final reduced homology vanishes.
+The full permutohedron is a convex polytope with a contractible cellular complex, so its hierarchy of coherence cells can be rich even though its final reduced homology vanishes.
 
 The distinction is:
 
@@ -478,7 +478,7 @@ The distinction is:
 
 It can mean that every ambiguity loop is coherently filled at a higher dimension.
 
-Higher-dimensional rewriting and polygraphic resolutions were developed precisely to encode generators, relations, and higher syzygies in this way.
+Higher-dimensional rewriting and polygraphic resolutions were developed to encode generators, relations, and higher syzygies in this way.
 
 # 10. Canonical versus minimal
 
@@ -501,4 +501,4 @@ A small or minimal resolution selects:
 
 That selection is generally not unique.
 
-Different convergent presentations can produce different bases of cells while resolving the same quotient. The meaningful invariant is therefore the resulting chain-homotopy or derived object, not the names of the selected generators. Squier and polygraphic constructions formalize this distinction between a presentation and its coherent higher completion.
+Different convergent presentations can yield different cell bases while resolving the same quotient; the meaningful invariant is therefore the resulting chain-homotopy or derived object, not the selected generators' names. Squier and polygraphic constructions formalize this distinction between a presentation and its coherent higher completion.

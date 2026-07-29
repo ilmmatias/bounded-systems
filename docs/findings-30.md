@@ -40,7 +40,7 @@ The closure is taken in the product topology of pointwise convergence.
 
 Because every coordinate is bounded by prefixing estimates, the ambient product is compact, so this cluster set is nonempty whenever all columns are defined.
 
-### Martin-regular ray
+## Martin-regular ray
 
 Call $\xi$ $t$-Martin regular when
 
@@ -100,7 +100,7 @@ This relation has a direct observational interpretation:
 
 exactly when every fixed node $v$, using normalized weighted route counts toward the distant endpoints, sees the two histories asymptotically identically.
 
-The quotient forgets route history precisely to the extent that those normalized Green observations fail to separate rays.
+The quotient forgets route history precisely insofar as normalized Green observations fail to separate rays.
 
 ---
 
@@ -118,7 +118,7 @@ Write
 
 when, after possibly different finite prefixes, the two paths follow exactly the same infinite edge sequence.
 
-This is the standard tail relation used for path spaces of Bratteli diagrams and related graded graphs. Tail-equivalence classes and tail-invariant measures are fundamental objects in that setting.
+This is the standard tail relation for path spaces of Bratteli diagrams and related graded graphs, where tail-equivalence classes and tail-invariant measures are fundamental.
 
 If two rays have an eventual common tail, their node sequences are eventually identical up to a finite shift. Hence
 
@@ -161,7 +161,7 @@ If both rays are Martin regular, their Green-column sequences contain the same c
 \xi\sim_t^M\eta.
 ```
 
-The rays may split again after every common node. They need not possess an eventual common tail.
+The rays may split after every common node and need not have an eventual common tail.
 
 ## Asymptotic Green equivalence
 
@@ -191,9 +191,9 @@ Both inclusions can be strict.
 
 # 4. One reconvergence is not sufficient
 
-Suppose two rays meet at a node $w$, but then choose different outgoing branches and never meet again.
+Suppose two rays meet at a node $w$, then take different outgoing branches and never meet again.
 
-The common finite prefix after reconvergence says nothing by itself about the asymptotic Green columns of the later endpoints.
+The common finite prefix after reconvergence alone says nothing about the asymptotic Green columns of later endpoints.
 
 Therefore:
 
@@ -510,24 +510,15 @@ Its fiber over a node boundary point $h\in Y_t$ is
 F_h=\pi_t^{-1}(h).
 ```
 
-The size and topology of $F_h$ measure how much actual route history is erased at the boundary.
+The size and topology of $F_h$ quantify how much route history the boundary erases.
 
 Examples:
 
-* unique-route tree:
-  ```math
-  |F_h|=1;
-  ```
-* diamond followed by a tail:
-  ```math
-  |F_h|=2;
-  ```
-* complete layered mixing:
-  ```math
-  F_h\cong\{1,\ldots,b\}^{\mathbb N}.
-  ```
+* a unique-route tree has $|F_h|=1$;
+* a diamond followed by a tail has $|F_h|=2$;
+* complete layered mixing has $F_h\cong\{1,\ldots,b\}^{\mathbb N}$.
 
-So a single node Martin direction can conceal anything from one history to an entire Cantor family of histories.
+A single node Martin direction can conceal anything from one history to an entire Cantor family of histories.
 
 ---
 
@@ -685,7 +676,7 @@ but the compact cluster set
 
 Several distinctions arise:
 
-### Singleton cluster set
+## Singleton cluster set
 
 ```math
 \mathrm{Cl}_t(\xi)={h}.

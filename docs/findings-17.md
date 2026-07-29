@@ -38,7 +38,7 @@ the same construction concatenates factorization chains from every interval
 (v_{i-1},v_i).
 ```
 
-These concatenations are strictly compatible with regrouping. Whether we first combine the intervals around $v_1$ or those around $v_2$, the resulting full chain is the same.
+These concatenations are strictly compatible with regrouping: first combining the intervals around $v_1$ or those around $v_2$ yields the same full chain.
 
 Thus the primary thin-coherence object is not merely
 
@@ -55,7 +55,7 @@ but
 \right).
 ```
 
-This type of cochain, operadic, and brace-compatible structure on posets and their incidence algebras is part of the broader cohomology-comparison framework.
+Such cochain, operadic, and brace-compatible structures on posets and their incidence algebras belong to the broader cohomology-comparison framework.
 
 # 2. The derived reachability category
 
@@ -163,7 +163,7 @@ The degrees work because:
 (q-2)+(p-2)+2=p+q-2.
 ```
 
-The extra two positions arise from joining the lower factorization, the intermediate node $v$, and the upper factorization.
+The extra two positions join the lower factorization, the intermediate node $v$, and the upper factorization.
 
 With the standard signs,
 
@@ -220,7 +220,7 @@ The induced product
 \operatorname{Ext}^{p+q}(S_u,S_w)
 ```
 
-is the Yoneda product. Incidence algebras can be presented as path algebras modulo the parallel-path ideal, while their projective resolutions and Ext groups are governed by the combinatorics of the poset intervals.
+is the Yoneda product. Incidence algebras are path algebras modulo the parallel-path ideal, and poset-interval combinatorics governs their projective resolutions and Ext groups.
 
 Thus the isolated groups from the previous step assemble into a graded category:
 
@@ -362,12 +362,12 @@ Composing the $d$ cover classes along that chain gives the top degree class. Exc
 
 ```math
 \eta_{\pi(d)}\cdots\eta_{\pi(1)}=
-\operatorname{sgn}(\pi),\omega.
+\operatorname{sgn}(\pi)\,\omega.
 ```
 
-The diamond relations account for adjacent exchanges, while the higher interval topology ensures that all sequences of such exchanges are coherently compatible.
+The diamond relations account for adjacent exchanges, and higher interval topology makes all sequences of such exchanges coherently compatible.
 
-This exterior-like behavior is consistent with the fact that graded incidence algebras are Koszul exactly under the relevant Cohen–Macaulay interval conditions; Boolean intervals satisfy those conditions.
+This exterior-like behavior accords with graded incidence algebras being Koszul exactly under the relevant Cohen–Macaulay interval conditions, which Boolean intervals satisfy.
 
 # 8. The Yoneda product is not always enough
 
@@ -377,7 +377,7 @@ The graded category
 H^\bullet(\mathscr E_G)
 ```
 
-retains the cohomology groups and their binary product. But it forgets the actual cochain complexes and the specific null-homotopies inside them.
+retains the cohomology groups and binary product but forgets the cochain complexes and their specific null-homotopies.
 
 For example, a product may vanish in cohomology because it is a coboundary:
 
@@ -533,7 +533,7 @@ Thus the ordinary Yoneda algebra with its binary product is sufficient:
 \text{no essential higher }A_\infty\text{ products}.
 ```
 
-For a non-Koszul or nongraded incidence structure, the binary product may not retain all relation data. Nonzero higher operations can then be essential.
+For a non-Koszul or nongraded incidence structure, the binary product may not retain all relation data, making nonzero higher operations essential.
 
 The Cohen–Macaulay characterization of Koszul incidence algebras gives the topological criterion separating these regimes.
 

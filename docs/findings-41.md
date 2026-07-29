@@ -86,7 +86,7 @@ The corresponding time-domain equation is
 ```math
 \partial_s\Psi(s)=
 -\mathbb H_h\Psi(s)-
-\int_0^sK_h(s-r)\Psi(r),dr,
+\int_0^sK_h(s-r)\Psi(r)\,dr,
 ```
 
 with
@@ -101,7 +101,7 @@ and
 \widetilde K_h(z)=\Sigma_h(z).
 ```
 
-Eliminating unresolved variables to obtain an operator-valued memory kernel is the standard structure of generalized Langevin/Mori–Zwanzig reductions.
+Eliminating unresolved variables yields an operator-valued memory kernel, as standard in generalized Langevin/Mori–Zwanzig reductions.
 
 ---
 
@@ -110,7 +110,7 @@ Eliminating unresolved variables to obtain an operator-valued memory kernel is t
 When $D_h$ is nonnegative self-adjoint,
 
 ```math
-D_h=\int_0^\infty\omega,dE_h(\omega).
+D_h=\int_0^\infty\omega\,dE_h(\omega).
 ```
 
 Therefore
@@ -135,7 +135,7 @@ If the hidden-route spectral measure has low-frequency behavior
 ```math
 dM_h(\omega)
 \sim
-A_h\omega^{\eta-1},d\omega,
+A_h\omega^{\eta-1}\,d\omega,
 \qquad
 0<\eta<1,
 ```
@@ -148,7 +148,7 @@ then
 &\sim
 A_h
 \int_0^\infty
-\frac{\omega^{\eta-1}}{s+\omega},d\omega\\
+\frac{\omega^{\eta-1}}{s+\omega}\,d\omega\\
 &=
 \frac{\pi A_h}{\sin(\pi\eta)}
 s^{\eta-1}.
@@ -213,7 +213,7 @@ The factor
 \frac{\Phi(q)}q
 ```
 
-encodes the initial condition of the generalized Caputo-type equation. Inverse subordinators generate precisely these generalized time-nonlocal Cauchy problems.
+encodes the initial condition for the generalized Caputo-type equation. Inverse subordinators generate these generalized time-nonlocal Cauchy problems.
 
 Substituting the operational resolvent gives
 
@@ -320,7 +320,7 @@ qI+i(\log\lambda)N
 \Psi_0.
 ```
 
-A nonzero hidden-sector initial condition or external forcing adds a source to the numerator, but does not change the denominator controlling the regime.
+A nonzero hidden-sector initial condition or external forcing adds a numerator source but does not change the regime-controlling denominator.
 
 ---
 
@@ -353,7 +353,7 @@ Then the time-domain equation is
 +
 \int_0^\tau
 \mathcal K_{\Phi,G}(\tau-s)
-\Psi(s),ds=
+\Psi(s)\,ds=
 0.
 ```
 
@@ -611,7 +611,7 @@ z_n=0
 q=-i\beta n.
 ```
 
-So the $n$-th degree sector has the same memory envelope as the zero-degree sector, but modulated by the primitive gauge phase
+Thus, the $n$-th degree sector has the zero-degree sector's memory envelope, modulated by the primitive gauge phase
 
 ```math
 e^{-i\beta n\tau}.
@@ -704,7 +704,7 @@ Hence the self-energy is evaluated at
 
 Thus the clock and memory operations are nested.
 
-If route memory is instead generated directly in primitive time after the operational clock has already been compressed, the denominator becomes
+If route memory is generated directly in primitive time after compressing the operational clock, the denominator becomes
 
 ```math
 \Phi(z)
@@ -777,7 +777,7 @@ Cf,(s+D_h)^{-1}Cf
 }{
 |s+\omega|^2
 }
-,d\mu_f(\omega)\\
+\,d\mu_f(\omega)\\
 &\ge0.
 \end{aligned}
 ```
@@ -846,7 +846,7 @@ So the primitive gauge phase is universal across all the regimes:
 \text{gauge changes spectral location, not the dissipative envelope}.
 ```
 
-That statement requires degree preservation. If the dissipative generator changes path degree, the sectors couple and this simple translation law fails.
+This requires degree preservation: if the dissipative generator changes path degree, the sectors couple and the simple translation law fails.
 
 ---
 
@@ -940,4 +940,4 @@ M_h=
 \text{hidden-route spectral measure}.
 ```
 
-The exponents alone do not determine the theory. The angular jump measure, hidden spectral measure and degree-mixing defects retain information that four scalar parameters cannot.
+The exponents alone do not determine the theory: the angular jump measure, hidden spectral measure and degree-mixing defects retain information beyond four scalar parameters.

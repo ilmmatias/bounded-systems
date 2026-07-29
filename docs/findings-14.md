@@ -157,7 +157,7 @@ Expanding gives
 p_m^{\epsilon_m}\cdots p_1^{\epsilon_1}.
 ```
 
-It is the alternating sum of the $2^m$ complete routes obtained by independently choosing one of the two possibilities at each ambiguity sector.
+It is the alternating sum of the $2^m$ complete routes formed by independently choosing one of two possibilities at each ambiguity sector.
 
 For example:
 
@@ -248,13 +248,13 @@ The balanced tensor product imposes
 X\otimes_B(cY).
 ```
 
-Combinatorially, a route-insensitive path segment sitting between two ambiguity boxes may be attached to either adjacent box.
+A route-insensitive path segment between two ambiguity boxes may be attached to either adjacent box.
 
 Therefore a bar chain does not remember exactly where ordinary, nonambiguous path context was cut between its ambiguity blocks.
 
 It remembers only the decomposition into ambiguity factors.
 
-This corrects the earlier simplified description in which tensor products were treated as merely endpoint-matched chains.
+This corrects the earlier simplified description treating tensor products as merely endpoint-matched chains.
 
 # 6. The combinatorial ambiguity complex
 
@@ -303,7 +303,7 @@ Associativity of path concatenation gives
 d^2=0.
 ```
 
-This is the reduced relative bar construction written in route-choice language. Relative and reduced bar constructions are the standard mechanism for an algebra augmented over a base algebra; the present construction specializes that mechanism to the canonical augmentation $C\to B$.
+This is the reduced relative bar construction in route-choice language, specializing the standard relative and reduced bar mechanism for an algebra augmented over a base algebra to the canonical augmentation $C\to B$.
 
 # 7. Low-degree form
 
@@ -367,7 +367,7 @@ d_3[t|s|r]=
 
 This compares the two ways of grouping the same three ambiguity choices.
 
-A third homology class requires a nontrivial combination for which those adjacent mergers cancel, modulo four-block boundaries.
+A third homology class requires a nontrivial combination whose adjacent mergers cancel, modulo four-block boundaries.
 
 # 8. A single diamond
 
@@ -619,7 +619,7 @@ The nontrivial homology appears only when the actual route algebra introduces id
 
 # 12. Finite computation inside one chosen system
 
-For a finite system—or a finite ordinal-rank band—the complex can be constructed by linear algebra:
+For a finite system—or finite ordinal-rank band—the complex can be constructed by linear algebra:
 
 1. Enumerate all finite paths in the selected subsystem.
 2. Group them by source and target.
@@ -633,7 +633,7 @@ For a finite system—or a finite ordinal-rank band—the complex can be constru
 
 This is fundamentally different from the earlier exhaustive DAG search.
 
-We would be analyzing the internal ambiguity structure of one specified system or rank truncation, not attempting to classify every graph of a given size.
+We would analyze the internal ambiguity structure of one specified system or rank truncation, not attempt to classify every graph of a given size.
 
 # 13. Infinite systems
 
@@ -646,7 +646,7 @@ The algebraic construction remains valid without countability or local finitenes
 
 No infinite scalar summation is required.
 
-What may fail is computational stabilization. Increasing finite path-supported truncations need not reveal the final homology after any predetermined finite stage.
+Computational stabilization may fail: increasing finite path-supported truncations need not reveal the final homology at any predetermined finite stage.
 
 Therefore finite calculations should be stated as:
 

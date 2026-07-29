@@ -14,7 +14,7 @@ s,r:E\to V
 
 give the source and target of each channel.
 
-Using a quiver rather than merely $E\subseteq V\times V$ keeps parallel channels possible, since the axioms do not rule them out.
+Using a quiver rather than $E\subseteq V\times V$ allows parallel channels, which the axioms do not rule out.
 
 ## $C_{\infty 1}$: Cardinality is unrestricted
 
@@ -39,16 +39,10 @@ when there exists a positive-length finite directed path from $u$ to $v$.
 
 A5 gives:
 
-* irreflexivity:
-  ```math
-  u\nprec u;
-  ```
-* transitivity:
-  ```math
-  u\prec v,;v\prec w\implies u\prec w.
-  ```
+* irreflexivity, $u\nprec u$;
+* transitivity, $u\prec v,\ v\prec w\implies u\prec w$.
 
-The direct edge relation need not itself be transitive. Shortcut edges may coexist with longer paths.
+The direct edge relation need not be transitive: shortcut edges may coexist with longer paths.
 
 ## $C_{\infty 3}$: The system is richer than its reachability poset
 
@@ -66,7 +60,7 @@ Collapsing all of them to the statement $u\prec v$ loses:
 * intermediate-node structure;
 * parallel channels.
 
-So the reachability poset is a quotient of the full communication structure, not the full object.
+The reachability poset is a quotient of the full communication structure, not the full object.
 
 ## $C_{\infty 4}$: Infinite chains are allowed
 
@@ -123,7 +117,7 @@ Acyclicity gives:
 
 There are no nonidentity endomorphisms because any positive-length path from $v$ back to $v$ would be a directed cycle.
 
-This is the free path category: it introduces no equations identifying two different edge sequences. If two paths were declared equal for some further reason, that equality would be extra structure not contained in A1–A5.
+The free path category introduces no equations identifying different edge sequences; if two paths are declared equal for some further reason, that equality is extra structure not contained in A1–A5.
 
 # 3. Algebraic path representation
 
@@ -291,7 +285,7 @@ For every acyclic $G$:
 J\text{ is locally nilpotent}.
 ```
 
-To see this, take finitely many elements of $J$. Their path supports involve only finitely many vertices. A sufficiently long nonzero product would give a directed path that repeats a vertex, producing a cycle. Therefore sufficiently long products vanish.
+For finitely many elements of $J$, their path supports involve only finitely many vertices. A sufficiently long nonzero product would yield a directed path repeating a vertex and hence a cycle, so sufficiently long products vanish.
 
 In particular, every individual algebraic element
 
@@ -303,7 +297,7 @@ is nilpotent.
 
 However, $J$ need not be globally nilpotent.
 
-In fact:
+Equivalently:
 
 ```math
 J^{h+1}=0
@@ -314,12 +308,8 @@ J^{h+1}=0
 Thus:
 
 * finite-height systems correspond to a nilpotent positive-path ideal;
-* systems with paths of arbitrary finite length have
-  ```math
-  J^n\ne0
-  \quad\text{for every }n;
-  ```
-* nevertheless, every finitely supported positive process remains nilpotent.
+* systems with arbitrarily long finite paths satisfy $J^n\ne0$ for every $n$;
+* every finitely supported positive process is nevertheless nilpotent.
 
 This is a genuinely infinite result and does not depend on node count.
 
@@ -337,7 +327,7 @@ is the vector space spanned by length-$n$ paths from $u$ to $v$.
 
 Therefore:
 
-### Reachability
+## Reachability
 
 ```math
 u\prec v
@@ -457,9 +447,9 @@ For a path $p=e_n\cdots e_1$,
 L_p=L_{e_n}\cdots L_{e_1}.
 ```
 
-The standard countable-graph version of this Fock-space construction leads to free semigroupoid algebras. Kribs and Power showed that, in that setting, the directed graph is a complete unitary invariant of the resulting algebra.
+For countable graphs, this Fock-space construction yields free semigroupoid algebras; Kribs and Power showed that the directed graph is a complete unitary invariant of the resulting algebra.
 
-The formula itself makes sense for arbitrary cardinality; what remains to be established is which countable classification theorems extend unchanged to the nonseparable case.
+The formula applies to arbitrary cardinality, but whether the countable classification theorems extend unchanged to the nonseparable case remains to be established.
 
 # 8. Acyclicity becomes one-sided operator multiplication
 
@@ -565,7 +555,7 @@ is bounded with $|T|=1$. On each fixed-start path sector, it acts as a unilatera
 \sigma(T)=\{z\in\mathbb C:|z|\le1\}.
 ```
 
-Every finite partial sum is nilpotent and has spectrum ${0}$, yet the infinite strong limit has the entire closed unit disk as spectrum.
+Every finite partial sum is nilpotent with spectrum ${0}$, whereas the infinite strong limit has the entire closed unit disk as spectrum.
 
 Therefore:
 
@@ -615,4 +605,4 @@ This records:
 
 The norm-closed version is closely related to the directed graph tensor algebra; in the countable case, its $C^\ast$-envelope is the graph’s universal Cuntz–Krieger algebra.
 
-But the nonselfadjoint algebra should remain primary here. Adjoint operators such as $L_e^\ast$ are mathematical Hilbert-space adjoints, not reverse communication channels.
+The nonselfadjoint algebra should remain primary: adjoint operators such as $L_e^\ast$ are mathematical Hilbert-space adjoints, not reverse communication channels.
