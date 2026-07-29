@@ -26,7 +26,7 @@ The rescaled generator is
 K_{\delta,h}(x,dy).
 ```
 
-Previously we selected
+The previous analysis selected
 
 ```math
 a_\delta=\delta^2
@@ -72,22 +72,7 @@ where
 
 is a conventional truncation.
 
-The three coefficients have distinct origins:
-
-```math
-b_h=
-\text{finite first-order transport},
-```
-
-```math
-a_h=
-\text{accumulated vanishing-jump quadratic variation},
-```
-
-```math
-\nu_h(x,dy)=
-\text{limiting rate of nonvanishing jumps}.
-```
+The three coefficients have distinct origins: $b_h$ is the finite first-order transport, $a_h$ is the accumulated quadratic variation of vanishing jumps, and $\nu_h(x,dy)$ is the limiting rate of nonvanishing jumps.
 
 Existence and uniqueness of a process with such a nonlocal generator are formulated through its martingale problem; well-posedness holds under various regularity and nondegeneracy assumptions but is not automatic for arbitrary coefficients.
 
@@ -98,11 +83,11 @@ The density equation is simply
 (\mathcal L^h)^\ast\rho.
 ```
 
-This is the general Markovian replacement for the Fokker–Planck equation.
+The Lévy-type equation is the general Markovian replacement for Fokker-Planck diffusion.
 
 ---
 
-# 3. The exact nonlocal $h$-transform
+# 3. The nonlocal $h$-transform
 
 The harmonic profile still determines the effective dynamics.
 
@@ -138,13 +123,9 @@ The transformed generator is
 h^{-1}\mathcal L_0(hf)-\kappa f.
 ```
 
-This formula is valid for both local and nonlocal generators.
+The formula applies to both local and nonlocal generators.
 
-Set
-
-```math
-r_h(x,y)=\frac{h(x+y)}{h(x)}.
-```
+Set $r_h(x,y)=\frac{h(x+y)}{h(x)}$.
 
 Then the transformed jump measure is
 
@@ -163,7 +144,7 @@ b+a\nabla\log h
 \chi(y)\bigl[r_h(x,y)-1\bigr]\nu(x,dy).
 ```
 
-Therefore
+This gives
 
 ```math
 \begin{aligned}
@@ -181,7 +162,7 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f
 \end{aligned}
 ```
 
-So the earlier relation
+The earlier relation
 
 ```math
 b_h=b+a\nabla\log h
@@ -197,7 +178,7 @@ In the jump regime, the profile also reweights every finite displacement:
 \nu(x,dy).
 ```
 
-This is the continuum analogue of
+The identity is the continuum analogue of
 
 ```math
 P_h(e\mid v)=
@@ -208,11 +189,7 @@ P_h(e\mid v)=
 
 # 4. The nonlocal critical-profile equation
 
-Write
-
-```math
-u=\log h.
-```
+Write $u=\log h$.
 
 Dividing
 
@@ -244,15 +221,15 @@ e^{u(x+y)-u(x)}
 \end{aligned}
 ```
 
-This is the exact nonlocal extension of the logarithmic critical-profile equation.
+The equation is the nonlocal extension of the logarithmic critical-profile equation.
 
-The previous viscous Hamilton–Jacobi equation is recovered when
+The previous viscous Hamilton-Jacobi equation is recovered when
 
 ```math
 \nu=0.
 ```
 
-Therefore the master profile equation of the full Markovian continuum family is
+The master profile equation of the full Markovian continuum family is
 
 ```math
 \begin{aligned}
@@ -279,13 +256,7 @@ The exponential jump term is not a perturbative correction. It is the exact surv
 
 # 5. Regime I: ballistic transport
 
-Suppose
-
-```math
-\Delta_\delta x=O(\delta),
-```
-
-but the conditional mean is also $O(\delta)$, rather than $O(\delta^2)$.
+Suppose $\Delta_\delta x=O(\delta)$, but the conditional mean is also $O(\delta)$, rather than $O(\delta^2)$.
 
 Then the correct time scale is
 
@@ -314,36 +285,31 @@ and
 \nabla\cdot(b_h\rho)=0.
 ```
 
-This is the deterministic transport regime.
-
 It occurs when directed bias survives more strongly than route dispersion.
 
 ---
 
 # 6. Regime II: Gaussian diffusion
 
-Suppose:
+Suppose the increments satisfy
 
 ```math
 \Delta_\delta x=O(\delta),
-```
-
-```math
+\qquad
 \mathbb E[\Delta_\delta x]=O(\delta^2),
+\qquad
+\mathbb E[\Delta_\delta x\otimes\Delta_\delta x]=O(\delta^2),
 ```
 
-```math
-\mathbb E[\Delta_\delta x\otimes\Delta_\delta x]=
-O(\delta^2),
-```
+and assume that the Lindeberg condition excludes significant large jumps.
 
-and the Lindeberg condition excludes significant large jumps.
-
-Then
+It follows that
 
 ```math
 a_\delta=\delta^2,
 ```
+
+This gives
 
 ```math
 \nu_h=0,
@@ -358,8 +324,6 @@ b_h\cdot\nabla f
 \frac12a_h:\nabla^2f.
 ```
 
-This is the quadratic regime already closed.
-
 Central-limit results for dependent or nonhomogeneous Markov triangular arrays require appropriate mixing or correlation control, which must eventually be checked for the graph-derived kernels.
 
 ---
@@ -372,7 +336,7 @@ Suppose most increments vanish, but finite displacements $y=O(1)$ occur with pro
 a_\delta\,\nu(x,dy)+o(a_\delta).
 ```
 
-Then
+It follows that
 
 ```math
 \mathcal L^hf=
@@ -391,7 +355,7 @@ when the jump measure has finite mass:
 \nu_h(x,\mathbb R^d)<\infty.
 ```
 
-This is a compound-Poisson or finite-activity jump-diffusion regime.
+The limit is a compound-Poisson or finite-activity jump-diffusion.
 
 Because $y$ is not small, the third and higher Taylor coefficients do not vanish but resum into the full nonlocal expression
 
@@ -399,7 +363,7 @@ Because $y$ is not small, the third and higher Taylor coefficients do not vanish
 f(x+y)-f(x).
 ```
 
-Therefore the anomalous object is the jump integral, not an infinite higher-derivative PDE.
+The anomalous object is the jump integral, not an infinite higher-derivative PDE.
 
 ---
 
@@ -510,7 +474,7 @@ When the coefficients are translation invariant,
 \Psi_h(k)e^{ik\cdot x}.
 ```
 
-This symbol replaces the quadratic dispersion relation of the Gaussian regime.
+The Lévy symbol replaces the quadratic Gaussian dispersion relation.
 
 Thus the complete Markovian classification is encoded by the Lévy triplet
 
@@ -532,9 +496,9 @@ W
 \min{n\ge1:\Pi(X_n)\ne\Pi(X_0)}.
 ```
 
-This is entirely intrinsic: $W$ counts primitive channel compositions before the coarse profile changes.
+The clock is intrinsic: $W$ counts primitive channel compositions before the coarse profile changes.
 
-Suppose
+Suppose that
 
 ```math
 \Pr(W>n)\sim n^{-\gamma},
@@ -551,7 +515,7 @@ Then the coarse profile clock has no finite mean. In scaling limits it can be re
 
 where $\partial_\tau^\gamma$ is the Caputo-type fractional derivative.
 
-Inverse-stable-subordinator time changes convert ordinary Kolmogorov or Fokker–Planck equations into time-fractional equations.
+Inverse-stable-subordinator time changes convert ordinary Kolmogorov or Fokker-Planck equations into time-fractional equations.
 
 The distribution of microscopic path lengths between coarse profile events can therefore generate fractional time.
 
@@ -586,7 +550,7 @@ C(m)\sim m^{-\eta},
 0<\eta<1,
 ```
 
-the covariance sum diverges. The correct scaling may be
+The covariance sum diverges. The correct scaling may be
 
 ```math
 n^{-H}\sum_{k=1}^n\Delta X_k,
@@ -602,17 +566,7 @@ Possible limits include:
 
 Long-range-dependent systems can have Gaussian or non-Gaussian functional limits according to their dependence structure and Hermite rank.
 
-This regime is different from Lévy dynamics:
-
-```math
-\text{Lévy anomaly}=
-\text{independent-increment nonlocality},
-```
-
-```math
-\text{long-memory anomaly}=
-\text{history-dependent temporal correlations}.
-```
+The anomalous-clock regime differs from Lévy dynamics: a Lévy anomaly is nonlocality with independent increments, whereas a long-memory anomaly is produced by history-dependent temporal correlations.
 
 The profile state alone is then generally not Markovian.
 
@@ -629,45 +583,15 @@ Unlike the Lévy case, no single universal memory kernel is determined solely by
 
 ---
 
-# 12. The regime decision tree
+# 12. Regime classification procedure
 
-The continuum classification can now be stated directly from microscopic characteristics.
+The continuum regime is determined from the microscopic characteristics by the following procedure:
 
-## Step 1: determine the correct time scale
-
-Find $a_\delta$ such that at least one rescaled characteristic remains finite and nonzero.
-
-## Step 2: inspect large jumps
-
-For every set $A$ bounded away from zero, examine
-
-```math
-\frac1{a_\delta}
-K_{\delta,h}(x,A).
-```
-
-If this converges to a nonzero measure, a jump term survives.
-
-## Step 3: inspect vanishing-jump covariance
-
-Examine
-
-```math
-\frac1{a_\delta}
-\int_{|y|\le\varepsilon}
-y\otimes y,
-K_{\delta,h}(x,dy).
-```
-
-Taking first $\delta\to0$ and then $\varepsilon\to0$ determines the Gaussian covariance $a_h$.
-
-## Step 4: inspect temporal correlations
-
-Even if the one-step characteristics converge, check whether accumulated cross-covariances are summable.
-
-## Step 5: inspect coarse exit lengths
-
-Heavy-tailed block lengths indicate an anomalous clock rather than anomalous spatial noise.
+1. Choose $a_\delta$ so that at least one rescaled characteristic remains finite and nonzero.
+2. For every set $A$ bounded away from zero, examine $a_\delta^{-1}K_{\delta,h}(x,A)$. A nonzero limiting measure produces a jump term.
+3. Examine the vanishing-jump covariance $a_\delta^{-1}\int_{|y|\le\varepsilon} y\otimes y\,K_{\delta,h}(x,dy)$. Taking first $\delta\to0$ and then $\varepsilon\to0$ determines the Gaussian covariance $a_h$.
+4. Check whether the accumulated temporal cross-covariances are summable, even when the one-step characteristics converge.
+5. Inspect the coarse exit lengths; heavy-tailed block lengths indicate an anomalous clock rather than anomalous spatial noise.
 
 The resulting classification is
 
@@ -703,7 +627,7 @@ L^2(\nu_h)
 \right).
 ```
 
-For a mixed Gaussian–jump limit, the fluctuation space takes the schematic form
+For a mixed Gaussian-jump limit, the fluctuation space takes the schematic form
 
 ```math
 \Gamma_s(\mathfrak t_h)
@@ -711,7 +635,7 @@ For a mixed Gaussian–jump limit, the fluctuation space takes the schematic for
 \Gamma_s\!\left(L^2(\nu_h)\right).
 ```
 
-Square-integrable functionals of Poisson random measures admit a Wiener–Itô/Fock-space chaos representation, the jump counterpart of the Gaussian fluctuation construction.
+Square-integrable functionals of Poisson random measures admit a Wiener-Itô/Fock-space chaos representation, the jump counterpart of the Gaussian fluctuation construction.
 
 There remains a total chaos number operator
 
@@ -760,22 +684,16 @@ The dissipative and gauge parts preserve the same homogeneous grading.
 
 For a general nonlinear or state-dependent jump limit, this need not remain true.
 
-Define
+The degree-mixing commutator is
 
 ```math
 \mathfrak C_h=
 [\mathbb H_h,N_{\mathrm{tot}}].
 ```
 
-This is the exact obstruction to the complex evolution decomposing into independent chaos degrees.
+The commutator obstructs decomposition into independent chaos degrees.
 
-## Degree-preserving anomalous regime
-
-```math
-\mathfrak C_h=0.
-```
-
-Then
+If $\mathfrak C_h=0$, then
 
 ```math
 \Psi_\tau=
@@ -784,17 +702,9 @@ e^{-i\beta\tau N_{\mathrm{tot}}}
 \Psi_0,
 ```
 
-and the modes can be resolved simultaneously by relaxation and compositional degree.
+and the modes can be resolved simultaneously by relaxation and compositional degree. If $\mathfrak C_h\ne0$, jump interactions create or destroy effective fluctuation degree. The gauge grading remains defined, but it is no longer conserved by the dissipative dynamics.
 
-## Degree-mixing anomalous regime
-
-```math
-\mathfrak C_h\ne0.
-```
-
-Then jump interactions create or destroy effective fluctuation degree. The gauge grading remains defined, but it is no longer conserved by the dissipative dynamics.
-
-This commutator is therefore the first invariant beyond the free quadratic regime.
+The commutator is the first invariant beyond the free quadratic regime.
 
 ---
 

@@ -1,6 +1,6 @@
 # 1. Fixed-length route spaces
 
-Let
+Define $\mathsf P_n(G)$ by
 
 ```math
 \mathsf P_n(G)=
@@ -33,7 +33,7 @@ and
 N_n(v,u)=\lvert\mathsf P_n(u,v)\rvert.
 ```
 
-Then
+It follows that
 
 ```math
 \mathcal H_n=
@@ -41,7 +41,7 @@ Then
 \ell^2\bigl(\mathsf P_n(u,v)\bigr).
 ```
 
-This is the orthogonal decomposition of the route space into endpoint fibers.
+The route space decomposes orthogonally into endpoint fibers.
 
 Also define the endpoint-pair Hilbert space
 
@@ -67,7 +67,7 @@ On finitely supported route vectors, define
 \eta_{r(p),s(p)}.
 ```
 
-Therefore
+By linearity,
 
 ```math
 \Sigma_n^0
@@ -80,20 +80,17 @@ Therefore
 \right)\eta_{v,u}.
 ```
 
-This is endpoint aggregation:
-
-* individual routes are orthogonal in $\mathcal H_n$;
-* routes with the same endpoints are added in $\mathcal K$.
+Thus individual routes remain orthogonal in $\mathcal H_n$, whereas routes with the same endpoints are added in $\mathcal K$.
 
 The behavior of $\Sigma_n^0$ is controlled completely by the cardinalities $N_n(v,u)$.
 
-# 3. The exact analytic trichotomy
+# 3. Analytic trichotomy
 
 There are three sharply different regimes.
 
 ## Regime I: uniformly finite route fibers
 
-Suppose
+Suppose that
 
 ```math
 M_n=
@@ -113,11 +110,11 @@ with
 \sqrt{M_n}.
 ```
 
-This is the largest fixed-length reconvergence multiplicity.
+The norm is the largest fixed-length reconvergence multiplicity.
 
 ## Regime II: every fiber finite, but not uniformly bounded
 
-Suppose
+Suppose that
 
 ```math
 N_n(v,u)<\infty
@@ -141,11 +138,7 @@ It is a densely defined closed operator.
 
 ## Regime III: one endpoint fiber is infinite
 
-Suppose
-
-```math
-N_n(v,u)
-```
+Suppose $N_n(v,u)$.
 
 is infinite for at least one pair.
 
@@ -164,7 +157,7 @@ x_N=
 \frac1N\sum_{j=1}^N\xi_{p_j}.
 ```
 
-Then
+It follows that
 
 ```math
 |x_N|=
@@ -189,8 +182,6 @@ Thus the graph of $\Sigma_n^0$ approaches
 
 which cannot belong to the graph of any operator.
 
-Therefore:
-
 ```math
 \begin{array}{c|c}
 \text{Route multiplicities at length }n&
@@ -205,7 +196,7 @@ N_n=\infty\text{ for some endpoint pair}&
 \end{array}
 ```
 
-This is a stronger version of the earlier finite/infinite route distinction.
+The criterion strengthens the finite/infinite route distinction.
 
 # 4. Equal-route and defect directions
 
@@ -261,7 +252,7 @@ and
 \Sigma_n\mathcal D_n(v,u)=0.
 ```
 
-Thus:
+Equivalently,
 
 ```math
 \ker\Sigma_n=
@@ -274,9 +265,9 @@ For finite $m$,
 \dim\mathcal D_n(v,u)=m-1.
 ```
 
-This is the length-$n$, endpoint-$(u,v)$ portion of the route-collapse ideal.
+The kernel is the length-$n$, endpoint-$(u,v)$ part of the route-collapse ideal.
 
-# 5. Why infinite fibers behave differently
+# 5. Distinct behavior of infinite fibers
 
 If $\mathsf P_n(u,v)$ is infinite, the formal equal-route vector
 
@@ -296,7 +287,7 @@ y_N=
 \frac1N\sum_{j=1}^N\xi_{q_j}.
 ```
 
-Then
+It follows that
 
 ```math
 y_N\in\mathcal D_n^{\mathrm{alg}}(v,u)
@@ -308,7 +299,7 @@ and
 |y_N-\xi_p|=\frac1{\sqrt N}\to0.
 ```
 
-Hence
+This gives
 
 ```math
 \overline{\mathcal D_n^{\mathrm{alg}}(v,u)}=
@@ -327,7 +318,7 @@ So the finite case has
 
 while the infinite case has only the closure of route-defect directions.
 
-That is the precise Hilbert-space reason endpoint summation becomes nonclosable.
+The loss of the equal-route direction is the Hilbert-space reason endpoint summation becomes nonclosable.
 
 # 6. Polar decomposition of endpoint collapse
 
@@ -366,7 +357,7 @@ and
 U_n\mathcal D_n(v,u)=0.
 ```
 
-Then
+It follows that
 
 ```math
 \Sigma_n=
@@ -389,7 +380,7 @@ U_n^\ast U_n=
 P_n^{\mathrm{eq}},
 ```
 
-the projection onto all equal-route directions, while
+The projection onto all equal-route directions, while
 
 ```math
 U_nU_n^\ast
@@ -411,13 +402,13 @@ Therefore endpoint aggregation factors canonically into three operations:
 \end{aligned}
 ```
 
-In words:
+The factorization acts in three stages:
 
 1. discard the orthogonal route-defect directions;
 2. identify each normalized equal-route sector with its endpoint pair;
 3. amplify it by the square root of the number of routes.
 
-This is the exact operator-level bridge from $\ell^2$ routes to endpoint counting.
+The polar decomposition gives the operator-level bridge from $\ell^2$ routes to endpoint counting.
 
 # 7. The two Gram operators
 
@@ -427,7 +418,7 @@ The endpoint Gram operator is
 \Sigma_n\Sigma_n^\ast=D_n.
 ```
 
-Thus
+Hence the endpoint operator acts diagonally:
 
 ```math
 \Sigma_n\Sigma_n^\ast\eta_{v,u}=
@@ -450,10 +441,7 @@ acts on each finite route fiber as the all-ones matrix:
 J_{N_n(v,u)}.
 ```
 
-It has:
-
-* eigenvalue $N_n(v,u)$ on the equal-route direction;
-* eigenvalue zero on every route-defect direction.
+It has eigenvalue $N_n(v,u)$ on the equal-route direction and eigenvalue zero on every route-defect direction.
 
 Therefore the nonzero singular value associated with the endpoint pair $(u,v)$ is
 
@@ -463,16 +451,16 @@ Therefore the nonzero singular value associated with the endpoint pair $(u,v)$ i
 
 The complete singular-value family of $\Sigma_n$ is exactly the square-root route-multiplicity profile.
 
-# 8. Why the marked endpoint diagonal remains necessary
+# 8. Necessity of the marked endpoint diagonal
 
-If we forget the basis projections
+Forgetting the basis projections
 
 ```math
 E_{v,u}=
 |\eta_{v,u}\rangle\langle\eta_{v,u}|,
 ```
 
-the singular values retain only the multiset
+The singular values retain only the multiset
 
 ```math
 \left\lbrace \sqrt{N_n(v,u)} \right\rbrace_{u,v}.
@@ -487,7 +475,7 @@ With the marked pair diagonal,
 \mathrm{alg}{E_{v,u}},
 ```
 
-we recover
+Equivalently,
 
 ```math
 N_n(v,u)=
@@ -497,11 +485,7 @@ D_n\eta_{v,u},
 \rangle.
 ```
 
-Hence:
-
-```math
-\text{an operator without its distinguished orthogonal sectors loses relational identity}.
-```
+an operator without its distinguished orthogonal sectors loses relational identity.
 
 # 9. The positive multiplicity tower
 
@@ -519,7 +503,7 @@ It contains all path counts:
 D_n(v,u)=N_n(v,u).
 ```
 
-From it, we recover three progressively compressed structures.
+It determines three progressively compressed structures.
 
 ## Exact-length reachability support
 
@@ -530,7 +514,7 @@ Z_n=
 \mathbf1_{(0,\infty)}(D_n).
 ```
 
-Then
+It follows that
 
 ```math
 Z_n\eta_{v,u}=
@@ -540,7 +524,7 @@ Z_n\eta_{v,u}=
 \end{cases}
 ```
 
-## Shortest compositional distance
+The shortest compositional distance is recovered from the support tower by
 
 ```math
 d(u,v)=
@@ -560,7 +544,7 @@ D_{d(u,v)}\eta_{v,u},
 \right\rangle.
 ```
 
-Thus the min-plus data arise from the positive tower by:
+The min-plus data arise from the positive tower by:
 
 ```math
 {D_n}
@@ -574,11 +558,9 @@ And the geodesic multiplicity is the first nonzero diagonal value.
 
 # 10. The three geometries now factor exactly
 
-We can state the relationship more sharply than before.
-
 ## Resolved $\ell^2$ geometry
 
-Primary object:
+The resolved geometry is carried by
 
 ```math
 \mathcal H_n=
@@ -586,37 +568,24 @@ Primary object:
 \ell^2(\mathsf P_n(u,v)).
 ```
 
-Retains:
-
-* every individual route;
-* orthogonality;
-* route-defect directions;
-* endpoint decomposition.
+This space retains every individual route, route orthogonality, the route-defect directions, and the endpoint decomposition.
 
 ## Multiplicity geometry
 
-Primary object:
+The multiplicity geometry is carried by
 
 ```math
 D_n=
 \Sigma_n\Sigma_n^\ast.
 ```
 
-Retains:
+This operator retains the exact path multiplicity for every endpoint pair, the magnitude of reconvergence, and the singular values of endpoint collapse.
 
-* exact path multiplicity for every endpoint pair;
-* reconvergence magnitude;
-* singular values of endpoint collapse.
-
-Loses:
-
-* identities of individual paths;
-* internal overlap and branching structure;
-* the route-defect basis.
+It discards the identities of individual paths, their internal overlap and branching structure, and the route-defect basis.
 
 ## Support/min-plus geometry
 
-Primary objects:
+The support and min-plus geometry is determined by
 
 ```math
 Z_n=\mathrm{supp}D_n
@@ -628,16 +597,9 @@ and
 d(u,v)=\min{n:Z_n(v,u)=1}.
 ```
 
-Retain:
+These objects retain the attainable path lengths and identify the first such length.
 
-* which lengths are possible;
-* which length occurs first.
-
-Lose:
-
-* multiplicity;
-* orthogonality;
-* every later route length after taking the minimum.
+They discard route multiplicity, orthogonality, and every later path length once the minimum is taken.
 
 The exact compression chain is therefore
 
@@ -651,7 +613,7 @@ Z_n
 d.
 ```
 
-# 11. A stronger finite/infinite boundary
+# 11. Finite/infinite boundary refinement
 
 The endpoint-collapse tower exposes three notions that had previously been mixed:
 
@@ -670,6 +632,8 @@ They control different operators.
 
 ## Endpoint collapse
 
+The endpoint-collapse operator is
+
 ```math
 \Sigma_n
 ```
@@ -677,6 +641,8 @@ They control different operators.
 is bounded exactly under uniform finite endpoint multiplicity.
 
 ### Forward Fock creator
+
+The forward Fock creator is
 
 ```math
 S_+^n
@@ -714,8 +680,6 @@ for every endpoint, so $\Sigma_n$ is bounded with norm one, while
 
 so the global forward creator is not bounded.
 
-Thus:
-
 ```math
 \text{reconvergence boundedness}
 \neq
@@ -732,7 +696,7 @@ At depth $n$, every reached endpoint has one route:
 N_n(v,u)\in\{0,1\}.
 ```
 
-Therefore
+This gives
 
 ```math
 D_n=Z_n
@@ -760,9 +724,7 @@ At depth $n$, one endpoint receives
 d^n
 ```
 
-routes.
-
-Therefore
+routes. Consequently,
 
 ```math
 |\Sigma_n|=d^{n/2}
@@ -788,9 +750,9 @@ The two systems have the same total Fock growth but radically different collapse
 \end{array}
 ```
 
-This operator tower distinguishes them immediately.
+The operator tower distinguishes them.
 
-# 13. What remains for infinite route multiplicities
+# 13. Infinite route multiplicities
 
 When some $N_n(v,u)$ is infinite, the cardinal profile
 

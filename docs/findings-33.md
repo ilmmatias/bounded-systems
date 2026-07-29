@@ -16,7 +16,7 @@ If $d(o,v)$ is the shortest path length from $o$ to $v$, prefixing a shortest pa
 G_t(o,x)\ge t^{d(o,v)}G_t(v,x).
 ```
 
-Therefore
+The resulting bound is
 
 ```math
 0\le \kappa_x(v)\le t^{-d(o,v)}.
@@ -67,7 +67,7 @@ let
 
 be coordinate restriction.
 
-Define
+The finite-observation profile space is
 
 ```math
 \mathcal M_{t,F}=
@@ -76,7 +76,7 @@ Define
 }.
 ```
 
-Thus $\mathcal M_{t,F}$ comprises all limits of observations at only the nodes in $F$.
+$\mathcal M_{t,F}$ comprises all limits of observations at only the nodes in $F$.
 
 If $F\subseteq F'$, restriction gives a continuous surjection
 
@@ -87,7 +87,7 @@ r_{F',F}:
 \mathcal M_{t,F}.
 ```
 
-Hence the finite profile spaces form an inverse system.
+The finite profile spaces form an inverse system.
 
 # 3. Finite-observation reconstruction theorem
 
@@ -143,16 +143,16 @@ y\in\overline{\iota_t(V_o)}=\mathcal M_t.
 
 Inverse limits provide the natural setting for reconstructing compact spaces from compatible finite-coordinate data.
 
-# 4. Why the closures matter
+# 4. Role of the closures
 
-If we instead use the raw images
+Using the raw images instead
 
 ```math
 Y_{t,F}=
 \mathrm{pr}_F(\iota_t(V_o)),
 ```
 
-the formula
+The formula
 
 ```math
 \mathcal M_t
@@ -177,11 +177,11 @@ Thus the corrected formula is
 \varprojlim_F\overline{Y_{t,F}}.
 ```
 
-If every finite profile image is closed—for example, in certain finite or discrete situations—the closures can be omitted.
+If every finite profile image is closed, for example, in certain finite or discrete situations, the closures can be omitted.
 
 # 5. Collapse and completion are different operations
 
-This gives a distinction that had previously been somewhat blurred.
+The two equivalence relations are distinct.
 
 Suppose $X_t$ is a set of Martin-regular tail ends and
 
@@ -201,23 +201,13 @@ X_t
 \overline{\Phi_t(X_t)}.
 ```
 
-## Profile quotient
-
-This identifies different histories satisfying
-
-```math
-h_\xi=h_\eta.
-```
-
-It removes route information.
+Martin equivalence defines the profile quotient by identifying histories satisfying $h_\xi=h_\eta$; this quotient removes route information.
 
 ## Profile completion
 
-This adds limiting profiles not necessarily realized by one regular history.
+The compactification adds limiting profiles that need not come from a regular history.
 
 It does not identify existing points; it adjoins new ones.
-
-Therefore:
 
 ```math
 \text{collapse}
@@ -255,7 +245,7 @@ Consequently, the closure of regular ray profiles can be smaller than the full M
 
 Equality requires an additional ray-generation theorem.
 
-A1–A5 alone do not provide one, especially with infinite branching or moving-endpoint escape.
+The bounded system definition alone does not provide one, especially with infinite branching or moving-endpoint escape.
 
 So the primary node compactification remains
 
@@ -284,7 +274,7 @@ If $F,F'$ are finite, sums and products of an $F$-observable and an $F'$-observa
 F\cup F'.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 \mathcal A_{\mathrm{fin}}=
@@ -295,14 +285,14 @@ is a unital self-adjoint algebra.
 
 It separates points of $\mathcal M_t$: two different profiles differ at some node $v$, and the coordinate observable at $v$ distinguishes them.
 
-By Stone–Weierstrass,
+By Stone-Weierstrass,
 
 ```math
 \overline{\mathcal A_{\mathrm{fin}}}^{\|\cdot\|_\infty}=
 C(\mathcal M_t).
 ```
 
-Thus every continuous node-level Martin observable is uniformly approximable by observables involving only finitely many nodes.
+Every continuous node-level Martin observable is uniformly approximable by observables involving only finitely many nodes.
 
 Finite node observations do not recover route history; they recover all continuous information on the already-compressed node compactification.
 
@@ -320,7 +310,7 @@ h_\xi(v)=h_\eta(v)
 \forall v\in F.
 ```
 
-Let
+Define $\mathfrak D_F$ by
 
 ```math
 \mathfrak D_F=
@@ -351,7 +341,7 @@ with defect module
 \}.
 ```
 
-Then:
+It follows that
 
 ```math
 \mathfrak D_M=
@@ -387,7 +377,7 @@ Since
 \mu\in\mathfrak D_{F_0},
 ```
 
-the sum of its coefficients in every full Martin class is zero. Hence
+The sum of its coefficients in every full Martin class is zero. Hence
 
 ```math
 \mu\in\mathfrak D_M.
@@ -428,7 +418,7 @@ a:a\text{ is constant on full Martin fibers}
 \}.
 ```
 
-So the two sides are exact dual shadows:
+The two sides are exact dual shadows:
 
 ```math
 \begin{array}{c|c}
@@ -451,7 +441,7 @@ The directed family of all finite subsets is complete but unwieldy.
 
 There is also a canonical one-parameter filtration relative to the root.
 
-Define
+The radius-$n$ observation set is
 
 ```math
 B_n(o)=
@@ -460,7 +450,7 @@ B_n(o)=
 
 No finiteness of $B_n(o)$ is assumed.
 
-Define
+Define observation equivalence at depth $n$ by
 
 ```math
 \xi\sim_n\eta
@@ -481,7 +471,7 @@ and let
 \}.
 ```
 
-Then
+It follows that
 
 ```math
 \mathfrak D_{n+1}\subseteq\mathfrak D_n
@@ -496,7 +486,7 @@ and
 
 Every reachable node has finite compositional distance from $o$, so agreement on every $B_n(o)$ is exactly agreement at every reachable node.
 
-This filtration uses only compositional depth already intrinsic to the graph.
+The filtration uses only the graph’s intrinsic compositional depth.
 
 # 11. First separation depth
 
@@ -516,7 +506,7 @@ If their node profiles are identical, set
 s_t(\xi,\eta)=\infty.
 ```
 
-Then
+It follows that
 
 ```math
 \xi\sim_n\eta
@@ -524,28 +514,18 @@ Then
 s_t(\xi,\eta)>n.
 ```
 
-This intrinsic observation threshold is
+The observation threshold is
 
 ```math
 s_t(\xi,\eta)=
 \text{first compositional depth at which a node observable separates them}.
 ```
 
-Examples:
-
-* in a unique-route rooted tree, it is the depth at which the rays first diverge;
-* two histories in a diamond followed by a common tail have $s_t=\infty$, because no node Green profile distinguishes them;
-* every pair in complete layered mixing has $s_t=\infty$.
+For a unique-route rooted tree, this is the depth at which the rays first diverge. Two histories in a diamond followed by a common tail have $s_t=\infty$ because no node Green profile distinguishes them, and every pair in complete layered mixing likewise has $s_t=\infty$.
 
 # 12. Exact defect layer at depth $n$
 
-Let
-
-```math
-C_n=X_t/\!\sim_n
-```
-
-be the set of depth-$n$ profile classes.
+Let $C_n=X_t/\!\sim_n$ be the set of depth-$n$ profile classes.
 
 There is a refinement map
 
@@ -580,8 +560,6 @@ The last map records, for a zero-total combination in a coarse class, the total 
 
 Its kernel consists exactly of combinations already having zero total inside every finer class, namely $\mathfrak D_{n+1}$.
 
-Therefore:
-
 ```math
 \mathfrak D_n/\mathfrak D_{n+1}
 \cong
@@ -589,7 +567,7 @@ Therefore:
 \widetilde{k}^{(\rho_n^{-1}(c))}.
 ```
 
-This is the precise module of distinctions first becoming visible at observation depth $n+1$.
+The quotient records distinctions first visible at observation depth $n+1$.
 
 # 13. Finite partition count
 
@@ -606,7 +584,7 @@ If $C_n$ and $C_{n+1}$ are finite, then
 \right).
 ```
 
-Hence
+This gives
 
 ```math
 \dim
@@ -635,8 +613,6 @@ c_0\leftarrow c_1\leftarrow c_2\leftarrow\cdots.
 
 Two histories have the same full Martin profile exactly when they determine the same branch through every level.
 
-Thus:
-
 ```math
 \text{finite observation}
 \longrightarrow
@@ -647,17 +623,9 @@ Thus:
 
 The defect quotient at each level records the new branch splitting at that level.
 
-# 15. Completed versus realized branches
+# 15. Completed and realized branches
 
-There are again two versions.
-
-## Realized branches
-
-These come from actual regular histories.
-
-## Completed branches
-
-These are coherent limits in the compact finite-profile spaces
+Realized branches come from actual regular histories. Completed branches are coherent limits in the compact finite-profile spaces
 
 ```math
 \mathcal M_{t,B_n(o)}.
@@ -665,19 +633,9 @@ These are coherent limits in the compact finite-profile spaces
 
 A completed branch may fail to come from one actual history.
 
-Therefore the inverse-limit completion contains:
+Therefore the inverse-limit completion contains realized profile branches and may also contain generalized coherent branches.
 
-```math
-\text{realized profile branches}
-```
-
-and possibly
-
-```math
-\text{generalized coherent branches}.
-```
-
-This parallels completing finite paths by boundary points, with normalized Green observations replacing path prefixes.
+The construction parallels completion of finite paths by boundary points, with normalized Green observations replacing prefixes.
 
 # 16. Special zero-dimensional case
 

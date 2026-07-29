@@ -1,6 +1,6 @@
 # 1. The critical profile already fixes the gauge temperature
 
-We had
+Start from
 
 ```math
 \mathcal A_+h=\lambda h,
@@ -8,11 +8,7 @@ We had
 \lambda=R^{-2}.
 ```
 
-Set
-
-```math
-\beta=\log\lambda=-2\log R.
-```
+Set $\beta=\log\lambda=-2\log R$.
 
 The critical cylinder weights are
 
@@ -45,7 +41,7 @@ Since
 \alpha_{i\beta}(L_p)=e^{-\beta|p|}L_p,
 ```
 
-the elementary KMS relation becomes
+The elementary KMS relation becomes
 
 ```math
 \omega_h(L_pL_q^\ast)=
@@ -165,7 +161,7 @@ The second-order profile regime therefore lives naturally on the symmetric Fock 
 \mathrm{Sym}^n\mathfrak t_h.
 ```
 
-Let
+Define $N_h$ by
 
 ```math
 N_h=
@@ -179,7 +175,7 @@ N_h\big|_{\mathrm{Sym}^n\mathfrak t_h}=
 nI.
 ```
 
-The Gaussian Ornstein–Uhlenbeck semigroup is
+The Gaussian Ornstein-Uhlenbeck semigroup is
 
 ```math
 T_\tau^{\mathrm{diff}}=
@@ -193,7 +189,7 @@ U_t^{\mathrm{prof}}=
 e^{-itN_h}.
 ```
 
-Ornstein–Uhlenbeck evolution via second quantization and the Fock number operator are standard in Gaussian/Fock analysis.
+Ornstein-Uhlenbeck evolution via second quantization and the Fock number operator are standard in Gaussian/Fock analysis.
 
 ---
 
@@ -240,7 +236,7 @@ v_0\xrightarrow{e_1}v_1
 \xrightarrow{e_n}v_n.
 ```
 
-This map:
+The map:
 
 * forgets some ordered route information through symmetrization;
 * forgets route directions invisible to the tangent increments;
@@ -262,7 +258,7 @@ e^{-zN_h}\mathscr S_h=
 
 for every $z$ for which the exponential is defined.
 
-This is the precise bridge:
+The bridge is:
 
 ```math
 \text{route gauge degree}
@@ -290,7 +286,7 @@ The induced gauge generator is also
 H_{\mathrm{gauge}}=N_h.
 ```
 
-Hence:
+Equivalently,
 
 ```math
 H_{\mathrm{diff}}=
@@ -300,7 +296,7 @@ N_h
 
 on the visible quadratic profile sector.
 
-This follows from:
+The identity follows from:
 
 1. the quadratic variation defining the tangent metric;
 2. the covariance becoming the identity in that metric;
@@ -326,7 +322,7 @@ For real positive $z=\tau$,
 -N_h\Psi,
 ```
 
-which is the profile diffusion/Ornstein–Uhlenbeck equation.
+which is the profile diffusion/Ornstein-Uhlenbeck equation.
 
 For imaginary $z=it$,
 
@@ -341,7 +337,7 @@ i\partial_t\Psi=
 N_h\Psi.
 ```
 
-Thus the dissipative and reversible equations are two boundary directions of the same holomorphic evolution:
+The dissipative and reversible equations are two boundary directions of the same holomorphic evolution:
 
 ```math
 \partial_z\Psi(z)=
@@ -354,7 +350,7 @@ On the $n$-th chaos sector,
 \Psi_n(z)=e^{-nz}\Psi_n(0).
 ```
 
-So:
+This gives
 
 ```math
 \Psi_n(\tau)=e^{-n\tau}\Psi_n(0)
@@ -413,7 +409,7 @@ Since
 \beta=\log\lambda=-2\log R,
 ```
 
-we obtain
+Therefore the evolution equation is
 
 ```math
 \partial_s\Psi_s=
@@ -447,7 +443,7 @@ On homogeneous degree $n$,
 \right]\Psi_n(0).
 ```
 
-This is the closed equation of the quadratic critical regime.
+The equation closes the quadratic critical regime.
 
 Since the coefficient has positive real part, $(\kappa_D+i\beta)N_h$ is sectorial and generates a holomorphic contraction semigroup; more generally, the standard representation theorems associate closed sectorial forms with m-sectorial operators and holomorphic semigroups.
 
@@ -516,7 +512,7 @@ The Hamiltonian is therefore $N_h$.
 
 The quadratic theory is the free regime; its first deviation can now be computed.
 
-Write
+Write $u_\varepsilon$ in the form
 
 ```math
 u_\varepsilon=
@@ -526,7 +522,7 @@ u+\varepsilon\phi
 +O(\varepsilon^4).
 ```
 
-We already have
+The lower-order equations are
 
 ```math
 (I-P_h)\phi=0
@@ -558,7 +554,7 @@ where locally
 \bigr)^3.
 ```
 
-So the hierarchy begins:
+The first three equations in the hierarchy are
 
 ```math
 \begin{aligned}
@@ -593,11 +589,7 @@ Higher cumulants create, annihilate or mix chaos degrees, so the full effective 
 V_3+V_4+\cdots,
 ```
 
-where:
-
-* $V_3$ is determined by local third cumulants;
-* $V_4$ is determined by fourth cumulants and second-order contractions;
-* higher $V_r$ encode progressively higher non-Gaussian route coherence.
+where $V_3$ is determined by local third cumulants; $V_4$ is determined by fourth cumulants and second-order contractions; and higher $V_r$ encode progressively higher non-Gaussian route coherence.
 
 The free critical regime is
 

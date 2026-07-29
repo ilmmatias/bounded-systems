@@ -1,31 +1,33 @@
-# 1. Formal setup
+# 1. Bounded systems and finite adjacency data
 
-Take one realized configuration of the system.
-
-Let
+A bounded system is an isomorphism class of acyclic directed multigraphs:
 
 ```math
-G=(N,E)
+B=\big[(N,E,s,t)\big]_{\cong}.
 ```
 
-be its directed acyclic graph.
+The representative data consist of a set $N$ of nodes with no primitive labels or attributes, a set $E$ of directed channels, and source and target maps $s,t:E\to N$. The graph $(N,E,s,t)$ is acyclic, while distinct channels $e,f\in E$ may have the same source and target. All changes of the system are therefore represented internally by its channels.
 
-For $n=|N|$, temporarily label the nodes $(1,\dots,n)$. A relabeling by a permutation matrix $P$ changes the adjacency matrix by
+For the finite calculations below, fix a representative
+
+```math
+G=(N,E,s,t)
+```
+
+of $B$. If $n=|N|$, temporarily label the nodes by $(1,\dots,n)$. Relabeling by a permutation matrix $P$ sends the adjacency matrix to
 
 ```math
 A\longmapsto P^{-1}AP.
 ```
 
-Therefore, only quantities invariant under permutation similarity count as properties of the system.
-
-Define
+Consequently, only quantities invariant under permutation similarity define properties of $B$. The adjacency matrix is given by
 
 ```math
 A_{ij}=
 \text{number of realized directed channels }i\to j.
 ```
 
-## Adjacency nilpotence
+## Nilpotence of the adjacency matrix
 
 Because $G$ is a finite DAG, its nodes can be topologically ordered. In that ordering,
 
@@ -40,43 +42,29 @@ A=
 \end{pmatrix}.
 ```
 
-Thus $A$ is strictly upper triangular and
+Thus $A$ is strictly upper triangular and satisfies
 
 ```math
 A^n=0.
 ```
 
-Consequently,
+It follows that every finite configuration has
 
 ```math
-\mathrm{spec}(A) = \{0\}
+\mathrm{spec}(A)=\{0\}.
 ```
 
-for every finite configuration.
+## Path counts and finite spectral data
 
-## Powers count paths
-
-With our convention,
-
-```math
-(A^k)_{ij}
-```
-
-counts the number of directed paths of length $k$ from $i$ to $j$, counting channel multiplicities.
-
-Thus the smallest number $\nu$ such that
+With this convention, the matrix entry $(A^k)_{ij}$ counts directed paths of length $k$ from $i$ to $j$, including channel multiplicities. Hence the least integer $\nu$ for which
 
 ```math
 A^\nu=0
 ```
 
-is the nilpotency index, and
+is the nilpotency index, and the longest directed path has length $\nu-1$.
 
-```math
-\text{longest directed-path length}=\nu-1.
-```
-
-We will record the rank profile
+For later comparisons, define the rank profile
 
 ```math
 \rho(A)=
@@ -86,18 +74,16 @@ We will record the rank profile
 \right)
 ```
 
-until it reaches zero.
-
-We will also record the singular values
+and truncate the sequence after it first reaches zero. We also record the singular-value multiset
 
 ```math
 \sigma(A)=
 \sqrt{\mathrm{spec}(A^\mathsf TA)}.
 ```
 
-# 2. Simple-channel atlas
+# 2. Simple-channel configurations
 
-We first examine the $0/1$ sector: at most one realized channel in each direction between a given pair, which is the smallest finite sector of the full theory.
+We first restrict to the $0/1$ sector, in which at most one channel is present in a fixed direction between any ordered pair of nodes. This is the smallest finite sector of the theory.
 
 Let
 
@@ -105,9 +91,9 @@ Let
 \varphi=\frac{1+\sqrt5}{2}.
 ```
 
-The notation $d^+$ and $d^-$ denotes the multisets of out-degrees and in-degrees. The notation $L_u$ denotes the Laplacian of the underlying undirected graph, obtained by temporarily forgetting edge direction.
+The symbols $d^+$ and $d^-$ denote the multisets of out-degrees and in-degrees, respectively. We write $L_u$ for the Laplacian of the underlying undirected graph obtained by forgetting edge orientation.
 
-## Complete table through three nodes
+## Classification through three nodes
 
 | Nodes | Configuration            | $\rho(A)$ | $\sigma(A)$                | $d^+$       | $d^-$       | $\mathrm{spec}(L_u)$ |
 | ----: | ------------------------ | --------- | -------------------------- | ----------- | ----------- | -------------------------- |
@@ -121,15 +107,17 @@ The notation $d^+$ and $d^-$ denotes the multisets of out-degrees and in-degrees
 |     3 | chain                    | $(2,1,0)$ | $(1,1,0)$                  | $\{1,1,0\}$ | $\{1,1,0\}$ | $\{0,1,3\}$                |
 |     3 | transitive triangle      | $(2,1,0)$ | $(\varphi,\varphi^{-1},0)$ | $\{2,1,0\}$ | $\{2,1,0\}$ | $\{0,3,3\}$                |
 
-# 3. The nontrivial three-node cases
+# 3. Three-node calculations
 
 ## Outgoing fork
 
+For the outgoing fork
+
 ```math
-1\to2,\qquad1\to3.
+1\to2,\qquad1\to3,
 ```
 
-Its adjacency matrix is
+the adjacency matrix is
 
 ```math
 A_{\mathrm{out}}=
@@ -159,13 +147,7 @@ A_{\mathrm{out}}^\mathsf T A_{\mathrm{out}}=
 \end{pmatrix},
 ```
 
-whose eigenvalues are
-
-```math
-2,0,0.
-```
-
-Therefore,
+whose eigenvalues are $2,0,0$. Therefore
 
 ```math
 \sigma(A_{\mathrm{out}})=
@@ -174,11 +156,13 @@ Therefore,
 
 ## Incoming fork
 
+For the incoming fork
+
 ```math
-1\to3,\qquad2\to3.
+1\to3,\qquad2\to3,
 ```
 
-Its matrix is
+the adjacency matrix is
 
 ```math
 A_{\mathrm{in}}=
@@ -189,20 +173,15 @@ A_{\mathrm{in}}=
 \end{pmatrix}.
 ```
 
-It has the same rank profile and singular values as the outgoing fork:
+The incoming and outgoing forks have the same rank profile and singular values:
 
 ```math
 \rho(A_{\mathrm{in}})=(1,0),
+\qquad
+\sigma(A_{\mathrm{in}})=(\sqrt2,0,0).
 ```
 
-```math
-\sigma(A_{\mathrm{in}})=
-(\sqrt2,0,0).
-```
-
-So singular values alone cannot tell whether two channels converge or diverge.
-
-The in- and out-degree multisets do distinguish them:
+The singular values therefore do not distinguish convergence from divergence. The in- and out-degree multisets do:
 
 ```math
 d^+_{\mathrm{out}}=\{2,0,0\},
@@ -220,11 +199,13 @@ d^-_{\mathrm{in}}=\{2,0,0\}.
 
 ## Chain
 
+For the chain
+
 ```math
-1\to2\to3.
+1\to2\to3,
 ```
 
-Its matrix is
+the adjacency matrix is
 
 ```math
 A_{\mathrm{chain}}=
@@ -248,7 +229,7 @@ A_{\mathrm{chain}}^2=
 A_{\mathrm{chain}}^3=0.
 ```
 
-Therefore,
+Consequently, its rank profile is
 
 ```math
 \rho(A_{\mathrm{chain}})=
@@ -277,11 +258,13 @@ so
 
 ## Transitive triangle
 
+For the transitive triangle
+
 ```math
-1\to2,\qquad2\to3,\qquad1\to3.
+1\to2,\qquad2\to3,\qquad1\to3,
 ```
 
-Its matrix is
+the adjacency matrix is
 
 ```math
 A_{\triangle}=
@@ -292,7 +275,7 @@ A_{\triangle}=
 \end{pmatrix}.
 ```
 
-We again have
+Again,
 
 ```math
 A_{\triangle}^2=
@@ -305,7 +288,7 @@ A_{\triangle}^2=
 A_{\triangle}^3=0.
 ```
 
-Thus the chain and transitive triangle have the same rank profile:
+The chain and transitive triangle have the same rank profile:
 
 ```math
 \rho(A_{\triangle})=
@@ -326,9 +309,9 @@ where
 \varphi=\frac{1+\sqrt5}{2}.
 ```
 
-# 4. Reachability
+# 4. Immediate channels and reachability
 
-Define the binary reachability matrix
+To distinguish immediate communication from eventual communication, define the binary reachability matrix
 
 ```math
 R_{ij}=
@@ -338,13 +321,13 @@ R_{ij}=
 \end{cases}
 ```
 
-For the chain,
+For the chain
 
 ```math
 1\to2\to3,
 ```
 
-we obtain
+the reachability matrix is
 
 ```math
 R_{\mathrm{chain}}=
@@ -355,38 +338,23 @@ R_{\mathrm{chain}}=
 \end{pmatrix}.
 ```
 
-But this is exactly the adjacency matrix of the transitive triangle:
+This is the adjacency matrix of the transitive triangle:
 
 ```math
 R_{\mathrm{chain}}=A_{\triangle}.
 ```
 
-Therefore,
+Since the transitive triangle is already transitively closed, $R_{\triangle}=A_{\triangle}$, and hence
 
 ```math
-R_{\mathrm{chain}}=
-R_{\triangle}.
+R_{\mathrm{chain}}=R_{\triangle}.
 ```
 
-The chain and transitive triangle have different immediate communication structures but identical eventual communication possibilities.
+The chain and the transitive triangle thus have different immediate channel structures but the same reachability relation. The adjacency matrix $A$ records immediate channels, whereas $R$ records eventual reachability; both must be retained.
 
-Both profiles must therefore be retained:
+# 5. Parallel-channel configurations
 
-```math
-A=\text{immediate channels}
-```
-
-and
-
-```math
-R=\text{eventual reachability}.
-```
-
-# 5. Parallel-channel sector
-
-Now we avoid assuming that parallel edges are forbidden.
-
-Let $a,b,c$ be positive integer channel multiplicities.
+Allow parallel channels, and let $a,b,c$ denote positive integer multiplicities.
 
 ## Two nodes
 
@@ -428,13 +396,13 @@ Its singular values are
 
 ## Weighted chain
 
-For
+For the weighted chain
 
 ```math
 1\xrightarrow{a}2\xrightarrow{b}3,
 ```
 
-we have
+the adjacency matrix is
 
 ```math
 A=
@@ -507,50 +475,38 @@ S\pm\sqrt{S^2-4a^2b^2}
 
 and the third singular value is zero.
 
-# 6. First genuine collision
+# 6. A weighted-chain collision
 
-Consider these two weighted chains:
-
-```math
-G_1:
-\quad
-1\xrightarrow{a}2\xrightarrow{b}3,
-```
+Consider the weighted chains
 
 ```math
-G_2:
-\quad
-1\xrightarrow{b}2\xrightarrow{a}3,
+G_1:\quad 1\xrightarrow{a}2\xrightarrow{b}3,
+\qquad
+G_2:\quad 1\xrightarrow{b}2\xrightarrow{a}3,
 ```
 
 with $a\neq b$.
 
 The directed weighted graphs are nonisomorphic. The source, middle, and target are structurally fixed, so an isomorphism cannot exchange the upstream and downstream multiplicities. Nevertheless, they share identical adjacency eigenvalues, singular values, degree multisets, and underlying weighted-Laplacian spectra, as well as the same path multiplicity $ab$.
 
-Therefore, our initial spectral package cannot determine whether the larger channel multiplicity comes first or second.
+The initial spectral package therefore does not determine whether the larger multiplicity occurs upstream or downstream.
 
----
+# 7. An asymmetric Gram operator
 
-# 7. A new operator forced by the collision
-
-To recover directional placement, define for some fixed
+To retain the directional placement of channel multiplicities, fix
 
 ```math
 \tau>0,\qquad \tau\neq1,
 ```
 
-the positive-semidefinite matrix
+and define the positive-semidefinite matrix
 
 ```math
 Q_\tau(A)=
 A^\mathsf TA+\tau AA^\mathsf T.
 ```
 
-Here:
-
-* $A^\mathsf TA$ compares incoming-channel profiles;
-* $AA^\mathsf T$ compares outgoing-channel profiles;
-* $\tau\neq1$ prevents the two roles from being weighted symmetrically.
+The term $A^\mathsf TA$ compares incoming-channel profiles, whereas $AA^\mathsf T$ compares outgoing-channel profiles. The condition $\tau\neq1$ prevents these two roles from entering symmetrically.
 
 For the weighted chain $a$ followed by $b$,
 
@@ -584,7 +540,7 @@ Their difference is
 \tau a^2b^2(1-\tau)(a^2-b^2).
 ```
 
-Therefore, when
+When
 
 ```math
 a\neq b
@@ -592,11 +548,4 @@ a\neq b
 \tau\neq1,
 ```
 
-the determinants differ, and hence their spectra differ.
-
-So:
-
-```math
-\mathrm{spec}(Q_\tau)
-\text{ distinguishes the two weighted-chain orientations.}
-```
+the determinants, and therefore the spectra, are distinct. Thus $\mathrm{spec}(Q_\tau)$ distinguishes the two weighted-chain orientations.

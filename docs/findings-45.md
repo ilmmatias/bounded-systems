@@ -6,7 +6,7 @@ Let $A$ be the adjacency matrix of a DAG, including channel multiplicities, and 
 \mathbf 1=(1,\ldots,1)^\mathsf T.
 ```
 
-Define
+The out- and in-degree vectors are
 
 ```math
 d^+=A\mathbf1,
@@ -14,51 +14,30 @@ d^+=A\mathbf1,
 d^-=A^\mathsf T\mathbf1.
 ```
 
-These are the out- and in-degree vectors.
-
 The four second-order aggregate vectors are
 
 ```math
-q^{++}=A^2\mathbf1=A d^+,
+\begin{aligned}
+q^{++}&=A^2\mathbf1=A d^+, &
+q^{--}&=(A^\mathsf T)^2\mathbf1=A^\mathsf T d^-,\\
+q^{+-}&=AA^\mathsf T\mathbf1=A d^-, &
+q^{-+}&=A^\mathsf TA\mathbf1=A^\mathsf T d^+.
+\end{aligned}
 ```
 
-```math
-q^{--}=(A^\mathsf T)^2\mathbf1=A^\mathsf T d^-,
-```
-
-```math
-q^{+-}=AA^\mathsf T\mathbf1=A d^-,
-```
-
-```math
-q^{-+}=A^\mathsf TA\mathbf1=A^\mathsf T d^+.
-```
-
-Their meanings at node $u$ are:
-
-```math
-q^{++}(u)=
-\left|\{\text{directed length-two routes starting at }u\}\right|,
-```
-
-```math
-q^{--}(u)=
-\left|\{\text{directed length-two routes ending at }u\}\right|,
-```
+At a node $u$, $q^{++}(u)$ and $q^{--}(u)$ count the directed length-two routes starting and ending at $u$, respectively, while
 
 ```math
 q^{+-}(u)=
 \sum_v
-\left|\bigl(N^+(u)\cap N^+(v)\bigr)\right|,
-```
-
-```math
+\left|N^+(u)\cap N^+(v)\right|,
+\qquad
 q^{-+}(u)=
 \sum_v
-\left|\bigl(N^-(u)\cap N^-(v)\bigr)\right|.
+\left|N^-(u)\cap N^-(v)\right|.
 ```
 
-Therefore define the normalized node coordinate
+Define the normalized node coordinate
 
 ```math
 X_G(u)=
@@ -73,27 +52,19 @@ q^{-+}(u)/n^2
 \in\mathbb R^6.
 ```
 
-This is the first-moment projection of the implemented second-order pair profile.
+The six-coordinate dictionary is the first-moment projection of the second-order pair profile.
 
-It is:
-
-* label invariant;
-* comparable across system sizes;
-* sparse-matrix computable;
-* bounded in a fixed compact subset of $\mathbb R^6$;
-* sensitive to direction, two-step flow, divergence and reconvergence.
+It is label invariant, comparable across system sizes, computable by sparse-matrix methods, bounded in a fixed compact subset of $\mathbb R^6$, and sensitive to direction, two-step flow, divergence, and reconvergence.
 
 No manually selected graph statistic has been added.
 
-## Why only six coordinates?
+## Sufficiency of the six-coordinate profile
 
 The direct-relation frequencies are already determined by the first two coordinates:
 
 ```math
 \frac{\left|\{v:u\to v\}\right|}n=\frac{d^+(u)}n,
-```
-
-```math
+\qquad
 \frac{\left|\{v:v\to u\}\right|}n=\frac{d^-(u)}n.
 ```
 
@@ -134,7 +105,7 @@ Each class has one normalized coordinate
 \qquad u\in C_a.
 ```
 
-This means the first-pass state space of a graph has at most $n$ states, usually fewer.
+The first-pass state space has at most $n$ states and usually fewer.
 
 The exact profile-refinement hierarchy will later replace $S_G(u)$ by increasingly refined node colors. But this six-integer signature is the smallest useful starting point.
 
@@ -156,15 +127,7 @@ and
 \ell_{k+1}=A^\mathsf T\ell_k.
 ```
 
-Thus
-
-```math
-r_k(v)=\left|\{\text{length-}k\text{ routes starting at }v\}\right|,
-```
-
-```math
-\ell_k(v)=\left|\{\text{length-}k\text{ routes ending at }v\}\right.
-```
+Thus $r_k(v)$ counts the length-$k$ routes starting at $v$, and $\ell_k(v)$ counts the length-$k$ routes ending at $v$.
 
 The total number of length-$p$ routes is
 
@@ -182,7 +145,7 @@ m_e
 r_{p-j-1}(w).
 ```
 
-This counts the occurrences of $e$ in all length-$p$ routes, summed over all route positions.
+The count sums the occurrences of $e$ over all positions in all length-$p$ routes.
 
 The normalized route-averaged edge flow is
 
@@ -215,7 +178,7 @@ W_{ab}^{(p)}=
 W_e^{(p)}.
 ```
 
-Then
+It follows that
 
 ```math
 \sum_{a,b}W_{ab}^{(p)}=pT_p.
@@ -249,7 +212,7 @@ K_{ab}^{(p)}=
 \frac{F_{ab}^{(p)}}{\pi_a^{\mathrm{out}}}.
 ```
 
-Thus
+By construction,
 
 ```math
 \sum_bK_{ab}^{(p)}=1.
@@ -268,7 +231,7 @@ a_{G,p}
 
 where $a_{G,p}$ is the continuum-time scale extracted below.
 
-This is the first directly computable approximation to the continuum profile operator.
+The matrix is a directly computable approximation to the continuum profile operator.
 
 # 5. Local coefficient fields
 
@@ -423,8 +386,6 @@ Because $X$ is bounded,
 \frac{\mathrm{diam}(X_G)}p.
 ```
 
-Consequently:
-
 > The globally route-averaged drift is a horizon-boundary effect.
 
 It normally vanishes as $p\to\infty$; therefore, global mean drift alone cannot determine whether the local continuum dynamics has drift.
@@ -437,7 +398,7 @@ b_a^{(p)}
 
 must be retained. They can remain nonzero even while the globally averaged drift vanishes.
 
-This also gives another exact audit:
+The identity also provides an audit:
 
 ```math
 p,m_{G,p}=
@@ -507,19 +468,19 @@ Aggregate it as
 \mathfrak E_{a,k}.
 ```
 
-Interpretation:
+The condition
 
 ```math
 \mathfrak E_{G,p}=0
 ```
 
-means the six-coordinate state is exactly Markov-complete at that horizon.
+means that the six-coordinate state is exactly Markov-complete at that horizon. Along a sequence of systems, convergence
 
 ```math
 \mathfrak E_{G_n,p_n}\to0
 ```
 
-means it becomes asymptotically Markov-complete.
+means that it becomes asymptotically Markov-complete.
 
 If it does not vanish, increase the profile dictionary:
 
@@ -531,11 +492,11 @@ If it does not vanish, increase the profile dictionary:
 \text{stabilized profile}.
 ```
 
-This provides a data-driven stopping rule for refinement depth.
+The defect provides a data-driven stopping rule for refinement depth.
 
 # 9. Bulk-plateau defect
 
-The finite route law depends on the remaining horizon. We must test whether an autonomous bulk generator emerges.
+The finite route law depends on the remaining horizon. The relevant test is whether an autonomous bulk generator emerges.
 
 At route position $j$, let
 
@@ -559,7 +520,7 @@ j:
 \}.
 ```
 
-Let
+Define $\overline K_{\mathrm{bulk}}$ by
 
 ```math
 \overline K_{\mathrm{bulk}}=
@@ -671,9 +632,9 @@ The finite route-growth sequence is
 \log\frac{T_{p+1}}{T_p}.
 ```
 
-For finite DAGs, it must eventually collapse because $T_p=0$ beyond the maximum path length; we seek an interior plateau in graph families of increasing height.
+For finite DAGs, it eventually collapses because $T_p=0$ beyond the maximum path length. The relevant diagnostic is an interior plateau across graph families of increasing height.
 
-Define
+The mean bulk growth rate is
 
 ```math
 \overline\beta_{\mathrm{bulk}}=
@@ -695,7 +656,7 @@ If
 \mathfrak B_{G_n}\to0,
 ```
 
-then
+it follows that
 
 ```math
 \beta_0=
@@ -716,30 +677,22 @@ a_{G_n,p_n}
 }.
 ```
 
-This is the coefficient entering the continuum master resolvent.
+The coefficient enters the continuum master resolvent.
 
-# 12. The first computable convergence criterion
+# 12. A computable convergence criterion
 
-For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when all of the following occur:
+For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when
 
 ```math
 a_n\to0,
-```
-
-```math
+\qquad
 \mathfrak L_n(\epsilon)\to0
 \quad\forall\epsilon>0,
-```
-
-```math
+\qquad
 \mathfrak K_{3,n}\to0,
-```
-
-```math
+\qquad
 \mathfrak E_n\to0,
-```
-
-```math
+\qquad
 \mathfrak P_n\to0,
 ```
 
@@ -925,17 +878,19 @@ The progression should be:
 
 ## Level 0: six-coordinate dictionary
 
+The level-zero dictionary is
+
 ```math
 X^{[0]}=
 (d^+,d^-,A^2\mathbf1,(A^\mathsf T)^2\mathbf1,
 AA^\mathsf T\mathbf1,A^\mathsf TA\mathbf1).
 ```
 
-This is extremely cheap and directly reuses the existing communication counts.
+The calculation reuses the existing communication counts and adds little cost.
 
-## Level 1: full one-round node histogram
+## Profile-histogram refinement
 
-Let $c_1(u,v)$ be the canonical one-round ordered-pair profile key. Define
+At the first level, let $c_1(u,v)$ be the canonical one-round ordered-pair profile key. Define
 
 ```math
 x_u(c,d)=
@@ -952,7 +907,7 @@ Use sparse histograms and a square-root embedding
 Y_u(c,d)=\sqrt{x_u(c,d)}.
 ```
 
-Then
+It follows that
 
 ```math
 |Y_u-Y_w|_2^2
@@ -960,16 +915,8 @@ Then
 
 is twice the squared Hellinger distance between their exact one-round node profiles.
 
-This supplies a canonical information-geometric metric without choosing arbitrary weights among profile fields.
+The construction supplies an information-geometric metric without arbitrary weights among profile fields.
 
-## Level $r$: stabilized profile histograms
-
-Replace $c_1$ by $c_r$, stopping when:
-
-```math
-\mathfrak E_{G,p,r}
-```
-
-is below tolerance or reaches zero exactly.
+At refinement level $r$, replace $c_1$ by $c_r$ and stop when $\mathfrak E_{G,p,r}$ is below tolerance or reaches zero exactly.
 
 Thus the required refinement depth is selected dynamically by Markov closure, not merely by graph-isomorphism separation.

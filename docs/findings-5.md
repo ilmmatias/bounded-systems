@@ -1,28 +1,20 @@
-# 1. Fock representation for arbitrary cardinality
+# 1. Fock representation at arbitrary cardinality
 
-Let
-
-```math
-\mathsf P(G)
-```
-
-be the set of all finite paths, including the length-zero paths $1_v$.
-
-Define
+Let $\mathsf P(G)$ be the set of finite paths in $G$, including the length-zero paths $1_v$, and define
 
 ```math
 \mathcal H_G=\ell^2(\mathsf P(G)).
 ```
 
-This remains well-defined when $\mathsf P(G)$ is uncountable because every vector in $\ell^2(\mathsf P(G))$ has at most countable support.
+The definition remains valid when $\mathsf P(G)$ is uncountable because every vector in $\ell^2(\mathsf P(G))$ has at most countable support.
 
-Let
+Write
 
 ```math
-{\xi_p:p\in\mathsf P(G)}
+\{\xi_p:p\in\mathsf P(G)\}
 ```
 
-be the canonical orthonormal basis.
+for the canonical orthonormal basis.
 
 For every node $v$, define
 
@@ -34,7 +26,7 @@ P_v\xi_p=
 \end{cases}
 ```
 
-Thus $P_v$ projects onto paths whose current terminal node is $v$.
+Thus $P_v$ projects onto the subspace spanned by paths with terminal node $v$.
 
 For every primitive channel $e:u\to v$, define
 
@@ -46,29 +38,19 @@ L_e\xi_p=
 \end{cases}
 ```
 
-Here $ep$ means: first traverse $p$, then traverse $e$.
+The notation $ep$ means that $p$ is traversed first and $e$ second. For countable graphs, the operators $P_v$ and $L_e$ are the standard left-regular, or Fock, representation used in free semigroupoid algebra theory.
 
-These are the standard left-regular or Fock operators for a directed graph; the countable case initiates free semigroupoid algebra theory.
+## Operator relations
 
-## Forced relations
-
-Direct calculation gives
+A direct calculation gives
 
 ```math
 P_uP_v=\delta_{uv}P_v,
-```
-
-```math
+\qquad
 L_e^\ast L_e=P_{s(e)},
-```
-
-```math
+\qquad
 L_eL_e^\ast\le P_{r(e)},
-```
-
-and
-
-```math
+\qquad
 P_{r(e)}L_eP_{s(e)}=L_e.
 ```
 
@@ -79,7 +61,7 @@ L_e^\ast L_f=0
 \qquad(e\ne f).
 ```
 
-This remains true for parallel channels, which share source and target but produce orthogonal path vectors.
+Parallel channels share source and target but still produce orthogonal path vectors.
 
 The projections satisfy
 
@@ -95,9 +77,9 @@ in the strong-operator sense, meaning that the net of finite partial sums
 
 converges strongly to $I$ as $F$ ranges over finite subsets of $V$.
 
-Thus the complete boundary of A1 appears as the strong identity even when there is no algebraic finite sum of all nodes.
+The full node decomposition therefore converges to the identity in the strong topology, even when no algebraic sum over all nodes exists.
 
-# 2. Faithfulness
+# 2. Faithfulness of the Fock representation
 
 For a finite path $p=e_n\cdots e_1$, define
 
@@ -111,19 +93,17 @@ and set
 L_{1_v}=P_v.
 ```
 
-This defines a representation
+These operators define a representation
 
 ```math
 \lambda_G:\mathbb C[G]\to B(\mathcal H_G).
 ```
 
-## Theorem: Fock faithfulness
+## Theorem 1. Fock faithfulness
 
-```math
-\lambda_G\text{ is injective for every set-sized quiver }G.
-```
+For every set-sized quiver $G$, the representation $\lambda_G$ is injective.
 
-Take
+To prove this, take
 
 ```math
 x=\sum_{p\in F}c_p p,
@@ -139,37 +119,37 @@ c_p\xi_p.
 
 The vectors $\xi_p$ are orthonormal. If $\lambda_G(x)=0$, this expression vanishes for every $v$, so every coefficient $c_p$ is zero.
 
-Therefore the Fock realization loses none of the algebraic path information.
+Hence the Fock representation preserves all algebraic path information.
 
-# 3. The completion tower
+# 3. Natural operator-algebra completions
 
-There is not one operator algebra but a natural tower.
+The Fock representation gives several natural operator-algebra completions.
 
-## Algebraic level
+## Algebraic image
+
+The algebraic image is
 
 ```math
 \mathcal A_{\mathrm{alg}}(G)=
 \lambda_G(\mathbb C[G]).
 ```
 
-Only finite linear combinations of paths occur here.
+This algebra consists of finite linear combinations of path operators and is the direct image of the primitive node-channel structure.
 
-This level is forced most directly by A1–A5.
-
-## Norm-closed level
+## Norm closure
 
 Define
 
 ```math
 \mathcal T_+(G)=
-\overline{\mathcal A_{\mathrm{alg}}(G)}^{|\cdot|}.
+\overline{\mathcal A_{\mathrm{alg}}(G)}^{\lVert\cdot\rVert}.
 ```
 
-This permits precisely those infinite approximations that converge in operator norm.
+The norm closure contains precisely the operator-norm limits of algebraic path polynomials.
 
 For countable graphs, this is the graph tensor algebra, or norm-closed quiver algebra, an instance of a tensor algebra of a $C^\ast$-correspondence.
 
-## Weak-operator level
+## Weak-operator closure
 
 Define
 
@@ -178,11 +158,11 @@ Define
 \overline{\mathcal A_{\mathrm{alg}}(G)}^{\mathrm{WOT}}.
 ```
 
-This admits bounded global operators as weak or strong limits of uniformly bounded finite sums.
+The weak-operator closure contains bounded global operators obtained as weak limits, including strong limits of uniformly bounded finite sums.
 
 In the standard countable setting, this is called the free semigroupoid algebra.
 
-## Self-adjoint Fock envelope
+## Self-adjoint Fock algebra
 
 Define
 
@@ -191,9 +171,9 @@ Define
 C^\ast(P_v,L_e:v\in V,e\in E).
 ```
 
-This includes the adjoints $L_e^\ast$, which are not reverse communication channels but operator-theoretic devices for testing and removing path prefixes.
+This self-adjoint algebra includes the adjoints $L_e^\ast$, which test and remove path prefixes in the Fock representation. They do not represent reverse communication channels.
 
-The hierarchy is therefore
+These algebras satisfy
 
 ```math
 \mathcal A_{\mathrm{alg}}(G)
@@ -205,33 +185,27 @@ The hierarchy is therefore
 B(\mathcal H_G),
 ```
 
-with the self-adjoint Fock algebra generated alongside them.
+while the self-adjoint Fock algebra is generated from the same representation by adjoining the $L_e^\ast$.
 
-## Cardinality limitation
+The definitions extend directly to arbitrary cardinality. Many structure and classification theorems in the literature, however, are stated only for finite or countable graphs and do not automatically extend to a nonseparable $\mathcal H_G$. The arbitrary-cardinality statements used here are therefore established directly from the definitions.
 
-The definitions extend directly to arbitrary cardinality. However, many published structure and classification theorems are stated for finite or countable graphs and need not extend to a nonseparable $\mathcal H_G$; the arbitrary-cardinality results here are proved directly from the definitions.
-
-# 4. Norm and weak closure retain different infinities
+# 4. Norm and weak closures
 
 If $V$ is infinite, the finite node sums satisfy
 
 ```math
-\left|
+\left\lVert
 I-\sum_{v\in F}P_v
-\right|=1
+\right\rVert=1
 ```
 
-for every finite $F\subset V$.
-
-Therefore
+for every finite $F\subset V$. Hence, in general,
 
 ```math
-I\notin\mathcal T_+(G)
+I\notin\mathcal T_+(G).
 ```
 
-in general.
-
-But
+However,
 
 ```math
 \sum_{v\in F}P_v\longrightarrow I
@@ -246,7 +220,7 @@ I\in\mathcal L(G).
 The diagonal at the norm-closed level is
 
 ```math
-\mathcal D_{|\cdot|}
+\mathcal D_{\lVert\cdot\rVert}
 \cong c_0(V),
 ```
 
@@ -257,7 +231,7 @@ whereas the weakly closed diagonal is
 \cong\ell^\infty(V).
 ```
 
-This concretely illustrates infinite information appearing only after selecting a topology, which specifies which limits of finite path expressions are retained.
+The choice of topology therefore determines which limits of finite path expressions belong to the completed algebra.
 
 # 5. Compositional depth and the gauge action
 
@@ -288,7 +262,7 @@ on the natural domain
 \left\lbrace \sum_pa_p\xi_p: \sum_p |p|^2|a_p|^2<\infty \right\rbrace.
 ```
 
-The operator measures primitive-channel composition depth.
+The number operator measures primitive-channel composition depth.
 
 For every channel,
 
@@ -325,9 +299,9 @@ satisfies
 \gamma_z(L_p)=z^{|p|}L_p.
 ```
 
-The variable $z$ is dual to path length, not physical time.
+The circle parameter $z$ is dual to path length and has no assumed interpretation as physical time.
 
-# 6. Canonical Fourier decomposition
+# 6. Fourier decomposition under the gauge action
 
 For $X\in\mathcal T_+(G)$, define
 
@@ -339,19 +313,15 @@ For $X\in\mathcal T_+(G)$, define
 
 where $m$ is normalized Haar measure on the circle.
 
-Then:
+The coefficient $\Phi_0(X)$ is the node-diagonal component, $\Phi_1(X)$ is the primitive-channel component, and $\Phi_n(X)$ is the length-$n$ path component.
 
-* $\Phi_0(X)$ is the node-diagonal part;
-* $\Phi_1(X)$ is the primitive-channel part;
-* $\Phi_n(X)$ is the length-$n$ path part.
-
-For an algebraic polynomial,
+For an algebraic polynomial
 
 ```math
 X=\sum_pc_pL_p,
 ```
 
-we obtain
+the degree-$n$ Fourier coefficient is
 
 ```math
 \Phi_n(X)=
@@ -368,11 +338,9 @@ The Fejér sums
 
 converge to $X$ in norm for $X\in\mathcal T_+(G)$.
 
-Thus the norm-closed operator algebra can still be reconstructed from its finite compositional-depth components.
+The norm-closed algebra is therefore recovered as the norm limit of finite compositional-depth components; the grading persists after completion.
 
-The grading has not disappeared after completion.
-
-# 7. Oriented noncommutativity
+# 7. One-sided composition and noncommutativity
 
 Let $p$ and $q$ be nonempty paths.
 
@@ -382,7 +350,7 @@ Suppose
 L_qL_p\ne0.
 ```
 
-This means the terminal node of $p$ is the initial node of $q$.
+The terminal node of $p$ is therefore the initial node of $q$.
 
 If also
 
@@ -392,7 +360,7 @@ L_pL_q\ne0,
 
 then $p$ and $q$ concatenate in both cyclic orders, producing a directed closed path.
 
-Therefore A5 implies
+Therefore acyclicity implies
 
 ```math
 L_qL_p\ne0
@@ -400,15 +368,13 @@ L_qL_p\ne0
 L_pL_q=0.
 ```
 
-This identifies the noncommuting terms explicitly.
+Thus a permitted composition in one order excludes the reversed composition. The noncommutativity is fixed by the orientation of the underlying paths.
 
-It says that permitted composition in one direction actively excludes the reverse composition.
-
-# 8. A canonical global channel operator
+# 8. The global channel creator
 
 The individual $L_e$ always exist and have norm one.
 
-A global unweighted sum
+The global unweighted sum
 
 ```math
 S=\sum_{e\in E}L_e
@@ -419,12 +385,12 @@ does not always define a bounded operator.
 Let
 
 ```math
-d^+(v)=|{e:s(e)=v}|
+d^+(v)=\lvert\{e:s(e)=v\}\rvert
 ```
 
-be the outgoing channel multiplicity.
+denote the outgoing channel multiplicity at $v$.
 
-## Theorem: bounded global creator
+## Theorem 2. Boundedness of the global creator
 
 The unweighted operator $S$ is bounded precisely when
 
@@ -433,42 +399,36 @@ D^+=
 \sup_{v\in V}d^+(v)<\infty.
 ```
 
-In that case,
+In that case the strong-operator identity
 
 ```math
 S^\ast S=
 \sum_{v\in V}d^+(v)P_v
 ```
 
-strongly, and
+holds, and
 
 ```math
-|S|=\sqrt{D^+}.
+\lVert S\rVert=\sqrt{D^+}.
 ```
 
 Indeed, distinct edge creators have orthogonal ranges, so
 
 ```math
-\left|
+\left\lVert
 \sum_ec_eL_e
-\right|^2=
+\right\rVert^2=
 \sup_v
 \sum_{s(e)=v}|c_e|^2
 ```
 
-whenever the right side is finite.
-
-This result is entirely structural. It says:
-
-```math
-\text{A uniformly weighted bounded aggregate exists exactly under uniform finite branching.}
-```
+whenever the right-hand side is finite. The unweighted aggregate is therefore bounded exactly under uniform finite branching.
 
 If a node has infinitely many outgoing channels, equal nonzero Hilbert coefficients on all of them cannot be square-summable.
 
-The individual channel family remains valid; only its unweighted aggregate fails to be bounded.
+The individual channel operators remain well defined even when their unweighted aggregate is unbounded.
 
-# 9. Powers count all paths without a node-count assumption
+# 9. Path counting by powers of the global creator
 
 Assume $S$ is bounded.
 
@@ -488,7 +448,7 @@ N_n(v)=
 \left|\{p:|p|=n,\ s(p)=v\}\right|.
 ```
 
-This is the number of length-$n$ communication paths beginning at $v$.
+This cardinal counts the length-$n$ paths beginning at $v$.
 
 Distinct paths of the same length have orthogonal Fock ranges, so
 
@@ -497,10 +457,10 @@ Distinct paths of the same length have orthogonal Fock ranges, so
 \sum_{v\in V}N_n(v)P_v.
 ```
 
-Consequently,
+It follows that
 
 ```math
-|S^n|=
+\lVert S^n\rVert=
 \sqrt{\sup_{v\in V}N_n(v)}.
 ```
 
@@ -508,7 +468,7 @@ The spectral-radius formula gives
 
 ```math
 r(S)=
-\lim_{n\to\infty}|S^n|^{1/n},
+\lim_{n\to\infty}\lVert S^n\rVert^{1/n},
 ```
 
 hence
@@ -521,13 +481,7 @@ r(S)=
 \right)^{1/(2n)}.
 ```
 
-This is a genuine cardinality-independent spectral theorem:
-
-```math
-\text{the spectral radius of the global path creator measures exponential path branching.}
-```
-
-No chosen time evolution appears.
+This formula is independent of cardinality. The spectral radius of the global creator measures the exponential growth rate of path branching and does not require a chosen time evolution.
 
 # 10. Examples
 
@@ -536,12 +490,8 @@ No chosen time evolution appears.
 If every path has length at most $h$, then
 
 ```math
-S^{h+1}=0.
-```
-
-Therefore
-
-```math
+S^{h+1}=0,
+\qquad
 \sigma(S)=\{0\}.
 ```
 
@@ -559,10 +509,10 @@ there is exactly one length-$n$ path from each node:
 N_n(v)=1.
 ```
 
-Thus
+Consequently,
 
 ```math
-|S^n|=1,
+\lVert S^n\rVert=1,
 \qquad
 r(S)=1.
 ```
@@ -581,10 +531,10 @@ If every node has exactly $d$ outgoing channels, then
 N_n(v)=d^n.
 ```
 
-Therefore
+Therefore,
 
 ```math
-|S^n|=d^{n/2},
+\lVert S^n\rVert=d^{n/2},
 \qquad
 r(S)=\sqrt d.
 ```
@@ -613,79 +563,37 @@ for all $n$, and again
 r(S)=1.
 ```
 
-The direct sum of increasingly large nilpotent shifts has the closed unit disk as its spectrum.
+The direct sum of increasingly large nilpotent shifts has the closed unit disk as its spectrum. Consequently, $\sigma(S)$ does not distinguish an infinite chain from a family of finite chains with unbounded depth. The spectrum is informative but incomplete, so the full marked path algebra remains the primary invariant.
 
-Consequently,
+# 11. The role of the node diagonal
 
-```math
-\sigma(S)\text{ cannot distinguish an actual infinite chain from unbounded finite depth.}
-```
-
-So the spectrum is meaningful but not complete. The full marked path algebra remains primary.
-
-# 11. Why the node diagonal remains essential
-
-Suppose we retain only $S$.
-
-An arbitrary unitary conjugation
+If only the operator $S$ is retained, an arbitrary unitary conjugation
 
 ```math
 S\mapsto USU^\ast
 ```
 
-preserves its spectrum, norms of powers, singular values, and many other operator invariants.
-
-But it need not preserve the node sectors.
-
-The correct object is therefore at least
+preserves its spectrum, norms of powers, singular values, and many other operator invariants, but it need not preserve the node sectors. A graph-sensitive invariant must therefore retain at least
 
 ```math
 \bigl(
 \mathcal T_+(G),
 \mathcal D(G),
 \gamma,
-{L_e}_{e\in E}
+\{L_e\}_{e\in E}
 \bigr).
 ```
 
-Here:
+Here $\mathcal D(G)$ records the orthogonal node sectors, the family $\{L_e\}_{e\in E}$ records the primitive channels, multiplication records path composition, $\gamma$ records compositional depth, and the completion retains infinite limits. The marked object therefore preserves both node orthogonality and the intrinsically noncommutative composition of channels.
 
-* $\mathcal D(G)$ records orthogonal nodes;
-* ${L_e}$ records primitive channels;
-* multiplication records path composition;
-* $\gamma$ records compositional depth;
-* the completion records infinite limits.
+# 12. The status of the $C^\ast$-envelope
 
-This directly incorporates the two earlier general lessons:
+Tensor-algebra theory shows that the $C^\ast$-envelope of a $C^\ast$-correspondence tensor algebra is its Cuntz-Pimsner algebra.
 
-```math
-\text{orthogonality must remain marked}
-```
+This derived invariant should not replace the Fock algebra as the primary construction.
 
-and
+A Cuntz-Pimsner or Cuntz-Krieger quotient of the Toeplitz/Fock algebra can remove defect projections and impose coisometric boundary relations not imposed by the bounded system definition.
 
-```math
-\text{channel composition is intrinsically noncommutative}.
-```
+The path algebra embeds in the Fock tensor algebra, which in turn embeds in the Fock Toeplitz $C^\ast$-algebra. The $C^\ast$-envelope is retained as a derived quotient invariant and is not interpreted automatically as the system itself.
 
-# 12. Why the $C^\ast$-envelope should not be primary
-
-Tensor-algebra theory shows that the $C^\ast$-envelope of a $C^\ast$-correspondence tensor algebra is its Cuntz–Pimsner algebra.
-
-That invariant should not replace the Fock algebra as the primary construction.
-
-A Cuntz–Pimsner or Cuntz–Krieger quotient of the Toeplitz/Fock algebra can remove defect projections and impose coisometric boundary relations not stated in A1–A5.
-
-So our hierarchy should be:
-
-```math
-\text{path algebra}
-\to
-\text{Fock tensor algebra}
-\to
-\text{Fock Toeplitz }C^\ast\text{-algebra}
-```
-
-with the $C^\ast$-envelope retained as a derived quotient invariant, not interpreted automatically as the system itself.
-
-This caution matches known reconstruction results: even in finite graph Toeplitz theory, the gauge action alone may not recover the graph; the canonical vertex diagonal is also needed.
+This distinction is consistent with reconstruction results for finite graph Toeplitz algebras, where the gauge action alone need not recover the graph and the distinguished vertex diagonal must also be retained.

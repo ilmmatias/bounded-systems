@@ -53,11 +53,9 @@ The families
 {F^+_\alpha}_\alpha
 ```
 
-are linearly ordered projection nests, giving in an operator realization the usual triangular block structure associated with a nest of invariant or coinvariant subspaces.
+are linearly ordered projection nests. In an operator realization they produce the triangular block structure associated with invariant or coinvariant subspaces.
 
----
-
-# 2. Paths obey exact ordinal support constraints
+# 2. Ordinal support constraints
 
 Let
 
@@ -79,7 +77,7 @@ Similarly, whenever future ranks exist,
 \rho_+(v)+n\le \rho_+(u).
 ```
 
-These use ordinal addition.
+Both inequalities use ordinal addition.
 
 For finite ranks, they reduce to the familiar inequalities
 
@@ -95,19 +93,7 @@ n\le \rho_+(u)-\rho_+(v).
 
 For transfinite ranks, ordinal inequalities are the correct formulation because ordinary subtraction is not canonical.
 
-A path therefore moves:
-
-```math
-\text{strictly upward in past rank},
-```
-
-and
-
-```math
-\text{strictly downward in future rank}.
-```
-
----
+A path therefore moves strictly upward in past rank and strictly downward in future rank.
 
 # 3. The past-rank resolvent matrix
 
@@ -157,12 +143,7 @@ The coefficient
 \Delta^-_\alpha
 ```
 
-is exactly the formal sum of all length-$n$ paths whose:
-
-* source has past rank $\alpha$;
-* target has past rank $\beta$.
-
-Consequently,
+is the formal sum of all length-$n$ paths from a source of past rank $\alpha$ to a target of past rank $\beta$. The ordinal support condition gives
 
 ```math
 \Delta^-_\beta
@@ -202,8 +183,6 @@ R^-_{2,0}&R^-_{2,1}&\Delta^-_2&0&\cdots\\
 
 Edges may skip arbitrarily many layers, so the matrix need not be banded.
 
----
-
 # 4. The future-rank resolvent matrix
 
 Define
@@ -231,7 +210,7 @@ unless
 \beta+n\le\alpha.
 ```
 
-Hence
+Consequently,
 
 ```math
 R^+_{\beta,\alpha}(z)=0
@@ -251,7 +230,7 @@ R_G(z)
 \end{pmatrix}.
 ```
 
-Thus the two canonical rank systems reveal opposite triangular orientations:
+The two canonical rank systems reveal opposite triangular orientations:
 
 ```math
 \begin{aligned}
@@ -260,9 +239,7 @@ Thus the two canonical rank systems reveal opposite triangular orientations:
 \end{aligned}
 ```
 
-That opposition is an intrinsic signature of directed communication.
-
----
+The opposite triangular orientations provide an intrinsic signature of directed communication.
 
 # 5. Exact factorization across a past-rank cut
 
@@ -274,10 +251,7 @@ P=F^-_\gamma,
 Q=1-P.
 ```
 
-Here $P$ contains all nodes of past rank below $\gamma$, while $Q$ contains:
-
-* nodes of rank at least $\gamma$;
-* and nodes in the backward-infinite core.
+Here $P$ contains all nodes of past rank below $\gamma$, while $Q$ contains the nodes of rank at least $\gamma$ together with the backward-infinite core.
 
 Because past rank cannot decrease along an edge,
 
@@ -325,37 +299,17 @@ R_Q(z)
 zR_Q(z)\,Q\mathbf EP\,R_P(z).
 ```
 
-The three terms have exact interpretations.
-
-## Paths remaining below the cut
+The first two terms record paths that remain entirely in $P$ and $Q$, respectively. The cross term
 
 ```math
-R_P(z).
+zR_Q(z)\,Q\mathbf EP\,R_P(z)
 ```
 
-### Paths remaining above the cut
-
-```math
-R_Q(z).
-```
-
-### Paths crossing the cut
-
-```math
-zR_Q(z)\,Q\mathbf EP\,R_P(z).
-```
-
-A crossing path consists uniquely of:
-
-1. a path staying in $P$;
-2. one primitive edge from $P$ into $Q$;
-3. a path staying in $Q$.
+records the paths that cross the cut. Each such path factors uniquely as a path in $P$, followed by one primitive edge from $P$ to $Q$, followed by a path in $Q$.
 
 It cannot cross back because past rank cannot decrease.
 
-So every path crosses a past-rank cut at most once.
-
----
+Thus every path crosses a past-rank cut at most once.
 
 # 6. Exact factorization across a future-rank cut
 
@@ -388,15 +342,9 @@ R_Q(z)
 zR_P(z)\,P\mathbf EQ\,R_Q(z).
 ```
 
-A crossing path consists of:
-
-1. a path remaining in $Q$;
-2. one edge from $Q$ into $P$;
-3. a path remaining in $P$.
+A crossing path factors uniquely as a path in $Q$, one edge from $Q$ into $P$, and a path remaining in $P$.
 
 Once it enters the low-future-rank sector, it cannot leave.
-
----
 
 # 7. Successor-stage recursion
 
@@ -418,12 +366,7 @@ F^-_{\alpha+1}=
 F^-_\alpha+\Delta^-_\alpha.
 ```
 
-There are:
-
-* no edges within $\Delta^-_\alpha$;
-* no edges from $\Delta^-_\alpha$ into $F^-_\alpha$.
-
-Therefore
+There are no edges within $\Delta^-_\alpha$ and no edges from $\Delta^-_\alpha$ into $F^-_\alpha$. Consequently,
 
 ```math
 R^-_{<\alpha+1}(z)=
@@ -437,10 +380,7 @@ F^-_\alpha
 R^-_{<\alpha}(z).
 ```
 
-Every nontrivial path ending at past rank $\alpha$ is obtained uniquely by:
-
-1. following a path entirely through lower past ranks;
-2. taking one final channel into layer $\alpha$.
+Every nontrivial path ending at past rank $\alpha$ is obtained uniquely by following a path through lower past ranks and then taking one final channel into layer $\alpha$.
 
 ## Future recursion
 
@@ -465,14 +405,9 @@ F^+_\alpha
 \Delta^+_\alpha.
 ```
 
-Every nontrivial path beginning at future rank $\alpha$ is obtained by:
-
-1. taking one first channel into a lower future-rank layer;
-2. continuing entirely through lower future ranks.
+Every nontrivial path beginning at future rank $\alpha$ is obtained by taking one first channel into a lower future-rank layer and then continuing through lower future ranks.
 
 These two equations are exact transfinite analogues of recursive triangular-matrix inversion.
-
----
 
 # 8. Limit stages
 
@@ -485,9 +420,7 @@ F^-_\lambda=
 \bigvee_{\alpha<\lambda}F^-_\alpha.
 ```
 
-Every finite path entirely below rank $\lambda$ lies below some earlier rank $\alpha<\lambda$, since it has only finitely many nodes.
-
-Consequently,
+Every finite path entirely below rank $\lambda$ lies below some earlier rank $\alpha<\lambda$, since it has only finitely many nodes. It follows coefficientwise that
 
 ```math
 R^-_{<\lambda}(z)=
@@ -495,7 +428,7 @@ R^-_{<\lambda}(z)=
 R^-_{<\alpha}(z).
 ```
 
-This is coefficientwise convergence in the formal path topology—not necessarily operator-norm convergence.
+The convergence is coefficientwise in the formal path topology, not necessarily in operator norm.
 
 Dually,
 
@@ -505,12 +438,7 @@ R^+_{<\lambda}(z)=
 R^+_{<\alpha}(z).
 ```
 
-Thus the full well-founded resolvent is assembled by:
-
-* successor-stage channel attachment;
-* coefficientwise union at limit stages.
-
----
+The full well-founded resolvent is assembled by successor-stage channel attachment and coefficientwise union at limit stages.
 
 # 9. Ordinal bands
 
@@ -524,8 +452,6 @@ F^-_\beta-F^-_\alpha.
 Any path whose source and target lie in this band must remain inside it.
 
 Past rank strictly increases along the path, so every intermediate rank lies between the source and target ranks.
-
-Therefore
 
 ```math
 B^-_{[\alpha,\beta)}
@@ -543,9 +469,7 @@ The compression is the formal resolvent of the induced rank-band subsystem.
 
 The same holds for future-rank bands.
 
-This is stronger than arbitrary node compression: a path can leave and later reenter a random node subset, which a convex ordinal band forbids.
-
----
+Convex ordinal bands are stronger than arbitrary node subsets because a path cannot leave an ordinal band and later reenter it.
 
 # 10. Separating the ranked part from the infinite core
 
@@ -574,7 +498,7 @@ u\to v
 v\in K^-.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 W^-\mathbf EK^-=0.
@@ -616,10 +540,10 @@ u\to v
 u\in K^+.
 ```
 
-Thus
+Equivalently,
 
 ```math
-K^+\mathbf EW^+=0
+K^+\mathbf EW^+=0,
 ```
 
 and
@@ -637,8 +561,6 @@ R_{K^+}(z).
 
 The cross term represents paths beginning in the forward-infinite core but eventually branching into a future-well-founded terminating region.
 
----
-
 # 11. The two-rank matrix
 
 When both ranks exist, define the cell projection
@@ -652,19 +574,7 @@ When both ranks exist, define the cell projection
 e_v.
 ```
 
-A path of length $n$ from a source cell
-
-```math
-(\alpha,\eta)
-```
-
-to a target cell
-
-```math
-(\beta,\theta)
-```
-
-must satisfy
+A path of length $n$ from a source cell $(\alpha,\eta)$ to a target cell $(\beta,\theta)$ must satisfy
 
 ```math
 \alpha+n\le\beta
@@ -676,7 +586,7 @@ and
 \theta+n\le\eta.
 ```
 
-Hence communication moves through the ordinal plane according to
+Communication moves through the ordinal plane according to
 
 ```math
 (\alpha,\eta)
@@ -692,7 +602,7 @@ only if
 \theta<\eta.
 ```
 
-The source’s past rank increases, while its future rank decreases.
+Along such a path, past rank increases while future rank decreases.
 
 Define the two-rank block
 
@@ -705,7 +615,7 @@ R_G(z)
 
 Its $z^n$-coefficient is exactly the sum of all length-$n$ paths between those two cells.
 
-Thus the system possesses a canonical transfinite “causal matrix”:
+The resulting canonical transfinite causal matrix is
 
 ```math
 \mathscr R_G(z)=
@@ -728,13 +638,11 @@ It is supported only on the partial order
 \eta>\theta.
 ```
 
-Within a cell, nodes remain distinguishable only through finer channel structure; rank coordinates do not artificially label them.
-
----
+Within a cell, nodes remain distinguishable only through finer channel structure; the rank coordinates introduce no artificial node labels.
 
 # 12. Analytic specialization
 
-Everything above exists formally for arbitrary cardinality and arbitrary degree.
+The preceding constructions exist formally for arbitrary cardinality and arbitrary degree.
 
 Suppose now that the unweighted Fock aggregate
 
@@ -790,17 +698,9 @@ S^n
 N_{n,\beta}(v).
 ```
 
-Thus each resolvent block records not merely whether layers communicate, but the norm growth of paths between particular transfinite layers.
+Each resolvent block records both the existence of communication between layers and the norm growth of the corresponding path family.
 
-The full spectral radius
-
-```math
-r(S)
-```
-
-collapses this information into one global exponential growth number; the filtered family retains where growth occurs.
-
----
+The full spectral radius $r(S)$ collapses this information into one global exponential growth number; the filtered family retains where growth occurs.
 
 # 13. Spectra versus cross-layer transfer
 
@@ -819,14 +719,14 @@ Whenever both diagonal resolvents exist,
 ```math
 (I-zS)^{-1}=
 \begin{pmatrix}
-(I-zS_P)^{-1}&0[1mm]
+(I-zS_P)^{-1}&0\\[1mm]
 z(I-zS_Q)^{-1}C(I-zS_P)^{-1}
 &
 (I-zS_Q)^{-1}
 \end{pmatrix}.
 ```
 
-The lower-left term
+The lower-left block
 
 ```math
 z(I-zS_Q)^{-1}C(I-zS_P)^{-1}
@@ -844,67 +744,24 @@ The spectral set of $S$ lies in the union of its diagonal blocks' spectra:
 
 In infinite-dimensional triangular operator matrices, equality need not hold.
 
-Even when the spectral set changes little, the cross term can make resolvent norms very large, contributing to:
+Even when the spectral set changes little, the cross term can produce large resolvent norms through transient amplification, pseudospectral effects, perturbation sensitivity, or the accumulation of long cross-layer paths.
 
-* transient amplification;
-* pseudospectral behavior;
-* sensitivity to perturbation;
-* long cross-layer path accumulation.
+The spectral set is coarser than the resolvent, the unfiltered resolvent is coarser than the rank-filtered family, and the full marked path algebra retains the finest information among these objects.
 
-Hence:
+# 14. Formal and analytic structures
 
-```math
-\text{spectrum}
-<
-\text{resolvent}
-<
-\text{rank-filtered resolvent}
-<
-\text{full marked path algebra}.
-```
+The layer projections $\Delta^\pm_\alpha$, cumulative projections $F^\pm_\alpha$, core projections $K^\pm$, formal resolvent $R_G(z)$, rank-filtered blocks $\Delta^\pm_\beta R_G(z)\Delta^\pm_\alpha$, and transfinite cut factorizations require no analytic assumptions. They live in the formal path completion.
 
----
-
-# 14. What is forced and what is conditional
-
-## Forced directly by A1–A5
-
-The following exist without analytic assumptions:
+By contrast, the aggregate
 
 ```math
-\Delta^\pm_\alpha,
-\qquad
-F^\pm_\alpha,
-\qquad
-K^\pm,
+S=\sum_eL_e
 ```
+
+and its resolvent
 
 ```math
-R_G(z),
+(I-zS)^{-1}
 ```
 
-```math
-\Delta^\pm_\beta
-R_G(z)
-\Delta^\pm_\alpha,
-```
-
-and all transfinite cut factorizations.
-
-They live in the formal path completion.
-
-## Conditional analytic specialization
-
-The following require the relevant bounded operator to exist:
-
-```math
-S=\sum_eL_e,
-```
-
-```math
-(I-zS)^{-1},
-```
-
-operator norms, spectra, and pseudospectra.
-
-These are analytic images of the formal path data under a particular faithful realization.
+require a bounded operator realization, as do the associated operator norms, spectra, and pseudospectra. These are analytic images of the formal path data under a particular faithful realization.

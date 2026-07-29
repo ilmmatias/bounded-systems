@@ -1,4 +1,4 @@
-# 1. Hilbert realizations of the axioms
+# 1. Hilbert realizations of a bounded system
 
 Let
 
@@ -6,15 +6,15 @@ Let
 G=(V,E,s,r)
 ```
 
-be the possibly infinite system.
+be a representative quiver of a possibly infinite bounded system.
 
-A Hilbert realization of $G$ on a Hilbert space $\mathcal K$ consists of:
+A Hilbert realization of $G$ on a Hilbert space $\mathcal K$ consists of pairwise orthogonal projections satisfying $Q_uQ_v=\delta_{uv}Q_v$, together with a bounded operator $T_e$ for each primitive channel $e$. The operator $T_e$ is required to respect its source and target sectors:
 
-1. pairwise orthogonal projections $Q_uQ_v=\delta_{uv}Q_v$;
-2. one bounded operator $T_e$ for each primitive channel $e$;
-3. the source-target relation $T_e=Q_{r(e)}T_eQ_{s(e)}$.
+```math
+T_e=Q_{r(e)}T_eQ_{s(e)}.
+```
 
-We call the realization nondegenerate when
+Call the realization nondegenerate when
 
 ```math
 \sum_{v\in V}Q_v=I_{\mathcal K}
@@ -22,21 +22,19 @@ We call the realization nondegenerate when
 
 in the strong-operator sense. For uncountable $V$, this means convergence of the net of finite partial sums.
 
-No relation such as
+The bounded system definition imposes neither the isometric relation
 
 ```math
 T_e^\ast T_e=Q_{s(e)}
 ```
 
-is assumed, making the channel operator isometric, although A1–A5 do not require this.
-
-Likewise, no relation such as
+nor the contractive bound
 
 ```math
-|T_e|\le1
+|T_e|\le1.
 ```
 
-is forced by the axioms.
+Both are additional analytic conditions on a realization.
 
 # 2. Algebraic universality
 
@@ -68,7 +66,7 @@ whenever $e$ and $f$ are not composable.
 
 Thus all path-algebra multiplication rules hold automatically.
 
-## Theorem 1: Exact algebraic universality
+## Theorem 1. Algebraic universality
 
 Every Hilbert realization $(Q_v,T_e)$ determines a unique algebra homomorphism
 
@@ -97,22 +95,9 @@ It is explicitly given by
 
 Conversely, any representation of $\mathbb C[G]$ sending the node idempotents to pairwise orthogonal projections gives such a channel family.
 
-Therefore:
+Thus $\mathbb C[G]$ is universal for bounded Hilbert realizations of $G$ at the algebraic level. The statement places no restriction on the cardinality of the node set and requires neither a global adjacency operator nor a uniform bound on the channel norms. It also introduces no probabilistic, temporal, or dynamical structure.
 
-```math
-\mathbb C[G]
-\text{ is the universal algebra for all bounded Hilbert realizations of A1--A5.}
-```
-
-This universality holds with:
-
-* no node-count restriction;
-* no global adjacency operator;
-* no uniform channel norm;
-* no probability;
-* no time or dynamics.
-
-# 3. Why the Fock norm cannot govern every realization
+# 3. Limits of Fock-norm universality
 
 In the Fock realization,
 
@@ -120,7 +105,7 @@ In the Fock realization,
 |L_e|=1.
 ```
 
-But consider a system containing one edge $e:u\to v$, and let
+Consider instead a bounded system represented by one edge $e:u\to v$, and let
 
 ```math
 T_e=2U,
@@ -128,7 +113,7 @@ T_e=2U,
 
 where $U:Q_u\mathcal K\to Q_v\mathcal K$ is an isometry.
 
-This satisfies the source-target relation perfectly:
+The family satisfies the source-target relation:
 
 ```math
 T_e=Q_vT_eQ_u.
@@ -142,13 +127,7 @@ But a contractive homomorphism from the Fock tensor algebra cannot send $L_e$ to
 |T_e|=2>|L_e|=1.
 ```
 
-So the earlier proposed statement
-
-> every channel family factors through the Fock tensor algebra
-
-was too strong.
-
-The correct statement is conditional.
+Hence an arbitrary channel family need not factor contractively through the Fock tensor algebra. Such a factorization requires an additional row-contractivity hypothesis.
 
 # 4. The global row operator
 
@@ -168,13 +147,13 @@ R_T((h_e)_{e\in E})=
 \sum_{e\in E}T_eh_e.
 ```
 
-The family is called row contractive when
+The realization is called row contractive when $R_T$ extends to a contraction, that is,
 
 ```math
 |R_T|\le1.
 ```
 
-This is equivalent to
+This condition is equivalent to
 
 ```math
 \sum_{e\in E}T_eT_e^\ast\le I
@@ -194,7 +173,7 @@ Because each range lies in its target sector, this can be checked targetwise:
 \sum_{r(e)=v}T_eT_e^\ast\le Q_v.
 ```
 
-This condition allows different channels to interfere within a target sector. It does not require orthogonal ranges.
+Row contractivity allows different channels to interfere within a target sector and does not require orthogonal ranges.
 
 # 5. Contractive universality of the Fock algebra
 
@@ -207,7 +186,7 @@ Let
 
 be the norm-closed Fock tensor algebra.
 
-## Theorem 2: Tensor-algebra universality
+## Theorem 2. Tensor-algebra universality
 
 Suppose $(Q_v,T_e)$ is a nondegenerate row-contractive realization of $G$. Then there is a unique completely contractive homomorphism
 
@@ -238,20 +217,13 @@ X(L)
 
 Conversely, every completely contractive representation of $\mathcal T_+(G)$ whose restriction to the node diagonal is a nondegenerate $^\ast$-representation arises from a row-contractive channel family.
 
-Therefore:
+Accordingly, $\mathcal T_+(G)$ is universal precisely for nondegenerate row-contractive realizations.
 
-```math
-\mathcal T_+(G)
-\text{ is universal precisely for row-contractive realizations.}
-```
-
-## Why this works for arbitrary cardinality
+## Arbitrary cardinality
 
 Every algebraic polynomial involves only finitely many paths, hence only finitely many nodes and edges.
 
-Its norm inequality therefore reduces to the finite subquiver generated by its support. On that finite sector, the row-contractive family has an isometric defect-space dilation, and compression of the dilated path operators gives the original polynomial evaluation.
-
-Thus
+Its norm inequality therefore reduces to the finite subquiver generated by its support. On that finite sector, the row-contractive family has an isometric defect-space dilation, and compression of the dilated path operators gives the original polynomial evaluation. Hence
 
 ```math
 |\rho_T(x)|
@@ -261,7 +233,7 @@ Thus
 
 for every path polynomial $x$.
 
-The arbitrary-cardinality result then follows by norm completion. No global countability assumption enters.
+The estimate passes to the norm completion, and no global countability assumption is required.
 
 # 6. The Fock norm as a universal norm
 
@@ -287,9 +259,7 @@ At matrix level,
 |\lambda_G^{(m)}(X)|.
 ```
 
-Thus the Fock tensor algebra is not an arbitrary completion: its norm is the largest compatible with all row-contractive channel realizations.
-
-The row-contractive class is a chosen representation category.
+The Fock norm is therefore the universal matrix norm determined by the chosen category of row-contractive channel realizations, rather than an arbitrary completion norm.
 
 # 7. Isometric channel families
 
@@ -300,11 +270,7 @@ T_e^\ast T_f=
 \delta_{e,f}Q_{s(e)}.
 ```
 
-This means:
-
-* every $T_e$ is isometric on its source sector;
-* distinct primitive channels have orthogonal ranges;
-* parallel channels remain distinct and orthogonal.
+Equivalently, each $T_e$ is isometric on its source sector, and distinct primitive channels have orthogonal ranges. In particular, parallel channels remain represented by distinct orthogonal isometries.
 
 Such a family automatically satisfies
 
@@ -325,16 +291,9 @@ B(\mathcal K).
 
 The Fock family $(P_v,L_e)$ is one such isometric realization.
 
-But again:
+The relation $T_e^\ast T_e=Q_{s(e)}$ belongs to this representation class, not to the definition of a bounded system. The underlying system determines composability, whereas norm preservation is a property of the chosen Hilbert realization.
 
-```math
-T_e^\ast T_e=Q_{s(e)}
-\text{ belongs to the representation, not to A1--A5 themselves.}
-```
-
-The axioms specify which products are composable, not preservation of a Hilbert norm.
-
-# 8. The three universality levels
+# 8. Universality levels
 
 | Level       | Representation conditions                          | Universal object          |
 | ----------- | -------------------------------------------------- | ------------------------- |
@@ -342,33 +301,25 @@ The axioms specify which products are composable, not preservation of a Hilbert 
 | Contractive | Algebraic conditions plus $\sum_eT_eT_e^\ast\le I$ | $\mathcal T_+(G)$         |
 | Isometric   | $T_e^\ast T_f=\delta_{ef}Q_{s(e)}$                 | Toeplitz $C^\ast$-algebra |
 
-Only the first row is logically forced by the relational axioms.
+Only the algebraic row is forced by the bounded system structure. The contractive and isometric rows are canonical analytic envelopes associated with narrower classes of Hilbert realizations.
 
-The second and third are canonical analytic envelopes for selected classes of Hilbert realizations.
-
-# 9. What remains invariant in every realization
+# 9. Representation-independent relations
 
 Some facts do not depend on any norm or completion.
 
-## Source and target
-
-For every path $p:u\to v$,
+For every path $p:u\to v$, the source-target relation gives
 
 ```math
 T_p=Q_vT_pQ_u.
 ```
 
-## Noncomposable products vanish
-
-If $p$ cannot be followed by $q$,
+If $p$ cannot be followed by $q$, then
 
 ```math
 T_qT_p=0.
 ```
 
-## Oriented noncommutativity
-
-In an acyclic system,
+Acyclicity also imposes an oriented form of noncommutativity:
 
 ```math
 T_qT_p\ne0
@@ -380,15 +331,7 @@ provided the representation does not annihilate the nonzero path $qp$.
 
 A nonfaithful representation may annihilate an allowed path but can never make a forbidden composition nonzero.
 
-## Finite positive-path expressions are nilpotent
-
-Let
-
-```math
-x\in J
-```
-
-be a finite linear combination of positive-length paths.
+Finally, let $x\in J$ be a finite linear combination of positive-length paths.
 
 Because $G$ is acyclic,
 
@@ -410,9 +353,7 @@ Consequently,
 \sigma(\rho_{\mathrm{alg}}(x))=\{0\}
 ```
 
-for every bounded Hilbert realization.
-
-This spectral fact is representation-independent and follows directly from A5.
+for every bounded Hilbert realization. This spectral conclusion is independent of the representation and follows directly from acyclicity.
 
 # 10. Universal spectral containment
 
@@ -444,13 +385,9 @@ For positive-path polynomials in an acyclic system, this enclosure collapses to
 
 For infinite-limit elements, it may be much larger.
 
-# 11. Where nontrivial spectral behavior enters
+# 11. Algebraic elements and infinite operator limits
 
-There is a strict distinction between:
-
-## Algebraic processes
-
-Finite sums of finite paths:
+An algebraic process is a finite sum of finite paths,
 
 ```math
 x=\sum_{p\in F}c_pp.
@@ -458,9 +395,7 @@ x=\sum_{p\in F}c_pp.
 
 If $x\in J$, then $x$ is nilpotent.
 
-### Infinite operator limits
-
-For example,
+By contrast, an infinite operator limit may take the form
 
 ```math
 S=\sum_{e\in E}L_e
@@ -470,55 +405,17 @@ when this sum exists boundedly.
 
 Such an $S$ need not belong to the algebraic path algebra, and it need not be nilpotent. It can have nonzero spectral radius even though every finite partial sum is nilpotent.
 
-Therefore:
+Nontrivial spectrum for such an infinite aggregate is therefore a completion phenomenon. Orthogonality, directed noncommutative composition, and local nilpotence remain algebraic consequences of the path structure.
 
-```math
-\text{nontrivial infinite spectrum is a completion phenomenon,}
-```
+# 12. Canonical structures
 
-while
-
-```math
-\text{orthogonality, noncommutative composition, and local nilpotence are algebraic consequences.}
-```
-
-# 12. What is genuinely canonical
-
-The hierarchy is as follows.
-
-## Forced directly by A1–A5
-
-```math
-\mathsf P(G),
-\qquad
-\mathbb C[G],
-\qquad
-\mathcal D(G),
-\qquad
-J,
-\qquad
-\text{path-length grading}.
-```
-
-## Canonical faithful derived realization
+The bounded system definition directly determines the path category $\mathsf P(G)$, the path algebra $\mathbb C[G]$, the node diagonal $\mathcal D(G)$, the positive-path ideal $J$, and the path-length grading. Its canonical faithful Hilbert-space realization is
 
 ```math
 \lambda_G:
 \mathbb C[G]\hookrightarrow B(\ell^2(\mathsf P(G))).
 ```
 
-This treats distinct finite paths as orthonormal and gives every primitive channel norm one.
+The Fock realization treats distinct finite paths as orthonormal and assigns norm one to every primitive channel.
 
-## Canonical analytic envelopes relative to representation classes
-
-```math
-\mathcal T_+(G)
-```
-
-for row contractions, and
-
-```math
-\mathcal T_{\mathrm{Toeplitz}}(G)
-```
-
-for isometric channel families.
+Relative to the selected representation categories, the corresponding canonical analytic envelopes are $\mathcal T_+(G)$ for row-contractive families and $\mathcal T_{\mathrm{Toeplitz}}(G)$ for isometric channel families.

@@ -1,4 +1,4 @@
-# 1. Operational visible–hidden system
+# 1. Operational visible-hidden system
 
 Let $\mathscr H_{\mathrm{vis}}$ be the visible profile-fluctuation space and $\mathscr H_{\mathrm{hid}}$ the hidden route sector discarded by profile compression.
 
@@ -15,11 +15,7 @@ Write the linearized operational dynamics as
 \end{aligned}
 ```
 
-Here:
-
-* $\mathbb H_h\ge0$ contains the directly visible profile dynamics;
-* $D_h\ge0$ contains hidden route relaxation;
-* $C$ couples the two sectors.
+Here $\mathbb H_h\ge0$ contains the directly visible profile dynamics, $D_h\ge0$ contains hidden-route relaxation, and $C$ couples the two sectors.
 
 Depending on the regime,
 
@@ -79,7 +75,7 @@ s+\mathbb H_h+\Sigma_h(s)
 \right]^{-1}.
 ```
 
-This is the Schur complement of the full visible–hidden operator.
+The expression is the Schur complement of the visible-hidden operator.
 
 The corresponding time-domain equation is
 
@@ -101,7 +97,7 @@ and
 \widetilde K_h(z)=\Sigma_h(z).
 ```
 
-Eliminating unresolved variables yields an operator-valued memory kernel, as standard in generalized Langevin/Mori–Zwanzig reductions.
+Eliminating unresolved variables yields an operator-valued memory kernel, as standard in generalized Langevin/Mori-Zwanzig reductions.
 
 ---
 
@@ -113,7 +109,7 @@ When $D_h$ is nonnegative self-adjoint,
 D_h=\int_0^\infty\omega\,dE_h(\omega).
 ```
 
-Therefore
+The spectral theorem gives
 
 ```math
 \Sigma_h(s)=
@@ -128,7 +124,7 @@ dM_h(\omega)=
 C^\ast dE_h(\omega)C.
 ```
 
-So $\Sigma_h$ is an operator-valued Stieltjes function.
+$\Sigma_h$ is an operator-valued Stieltjes function.
 
 If the hidden-route spectral measure has low-frequency behavior
 
@@ -140,7 +136,7 @@ A_h\omega^{\eta-1}\,d\omega,
 0<\eta<1,
 ```
 
-then
+it follows that
 
 ```math
 \begin{aligned}
@@ -155,13 +151,13 @@ s^{\eta-1}.
 \end{aligned}
 ```
 
-Thus the power-law memory self-energy is
+The power-law memory self-energy is
 
 ```math
 \Sigma_h(s)\sim\kappa_hs^{\eta-1}.
 ```
 
-This is the precise sense in which a gapless hidden route spectrum produces long memory.
+A gapless hidden route spectrum therefore produces long memory through the singular self-energy.
 
 ---
 
@@ -241,7 +237,7 @@ The original gauge counts primitive edge degree:
 N\xi_p=|p|\xi_p.
 ```
 
-Set
+Set $G$ by
 
 ```math
 G=i\beta N,
@@ -255,7 +251,7 @@ The gauge-covariant Laplace variable is
 Z_q=qI+G=qI+i\beta N.
 ```
 
-This replacement is justified when the visible and hidden dynamics preserve gauge degree, meaning that the coupling intertwines the relevant number operators.
+The replacement is valid when the visible and hidden dynamics preserve gauge degree, so the coupling intertwines the number operators.
 
 Equivalently, in the interaction picture
 
@@ -264,7 +260,7 @@ Equivalently, in the interaction picture
 e^{G\tau}\Psi(\tau),
 ```
 
-the dissipative and hidden-route equations contain no explicit gauge phase.
+The dissipative and hidden-route equations contain no explicit gauge phase.
 
 The ordinary scalar clock variable $q$ is therefore replaced by the operator $Z_q$.
 
@@ -289,7 +285,7 @@ Combining all four structures gives
 \Psi_0.
 ```
 
-That is the master equation in resolvent form.
+The operator inverse above is the master equation in resolvent form.
 
 With
 
@@ -357,7 +353,7 @@ Then the time-domain equation is
 0.
 ```
 
-This operator equation contains every candidate regime derived so far.
+The master equation contains the candidate regimes derived above.
 
 It says:
 
@@ -388,7 +384,7 @@ and define
 z_n=q+i\beta n.
 ```
 
-Suppose
+Suppose that
 
 ```math
 \mathbb H_h\Psi_{n,\mathbf k}=
@@ -402,7 +398,7 @@ and
 \sigma_n(s,\mathbf k)\Psi_{n,\mathbf k}.
 ```
 
-Then
+It follows that
 
 ```math
 \widetilde\Psi_n(\mathbf k,q)=
@@ -418,7 +414,7 @@ Then
 }.
 ```
 
-This is the scalar sector equation.
+The sector reduction is scalar.
 
 The generalized complex dispersion denominator is
 
@@ -458,7 +454,7 @@ and
 D_2\sum_{j=1}^n|k_j|^2.
 ```
 
-Then
+It follows that
 
 ```math
 \widetilde\Psi_n=
@@ -480,8 +476,6 @@ e^{-D_2\tau\sum_j|k_j|^2}
 \Psi_n(\mathbf k,0).
 ```
 
-This is the ordinary diffusion-plus-gauge regime.
-
 ---
 
 # 10. Stable spatial regime
@@ -501,7 +495,7 @@ and
 D_\alpha\sum_j|k_j|^\alpha.
 ```
 
-Then
+It follows that
 
 ```math
 \widetilde\Psi_n=
@@ -514,7 +508,7 @@ D_\alpha\sum_j|k_j|^\alpha
 }.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 \Psi_n(\mathbf k,\tau)=
@@ -541,7 +535,7 @@ and
 \sigma_n=0.
 ```
 
-Then
+It follows that
 
 ```math
 \widetilde\Psi_n=
@@ -565,7 +559,7 @@ E_\gamma
 \Psi_n(\mathbf k,0).
 ```
 
-This reproduces the primitive-gauge anomalous-clock equation.
+The reduction reproduces the primitive-gauge anomalous-clock equation.
 
 ---
 
@@ -586,7 +580,7 @@ and a power-law self-energy,
 0<\eta<1.
 ```
 
-Then
+It follows that
 
 ```math
 \widetilde\Psi_n=
@@ -601,7 +595,7 @@ z_n
 }.
 ```
 
-This recovers the previously derived long-memory response.
+The reduction recovers the long-memory response.
 
 The gauge translates its branch point:
 
@@ -611,7 +605,7 @@ z_n=0
 q=-i\beta n.
 ```
 
-Thus, the $n$-th degree sector has the zero-degree sector's memory envelope, modulated by the primitive gauge phase
+The $n$-th degree sector has the zero-degree sector's memory envelope, modulated by the primitive gauge phase
 
 ```math
 e^{-i\beta n\tau}.
@@ -627,6 +621,8 @@ Now take:
 \Phi(z)=z^\gamma,
 ```
 
+This gives
+
 ```math
 \omega_n(\mathbf k)=
 D_\alpha
@@ -640,7 +636,7 @@ and
 \kappa_ns^{\eta-1}.
 ```
 
-Then
+It follows that
 
 ```math
 \sigma_n(\Phi(z_n))=
@@ -675,12 +671,7 @@ D_\alpha\sum_j|k_j|^\alpha
 (q+i\beta n)^{\gamma(\eta-1)}.
 ```
 
-This contains simultaneously:
-
-* stable spatial propagation $\alpha$;
-* anomalous clock exponent $\gamma$;
-* hidden-route memory exponent $\eta$;
-* primitive gauge rate $\beta$.
+The denominator contains the stable spatial exponent $\alpha$, anomalous clock exponent $\gamma$, hidden-route memory exponent $\eta$, and primitive gauge rate $\beta$.
 
 ---
 
@@ -696,13 +687,13 @@ The preceding combined equation assumes the order
 \text{apply anomalous clock}.
 ```
 
-Hence the self-energy is evaluated at
+The self-energy is evaluated at
 
 ```math
 \Sigma_h(\Phi(z)).
 ```
 
-Thus the clock and memory operations are nested.
+The clock and memory operations are nested.
 
 If route memory is generated directly in primitive time after compressing the operational clock, the denominator becomes
 
@@ -734,17 +725,7 @@ D_\alpha|k|^\alpha
 \kappa z^{\gamma(\eta-1)}.
 ```
 
-These two equations represent different causal organizations:
-
-```math
-\Sigma(\Phi(z))=
-\text{memory inside operational dynamics, then clocked},
-```
-
-```math
-\Sigma(z)=
-\text{memory acting directly in primitive time}.
-```
+These two equations represent different causal organizations. The term $\Sigma(\Phi(z))$ places memory inside the operational dynamics before the clock change, whereas $\Sigma(z)$ makes the memory act directly in primitive time.
 
 The microscopic block construction decides which one applies.
 
@@ -782,7 +763,7 @@ Cf,(s+D_h)^{-1}Cf
 \end{aligned}
 ```
 
-Thus the hidden-route self-energy is accretive in the right half-plane.
+The hidden-route self-energy is accretive in the right half-plane.
 
 If $\Phi$ maps the right half-plane into an appropriate positive sector, then
 
@@ -832,31 +813,29 @@ If the ungauged amplitude has inverse Laplace transform $A_n(\tau)$, then
 e^{-i\beta n\tau}A_n(\tau).
 ```
 
-This remains true whether $A_n$ is:
+The translation law holds whether $A_n$ is:
 
 * exponential;
-* Mittag–Leffler;
+* Mittag-Leffler;
 * fractional-stable;
 * power-law-memory;
 * or a general Volterra relaxation profile.
 
-So the primitive gauge phase is universal across all the regimes:
+Thus the primitive gauge phase is universal across these regimes: the gauge changes spectral location but not the dissipative envelope.
 
-```math
-\text{gauge changes spectral location, not the dissipative envelope}.
-```
-
-This requires degree preservation: if the dissipative generator changes path degree, the sectors couple and the simple translation law fails.
+Degree preservation is necessary; if the dissipative generator changes path degree, the sectors couple and the translation law fails.
 
 ---
 
 # 17. The degree-mixing obstruction
 
-Define
+The degree-mixing commutator is
 
 ```math
 \mathfrak C_H=[\mathbb H_h,N],
 ```
+
+Equivalently,
 
 ```math
 \mathfrak C_D=[D_h,N_{\mathrm{hid}}],
@@ -908,36 +887,6 @@ M_h,
 \right).
 ```
 
-Here:
-
-```math
-\alpha=
-\text{spatial/profile jump exponent},
-```
-
-```math
-\gamma=
-\text{renewal-clock exponent},
-```
-
-```math
-\eta=
-\text{hidden spectral/memory exponent},
-```
-
-```math
-\beta=\log\lambda=
-\text{primitive gauge rate},
-```
-
-```math
-\Lambda_h=
-\text{angular stable-jump measure},
-```
-
-```math
-M_h=
-\text{hidden-route spectral measure}.
-```
+Here $\alpha$ is the spatial or profile jump exponent, $\gamma$ is the renewal-clock exponent, $\eta$ is the hidden spectral or memory exponent, and $\beta=\log\lambda$ is the primitive gauge rate. The measure $\Lambda_h$ is the angular stable-jump measure, whereas $M_h$ is the hidden-route spectral measure.
 
 The exponents alone do not determine the theory: the angular jump measure, hidden spectral measure and degree-mixing defects retain information beyond four scalar parameters.

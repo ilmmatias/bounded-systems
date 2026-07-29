@@ -13,11 +13,7 @@ and consider normalized positive profiles
 \left\lbrace h>0: \mathcal A_+h=\lambda h,\quad h(o)=1 \right\rbrace.
 ```
 
-Write
-
-```math
-u=\log h.
-```
+Write $u=\log h$.
 
 The harmonic equation becomes the exact nonlinear profile equation
 
@@ -84,7 +80,7 @@ D\mathcal F_v(u)[\phi]=
 -\phi(v),
 ```
 
-the tangent equation is
+The tangent equation is
 
 ```math
 P_h\phi=\phi.
@@ -98,9 +94,9 @@ Explicitly,
 P_h(e\mid v)\phi(r(e)).
 ```
 
-So tangent vectors to the fixed-$\lambda$ profile manifold are harmonic observables of the derived dynamics.
+Tangent vectors to the fixed-$\lambda$ profile manifold are harmonic observables of the derived dynamics.
 
-This is already the first dynamical equation of the profile manifold.
+The tangent equation is the first dynamical equation on the profile manifold.
 
 ---
 
@@ -135,13 +131,9 @@ P_h(e\mid v)
 \bigl[\phi(r(e))-\phi(v)\bigr]^2.
 ```
 
-This is the local quadratic variation, or local carré du champ, on the profile tangent space.
+The quadratic form is the local carré du champ on the profile tangent space.
 
-It is:
-
-* symmetric;
-* nonnegative;
-* zero exactly in tangent directions locally constant over the supported outgoing channels.
+It is symmetric, nonnegative, and zero exactly in tangent directions locally constant over the supported outgoing channels.
 
 After quotienting null directions, it is a genuine local metric.
 
@@ -181,7 +173,7 @@ Its score is
 \phi_X(r(e))-\phi_X(v).
 ```
 
-Hence
+Taking the second-order limit yields
 
 ```math
 \lim_{\varepsilon\to0}
@@ -223,7 +215,7 @@ D^2\mathcal F_v[\phi,\phi]
 =0.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 (P_h-I)\chi+\mathsf Q(\phi)=0,
@@ -236,8 +228,6 @@ or
 \mathsf Q(\phi).
 ```
 
-This is the exact local second-order equation.
-
 Equivalently, defining
 
 ```math
@@ -245,14 +235,12 @@ Equivalently, defining
 \frac12\mathsf Q(\phi),
 ```
 
-we have
+Hence the correction satisfies
 
 ```math
 (I-P_h)\chi=
 2\Gamma_h(\phi).
 ```
-
-That is the equation we were approaching.
 
 The first-order deformation is harmonic:
 
@@ -278,7 +266,7 @@ The inverse is the derived Green operator of the effective dynamics.
 
 ---
 
-## A useful exact check
+## A consistency check
 
 Because the original eigenprofile equation is linear in $h$, a mixture-affine deformation
 
@@ -293,7 +281,7 @@ remains harmonic whenever
 \mathcal A_+\dot h=\lambda\dot h.
 ```
 
-But
+However,
 
 ```math
 \log(1+\varepsilon\phi)=
@@ -306,7 +294,7 @@ so in exponential coordinates
 \chi=-\phi^2.
 ```
 
-Then
+It follows that
 
 ```math
 (I-P_h)(-\phi^2)=
@@ -374,7 +362,7 @@ For two tangent fields,
 \mathsf Q_v(\phi,\psi).
 ```
 
-Therefore the predictable quadratic covariation is
+The predictable quadratic covariation is
 
 ```math
 \left\langle
@@ -396,7 +384,7 @@ For a length-$N$ route
 p=e_N\cdots e_1,
 ```
 
-the derived path probability telescopes:
+The derived path probability telescopes:
 
 ```math
 \begin{aligned}
@@ -410,7 +398,7 @@ the derived path probability telescopes:
 \end{aligned}
 ```
 
-Thus all equal-length routes with the same endpoint have equal weight.
+All equal-length routes with the same endpoint have equal weight.
 
 For a parameter coordinate $\theta^a$, define
 
@@ -446,7 +434,7 @@ G^{(N)}_{ab}=
 \right].
 ```
 
-So we have the exact identity
+The endpoint Fisher information satisfies
 
 ```math
 \text{endpoint Fisher information}=
@@ -493,6 +481,8 @@ b_h^i(x)=
 \frac1{\delta^2}
 \sum_eP_h(e\mid x)\Delta_e x^i,
 ```
+
+Thus the diffusion tensor is
 
 ```math
 a_h^{ij}(x)=
@@ -547,13 +537,11 @@ The corresponding density equation is
 \partial_i\partial_j(a_h^{ij}\rho).
 ```
 
-That is the effective Fokker–Planck equation of the profile regime.
-
 ---
 
 # 9. Computing the drift from the profile
 
-We can go further. Let the continuum limit of the normalized untransformed channel operator be
+Let the continuum limit of the normalized untransformed channel operator be
 
 ```math
 \mathcal L_0=
@@ -593,14 +581,14 @@ b^i+a^{ij}\nabla_j u
 \right)\nabla_i f.
 ```
 
-Therefore the profile-induced drift is
+The profile-induced drift is
 
 ```math
 b_h^i=
 b^i+a^{ij}\nabla_j\log h.
 ```
 
-This is the continuum version of the discrete edge splitting
+The continuum equation is the limit of the discrete edge splitting
 
 ```math
 P_h(e\mid v)=
@@ -628,7 +616,7 @@ by $h=e^u$. Since
 \nabla_i u\nabla_j u,
 ```
 
-we obtain
+Equivalently,
 
 ```math
 \kappa=
@@ -643,7 +631,7 @@ b^i\nabla_i u
 -c.
 ```
 
-This is the stationary viscous Hamilton–Jacobi equation for the logarithmic profile.
+The stationary logarithmic profile satisfies a viscous Hamilton-Jacobi equation.
 
 Equivalently, the linear form is
 
@@ -663,7 +651,7 @@ For a time-dependent profile satisfying
 \partial_\tau h=\mathcal L_0h,
 ```
 
-the logarithmic field satisfies
+The logarithmic field satisfies
 
 ```math
 \partial_\tau u=
@@ -680,8 +668,6 @@ b^i\nabla_i u
 
 Local quadratic variation produces the second-order term, while positivity/exponential normalization produces the quadratic gradient term.
 
-That is the equation of this regime.
-
 ---
 
 # 11. The corresponding effective transport equation
@@ -692,7 +678,7 @@ Substituting
 b_h^i=b^i+a^{ij}\nabla_j u
 ```
 
-into the Fokker–Planck equation gives
+into the Fokker-Planck equation gives
 
 ```math
 \partial_\tau\rho=
@@ -710,7 +696,7 @@ a^{ij}\rho
 \right).
 ```
 
-Thus the two coupled equations are
+The two coupled equations are
 
 ```math
 \begin{aligned}
@@ -748,7 +734,7 @@ If the base drift vanishes and the quadratic-variation tensor is the inverse of 
 a^{ij}=g^{ij},
 ```
 
-then
+it follows that
 
 ```math
 \kappa=
@@ -812,13 +798,15 @@ where
 \right).
 ```
 
-Thus the same quadratic variation yields two complementary equations:
+The same quadratic variation yields two complementary equations:
 
 ```math
 \text{fluctuating regime}
 \longrightarrow
-\text{Fokker–Planck/diffusion equation},
+\text{Fokker-Planck/diffusion equation},
 ```
+
+At the level of maps,
 
 ```math
 \text{least-information regime}

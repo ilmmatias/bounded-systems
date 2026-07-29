@@ -6,11 +6,13 @@ Choose a profile-resolution map or partition
 \Pi_\delta:\Omega_G\longrightarrow \mathcal X_\delta.
 ```
 
-Along the resolved derived history $X_n$, define successive coarse-change epochs
+Along the resolved derived history $X_n$, set the initial coarse-change epoch to
 
 ```math
 T_0=0,
 ```
+
+and define subsequent retained-change times recursively by
 
 ```math
 T_{m+1}=
@@ -65,8 +67,6 @@ The two clocks differ only by a constant conversion factor.
 
 If the operational profile process has generator $\mathcal L^h$, the coarse process has an ordinary first-order evolution equation with a rescaled generator.
 
-Thus:
-
 ```math
 \mathbb E[W]<\infty
 \Longrightarrow
@@ -79,7 +79,7 @@ The anomalous regime begins when the mean block length diverges.
 
 # 3. Heavy-tailed intrinsic clock
 
-Assume
+Assume that
 
 ```math
 \Pr(W>n)
@@ -91,7 +91,7 @@ c,n^{-\gamma}L(n),
 
 where $L$ is slowly varying.
 
-Then
+It follows that
 
 ```math
 \mathbb E[W]=\infty.
@@ -123,19 +123,13 @@ The number of effective profile changes grows sublinearly:
 N(n)\asymp n^\gamma.
 ```
 
-So long stretches of primitive compositional evolution can be invisible at the chosen profile resolution.
+Long stretches of primitive compositional evolution can be invisible at the chosen profile resolution.
 
 ---
 
 # 4. Operational and observed profile processes
 
-Let
-
-```math
-Y_s
-```
-
-be the profile process indexed by coarse-transition count $s$. Its semigroup is
+Let $Y_s$ be the profile process indexed by coarse-transition count $s$. Its semigroup is
 
 ```math
 T_s=e^{s\mathcal L^h}=
@@ -167,7 +161,7 @@ T_s f\,
 
 where $\ell_\gamma(\tau,s)$ is the density of the inverse stable clock.
 
-This is inverse subordination, not ordinary semigroup subordination. The resulting families solve fractional Cauchy problems.
+The construction is inverse subordination, not ordinary semigroup subordination, and yields fractional Cauchy problems.
 
 ---
 
@@ -240,7 +234,7 @@ u_0
 \mathcal L^hu(s)\,ds.
 ```
 
-Thus the current profile change depends on the complete earlier profile evolution.
+The current profile change depends on the complete earlier profile evolution.
 
 The memory kernel is
 
@@ -285,7 +279,7 @@ So the temporal memory has a precise source:
 \text{discarded position inside an unresolved route block}.
 ```
 
-This agrees with the earlier route-collapse results: a resolved history permits local evolution, whereas compression to the current profile discards information and creates an effective memory kernel.
+The result matches the route-collapse picture: resolved histories evolve locally, while profile compression creates an effective memory kernel.
 
 ---
 
@@ -362,7 +356,7 @@ Mixtures of stable subordinators produce distributed-order fractional equations,
 
 # 9. Spectral relaxation
 
-Suppose
+Suppose that
 
 ```math
 B_h\varphi_j=
@@ -378,7 +372,7 @@ The scalar amplitude $a_j(\tau)$ obeys
 -\omega_ja_j.
 ```
 
-Hence
+Equivalently,
 
 ```math
 a_j(\tau)=
@@ -394,7 +388,7 @@ E_\gamma(z)=
 \frac{z^m}{\Gamma(1+\gamma m)}
 ```
 
-is the Mittag–Leffler function.
+is the Mittag-Leffler function.
 
 For $0<\gamma<1$ and $\omega_j>0$,
 
@@ -407,7 +401,7 @@ E_\gamma(-\omega_j\tau^\gamma)
 \tau^{-\gamma}.
 ```
 
-Thus exponential relaxation becomes algebraic:
+Exponential relaxation becomes algebraic:
 
 ```math
 e^{-\omega_j\tau}
@@ -420,7 +414,7 @@ A positive operational spectral gap no longer gives exponential decay in the com
 
 ---
 
-# 10. Combined space–time anomalous regime
+# 10. Combined space-time anomalous regime
 
 Now combine the $\alpha$-stable spatial operator with the $\gamma$-stable clock:
 
@@ -436,7 +430,7 @@ For the homogeneous isotropic untransformed case,
 -D_\alpha(-\Delta)^{\alpha/2}.
 ```
 
-Then
+It follows that
 
 ```math
 {}^CD_\tau^\gamma\rho=
@@ -452,7 +446,7 @@ On the Fourier side,
 \widehat\rho(k,\tau).
 ```
 
-Therefore
+This gives
 
 ```math
 \widehat\rho(k,\tau)=
@@ -469,7 +463,7 @@ The scale-invariant combination is
 |k|^\alpha\tau^\gamma.
 ```
 
-Hence the characteristic profile displacement scales as
+The characteristic profile displacement scales as
 
 ```math
 |x|\sim\tau^{\gamma/\alpha}.
@@ -481,7 +475,7 @@ Equivalently,
 \tau\sim |x|^{\alpha/\gamma}.
 ```
 
-So the combined dynamical exponent is
+The combined dynamical exponent is
 
 ```math
 z=\frac{\alpha}{\gamma}.
@@ -539,7 +533,7 @@ N\Psi_{\omega,n}=
 n\Psi_{\omega,n},
 ```
 
-the solution is
+The solution is
 
 ```math
 \Psi_{\omega,n}(\tau)=
@@ -592,13 +586,13 @@ E_\gamma(-\omega\tau^\gamma)
 
 The phase remains exponential in primitive compositional depth, while relaxation becomes fractional.
 
-This distinction is decisive.
+The distinction determines the appropriate clock equation.
 
 ---
 
 # 12. Gauge-covariant fractional derivative
 
-Define
+Set the gauge generator to
 
 ```math
 C=i\beta N.
@@ -636,7 +630,7 @@ Its Laplace transform is
 
 The fractional power uses the principal branch. Since $q>0$, the spectrum of $q+i\beta N$ lies in the open right half-plane, making this functional calculus well defined on the natural domain.
 
-This is the correct fractional substantial derivative associated with the original path-length gauge.
+The operator is the fractional substantial derivative associated with the path-length gauge.
 
 ---
 
@@ -672,7 +666,7 @@ D_\alpha
 \sum_{j=1}^n|k_j|^\alpha.
 ```
 
-Therefore
+Combining the spatial and temporal factors gives
 
 ```math
 \begin{aligned}
@@ -692,11 +686,11 @@ E_\gamma
 \end{aligned}
 ```
 
-This is the explicit mode equation of the combined stable-space, anomalous-clock, primitive-gauge regime.
+The combined stable-space, anomalous-clock, primitive-gauge regime has the mode equation
 
 ---
 
-# 14. Why the primitive-gauge equation is the canonical one here
+# 14. Canonical form of the primitive-gauge equation
 
 The coarse-event equation
 
@@ -707,14 +701,14 @@ The coarse-event equation
 
 would apply after redefining the gauge so that one gauge unit corresponds to one coarse profile transition.
 
-But our original gauge was already fixed by
+But the original gauge was already fixed by
 
 ```math
 |p|=
 \text{number of primitive channels}.
 ```
 
-Thus, when random numbers of primitive edges per coarse transition cause the clock anomaly, the canonical equation is
+When random numbers of primitive edges per coarse transition cause the clock anomaly, the canonical equation is
 
 ```math
 {}^CD_{\tau,i\beta N}^{\gamma}\Psi=
@@ -723,7 +717,7 @@ Thus, when random numbers of primitive edges per coarse transition cause the clo
 
 The gauge is not subordinated because it measures the microscopic count from which the anomalous coarse clock was constructed.
 
-This also gives a physical distinction:
+The two gauges also differ operationally:
 
 * a neutral mode $\omega=0$ retains the pure gauge oscillation $e^{-i\beta n\tau}$;
 * a stable mode $\omega>0$ has algebraic relaxation multiplied by that phase.
@@ -744,13 +738,7 @@ The Caputo equation requires more than a heavy-tailed $W$.
 
 It also requires the clock to decouple sufficiently from the profile displacement.
 
-Let
-
-```math
-J_m
-```
-
-be the coarse profile jump and $W_m$ its hidden primitive length.
+Let $J_m$ be the coarse profile jump and $W_m$ its hidden primitive length.
 
 If asymptotically
 
@@ -777,8 +765,6 @@ Similarly:
 * a state-dependent tail exponent $\gamma=\gamma(x)$ suggests variable-order memory;
 * mixtures of tail exponents suggest distributed-order equations;
 * directional waiting laws couple temporal and spatial symbols.
-
-Thus
 
 ```math
 \Pr(W>n)\sim n^{-\gamma}

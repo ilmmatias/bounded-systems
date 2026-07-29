@@ -3,43 +3,24 @@
 For length $n$, define
 
 ```math
-B_n^+=
-\sup_u\sum_vN_n(v,u),
+B_n^+=\sup_u\sum_vN_n(v,u),
+\qquad
+B_n^-=\sup_v\sum_uN_n(v,u),
+\qquad
+M_n=\sup_{u,v}N_n(v,u).
 ```
 
-```math
-B_n^-=
-\sup_v\sum_uN_n(v,u),
-```
-
-and
-
-```math
-M_n=
-\sup_{u,v}N_n(v,u).
-```
-
-These control three operators:
+These quantities control three operators:
 
 ```math
 |S_+^n|^2=B_n^+,
-```
-
-```math
+\qquad
 |S_-^n|^2=B_n^-,
-```
-
-and, when $M_n<\infty$,
-
-```math
+\qquad
 |\Sigma_n|^2=M_n.
 ```
 
-Their meanings differ:
-
-* $B_n^+$ measures all length-$n$ branching from one source;
-* $B_n^-$ measures all length-$n$ reconvergence into one target;
-* $M_n$ measures reconvergence for one fixed endpoint pair.
+Their meanings differ: $B_n^+$ measures all length-$n$ branching from one source, $B_n^-$ measures all length-$n$ reconvergence into one target, and $M_n$ measures reconvergence for one fixed endpoint pair.
 
 Always,
 
@@ -57,19 +38,17 @@ The converse fails sharply.
 
 # 2. Three singular depths
 
-Define
+Define the three singular depths by
 
 ```math
 \delta_{\mathrm{br}}=
 \inf{n\ge1:B_n^+=\infty},
-```
-
-```math
+\qquad
 \delta_{\mathrm{ub}}=
 \inf{n\ge1:M_n=\infty},
 ```
 
-where $M_n=\infty$ includes unbounded finite fiber sizes, and
+and
 
 ```math
 \delta_{\mathrm{nc}}=
@@ -77,7 +56,9 @@ where $M_n=\infty$ includes unbounded finite fiber sizes, and
 \left\lbrace n\ge1: N_n(v,u)\text{ is infinite for some }u,v \right\rbrace.
 ```
 
-Then
+Here $M_n=\infty$ includes the case of unbounded finite fiber sizes.
+
+It follows that
 
 ```math
 \delta_{\mathrm{br}}
@@ -99,7 +80,7 @@ Because
 B_{m+n}^+\le B_m^+B_n^+,
 ```
 
-we have:
+The resulting bound is
 
 ```math
 B_1^+<\infty
@@ -108,8 +89,6 @@ B_n^+\le(B_1^+)^n<\infty
 ```
 
 for every $n$.
-
-Therefore
 
 ```math
 \delta_{\mathrm{br}}\in\{1,\infty\}.
@@ -123,7 +102,7 @@ Endpoint collapse is different. Even when
 M_1=1,
 ```
 
-we may have
+Equivalently,
 
 ```math
 M_2=\infty
@@ -144,7 +123,7 @@ N_{m+n}(v,u)=
 \sum_wN_m(v,w)N_n(w,u).
 ```
 
-Therefore $\Sigma_{m+n}$ is closable exactly when
+$\Sigma_{m+n}$ is closable exactly when
 
 ```math
 \sum_wN_m(v,w)N_n(w,u)<\infty
@@ -157,33 +136,19 @@ Since these are nonnegative cardinal sums, this means precisely:
 1. every contributing product $N_m(v,w)N_n(w,u)$ is finite; and
 2. only finitely many intermediate nodes $w$ contribute positively for each endpoint pair.
 
-Hence nonclosability at depth $m+n$ has two distinct causes.
-
-## Inherited singularity
-
-For some $w$,
+Hence nonclosability at depth $m+n$ has two distinct causes. An inherited singularity occurs when, for some $w$,
 
 ```math
 N_m(v,w)N_n(w,u)
 ```
 
-is infinite.
-
-An already-infinite route family has been prefixed or suffixed by another path family.
-
-## Fresh factorization singularity
-
-Every product is finite, but
+is infinite; an already-infinite route family has then been prefixed or suffixed by another path family. A fresh factorization singularity occurs when every such product is finite but
 
 ```math
 \left| \left\lbrace w: N_m(v,w)N_n(w,u)>0 \right\rbrace \right|
 ```
 
-is infinite.
-
-Infinitely many finite intermediate sectors reconverge onto one endpoint pair.
-
-Thus:
+is infinite, so infinitely many finite intermediate sectors reconverge onto one endpoint pair.
 
 ```math
 N_{m+n}(v,u)\text{ is infinite}
@@ -203,7 +168,7 @@ or
 \text{ give positive finite products}.
 ```
 
-This is the exact cardinal decomposition of higher-depth nonclosability.
+The formula decomposes higher-depth nonclosability by cardinality.
 
 ---
 
@@ -218,9 +183,9 @@ When all route fibers are finite,
 N_m(v,w)N_n(w,u).
 ```
 
-Thus, $\Sigma_{m+n}$ is bounded if and only if admissible cut-sector weight is uniformly bounded over all endpoint pairs.
+$\Sigma_{m+n}$ is bounded if and only if admissible cut-sector weight is uniformly bounded over all endpoint pairs.
 
-This gives the sufficient estimates
+The decomposition gives the estimates
 
 ```math
 M_{m+n}\le M_mB_n^+,
@@ -232,7 +197,7 @@ and
 M_{m+n}\le M_nB_m^-.
 ```
 
-Consequently,
+The corresponding inequality is
 
 ```math
 |\Sigma_{m+n}|
@@ -257,7 +222,7 @@ u_k\to v_k,
 
 and make every $v_k$ a sink.
 
-Then
+It follows that
 
 ```math
 M_1=\infty
@@ -290,7 +255,7 @@ is infinite and there is at least one length-$m$ path
 v\to x,
 ```
 
-then
+it follows that
 
 ```math
 N_{n+m}(x,u)
@@ -312,7 +277,7 @@ Singularity propagates exactly along available extensions, not merely with incre
 
 Let one node $u$ have one edge to each of infinitely many sinks $v_i$.
 
-Then
+It follows that
 
 ```math
 B_1^+=\infty,
@@ -325,8 +290,6 @@ N_1(v_i,u)=1
 ```
 
 and every endpoint fiber has size at most one.
-
-Therefore
 
 ```math
 \delta_{\mathrm{br}}=1,
@@ -358,15 +321,13 @@ At length two,
 N_2(v_k,u_k)=k.
 ```
 
-Hence
+Consequently,
 
 ```math
 M_2=\infty
 ```
 
 as a supremum, but every individual fiber is finite.
-
-Thus
 
 ```math
 \delta_{\mathrm{br}}=1,
@@ -394,13 +355,13 @@ every endpoint pair supports at most one length-$j$ path:
 M_j=1.
 ```
 
-But
+At length $k$, however,
 
 ```math
 N_k(v,u)=\infty.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 \delta_{\mathrm{ub}}=
@@ -418,15 +379,11 @@ Suppose every node has finitely many outgoing primitive channels, counting multi
 
 For each fixed source $u$ and finite $n$, only finitely many length-$n$ paths begin at $u$.
 
-Therefore
-
 ```math
 N_n(v,u)<\infty
 ```
 
 for every $u,v,n$.
-
-Hence:
 
 ```math
 \text{finite outgoing degree at every node}
@@ -456,7 +413,7 @@ and
 |\Sigma_n|\le D^{n/2}.
 ```
 
-A1–A5 imply none of these local-finiteness properties.
+The bounded system definition implies none of these local-finiteness properties.
 
 ---
 
@@ -472,7 +429,7 @@ When every $\Sigma_n$ is bounded, define
 M_n^{1/(2n)}.
 ```
 
-This measures exponential endpoint reconvergence.
+The radius measures exponential endpoint reconvergence.
 
 Since
 
@@ -482,7 +439,7 @@ M_n\le B_n^+,
 M_n\le B_n^-,
 ```
 
-we obtain
+The corresponding inequality is
 
 ```math
 \rho_{\mathrm{col}}
@@ -490,7 +447,7 @@ we obtain
 \min{r(S_+),r(S_-)}.
 ```
 
-Thus endpoint reconvergence cannot grow faster than either:
+Endpoint reconvergence cannot grow faster than either:
 
 * total forward route growth;
 * total backward route growth.
@@ -539,7 +496,7 @@ The same total path-growth exponent can therefore split into very different coll
 
 The fixed-length operators can be assembled into one length-weighted map.
 
-Let
+Define $\mathcal H_{\mathrm{path}}$ by
 
 ```math
 \mathcal H_{\mathrm{path}}=
@@ -554,7 +511,7 @@ For $z\in\mathbb C$, define algebraically
 z^{|p|}\eta_{r(p),s(p)}.
 ```
 
-This map forgets both:
+The map forgets:
 
 * the individual route;
 * its exact length as a separate output coordinate.
@@ -603,7 +560,7 @@ H_{v,u}(|z|^2)<\infty
 
 If this series diverges for even one endpoint pair, then $\Sigma(z)^0$ is nonclosable.
 
-## Why divergence gives nonclosability
+## Divergence and nonclosability
 
 Fix an endpoint pair whose coefficient family is not square summable. For a finite route subset $F$, put
 
@@ -619,7 +576,7 @@ x_F=
 \sum_{p\in F}\overline{a_p}\,\xi_p.
 ```
 
-Then
+It follows that
 
 ```math
 \Sigma(z)^0x_F=\eta_{v,u},
@@ -660,7 +617,7 @@ D(z)\eta_{v,u}=
 H_{v,u}(|z|^2)\eta_{v,u}.
 ```
 
-Therefore
+Therefore the weighted endpoint operator is
 
 ```math
 D(z)=
@@ -669,21 +626,17 @@ D(z)=
 
 in the appropriate diagonal operator sense.
 
-This packages the entire multiplicity tower into one positive object.
+The positive operator packages the full multiplicity tower.
 
-This Hilbert-space form of the endpoint path-count series uses the squared modulus because route amplitudes combine quadratically.
+The Hilbert-space series uses squared modulus because route amplitudes combine quadratically.
 
 ---
 
 # 12. Weighted equal-route directions
 
-Assume
+Assume $0<H_{v,u}(|z|^2)<\infty$.
 
-```math
-0<H_{v,u}(|z|^2)<\infty.
-```
-
-Define
+Define the normalized endpoint vector by
 
 ```math
 \omega_{v,u}(z)=
@@ -694,7 +647,7 @@ Define
 \overline{z}^{\,|p|}\xi_p.
 ```
 
-Then
+It follows that
 
 ```math
 |\omega_{v,u}(z)|=1
@@ -714,7 +667,7 @@ The weighted route-defect space is
 \left\lbrace x: \sum_{p:u\to v}z^{|p|}x_p=0 \right\rbrace.
 ```
 
-Hence
+Equivalently,
 
 ```math
 \ell^2(\mathsf P(u,v))=
@@ -737,7 +690,7 @@ The variable $z$ weights the path algebra’s intrinsic path-length grading; it 
 
 # 13. Collapse radius
 
-Let
+Define $\rho_{\mathrm{col}}$ by
 
 ```math
 \rho_{\mathrm{col}}=
@@ -745,7 +698,7 @@ Let
 M_n^{1/(2n)}.
 ```
 
-Then:
+It follows that
 
 ```math
 |z|<\rho_{\mathrm{col}}^{-1}
@@ -762,8 +715,6 @@ and
 ```
 
 Behavior on the boundary may depend on finer growth.
-
-Thus
 
 ```math
 R_{\mathrm{col}}=
@@ -792,7 +743,7 @@ and fails to exist for
 |z|>\rho_{v,u}^{-1}.
 ```
 
-This gives a local collapse radius for every ordered pair.
+The formula gives a local collapse radius for each ordered pair.
 
 ---
 
@@ -804,7 +755,7 @@ Since
 M_n\le B_n^+,
 ```
 
-we have
+The corresponding inequality is
 
 ```math
 \rho_{\mathrm{col}}\le r(S_+).
@@ -816,7 +767,7 @@ Likewise,
 \rho_{\mathrm{col}}\le r(S_-).
 ```
 
-Therefore
+The resulting bound is
 
 ```math
 R_{\mathrm{col}}
@@ -841,7 +792,7 @@ so
 R_{\mathrm{col}}=1.
 ```
 
-But
+In contrast,
 
 ```math
 r(S_+)=\sqrt d,
@@ -870,4 +821,4 @@ R_{\mathrm{col}}=
 \frac1{\sqrt d}.
 ```
 
-This agrees with the Fock radius. All route growth is concentrated into one endpoint fiber.
+The local radius equals the Fock radius because all route growth is concentrated in one endpoint fiber.

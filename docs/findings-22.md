@@ -1,14 +1,8 @@
 # 1. Common path-counting data
 
-Let
+Let $A(v,u)=\left|\{e:u\to v\}\right|$ be the primitive-channel multiplicity kernel.
 
-```math
-A(v,u)=\left|\{e:u\to v\}\right|
-```
-
-be the primitive-channel multiplicity kernel.
-
-Define
+Let the length-$n$ route multiplicity be
 
 ```math
 N_n(v,u)=
@@ -40,7 +34,7 @@ T_n^-=
 \sup_v\sum_uN_n(v,u),
 ```
 
-the largest number of length-$n$ routes terminating at one node.
+which is the largest number of length-$n$ routes terminating at one node.
 
 These may be infinite. The operator conclusions below apply when the relevant quantities are finite and uniformly bounded.
 
@@ -48,13 +42,7 @@ These may be infinite. The operator conclusions below apply when the relevant qu
 
 # 2. Exact $\ell^2$-to-$\ell^1$ growth identity
 
-Let
-
-```math
-S_+=\sum_{e\in E}L_e
-```
-
-be the forward Fock creator.
+Let $S_+=\sum_{e\in E}L_e$ be the forward Fock creator.
 
 Distinct length-$n$ paths are orthogonal, so on the source sector $P_u$,
 
@@ -63,7 +51,7 @@ Distinct length-$n$ paths are orthogonal, so on the source sector $P_u$,
 T_n(u)P_u.
 ```
 
-Therefore
+Therefore the sector norm is
 
 ```math
 |S_+^nP_u|^2=T_n(u).
@@ -81,7 +69,7 @@ Now regard $A$ as an operator on $\ell^1(V)$, using the convention
 (Af)(v)=\sum_uA(v,u)f(u).
 ```
 
-Then
+It follows that
 
 ```math
 |A^n\delta_u|_1=
@@ -97,7 +85,7 @@ T_n^+=
 |S_+^n|^2.
 ```
 
-This is an equality, not merely a bound.
+The bound is attained.
 
 If $A$ is bounded on $\ell^1$, equivalently if outgoing degree is uniformly finite, the spectral-radius formula gives
 
@@ -106,7 +94,7 @@ r(S_+)^2=
 r_{\ell^1}(A).
 ```
 
-Thus the Fock spectral radius is the square root of the endpoint-counting spectral radius.
+The Fock spectral radius is the square root of the endpoint-counting spectral radius.
 
 Equivalently,
 
@@ -138,7 +126,7 @@ For the ordinary node-space adjacency operator on $\ell^2(V)$, the Schur bound g
 \sqrt{T_n^+T_n^-}.
 ```
 
-Consequently,
+Thus,
 
 ```math
 r_{\ell^2}(A)
@@ -146,7 +134,7 @@ r_{\ell^2}(A)
 r(S_+)r(S_-).
 ```
 
-This separates two directional sources of growth:
+The two terms separate directional sources of growth:
 
 * forward branching;
 * backward reconvergence.
@@ -189,19 +177,13 @@ where ${\eta_v}$ is the node basis.
 
 Routes ending at the same node are added.
 
-Let
-
-```math
-M_n(u)=\sup_vN_n(v,u)
-```
-
-be the largest endpoint route multiplicity. Then
+Let $M_n(u)=\sup_vN_n(v,u)$ be the largest endpoint route multiplicity. Then
 
 ```math
 |C_{n,u}|=\sqrt{M_n(u)}.
 ```
 
-So endpoint collapse is most singular precisely where many orthogonal routes reconverge onto one node.
+Endpoint collapse is most singular precisely where many orthogonal routes reconverge onto one node.
 
 Apply this to the all-route Fock vector
 
@@ -223,7 +205,7 @@ C_{n,u}\Psi_{n,u}=
 \sum_vN_n(v,u)\eta_v.
 ```
 
-Therefore
+This gives
 
 ```math
 \left|
@@ -244,11 +226,7 @@ M_n(u)T_n(u)
 T_n(u)^2.
 ```
 
-Interpretation:
-
-* the lower bound is attained when no two routes end at the same node;
-* the upper bound is attained when every route ends at one node;
-* the middle quantity measures reconvergence concentration.
+The lower bound is attained when no two routes end at the same node, whereas the upper bound is attained when every route ends at one node. The middle quantity measures reconvergence concentration.
 
 Thus the endpoint-summation map destroys orthogonality with norm amplification $\sqrt{M_n(u)}$.
 
@@ -273,13 +251,7 @@ d(u,v)=
 \min{n:N_n(v,u)>0}.
 ```
 
-Let
-
-```math
-g(v,u)=N_{d(u,v)}(v,u)
-```
-
-be the number of geodesic routes. Then
+Let $g(v,u)=N_{d(u,v)}(v,u)$ be the number of geodesic routes. Then
 
 ```math
 \mathcal P(v,u;z)=
@@ -288,7 +260,7 @@ g(v,u)z^{d(u,v)}
 O\!\left(z^{d(u,v)+1}\right).
 ```
 
-So the first two pieces of the scalar path series are:
+The first two pieces of the scalar path series are:
 
 ```math
 \begin{aligned}
@@ -318,7 +290,7 @@ Orthogonality gives
 |\Gamma_{v,u}|^2=g(v,u).
 ```
 
-Thus, the first scalar correction discarded by tropicalization is the square of a canonical Fock norm.
+The first scalar correction discarded by tropicalization is the square of a canonical Fock norm.
 
 The three geometries meet in the exact formula
 
@@ -333,7 +305,7 @@ z^{d(u,v)}
 
 # 6. Endpoint growth versus route growth
 
-Let
+Define $R_n(u)$ by
 
 ```math
 R_n(u)=
@@ -348,7 +320,7 @@ Every such node has at least one length-$n$ path, so
 R_n(u)\le T_n(u).
 ```
 
-Therefore
+The resulting bound is
 
 ```math
 \sup_uR_n(u)
@@ -377,7 +349,7 @@ T_n(u)=d^n,
 R_n(u)=d^n.
 ```
 
-Thus
+Equivalently,
 
 ```math
 r(S_+)=\sqrt d.
@@ -389,7 +361,7 @@ Here min-plus endpoint growth retains all route growth because every route reach
 
 Suppose there is one node at every layer and $d$ parallel channels between consecutive layers.
 
-Then
+It follows that
 
 ```math
 T_n(u)=d^n,
@@ -415,13 +387,7 @@ So tropical geometry can discard an arbitrarily large exponential amount of rout
 
 # 7. Weighted Möbius coefficients
 
-Let
-
-```math
-M_d(z)=\zeta_d(z)^{-1}
-```
-
-be the weighted thin Möbius kernel.
+Let $M_d(z)=\zeta_d(z)^{-1}$ be the weighted thin Möbius kernel.
 
 For fixed $u<v$, write
 
@@ -430,13 +396,7 @@ M_d(v,u;z)=
 \sum_{L\ge1}m_L(v,u)z^L.
 ```
 
-Let
-
-```math
-c_{r,L}(v,u)
-```
-
-be the number of strict factorization chains
+Let $c_{r,L}(v,u)$ be the number of strict factorization chains
 
 ```math
 u=x_0<x_1<\cdots<x_r=v
@@ -448,14 +408,14 @@ whose total shortest-distance cost is
 \sum_{i=1}^r d(x_{i-1},x_i)=L.
 ```
 
-Then
+It follows that
 
 ```math
 m_L(v,u)=
 \sum_{r=1}^L(-1)^r c_{r,L}(v,u).
 ```
 
-Therefore the first exact bound is
+The first exact bound is
 
 ```math
 |m_L(v,u)|
@@ -498,7 +458,7 @@ Summing over $r$,
 2^{L-1}N_L(v,u).
 ```
 
-Thus:
+The corresponding inequality is
 
 ```math
 |m_L(v,u)|
@@ -512,7 +472,7 @@ And since
 N_L(v,u)\le T_L(u),
 ```
 
-we obtain
+Combining these bounds yields
 
 ```math
 |m_L(v,u)|
@@ -529,11 +489,7 @@ Finally,
 2^{L-1}|S_+^L|^2.
 ```
 
-This is the requested direct inequality linking:
-
-* weighted Möbius coefficients;
-* route multiplicity;
-* orthogonal Fock growth.
+The inequality relates weighted Möbius coefficients, route multiplicity, and orthogonal Fock growth.
 
 The factor $2^{L-1}$ is optimal for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets, although its signed Möbius coefficient may cancel to zero.
 
@@ -558,7 +514,7 @@ Using
 r(S_+)^2=r_{\ell^1}(A),
 ```
 
-we obtain
+Thus,
 
 ```math
 \limsup_{L\to\infty}
@@ -567,7 +523,7 @@ we obtain
 2r_{\ell^1}(A).
 ```
 
-Therefore every scalar endpoint series satisfies the coarse convergence bound
+Every scalar endpoint series satisfies the coarse convergence bound
 
 ```math
 \mathrm{rad}
@@ -579,7 +535,7 @@ M_d(v,u;\cdot)
 
 with the usual interpretation when the denominator is zero.
 
-This gives only a lower bound for the convergence radius. Alternating cancellation can make the true radius much larger.
+The estimate is only a lower bound for the convergence radius; alternating cancellation can make the true radius larger.
 
 For finite-height systems, all relevant series are polynomials.
 
@@ -623,7 +579,7 @@ this is less than one, so the weighted Möbius inverse converges and
 \frac{1-a}{1-2a}.
 ```
 
-Thus the elementary region
+The elementary region
 
 ```math
 |z|<\frac{1}{2|A|_1}
@@ -654,7 +610,7 @@ Aggregation obeys
 \sum_p|c_p|^2.
 ```
 
-This retains individual route identity.
+The resolved operator retains individual route identity.
 
 ## Counting geometry
 
@@ -667,7 +623,7 @@ N_n(v,u)=
 
 Addition is ordinary nonnegative arithmetic.
 
-This retains multiplicity but loses route identity.
+The endpoint-counting operator retains multiplicity but loses route identity.
 
 ## Min-plus geometry
 
@@ -680,7 +636,7 @@ d(u,v)=
 
 Ordinary addition of alternatives is replaced by minimum, while path concatenation becomes addition of lengths.
 
-This retains only earliest compositional possibility.
+The geodesic operator retains only the earliest compositional possibility.
 
 The exact endpoint-level bridge is
 

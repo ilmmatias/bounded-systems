@@ -15,7 +15,7 @@ d(G,H)=
 \left|\left\lbrace v\in V(H):H-v\cong G \right\rbrace\right|.
 ```
 
-Thus $d(G,H)$ counts how many vertices of $H$ can be deleted to obtain the isomorphism class $G$.
+$d(G,H)$ counts how many vertices of $H$ can be deleted to obtain the isomorphism class $G$.
 
 It satisfies
 
@@ -29,7 +29,7 @@ and
 \sum_{G\in\mathfrak D_n}d(G,H)=n+1.
 ```
 
-This is immediately computable:
+It is computed from:
 
 * take a canonical representative of $H$;
 * delete each vertex $v$;
@@ -37,19 +37,13 @@ This is immediately computable:
 * look up its level-$n$ class ID;
 * increment the corresponding deletion count.
 
-The resulting operator is extremely sparse: every $H$ has at most $n+1$ predecessor classes.
+The operator is sparse: every $H$ has at most $n+1$ predecessor classes.
 
-# 2. The correct extension multiplicity
+# 2. Extension multiplicity
 
 Deletion multiplicity is not yet the multiplicity of labeled one-node extensions.
 
-Let
-
-```math
-a(G)=|\mathrm{Aut}(G)|
-```
-
-be the automorphism-group size.
+Let $a(G)=|\mathrm{Aut}(G)|$ be the automorphism-group size.
 
 Fix a labeled representative of $G$ on $[n]$. Define $e(G,H)$ to be the number of labeled DAGs on $[n+1]$ that:
 
@@ -75,13 +69,15 @@ For the empty DAGs $E_n,E_{n+1}$,
 d(E_n,E_{n+1})=n+1,
 ```
 
+The automorphism groups have orders
+
 ```math
 |\mathrm{Aut}(E_n)|=n!,
 \qquad
 |\mathrm{Aut}(E_{n+1})|=(n+1)!.
 ```
 
-Hence
+Equivalently,
 
 ```math
 e(E_n,E_{n+1})=
@@ -106,7 +102,7 @@ Define the dimension of an unlabeled DAG class by
 \frac{n!}{|\mathrm{Aut}(G)|}.
 ```
 
-This is the number of labeled realizations of $G$ on $[n]$.
+The value is the number of labeled realizations of $G$ on $[n]$.
 
 The incidence matrices satisfy
 
@@ -135,14 +131,14 @@ d(G,H)\frac{a(G)}{a(H)}\\
 \end{aligned}
 ```
 
-Thus the weighted number of paths from the empty graph to $H$ is precisely
+The weighted number of paths from the empty graph to $H$ is precisely
 
 ```math
 \left|\{\text{labeled realizations of }H\}\right|=
 \dim(H).
 ```
 
-This is an exact consistency audit for the extension matrix.
+The identity is a consistency check for the extension matrix.
 
 # 4. Canonical down transition
 
@@ -162,7 +158,7 @@ D_n(H,G)=
 \frac{\dim(G)e(G,H)}{\dim(H)}.
 ```
 
-So the down transition is completely canonical:
+The down transition is completely canonical:
 
 ```math
 D_n(H,G)=
@@ -196,7 +192,7 @@ R_{n,N}(G)=
 e(G,H)R_{n+1,N}(H).
 ```
 
-Thus $R_{n,N}(G)$ is the weighted number of labeled one-node extension histories from $G$ to level $N$.
+$R_{n,N}(G)$ is the weighted number of labeled one-node extension histories from $G$ to level $N$.
 
 The exact finite-horizon up transition is
 
@@ -209,13 +205,13 @@ R_{n,N}(G)
 }.
 ```
 
-Normalization follows immediately:
+Normalization follows:
 
 ```math
 \sum_HU_n^{N,w}(G,H)=1.
 ```
 
-This is the whole-configuration analogue of the finite route kernel previously derived inside a DAG.
+The kernel is the whole-configuration analogue of the finite route kernel inside a DAG.
 
 # 6. Two canonical finite endpoint ensembles
 
@@ -225,17 +221,13 @@ The endpoint probability at level $N$ is proportional to
 \dim(H)w_N(H).
 ```
 
-This represents two familiar choices.
+The two endpoint measures are:
 
 ## Uniform labeled DAG
 
-Set
+Set $w_N(H)=1$.
 
-```math
-w_N(H)=1.
-```
-
-Then
+It follows that
 
 ```math
 \Pr(H)
@@ -248,13 +240,9 @@ which is the distribution induced by uniform counting of labeled DAGs.
 
 ## Uniform unlabeled DAG class
 
-Set
+Set $w_N(H)=\frac1{\dim(H)}$.
 
-```math
-w_N(H)=\frac1{\dim(H)}.
-```
-
-Then
+It follows that
 
 ```math
 \Pr(H)\propto1,
@@ -268,7 +256,7 @@ More general $w_N$ can select a profile region, height window, edge-density wind
 
 # 7. Coherent level measures
 
-Let
+Define $Z_{N,w}$ by
 
 ```math
 Z_{N,w}=R_{0,N}(\varnothing).
@@ -285,7 +273,7 @@ Z_{N,w}
 }.
 ```
 
-Then
+It follows that
 
 ```math
 \mu_n^{N,w}(G)U_n^{N,w}(G,H)=
@@ -302,7 +290,7 @@ Z_{N,w}
 }.
 ```
 
-This identity gives:
+The identity gives:
 
 * exact forward/backward consistency;
 * an implementation audit;
@@ -328,17 +316,11 @@ U_n^h(G,H)=
 \frac{e(G,H)h_{n+1}(H)}{h_n(G)}.
 ```
 
-This is the concrete positive harmonic transform that the finite nilpotent adjacency matrices could not provide individually.
+The graph-profile process is a positive harmonic transform unavailable from any single finite nilpotent adjacency matrix.
 
 # 8. The canonical graph-profile process
 
-Let
-
-```math
-x_{n,r}(G)=\mu_{G,r}
-```
-
-be the normalized graph-level refinement profile at observation depth $r$.
+Let $x_{n,r}(G)=\mu_{G,r}$ be the normalized graph-level refinement profile at observation depth $r$.
 
 Under the up transition $U_n^h$, define
 
@@ -365,11 +347,11 @@ with $C_r$ growing at most linearly in $r$ under the recursive profile metric.
 
 Thus the whole-graph profile process has automatically vanishing jumps at every fixed observation depth.
 
-This is much stronger than the internal node-profile process, whose edge jumps need not shrink.
+By contrast, edge jumps in the internal node-profile process need not shrink.
 
-# 9. The natural scaled increment
+# 9. Scaled increment
 
-Define
+The scaled one-step increment is
 
 ```math
 F_{n,r}(G,H)=
@@ -426,7 +408,7 @@ X_n
 F_{n,r}(G_n,G_{n+1}).
 ```
 
-Therefore
+Therefore the conditional increment is
 
 ```math
 \mathbb E[
@@ -446,9 +428,7 @@ X_{n+1}-X_n\mid G_n
 \frac1{(n+1)^2}a_{n,r}^h(G_n).
 ```
 
-This has a critical consequence.
-
-If we define logarithmic size time
+The scaling consequence is obtained by defining logarithmic size time as
 
 ```math
 s_n=
@@ -467,11 +447,9 @@ Hence the unscaled graph profile generically converges to a deterministic hydrod
 \frac{dx}{ds}=b_r^h(x).
 ```
 
-That is the canonical continuum equation for the whole-configuration profile.
-
 The stochastic diffusion appears in the fluctuations around this hydrodynamic law.
 
-# 11. Why a direct graph-profile diffusion would be wrong
+# 11. Failure of direct graph-profile diffusion
 
 A one-node extension produces a jump of order
 
@@ -491,7 +469,7 @@ If $a_n=1/n^2$ were used directly as the continuum-time increment, the total fut
 \sum_{n=n_0}^\infty\frac1{n^2}<\infty.
 ```
 
-So one-node graph growth cannot produce an indefinitely evolving raw diffusion at the graph-profile level under that clock.
+One-node graph growth cannot produce an indefinitely evolving raw diffusion at the graph-profile level under that clock.
 
 The correct hierarchy is instead
 
@@ -509,7 +487,7 @@ followed by
 \text{Gaussian fluctuation diffusion}.
 ```
 
-This separates:
+The fluctuation scaling separates:
 
 * continuum evolution of the macroscopic profile;
 * stochastic evolution of finite-size fluctuations.
@@ -522,7 +500,7 @@ Fix $r$. Assume that whenever
 x_{n,r}(G_n)\to x,
 ```
 
-we have
+The corresponding map is
 
 ```math
 b_{n,r}^h(G_n)\to b_r^h(x)
@@ -553,7 +531,7 @@ J_r=
 Db_r^h(x_\ast)
 ```
 
-is the first concrete spectral object we need.
+is the first concrete spectral object in the continuum construction.
 
 Its eigenvalues determine which profile perturbations:
 
@@ -577,13 +555,13 @@ X_n-x(s_n)
 
 The factor $\sqrt n$ is forced by the one-step variance $O(n^{-2})$.
 
-Suppose
+Suppose that the covariance coefficients satisfy
 
 ```math
 a_{n,r}^h(G_n)\to a_r^h(x),
 ```
 
-the conditional Lindeberg condition holds, and the drift admits a differentiable limit.
+that the conditional Lindeberg condition holds, and that the drift admits a differentiable limit.
 
 Then the candidate fluctuation SDE is
 
@@ -632,7 +610,7 @@ J_r+\frac12I
 \right).
 ```
 
-This identifies the previously abstract one-particle operator $B_h$:
+The covariance equation identifies the one-particle operator $B_h$:
 
 ```math
 B_h=
@@ -667,7 +645,7 @@ a_r^h(x_\ast)
 e^{-sB_r^\mathsf T}\,ds.
 ```
 
-This gives a direct numerical route to:
+The matrix gives direct numerical access to:
 
 * the fluctuation metric;
 * the dominant covariance directions;
@@ -782,6 +760,8 @@ After completing the row:
 b_{n,r}(G)=\text{mean}[G],
 ```
 
+Equivalently,
+
 ```math
 a_{n,r}(G)=
 \text{raw\_second}[G]-
@@ -794,6 +774,8 @@ The global level averages are
 \overline b_{n,r}=
 \sum_G\mu_n(G)b_{n,r}(G),
 ```
+
+Averaging over the ensemble gives
 
 ```math
 \overline a_{n,r}=
@@ -844,7 +826,7 @@ where
 \delta x_G=x_{n,r}(G)-x_\ast
 ```
 
-and $+$ denotes the Moore–Penrose pseudoinverse.
+and $+$ denotes the Moore-Penrose pseudoinverse.
 
 The fluctuation relaxation matrix is then
 
@@ -855,4 +837,4 @@ The fluctuation relaxation matrix is then
 \right).
 ```
 
-This is the first directly computable spectral matrix of the continuum theory.
+The matrix is a directly computable spectral object for the continuum theory.

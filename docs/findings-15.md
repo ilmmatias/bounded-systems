@@ -28,9 +28,7 @@ Put
 d_i=p_i^1-p_i^0.
 ```
 
-For $S\subseteq\{1,\ldots,k\}$, replacing each factor at position $i\in S$ by $d_i$ yields an $|S|$-fold alternating route box; modulo one higher power of $I$, ordinary route choices outside $S$ do not matter.
-
-Consequently,
+For $S\subseteq\{1,\ldots,k\}$, replacing each factor at position $i\in S$ by $d_i$ yields an $|S|$-fold alternating route box; modulo one higher power of $I$, ordinary route choices outside $S$ do not matter. The resulting corner has dimension
 
 ```math
 \dim e_{v_k}\left(I^m/I^{m+1}\right)e_{v_0}=
@@ -44,15 +42,9 @@ The whole route corner decomposes as
 \sum_{m=0}^{k}\binom{k}{m},
 ```
 
-where:
+where $m=0$ is the one-dimensional reachability direction; $m=1$ consists of individual diamond effects; $m=2$ consists of pairwise alternating rectangles; $m=3$ consists of alternating cubes; and so on.
 
-* $m=0$ is the one-dimensional reachability direction;
-* $m=1$ consists of individual diamond effects;
-* $m=2$ consists of pairwise alternating rectangles;
-* $m=3$ consists of alternating cubes;
-* and so on.
-
-This is essentially a Boolean or Walsh decomposition of the orthogonal route space.
+The orthogonal route space has a Boolean, or Walsh, decomposition.
 
 For this family, there are no higher dependencies among these boxes: each product corresponds uniquely to its selected ambiguity positions.
 
@@ -135,7 +127,7 @@ Between
 {1,2,3},
 ```
 
-the six saturated paths are the six permutations:
+The six saturated paths are the six permutations:
 
 ```math
 123,\ 132,\ 312,\ 321,\ 231,\ 213.
@@ -147,7 +139,7 @@ Adjacent paths exchange the order of adding two elements; the six local diamond 
 123\to132\to312\to321\to231\to213\to123.
 ```
 
-Let
+Let the following notation be fixed:
 
 ```math
 \begin{aligned}
@@ -166,7 +158,7 @@ Then immediately,
 r_1+r_2+r_3+r_4+r_5+r_6=0.
 ```
 
-This is a genuine relation among six contextualized local diamond relations.
+The hexagonal sum is a relation among six contextualized local diamond relations.
 
 But in $B_3$,
 
@@ -184,21 +176,11 @@ C_2=0
 
 and hence no degree-two chains capable of recording the hexagonal dependency.
 
-So:
+The hexagon is a syzygy among local relation generators, but it is not a product relation in the $I$-adic associated graded.
 
-```math
-\text{the hexagon is a syzygy among local relation generators,}
-```
+This disproves the stronger interpretation of $H^{\mathrm{rt}}_{n,m}$.
 
-but
-
-```math
-\text{it is not a product relation in the }I\text{-adic associated graded.}
-```
-
-This disproves the stronger interpretation we had given to $H^{\mathrm{rt}}_{n,m}$.
-
-# 4. What the previous complex actually measures
+# 4. Scope of the previous complex
 
 The corrected interpretation is:
 
@@ -208,7 +190,7 @@ C_m=I^m/I^{m+1}
 
 measures actual $m$-fold multiplicative route ambiguity.
 
-And
+Meanwhile,
 
 ```math
 H_{n,m}^{\mathrm{rt}}
@@ -220,39 +202,26 @@ It does not necessarily measure dependencies among a minimal collection of local
 
 The ordinary reduced bar construction is standard for an augmented algebra and its derived tensor products, but finding a coherent presentation by generators, relations, and relations among relations is a different question.
 
-# 5. The correct local relation module
+# 5. The local relation module
 
-Let
-
-```math
-J\subset A
-```
-
-be the positive-path ideal and
+Let $J\subset A$ be the positive-path ideal, and let
 
 ```math
 I=\ker(A\to B)
 ```
 
-the parallel-route ideal.
-
-Define
+be the parallel-route ideal. The local relation module is
 
 ```math
 R_2=
 I/(JI+IJ).
 ```
 
-This removes every route relation obtained merely by adding nonempty path context before or after a smaller relation.
+The quotient removes relations obtained only by adding nonempty path context before or after a smaller relation.
 
 Thus $R_2$ records the locally irreducible route-identification laws.
 
-Examples:
-
-* two parallel primitive channels give one element of $R_2$;
-* one elementary diamond gives one element;
-* a shortcut versus a composite route gives one element;
-* a larger diamond obtained by prefixing and suffixing a smaller diamond does not give a new element.
+For example, two parallel primitive channels give one element of $R_2$; an elementary diamond gives one element; a shortcut versus a composite route gives one element; and a larger diamond obtained by prefixing and suffixing a smaller diamond gives no new element.
 
 For $B_3$,
 
@@ -264,15 +233,9 @@ one generator for each rank-two Boolean diamond. Their transported images satisf
 
 The standard presentation of an incidence algebra as a path algebra uses the ideal identifying parallel paths, often called the parallel ideal.
 
-# 6. The beginning of the corrected resolution
+# 6. Initial terms of the corrected resolution
 
-Let
-
-```math
-D=\bigoplus_{v\in V}\mathbb K e_v
-```
-
-be the node diagonal, and let
+Let $D=\bigoplus_{v\in V}\mathbb K e_v$ be the node diagonal, and let
 
 ```math
 M=J/J^2
@@ -286,29 +249,17 @@ The reachability algebra is
 B=A/I.
 ```
 
-The first terms of a route-presentation bimodule resolution have the form
+The first terms of a route-presentation bimodule resolution are
 
 ```math
 P_0=B\otimes_D B,
-```
-
-```math
+\qquad
 P_1=B\otimes_D M\otimes_D B,
-```
-
-```math
+\qquad
 P_2=B\otimes_D R_2\otimes_D B.
 ```
 
-## Multiplication differential
-
-Define
-
-```math
-d_0:P_0\to B
-```
-
-by
+The multiplication differential $d_0:P_0\to B$ is defined by
 
 ```math
 d_0(b_L\otimes b_R)=b_Lb_R.
@@ -324,7 +275,7 @@ b_L\bar e\otimes b_R-
 b_L\otimes\bar e b_R.
 ```
 
-Then
+It follows that
 
 ```math
 d_0d_1=0.
@@ -350,7 +301,7 @@ define its path derivative
 
 Empty prefixes or suffixes are interpreted as their corresponding node identities.
 
-This formula marks every possible cut around one primitive channel.
+The formula marks every cut around one primitive channel.
 
 It satisfies the Leibniz rule
 
@@ -382,17 +333,17 @@ Because every path in $r$ has the same reachability image,
 d_1d_2=0.
 ```
 
-So we obtain
+The first part of the resulting complex is
 
 ```math
 P_2\xrightarrow{d_2}P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}B\to0.
 ```
 
-This now records local relations and their contexts correctly.
+It records local relations together with their left and right reachability contexts.
 
 # 8. Third-level generators
 
-Let
+Set $Z_2$ by
 
 ```math
 Z_2=\ker d_2.
@@ -416,7 +367,7 @@ Z_2\mathrm{rad}(B)
 
 where $\mathrm{rad}(B)$ is the strict-reachability ideal.
 
-Then
+It follows that
 
 ```math
 P_3=B\otimes_D R_3\otimes_D B.
@@ -430,14 +381,14 @@ d_3:P_3\to P_2
 
 chooses representatives of the local syzygies.
 
-The process continues:
+The next relation module is defined by
 
 ```math
 R_4=
-\text{local generators of }\ker d_3,
+\text{local generators of }\ker d_3.
 ```
 
-and so on.
+Higher stages are obtained recursively from local generators of the preceding kernel.
 
 For finite systems, or finite ordinal-rank bands, this can be implemented through ordinary linear algebra and projective covers. Recent work gives practical algorithms for minimal projective resolutions of finite-dimensional incidence algebras.
 
@@ -470,11 +421,7 @@ For larger $d$, one obtains:
 
 The full permutohedron is a convex polytope with a contractible cellular complex, so its hierarchy of coherence cells can be rich even though its final reduced homology vanishes.
 
-The distinction is:
-
-```math
-\text{vanishing homology does not mean absence of higher coherence.}
-```
+The distinction is that vanishing homology does not imply the absence of higher coherence.
 
 It can mean that every ambiguity loop is coherently filled at a higher dimension.
 

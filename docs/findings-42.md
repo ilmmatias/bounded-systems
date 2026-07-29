@@ -8,7 +8,7 @@ G_\delta=(V_\delta,E_\delta),
 \delta\downarrow0.
 ```
 
-We need the following derived data.
+The continuum limit uses the following derived data.
 
 ## Profile embedding
 
@@ -92,7 +92,7 @@ G_\delta,x_\delta,h_\delta,
 \right).
 ```
 
-# 2. The exact discrete generator
+# 2. The discrete generator
 
 For a test function $f$ on $M$, define
 
@@ -116,7 +116,7 @@ Y_\delta(e)=
 x_\delta(r(e))-x_\delta(v).
 ```
 
-Then
+It follows that
 
 ```math
 \mathcal L_\delta^hf(x)=
@@ -128,7 +128,7 @@ f(x+Y_\delta)-f(x)
 \right].
 ```
 
-This generator determines the drift, diffusion, and stable exponents.
+The discrete generator determines the drift, diffusion, and stable exponents.
 
 # 3. Local drift and quadratic tensor
 
@@ -203,6 +203,8 @@ Assume on every compact $K\Subset M$:
 |Y_\delta(e)|
 \longrightarrow0,
 ```
+
+The corresponding map is
 
 ```math
 b_\delta\longrightarrow b_h
@@ -279,8 +281,6 @@ R_f(x,Y_\delta(e)).
 
 The final term vanishes by the scaled third-moment condition.
 
-Therefore
-
 ```math
 \mathcal L_\delta^hf
 \to
@@ -289,7 +289,7 @@ b_h\cdot\nabla f
 \frac12a_h:\nabla^2f.
 ```
 
-That proves generator convergence.
+Generator convergence follows.
 
 # 5. From generator convergence to process convergence
 
@@ -309,7 +309,7 @@ X_\delta(\tau)\in K
 \ge1-\varepsilon.
 ```
 
-This prevents probability from escaping through unrepresented parts of the profile space.
+Compact containment prevents probability from escaping through unrepresented parts of the profile space.
 
 ## Tightness
 
@@ -498,7 +498,7 @@ Suppose on every compact profile region:
 4. the family satisfies compact containment;
 5. the martingale problem for the limiting Lévy-type operator is unique.
 
-Then
+It follows that
 
 ```math
 X_\delta\Rightarrow X,
@@ -516,7 +516,7 @@ The transformed transition law contains the ratio
 \frac{h_\delta(r(e))}{h_\delta(v)}.
 ```
 
-Therefore coefficient convergence also requires control of $h_\delta$.
+Coefficient convergence also requires control of $h_\delta$.
 
 Suppose, after interpolation to $M$,
 
@@ -567,7 +567,7 @@ h_\delta\to h,
 \kappa_\delta\to\kappa,
 ```
 
-then
+it follows that
 
 ```math
 \begin{aligned}
@@ -581,14 +581,14 @@ h^{-1}\mathcal L_0(hf)-\kappa f.
 \end{aligned}
 ```
 
-Hence
+Equivalently,
 
 ```math
 \mathcal L^hf=
 h^{-1}\mathcal L_0(hf)-\kappa f.
 ```
 
-This is the rigorous continuum passage of the discrete harmonic normalization.
+The theorem gives the continuum limit of the discrete harmonic normalization.
 
 # 10. Bulk-growth renormalization
 
@@ -600,28 +600,18 @@ The transfer eigenvalue $\lambda_\delta$ need not approach $1$. If
 \lambda_\delta\to\lambda_0>1,
 ```
 
-then
+it follows that
 
 ```math
 \frac{\lambda_\delta-1}{a_\delta}
 \to\infty.
 ```
 
-So the raw transfer operator cannot converge directly to a finite differential generator.
+The raw transfer operator cannot converge directly to a finite differential generator.
 
-One must separate:
+One must separate bulk route multiplication from finite continuum evolution.
 
-```math
-\text{bulk route multiplication}
-```
-
-from
-
-```math
-\text{finite continuum evolution}.
-```
-
-Write
+Write $\lambda_\delta$ in the form
 
 ```math
 \lambda_\delta=
@@ -638,7 +628,7 @@ Define the renormalized transfer
 \Lambda_\delta^{-1}T_\delta.
 ```
 
-Then
+It follows that
 
 ```math
 \widehat T_\delta h_\delta=
@@ -696,14 +686,14 @@ Under the KMS-locked choice
 \vartheta_\delta=\beta_\delta=\log\lambda_\delta,
 ```
 
-we get
+Thus the rescaled gauge frequency is
 
 ```math
 \Omega_\delta=
 \frac{\log\lambda_\delta}{a_\delta}.
 ```
 
-Therefore a finite continuum gauge rate requires
+A finite continuum gauge rate requires
 
 ```math
 \log\lambda_\delta=
@@ -737,7 +727,7 @@ a_\delta
 }.
 ```
 
-Consequently, the continuum master resolvent should contain
+The continuum master resolvent should contain
 
 ```math
 Z_q=qI+i\Omega N,
@@ -751,7 +741,7 @@ qI+i(\log\lambda)N.
 
 The latter is correct only when the continuum clock is literally primitive step count, $a_\delta=1$, or when a separate gauge parametrization $\theta=\beta\tau$ has been explicitly chosen.
 
-This coefficient stage therefore separates:
+The coefficient extraction separates:
 
 ```math
 \beta_\delta=\log\lambda_\delta=
@@ -859,7 +849,7 @@ C_\delta^\ast
 C_\delta.
 ```
 
-Thus the hidden coefficients are matrix elements of the hidden resolvent.
+The hidden coefficients are matrix elements of the hidden resolvent.
 
 If
 
@@ -902,7 +892,7 @@ Cf,E_D(B)Cf
 \right\rangle.
 ```
 
-Suppose
+Suppose that
 
 ```math
 \mu_f([0,\omega])
@@ -914,7 +904,7 @@ Suppose
 
 with $0<\eta<1$.
 
-Then
+It follows that
 
 ```math
 d\mu_f(\omega)
@@ -922,7 +912,7 @@ d\mu_f(\omega)
 A_f\omega^{\eta-1}d\omega.
 ```
 
-Consequently,
+The spectral representation yields
 
 ```math
 \begin{aligned}
@@ -937,8 +927,6 @@ z^{\eta-1}
 ```
 
 as $z\to0$ in the appropriate sector.
-
-Thus
 
 ```math
 \eta=
@@ -973,6 +961,8 @@ E_\delta(\tau)=
 \inf{s:D_\delta(s)>\tau},
 ```
 
+Equivalently,
+
 ```math
 E(\tau)=
 \inf{s:D(s)>\tau}.
@@ -984,7 +974,7 @@ Under the continuity conditions for the inverse-map operation, in particular whe
 E_\delta\Rightarrow E.
 ```
 
-Then
+It follows that
 
 ```math
 Y_\delta(E_\delta(\tau))
@@ -1006,7 +996,7 @@ C,\qquad
 \Omega,
 ```
 
-the continuum gauge variable is
+The continuum gauge variable is
 
 ```math
 Z_q=qI+i\Omega N.

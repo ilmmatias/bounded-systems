@@ -1,13 +1,6 @@
-# 1. Robust conclusion
+# 1. Refinement-stability result
 
-Across:
-
-* two terminal sizes;
-* six checkpoint pairs per terminal size;
-* four singular-value cutoffs;
-* retained ranks from 12 through 18;
-
-all audits reported
+Across two terminal sizes, six checkpoint pairs per size, four singular-value cutoffs, and retained ranks from 12 through 18, all audits reported
 
 ```text
 slower_modes=0
@@ -20,17 +13,13 @@ relative to the threshold
 J>-1.8.
 ```
 
-Therefore
-
-```math
-\text{the }J\approx-2\text{ slow sector survives the first dictionary refinement.}
-```
+The $J\approx-2$ slow sector therefore survives the first dictionary refinement.
 
 No evidence appeared for a hidden mode that would close the relaxation gap.
 
-# 2. What this does and does not establish
+# 2. Scope of the result
 
-This is stronger than repeating the original fit with more samples: it tests a nested observable space and shows that the slow spectral boundary is stable when degree-two moments are added.
+The nested-dictionary test goes beyond repeating the original fit with more samples: it shows that the slow spectral boundary remains stable when degree-two moments are added.
 
 It does not prove the same gap for every higher refinement; in particular, the following remain untested:
 
@@ -39,11 +28,11 @@ It does not prove the same gap for every higher refinement; in particular, the f
 * stabilized WL profile coordinates;
 * non-polynomial cylinder observables.
 
-# 3. Why refinement robustness was necessary
+# 3. Need for refinement robustness
 
-The first configuration spectrum used six graph-profile coordinates, so its stable projected gap could still be artificial if an omitted coordinate relaxed more slowly.
+The initial configuration spectrum used six graph-profile coordinates, so its stable projected gap could still be artificial if an omitted coordinate relaxed more slowly.
 
-The next test therefore enlarged the emitted trajectory dictionary to 27 features containing:
+The refinement test therefore enlarged the emitted trajectory dictionary to 27 features containing:
 
 * the original first moments;
 * degree-two products and second moments;
@@ -52,7 +41,7 @@ The next test therefore enlarged the emitted trajectory dictionary to 27 feature
 
 The analysis specifically sought a mode with Jacobian rate closer to zero than the established $J\approx-2$ slow sector.
 
-# 4. Exact trajectory generation
+# 4. Trajectory generation
 
 The refined sampler emitted exact uniform labeled-DAG trajectories at:
 
@@ -82,23 +71,7 @@ The full $N=128$ run took about 5.6 seconds wall time; the $N=256$ run took abou
 
 # 5. Two nested dictionaries
 
-The audit compared:
-
-## Original first-moment dictionary
-
-```math
-r0\_\mathrm{first\_moments}
-```
-
-with effective numerical rank four after exact symmetry reduction.
-
-## Refined degree-two dictionary
-
-```math
-r1\_\mathrm{degree2}
-```
-
-with numerical rank varying between approximately 12 and 18, depending on interval and singular-value cutoff.
+The audit compared the original first-moment dictionary, `r0_first_moments`, whose effective numerical rank was four after exact symmetry reduction, with the refined degree-two dictionary, `r1_degree2`, whose numerical rank varied between approximately 12 and 18 according to the interval and singular-value cutoff.
 
 The rank variation was expected: several new coordinates become nearly linearly dependent as the profile concentrates near its fixed point.
 
@@ -113,10 +86,7 @@ The pseudoinverse threshold was varied over
 3\times10^{-9}.
 ```
 
-This moved the retained refined rank substantially, for example:
-
-* terminal 128: roughly 13-18;
-* terminal 256: roughly 12-18.
+The cutoff sweep changed the retained refined rank substantially: approximately 13--18 at terminal size 128 and 12--18 at terminal size 256.
 
 A genuine slow mode should persist over a stable threshold range; one appearing only when near-null covariance directions are inverted is not reliable.
 
@@ -170,7 +140,7 @@ At
 \mathrm{rcond}=10^{-8},
 ```
 
-the original dictionary again gave slowest rates close to $-2$, while the refined dictionary ranged from approximately
+The original dictionary again gave slowest rates close to $-2$, while the refined dictionary ranged from approximately
 
 ```math
 -2.006

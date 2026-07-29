@@ -1,23 +1,17 @@
-# 1. What was resolved about the measure problem
+# 1. Finite measure sectors
 
-The axioms do not directly specify whether finite isomorphism classes should be weighted equally or by their number of labelings. The calculation did not hide this choice.
-
-Instead it established:
+At finite size, isomorphism invariance alone does not distinguish equal weighting of isomorphism classes from weighting by their numbers of labeled realizations. The calculation therefore retained both sectors and established that:
 
 1. both finite sectors are exactly definable;
 2. their discrepancy can be measured;
 3. the discrepancy decreases together with non-rigid mass;
-4. the same large-size labeled sampler can then be used without pretending that labeled weighting was axiomatic.
+4. the same large-size labeled sampler can be used while keeping the finite weighting distinction explicit.
 
-The working conclusion is
-
-```math
-\text{the labeled/class distinction is likely a finite-size effect for the bulk profile.}
-```
+The working conclusion is that the labeled/class distinction is likely a finite-size effect for the bulk profile.
 
 Other harmonic boundary sectors remain possible and were not excluded by this argument.
 
-# 2. Why exact sampling became necessary
+# 2. Exact sampling beyond exhaustive enumeration
 
 The exhaustive construction reached
 
@@ -34,9 +28,9 @@ The configuration-side continuum questions require:
 * enough independent samples to estimate conditional covariance and Jacobians;
 * a graph law whose finite distribution is exactly known.
 
-The next object was therefore an exact independent sampler for uniformly labeled DAGs, not an approximate random walk on DAGs.
+The next stage therefore used an exact independent sampler for uniformly labeled DAGs, not an approximate random walk on DAGs.
 
-# 3. Exact source-layer sampler
+# 3. Source-layer sampler
 
 Let $A_N$ denote the number of labeled DAGs on $[N]$. The sampler uses the classical decomposition by the nonempty source set.
 
@@ -46,9 +40,7 @@ For a chosen source-set size $k$, one selects:
 2. a DAG on the remaining $N-k$ labels;
 3. outgoing source-to-remainder edges such that every selected source is genuinely a source and the resulting decomposition is counted without duplication.
 
-The required counts were stored in arbitrary-precision integer tables and recursively inverted. Each sample draws a uniform integer from the exact count range and descends through the source-layer decomposition.
-
-Consequently,
+The required counts were stored in arbitrary-precision integer tables and recursively inverted. Each sample draws a uniform integer from the exact count range and descends through the source-layer decomposition, so
 
 ```math
 \Pr(G)=\frac1{A_N}
@@ -56,9 +48,9 @@ Consequently,
 
 for every labeled DAG $G$ on $[N]$.
 
-This is independent sampling, not MCMC, and therefore has no burn-in, mixing-time, or autocorrelation ambiguity.
+The resulting samples are independent rather than MCMC draws, so they have no burn-in, mixing-time, or autocorrelation ambiguity.
 
-# 4. Exact count audits
+# 4. Count audits
 
 At startup, the counting tables were checked against known labeled-DAG totals at all available small levels.
 
@@ -92,7 +84,7 @@ N=7,
 
 where the exact 243,668-class census was already available.
 
-The result was
+The audit returned
 
 ```text
 level=7
@@ -111,12 +103,12 @@ Every tested profile mean agreed with the exact census well within one standard 
 
 in relative Frobenius norm.
 
-This validated both:
+Agreement with the exhaustive census validated both:
 
 * the exact graph distribution;
 * the emitted profile trajectories used by the later Jacobian analysis.
 
-# 6. Exact profile trajectories
+# 6. Profile trajectories
 
 A terminal sample at size $N$ was restricted to the first $n$ labels at selected checkpoints. Because the full labeled DAG is uniform and restriction preserves the labeled Bratteli process,
 
@@ -132,7 +124,7 @@ For each checkpoint, the sampler emitted the normalized graph profile and the sc
 F_n=(n+1)(x_{n+1}-x_n).
 ```
 
-This supplied direct large-$N$ observations of the drift field proposed in `findings-46.md`.
+The restriction construction supplied direct large-$N$ observations of the drift field proposed in `findings-46.md`.
 
 # 7. Sector dependence and asymptotic rigidity
 
@@ -155,17 +147,11 @@ The mechanism is clear: if almost every large DAG is rigid, then
 
 becomes the common value $n!$ on almost all mass, making labeled and equal-class weighting asymptotically indistinguishable.
 
-The data therefore support
-
-```math
-\text{asymptotic rigidity and convergence of the two canonical sectors.}
-```
-
-This remains a numerical conclusion at the processed levels, not a proof for all $n$.
+At the processed levels, the data support asymptotic rigidity and convergence of the two terminal sectors. This is numerical evidence, not a proof for all $n$.
 
 # 8. The six-coordinate large-size profile
 
-The first large-$N$ configuration dictionary used the normalized coordinates
+The large-$N$ configuration dictionary used the normalized coordinates
 
 ```math
 x=
@@ -224,7 +210,7 @@ The decay was consistent with a remaining boundary correction of order
 O(n^{-1}).
 ```
 
-Thus the scaled drift approached zero beyond the slowdown from the raw $1/n$ step size:
+The scaled drift therefore approached zero beyond the slowdown from the raw $1/n$ step size:
 
 ```math
 b(x_\ast)=0
@@ -236,7 +222,7 @@ to the resolution of the sampled dictionary.
 
 The edge-density value near $1/4$ is compatible with typical dense DAGs' layered structure: approximately half of unordered vertex pairs cross the dominant layer split, with a forward edge present with probability near one half.
 
-This gives the heuristic product
+The resulting heuristic is
 
 ```math
 \frac12\times\frac12=\frac14.
@@ -254,4 +240,4 @@ The two-path and wedge coordinates probe higher local moments and therefore reta
 
 The exact sampler was highly parallel after its counting tables were built. Representative large runs required seconds to about a minute for 100,000 trajectories at $N=128$ and $N=256$ on 32 hardware threads.
 
-The table-construction phase was serial in the first implementation and stored a large sequence of exact powers of two. This became an engineering bottleneck at $N\gtrsim600$ but did not alter the sampled law.
+The table-construction phase was serial in the initial implementation and stored a large sequence of exact powers of two. This became an engineering bottleneck at $N\gtrsim600$ but did not alter the sampled law.

@@ -1,33 +1,31 @@
-# 1. Infinite-system consequences of A1–A5
+# 1. Consequences for infinite systems
 
-Let the system be a directed quiver
+Let
 
 ```math
-G=(V,E,s,r),
+G=(V,E,s,r)
 ```
 
-where $V$ and $E$ are sets and
+be a representative quiver of a bounded system. Here $V$ and $E$ are sets, and
 
 ```math
 s,r:E\to V
 ```
 
-give the source and target of each channel.
+are the source and range maps. Describing the system as a quiver, rather than as a subset of $V\times V$, retains the parallel channels allowed by the definition.
 
-Using a quiver rather than $E\subseteq V\times V$ allows parallel channels, which the axioms do not rule out.
+## Unrestricted cardinality
 
-## $C_{\infty 1}$: Cardinality is unrestricted
-
-A1’s boundary is an isolation condition, not a finiteness condition. Therefore the axioms allow:
+Strict endogeneity imposes no finiteness condition. The definition therefore permits
 
 ```math
 |V|=n,\qquad |V|=\aleph_0,
 \qquad\text{or an uncountable cardinal.}
 ```
 
-Nothing below needs the exact cardinality.
+The constructions below do not depend on which of these cardinalities occurs.
 
-## $C_{\infty 2}$: Reachability is a strict partial order
+## Reachability as a strict partial order
 
 Define
 
@@ -35,65 +33,39 @@ Define
 u\prec v
 ```
 
-when there exists a positive-length finite directed path from $u$ to $v$.
+when a positive-length finite directed path runs from $u$ to $v$. Acyclicity makes this relation irreflexive, and path concatenation makes it transitive. The direct edge relation need not be transitive, since a shortcut edge may coexist with a longer path having the same endpoints.
 
-A5 gives:
+## Information lost under passage to reachability
 
-* irreflexivity, $u\nprec u$;
-* transitivity, $u\prec v,\ v\prec w\implies u\prec w$.
-
-The direct edge relation need not be transitive: shortcut edges may coexist with longer paths.
-
-## $C_{\infty 3}$: The system is richer than its reachability poset
-
-Several different paths may connect the same ordered pair:
+Several distinct paths may connect the same ordered pair,
 
 ```math
 u\longrightarrow v.
 ```
 
-Collapsing all of them to the statement $u\prec v$ loses:
+Replacing all such paths by the single relation $u\prec v$ discards primitive-edge and route multiplicities, path lengths, intermediate-node data, and the distinction between parallel channels. The reachability poset is therefore a quotient of the communication structure rather than a complete representation of it.
 
-* primitive-edge multiplicity;
-* route multiplicity;
-* path length;
-* intermediate-node structure;
-* parallel channels.
+## Infinite chains and local finiteness
 
-The reachability poset is a quotient of the full communication structure, not the full object.
-
-## $C_{\infty 4}$: Infinite chains are allowed
-
-A5 forbids finite directed cycles, but it does not forbid
+Acyclicity forbids directed cycles but does not exclude an infinite chain,
 
 ```math
 v_0\to v_1\to v_2\to\cdots.
 ```
 
-It consequently does not imply:
+It therefore implies neither finite height nor the existence of a source or sink. It also does not imply well-foundedness, bounded degree, or local finiteness.
 
-* finite height;
-* a source;
-* a sink;
-* well-foundedness;
-* bounded degree;
-* local finiteness.
+## Path length as compositional depth
 
-## $C_{\infty 5}$: Path length is not time
-
-The number of edges in a path is its compositional depth:
+For a path $p$, the length
 
 ```math
-|p|=k.
+|p|=k
 ```
 
-This records how many primitive channels were composed.
+records the number of primitive channels in the composition. It is a compositional depth and is not identified with an external time parameter. The definition also permits mutually noncommunicating components; strict endogeneity does not imply connectivity.
 
-## $C_{\infty 6}$: Connectivity is not forced
-
-A1 can contain several mutually noncommunicating components. “One outermost system” does not mean every node must be connected to every other node.
-
-# 2. The universal object is the path category
+# 2. The path category
 
 Let
 
@@ -101,15 +73,9 @@ Let
 \mathsf P(G)
 ```
 
-be the category whose:
+denote the free path category of $G$. Its objects are the nodes $v\in V$, its generating morphisms are the edges $e\in E$, and its morphisms are finite directed paths. The identity at $v$ is the length-zero path $1_v$, and composition is path concatenation.
 
-* objects are nodes $v\in V$;
-* generating morphisms are edges $e\in E$;
-* morphisms are finite directed paths;
-* identity at $v$ is the zero-length path $1_v$;
-* composition is path concatenation.
-
-Acyclicity gives:
+Acyclicity implies
 
 ```math
 \mathrm{End}_{\mathsf P(G)}(v)=\{1_v\}.
@@ -117,11 +83,11 @@ Acyclicity gives:
 
 There are no nonidentity endomorphisms because any positive-length path from $v$ back to $v$ would be a directed cycle.
 
-The free path category introduces no equations identifying different edge sequences; if two paths are declared equal for some further reason, that equality is extra structure not contained in A1–A5.
+Distinct edge sequences remain distinct morphisms in the free path category. Any additional identification of paths would introduce structure not contained in the definition of a bounded system.
 
-# 3. Algebraic path representation
+# 3. The algebraic path algebra
 
-Choose a scalar field, normally $\mathbb C$, and form
+Over a scalar field, taken below to be $\mathbb C$, define
 
 ```math
 \mathbb C[G]=
@@ -140,7 +106,7 @@ For basis paths $p,q$, define
 \end{cases}
 ```
 
-This gives an associative, generally noncommutative path algebra. Standard path algebras are defined exactly from finite linear combinations of paths and concatenation.
+Finite linear combinations of paths with this product form an associative, generally noncommutative path algebra.
 
 Let
 
@@ -156,7 +122,7 @@ e_v^2=e_v,
 e_ue_v=0\quad(u\ne v).
 ```
 
-These are the algebraic form of node orthogonality.
+These relations encode the orthogonality of distinct nodes.
 
 For an edge $a:u\to v$,
 
@@ -164,7 +130,7 @@ For an edge $a:u\to v$,
 e_v a e_u=a.
 ```
 
-But
+By contrast,
 
 ```math
 e_u a=0,
@@ -174,7 +140,7 @@ a e_v=0,
 
 because $u\ne v$ in an acyclic system.
 
-Therefore every actual channel forces noncommutativity:
+Consequently, every channel $a:u\to v$ satisfies
 
 ```math
 [e_v,a]=a,
@@ -182,13 +148,9 @@ Therefore every actual channel forces noncommutativity:
 [e_u,a]=-a.
 ```
 
-So noncommutativity is not merely something that occasionally appears in complicated examples:
+Thus any graph with a nonzero channel has a noncommutative path algebra.
 
-```math
-\text{Any non-null edge structure is intrinsically noncommutative.}
-```
-
-# 4. The distinguished node diagonal
+# 4. The marked node diagonal
 
 Define
 
@@ -197,9 +159,7 @@ Define
 \bigoplus_{v\in V}\mathbb C e_v.
 ```
 
-This is the canonical node algebra.
-
-It must remain marked as part of the object:
+This degree-zero subalgebra is the distinguished node diagonal. It must remain marked as part of the algebraic object:
 
 ```math
 \bigl(\mathbb C[G],\mathcal D_0\bigr).
@@ -207,15 +167,9 @@ It must remain marked as part of the object:
 
 Without the marked diagonal, an abstract algebra can have additional idempotents that are not nodes. Arbitrary orthogonal or unitary changes of basis may preserve operator information while destroying the distinguished node decomposition.
 
-This formalizes the lesson from the earlier orthogonal-similarity collisions:
+Marking the diagonal removes the orthogonal-similarity ambiguity encountered in the finite matrix analysis. An equivalence must preserve the diagonal as a subalgebra, although it may permute its primitive idempotents because the node labels are not intrinsic.
 
-```math
-\text{System equivalence must preserve the node diagonal,}
-```
-
-although it may permute its primitive node idempotents because node labels are not intrinsic.
-
-For infinite $V$, $\mathbb C[G]$ generally has no algebraic global identity: the formal sum
+When $V$ is infinite, $\mathbb C[G]$ generally has no algebraic identity, since the formal sum
 
 ```math
 \sum_{v\in V}e_v
@@ -227,11 +181,9 @@ is not finitely supported. It does have local units. Every finite collection of 
 e_F=\sum_{v\in F}e_v
 ```
 
-acts as an identity on that collection.
+acts as an identity on that collection. The absence of a global algebraic unit is therefore unrelated to the requirement of strict endogeneity.
 
-Algebraic unitality and system closure are distinct notions, so the construction is compatible with A1.
-
-# 5. The positive-path ideal
+# 5. The positive-path ideal and local nilpotence
 
 Let
 
@@ -270,34 +222,20 @@ Multiplication respects the grading:
 \mathcal A_{m+n}.
 ```
 
-And
+Moreover,
 
 ```math
 J^n=
 \mathrm{span}\{p:|p|\ge n\}.
 ```
 
-## A general infinite theorem
+## Local nilpotence
 
-For every acyclic $G$:
-
-```math
-J\text{ is locally nilpotent}.
-```
-
-For finitely many elements of $J$, their path supports involve only finitely many vertices. A sufficiently long nonzero product would yield a directed path repeating a vertex and hence a cycle, so sufficiently long products vanish.
-
-In particular, every individual algebraic element
-
-```math
-x\in J
-```
-
-is nilpotent.
+If $G$ is acyclic, then $J$ is locally nilpotent. Indeed, finitely many elements of $J$ involve only finitely many paths and hence only finitely many vertices. A sufficiently long nonzero product would contain a path that repeats a vertex, producing a directed cycle. All sufficiently long products therefore vanish. In particular, every algebraic element $x\in J$ is nilpotent.
 
 However, $J$ need not be globally nilpotent.
 
-Equivalently:
+More precisely,
 
 ```math
 J^{h+1}=0
@@ -305,56 +243,32 @@ J^{h+1}=0
 \text{there is no directed path longer than }h.
 ```
 
-Thus:
+Finite-height systems therefore have a nilpotent positive-path ideal. If paths of arbitrarily large finite length occur, then $J^n\ne0$ for every $n$, although each finitely supported positive-path process remains nilpotent. None of these statements depends on the cardinality of the node set.
 
-* finite-height systems correspond to a nilpotent positive-path ideal;
-* systems with arbitrarily long finite paths satisfy $J^n\ne0$ for every $n$;
-* every finitely supported positive process is nevertheless nilpotent.
+# 6. Recovery from the marked graded algebra
 
-This is a genuinely infinite result and does not depend on node count.
-
-# 6. Recovering the system from the algebra
-
-The marked graded algebra retains the primitive structure exactly.
-
-For nodes $u,v$,
+The marked grading and node diagonal retain the primitive graph structure. For nodes $u,v$, the corner
 
 ```math
 e_v\mathcal A_n e_u
 ```
 
-is the vector space spanned by length-$n$ paths from $u$ to $v$.
-
-Therefore:
-
-## Reachability
+is the vector space spanned by length-$n$ paths from $u$ to $v$. In particular, reachability is recovered from
 
 ```math
 u\prec v
 \iff
-e_vJe_u\ne0.
+e_vJe_u\ne0,
 ```
 
-### Number of length-$n$ paths
+and the number of length-$n$ paths is given by
 
 ```math
 \dim\left(e_v\mathcal A_n e_u\right)=
-\left|\{\text{length-}n\text{ paths } u \to v\}\right|
+\left|\{\text{length-}n\text{ paths } u \to v\}\right|.
 ```
 
-The dimension may be any cardinal.
-
-### Primitive channels
-
-Composite paths lie in $J^2$. Consequently,
-
-```math
-J/J^2
-```
-
-is precisely the primitive-edge space.
-
-For each pair $u,v$,
+The dimension may be any cardinal. Composite paths lie in $J^2$, so the quotient $J/J^2$ is precisely the primitive-edge space. For each pair $u,v$,
 
 ```math
 \dim\left(
@@ -363,27 +277,15 @@ e_v(J/J^2)e_u
 \left|\{\text{primitive edges }u\to v\}\right|.
 ```
 
-This preserves parallel channels.
-
-Hence the triple
+The quotient therefore preserves parallel channels. Hence the marked graded algebra
 
 ```math
-\left(\mathbb C[G],\mathcal D_0,{\mathcal A_n}_{n\ge0}\right)
+\left(\mathbb C[G],\mathcal D_0,\{\mathcal A_n\}_{n\ge0}\right)
 ```
 
-recovers:
+recovers the nodes, primitive channels, parallel-channel multiplicities, all finite paths and their lengths, the reachability relation, and acyclicity. This recovery does not require the cardinality of $V$ to be fixed in advance.
 
-* nodes;
-* primitive channels;
-* parallel-edge multiplicities;
-* all finite paths;
-* path lengths;
-* reachability;
-* acyclicity.
-
-It does so without knowing or fixing $|V|$.
-
-# 7. Canonical Hilbert-space realization
+# 7. The Fock-space representation
 
 Let
 
@@ -395,10 +297,10 @@ Let
 with orthonormal basis
 
 ```math
-{\xi_p:p\in\mathsf P(G)}.
+\{\xi_p:p\in\mathsf P(G)\}.
 ```
 
-This Hilbert space is defined for an arbitrary set of paths, including an uncountable one.
+This Hilbert space is well defined even when the path set is uncountable, since every vector in an $\ell^2$ space has countable support.
 
 For each node $v$, let $P_v$ project onto paths whose terminal node is $v$.
 
@@ -412,21 +314,17 @@ L_e\xi_p=
 \end{cases}
 ```
 
-Then:
+The resulting operators satisfy
 
 ```math
 P_uP_v=0\quad(u\ne v),
-```
-
-```math
+\qquad
 L_e^\ast L_e=P_{s(e)},
-```
-
-```math
+\qquad
 L_eL_e^\ast\le P_{r(e)},
 ```
 
-and for distinct primitive channels,
+and, for distinct primitive channels,
 
 ```math
 L_e^\ast L_f=0
@@ -447,11 +345,9 @@ For a path $p=e_n\cdots e_1$,
 L_p=L_{e_n}\cdots L_{e_1}.
 ```
 
-For countable graphs, this Fock-space construction yields free semigroupoid algebras; Kribs and Power showed that the directed graph is a complete unitary invariant of the resulting algebra.
+For countable graphs, the Fock-space construction leads to free semigroupoid algebras, for which the directed graph is a complete unitary invariant. The formulas above apply to arbitrary cardinality, but the extension of the countable classification theory to nonseparable Fock spaces is a separate question.
 
-The formula applies to arbitrary cardinality, but whether the countable classification theorems extend unchanged to the nonseparable case remains to be established.
-
-# 8. Acyclicity becomes one-sided operator multiplication
+# 8. One-sided composition in acyclic systems
 
 If nonempty paths $p$ and $q$ satisfy
 
@@ -471,19 +367,11 @@ L_pL_q=0.
 
 If both products were nonzero, their source-target conditions would form a directed closed path.
 
-This composes oriented noncommutativity:
+Thus an allowed composition in one order excludes the reversed composition. This one-sided multiplication is a direct operator-algebraic consequence of orientation and acyclicity.
 
-```math
-\text{one ordering may exist while its reversal is forbidden.}
-```
+# 9. Aggregate creation operators
 
-And that relation comes directly from A4 and A5.
-
-# 9. Canonical aggregate operators
-
-We do not assume one global adjacency operator exists.
-
-Instead, individual channel operators $L_e$ always exist. For coefficients $c_e$, consider formally
+The construction does not assume that a global adjacency operator is bounded. The individual channel operators $L_e$ are always defined, and for coefficients $c_e$ one may consider the formal sum
 
 ```math
 T_c=\sum_{e\in E}c_eL_e.
@@ -499,7 +387,7 @@ T_c^\ast T_c=
 \right)P_v.
 ```
 
-Therefore $T_c$ defines a bounded operator precisely when
+The sum defines a bounded operator precisely when
 
 ```math
 \sup_{v\in V}
@@ -507,10 +395,10 @@ Therefore $T_c$ defines a bounded operator precisely when
 <\infty.
 ```
 
-Then
+In that case,
 
 ```math
-|T_c|=
+\lVert T_c\rVert=
 \sup_{v\in V}
 \left(
 \sum_{s(e)=v}|c_e|^2
@@ -520,22 +408,16 @@ Then
 For the unweighted choice $c_e=1$, this becomes
 
 ```math
-|T|=\sqrt{\sup_v\deg^+(v)}.
+\lVert T\rVert=\sqrt{\sup_v\deg^+(v)}.
 ```
 
-Thus an unweighted global creator is bounded exactly when outgoing degree is uniformly bounded.
+An unweighted global creator is bounded exactly when outgoing degree is uniformly bounded.
 
 A corresponding right-creation aggregate is bounded exactly when incoming degree is uniformly bounded.
 
-# 10. Spectral structure unique to infinity
+# 10. Spectral effects of completion
 
-Every finite-support element of $J$ is nilpotent, hence has spectrum
-
-```math
-{0}.
-```
-
-But an operator completion may contain limits with nonzero spectral radius.
+Every finitely supported element of $J$ is nilpotent and therefore has spectrum $\{0\}$. An operator completion, however, may contain limits with nonzero spectral radius.
 
 Consider the infinite chain
 
@@ -549,27 +431,17 @@ The global operator
 T=\sum_{n\ge0}L_{e_n}
 ```
 
-is bounded with $|T|=1$. On each fixed-start path sector, it acts as a unilateral shift, so
+is bounded with $\lVert T\rVert=1$. On each fixed-start path sector it acts as a unilateral shift, and hence
 
 ```math
 \sigma(T)=\{z\in\mathbb C:|z|\le1\}.
 ```
 
-Every finite partial sum is nilpotent with spectrum ${0}$, whereas the infinite strong limit has the entire closed unit disk as spectrum.
+Every finite partial sum is nilpotent with spectrum $\{0\}$, whereas the strong limit has the closed unit disk as its spectrum. Nonzero spectral structure may therefore arise after operator-topology completion even though every algebraic finite process is nilpotent. In particular, the spectra of finite truncations do not determine the completed infinite operator.
 
-Therefore:
+# 11. A marked nonselfadjoint invariant
 
-```math
-\text{Infinite spectral structure can appear only after completion,}
-```
-
-even though every algebraic finite process is nilpotent.
-
-The infinite object is not determined by the spectra of its finite truncations.
-
-# 11. The primary invariant
-
-The primary candidate is the marked nonselfadjoint operator algebra
+A natural primary invariant is the marked nonselfadjoint operator algebra
 
 ```math
 \mathbf B(G)=
@@ -577,14 +449,10 @@ The primary candidate is the marked nonselfadjoint operator algebra
 \mathcal A_G,
 \mathcal D_G,
 \gamma
-\right),
+\right).
 ```
 
-where:
-
-* $\mathcal A_G$ is generated by the $P_v$ and $L_e$;
-* $\mathcal D_G$ is the distinguished node diagonal;
-* $\gamma$ is the path-length grading or gauge action:
+In this triple, $\mathcal A_G$ is generated by the vertex projections $P_v$ and edge creators $L_e$, $\mathcal D_G$ is the distinguished node diagonal, and $\gamma$ is the path-length grading, equivalently the gauge action,
 
 ```math
 \gamma_z(L_p)=z^{|p|}L_p,
@@ -592,17 +460,8 @@ where:
 \gamma_z(P_v)=P_v.
 ```
 
-This records:
+This marked algebra records node orthogonality, source and target corners, noncommutative composition, the distinction between primitive and composite channels, all finite paths, operator norms, spectra of canonical elements, and effects introduced by completion.
 
-* orthogonality;
-* source and target corners;
-* noncommutative composition;
-* primitive versus composite channels;
-* all finite paths;
-* operator norms;
-* spectra of canonical elements;
-* infinite completion effects.
+The norm-closed version is closely related to the directed graph tensor algebra; in the countable case, its $C^\ast$-envelope is the graph’s universal Cuntz-Krieger algebra.
 
-The norm-closed version is closely related to the directed graph tensor algebra; in the countable case, its $C^\ast$-envelope is the graph’s universal Cuntz–Krieger algebra.
-
-The nonselfadjoint algebra should remain primary: adjoint operators such as $L_e^\ast$ are mathematical Hilbert-space adjoints, not reverse communication channels.
+The nonselfadjoint algebra remains primary because the adjoints $L_e^\ast$ are Hilbert-space operators used to remove path prefixes; they do not represent reverse communication channels.

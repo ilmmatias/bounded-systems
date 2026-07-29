@@ -5,8 +5,6 @@ Every path from $v$ to $x$ is either:
 * the identity path, when $v=x$; or
 * an edge $e:v\to w$, followed by a path $w\to x$.
 
-Therefore
-
 ```math
 G_t(v,x)=
 \delta_{v,x}
@@ -16,7 +14,7 @@ t\sum_{e:s(e)=v}G_t(r(e),x).
 
 At a finite emitter, this is an ordinary finite sum.
 
-At an infinite emitter, this equality is in the extended nonnegative reals; we restrict scalar Martin kernels to endpoint pairs for which the value is finite.
+At an infinite emitter, this equality lies in the extended nonnegative reals. Scalar Martin kernels are restricted to endpoint pairs for which the value is finite.
 
 The standard Martin construction likewise begins with a Green kernel and normalizes its columns by a reference state.
 
@@ -37,7 +35,7 @@ K_t(v,x)=
 \frac{G_t(v,x)}{G_t(o,x)}.
 ```
 
-Then
+It follows that
 
 ```math
 K_t(o,x)=1.
@@ -57,7 +55,7 @@ so
 0\le K_t(v,x)\le t^{-|q|}.
 ```
 
-Thus each coordinate $K_t(v,x)$ is uniformly bounded as $x$ varies.
+Each coordinate $K_t(v,x)$ is uniformly bounded as $x$ varies.
 
 The map
 
@@ -75,7 +73,7 @@ where $C_v=t^{-|q_v|}$ for one chosen route $q_v:o\to v$.
 
 Its closure is compact in the product topology.
 
-We may therefore define the weighted node Martin compactification
+Define the weighted node Martin compactification
 
 ```math
 \overline V_t^{\,M}=
@@ -142,7 +140,7 @@ Node Martin boundary points yield exactly the harmonic or superharmonic function
 
 # 4. Minimal harmonic functions
 
-Let
+Define the normalized positive harmonic cone by
 
 ```math
 \mathscr H_t(o)=
@@ -184,7 +182,7 @@ then $ah_1\le h$; minimality forces $h_1=h$, and similarly $h_2=h$. The converse
 
 The minimal Martin boundary comprises the boundary kernels that are minimal harmonic; the full boundary can be larger and coincides with its minimal part only in special systems.
 
-Under the countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. In the unrestricted A1–A5 setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, but a full integral-representation theorem requires additional analytic assumptions.
+Under the countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. In the unrestricted bounded system setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, but a full integral-representation theorem requires additional analytic assumptions.
 
 ---
 
@@ -217,7 +215,7 @@ Indeed,
 \sum_{q:o\to x}\nu_x^t(q)=1.
 ```
 
-This is a static normalized ensemble of paths ending at $x$, not an external temporal law.
+The measure is a static normalized ensemble of paths ending at $x$, not an external temporal law.
 
 For a finite path $p:o\to v$, the probability that the selected terminal route begins with $p$ is
 
@@ -232,7 +230,7 @@ For a finite path $p:o\to v$, the probability that the selected terminal route b
 \end{aligned}
 ```
 
-Therefore
+Therefore the cylinder weight is
 
 ```math
 \mu_x^t[p]=
@@ -245,11 +243,7 @@ The node Martin kernel is thus exactly the terminal-route bridge viewed through 
 
 # 6. Boundary lift to prefix cylinders
 
-Suppose
-
-```math
-K_t(\cdot,x_i)\longrightarrow h.
-```
+Suppose $K_t(\cdot,x_i)\longrightarrow h$.
 
 Then for every finite route $p:o\to v$,
 
@@ -277,7 +271,7 @@ t^{|p|}h(v)\\
 \end{aligned}
 ```
 
-Thus every node Martin boundary point has a canonical route-sensitive lift:
+Every node Martin boundary point has a canonical route-sensitive lift:
 
 ```math
 h
@@ -294,17 +288,13 @@ t^{-|p|}\mu_h[p]
 \text{ depends only on }r(p).
 ```
 
-This is the endpoint-factorization condition derived earlier.
+The identity is the endpoint-factorization condition.
 
 ---
 
 # 7. Same-endpoint route law
 
-Let
-
-```math
-p,q:o\to v.
-```
+Fix two routes $p,q:o\to v$.
 
 Their bridge-cylinder weights satisfy
 
@@ -322,9 +312,9 @@ Therefore, conditional on the bridge passing through $v$,
 \frac{t^{|p|}}{G_t(o,v)}.
 ```
 
-This distribution is independent of the eventual destination $x$.
+The transition law is independent of the eventual destination $x$.
 
-Consequences:
+This independence has the following consequences.
 
 ## Equal-length routes
 
@@ -334,7 +324,7 @@ If
 |p|=|q|,
 ```
 
-then
+it follows that
 
 ```math
 \mu_x^t[p]=\mu_x^t[q].
@@ -348,13 +338,13 @@ If
 |q|=|p|+k,
 ```
 
-then
+it follows that
 
 ```math
 \mu_x^t[q]=t^k\mu_x^t[p].
 ```
 
-So the node Martin construction cannot favor one equal-length route over another having the same endpoint.
+The node Martin construction cannot favor one equal-length route over another having the same endpoint.
 
 It is intrinsically endpoint-compressed.
 
@@ -371,7 +361,7 @@ Define the normalized endpoint Fock vector
 t^{|q|/2}\xi_q.
 ```
 
-Then
+It follows that
 
 ```math
 |\Omega_x^t|=1.
@@ -387,7 +377,7 @@ P[p]\Omega_x^t,\Omega_x^t
 t^{|p|}K_t(r(p),x).
 ```
 
-Thus:
+Equivalently,
 
 ```math
 \text{node Martin bridge}=
@@ -396,12 +386,7 @@ Thus:
 
 If $x_i$ escapes and the vectors converge weakly to zero, their cylinder states may still converge to the boundary lift $\mu_h$.
 
-This unifies:
-
-* the Fock route representation;
-* endpoint Green kernels;
-* node harmonic functions;
-* boundary cylinder states.
+The construction unifies the Fock route representation, endpoint Green kernels, node harmonic functions, and boundary cylinder states.
 
 ---
 
@@ -409,13 +394,7 @@ This unifies:
 
 The node construction is not the full route-sensitive Martin construction.
 
-Let
-
-```math
-\mathcal T_o
-```
-
-be the prefix tree whose vertices are actual finite paths beginning at $o$.
+Let $\mathcal T_o$ be the prefix tree whose vertices are actual finite paths beginning at $o$.
 
 There is an edge
 
@@ -443,14 +422,14 @@ Since
 G_t^{\mathrm{pre}}(1_o,q)=t^{|q|},
 ```
 
-the prefix Martin kernel is
+The prefix Martin kernel is
 
 ```math
 K_t^{\mathrm{pre}}(p,q)=
 t^{-|p|}\mathbf1_{\{p\preceq q\}}.
 ```
 
-This remembers the actual route history.
+The path-boundary state retains the route history.
 
 Along an infinite path $\xi$,
 
@@ -467,7 +446,7 @@ Multiplying by $t^{|p|}$ gives its cylinder function:
 \mathbf1_{\{p\preceq\xi\}}.
 ```
 
-This is the Dirac state concentrated on the one infinite route $\xi$.
+The corresponding state is the Dirac mass on the infinite route $\xi$.
 
 ---
 
@@ -496,7 +475,7 @@ t^{-|p|}\\
 \end{aligned}
 ```
 
-Therefore
+This gives
 
 ```math
 K_t(v,x)=
@@ -507,7 +486,7 @@ K_t^{\mathrm{pre}}(p,q),
 
 for every $p:o\to v$.
 
-This is the exact relationship between the two boundaries:
+The two boundaries are related by:
 
 ```math
 \text{node Martin kernel}=
@@ -533,7 +512,7 @@ and at finite emitters,
 \sum_{e:r(p)\to w}\Psi(pe).
 ```
 
-This contains all route-sensitive cylinder states.
+The path-boundary simplex contains all route-sensitive cylinder states.
 
 The endpoint-factorized subcone consists of functions of the form
 
@@ -544,8 +523,6 @@ t^{|p|}h(r(p)),
 
 where $h\in\mathscr H_t(o)$.
 
-Hence
-
 ```math
 \mathscr H_t(o)
 \hookrightarrow
@@ -554,13 +531,9 @@ Hence
 
 The inclusion is usually strict.
 
-The full prefix cone can assign different weights to:
+The full prefix cone can assign different weights to parallel paths, equal-length reconvergent routes, and histories that arrive at the same node.
 
-* parallel paths;
-* equal-length reconvergent routes;
-* histories that arrive at the same node.
-
-The node cone cannot.
+The node cone cannot distinguish these possibilities.
 
 ---
 
@@ -577,15 +550,13 @@ t^{-|p_v|}\Psi(p_v),
 
 where $p_v$ is the unique path $o\to v$.
 
-Then
+It follows that
 
 ```math
 \Psi(p_v)=t^{|p_v|}h(v),
 ```
 
-and prefix conservation becomes the node harmonic equation.
-
-Therefore:
+and prefix conservation becomes the node harmonic equation. Consequently,
 
 ```math
 \text{unique rooted routes}
@@ -607,11 +578,7 @@ Thus reconvergence is exactly the obstruction to node harmonic data being comple
 
 # 13. Diamond followed by an infinite tail
 
-Consider
-
-```math
-o\to a\to v_0\to v_1\to v_2\to\cdots
-```
+Consider $o\to a\to v_0\to v_1\to v_2\to\cdots$.
 
 and
 
@@ -625,6 +592,8 @@ There are two infinite routes:
 \xi_a:
 o\to a\to v_0\to v_1\to\cdots,
 ```
+
+The corresponding map is
 
 ```math
 \xi_b:
@@ -668,16 +637,12 @@ The node Martin limit lifts to
 \frac12\delta_{\xi_b}.
 ```
 
-So the same boundary object can be:
+The same boundary object can be:
 
 * extreme in the endpoint-factorized node cone;
 * non-extreme in the full route-sensitive prefix cone.
 
-This is a major structural point:
-
-```math
-\text{extremality depends on the level of compression}.
-```
+The structural distinction is that extremality depends on the level of compression.
 
 ---
 
@@ -698,7 +663,7 @@ t
 t^2.
 ```
 
-Thus the node Martin lift is
+The node Martin lift is
 
 ```math
 \mu_h=
@@ -722,13 +687,7 @@ For a finite bridge to $x$, the conditional continuation after a prefix $p:o\to 
 t\frac{G_t(r(e),x)}{G_t(v,x)}.
 ```
 
-The right side depends on:
-
-* the current endpoint $v$;
-* the chosen next edge $e$;
-* the terminal node $x$;
-
-but not on the earlier route used to reach $v$.
+The right side depends on the current endpoint $v$, the chosen next edge $e$, and the terminal node $x$, but not on the earlier route used to reach $v$.
 
 At a boundary limit $h$,
 
@@ -739,7 +698,7 @@ t\frac{h(r(e))}{h(v)}.
 
 Endpoint-factorized Martin states are precisely those whose cylinder splitting forgets route history once the current node is known.
 
-This memorylessness follows algebraically from collapsing all histories ending at the same node.
+The Markov property follows algebraically from collapsing all histories ending at the same node.
 
 A general prefix-harmonic state can retain the full history:
 
@@ -753,35 +712,7 @@ may depend on the entire path $p$, even when two paths share the same endpoint.
 
 # 16. Three boundary levels
 
-The boundary hierarchy is now:
-
-## Route-prefix boundary
-
-```math
-\partial_{\mathrm{pre}}G
-```
-
-Retains actual infinite histories and generalized prefix exits.
-
-Its minimal points are individual route directions under suitable finite-branching assumptions.
-
-## Node Martin boundary
-
-```math
-\partial_t^M V
-```
-
-Retains asymptotic endpoint Green-kernel ratios.
-
-It merges or averages histories according to their weighted route multiplicities.
-
-## Minimal node Martin boundary
-
-```math
-\partial_{t,\min}^M V
-```
-
-Retains only extreme endpoint-factorized harmonic functions.
+The route-prefix boundary $\partial_{\mathrm{pre}}G$ retains actual infinite histories and generalized prefix exits; under suitable finite-branching assumptions, its minimal points are individual route directions. The node Martin boundary $\partial_t^M V$ retains asymptotic endpoint Green-kernel ratios and merges or averages histories according to their weighted route multiplicities. The minimal node Martin boundary $\partial_{t,\min}^M V$ retains only the extreme endpoint-factorized harmonic functions.
 
 The maps are
 

@@ -1,20 +1,10 @@
 # 1. Computational conclusions
 
-The finite construction established the following without Monte Carlo approximation:
+The finite construction established, without Monte Carlo approximation, that:
 
-```math
-\text{the DAG Bratteli incidence operator is explicitly computable,}
-```
-
-```math
-\text{both canonical terminal sectors define exact coherent measures,}
-```
-
-and
-
-```math
-\text{conditional graph-profile drift and covariance can be streamed exactly.}
-```
+* the DAG Bratteli incidence operator is explicitly computable;
+* both terminal sectors define exact coherent measures;
+* conditional graph-profile drift and covariance can be streamed exactly.
 
 It also exposed the exhaustive bottleneck:
 
@@ -26,13 +16,7 @@ is manageable for a terminal profile table, but the next full incidence level wo
 
 # 2. From the abstract configuration graph to an executable pipeline
 
-Let
-
-```math
-\mathfrak D_n
-```
-
-be the set of non-isomorphic simple DAGs with $n$ vertices. For
+Let $\mathfrak D_n$ be the set of non-isomorphic simple DAGs with $n$ vertices. For
 
 ```math
 G\in\mathfrak D_n,
@@ -48,11 +32,7 @@ d(G,H)
 \left|\{v\in V(H):H-v\cong G\}\right|.
 ```
 
-If
-
-```math
-a(G)=|\mathrm{Aut}(G)|,
-```
+Write $a(G)=|\mathrm{Aut}(G)|$.
 
 For a fixed labeled realization of $G$, the number of labeled one-vertex extensions belonging to the class $H$ is
 
@@ -69,7 +49,7 @@ The computation built the sparse incidence operator
 B_n(G,H)=e(G,H).
 ```
 
-The two fundamental audits were checked for every emitted successor class:
+The two consistency audits were checked for every emitted successor class:
 
 ```math
 \sum_G d(G,H)=n+1,
@@ -87,7 +67,7 @@ The first verifies deletion accounting; the second independently verifies the au
 
 # 3. Exhaustive DAG catalogs through eight vertices
 
-The canonical class counts used by the pipeline were
+The class counts used by the pipeline were
 
 ```math
 1,
@@ -127,7 +107,7 @@ The catalogs and profiles were generated and validated at every level. The profi
 | 7 | 243,668 | 8 |
 | 8 | 20,286,025 | 8 |
 
-In the exact eight-node 2-WL computation from the preceding stage, one refinement round left only 509 collision classes containing 1,020 graphs, whereas stabilized refinement separated all 20,286,025 classes. Thus the finite catalog is exact, although the first continuum pass uses only the smaller graph-profile projection.
+In the exact eight-node 2-WL computation from the preceding stage, one refinement round left only 509 collision classes containing 1,020 graphs, whereas stabilized refinement separated all 20,286,025 classes. The finite catalog is exact, although the first continuum pass uses only the smaller graph-profile projection.
 
 # 4. Incidence volume and streaming necessity
 
@@ -143,7 +123,7 @@ The coefficient pass streamed the following incidence-row counts:
 | 6 | 5,984 | 1,625,762 |
 | 7 | 243,668 | 158,645,769 |
 
-The level-seven incidence file was approximately 3.96 GB. This made a streaming implementation mandatory: retaining the complete incidence operator, all profiles, and all conditional moments simultaneously in memory would have been wasteful and eventually impossible.
+At approximately 3.96 GB, the level-seven incidence file made a streaming implementation mandatory: retaining the complete incidence operator, all profiles, and all conditional moments simultaneously in memory would have been wasteful and eventually impossible.
 
 The executable order was therefore:
 
@@ -153,7 +133,7 @@ The executable order was therefore:
 4. stream incidence again to accumulate conditional coefficients;
 5. reduce the result to levelwise summaries.
 
-# 5. Two canonical terminal sectors
+# 5. Two terminal sectors
 
 For a terminal level $N=8$, the finite-horizon route counts were computed for two endpoint conventions.
 
@@ -165,7 +145,7 @@ The terminal weight was constant:
 w_N(H)=1.
 ```
 
-Consequently the endpoint law is proportional to
+The resulting endpoint law is proportional to
 
 ```math
 \dim(H)=\frac{N!}{|\mathrm{Aut}(H)|},
@@ -195,9 +175,9 @@ The corresponding exact normalizer was
 Z_{8,\mathrm{class}}=817{,}932{,}528{,}000.
 ```
 
-These two sectors were retained separately because neither weighting is selected directly by A1–A5.
+The two sectors were retained separately because isomorphism invariance alone does not distinguish equal class weights from weights induced by labeled realizations.
 
-# 6. Exact finite coherent measures
+# 6. Finite coherent measures
 
 For either terminal weight, define
 
@@ -235,7 +215,7 @@ Together with the canonical down transition
 D_n(H,G)=\frac{d(G,H)}{n+1},
 ```
 
-the pipeline checked the exact intertwining identity
+The pipeline checked the exact intertwining identity
 
 ```math
 \mu_n^{N,w}(G)U_n^{N,w}(G,H)
@@ -243,7 +223,7 @@ the pipeline checked the exact intertwining identity
 \mu_{n+1}^{N,w}(H)D_n(H,G).
 ```
 
-This was verified in exact arithmetic for both terminal sectors.
+The identity was verified in exact arithmetic for both terminal sectors.
 
 # 7. Harmonic masses and generated files
 
@@ -288,7 +268,7 @@ The profile files reached approximately:
 | 7 | 38.5 MB |
 | 8 | 2.59 GB |
 
-This pass did not claim that eight coordinates are the final profile space. It supplied the first fixed finite dictionary in the projective hierarchy.
+The eight-coordinate pass did not treat its dictionary as the final profile space; it supplied a fixed finite projection within the projective hierarchy.
 
 # 9. Streaming conditional coefficients
 
@@ -298,7 +278,7 @@ For every incidence edge
 G\to H,
 ```
 
-the scaled profile increment was
+The scaled profile increment was
 
 ```math
 F_n(G,H)
@@ -312,7 +292,7 @@ With transition weight
 u(G,H)=U_n^{N,w}(G,H),
 ```
 
-the pass accumulated, per predecessor class,
+The pass accumulated, per predecessor class,
 
 ```math
 b_n(G)=\sum_Hu(G,H)F_n(G,H),
@@ -359,7 +339,7 @@ To distinguish terminal-boundary effects from bulk behavior, the same analysis w
 N=4,5,6,7,8.
 ```
 
-The comparison yielded 25 rows per sector: five profile or coefficient summaries at each of five horizons, providing the first explicit finite-horizon convergence diagnostic for the configuration process.
+The comparison yielded 25 rows per sector: five profile or coefficient summaries at each of five horizons, providing an explicit finite-horizon convergence diagnostic for the configuration process.
 
 The sweep served three purposes:
 
@@ -367,4 +347,4 @@ The sweep served three purposes:
 2. identify which coordinates were still dominated by the terminal level;
 3. determine whether extrapolation to much larger $N$ required exhaustive incidence or a sampler.
 
-Growth from 243,668 classes at level seven to 20,286,025 at level eight showed that further exact incidence enumeration was not efficient.
+Growth from 243,668 classes at level seven to 20,286,025 at level eight showed that further exact incidence enumeration would be inefficient.

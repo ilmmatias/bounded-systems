@@ -1,16 +1,6 @@
 # 1. Canonical concatenation unitary
 
-Let
-
-```math
-p:u\to w,\qquad |p|=n,
-```
-
-and
-
-```math
-q:w\to v,\qquad |q|=m.
-```
+Let $p:u\to w$ and $q:w\to v$ have lengths $n$ and $m$, respectively.
 
 Their concatenation is
 
@@ -57,7 +47,7 @@ C_{\ell,m+n}
 \bigl(I\otimes C_{m,n}\bigr).
 ```
 
-Thus the resolved route tower
+The resolved route tower
 
 ```math
 {\mathcal H_n,C_{m,n}}_{m,n\ge0}
@@ -65,7 +55,7 @@ Thus the resolved route tower
 
 is strictly associative.
 
-This is the fundamental multiplicative object. No route information has yet been discarded.
+The tensor is the primary multiplicative object and retains all route information.
 
 ---
 
@@ -87,7 +77,7 @@ Cutting every length-$(m+n)$ path at depth $n$ gives a disjoint union
 \mathsf P_m(w,v)\times\mathsf P_n(u,w).
 ```
 
-Hence, for arbitrary cardinalities,
+For arbitrary cardinalities,
 
 ```math
 N_{m+n}(v,u)=
@@ -115,7 +105,7 @@ The multiplicity tower is determined by the direct-channel kernel, provided ordi
 
 # 3. Endpoint collapse respects concatenation
 
-Let
+Define $\mathcal K$ by
 
 ```math
 \mathcal K=\ell^2(V\times V)
@@ -206,7 +196,7 @@ N_m(v,w)N_n(w,u)
 }.
 ```
 
-Therefore
+Thus the endpoint action is
 
 ```math
 \Gamma_{m,n}\Gamma_{m,n}^\ast\eta_{v,u}=
@@ -222,7 +212,7 @@ D_{m+n}=
 \Gamma_{m,n}\Gamma_{m,n}^\ast.
 ```
 
-So the length-$(m+n)$ multiplicity is the Gram norm of all possible intermediate-node factorizations.
+The length-$(m+n)$ multiplicity is the Gram norm of all possible intermediate-node factorizations.
 
 ---
 
@@ -237,9 +227,9 @@ a_w=
 N_m(v,w)N_n(w,u).
 ```
 
-This is the number of length-$(m+n)$ routes from $u$ to $v$ whose depth-$n$ node is $w$.
+The entry counts length-$(m+n)$ routes from $u$ to $v$ whose depth-$n$ node is $w$.
 
-Let
+Set $N$ by
 
 ```math
 N=\sum_wa_w=N_{m+n}(v,u).
@@ -251,7 +241,7 @@ Inside
 \mathcal H_m(v,w)\otimes\mathcal H_n(w,u),
 ```
 
-the normalized equal-route vector is
+The normalized equal-route vector is
 
 ```math
 e_w=
@@ -276,17 +266,11 @@ The equal-route direction at total depth is a weighted superposition over every 
 
 It is a simple tensor only when exactly one $w$ contributes.
 
-Therefore:
-
-```math
-\text{resolved path spaces multiply strictly,}
-```
+resolved path spaces multiply strictly,
 
 but
 
-```math
-\text{normalized equal-route sectors generally do not.}
-```
+normalized equal-route sectors generally do not.
 
 Reconvergence mixes the intermediate sectors.
 
@@ -294,7 +278,7 @@ Reconvergence mixes the intermediate sectors.
 
 # 6. Exact decomposition of route defects
 
-Let
+Define $B_w$ by
 
 ```math
 B_w=
@@ -365,6 +349,8 @@ The two parts have different meanings.
 
 ## Internal route defects
 
+The internal route-defect space is
+
 ```math
 \bigoplus_wF_w
 ```
@@ -372,6 +358,8 @@ The two parts have different meanings.
 contains ambiguities already present within the two route segments.
 
 ### Intermediate-factorization defects
+
+The intermediate-factorization defect space is
 
 ```math
 \mathcal F_{m,n}(v,u)
@@ -385,14 +373,14 @@ These are new defects created by composition.
 
 # 7. Finite-dimensional count
 
-Let
+Define $k_{m,n}(v,u)$ by
 
 ```math
 k_{m,n}(v,u)=
 \left|\{w:a_w>0\}\right|.
 ```
 
-Then:
+It follows that
 
 ```math
 \dim\mathcal D_{m+n}(v,u)=N-1.
@@ -410,7 +398,7 @@ while the factorization-defect part has dimension
 k_{m,n}(v,u)-1.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 N-1=
@@ -419,14 +407,7 @@ N-1=
 \bigl(k_{m,n}-1\bigr).
 ```
 
-In words:
-
-```math
-\text{total route ambiguity}=
-\text{ambiguity within intermediate sectors}
-+
-\text{ambiguity between intermediate sectors}.
-```
+Thus total route ambiguity splits into ambiguity within intermediate sectors and ambiguity between intermediate sectors.
 
 For a diamond, there are two intermediate nodes, each supporting one route pair:
 
@@ -436,7 +417,7 @@ N=2,\qquad k=2.
 
 The internal defect dimension is zero, while the factorization defect dimension is one.
 
-This is the diamond relation.
+The kernel vector is the diamond relation.
 
 ---
 
@@ -455,7 +436,7 @@ C_{m,n}
 \ker\Sigma_{m+n}.
 ```
 
-So route defects propagate under prefixing and suffixing.
+Route defects propagate under prefixing and suffixing.
 
 But the inclusion may be strict.
 
@@ -473,7 +454,7 @@ Schematically,
 \text{intermediate-node defect space}.
 ```
 
-This is the operator version of the distinction between:
+The operator identity separates:
 
 * route ambiguity internal to factors;
 * coherence ambiguity among different factorizations.
@@ -489,7 +470,7 @@ W_{m,n}(v,u)=
 \left\lbrace w: N_n(w,u)>0,\; N_m(v,w)>0 \right\rbrace.
 ```
 
-This set consists of nodes through which a length-$(m+n)$ path can pass at the prescribed cut.
+The set contains the nodes through which a length-$(m+n)$ path can pass at the prescribed cut.
 
 The factorization defect is the weighted reduced space on this set:
 
@@ -505,7 +486,7 @@ When the set is finite and nonempty,
 |W_{m,n}(v,u)|-1.
 ```
 
-This is the same dimension as
+The dimension equals
 
 ```math
 \widetilde H_0
@@ -524,13 +505,15 @@ Iterated cuts produce chains of intermediate nodes that assemble into the full o
 \Delta(u,v).
 ```
 
-So the operator decomposition and the interval-topology construction meet naturally:
+The operator decomposition and the interval-topology construction meet naturally:
 
 ```math
 \text{one cut}
 \longrightarrow
 \widetilde H_0,
 ```
+
+At the level of maps,
 
 ```math
 \text{many compatible cuts}
@@ -561,7 +544,7 @@ N_1(w_i,u)=1,
 N_1(v,w_i)=1.
 ```
 
-Therefore every length-one endpoint fiber has size at most one:
+Every length-one endpoint fiber has size at most one:
 
 ```math
 |\Sigma_1|=1.
@@ -575,15 +558,11 @@ N_2(v,u)=|I|,
 
 which is infinite.
 
-Hence
-
 ```math
 \Sigma_2^0
 ```
 
 is nonclosable.
-
-So:
 
 ```math
 \text{bounded endpoint collapse at lengths }m\text{ and }n
@@ -608,7 +587,7 @@ The second cannot be detected from $\Sigma_m$ and $\Sigma_n$ separately.
 
 # 11. Support tower and Boolean composition
 
-Define
+Define the Boolean support kernel by
 
 ```math
 Z_n(v,u)=
@@ -618,7 +597,7 @@ Z_n(v,u)=
 \end{cases}
 ```
 
-Then
+It follows that
 
 ```math
 Z_{m+n}(v,u)=
@@ -628,7 +607,7 @@ Z_m(v,w)\wedge Z_n(w,u)
 \right).
 ```
 
-Thus the exact-length support tower multiplies over the Boolean semiring:
+The exact-length support tower multiplies over the Boolean semiring:
 
 ```math
 Z_{m+n}=Z_m\odot Z_n.
@@ -640,7 +619,7 @@ The shortest compositional distance is
 d(u,v)=\min{n:Z_n(v,u)=1}.
 ```
 
-This demonstrates the three multiplicative laws directly:
+The example exhibits the three multiplicative laws:
 
 ```math
 \begin{array}{c|c}
@@ -659,7 +638,7 @@ Each layer changes the meaning of addition while preserving compositional multip
 
 # 12. Geodesic multiplicity under cutting
 
-Let
+Set $d$ by
 
 ```math
 d=d(u,v)
@@ -681,8 +660,6 @@ For every cut depth
 
 every geodesic path has a unique node $w$ after $n$ edges. Its prefix and suffix must themselves be geodesic; otherwise the full route could be shortened.
 
-Therefore
-
 ```math
 g(v,u)=
 \sum_{\substack{
@@ -693,7 +670,7 @@ d(w,v)=d-n
 g(w,u)g(v,w).
 ```
 
-This is the leading-coefficient companion to the min-plus distance equation.
+The leading-coefficient law complements the min-plus distance equation.
 
 So tropicalization can be refined from merely
 
@@ -707,22 +684,19 @@ to the pair
 \bigl(d(u,v),g(v,u)\bigr),
 ```
 
-with:
-
-* min-plus composition for distances;
-* ordinary addition and multiplication for geodesic multiplicities along minimizing intermediates.
+with min-plus composition for distances and ordinary addition and multiplication for geodesic multiplicities along minimizing intermediates.
 
 ---
 
 # 13. Propagation of total branching
 
-Let
+Define $T_n(u)$ by
 
 ```math
 T_n(u)=\sum_vN_n(v,u).
 ```
 
-Then
+It follows that
 
 ```math
 \begin{aligned}
@@ -736,7 +710,7 @@ N_n(w,u)T_m(w).
 \end{aligned}
 ```
 
-Hence
+Summing first over the terminal endpoint gives
 
 ```math
 T_{m+n}(u)=
@@ -771,7 +745,7 @@ For maximum endpoint multiplicity,
 M_n=\sup_{u,v}N_n(v,u),
 ```
 
-we have
+Thus,
 
 ```math
 M_{m+n}
@@ -787,7 +761,7 @@ M_{m+n}
 M_nT_m^-.
 ```
 
-Thus, when the operators are bounded,
+When the operators are bounded,
 
 ```math
 |\Sigma_{m+n}|
@@ -795,52 +769,26 @@ Thus, when the operators are bounded,
 \min\left\lbrace |\Sigma_m|,|S_+^n|,|\Sigma_n|,|S_-^m| \right\rbrace.
 ```
 
-This separates propagation caused by forward branching from propagation caused by backward reconvergence.
+The normalization separates forward branching from backward reconvergence.
 
 ---
 
 # 14. The tower is multiplicative only before normalization
 
-The two towers differ after normalization.
-
-## Resolved tower
+The two towers differ after normalization. The resolved route spaces satisfy the unitary and associative composition law
 
 ```math
 \mathcal H_m\overline\otimes_{\mathcal D}\mathcal H_n
 \cong
-\mathcal H_{m+n}
+\mathcal H_{m+n}.
 ```
 
-unitarily and associatively.
-
-## Multiplicity tower
+The multiplicity and support towers satisfy, respectively,
 
 ```math
-N_{m+n}=N_mN_n
+N_{m+n}=N_mN_n,
+\qquad
+Z_{m+n}=Z_m\odot Z_n,
 ```
 
-by convolution.
-
-## Support tower
-
-```math
-Z_{m+n}=Z_m\odot Z_n
-```
-
-over the Boolean semiring.
-
-## Equal-route sectors
-
-The normalized equal-route direction at depth $m+n$ is a weighted sum over intermediate nodes, not generally the tensor product of the normalized lower-depth equal-route directions.
-
-The obstruction is exactly reconvergence through multiple intermediate sectors.
-
-So:
-
-```math
-\text{path composition is strictly multiplicative;}
-```
-
-```math
-\text{normalized thin collapse is only multiplicative after weighted summation over factorizations.}
-```
+where the second product is Boolean. By contrast, the normalized equal-route direction at depth $m+n$ is a weighted sum over intermediate nodes and is not generally the tensor product of the lower-depth equal-route directions. Reconvergence through multiple intermediate sectors is the obstruction: path composition is strictly multiplicative, whereas normalized thin collapse becomes multiplicative only after weighted summation over factorizations.

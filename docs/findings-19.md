@@ -1,4 +1,4 @@
-# 1. A precise route–factorization double object
+# 1. Route-factorization double object
 
 Fix comparable nodes
 
@@ -29,7 +29,7 @@ p_i^{(j)}:v_{i-1}\to v_i
 \qquad(1\le i\le r+1).
 ```
 
-Thus an element is
+An element is
 
 ```math
 x=
@@ -83,16 +83,13 @@ These are the factorization directions.
 
 Deleting one route realization commutes with merging two factors.
 
-After taking free modules and normalized chains, we obtain a double complex
+Taking free modules and normalized chains gives a double complex
 
 ```math
 C_{r,q}^{\mathrm{RF}}(v,u).
 ```
 
-Here:
-
-* $q$ measures coherent route identification;
-* $r$ measures intermediate-node factorization.
+Here $q$ measures coherent route identification and $r$ measures intermediate-node factorization.
 
 As before, the horizontal degree has the conventional two-step shift: $r=0$, with no intermediate nodes, represents the open interval's empty simplex.
 
@@ -119,14 +116,12 @@ For each $j$, the sum is the length of the full actual path
 p_{r+1}^{(j)}\cdots p_1^{(j)}:u\to v.
 ```
 
-Thus $\Lambda(x)$ is the largest length among the $q+1$ route realizations represented by $x$.
+$\Lambda(x)$ is the largest length among the $q+1$ route realizations represented by $x$.
 
-This behaves exactly as required:
+The length statistic has the required functoriality:
 
 * deleting a route realization cannot increase $\Lambda$;
 * deleting a factorization node merely concatenates two path pieces, so it leaves every complete-route length unchanged.
-
-Therefore
 
 ```math
 F_N^{\mathrm{len}}C_{r,q}^{\mathrm{RF}}=
@@ -136,11 +131,11 @@ F_N^{\mathrm{len}}C_{r,q}^{\mathrm{RF}}=
 
 is a sub-double-complex.
 
-This filtration counts only primitive channels in a path, introducing no time scale or arbitrary damping parameter.
+The filtration counts primitive channels only; it introduces neither a time scale nor a damping parameter.
 
 # 3. Intrinsic ordinal-rank filtration
 
-We also want to record where a route lies relative to the transfinite past-rank decomposition.
+The transfinite past-rank decomposition also records where a route lies.
 
 For every node $w$, define its extended past stage
 
@@ -157,7 +152,7 @@ For a generator $x$, let $\mathrm{Int}(x)$ be all nodes other than $u,v$ appeari
 * as factorization nodes $v_1,\ldots,v_r$;
 * or internally inside any path $p_i^{(j)}$.
 
-Define
+The maximal past-stage index of $x$ is
 
 ```math
 \Theta^-(x)=
@@ -204,7 +199,7 @@ N\le M,
 \alpha\le\beta,
 ```
 
-then
+it follows that
 
 ```math
 F_{N,\alpha}C^{\mathrm{RF}}
@@ -212,7 +207,7 @@ F_{N,\alpha}C^{\mathrm{RF}}
 F_{M,\beta}C^{\mathrm{RF}}.
 ```
 
-Thus we obtain a functor from the product order
+This defines a functor from the product order
 
 ```math
 \mathbb N\times
@@ -221,7 +216,7 @@ Thus we obtain a functor from the product order
 
 to double complexes.
 
-This bifiltered complex—not a chosen one-dimensional traversal through it—is the canonical object.
+The bifiltered complex is canonical; no chosen one-dimensional traversal is.
 
 # 5. Route-restricted distance
 
@@ -259,7 +254,7 @@ d_\alpha(a,c)
 d_\alpha(a,b)+d_\alpha(b,c).
 ```
 
-This follows by concatenating shortest admissible paths through $b$.
+The inequality follows by concatenating shortest admissible paths through $b$.
 
 # 6. The filtered interval complex
 
@@ -309,13 +304,7 @@ Now fix one factorization chain
 u=v_0<\cdots<v_{r+1}=v.
 ```
 
-Let
-
-```math
-S_{N,\alpha}(\mathbf v)
-```
-
-be the set of actual route realizations
+Let $S_{N,\alpha}(\mathbf v)$ be the set of actual route realizations
 
 ```math
 (p_1,\ldots,p_{r+1})
@@ -341,7 +330,7 @@ Its $q$-simplices are
 S_{N,\alpha}(\mathbf v)^{q+1}.
 ```
 
-Therefore its vertical homology is
+Its vertical homology is
 
 ```math
 H_q^{\mathrm{rt}}=
@@ -371,7 +360,7 @@ After vertical homology, the horizontal complex is precisely the augmented simpl
 \Delta^{N,\alpha}(u,v).
 ```
 
-Hence the route-first spectral sequence has only one nonzero row after vertical homology and collapses immediately:
+The route-first spectral sequence has only one nonzero row after vertical homology and collapses immediately:
 
 ```math
 E^1
@@ -379,6 +368,8 @@ E^1
 \widetilde C_*
 \bigl(\Delta^{N,\alpha}(u,v);k\bigr),
 ```
+
+Consequently,
 
 ```math
 E^2
@@ -388,11 +379,11 @@ E^2
 E^\infty.
 ```
 
-The collapse occurs because each nonempty route fiber is contractible—not because the original system lacks route complexity.
+The collapse occurs because each nonempty route fiber is contractible, not because the original system lacks route complexity.
 
 # 8. Filtered coherence groups
 
-Retaining our earlier coherence-degree convention, define
+Using the same coherence-degree convention, define
 
 ```math
 \mathcal K_m^{N,\alpha}(v,u;k)=
@@ -402,24 +393,17 @@ Retaining our earlier coherence-degree convention, define
 \bigr).
 ```
 
-Thus:
+Thus the first three coherence degrees are
 
 ```math
-\mathcal K_1^{N,\alpha}=
-\widetilde H_{-1},
+\mathcal K_1^{N,\alpha}=\widetilde H_{-1},
+\qquad
+\mathcal K_2^{N,\alpha}=\widetilde H_0,
+\qquad
+\mathcal K_3^{N,\alpha}=\widetilde H_1,
 ```
 
-```math
-\mathcal K_2^{N,\alpha}=
-\widetilde H_0,
-```
-
-```math
-\mathcal K_3^{N,\alpha}=
-\widetilde H_1,
-```
-
-and so forth.
+and similarly in higher degrees.
 
 For
 
@@ -427,7 +411,7 @@ For
 N\le M,\qquad \alpha\le\beta,
 ```
 
-the inclusions of filtered interval complexes induce maps
+The inclusions of filtered interval complexes induce maps
 
 ```math
 \mathcal K_m^{N,\alpha}(v,u)
@@ -435,7 +419,7 @@ the inclusions of filtered interval complexes induce maps
 \mathcal K_m^{M,\beta}(v,u).
 ```
 
-So each endpoint pair and coherence degree determines a two-parameter persistence module:
+Each endpoint pair and coherence degree determines a two-parameter persistence module:
 
 ```math
 (N,\alpha)
@@ -474,9 +458,9 @@ Thus the filtered construction recovers the earlier interval coherence:
 
 But the filtered module contains considerably more information than its limit.
 
-# 10. Exactly where route information disappears
+# 10. Where route information disappears
 
-This construction gives a precise compression hierarchy.
+The construction gives the following compression hierarchy.
 
 ## Initial route page
 
@@ -496,14 +480,9 @@ has a basis consisting of every path $p:u\to v$ with:
 \Theta^-(p)\le\alpha.
 ```
 
-So this page sees:
+The initial page retains parallel channels, exact path multiplicities, every path length, and every internal rank profile.
 
-* parallel channels;
-* exact path multiplicities;
-* every path length;
-* every internal rank profile.
-
-## Vertical differential
+## Vertical differential and homology
 
 The first route differential is
 
@@ -511,30 +490,11 @@ The first route differential is
 d_1(p,q)=q-p.
 ```
 
-It records the route-collapse ideal.
-
-## Vertical homology
-
-After vertical homology, every nonempty route set becomes one dimension.
-
-What remains from the resolved paths is only:
-
-* whether an admissible realization exists;
-* the minimum admissible length $d_\alpha$.
-
-What disappears at this stage includes:
-
-* parallel-route multiplicity;
-* all non-shortest alternative routes;
-* same-length route distinctions;
-* route orthogonality;
-* shortcut multiplicity beyond its shortest effect.
+It records the route-collapse ideal. After vertical homology, every nonempty route set becomes one-dimensional. The resolved-path data then retain only the existence of an admissible realization and the minimum admissible length $d_\alpha$; parallel-route multiplicity, non-shortest alternatives, same-length route distinctions, route orthogonality, and shortcut multiplicity beyond its shortest effect are discarded.
 
 ## Horizontal homology
 
 The next step retains only topological coherence among the resulting weighted thin factorizations.
-
-Therefore:
 
 ```math
 \begin{aligned}
@@ -544,17 +504,11 @@ E^2=E^\infty&:\text{filtered interval coherence}.
 \end{aligned}
 ```
 
-This is the exact location of each information loss.
+Each information loss occurs at a specified page.
 
 # 11. Example: one shortcut
 
-Suppose
-
-```math
-u\to w\to v
-```
-
-and also
+Suppose that the system contains both $u\to w\to v$ and the shortcut
 
 ```math
 u\to v.
@@ -588,15 +542,13 @@ But the intermediate node $w$ is not yet admitted as a factorization, because
 d(u,w)+d(w,v)=2.
 ```
 
-Thus
+Equivalently,
 
 ```math
 \Delta^{1,\infty}(u,v)=\varnothing
 ```
 
 as an open interval complex, while its augmented empty simplex is present.
-
-Therefore
 
 ```math
 \mathcal K_1^{1,\infty}(v,u)\cong k.
@@ -612,11 +564,9 @@ The vertex $w$ appears. The interval complex becomes one point and is contractib
 \mathcal K_1^{2,\infty}(v,u)=0.
 ```
 
-So the apparent cover class is born at length one and dies at length two.
+The apparent cover class is born at length one and dies at length two.
 
-```math
-\text{A shortcut becomes a temporary low-budget primitive class.}
-```
+A shortcut becomes a temporary low-budget primitive class.
 
 The final reachability poset forgets the shortcut, but the filtered coherence module remembers exactly when it became redundant.
 
@@ -640,19 +590,11 @@ The vertical route differential contains the $(m-1)$-dimensional defect space
 
 But after vertical homology, all $m$ channels become the same one-dimensional reachability arrow.
 
-Thus
-
 ```math
 \mathcal K_1^{1,\alpha}(v,u)\cong k
 ```
 
-regardless of $m$.
-
-Therefore:
-
-```math
-\text{parallel multiplicity lives vertically and never reaches interval homology.}
-```
+regardless of $m$. Thus parallel multiplicity lives vertically and never reaches interval homology.
 
 # 13. Example: an asymmetric diamond
 
@@ -682,7 +624,7 @@ At $N=3$, $b$ appears as a second disconnected vertex:
 \Delta^{3,\infty}(u,v)=\{a,b\}.
 ```
 
-Hence
+Equivalently,
 
 ```math
 \mathcal K_2^{3,\infty}(v,u)\cong k.
@@ -701,7 +643,7 @@ At $N=3$, the entire six-cycle interval complex appears:
 \simeq S^1.
 ```
 
-Therefore
+Consequently,
 
 ```math
 \mathcal K_3^{3,\infty}([3],\varnothing)\cong k.
@@ -733,15 +675,11 @@ becomes available only once the cutoff includes
 \tau^-(w).
 ```
 
-Therefore the temporary cover-like class dies exactly when the intermediate rank layer containing $w$ enters.
+The temporary cover-like class dies exactly when the intermediate rank layer containing $w$ enters.
 
 In a diamond with intermediate nodes $a,b$, degree-two coherence appears only after both rank layers enter.
 
-Thus the ordinal filtration records:
-
-```math
-\text{at which transfinite construction stage a route or coherence becomes visible}.
-```
+Thus the ordinal filtration records the transfinite construction stage at which a route or coherence becomes visible.
 
 # 16. Relation to the formal resolvent
 
@@ -767,7 +705,7 @@ The rank filtration comes from the transfinite projections
 F^-_\alpha.
 ```
 
-So the route–factorization filtration can be summarized as:
+The route-factorization filtration can be summarized as:
 
 ```math
 \text{paths supported by }R_G^{\le N}

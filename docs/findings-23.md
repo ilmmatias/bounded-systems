@@ -1,6 +1,6 @@
-# 1. The complete fixed-depth inequality chain
+# 1. Fixed-depth inequality chain
 
-We have
+The resulting bound is
 
 ```math
 T\le Q\le MT\le T^2
@@ -36,7 +36,7 @@ Since $M\le T$,
 MT\le T^2.
 ```
 
-Finally, Cauchy–Schwarz gives
+Finally, Cauchy-Schwarz gives
 
 ```math
 T^2=
@@ -53,6 +53,8 @@ RQ.
 Each equality identifies a precise structural regime.
 
 ## No reconvergence at depth $n$
+
+In the absence of reconvergence,
 
 ```math
 Q=T
@@ -71,11 +73,13 @@ Operatorially,
 
 Endpoint collapse has caused no amplification because every route remains in its own endpoint sector.
 
-This is lengthwise thinness at $(u,n)$ but does not yet imply a unique route overall: paths of different lengths might connect the same endpoints.
+Call this lengthwise thinness at $(u,n)$. It is weaker than global route uniqueness because different lengths may still connect the same endpoints.
 
 ---
 
 ## Maximal endpoint funneling
+
+Under maximal endpoint funneling,
 
 ```math
 Q=T^2
@@ -85,7 +89,7 @@ R=1.
 
 All length-$n$ paths from $u$ terminate at one node.
 
-Then
+It follows that
 
 ```math
 |A^n\delta_u|_2=
@@ -98,6 +102,8 @@ Every orthogonal route amplitude has been collapsed into one endpoint coordinate
 
 ## Uniform reconvergence
 
+For uniform reconvergence,
+
 ```math
 Q=\frac{T^2}{R}
 \iff
@@ -107,11 +113,13 @@ a_v=\frac TR
 
 The path multiplicity is distributed equally among the $R$ endpoints.
 
-This minimizes $Q$ when $T$ and $R$ are fixed.
+The uniform distribution minimizes $Q$ for fixed $T$ and $R$.
 
 ---
 
 ## Saturation of the endpoint-collapse norm
+
+At saturation,
 
 ```math
 Q=MT
@@ -127,7 +135,7 @@ Recall that the endpoint-collapse operator satisfies
 |C_{n,u}|^2=M.
 ```
 
-Thus $Q=MT$ is exactly the condition under which the all-route vector attains the norm of $C_{n,u}$.
+$Q=MT$ is exactly the condition under which the all-route vector attains the norm of $C_{n,u}$.
 
 ---
 
@@ -157,8 +165,6 @@ Equivalently,
 \frac{|A^n\delta_u|_2^2}
 {|S_+^nP_u|^2}.
 ```
-
-So:
 
 * $\kappa_n(u)=1$ means no reconvergence;
 * $\kappa_n(u)=T$ means complete funneling into one endpoint.
@@ -222,15 +228,13 @@ The following are equivalent:
 6. The route-counting kernel equals the shortest monomial kernel: $\mathcal P_G(z)=\zeta_d(z)$.
 7. Whenever the scalar inverses exist, $M_d(z)=I-zA_G$.
 
-Thus:
-
 ```math
 \text{unique routes}
 \iff
 \text{weighted Möbius inversion remains completely local}.
 ```
 
-This is stronger than lengthwise thinness because it also forbids different-length alternatives.
+Global route uniqueness is stronger than lengthwise thinness because it also forbids different-length alternatives.
 
 ---
 
@@ -252,8 +256,6 @@ f^n(u).
 
 Conversely, if each source has only one possible endpoint at every positive length, the length-one case implies that its outgoing channels share one target.
 
-Therefore:
-
 ```math
 \begin{aligned}
 &\text{all paths from each source funnel to one endpoint at every depth}\\
@@ -268,7 +270,7 @@ If the number of parallel channels along the successive transitions is
 m_0,m_1,\ldots,
 ```
 
-then
+it follows that
 
 ```math
 T_n(u)=m_0m_1\cdots m_{n-1},
@@ -302,7 +304,7 @@ M_n=1,
 Q_n=d^n.
 ```
 
-Hence
+Consequently,
 
 ```math
 |S_+^nP_u|=d^{n/2}
@@ -318,7 +320,7 @@ and
 
 Take a one-way chain, with $d$ parallel channels between consecutive nodes.
 
-Then
+It follows that
 
 ```math
 T_n=d^n,
@@ -342,19 +344,7 @@ but now
 |A^n\delta_u|_2=d^n.
 ```
 
-So the two systems have identical:
-
-```math
-\text{Fock route growth}
-```
-
-and identical
-
-```math
-\ell^1\text{ path-count growth},
-```
-
-yet occupy opposite reconvergence extremes:
+The two systems have identical Fock route growth and identical $\ell^1$ path-count growth, yet occupy opposite reconvergence extremes:
 
 ```math
 \begin{array}{c|c|c}
@@ -367,14 +357,7 @@ Q_n&d^n&d^{2n}\\
 \end{array}
 ```
 
-Therefore:
-
-```math
-r(S_+)
-\text{ alone cannot distinguish expansion from reconvergence}.
-```
-
-This is an infinite obstruction to treating one spectral radius as a complete structural descriptor.
+Thus $r(S_+)$ alone cannot distinguish expansion from reconvergence. The example obstructs any complete description by a single spectral radius.
 
 ---
 
@@ -407,9 +390,9 @@ u=x_0<\cdots<x_r=v\\
 \prod_{i=1}^{r}g(x_i,x_{i-1}).
 ```
 
-This counts each factorization chain together with one selected geodesic realization of every factor.
+The sum counts each factorization chain with one selected geodesic realization of every factor.
 
-Then:
+It follows that
 
 ```math
 c_{r,L}(v,u)
@@ -421,6 +404,8 @@ G_{r,L}(v,u)
 
 ## First equality
 
+The first equality is equivalent to
+
 ```math
 c_{r,L}=G_{r,L}
 ```
@@ -428,6 +413,8 @@ c_{r,L}=G_{r,L}
 if and only if all factors in every cost-$L$, $r$-step chain have unique geodesics.
 
 ### Second equality
+
+The second equality is equivalent to
 
 ```math
 G_{r,L}=
@@ -468,21 +455,23 @@ E_L=
 c_{r,L},
 ```
 
+This gives
+
 ```math
 O_L=
 \sum_{\substack{r\ge1\\r\text{ odd}}}
 c_{r,L}.
 ```
 
-Then
+It follows that
 
 ```math
 m_L=E_L-O_L.
 ```
 
-Consequently:
-
 ## No cancellation
+
+Without cancellation,
 
 ```math
 |m_L|=E_L+O_L
@@ -494,6 +483,8 @@ All cost-$L$ factorizations have the same parity.
 
 ## Complete cancellation
 
+Under complete cancellation,
+
 ```math
 m_L=0
 \iff
@@ -502,7 +493,7 @@ E_L=O_L.
 
 Equal numbers of even- and odd-factor chains cancel exactly.
 
-This is purely an Euler-type cancellation. It does not imply that the filtered interval complex is contractible; nontrivial homology may cancel between even and odd degrees.
+The vanishing is only Euler cancellation; it does not imply contractibility, since even- and odd-degree homology may cancel.
 
 ---
 
@@ -526,7 +517,7 @@ The total unsigned number of factorizations is
 2^{L-1}.
 ```
 
-This saturates the unsigned cut-count bound.
+The example saturates the unsigned cut-count bound.
 
 But the signed coefficient is
 
@@ -537,7 +528,7 @@ m_L=
 \binom{L-1}{r-1}.
 ```
 
-Hence
+Alternating over the factorization length gives
 
 ```math
 m_L=
@@ -547,16 +538,12 @@ m_L=
 \end{cases}
 ```
 
-So a unique path of length $L\ge2$ simultaneously has:
+A unique path of length $L\ge2$ simultaneously has:
 
 * the largest possible number $2^{L-1}$ of cut factorizations for one route;
 * complete alternating Möbius cancellation.
 
-In the extremal case:
-
-```math
-\text{maximal factorization abundance can coexist with zero Möbius complexity}.
-```
+In the extremal case, maximal factorization abundance can coexist with zero Möbius complexity.
 
 Every factorization merely places cuts differently along the same route, so there is no genuine route ambiguity.
 
@@ -577,8 +564,6 @@ c_{2,2}=2
 ```
 
 for the two intermediate nodes.
-
-Therefore
 
 ```math
 m_2=-1+2=1.

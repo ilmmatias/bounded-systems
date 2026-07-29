@@ -19,10 +19,10 @@ h_\tau(v)=h_\sigma(v)
 \quad\forall v\in F.
 ```
 
-Let
+Define $C_F$ by
 
 ```math
-C_F=X/!\equiv_F.
+C_F=X/\!\equiv_F.
 ```
 
 If $F\subseteq F'$, then $F'$ distinguishes at least as much as $F$, giving a surjection
@@ -31,13 +31,7 @@ If $F\subseteq F'$, then $F'$ distinguishes at least as much as $F$, giving a su
 \rho_{F',F}:C_{F'}\longrightarrow C_F.
 ```
 
-Thus
-
-```math
-{C_F,\rho_{F',F}}_{F\Subset V_o}
-```
-
-is the exact observation-refinement diagram.
+The inverse system $\{C_F,\rho_{F',F}\}_{F\Subset V_o}$ is the exact observation-refinement diagram.
 
 For a locally finite rooted component, the balls
 
@@ -45,7 +39,7 @@ For a locally finite rooted component, the balls
 B_n(o)=\{v:d(o,v)\le n\}
 ```
 
-are finite and exhaust $V_o$. We may then use the sequence
+are finite and exhaust $V_o$. Use the sequence
 
 ```math
 C_n=C_{B_n(o)}
@@ -69,7 +63,7 @@ For $c\in C_n$, define its splitting multiplicity
 b_n(c)=|\rho_n^{-1}(c)|.
 ```
 
-This is the number of distinct depth-$(n+1)$ profiles hidden inside one depth-$n$ profile.
+The splitting multiplicity counts the depth-$(n+1)$ profiles hidden inside one depth-$n$ profile.
 
 If the class sets are finite, then
 
@@ -78,7 +72,7 @@ If the class sets are finite, then
 \sum_{c\in C_n}b_n(c).
 ```
 
-Let
+Define $\mathfrak D_n^{\mathrm{obs}}$ by
 
 ```math
 \mathfrak D_n^{\mathrm{obs}}=
@@ -123,7 +117,7 @@ At every level,
 \to0.
 ```
 
-Consequently,
+Equivalently,
 
 ```math
 \mathrm{gr}_{\mathrm{obs}}\mathfrak D=
@@ -176,34 +170,13 @@ and the local branching data
 
 The scalar $\Lambda_{\mathrm{split}}$ is only a compression. Different diagrams can have the same exponential rate but radically different splitting patterns.
 
-Three extremal cases are already visible:
-
-## No node-level separation
-
-```math
-c_n=1
-\qquad\forall n.
-```
-
-Every tail end has the same node Martin profile.
-
-### Eventual finite determination
-
-For each full profile, there is some $n$ after which its class never splits further.
-
-Such a profile is isolated in the exact refinement structure.
-
-### Persistent refinement
-
-A compatible branch passes through classes that split infinitely often.
-
-Its full profile cannot be determined by any finite observation depth.
+Three extremal cases are already visible. If $c_n=1$ for every $n$, there is no node-level separation and every tail end has the same node Martin profile. A profile is eventually finitely determined when its class ceases to split after some finite level; such a profile is isolated in the exact refinement structure. Persistent refinement occurs when a compatible branch passes through classes that split infinitely often, so its full profile cannot be determined at any finite observation depth.
 
 ---
 
-# 4. Why exact separation depth is not a topology
+# 4. Failure of exact separation depth to define a topology
 
-Previously we defined the first exact separating depth
+The first exact separating depth was defined as
 
 ```math
 s_t(\tau,\sigma)=
@@ -218,7 +191,7 @@ s_t(\tau,\zeta)
 \min{s_t(\tau,\sigma),s_t(\sigma,\zeta)}.
 ```
 
-So, after quotienting permanent Martin-equivalent ends, one may formally construct an ultrametric such as
+After quotienting permanent Martin-equivalent ends, one may formally construct an ultrametric such as
 
 ```math
 d_\theta(\tau,\sigma)=\theta^{s_t(\tau,\sigma)},
@@ -228,8 +201,6 @@ d_\theta(\tau,\sigma)=\theta^{s_t(\tau,\sigma)},
 But this topology can be much finer than the actual Martin topology.
 
 If two profiles differ by $10^{-100}$ at a shallow node, the exact ultrametric treats them as immediately separated. The Martin product topology treats them as extremely close.
-
-Therefore:
 
 ```math
 s_t
@@ -261,15 +232,9 @@ d_F(h,g)=
 |\widehat h(v)-\widehat g(v)|.
 ```
 
-This is the finite-coordinate geometry of the real-valued Martin profiles.
+The metric gives the finite-coordinate geometry of the Martin profiles.
 
-Let
-
-```math
-\mathcal N_F(\varepsilon)
-```
-
-be the minimum number of $d_F$-balls of radius $\varepsilon$ required to cover the profile image $\Phi_t(X)$.
+Let $\mathcal N_F(\varepsilon)$ be the minimum number of $d_F$-balls of radius $\varepsilon$ required to cover the profile image $\Phi_t(X)$.
 
 For a locally finite rooted component, define
 
@@ -278,7 +243,7 @@ For a locally finite rooted component, define
 \mathcal N_{B_n(o)}(\varepsilon).
 ```
 
-Then
+It follows that
 
 ```math
 \Lambda_{\mathrm{obs}}(\varepsilon)=
@@ -303,7 +268,7 @@ If the finite profile set at depth $n$ is discrete with minimum pairwise separat
 \varepsilon<\frac{\delta_n}{2}
 ```
 
-we recover the exact count:
+The exact count is recovered:
 
 ```math
 \mathcal N_n(\varepsilon)=c_n.
@@ -313,15 +278,9 @@ In continuous-profile situations, the covering numbers remain meaningful even wh
 
 ---
 
-# 6. How much route history is needed to determine a profile?
+# 6. Finite determination of route profiles
 
-Let
-
-```math
-\mathrm{pref}_m(\xi)
-```
-
-denote the length-$m$ prefix of an infinite history.
+Let $\mathrm{pref}_m(\xi)$ denote the length-$m$ prefix of an infinite history.
 
 Define the approximate observation lag
 
@@ -337,45 +296,21 @@ Define the approximate observation lag
 
 Set it to $\infty$ when no finite $m$ works.
 
-Interpretation:
+Thus $\ell_t(n,\varepsilon)$ measures how much route history is needed to predict all node observations through depth $n$ to precision $\varepsilon$.
 
-```math
-\ell_t(n,\varepsilon)=
-\text{how much route history is needed to predict}
-```
+The comparison separates three regimes.
 
-```math
-\text{all node observations through depth }n
-\text{ to precision }\varepsilon.
-```
+## Profile-locality regimes
 
-This separates three regimes.
-
-## Route-local profiles
-
-```math
-\ell_t(n,\varepsilon)\approx n.
-```
-
-Shallow node profiles are determined by comparably shallow route history.
-
-### Strong asymptotic mixing
-
-```math
-\ell_t(n,\varepsilon)\ll n.
-```
-
-Very little route history is needed because many histories have nearly identical node profiles.
-
-### Long-range dependence
+When $\ell_t(n,\varepsilon)\approx n$, shallow node profiles are determined by comparably shallow route history. Strong asymptotic mixing corresponds to $\ell_t(n,\varepsilon)\ll n$, because little route history is needed when many histories have nearly identical node profiles. Long-range dependence occurs when
 
 ```math
 \ell_t(n,\varepsilon)\gg n
 \quad\text{or}\quad
-\ell_t(n,\varepsilon)=\infty.
+\ell_t(n,\varepsilon)=\infty,
 ```
 
-Even shallow node asymptotics depend on very long—or complete—infinite history.
+so even shallow node asymptotics depend on very long, or complete, infinite history.
 
 If the prefix boundary is compact, finitely branching, and the profile map is continuous, then
 
@@ -401,7 +336,7 @@ Thus profile geometry is bounded by resolved route growth only after accounting 
 
 # 7. Coherent branches and generalized branches
 
-Let
+Define $C_\infty$ by
 
 ```math
 C_\infty=
@@ -456,10 +391,7 @@ k^{(\mathcal G_t)}
 \to0.
 ```
 
-This is the clean separation between:
-
-* collapse, measured by the kernel $\mathfrak D_M$;
-* completion, measured by the cokernel $k^{(\mathcal G_t)}$.
+The distinction is between collapse, measured by the kernel $\mathfrak D_M$, and completion, measured by the cokernel $k^{(\mathcal G_t)}$.
 
 Several histories can collapse to one branch, whereas other branches can be added without representing any history.
 
@@ -472,7 +404,7 @@ Suppose:
 1. $X$ is compact;
 2. every finite-coordinate profile map $\Phi_F:X\to\mathbb R^F$ is continuous.
 
-Let
+Define $Y_F$ by
 
 ```math
 Y_F=\Phi_F(X).
@@ -480,7 +412,7 @@ Y_F=\Phi_F(X).
 
 Because $X$ is compact, every $Y_F$ is compact and therefore closed.
 
-Then
+It follows that
 
 ```math
 \Phi_t(X)
@@ -510,15 +442,13 @@ Each $A_F$ is nonempty and closed. Compatibility gives
 A_{F\cup F'}\subseteq A_F\cap A_{F'}.
 ```
 
-Thus the family has the finite-intersection property. Compactness of $X$ gives
+The family has the finite-intersection property. Compactness of $X$ gives
 
 ```math
 \bigcap_FA_F\ne\varnothing.
 ```
 
 Any point in the intersection realizes the whole compatible profile.
-
-Therefore:
 
 ```math
 \text{compact history space + continuous profile map}
@@ -532,15 +462,13 @@ Inverse-limit descriptions of path-space and boundary data are standard for Brat
 
 ---
 
-# 9. This does not yet realize the full Martin compactification
+# 9. Limits of compact realization
 
-The compact realization theorem concerns
+The compact realization theorem concerns the image of actual regular ends,
 
 ```math
-\Phi_t(X),
+\Phi_t(X).
 ```
-
-the image of actual regular ends.
 
 The full node Martin compactification is
 
@@ -561,7 +489,7 @@ If $X$ is compact and $\Phi_t$ is continuous, then $\Phi_t(X)$ is closed. Theref
 \Phi_t(X)=\mathcal M_t^{\partial}.
 ```
 
-So there are two different possible completion defects:
+There are two different possible completion defects:
 
 ```math
 C_\infty\setminus\beta(X)
@@ -600,13 +528,11 @@ Then every Martin boundary point is generated by a ray.
 
 ## Proof
 
-Let
+Choose nodes $x_i$ escaping every finite-depth region such that
 
 ```math
-K_t(\cdot,x_i)\longrightarrow h
+K_t(\cdot,x_i)\longrightarrow h.
 ```
-
-with $x_i$ escaping every finite-depth region.
 
 Choose a ray $\xi_i$ passing through $x_i$. Compactness gives a subnet
 
@@ -632,7 +558,7 @@ on every finite observation set. Hence
 h=\Phi_t(\xi).
 ```
 
-So
+Consequently,
 
 ```math
 \mathcal M_t^\partial=\Phi_t(X).
@@ -648,11 +574,11 @@ The essential hypothesis is uniform convergence of deep node columns toward the 
 
 At depth $n$, a ray profile is determined by its length-$n$ prefix.
 
-Thus
-
 ```math
 c_n=d^n,
 ```
+
+Equivalently,
 
 ```math
 \Lambda_{\mathrm{split}}=d,
@@ -682,8 +608,6 @@ Here the node boundary preserves the full route boundary.
 
 There are two route histories but only one node Martin profile.
 
-Hence
-
 ```math
 c_n=1
 \qquad\forall n,
@@ -708,7 +632,7 @@ But there is no generalized branch:
 \mathcal G_t=\varnothing.
 ```
 
-This is pure collapse without completion.
+The example exhibits collapse without completion.
 
 ---
 
@@ -728,11 +652,7 @@ c_n=1,
 
 The permanent Martin defect is enormous, but the node-observation refinement diagram is trivial.
 
-This demonstrates:
-
-```math
-\text{route-boundary size and node-profile growth are independent.}
-```
+The example shows that route-boundary size and node-profile growth are independent.
 
 ---
 
@@ -757,8 +677,6 @@ Observe successively the first $n$ branch-entry nodes. Then $C_n$ has:
 * one class for each $\xi_1,\ldots,\xi_n$;
 * one residual class containing every $\xi_m$ with $m>n$.
 
-Thus
-
 ```math
 c_n=n+1.
 ```
@@ -771,7 +689,7 @@ A coherent branch remains in the residual class for every $n$, but no actual ray
 \varnothing.
 ```
 
-Therefore
+Thus the realization defect is nonempty:
 
 ```math
 \mathcal G_t\ne\varnothing.
@@ -797,47 +715,13 @@ Completion occurs without route collapse: every actual ray remains distinguishab
 
 ---
 
-# 12. The resulting invariant package
+# 12. The invariant package
 
-The observation-refinement geometry now has four distinct components.
+The observation-refinement geometry has four distinct components:
 
-## Exact splitting
+1. The graded defect $\mathrm{gr}_{\mathrm{obs}}\mathfrak D$ records which history distinctions first become exactly visible at each observation layer.
+2. The quantities $\mathcal N_F(\varepsilon)$, or $\Lambda_{\mathrm{obs}}(\varepsilon)$ in the locally finite rooted case, record how many distinguishable profile regions exist at finite precision.
+3. The locality scale $\ell_t(n,\varepsilon)$ records how much route history is required to predict shallow node asymptotics.
+4. The realization defect $\mathcal G_t=C_\infty\setminus\beta(X)$ records coherent profile branches with no actual historical realization.
 
-```math
-\mathrm{gr}_{\mathrm{obs}}\mathfrak D
-```
-
-records which history distinctions first become exactly visible at each observation layer.
-
-## Quantitative profile complexity
-
-```math
-\mathcal N_F(\varepsilon)
-```
-
-or, in the locally finite rooted case,
-
-```math
-\Lambda_{\mathrm{obs}}(\varepsilon)
-```
-
-records how many distinguishable profile regions exist at finite precision.
-
-## History-to-profile locality
-
-```math
-\ell_t(n,\varepsilon)
-```
-
-records how much route history is required to predict shallow node asymptotics.
-
-## Realization defect
-
-```math
-\mathcal G_t=
-C_\infty\setminus\beta(X)
-```
-
-records coherent profile branches with no actual historical realization.
-
-These answer different questions and cannot be reduced to one scalar.
+These components answer different questions and cannot be reduced to one scalar.

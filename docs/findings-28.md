@@ -35,7 +35,7 @@ Z_v(r)=
 \sum_{p:s(p)=v}r^{2|p|}.
 ```
 
-This is the squared norm of the unnormalized rooted radial vector
+The partition function is the squared norm of the unnormalized rooted radial vector
 
 ```math
 \sum_{p:s(p)=v}r^{|p|}\xi_p.
@@ -45,8 +45,6 @@ Every path beginning at $v$ is either:
 
 * the identity path $1_v$; or
 * an edge $e:v\to w$, followed by a path beginning at $w$.
-
-Therefore
 
 ```math
 Z_v(r)=
@@ -67,7 +65,7 @@ Z(r)=
 \sum_{n\ge0}r^{2n}\mathcal A_+^n\mathbf 1.
 ```
 
-This is the node-compressed positive resolvent associated with the full path resolvent.
+The series is the node-compressed positive resolvent associated with the full path resolvent.
 
 ---
 
@@ -94,7 +92,7 @@ h_r(v)=
 \frac{Z_v(r)}{Z_u(r)}.
 ```
 
-Then
+It follows that
 
 ```math
 h_r(u)=1,
@@ -110,7 +108,7 @@ r^2
 \sum_{e:s(e)=v}h_r(r(e)).
 ```
 
-Thus $h_r$ is not yet harmonic. It has a uniform defect
+$h_r$ is not yet harmonic. It has a uniform defect
 
 ```math
 \varepsilon_r=\frac1{Z_u(r)}.
@@ -130,7 +128,7 @@ h_r(v)\longrightarrow h(v)
 
 for the relevant nodes.
 
-At a node with finitely many outgoing edges, we may pass directly to the limit:
+At a node with finitely many outgoing edges, one may pass directly to the limit:
 
 ```math
 h(v)=
@@ -144,13 +142,7 @@ Equivalently,
 \mathcal A_+h=R^{-2}h.
 ```
 
-If we write
-
-```math
-\lambda=R^{-2},
-```
-
-then
+Set $\lambda=R^{-2}$. It follows that
 
 ```math
 \mathcal A_+h=\lambda h.
@@ -162,7 +154,7 @@ Positive vectors satisfying adjacency inequalities, with equality at regular ver
 
 ---
 
-## 4. Why ratio limits are locally bounded
+## 4. Local boundedness of ratio limits
 
 Suppose $q:u\to v$ is a fixed path.
 
@@ -172,7 +164,7 @@ Every path beginning at $v$ gives, after prefixing by $q$, a path beginning at $
 Z_u(r)\ge r^{2|q|}Z_v(r).
 ```
 
-Hence
+The resulting bound is
 
 ```math
 h_r(v)\le r^{-2|q|}.
@@ -180,7 +172,7 @@ h_r(v)\le r^{-2|q|}.
 
 For each node reachable from $u$, the normalized ratios are bounded on every interval bounded away from $r=0$.
 
-This is why pointwise cluster functions can exist even while the unnormalized partition functions diverge.
+Pointwise cluster functions may therefore exist while the unnormalized partition functions diverge.
 
 ---
 
@@ -194,7 +186,7 @@ For every finite subset
 F\subseteq\{e:s(e)=v\},
 ```
 
-we have
+Thus,
 
 ```math
 h_r(v)
@@ -202,7 +194,7 @@ h_r(v)
 r^2\sum_{e\in F}h_r(r(e)).
 ```
 
-Therefore every cluster function satisfies
+Every cluster function satisfies
 
 ```math
 h(v)
@@ -212,7 +204,7 @@ R^2\sum_{e\in F}h(r(e))
 \text{for every finite }F.
 ```
 
-This is the correct cardinality-independent formulation.
+The formulation is independent of cardinality.
 
 At a finite nonzero emitter, equality holds.
 
@@ -236,7 +228,7 @@ For a finite path
 q:u\to v,
 ```
 
-the subcritical rooted vector gives the cylinder weight
+The subcritical rooted vector gives the cylinder weight
 
 ```math
 \mu_{u,r}[q]=
@@ -257,7 +249,7 @@ At a critical cluster limit,
 R^{2|q|}h(v).
 ```
 
-This is normalized because
+Normalization follows from
 
 ```math
 \mu_{u,\partial}[1_u]=h(u)=1.
@@ -282,7 +274,7 @@ R^{2|q|}h(v)\\
 \end{aligned}
 ```
 
-Thus the adjacency eigenvector equation is exactly the cylinder-conservation equation.
+The adjacency eigenvector equation is exactly the cylinder-conservation equation.
 
 For arbitrary directed graphs, the boundary-path space is naturally the spectrum of the graph diagonal, so consistent cylinder values define boundary-state data.
 
@@ -311,7 +303,7 @@ q=e_n\cdots e_1,
 u=v_0\to v_1\to\cdots\to v_n,
 ```
 
-the factors telescope:
+The factors telescope:
 
 ```math
 \begin{aligned}
@@ -365,7 +357,7 @@ At an infinite emitter,
 
 for every finite edge set $F$.
 
-This is a harmonic law on the prefix tree of actual paths.
+The cylinder weights form a harmonic law on the prefix tree of paths.
 
 The node eigenvector form occurs only when
 
@@ -376,24 +368,20 @@ R^{2|q|}h(r(q))
 
 for some node function $h$.
 
-Equivalently:
+Equivalently,
 
 ```math
 R^{-2|q|}\Psi(q)
 \text{ depends only on the endpoint }r(q).
 ```
 
-This is a substantial symmetry condition.
+The condition imposes strong endpoint symmetry.
 
 ---
 
 ## Consequences for alternative routes
 
-Suppose
-
-```math
-p,q:u\to v.
-```
+Suppose $p,q:u\to v$.
 
 An endpoint-factorized state must satisfy
 
@@ -401,8 +389,6 @@ An endpoint-factorized state must satisfy
 \frac{\Psi(p)}{\Psi(q)}=
 R^{2(|p|-|q|)}.
 ```
-
-Therefore:
 
 ### Parallel or equal-length routes
 
@@ -412,7 +398,7 @@ If
 |p|=|q|,
 ```
 
-then
+it follows that
 
 ```math
 \Psi(p)=\Psi(q).
@@ -428,7 +414,7 @@ If
 |q|=|p|+k,
 ```
 
-then
+it follows that
 
 ```math
 \Psi(q)=R^{2k}\Psi(p).
@@ -438,11 +424,7 @@ The longer route receives the fixed length-scaling factor.
 
 A general prefix-harmonic boundary state need not obey either condition.
 
-Hence:
-
-```math
-\text{node-harmonic vectors classify only endpoint-factorized boundary states.}
-```
+node-harmonic vectors classify only endpoint-factorized boundary states.
 
 They do not classify arbitrary route-sensitive boundary states.
 
@@ -452,7 +434,7 @@ They do not classify arbitrary route-sensitive boundary states.
 
 If every node reachable from $u$ is reached by at most one path, the endpoint uniquely determines the prefix.
 
-In that case, given any prefix-harmonic weight $\Psi$ and any fixed $R>0$, we may define
+In that case, given any prefix-harmonic weight $\Psi$ and any fixed $R>0$, one may define
 
 ```math
 h(v)=
@@ -461,13 +443,13 @@ R^{-2|q_v|}\Psi(q_v),
 
 where $q_v$ is the unique path $u\to v$.
 
-Then
+It follows that
 
 ```math
 \Psi(q_v)=R^{2|q_v|}h(v).
 ```
 
-Thus on a rooted tree or any unique-route forward system:
+On a rooted tree or any unique-route forward system:
 
 ```math
 \text{prefix harmonicity}
@@ -479,19 +461,15 @@ contain equivalent information.
 
 When routes reconverge, this equivalence fails. The node function identifies cylinders that remain distinct in the full path boundary.
 
-This is yet another precise point at which thin compression destroys route information.
+Thin compression loses the distribution of mass among routes at this step.
 
 ---
 
-# 10. Potential–harmonic decomposition
+# 10. Potential-harmonic decomposition
 
 Assume now that outgoing sums are finite, for example in a row-finite graph.
 
-Set
-
-```math
-T_R=R^2\mathcal A_+.
-```
+Set $T_R=R^2\mathcal A_+$.
 
 Let $h\ge0$ be superharmonic:
 
@@ -505,7 +483,7 @@ Define its defect
 \varepsilon=h-T_Rh\ge0.
 ```
 
-Then
+It follows that
 
 ```math
 h=\varepsilon+T_Rh.
@@ -535,26 +513,20 @@ R^{2N}
 h(r(p)).
 ```
 
-The two terms have different meanings.
+## Potential and harmonic parts
 
-## Potential part
+The two terms have different meanings. The potential term
 
 ```math
-\sum_{k\ge0}T_R^k\varepsilon.
+\sum_{k\ge0}T_R^k\varepsilon
 ```
 
-This propagates finite-node defects backward along all paths.
-
-It represents mass terminating at finite or singular boundary points.
-
-## Harmonic remainder
+propagates finite-node defects backward along all paths and represents mass terminating at finite or singular boundary points. For the harmonic remainder, define the pointwise limit
 
 ```math
 h_\infty=
-\lim_{N\to\infty}T_R^Nh,
+\lim_{N\to\infty}T_R^Nh.
 ```
-
-when the pointwise limit exists.
 
 Because
 
@@ -568,7 +540,7 @@ the limit exists pointwise. Under finite outgoing sums,
 T_Rh_\infty=h_\infty.
 ```
 
-Therefore
+Therefore the potential--harmonic decomposition is
 
 ```math
 h
@@ -578,7 +550,7 @@ h
 h_\infty.
 ```
 
-This is the natural potential–boundary decomposition.
+The formula is the potential-boundary decomposition.
 
 ---
 
@@ -598,7 +570,7 @@ Its defect is exactly
 \varepsilon=\mathbf1.
 ```
 
-Thus
+Consequently,
 
 ```math
 Z(r)=
@@ -626,13 +598,9 @@ At critical divergence,
 \varepsilon_r\longrightarrow0.
 ```
 
-Therefore the finite-path source disappears and any nonzero limit becomes harmonic:
+The finite-path source disappears, and any nonzero limit becomes harmonic because normalizing a diverging path resolvent removes its potential source and leaves boundary harmonic mass.
 
-```math
-\text{normalizing a diverging path resolvent removes its potential source and leaves boundary harmonic mass.}
-```
-
-This is the precise resolvent-to-boundary transition.
+The limit gives the resolvent-to-boundary transition.
 
 ---
 
@@ -661,7 +629,7 @@ If every successor $w$ of $v$ has
 h(w)=0,
 ```
 
-then
+it follows that
 
 ```math
 h(v)=
@@ -669,7 +637,7 @@ R^2\sum_{v\to w}h(w)=
 0.
 ```
 
-Therefore:
+Equivalently,
 
 ```math
 h(v)=0
@@ -677,7 +645,7 @@ h(v)=0
 \text{on every future-well-founded node}.
 ```
 
-Consequently,
+Accordingly,
 
 ```math
 \mathrm{supp}h\subseteq K^+,
@@ -685,7 +653,7 @@ Consequently,
 
 where $K^+$ is the infinite-future core obtained by transfinite sink pruning.
 
-This ties the boundary eigenvector directly to the earlier ordinal decomposition.
+The boundary eigenvector is thereby linked to the ordinal decomposition.
 
 A nonzero pure harmonic state cannot live on a finite DAG or on a row-finite region whose forward paths all terminate.
 
@@ -723,11 +691,7 @@ At an infinite emitter, this implication can fail because positive superharmonic
 
 ## Infinite chain
 
-Let
-
-```math
-v_0\to v_1\to v_2\to\cdots.
-```
+Consider the infinite chain $v_0\to v_1\to v_2\to\cdots$.
 
 The rooted partition function is
 
@@ -735,7 +699,7 @@ The rooted partition function is
 Z_{v_n}(r)=\frac1{1-r^2}.
 ```
 
-Hence
+Thus the critical radius is
 
 ```math
 R=1
@@ -761,7 +725,7 @@ The derived cylinder split assigns weight one to the unique continuation.
 
 Every node has $d$ distinct children.
 
-Then
+It follows that
 
 ```math
 Z_v(r)=\frac1{1-dr^2},
@@ -784,7 +748,7 @@ The equation becomes
 \sum_{i=1}^d1.
 ```
 
-Thus
+Equivalently,
 
 ```math
 \pi_h(e\mid v)=\frac1d.
@@ -824,11 +788,7 @@ The critical scale cancels after normalization, leaving the equal split forced b
 
 ## A reconvergent diamond followed by an infinite tail
 
-Consider
-
-```math
-u\to a\to v\to v_1\to v_2\to\cdots
-```
+Consider $u\to a\to v\to v_1\to v_2\to\cdots$.
 
 and
 
@@ -852,7 +812,7 @@ and
 h(u)=h(a)+h(b)=2h(v).
 ```
 
-Hence
+This gives
 
 ```math
 h(v)=h(a)=h(b)=\frac12.
@@ -885,7 +845,7 @@ After choosing a root $u$, normalize by
 h(u)=1.
 ```
 
-This gives a convex set of endpoint-factorized boundary states.
+The construction gives a convex set of endpoint-factorized boundary states.
 
 Its extreme points represent indecomposable states within this compressed class.
 
@@ -902,7 +862,7 @@ The endpoint-factorized cone is the subcone satisfying
 \Psi(q)=R^{2|q|}h(r(q)).
 ```
 
-Thus:
+The relevant inclusion is
 
 ```math
 \mathscr H_R

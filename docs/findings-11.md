@@ -1,26 +1,8 @@
 # 1. The reachability poset
 
-Define
+Define $u\le v$ to hold when either $u=v$ or there is a positive-length directed path from $u$ to $v$.
 
-```math
-u\le v
-```
-
-when either $u=v$ or there is a positive-length directed path from $u$ to $v$.
-
-A5 implies:
-
-* reflexivity after adjoining equality;
-* antisymmetry;
-* transitivity.
-
-Therefore
-
-```math
-P_G=(V,\le)
-```
-
-is a partially ordered set.
+After equality is adjoined, acyclicity makes the relation reflexive, antisymmetric, and transitive. Hence $P_G=(V,\le)$ is a partially ordered set.
 
 The original edge relation need not equal the order relation:
 
@@ -34,11 +16,7 @@ but $u<v$ may hold only through a longer route.
 
 # 2. The thin reachability category
 
-Construct a category $\mathsf R(G)$ with:
-
-* objects $v\in V$;
-* exactly one morphism $[v,u]:u\to v$ whenever $u\le v$;
-* no morphism otherwise.
+Define $\mathsf R(G)$ to have object set $V$ and a unique morphism $[v,u]:u\to v$ whenever $u\le v$, with no morphism between incomparable nodes.
 
 Composition is forced:
 
@@ -54,10 +32,7 @@ There is a canonical functor
 q:\mathsf P(G)\longrightarrow\mathsf R(G)
 ```
 
-which:
-
-* fixes every node;
-* sends every finite path $p:u\to v$ to the unique morphism $[v,u]$.
+that fixes the nodes and sends every finite path $p:u\to v$ to the unique morphism $[v,u]$.
 
 Thus all routes with the same endpoints are identified:
 
@@ -79,17 +54,11 @@ Suppose a functor $F$ out of the path category treats every two paths with the s
 \mathsf C.
 ```
 
-So $\mathsf R(G)$ is exactly the universal route-insensitive image of the system.
+$\mathsf R(G)$ is exactly the universal route-insensitive image of the system.
 
 # 3. Algebraic reachability quotient
 
-Let
-
-```math
-\mathcal A(G)=\mathbb K[G]
-```
-
-be the algebraic path algebra.
+Let $\mathcal A(G)=\mathbb K[G]$ be the algebraic path algebra.
 
 Define the finite-support reachability algebra
 
@@ -107,15 +76,15 @@ with multiplication
 
 and zero when the middle nodes do not match.
 
-This algebra exists for every set-sized poset. It requires no local finiteness.
+The algebra exists for every set-sized poset and requires no local finiteness.
 
-Define
+Define the map
 
 ```math
 Q:\mathcal A(G)\longrightarrow\mathcal C_c(P_G)
 ```
 
-by
+on path basis elements by
 
 ```math
 Q(p)=\varepsilon_{r(p),s(p)}.
@@ -147,10 +116,10 @@ Hence there is an exact sequence
 \mathcal A(G)
 \xrightarrow{Q}
 \mathcal C_c(P_G)
-\longrightarrow0.
+\longrightarrow0,
 ```
 
-Therefore
+and therefore
 
 ```math
 \mathcal A(G)/\mathcal I_{\mathrm{route}}
@@ -160,43 +129,11 @@ Therefore
 
 The kernel is precisely the algebraic information distinguishing alternative routes.
 
-# 4. What the quotient forgets
+# 4. Information discarded by the quotient
 
-The reachability algebra retains:
+The reachability algebra retains the nodes, the order $u\le v$, the set of indirectly communicating pairs, and composition of comparabilities. It discards parallel-channel multiplicity, the distinction between direct and indirect communication, route counts and lengths, intermediate-node data, branching and reconvergence, shortcut edges, and every distinction between paths with the same endpoints.
 
-* the nodes;
-* the order $u\le v$;
-* which pairs can communicate indirectly;
-* composition of comparabilities.
-
-It loses:
-
-* parallel primitive channels;
-* whether communication is direct or indirect;
-* the number of routes;
-* path lengths;
-* intermediate nodes;
-* branching and reconvergence;
-* shortcut edges;
-* the distinction between two paths with the same endpoints.
-
-For example,
-
-```math
-u\to v
-```
-
-and
-
-```math
-u\to w\to v
-```
-
-both map to
-
-```math
-\varepsilon_{v,u}.
-```
+For example, both the direct route $u\to v$ and the composite route $u\to w\to v$ map to $\varepsilon_{v,u}$.
 
 If both exist, their difference lies in $\mathcal I_{\mathrm{route}}$.
 
@@ -239,13 +176,7 @@ If there are $m<\infty$ paths from $u$ to $v$, then
 \dim \mathcal K_{v,u}=m-1.
 ```
 
-Thus the family
-
-```math
-{\mathcal K_{v,u}}_{u\le v}
-```
-
-measures exactly how much route information is discarded at each comparable pair.
+The family $\{\mathcal K_{v,u}\}_{u\le v}$ therefore measures the route information discarded at each comparable pair.
 
 # 6. The original grading usually does not descend
 
@@ -257,25 +188,9 @@ The path algebra is graded by original path length:
 
 But the quotient may identify paths of different lengths.
 
-If the system contains both
+If the system contains both a direct route $u\to v$ and a composite route $u\to w\to v$, then a degree-one path and a degree-two path both become $\varepsilon_{v,u}$.
 
-```math
-u\to v
-```
-
-and
-
-```math
-u\to w\to v,
-```
-
-then a degree-one path and a degree-two path both become
-
-```math
-\varepsilon_{v,u}.
-```
-
-Therefore the original length grading generally does not survive in
+The original length grading generally does not survive in
 
 ```math
 \mathcal C_c(P_G).
@@ -283,7 +198,7 @@ Therefore the original length grading generally does not survive in
 
 The quotient instead has its own intrinsic filtration by factorability.
 
-Let
+Define $N$ by
 
 ```math
 N
@@ -293,7 +208,7 @@ N
 \}.
 ```
 
-Then
+It follows that
 
 ```math
 N^n
@@ -301,25 +216,11 @@ N^n
 
 is generated by comparabilities factoring through a strict chain of at least $n$ steps.
 
-This concerns chains in the reachability order, not original channel lengths.
+The filtration counts chains in the reachability order, not original channel lengths.
 
 # 7. Primitive elements become cover relations
 
-In the full path algebra,
-
-```math
-J/J^2
-```
-
-recovers the original primitive channels.
-
-In the reachability algebra,
-
-```math
-N/N^2
-```
-
-has a different meaning.
+In the full path algebra, $J/J^2$ recovers the original primitive channels. In the reachability algebra, $N/N^2$ has a different meaning.
 
 A strict comparable pair $u<v$ survives in $N/N^2$ exactly when no node lies strictly between them:
 
@@ -328,25 +229,16 @@ A strict comparable pair $u<v$ survives in $N/N^2$ exactly when no node lies str
 u<w<v.
 ```
 
-Such a pair is a cover relation, written
-
-```math
-u\lessdot v.
-```
-
-Therefore
+Such a pair is a cover relation, written $u\lessdot v$. Consequently,
 
 ```math
 N/N^2=
 \text{linear span of the Hasse-cover relations}.
 ```
 
-This need not agree with the original edge set.
+The cover relation need not agree with the original edge set.
 
-Two losses occur:
-
-1. parallel original edges become one relation;
-2. an original shortcut edge $u\to v$ disappears from $N/N^2$ whenever $u<w<v$ for some $w$.
+Parallel original edges become a single relation, and an original shortcut edge $u\to v$ disappears from $N/N^2$ whenever $u<w<v$ for some $w$.
 
 The reachability quotient reconstructs the order's Hasse diagram, not the original communication channels.
 
@@ -376,13 +268,7 @@ N/N^2=0.
 
 Yet the reachability order may be highly nontrivial.
 
-A system whose reachability order is modeled on the rational order can have communication between many pairs but no Hasse edges.
-
-This proves:
-
-```math
-\text{the thin reachability category need not be freely generated by primitive covers}.
-```
+A system whose reachability order is modeled on the rational order can have communication between many pairs but no Hasse edges. Thus the thin reachability category need not be freely generated by primitive covers.
 
 The full path category always has primitive edge generators. Its thin quotient may not.
 
@@ -390,21 +276,7 @@ The full path category always has primitive edge generators. Its thin quotient m
 
 For any infinite poset, the strict-order ideal $N$ in the finite-support algebra is locally nilpotent.
 
-Take finitely many elements of $N$. Their supports involve only finitely many nodes. A sufficiently long nonzero product would require a strictly increasing chain that repeats a node, which antisymmetry forbids.
-
-Thus
-
-```math
-N\text{ is locally nilpotent}.
-```
-
-As before,
-
-```math
-N\text{ is globally nilpotent}
-```
-
-exactly when the poset has a uniform finite bound on strict-chain length.
+Take finitely many elements of $N$. Their supports involve only finitely many nodes. A sufficiently long nonzero product would require a strictly increasing chain that repeats a node, which antisymmetry forbids. Hence $N$ is locally nilpotent. It is globally nilpotent exactly when the poset has a uniform finite bound on strict-chain length.
 
 # 10. The incidence algebra
 
@@ -446,21 +318,17 @@ The identity is
 \end{cases}
 ```
 
-The finite-support reachability algebra embeds naturally into $\mathcal I(P_G)$.
-
-Thus:
+When $P_G$ is locally finite, the finite-support reachability algebra embeds naturally as
 
 ```math
 \mathcal C_c(P_G)
 \subseteq
-\mathcal I(P_G)
+\mathcal I(P_G).
 ```
 
-when $P_G$ is locally finite.
+# 11. Local finiteness is not part of the definition
 
-# 11. Local finiteness is not supplied by A1–A5
-
-A1–A5 do not imply that intervals are finite.
+The bounded system definition does not imply that intervals are finite.
 
 For example, take nodes
 
@@ -476,7 +344,7 @@ u\to w_i\to v
 
 for every $i\in I$, where $I$ is infinite.
 
-Then
+It follows that
 
 ```math
 [u,v]
@@ -484,19 +352,7 @@ Then
 
 contains every $w_i$, so it is infinite.
 
-The system is nevertheless:
-
-* acyclic;
-* of finite height two;
-* free of infinite forward paths;
-* free of infinite backward paths.
-
-Therefore none of the following implies local finiteness:
-
-* acyclicity;
-* finite height;
-* existence of both ordinal ranks;
-* absence of infinite boundaries.
+The system is nevertheless acyclic, has finite height two, and has neither infinite forward nor infinite backward paths. Thus acyclicity, finite height, existence of both ordinal ranks, and absence of infinite boundaries each fail to imply local finiteness.
 
 Conversely, a poset may be locally finite and still contain an infinite chain, such as
 
@@ -506,7 +362,7 @@ Conversely, a poset may be locally finite and still contain an infinite chain, s
 
 Local finiteness and boundary behavior are independent properties.
 
-# 12. Why arbitrary incidence convolution fails without it
+# 12. Necessity of local finiteness for incidence convolution
 
 Suppose an interval $[u,v]$ contains infinitely many intermediate nodes.
 
@@ -519,30 +375,11 @@ f(u,w)g(w,v),
 
 which may be an arbitrary infinite scalar sum.
 
-A1–A5 provide no:
-
-* topology on $\mathbb K$;
-* summability convention;
-* measure;
-* ordering of summation;
-* convergence rule.
+The bounded system definition supplies no topology on $\mathbb K$, summability convention, measure, summation order, or convergence rule.
 
 So there is no canonical multiplication on all interval functions.
 
-Without local finiteness, the options are restricted constructions such as:
-
-* the finite-support algebra $\mathcal C_c(P_G)$;
-* a finitary incidence algebra with support conditions;
-* an analytically summable incidence algebra after choosing a norm;
-* convolution over another complete semiring.
-
-Only the first is completely unconditional.
-
-Therefore:
-
-```math
-\text{the full incidence algebra is conditional on interval finiteness or another summation structure}.
-```
+Without local finiteness one must instead use a restricted construction, such as the finite-support algebra $\mathcal C_c(P_G)$, a finitary incidence algebra with support conditions, an analytically summable incidence algebra after choosing a norm, or convolution over another complete semiring. Only the finite-support algebra is unconditional; the full incidence algebra requires interval finiteness or another summation structure.
 
 # 13. The zeta element
 
@@ -553,15 +390,9 @@ For a locally finite reachability poset, define
 \qquad(u\le v).
 ```
 
-This is the incidence-algebra element recording reachability itself.
+The zeta element records reachability.
 
-Write
-
-```math
-\zeta=\delta+\eta,
-```
-
-where
+Write $\zeta=\delta+\eta$, where
 
 ```math
 \eta(u,v)=
@@ -631,7 +462,7 @@ c_n(u,v),
 
 where $c_n(u,v)$ is the number of strict $n$-step chains from $u$ to $v$.
 
-This is finite interval by interval under local finiteness.
+Local finiteness makes the sum finite on every interval.
 
 # 15. Möbius inversion
 
@@ -644,29 +475,22 @@ g(v)=
 
 with the sums finite or otherwise well-defined.
 
-Then
+It follows that
 
 ```math
 f(v)=
 \sum_{u\le v}\mu(u,v)g(u).
 ```
 
-This reverses cumulative aggregation over the reachability order.
+Möbius inversion reverses cumulative aggregation over the reachability order.
 
 It is an inversion of order-based accumulation, not an inversion of the original path structure.
 
-# 16. What Möbius inversion cannot recover
+# 16. Limits of Möbius inversion
 
 Möbius inversion knows only the poset $P_G$.
 
-It cannot reconstruct:
-
-* how many original edges connect $u$ and $v$;
-* whether $u<v$ arose through one route or many;
-* whether there was a shortcut edge;
-* original path lengths;
-* parallel channels;
-* route interference.
+It cannot reconstruct the number of original edges joining $u$ to $v$, distinguish one route from many, detect shortcut edges, recover original path lengths or parallel channels, or retain route interference.
 
 Systems with the same transitive closure have the same incidence algebra and Möbius function, even if their channel structures differ greatly.
 
@@ -684,13 +508,7 @@ u\to w\to v,\qquad u\to v
 
 have the same reachability poset.
 
-Their path algebras differ, but their incidence algebras coincide.
-
-So:
-
-```math
-\mu\text{ inverts reachability aggregation, not channel composition}.
-```
+Their path algebras differ, but their incidence algebras coincide. Thus $\mu$ inverts reachability aggregation rather than channel composition.
 
 # 17. The formal path completion does not automatically descend
 
@@ -742,7 +560,7 @@ to a scalar incidence function would require summing all route multiplicities wi
 
 That may be undefined.
 
-This gives a noncommuting diagram:
+The two operations form a noncommuting diagram:
 
 ```math
 \text{complete all paths first}
@@ -762,7 +580,7 @@ u\le v
 \exists p:u\to v.
 ```
 
-Thus the support of the full path family determines the zeta relation:
+The support of the full path family determines the zeta relation:
 
 ```math
 \zeta(u,v)=
@@ -772,13 +590,13 @@ Thus the support of the full path family determines the zeta relation:
 \end{cases}
 ```
 
-This is an existence projection rather than a linear coefficient sum:
+The support map is an existence projection rather than a linear coefficient sum:
 
 ```math
 \text{many routes}\longmapsto \text{true}.
 ```
 
-So there are two fundamentally different quotient semantics:
+There are two fundamentally different quotient semantics:
 
 ```math
 \begin{aligned}
@@ -802,7 +620,7 @@ For past-rank layers, define
 \Delta^-_\beta\zeta\Delta^-_\alpha.
 ```
 
-This block is supported only when
+The block is supported only when
 
 ```math
 \alpha\le\beta.
@@ -839,9 +657,9 @@ Its inverse is
 
 The cross-rank Möbius coefficients are obtained by subtracting all factorizations through lower and higher sectors.
 
-This order-theoretic analogue of the rank-filtered resolvent factorization is much less route-sensitive.
+The order-theoretic analogue of rank-filtered resolvent factorization is less route-sensitive.
 
-# 20. The resulting hierarchy
+# 20. Successive reachability quotients
 
 These constructions form four increasingly compressed levels:
 
@@ -862,15 +680,7 @@ These constructions form four increasingly compressed levels:
 \end{array}
 ```
 
-The information loss is:
-
-```math
-\text{routes}
-\to
-\text{endpoint comparability}
-\to
-\text{interval aggregation}.
-```
+Successive passage through these constructions removes route data first and then compresses endpoint comparability into interval aggregation.
 
 The full object remains
 

@@ -21,7 +21,7 @@ for the linear span of all commutators
 xy-yx.
 ```
 
-## Theorem
+## Theorem 1. Commutator ideal
 
 For every acyclic system,
 
@@ -29,7 +29,7 @@ For every acyclic system,
 J=[\mathcal A,\mathcal A].
 ```
 
-### Proof
+## Proof
 
 Since
 
@@ -57,7 +57,7 @@ e_vp=p,
 pe_v=0.
 ```
 
-Therefore
+Therefore,
 
 ```math
 p=[e_v,p].
@@ -69,29 +69,19 @@ Every positive path is a commutator, so
 J\subseteq[\mathcal A,\mathcal A].
 ```
 
-Hence equality holds.
+This proves the reverse inclusion and hence the equality.
 
-This has several consequences.
-
-## Abelianization
+The abelianization is therefore
 
 ```math
 \mathcal A/[\mathcal A,\mathcal A]\cong\mathcal D.
 ```
 
-Removing noncommutativity removes every positive communication process and leaves only mutually orthogonal nodes.
+Thus abelianization removes every positive-length communication process and retains only the mutually orthogonal node algebra. In this precise sense, the communication structure is the noncommutative part of $\mathcal A$.
 
-Hence:
+# 2. Reconstruction from the marked diagonal
 
-```math
-\text{communication is exactly the noncommutative part of the algebra.}
-```
-
-# 2. Reconstruction no longer requires the grading to be marked
-
-Previously, we required an algebra isomorphism to preserve both the diagonal and the path-length grading.
-
-For acyclic systems, that was stronger than necessary.
+A reconstruction argument may initially be formulated for isomorphisms preserving both the diagonal and the path-length grading. In the acyclic case, preservation of the grading follows intrinsically from preservation of the diagonal.
 
 Suppose
 
@@ -114,7 +104,7 @@ Because commutators are intrinsic,
 J(H).
 ```
 
-Therefore it also preserves
+It also preserves
 
 ```math
 J^2,J^3,\ldots
@@ -128,22 +118,20 @@ J(G)/J(G)^2
 J(H)/J(H)^2.
 ```
 
-But
+The corner
 
 ```math
 e_v(J/J^2)e_u
 ```
 
-is precisely the vector space of primitive channels from $u$ to $v$. Composite paths vanish modulo $J^2$.
-
-Thus:
+is precisely the vector space of primitive channels from $u$ to $v$. Composite paths vanish modulo $J^2$, and hence
 
 ```math
 \dim e_v(J/J^2)e_u=
 \left|\{e:u\to v\}\right|.
 ```
 
-## Strengthened reconstruction theorem
+## Theorem 2. Reconstruction from the diagonal
 
 For arbitrary-cardinality acyclic systems,
 
@@ -169,15 +157,9 @@ Exact length-$n$ paths appear in
 J^n/J^{n+1}.
 ```
 
-So the marked pair
+Consequently, the marked pair $(\mathcal A,\mathcal D)$ retains the complete finite communication structure.
 
-```math
-(\mathcal A,\mathcal D)
-```
-
-already retains the entire finite communication structure.
-
-# 3. Algebraic spectra are almost completely blind to channels
+# 3. Algebraic spectrum
 
 Take any algebraic element
 
@@ -199,7 +181,7 @@ x\in J.
 
 Assign $\lambda_v=0$ at every node not explicitly present in $d$.
 
-## Theorem: algebraic spectrum
+## Theorem 3. Algebraic spectrum
 
 In the natural unitization,
 
@@ -216,7 +198,7 @@ x\in J
 \sigma_{\mathrm{alg}}(x)=\{0\}.
 ```
 
-### Why
+## Proof
 
 If
 
@@ -267,11 +249,9 @@ is still a finite positive-path expression. Since $J$ is locally nilpotent, it i
 
 for some finite $N$.
 
-So $\lambda1-a$ is invertible.
+Hence $\lambda1-a$ is invertible, which proves the stated spectral formula.
 
-## Interpretation
-
-No matter how complicated the finite path coefficients are, the ordinary algebraic spectrum sees only the diagonal node coefficients.
+The ordinary algebraic spectrum therefore depends only on the diagonal node coefficients, regardless of the finite positive-path component.
 
 For example, adding a channel term does not alter the spectrum:
 
@@ -282,19 +262,13 @@ For example, adding a channel term does not alter the spectrum:
 
 for every scalar $t$.
 
-This generalizes the earlier finite-DAG adjacency-spectrum collapse:
-
-```math
-\text{bare single-operator spectra are structurally too compressed.}
-```
-
-The channel data are not absent from the algebra. They live in multiplication, commutators, corners, and resolvents—not in the set of spectral values alone.
+This extends the collapse of the adjacency spectrum for finite DAGs. A single spectral set is too compressed to recover the channel structure, which instead remains visible in multiplication, commutators, corners, and resolvents.
 
 # 4. The canonical formal path completion
 
 The Fock norm completion is useful, but it depends on a Hilbert-space norm.
 
-Before any norm is chosen, a more primitive completion works for every set-sized system.
+Before any norm is chosen, a formal completion can be defined for every set-sized system.
 
 Let
 
@@ -322,12 +296,7 @@ Define multiplication by path convolution. For a fixed path $r$,
 
 The sum is always finite because a path of length $n$ has only $n+1$ cuts into initial and final segments.
 
-Therefore multiplication is well-defined even if:
-
-* $V$ is uncountable;
-* $E$ is uncountable;
-* infinitely many paths have the same length;
-* degrees are unbounded.
+The multiplication is therefore well-defined for arbitrary set-sized node and edge sets, including systems with infinitely many paths of a fixed length or unbounded degree.
 
 The element
 
@@ -356,25 +325,13 @@ F^mF^n\subseteq F^{m+n}.
 
 A sequence or net converges in the path-length topology when, for every fixed depth $n$, its coefficients eventually stabilize on all paths of length below $n$.
 
-The positive-length part is
+The positive-length part is $F^1\widehat{\mathcal A}$. For every $X\in F^1\widehat{\mathcal A}$,
 
 ```math
-F^1\widehat{\mathcal A}.
+X^n\in F^n\widehat{\mathcal A}
 ```
 
-For every
-
-```math
-X\in F^1\widehat{\mathcal A},
-```
-
-we have
-
-```math
-X^n\in F^n\widehat{\mathcal A}.
-```
-
-Thus
+and hence
 
 ```math
 X^n\longrightarrow0
@@ -382,7 +339,7 @@ X^n\longrightarrow0
 
 in the path-length topology.
 
-This is topological nilpotence, not algebraic nilpotence.
+The completion is topologically nilpotent, not algebraically nilpotent.
 
 Accordingly,
 
@@ -395,7 +352,7 @@ always exists formally.
 
 At any fixed finite path, only finitely many terms contribute.
 
-This is a completely cardinality-independent resolvent construction.
+The resolvent construction is independent of cardinality.
 
 # 6. The universal channel element
 
@@ -406,12 +363,7 @@ Inside the formal completion, define
 \sum_{e\in E}e.
 ```
 
-Unlike the global Fock operator, this formal sum always exists. It does not require:
-
-* finite degree;
-* uniform branching bounds;
-* square summability;
-* operator convergence.
+Unlike the global Fock operator, this formal sum exists without finite-degree or uniform branching assumptions and requires neither square summability nor operator convergence.
 
 Introduce a formal scalar variable $z$. Then
 
@@ -421,7 +373,7 @@ R_G(z)=
 \sum_{n=0}^{\infty}z^n\mathbf E^n.
 ```
 
-The variable $z$ records compositional depth. It is not time.
+The variable $z$ records compositional depth and carries no temporal interpretation.
 
 Because every composable sequence of $n$ primitive channels is exactly one path of length $n$,
 
@@ -430,7 +382,7 @@ Because every composable sequence of $n$ primitive channels is exactly one path 
 \sum_{|p|=n}p.
 ```
 
-Therefore
+Substitution into the resolvent series gives
 
 ```math
 R_G(z)=
@@ -438,9 +390,9 @@ R_G(z)=
 z^{|p|}p.
 ```
 
-This is the complete finite-communication catalogue of the system.
+Thus $R_G(z)$ records every finite communication path together with its length.
 
-# 7. Cornered resolvents recover the whole relational structure
+# 7. Relational information in cornered resolvents
 
 For nodes $u,v$,
 
@@ -451,27 +403,21 @@ e_vR_G(z)e_u=
 \sum_{p:u\to v}z^{|p|}p.
 ```
 
-This one formula recovers several structures.
-
-## Primitive channels
-
-The coefficient of $z$ is
+The coefficient of $z$ recovers the primitive channels from $u$ to $v$:
 
 ```math
 e_v\mathbf Ee_u=
 \sum_{e:u\to v}e.
 ```
 
-## Length-$n$ paths
-
-The coefficient of $z^n$ is
+More generally, the coefficient of $z^n$ is
 
 ```math
 e_v\mathbf E^ne_u=
 \sum_{\substack{p:u\to v\\|p|=n}}p.
 ```
 
-## Reachability
+Reachability is characterized by
 
 ```math
 u\prec v
@@ -479,7 +425,7 @@ u\prec v
 e_v(R_G(z)-1)e_u\ne0.
 ```
 
-## Acyclicity
+Acyclicity is equivalent to
 
 ```math
 G\text{ is acyclic}
@@ -490,7 +436,7 @@ e_v(R_G(z)-1)e_v=0
 
 A positive term in a diagonal corner would be a positive-length closed directed path.
 
-## Finite height
+Finite height is detected by the degree of the resolvent:
 
 ```math
 G\text{ has height at most }h
@@ -499,58 +445,30 @@ R_G(z)
 \text{ is a polynomial of degree at most }h.
 ```
 
-## Unbounded finite compositional depth
+Unbounded finite compositional depth occurs precisely when $R_G(z)$ has nonzero terms of arbitrarily high degree.
 
-```math
-R_G(z)
-```
-
-has nonzero terms of arbitrarily high degree.
-
-This may arise from an actual infinite chain or finite chains of unbounded lengths; distinguishing them requires the infinite-path boundary, the next layer.
+The same formal behavior can come from an infinite chain or from finite chains of unbounded length. The infinite-path boundary distinguishes them.
 
 # 8. Formal spectrum versus operator spectrum
 
-The formal channel element satisfies
+For every $\lambda\ne0$, the formal channel element satisfies
 
 ```math
 (\lambda\mathbf1-\mathbf E)^{-1}=
 \lambda^{-1}
 \sum_{n=0}^{\infty}
-\lambda^{-n}\mathbf E^n
+\lambda^{-n}\mathbf E^n.
 ```
 
-for every
-
-```math
-\lambda\ne0.
-```
-
-Thus, in the completed formal algebra,
+In the completed formal algebra,
 
 ```math
 \sigma_{\mathrm{formal}}(\mathbf E)=\{0\}.
 ```
 
-Yet in the Fock norm completion, the corresponding bounded operator may have spectrum:
+In the Fock norm completion, however, the corresponding bounded operator may have the closed unit disk as its spectrum for an infinite chain, or spectral radius $\sqrt d$ for a regular $d$-branching system. The statements concern different notions of convergence: for every nonzero $\lambda$, the inverse series exists formally but may fail to converge in operator norm. Operator spectrum therefore detects failure of analytic convergence rather than failure of formal path composition.
 
-```math
-{z:|z|\le1}
-```
-
-for an infinite chain, or radius
-
-```math
-\sqrt d
-```
-
-for a regular $d$-branching system.
-
-There is no contradiction.
-
-For every nonzero $\lambda$, the inverse series exists formally but may fail to converge in operator norm; operator spectrum detects failure of analytic convergence, not failure of formal path composition.
-
-This gives three distinct tiers:
+There are three tiers:
 
 | Tier                     | Positive-path spectrum | What it records                    |
 | ------------------------ | ---------------------- | ---------------------------------- |
@@ -558,23 +476,17 @@ This gives three distinct tiers:
 | Formal path completion   | ${0}$                  | all finite paths and formal depth  |
 | Fock/operator completion | potentially nonzero    | norm growth and infinite branching |
 
-So:
+A nonzero operator spectrum is therefore a growth and convergence phenomenon; nontrivial finite-path structure may still have zero positive-path spectrum.
 
-```math
-\text{nonzero operator spectrum is a growth/convergence phenomenon.}
-```
+# 9. Information carried by the marked resolvent
 
-Nontrivial finite-path structure may therefore have zero positive-path spectrum.
-
-# 9. The resolvent is richer than the spectrum
-
-The spectral set
+The spectral identity
 
 ```math
 \sigma(\mathbf E)=\{0\}
 ```
 
-contains almost no information.
+does not distinguish the finite-path structure of acyclic systems.
 
 But the full marked resolvent family
 
@@ -584,29 +496,15 @@ But the full marked resolvent family
 
 contains every finite directed path.
 
-This suggests the correct hierarchy:
-
-```math
-\text{spectrum}
-;<;
-\text{resolvent}
-;<;
-\text{cornered marked resolvent}
-;\cong;
-\text{full finite-path structure}.
-```
-
-The earlier spectral collisions were not accidental but reflected the loss of the node corners and multiplication structure.
+The spectral set is coarser than the resolvent, and the uncornered resolvent is coarser than the cornered marked family. The latter is equivalent to the full finite-path structure. The earlier spectral collisions were not accidental but reflected the loss of the node corners and multiplication structure.
 
 # 10. The algebraic and formal centers
 
-There is another clean completion effect.
+The center changes under completion as well.
 
 Let the weak components be the connected components obtained after forgetting edge directions.
 
-In the algebraic path algebra, a central element must be diagonal and constant along every edge. Because algebraic elements have finite support, a nonzero constant can occur only on a finite weak component.
-
-Thus
+In the algebraic path algebra, a central element must be diagonal and constant along every edge. Because algebraic elements have finite support, a nonzero constant can occur only on a finite weak component. Consequently,
 
 ```math
 Z(\mathcal A(G))=
@@ -615,7 +513,7 @@ Z(\mathcal A(G))=
 \left(\sum_{v\in C}e_v\right).
 ```
 
-In the formal completion, arbitrary diagonal coefficient functions are allowed. Therefore
+In the formal completion, arbitrary diagonal coefficient functions are allowed, and therefore
 
 ```math
 Z(\widehat{\mathcal A}(G))

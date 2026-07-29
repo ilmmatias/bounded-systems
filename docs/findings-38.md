@@ -1,6 +1,6 @@
 # 1. Where the stable exponent comes from
 
-A stable limit cannot arise from one fixed finite graph by merely renaming its edges. We require either:
+A stable limit cannot arise from one fixed finite graph by merely renaming its edges. It requires either:
 
 * a refinement family $G_\delta$;
 * increasingly fine profile coordinates;
@@ -41,7 +41,7 @@ a_\delta(x)=
 \delta^\alpha L_x(\delta^{-1}).
 ```
 
-Hence the intrinsic stable time scale is
+The intrinsic stable time scale is
 
 ```math
 \tau=n,a_\delta
@@ -55,7 +55,7 @@ For a pure power law,
 \tau=n\delta^\alpha.
 ```
 
-Thus the dynamical exponent is not chosen independently:
+The dynamical exponent is not chosen independently:
 
 ```math
 z=\alpha.
@@ -67,13 +67,7 @@ The Gaussian regime is the boundary case $z=2$. For $0<\alpha<2$, macroscopic mo
 
 # 2. Vague convergence of the channel-increment law
 
-Let
-
-```math
-K_{\delta,h}(x,dy)
-```
-
-be the derived one-block profile-increment law.
+Let $K_{\delta,h}(x,dy)$ be the derived one-block profile-increment law.
 
 The stable candidate is determined by the vague convergence
 
@@ -126,7 +120,7 @@ while
 \text{directional profile-jump structure}.
 ```
 
-So $\alpha$ is one scalar, but the full stable regime also carries an angular spectral measure.
+$\alpha$ is one scalar, but the full stable regime also carries an angular spectral measure.
 
 # 3. The general stable-like profile generator
 
@@ -164,11 +158,7 @@ Let the critical positive profile satisfy
 h>0.
 ```
 
-Write
-
-```math
-u=\log h.
-```
+Write $u=\log h$.
 
 Then the derived Markov generator is the exact Doob transform
 
@@ -181,7 +171,7 @@ Ground-state and Doob transforms of nonlocal Lévy generators produce state-depe
 
 # 4. Exact transformation of the stable jump kernel
 
-Define
+The $h$-tilt ratio is
 
 ```math
 r_h(x,y)=
@@ -208,7 +198,7 @@ b(x)
 \nu_0(x,dy).
 ```
 
-Therefore
+The resulting Lévy-type generator is
 
 ```math
 \begin{aligned}
@@ -224,7 +214,7 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 \end{aligned}
 ```
 
-This is the exact stable analogue of the discrete transformation
+The identity is the stable analogue of the discrete transformation
 
 ```math
 P_h(e\mid v)=
@@ -238,7 +228,7 @@ The discrete profile reweights channels by a successor-to-current ratio. The sta
 \frac{h(x+y)}{h(x)}.
 ```
 
-# 5. Can the $h$-transform change $\alpha$?
+# 5. Stability of $\alpha$ under the $h$-transform
 
 The $h$-transform can change $\alpha$.
 
@@ -278,14 +268,14 @@ More generally, suppose
 r^\gamma q_h(x,\theta).
 ```
 
-Then
+It follows that
 
 ```math
 r^{-1-\alpha}r^\gamma=
 r^{-1-(\alpha-\gamma)}.
 ```
 
-So, when the transformed measure remains admissible,
+When the transformed measure remains admissible,
 
 ```math
 \alpha_h=\alpha-\gamma.
@@ -303,7 +293,7 @@ Divide
 \mathcal L_{\alpha,0}h=\kappa h
 ```
 
-by $h=e^u$. We obtain
+by $h=e^u$ to obtain
 
 ```math
 \begin{aligned}
@@ -321,7 +311,7 @@ e^{u(x+y)-u(x)}
 \end{aligned}
 ```
 
-This is the stable/nonlocal Hamilton–Jacobi profile equation.
+The equation is the stable, nonlocal Hamilton-Jacobi profile equation.
 
 For the stable-like kernel
 
@@ -351,9 +341,7 @@ q_0(x,\widehat y)\,dy.
 \end{aligned}
 ```
 
-This is the exact profile equation of the stable regime.
-
-It reduces to the quadratic viscous Hamilton–Jacobi equation only when the jump kernel concentrates into vanishing finite-variance increments.
+It reduces to the quadratic viscous Hamilton-Jacobi equation only when the jump kernel concentrates into vanishing finite-variance increments.
 
 # 7. First variation: stable harmonic tangent fields
 
@@ -386,7 +374,7 @@ once gives
 
 Tangent vectors to the fixed-critical-value stable profile manifold are harmonic functions of the transformed stable process.
 
-This exactly parallels the discrete equation
+The equation parallels its discrete counterpart
 
 ```math
 (P_h-I)\phi=0.
@@ -446,7 +434,7 @@ g_{\alpha,h}(\phi,\phi)=
 2\Gamma_{\alpha,h}(\phi).
 ```
 
-This is the exact nonlocal replacement for
+The nonlocal form replaces
 
 ```math
 (I-P_h)\chi=
@@ -483,7 +471,7 @@ Its infinitesimal log-intensity score is
 \Delta_y\phi(x).
 ```
 
-Hence the local information-rate Hessian is
+The local information-rate Hessian is
 
 ```math
 \mathcal I_{\alpha,h,x}(\phi,\psi)=
@@ -493,7 +481,7 @@ Hence the local information-rate Hessian is
 \nu_h(x,dy).
 ```
 
-Therefore, whenever the relative-entropy-rate integral is finite,
+Whenever the relative-entropy-rate integral is finite,
 
 ```math
 \mathcal I_{\alpha,h}=
@@ -501,7 +489,7 @@ g_{\alpha,h}=
 2\Gamma_{\alpha,h}.
 ```
 
-This is the stable continuation of the identity we found in the Gaussian regime:
+The identity continues the Gaussian relation into the stable regime:
 
 ```math
 \text{profile Fisher tensor}=
@@ -516,7 +504,7 @@ Assume first that the stable kernel is translation invariant and symmetric:
 \nu_0(dy)=\nu_0(-dy).
 ```
 
-Then
+It follows that
 
 ```math
 \mathcal L_{\alpha,0}e^{ik\cdot x}=
@@ -545,7 +533,7 @@ For an anisotropic symmetric stable measure,
 
 with normalization absorbed into $\Lambda$.
 
-This is the correct dispersion relation in the general symmetric stable regime.
+The symbol is the dispersion relation for the symmetric stable regime.
 
 It is homogeneous:
 
@@ -555,7 +543,7 @@ It is homogeneous:
 \psi_{\alpha,\Lambda}(k).
 ```
 
-Therefore the spatial and compositional scales obey
+The spatial and compositional scales obey
 
 ```math
 x\sim\tau^{1/\alpha}.
@@ -625,7 +613,7 @@ Assume the untransformed stable kernel is symmetric. Then the $h$-transformed pr
 L^2(h^2dx).
 ```
 
-Define
+The positive stable generator is
 
 ```math
 B_{\alpha,h}=
@@ -657,17 +645,11 @@ B_{\alpha,h}\ge0
 
 and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator, shifted by its ground-state eigenvalue, to the negative Markov generator on weighted $L^2$.
 
-This is the operator whose continuum existence and spectral data can be investigated later.
+The operator is the object whose continuum existence and spectrum remain to be studied.
 
 # 13. Stable fluctuation lift
 
-Let
-
-```math
-\mathfrak k_{\alpha,h}
-```
-
-be the one-particle fluctuation space on which $B_{\alpha,h}$ acts.
+Let $\mathfrak k_{\alpha,h}$ be the one-particle fluctuation space on which $B_{\alpha,h}$ acts.
 
 In the degree-preserving linearized regime, pass to
 
@@ -697,7 +679,7 @@ Because $d\Gamma(B_{\alpha,h})$ preserves particle number,
 [d\Gamma(B_{\alpha,h}),N]=0.
 ```
 
-Therefore the stable critical fluctuation equation closes as
+The stable critical fluctuation equation closes as
 
 ```math
 \partial_\tau\Psi=
@@ -716,7 +698,7 @@ e^{-i\beta\tau N}
 \Psi_0.
 ```
 
-This is the stable counterpart of the Gaussian quadratic equation.
+The equation is the stable counterpart of the Gaussian quadratic equation.
 
 # 14. Explicit homogeneous mode equation
 
@@ -753,7 +735,7 @@ Meanwhile,
 N=n.
 ```
 
-Hence the exact mode evolution is
+The exact mode evolution is
 
 ```math
 \widehat\Psi_n(
@@ -771,7 +753,7 @@ k_1,\ldots,k_n;0
 ).
 ```
 
-Thus the complex spectral rate is
+The complex spectral rate is
 
 ```math
 \Omega_{\alpha,n}
@@ -795,7 +777,7 @@ In position space, the one-particle equation is
 -i(\log\lambda)\psi.
 ```
 
-This is the explicit equation of the homogeneous isotropic stable regime.
+The homogeneous isotropic stable regime satisfies:
 
 # 15. Stable diffusion and fractional unitary evolution
 
@@ -815,23 +797,21 @@ e^{-zB_{\alpha,h}},
 
 contains two boundary evolutions.
 
-For real $z=\tau>0$,
+For real $z=\tau>0$, the equation
 
 ```math
 \partial_\tau\psi=
--B_{\alpha,h}\psi,
+-B_{\alpha,h}\psi
 ```
 
-the stable diffusion.
-
-For imaginary $z=it$,
+generates the stable diffusion. For imaginary $z=it$,
 
 ```math
 i\partial_t\psi=
-B_{\alpha,h}\psi,
+B_{\alpha,h}\psi
 ```
 
-the associated fractional unitary evolution.
+is the associated fractional unitary evolution.
 
 In the homogeneous isotropic case,
 
@@ -858,7 +838,7 @@ and
 \text{route-multiplicity growth/gauge parameter}.
 ```
 
-Nothing derived so far forces a universal relation
+The preceding derivations do not force a universal relation
 
 ```math
 \alpha=f(\beta).
@@ -882,58 +862,14 @@ Its real part is anomalous profile relaxation.
 
 Its imaginary part is compositional gauge phase.
 
-# 17. The exact later convergence tests
+# 17. Convergence tests
 
-The required concrete checks for convergence of a particular graph/profile family to this regime are:
+Convergence of a graph/profile family to this regime requires the following checks:
 
-## Radial regular variation
-
-Show
-
-```math
-\Pr_h(|Z_\delta|>r)
-\sim
-r^{-\alpha}L(r).
-```
-
-### Angular convergence
-
-Show the directions of large profile displacements converge to
-
-```math
-\Lambda_0(x,d\theta).
-```
-
-### $h$-tilt stability
-
-Determine the asymptotics of
-
-```math
-\frac{h(x+r\theta)}{h(x)}.
-```
-
-This decides whether $\alpha$ survives or changes.
-
-### Anti-clustering
-
-Show that one large route block does not force an uncontrolled cluster of equally large blocks unless incorporated explicitly into the limiting Lévy measure.
-
-### Small-jump centering
-
-For $\alpha>1$, control the truncated first moment needed to determine the drift.
-
-### Generator convergence
-
-Show
-
-```math
-\mathcal L_{\delta}^h f
-\longrightarrow
-\mathcal L_\alpha^h f
-```
-
-on a core of test functions.
-
-### Martingale-problem uniqueness
-
-Prove that the candidate stable-like operator determines a unique limiting process. Its martingale problem is known to be well posed under suitable conditions, which must be verified for the graph-family operator.
+1. Establish radial regular variation, $\Pr_h(|Z_\delta|>r)\sim r^{-\alpha}L(r)$.
+2. Prove convergence of the directions of large profile displacements to an angular measure $\Lambda_0(x,d\theta)$.
+3. Determine the asymptotics of $h(x+r\theta)/h(x)$; this decides whether the exponent $\alpha$ survives the $h$-tilt.
+4. Establish anti-clustering, so that one large route block does not force an uncontrolled cluster of equally large blocks unless that cluster is incorporated in the limiting Lévy measure.
+5. For $\alpha>1$, control the truncated first moment that determines the drift.
+6. Prove generator convergence $\mathcal L_{\delta}^h f\to\mathcal L_\alpha^h f$ on a core of test functions.
+7. Verify uniqueness for the martingale problem associated with the candidate stable-like operator.

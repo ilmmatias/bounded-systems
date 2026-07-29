@@ -30,10 +30,7 @@ and
 A_h=\coprod_{\tau\in\overline F_h}E(T_\tau).
 ```
 
-Here:
-
-* $K_h$ coherently identifies every history having Martin shadow $h$;
-* $A_h$ identifies only histories already related by finite-prefix replacement.
+Here $K_h$ coherently identifies every history having Martin shadow $h$ and $A_h$ identifies only histories already related by finite-prefix replacement.
 
 Thus the pair
 
@@ -48,8 +45,6 @@ isolates the genuinely asymptotic part of Martin collapse.
 # 2. Relative homology theorem
 
 Every $E(T_\tau)$ is contractible, and $K_h$ is contractible.
-
-Therefore
 
 ```math
 H_j(A_h;k)=0
@@ -97,7 +92,7 @@ H_n(K_h,A_h;k)=0
 \qquad(n\neq1).
 ```
 
-So the pure asymptotic defect module has an exact homological realization:
+The pure asymptotic defect module has an exact homological realization:
 
 ```math
 H_1(K_h,A_h;k)=
@@ -112,7 +107,7 @@ Globally,
 \bigoplus_h H_1(K_h,A_h;k).
 ```
 
-This identifies the previous algebraic exact sequence with relative simplicial homology.
+The relative homology sequence realizes the algebraic exact sequence.
 
 ---
 
@@ -125,9 +120,9 @@ H_n(K_h,A_h)=0
 \qquad(n\ge2).
 ```
 
-Thus, a Martin fiber containing many tail ends does not by size alone possess higher-dimensional mixing homology.
+A Martin fiber containing many tail ends does not by size alone possess higher-dimensional mixing homology.
 
-For example:
+The following examples illustrate this point.
 
 ## Diamond followed by one common tail
 
@@ -137,7 +132,7 @@ There is only one tail class:
 |\overline F_h|=1.
 ```
 
-Hence
+Consequently,
 
 ```math
 H_1(K_h,A_h)=0.
@@ -147,11 +142,7 @@ All collapse is inherited from a finite route defect.
 
 ### Two genuinely different tails with one Martin shadow
 
-```math
-|\overline F_h|=2.
-```
-
-Then
+If $|\overline F_h|=2$, then
 
 ```math
 H_1(K_h,A_h)\cong k.
@@ -176,15 +167,7 @@ H_n(K_h,A_h)=0
 \qquad(n\ge2).
 ```
 
-Thus:
-
-```math
-\text{large asymptotic multiplicity}
-\neq
-\text{higher homological complexity}.
-```
-
-Similarly, many route ambiguities need not produce higher route syzygies.
+Thus large asymptotic multiplicity does not imply higher homological complexity. Similarly, many route ambiguities need not produce higher route syzygies.
 
 ---
 
@@ -244,13 +227,11 @@ Z_t\times_{Y_t}\cdots\times_{Y_t}Z_t
 }_{q+1\text{ factors}}.
 ```
 
-Thus:
+In the first three degrees,
 
 ```math
 Z_t^{[0]}=Z_t,
-```
-
-```math
+\qquad
 Z_t^{[1]}=
 \{(\tau_0,\tau_1):
 \bar\pi_t(\tau_0)=\bar\pi_t(\tau_1)\},
@@ -302,7 +283,7 @@ Define the quotient sheaf
 \right).
 ```
 
-This is the sheaf of hidden tail-end distinctions.
+The resulting sheaf records hidden tail-end distinctions.
 
 For a finite discrete fiber
 
@@ -310,7 +291,7 @@ For a finite discrete fiber
 \overline F_h=\{\tau_1,\ldots,\tau_r\}
 ```
 
-that varies locally trivially, the stalk is
+that varies locally immediately, the stalk is
 
 ```math
 (\mathscr Q_t)_h
@@ -324,7 +305,7 @@ Its dimension is
 r-1.
 ```
 
-This is dual to the zero-total defect module
+The sheaf is dual to the zero-total defect module
 
 ```math
 \widetilde{k}^{(\overline F_h)}.
@@ -347,7 +328,7 @@ Even though every fiber has the same simple defect space
 k^{r-1},
 ```
 
-the hidden ends can be permuted when one moves around $Y_t$.
+The hidden ends can be permuted when one moves around $Y_t$.
 
 Then $\mathscr Q_t$ is not necessarily a trivial product sheaf. It can be a nontrivial local system.
 
@@ -365,13 +346,13 @@ Thus two quotient systems can have:
 * identical fiberwise relative homology;
 * different global twisting.
 
-This is the first genuine higher-level information absent from the isolated modules
+The first higher-level information absent from the isolated modules is
 
 ```math
 \widetilde{k}^{(\overline F_h)}.
 ```
 
-This is topology in the variation of fibers, not inside one fiber.
+The topology lies in the variation of fibers, not within an individual fiber.
 
 ---
 
@@ -403,17 +384,7 @@ H^{p+q}(Z_t;k).
 
 The Leray spectral sequence is the standard tool relating the cohomology of a source, its target, and a sheaf's derived pushforwards.
 
-This separates two directions:
-
-```math
-q=\text{cohomology inside collapse fibers},
-```
-
-```math
-p=\text{global organization over Martin directions}.
-```
-
-That is the correct setting for higher topology.
+The index $q$ records cohomology inside collapse fibers, while $p$ records the global organization over Martin directions. The bicomplex is therefore the appropriate setting for higher topology.
 
 ---
 
@@ -451,13 +422,7 @@ So even when every fiber is totally disconnected:
 
 The preceding topological construction requires the Martin quotient to be sufficiently well behaved.
 
-A1–A5 alone do not guarantee:
-
-* Hausdorff quotient spaces;
-* local compactness;
-* local triviality;
-* properness;
-* existence of useful sheaf base-change theorems.
+The bounded system definition alone does not guarantee Hausdorff quotient spaces, local compactness, local triviality, properness, or the existence of useful sheaf base-change theorems.
 
 There is, however, a canonical set-theoretic replacement.
 
@@ -489,7 +454,7 @@ If
 F\subseteq F',
 ```
 
-then
+it follows that
 
 ```math
 \sim_{F'}
@@ -513,7 +478,7 @@ Two functions on $V$ agree exactly when they agree on every finite subset, indee
 
 # 11. The inverse system of finite observations
 
-Let
+Define $Y_{t,F}$ by
 
 ```math
 Y_{t,F}=Z_t/\!\sim_F.
@@ -533,7 +498,7 @@ Y_{t,F'}
 Y_{t,F}.
 ```
 
-Thus the finite-observation quotients form an inverse system:
+The finite-observation quotients form an inverse system:
 
 ```math
 {Y_{t,F}}_{F\Subset V}.
@@ -549,7 +514,7 @@ Y_t
 
 It is injective because the node coordinates separate distinct Martin functions.
 
-This pro-object remains meaningful even when no satisfactory quotient topology exists.
+The pro-object remains meaningful even when the quotient topology is ill behaved.
 
 It records exactly how much node information is needed to distinguish asymptotic ends.
 
@@ -557,7 +522,7 @@ It records exactly how much node information is needed to distinguish asymptotic
 
 # 12. Observable defect filtration
 
-Let
+Define $\mathfrak D_F$ by
 
 ```math
 \mathfrak D_F=
@@ -574,7 +539,7 @@ For
 F\subseteq F',
 ```
 
-the relation becomes finer, so
+The relation becomes finer, so
 
 ```math
 \mathfrak D_{F'}
@@ -588,12 +553,9 @@ The quotient
 \mathfrak D_F/\mathfrak D_{F'}
 ```
 
-consists of distinctions that:
+consists of distinctions that are invisible to every observation in $F$ and become visible after the additional coordinates in $F'\setminus F$ are included.
 
-* are invisible to every observation in $F$;
-* become visible after the additional coordinates in $F'\setminus F$ are included.
-
-This produces a decreasing, finite-observable filtration:
+The kernels form a decreasing finite-observable filtration:
 
 ```math
 \mathfrak D_\varnothing
@@ -644,11 +606,13 @@ Higher complexity arises through the organization of many refinement steps, not 
 
 ---
 
-# 14. What survives the sanity check
+# 14. Replacement invariants after the sanity check
 
 The proposed “higher homology of the quotient end relation” is replaced by three objects.
 
 ## Fiberwise asymptotic defect
+
+Consequently,
 
 ```math
 H_1(K_h,A_h)
@@ -656,21 +620,13 @@ H_1(K_h,A_h)
 \widetilde{k}^{(\overline F_h)}.
 ```
 
-This measures how many genuine ends are collapsed at $h$.
+The fiberwise defect measures how many ends collapse at $h$.
 
-## Global hidden-end sheaf
+The hidden-end sheaf
 
 ```math
 \mathscr Q_t=
-\bar\pi_{t*}\underline{k}_{Z_t}/\underline{k}_{Y_t}.
+\bar\pi_{t*}\underline{k}_{Z_t}/\underline{k}_{Y_t}
 ```
 
-This measures how the hidden-end defect spaces vary and twist over the Martin quotient.
-
-## Finite-observable pro-system
-
-```math
-{Y_{t,F},\mathfrak D_F}_{F\Subset V}.
-```
-
-This remains canonical without topological regularity assumptions and records the progressive separation of ends by node Green observables.
+records how hidden-end defect spaces vary over the Martin quotient. The finite-observable pro-system $\{Y_{t,F},\mathfrak D_F\}_{F\Subset V}$ requires no topological regularity and records the progressive separation of ends by node Green observables.

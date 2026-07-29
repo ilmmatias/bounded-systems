@@ -2,11 +2,7 @@
 
 Requiring a common full local generator was too strong; the stable object was the right state geometry.
 
-The revised bridge question became:
-
-```math
-\text{Do route geometry and configuration dynamics select the same state direction?}
-```
+The revised bridge question was whether route geometry and configuration dynamics select the same state direction.
 
 Only the candidate state direction is compared; the complete route state may remain nonautonomous. The comparison permits:
 
@@ -14,31 +10,15 @@ Only the candidate state direction is compared; the complete route state may rem
 * different full finite matrices;
 * different time normalizations.
 
-# 2. Central bridge conclusion
+# 2. Shared state sector
 
-The bridge now has a mechanism-level form:
-
-```math
-\text{latent order covariance uniquely selects }r_0,
-```
-
-while
+Latent order covariance uniquely selects $r_0$, while
 
 ```math
 J_{\mathrm{config}}r_0=-2r_0.
 ```
 
-Therefore
-
-```math
-\text{configuration dynamics and route geometry independently select}
-```
-
-```math
-\text{the same exact one-dimensional state sector.}
-```
-
-This is stronger than numerical alignment of two fitted eigenvectors. One side is a configuration semigroup direction; the other follows from an exact intersection of latent covariance and graph-profile ranges.
+Configuration dynamics and route geometry therefore independently select the same one-dimensional state sector. The agreement is stronger than numerical alignment of two fitted eigenvectors: one side is a configuration semigroup direction, while the other follows from an exact intersection of latent covariance and graph-profile ranges.
 
 # 3. The candidate state line
 
@@ -48,7 +28,7 @@ The singular route analysis identified the four-coordinate graph-profile vector
 r_0=(0,1,-1,-1)^\mathsf T.
 ```
 
-This fluctuation leaves the edge coordinate unchanged, increases the directed two-path coordinate, and decreases both wedge coordinates in the corresponding ratio.
+The $r_0$ fluctuation leaves the edge coordinate unchanged, increases the directed two-path coordinate, and decreases both wedge coordinates in the corresponding ratio.
 
 Using the normalized vector
 
@@ -56,11 +36,11 @@ Using the normalized vector
 \widehat r_0=\frac1{\sqrt3}(0,1,-1,-1)^\mathsf T,
 ```
 
-the route right singular vector converged toward this line.
+The route right singular vector converged toward this line.
 
 # 4. Independent confirmatory design
 
-A fresh state-line experiment used independent sizes and seeds:
+An independent state-line experiment used new sizes and seeds:
 
 ```math
 N=96,144,192,240,288,
@@ -104,7 +84,7 @@ combined=CONFIRMATORY_PASS
 
 while exact clock ratio nine remained unresolved.
 
-Thus the state line passed independently of the later scalar-clock interpretation.
+The state line passed independently of the later scalar-clock interpretation.
 
 # 6. Configuration dynamics on the same line
 
@@ -114,19 +94,7 @@ The configuration semigroup and constrained Jacobian analysis had already identi
 J_{\mathrm{config}}r_0=-2r_0.
 ```
 
-Therefore the two calculations met on an exact state direction:
-
-```math
-\text{configuration dynamics selects }r_0,
-```
-
-and
-
-```math
-\text{route right singular geometry selects }r_0.
-```
-
-This is the first direct bridge between the two continuum constructions.
+The route right singular geometry selects the same $r_0$ as the configuration semigroup. The shared state line provides a direct bridge between the two continuum constructions.
 
 # 7. Regression geometry and singular scaling
 
@@ -140,7 +108,7 @@ Across all three relative horizons:
 * the coefficient and action exponents were close to one;
 * the smallest covariance exponent was close to $-2$.
 
-This established the singular hierarchy needed for a finite slow state embedded in otherwise fast route coordinates.
+The observed singular-value hierarchy supports a finite slow state embedded in otherwise fast route coordinates.
 
 # 8. Corrected Kramers-Moyal reduction
 
@@ -158,7 +126,7 @@ The diagnosis was
 FIRST_ORDER_DRIFT_CANCELLATION_SUPPORTED
 ```
 
-Thus, the state-sector result arose from cancellation in singular covariance geometry, not ordinary nonsingular local regression.
+The state-sector result arose from cancellation in singular covariance geometry, not ordinary nonsingular local regression.
 
 # 9. Ordered-Bernoulli surrogate transfer
 
@@ -179,7 +147,7 @@ structure=REPRODUCED
 quantitative=MATCH
 ```
 
-Thus, the simple ordered latent-position model captured the singular state geometry and most finite quantitative structure.
+The simple ordered latent-position model captured the singular state geometry and most finite quantitative structure.
 
 # 10. Planted versus quenched route conditioning
 
@@ -189,9 +157,9 @@ At the shortest relative horizon, forcing a route produced large finite-size cha
 
 Pooling route records before inversion reduced the discrepancy and restored rank-three cancellation but left a residual matrix mismatch.
 
-This showed that:
+The comparison shows that:
 
-* the state line is robust;
+* the state line is stable;
 * mean-of-fits and pooled estimators need not agree as full matrices;
 * route conditioning changes finite left geometry more strongly than the right state sector.
 
@@ -205,7 +173,7 @@ The residual component had high cosine alignment with the expected sign directio
 0.83\text{ to }0.97.
 ```
 
-Thus, the finite correction is an ensemble-level singular perturbation, not the product of a simple single-path observable.
+The finite correction is an ensemble-level singular perturbation, not the product of a simple single-path observable.
 
 # 12. Asymptotic matrix pencil
 
@@ -261,7 +229,7 @@ For $q>0$, equality forces
 \alpha=0.
 ```
 
-Therefore
+It follows that
 
 ```math
 \mathrm{Range}E
@@ -277,7 +245,7 @@ Since
 c=\frac{q^2}{2}Er_0,
 ```
 
-we obtain the exact identity
+substitution gives the exact identity
 
 ```math
 \mathrm{Range}E
@@ -287,7 +255,7 @@ we obtain the exact identity
 \mathrm{span}\{Er_0\}.
 ```
 
-This is independent of $q$ and of the detailed nondegenerate covariance of $(t,t^2)$.
+The intersection is independent of $q$ and of the detailed nondegenerate covariance of $(t,t^2)$.
 
 # 14. Empirical latent covariance
 
@@ -335,7 +303,7 @@ The geometric decomposition of the six-dimensional covariance was
 
 The two $O(1)$ modes are the latent linear and quadratic position directions. The graph-profile range intersects them in exactly one line, $Er_0$.
 
-Thus, a finite state sector survives inversion, whereas generic graph-coordinate directions acquire an $O(N)$ fast action.
+A finite state sector therefore survives inversion, whereas generic graph-coordinate directions acquire an $O(N)$ fast action.
 
 # 16. Schur-complement form of the slow sector
 
@@ -367,12 +335,6 @@ a_N-b_ND_N^{-1}c_N+O(N^{-1}).
 
 The nonlinear Schur residual was at machine precision; in the confirmatory analyses, the static approximation differed from the directly extracted slow value by substantially less than one percent.
 
-Thus the route scalar separates into:
-
-```math
-\text{direct action}
-+
-\text{fast-sector feedback}.
-```
+The route scalar separates into direct action plus fast-sector feedback.
 
 A common right state line does not imply a common left observable; left-geometry differences enter precisely through the feedback term.

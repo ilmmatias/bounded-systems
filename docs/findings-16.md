@@ -1,12 +1,6 @@
 # 1. The factorization complex of an endpoint pair
 
-Let
-
-```math
-P=P_G=(V,\le)
-```
-
-be the reachability poset.
+Let $P=P_G=(V,\le)$ be the reachability poset.
 
 For $u<v$, define the open interval
 
@@ -45,7 +39,7 @@ For
 \sigma=[w_0<\cdots<w_r],
 ```
 
-the boundary is
+The boundary is
 
 ```math
 \partial\sigma=
@@ -54,11 +48,11 @@ the boundary is
 [w_0<\cdots<\widehat{w_i}<\cdots<w_r].
 ```
 
-This construction applies to any set-sized interval, finite or infinite; every simplex and boundary has only finitely many terms.
+The construction applies to any set-sized interval, finite or infinite; every simplex and boundary has finitely many terms.
 
 # 2. Canonical coherence groups
 
-Define
+For $n\ge1$, define the canonical coherence group
 
 ```math
 \mathcal K_n(v,u;\mathbb Z)=
@@ -87,7 +81,7 @@ so
 \mathcal K_1(v,u)\cong\mathbb Z.
 ```
 
-This represents one primitive cover arrow in the Hasse presentation of the reachability order.
+The class represents one primitive cover arrow in the Hasse presentation.
 
 If an intermediate node exists, then
 
@@ -121,6 +115,8 @@ These are loops in the factorization complex: coherent cycles of relations that 
 
 ## Higher $n$
 
+For higher degrees, the coherence group is
+
 ```math
 \mathcal K_n(v,u)=
 \widetilde H_{n-2}(\Delta(u,v))
@@ -128,7 +124,7 @@ These are loops in the factorization complex: coherent cycles of relations that 
 
 measures higher-dimensional holes among factorizations and their coherences.
 
-Thus the hierarchy is:
+Thus these constructions are related as follows:
 
 ```math
 \begin{array}{c|l}
@@ -140,7 +136,7 @@ Thus the hierarchy is:
 \end{array}
 ```
 
-# 3. Why this is the correct canonical replacement
+# 3. Canonical replacement
 
 The original path algebra
 
@@ -158,19 +154,13 @@ B(P)
 
 imposes equality of every two paths with the same endpoints; it is the quotient of a path algebra by the parallel-path ideal, a standard presentation of incidence algebras.
 
-Different choices of relation generators—diamonds, shortcuts, arbitrary path pairs—can produce different-looking resolutions. But
+Different choices of relation generators, such as diamonds, shortcuts, arbitrary path pairs, can produce different-looking resolutions. But
 
 ```math
 \Delta(u,v)
 ```
 
-depends only on the reachability order. It is therefore independent of:
-
-* preferred paths;
-* a Gröbner ordering;
-* chosen diamond generators;
-* a minimal basis;
-* the original node labels.
+depends only on the reachability order. It is therefore independent of preferred paths, a Gröbner ordering, chosen diamond generators, a minimal basis, and the original node labels.
 
 The full complex is canonical even when a minimal cellular presentation is not.
 
@@ -205,17 +195,7 @@ Over a field and for finite intervals,
 \dim_k\widetilde H_{n-2}(\Delta(u,v);k).
 ```
 
-So the canonical invariant can be viewed either as:
-
-```math
-\text{interval topology}
-```
-
-or as
-
-```math
-\text{the Ext hierarchy of the thin reachability algebra}.
-```
+The canonical invariant admits two equivalent interpretations: interval topology and the Ext hierarchy of the thin reachability algebra.
 
 # 5. Basic examples
 
@@ -233,7 +213,7 @@ then the open interval is empty:
 \Delta(u,v)=\varnothing.
 ```
 
-Hence
+Consequently,
 
 ```math
 \mathcal K_1(v,u)\cong\mathbb Z,
@@ -241,15 +221,11 @@ Hence
 
 and all higher groups vanish.
 
-This is one primitive Hasse arrow with no relation.
+A cover contributes one primitive Hasse arrow and no relation.
 
 ## A three-node chain
 
-Suppose
-
-```math
-u<w<v.
-```
+Suppose $u<w<v$.
 
 The open interval contains one point. Its order complex is contractible:
 
@@ -257,7 +233,7 @@ The open interval contains one point. Its order complex is contractible:
 \Delta(u,v)\simeq\{\text{point}\}.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 \mathcal K_n(v,u)=0
@@ -268,7 +244,7 @@ There is a unique factorization through $w$, so no relation is needed between al
 
 ## A diamond
 
-Suppose
+Suppose that
 
 ```math
 u<a<v,
@@ -278,7 +254,7 @@ u<b<v,
 
 with $a$ and $b$ incomparable.
 
-Then
+It follows that
 
 ```math
 \Delta(u,v)
@@ -291,13 +267,13 @@ is two isolated points. Hence
 \cong\mathbb Z.
 ```
 
-Therefore
+Equivalently,
 
 ```math
 \mathcal K_2(v,u)\cong\mathbb Z.
 ```
 
-This relation identifies
+The relation identifies
 
 ```math
 u\to a\to v
@@ -319,10 +295,7 @@ Between
 {1,2,3},
 ```
 
-the open interval consists of:
-
-* three singleton subsets;
-* three two-element subsets.
+The open interval consists of three singleton subsets and three two-element subsets.
 
 Its order complex is the six-cycle
 
@@ -330,7 +303,7 @@ Its order complex is the six-cycle
 S^1.
 ```
 
-Thus
+Consequently,
 
 ```math
 \widetilde H_1(\Delta)\cong\mathbb Z,
@@ -343,7 +316,7 @@ giving
 \cong\mathbb Z.
 ```
 
-This is the canonical home of the hexagonal relation among the six diamond relations.
+The open-interval complex is the natural home of the hexagonal relation among the six diamond relations.
 
 The earlier $I$-adic complex missed it by searching for products of ambiguity ideals; the interval complex records relations among contextualized local relations.
 
@@ -359,7 +332,7 @@ Its order complex is the barycentric subdivision of the boundary of a $(d-1)$-si
 S^{d-2}.
 ```
 
-Consequently,
+The resulting isomorphism is
 
 ```math
 \mathcal K_d([d],\varnothing)
@@ -373,7 +346,7 @@ and
 \qquad(n\ne d).
 ```
 
-This produces the exact hierarchy:
+These constructions are related as follows:
 
 ```math
 \begin{array}{c|c}
@@ -416,7 +389,7 @@ The groups
 
 are linearized shadows of this homotopy type.
 
-This gives the hierarchy
+The homotopy type determines the hierarchy
 
 ```math
 \Delta(u,v)
@@ -439,7 +412,7 @@ When the reachability interval is finite, its Möbius function satisfies
 \widetilde\chi\bigl(\Delta(u,v)\bigr).
 ```
 
-This follows from the alternating-chain expression for $\mu$: an $r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
+The identity follows from the alternating-chain expression for $\mu$: an $r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
 
 Over a field $k$,
 
@@ -459,7 +432,7 @@ Using the coherence index $n=j+2$,
 \dim_k\mathrm{Ext}^n_B(S_u,S_v).
 ```
 
-So Möbius inversion retains only the alternating total of all higher coherence dimensions.
+Möbius inversion retains only the alternating total of all higher coherence dimensions.
 
 For a diamond:
 
@@ -491,13 +464,11 @@ u<w_0<\cdots<w_{n-2}<v
 
 containing $n$ strict reachability steps.
 
-Therefore
-
 ```math
 \rho_-(u)+n\le\rho_-(v).
 ```
 
-Consequently,
+This gives
 
 ```math
 \mathcal K_n(v,u)=0
@@ -513,7 +484,7 @@ Dually,
 \rho_+(v)+n\le\rho_+(u).
 ```
 
-Thus the higher coherence groups inherit the same transfinite triangularity as paths and resolvents.
+The higher coherence groups inherit the same transfinite triangularity as paths and resolvents.
 
 Define the past-rank block
 
@@ -526,7 +497,7 @@ Define the past-rank block
 \mathcal K_n(v,u).
 ```
 
-Then
+It follows that
 
 ```math
 \mathcal K_n^-(\beta,\alpha)=0
@@ -546,7 +517,7 @@ For a finite reachability poset, its incidence algebra has global dimension equa
 \left\lbrace n: \widetilde H^{n-2} \bigl(\Delta(u,v);k\bigr)\ne0 \text{ for some }u<v \right\rbrace.
 ```
 
-Examples:
+The basic finite examples are
 
 ```math
 \begin{array}{c|c}
@@ -571,17 +542,11 @@ The distinction is:
 \text{coherence depth}.
 ```
 
-# 11. What this does not recover
+# 11. Information not recovered
 
 The interval complex depends only on the reachability poset.
 
-It does not know:
-
-* how many parallel primitive channels existed;
-* which original edges were shortcuts;
-* how many distinct original paths represented one saturated order chain;
-* whether an original cover relation was realized by one channel or many;
-* path lengths in the original graph when shortcut edges exist.
+It does not record how many parallel primitive channels existed, which original edges were shortcuts, how many distinct original paths represented one saturated order chain, whether an original cover relation was realized by one channel or many, or the original path lengths when shortcuts exist.
 
 For example, these systems have the same reachability interval topology:
 
@@ -599,26 +564,14 @@ u\to v.
 
 The shortcut is invisible after thin collapse.
 
-Therefore the full theory needs two separate invariants.
-
-## Presentation defect
+Therefore the full theory needs two separate invariants. The presentation defect
 
 ```math
 I_G=
 \ker\!\left(A(G)\to B(P_G)\right)
 ```
 
-records the route information lost from the original system.
-
-## Intrinsic thin coherence
-
-```math
-{\Delta(u,v)}_{u<v}
-```
-
-records the higher coherence intrinsic to the reachability order after all routes are identified.
-
-Neither replaces the other.
+records the route information lost from the original system. By contrast, the family of interval complexes $\{\Delta(u,v)\}_{u<v}$ records the higher coherence intrinsic to the reachability order after all routes have been identified. Neither invariant replaces the other.
 
 # 12. Infinite systems
 
@@ -640,8 +593,6 @@ u<w_0<\cdots<w_r<v
 ```
 
 The boundary is always a finite alternating sum.
-
-Thus
 
 ```math
 \mathcal K_n(v,u;\mathbb Z)

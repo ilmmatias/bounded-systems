@@ -1,10 +1,6 @@
-# 1. The original bridge question
+# 1. Direct bridge test
 
-The first bridge proposal was direct:
-
-```math
-\text{estimate a route-side local generator and compare it with }J_{\mathrm{config}}.
-```
+The initial bridge test estimated a route-side local generator and compared it with $J_{\mathrm{config}}$.
 
 The route sampler generated exact uniform labeled DAGs and resolved routes at relative horizons
 
@@ -18,7 +14,7 @@ Initial samples at
 N=64,128,256
 ```
 
-produced all required records, but the first bridge analysis returned
+produced all required records, but the bridge analysis returned
 
 ```text
 route_gate=UNRESOLVED
@@ -28,9 +24,9 @@ secondary=NOT_EVALUATED_OR_FAIL
 
 The failure was not a runtime or normalization error. It indicated that the proposed projected route state did not satisfy the assumptions needed for a direct generator comparison.
 
-# 2. What survived
+# 2. Residual bridge structure
 
-The failures did not erase the entire bridge. They exposed three robust remnants:
+Although the full bridge failed, three persistent features remained:
 
 1. a low-rank route cross-moment operator;
 2. a stable right singular subspace;
@@ -38,7 +34,7 @@ The failures did not erase the entire bridge. They exposed three robust remnants
 
 The route process may therefore select the same state sector as configuration dynamics without sharing the same complete local generator or left observable.
 
-# 3. What the failed closure tests ruled out
+# 3. Closure model rejected
 
 The combined diagnostics disfavor the following simple model:
 
@@ -56,15 +52,11 @@ The reason is structural rather than statistical:
 
 Reporting only the high within-position $R^2$ would have made the route process appear closed; the leave-one-position-out and overlap tests showed that this was an interpolation artifact on position-separated support.
 
-The correct lesson is
+High local predictability is not evidence of autonomous continuum closure.
 
-```math
-\text{high local predictability is not evidence of autonomous continuum closure.}
-```
+# 5. Per-position route closure
 
-# 5. Per-position route closure looked deceptively strong
-
-A first closure probe regressed local route transitions separately at each route position.
+The initial closure probe regressed local route transitions separately at each route position.
 
 At $N=64$, the augmented local dictionary achieved high within-position fit:
 
@@ -74,9 +66,7 @@ At $N=64$, the augmented local dictionary achieved high within-position fit:
 | 16 | 0.836 | 0.944 | 0.976 |
 | 24 | 0.826 | 0.968 | 0.989 |
 
-This initially suggested that a finite local closure might exist.
-
-A strong fit conditional on route position does not establish an autonomous state law.
+The high within-position fit suggested a finite local closure, but a fit conditional on route position does not establish an autonomous state law.
 
 # 6. Autonomy test
 
@@ -110,25 +100,13 @@ The same behavior strengthened with size and horizon. At $N=256$, the leave-one-
 
 The corresponding route-time target became even worse.
 
-Therefore
-
-```math
-\text{position-conditioned predictability does not transfer across route position.}
-```
-
-The local profile was not an autonomous route state.
+Position-conditioned predictability did not transfer across route position. The local profile was not an autonomous route state.
 
 # 7. State-overlap analysis
 
 A node-overlap sampler emitted multiple nodes per graph and route position to test whether failure resulted merely from poor support overlap.
 
-The route-position class was almost perfectly recoverable:
-
-```math
-\text{classification accuracy}\approx0.999-1.000.
-```
-
-Thus route position was strongly encoded in the local coordinates.
+The route-position class was almost perfectly recoverable, with classification accuracy approximately $0.999$-$1.000$. Route position was therefore strongly encoded in the local coordinates.
 
 But overlap coverage decreased rapidly. Representative coverage values were:
 
@@ -150,7 +128,7 @@ and sometimes negative.
 
 # 8. Graph-context test
 
-The next possibility was that a local node profile required a small graph-global context variable.
+A graph-context test asked whether a local node profile required a small graph-global context variable.
 
 The analysis compared:
 
@@ -163,7 +141,7 @@ The global additions improved fit only slightly, generally by a few thousandths 
 
 The between-graph variance was small compared with the unresolved within-route variation.
 
-Therefore no simple graph-global scalar or low-dimensional graph profile repaired closure.
+No simple graph-global scalar or low-dimensional graph profile repaired closure.
 
 # 9. Route jets
 
@@ -189,11 +167,11 @@ to
 0.095.
 ```
 
-Thus deterministic finite route history did not provide the missing autonomous coordinate.
+Deterministic finite route history did not provide the missing autonomous coordinate.
 
 # 10. Covariance and cross-covariance jets
 
-The next probes added:
+Additional probes added:
 
 * local covariance tensors;
 * covariance jets across nearby positions;
@@ -222,11 +200,11 @@ The right singular geometry was stable:
 
 The left geometry was not stable under the original exact-pair bootstrap. Its upper confidence angles reached roughly 12-16 degrees, and left-null residual intervals exceeded the preregistered limit.
 
-The original two-sided bridge thus failed because the left observable was not shared, although the right state geometry was much cleaner.
+The two-sided bridge failed because the left observable was not shared, although the right state geometry was much cleaner.
 
 # 12. Sector-adapted left tests
 
-A second singular-sector analysis replaced the exact left vector by a fitted left sector. Point estimates improved dramatically, with sector angles often below one degree.
+A sector-adapted singular analysis replaced the exact left vector by a fitted left sector. Point estimates improved dramatically, with sector angles often below one degree.
 
 Nevertheless the confirmatory bootstrap still returned
 
@@ -237,8 +215,4 @@ exact_pair=FAIL_OR_UNRESOLVED
 
 because the left sector remained too weakly conditioned at the available sizes.
 
-This was the decisive conceptual change:
-
-```math
-\text{the route/configuration bridge should be tested one-sidedly first.}
-```
+The unresolved left sector motivates testing the route/configuration bridge first on the shared right state geometry.

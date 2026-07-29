@@ -41,10 +41,7 @@ with normalized route-fiber vector
 \sum_{p:u\to v}r^{|p|}\xi_p.
 ```
 
-The following objects differ:
-
-* $Z_u$ measures all paths escaping forward from $u$;
-* $H_{v,u}$ measures all alternative finite routes reconverging at $v$.
+The two generating functions have different roles: $Z_u$ measures all paths escaping forward from $u$, whereas $H_{v,u}$ measures the alternative finite routes reconverging at $v$.
 
 Since
 
@@ -52,13 +49,13 @@ Since
 N_n(v,u)\le T_n(u),
 ```
 
-the fixed-endpoint series can remain finite beyond the rooted one.
+The fixed-endpoint series can remain finite beyond the rooted one.
 
 ---
 
 # 2. Two local critical radii
 
-Define
+The forward path-growth rate is
 
 ```math
 \gamma_u^+=
@@ -90,7 +87,7 @@ Because $N_n(v,u)\le T_n(u)$,
 R_{v,u}^{\mathrm{fib}}\ge R_u^+.
 ```
 
-Thus forward depth escape can occur while every individual endpoint fiber is still analytically harmless.
+Forward depth escape can occur while every individual endpoint fiber is still analytically harmless.
 
 Globally,
 
@@ -112,7 +109,7 @@ Since
 \rho_{\mathrm{col}}\le r(S_+),
 ```
 
-we recover
+The resulting bound is
 
 ```math
 R_{\mathrm{col}}\ge R_{\mathrm{Fock}}.
@@ -129,7 +126,7 @@ Assume:
 1. $Z_u(r)<\infty$ for $0\le r<R_u^+$;
 2. $Z_u(r)\to\infty$ as $r\uparrow R_u^+$.
 
-Then
+It follows that
 
 ```math
 \Omega_{u,r}\rightharpoonup0
@@ -165,19 +162,15 @@ remain states. Weak-* compactness gives cluster states
 
 using a subnet when necessary.
 
-Thus:
+The vectors disappear weakly, while their states can survive.
 
-```math
-\text{the vectors disappear weakly, while their states can survive.}
-```
-
-Toeplitz–Cuntz-type state spaces naturally include such non-vector-normal or “essential” states, although precise terminology and the quotient depend on the operator-algebraic setting.
+Toeplitz-Cuntz-type state spaces naturally include such non-vector-normal or “essential” states, although precise terminology and the quotient depend on the operator-algebraic setting.
 
 ---
 
 # 4. Compact operators disappear at the boundary
 
-Let
+Define $\Theta_{p,q}$ by
 
 ```math
 \Theta_{p,q}=
@@ -186,14 +179,14 @@ Let
 
 be a rank-one operator between two finite paths beginning at $u$.
 
-Then
+It follows that
 
 ```math
 \varphi_{u,r}(\Theta_{p,q})=
 \frac{r^{|p|+|q|}}{Z_u(r)}.
 ```
 
-Therefore
+The induced morphism is
 
 ```math
 \varphi_{u,r}(\Theta_{p,q})\longrightarrow0.
@@ -205,7 +198,7 @@ It follows first for finite-rank operators and then, by norm approximation, for 
 \varphi_{u,\partial}(K)=0.
 ```
 
-Consequently, every critical escape state factors through the represented Toeplitz algebra modulo its compact ideal.
+Every critical escape state factors through the represented Toeplitz algebra modulo its compact ideal.
 
 Operator-theoretically, no finite path retains positive mass at the boundary.
 
@@ -222,7 +215,7 @@ Denote by $P[q]$ the projection onto the span of all finite paths beginning with
 \overline{\operatorname{span}\{\xi_{qt}:s(t)=w\}}.
 ```
 
-Then
+It follows that
 
 ```math
 \varphi_{u,r}(P[q])=
@@ -233,13 +226,13 @@ Z_u(r)
 }.
 ```
 
-This follows because every extension of $q$ is uniquely $qt$, with
+The identity follows because every extension of $q$ is uniquely $qt$, with
 
 ```math
 |qt|=|q|+|t|.
 ```
 
-Define
+The cylinder weight of $q$ is
 
 ```math
 \mu_{u,r}[q]=
@@ -265,7 +258,7 @@ The first term is the finite path $q$'s mass. At a divergent critical point,
 \longrightarrow0.
 ```
 
-Hence the critical cylinder state becomes purely extendable:
+The critical cylinder state becomes purely extendable:
 
 ```math
 \mu_{u,\partial}[q]=
@@ -281,7 +274,7 @@ A finitely branching rooted path tree yields an ordinary consistent cylinder sys
 
 Assume the forward prefix tree from $u$ is finitely branching.
 
-Then:
+Under this hypothesis:
 
 * every cylinder has finitely many immediate subcylinders;
 * the conservation equation passes directly to the limit;
@@ -332,8 +325,6 @@ it can happen that
 
 The missing mass has escaped through the infinitely many children without selecting any one child with positive limiting mass.
 
-Therefore:
-
 ```math
 \text{critical state}
 \not\Rightarrow
@@ -344,12 +335,12 @@ for arbitrary branching.
 
 The canonical unrestricted object is the state on the commutative cylinder algebra, equivalently on its spectrum, not necessarily a measure supported only on the literal inverse-limit set of infinite paths.
 
-This aligns with the earlier distinction:
+This is the same logical distinction expressed by
 
 ```math
 \text{unbounded finite depth}
 \not\Rightarrow
-\text{an actual infinite path}
+\text{an actual infinite path}.
 ```
 
 without a finite-branching or compactness assumption.
@@ -366,7 +357,7 @@ H_{v,u}(r)^{-1/2}
 \sum_{p:u\to v}r^{|p|}\xi_p.
 ```
 
-A5 gives a decisive lemma.
+Acyclicity gives a decisive lemma.
 
 ## Same-endpoint antichain lemma
 
@@ -386,14 +377,12 @@ v\to v,
 
 contradicting acyclicity.
 
-Therefore:
-
 ```math
 \mathscr P(u,v)
 \text{ is an antichain under prefix order}.
 ```
 
-So even when
+Even when
 
 ```math
 H_{v,u}(r)\to\infty,
@@ -401,11 +390,7 @@ H_{v,u}(r)\to\infty,
 
 The route-fiber vectors do not approach nested prefixes but spread across mutually incomparable finite routes.
 
-Hence:
-
-```math
-\text{fixed-endpoint critical escape is not an infinite-path boundary phenomenon}.
-```
+fixed-endpoint critical escape is not an infinite-path boundary phenomenon.
 
 It is a boundary of alternative finite route choices.
 
@@ -413,7 +398,7 @@ It is a boundary of alternative finite route choices.
 
 # 9. The route-choice corona
 
-Let
+Define $S_{v,u}$ by
 
 ```math
 S_{v,u}=\mathscr P(u,v)
@@ -433,11 +418,7 @@ H_{v,u}(r)
 }.
 ```
 
-Suppose
-
-```math
-H_{v,u}(r)\to\infty.
-```
+Suppose $H_{v,u}(r)\to\infty$.
 
 For every fixed finite subset $F\subset S_{v,u}$,
 
@@ -451,7 +432,7 @@ H_{v,u}(r)
 \longrightarrow0.
 ```
 
-Thus every cluster state $\nu_{v,u,\partial}$ satisfies
+Every cluster state $\nu_{v,u,\partial}$ satisfies
 
 ```math
 \nu_{v,u,\partial}(f)=0
@@ -467,13 +448,13 @@ It therefore factors through
 
 Its spectrum is the remainder of the discrete route set after removing all individual finite routes.
 
-We can call this the route-choice corona:
+Call this the route-choice corona:
 
 ```math
 \partial_{\mathrm{route}}(v,u).
 ```
 
-We use this name descriptively.
+The name is descriptive.
 
 Its points represent generalized ways of escaping through infinitely many mutually incomparable finite routes.
 
@@ -484,6 +465,8 @@ Its points represent generalized ways of escaping through infinitely many mutual
 Three analytically distinct phenomena occur.
 
 ## A. Rooted depth escape
+
+The corresponding map is
 
 ```math
 Z_u(r)\to\infty.
@@ -499,13 +482,15 @@ Under finite branching, this yields a state on
 
 ## B. Fixed-endpoint fiber escape
 
+The corresponding map is
+
 ```math
 H_{v,u}(r)\to\infty.
 ```
 
 Mass moves through infinitely many incomparable routes from $u$ to $v$.
 
-This yields a state on
+The construction defines a state on
 
 ```math
 \partial_{\mathrm{route}}(v,u),
@@ -525,17 +510,13 @@ even though every fixed $H_{v,u}(r)$ is finite.
 
 Consequently, no single endpoint pair carries the singularity; the maximizing pair moves farther through the graph.
 
-This is global depth drift rather than local fiber divergence.
+The divergence comes from global depth drift, not a local fiber.
 
 ---
 
 # 11. Example: one infinite chain
 
-Let
-
-```math
-u_0\to u_1\to u_2\to\cdots.
-```
+Consider the infinite chain $u_0\to u_1\to u_2\to\cdots$.
 
 There is exactly one path of each length from $u_0$, so
 
@@ -564,7 +545,7 @@ For the unique length-$k$ prefix $q_k$,
 r^{2k}.
 ```
 
-Thus
+This gives
 
 ```math
 \lim_{r\uparrow1}\mu_{u_0,r}[q_k]=1.
@@ -588,7 +569,7 @@ but their cylinder states converge nontrivially.
 
 Suppose each node has $d$ outgoing edges to distinct children.
 
-Then
+It follows that
 
 ```math
 T_n(u)=d^n,
@@ -620,15 +601,11 @@ At the critical point,
 
 There are $d^k$ cylinders at depth $k$, and their masses sum to one.
 
-This is the canonical equal-weight state on the $d$-ary infinite-path boundary.
+The measure is the equal-weight state on the $d$-ary infinite-path boundary.
 
 Yet each fixed endpoint pair has at most one path, so every local route-fiber series is a monomial with infinite radius.
 
-So:
-
-```math
-\text{the infinite-path boundary appears even though no endpoint fiber is singular}.
-```
+The infinite-path boundary appears even though no endpoint fiber is singular.
 
 ---
 
@@ -642,7 +619,7 @@ u\to x_{n,1}\to\cdots\to x_{n,n-1}\to v.
 
 The chains are internally disjoint.
 
-Then
+It follows that
 
 ```math
 N_n(v,u)=1
@@ -675,51 +652,25 @@ Meanwhile, $Z_u(r)$ is infinite for every $r>0$ because $u$ emits infinitely man
 
 Thus no rooted radial Fock vector exists at all.
 
-This is a direct counterexample to identifying endpoint-collapse criticality with infinite-ray emergence.
+The example separates endpoint-collapse criticality from infinite-ray emergence.
 
 ---
 
 # 14. Critical regularity versus critical escape
 
-For a rooted source $u$, there are three regimes.
-
-## Subcritical
+For a rooted source $u$, there are three regimes. In the subcritical regime $0\le r<R_u^+$, the vector $\Omega_{u,r}$ lies in Fock space. At a critical regular point,
 
 ```math
-0\le r<R_u^+.
+Z_u(R_u^+)<\infty,
 ```
 
-The vector
+so $\Omega_{u,R_u^+}$ still exists as an ordinary Fock vector and no boundary escape is forced. At a critical divergent point,
 
 ```math
-\Omega_{u,r}
+Z_u(R_u^+)=\infty,
 ```
 
-lies in Fock space.
-
-## Critical regular
-
-```math
-Z_u(R_u^+)<\infty.
-```
-
-Then
-
-```math
-\Omega_{u,R_u^+}
-```
-
-still exists as an ordinary Fock vector.
-
-There is no mandatory boundary escape.
-
-## Critical divergent
-
-```math
-Z_u(R_u^+)=\infty.
-```
-
-Then normalized vectors tend weakly to zero while cluster states may survive outside the normal Fock sector.
+normalized vectors tend weakly to zero while cluster states may survive outside the normal Fock sector.
 
 Thus the radius alone is insufficient. The behavior of the series at the boundary matters.
 
