@@ -153,7 +153,7 @@ The factors $Z_{a,N}^{-1}$ calibrate the desired phase probabilities. Without th
 
 selects phase proportions proportional to the asymptotic well partition functions as well as the coefficients $c_a$. The resulting weights contain an entropic contribution from the number and path multiplicity of low-energy endpoints in each phase.
 
-This is not a defect. It identifies a second possible selection principle: phase weights can be imposed externally by calibration, or allowed to emerge from relative endpoint entropy.
+This identifies a second possible selection principle: phase weights can be imposed externally by calibration, or allowed to emerge from relative endpoint entropy.
 
 # 6. Finite phase closure
 

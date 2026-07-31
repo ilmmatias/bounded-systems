@@ -68,7 +68,7 @@ K_\varepsilon
 
 is compact. The continuous function $\mathcal E$ is strictly positive on this set because $\mu^\star$ is its unique zero. Its minimum on $K_\varepsilon$ is therefore positive.
 
-The theorem gives a qualitative stability modulus. It does not claim that the function $\delta(\varepsilon)$ is computationally efficient.
+The argument is a compactness argument and produces no bound on $\delta(\varepsilon)$. A quantitative modulus requires an explicit positive lower bound for $\mathcal E$ on $K_\varepsilon$.
 
 # 3. Finite endpoint stability
 

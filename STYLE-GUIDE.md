@@ -757,6 +757,20 @@ Avoid formulaic constructions when they do not express a real logical distinctio
 
 Use contrast only when both sides are mathematically relevant and the contrast advances the argument.
 
+A related form states what a result does not claim instead of stating the limitation itself. Replace the disclaimer by the fact.
+
+Avoid:
+
+> The theorem gives a qualitative stability modulus. It does not claim that the function $\delta(\varepsilon)$ is computationally efficient.
+
+Write:
+
+> The argument is a compactness argument and produces no bound on $\delta(\varepsilon)$.
+
+The revision is shorter, states the limitation positively, and is more accurate: the proof takes a minimum over a compact set, so no modulus is produced at all, efficient or otherwise. A disclaimer of this kind also tends to misdescribe the gap it is disclaiming.
+
+A negative statement is justified only when it forecloses a specific misreading that the positive form would leave open, as in separating a global impossibility from the corresponding individual one, or in distinguishing a result forced by the primitive assumptions from one forced only after a selector is specified. Even then, state the positive content in the same passage.
+
 ## 3.12 Excessive signposting
 
 Use no more than one roadmap paragraph in an introduction. Do not give a second roadmap at the start of every section and a recap at its end.
@@ -1264,6 +1278,7 @@ A prose-edit request does not authorize silent mathematical correction. If an eq
 16. Preserve notation, macros, labels, citations, code, mathematical blocks, tables, outputs, metadata, and theorem structure during prose editing.
 17. Keep prose edits minimal and disclose substantive mathematical changes separately.
 18. Verify compilation and rendering after any edit that touches technical structure.
+19. State a limitation as a fact rather than as a disclaimer about what a result does not claim.
 
 # Editorial preflight checklist
 
@@ -1285,3 +1300,4 @@ Before producing a patch, verify each edited file against the following question
 14. Does the applied result match the reviewed working copy?
 15. Does the file compile or render without new warnings attributable to the edit?
 16. Has the rendered output been inspected around every edited technical block?
+17. Is every limitation stated positively, rather than as a disclaimer about what is not claimed?
