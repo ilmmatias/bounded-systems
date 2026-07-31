@@ -254,10 +254,4 @@ Exhaustive construction of the DAG branching graph through four vertices gives t
 
 # 7. Literature relation
 
-The equivalence between coherent systems, positive harmonic functions, and Markov central measures is standard in the theory of equipped graded graphs and Bratteli diagrams. The identification of complete finite-pattern probabilities with an exchangeable graph law is the graph-limit form of the Aldous-Hoover correspondence. Directed graph laws are represented by digraphons, with uniqueness understood up to weak isomorphism.
-
-References:
-
-- A. M. Vershik, *Equipped graded graphs, projective limits of simplices, and their boundaries*, Journal of Mathematical Sciences 209 (2015), 860-873, arXiv:1503.04447.
-- P. Diaconis and S. Janson, *Graph limits and exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61, arXiv:0712.2749.
-- D. Cai, N. Ackerman, and C. Freer, *Priors on exchangeable directed graphs*, Electronic Journal of Statistics 10 (2016), 3490-3515, arXiv:1510.08440.
+The equivalence between coherent systems, positive harmonic functions, and Markov central measures is standard in the theory of equipped graded graphs and Bratteli diagrams, for which see A. M. Vershik, *Equipped graded graphs, projective limits of simplices, and their boundaries*, Journal of Mathematical Sciences 209 (2015), 860-873, arXiv:1503.04447. The identification of complete finite-pattern probabilities with an exchangeable graph law is the graph-limit form of the Aldous-Hoover correspondence, developed in P. Diaconis and S. Janson, *Graph limits and exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61, arXiv:0712.2749. Directed graph laws are represented by digraphons, with uniqueness understood up to weak isomorphism, as in D. Cai, N. Ackerman, and C. Freer, *Priors on exchangeable directed graphs*, Electronic Journal of Statistics 10 (2016), 3490-3515, arXiv:1510.08440.

@@ -467,7 +467,7 @@ which is an Ornstein-Uhlenbeck process with relaxation rate $r/2$. Disconnected 
 
 # 11. Literature relation
 
-Janson and Nowicki introduced generalized $U$-statistics with independent vertex and pair variables and used support graphs to classify their asymptotic distributions in random-graph applications. Their principal support order determines normalization, and connected principal support graphs yield Gaussian limits.
+S. Janson and K. Nowicki, *The asymptotic distributions of generalized U-statistics with applications to random graphs*, Probability Theory and Related Fields 90 (1991), 341-375, introduced generalized $U$-statistics with independent vertex and pair variables and used support graphs to classify their asymptotic distributions in random-graph applications. Their principal support order determines normalization, and connected principal support graphs yield Gaussian limits.
 
 Recent work on network $U$-statistics has formulated analogous orthogonal decompositions directly in terms of subgraphs of Aldous-Hoover-Kallenberg variables. The looped support formalism used here specializes that construction to a one-type dissociated array and makes the logarithmic-size covariance spectrum explicit.
 

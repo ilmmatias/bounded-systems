@@ -304,11 +304,6 @@ This distinction is useful for interpreting apparent nonconvergence. If an uncen
 
 # 9. Literature relation
 
-The decomposition into a random extreme point and a conditionally dissociated law is the ergodic or Choquet decomposition of an exchangeable array. In the graph-limit formulation, random graph limits correspond to general exchangeable laws, while deterministic graph limits correspond to extreme laws. The global Aldous-Hoover variable records the same mixture.
+The decomposition into a random extreme point and a conditionally dissociated law is the ergodic or Choquet decomposition of an exchangeable array, for which see D. J. Aldous, *Exchangeability and related topics*, École d'Été de Probabilités de Saint-Flour XIII, Lecture Notes in Mathematics 1117, Springer, 1985. In the graph-limit formulation of P. Diaconis and S. Janson, *Graph limits and exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61, arXiv:0712.2749, random graph limits correspond to general exchangeable laws, while deterministic graph limits correspond to extreme laws. The global Aldous-Hoover variable records the same mixture.
 
 The present addition is the exact spectral interpretation in logarithmic growth: the ergodic-component variable is a support-degree-zero mode, while all finite relational fluctuations inside a sector occupy positive half-integer rates.
-
-References:
-
-- P. Diaconis and S. Janson, *Graph limits and exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61, arXiv:0712.2749.
-- D. J. Aldous, *Exchangeability and related topics*, École d'Été de Probabilités de Saint-Flour XIII, Lecture Notes in Mathematics 1117, Springer, 1985.

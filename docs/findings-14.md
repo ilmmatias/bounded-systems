@@ -300,7 +300,7 @@ C_1\otimes_BC_1\to C_2,
 [s|r]\mapsto[sr].
 ```
 
-The corresponding map is
+This gives
 
 ```math
 H_{2,2}^{\mathrm{rt}}=

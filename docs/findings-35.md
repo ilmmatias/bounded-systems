@@ -780,7 +780,7 @@ The same quadratic variation yields two complementary equations:
 \text{Fokker-Planck/diffusion equation},
 ```
 
-At the level of maps,
+and
 
 ```math
 \text{least-information regime}

@@ -229,9 +229,4 @@ For rational three-part acyclic payload matrices, exact calculations give degree
 
 # 7. Literature relation
 
-Decorated graphon constraints are commonly eliminated by forcing a finite partition and then translating decorated expressions into ordinary subgraph-density constraints. The construction above is an acyclic directed version with explicit marker and compensator blocks. The compensators are needed because the payload parts may have continuously varying directed degrees.
-
-References:
-
-- L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
-- D. Kral, L. M. Lovasz, J. A. Noel, and J. Sosnovec, *Finitely forcible graphons with an almost arbitrary structure*, Discrete Analysis 2020:9, arXiv:1809.05973.
+Decorated graphon constraints are commonly eliminated by forcing a finite partition and then translating decorated expressions into ordinary subgraph-density constraints, as in L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929, and D. Kral, L. M. Lovasz, J. A. Noel, and J. Sosnovec, *Finitely forcible graphons with an almost arbitrary structure*, Discrete Analysis 2020:9, arXiv:1809.05973. The construction above is an acyclic directed version with explicit marker and compensator blocks. The compensators are needed because the payload parts may have continuously varying directed degrees.

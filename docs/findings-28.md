@@ -148,7 +148,7 @@ The critical growth scale has become a positive adjacency eigenvalue.
 
 Positive vectors satisfying adjacency inequalities, with equality at regular vertices and possible defects at sinks or infinite emitters, arise naturally in graph-operator-algebra treatments of harmonic and boundary weights.
 
-## 4. Local boundedness of ratio limits
+# 4. Local boundedness of ratio limits
 
 Suppose $q:u\to v$ is a fixed path.
 

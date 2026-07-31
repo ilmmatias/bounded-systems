@@ -446,9 +446,9 @@ Its points represent generalized ways of escaping through infinitely many mutual
 
 Three analytically distinct phenomena occur.
 
-## A. Rooted depth escape
+## Rooted depth escape
 
-The corresponding map is
+The divergence criterion is
 
 ```math
 Z_u(r)\to\infty.
@@ -462,9 +462,9 @@ Under finite branching, this yields a state on
 \partial_u^+G.
 ```
 
-## B. Fixed-endpoint fiber escape
+## Fixed-endpoint fiber escape
 
-The corresponding map is
+The divergence criterion is
 
 ```math
 H_{v,u}(r)\to\infty.
@@ -480,7 +480,7 @@ The construction defines a state on
 
 not an infinite forward ray.
 
-## C. Moving-endpoint unboundedness
+## Moving-endpoint unboundedness
 
 The global endpoint-collapse norm may diverge because
 

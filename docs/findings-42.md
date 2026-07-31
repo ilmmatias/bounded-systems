@@ -204,7 +204,7 @@ Assume on every compact $K\Subset M$:
 \longrightarrow0,
 ```
 
-The corresponding map is
+together with
 
 ```math
 b_\delta\longrightarrow b_h

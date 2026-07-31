@@ -528,7 +528,7 @@ b
 \frac{m_{n,p,r}}{\delta_{n,p,r}^2},
 ```
 
-Equivalently,
+and
 
 ```math
 a
@@ -674,14 +674,14 @@ For a sequence $G_n$, choose $r_n=o(n)$ and $p_n\to\infty$. Suppose:
 \to0,
 ```
 
-At the level of maps,
+the normalized mean displacement satisfies
 
 ```math
 \frac{M^{(1)}_{n,p_n,r_n}}{\delta_n^2}
 \to b,
 ```
 
-The corresponding map is
+the normalized covariance satisfies
 
 ```math
 \frac{C_{n,p_n,r_n}}{\delta_n^2}

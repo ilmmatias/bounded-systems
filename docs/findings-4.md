@@ -77,6 +77,8 @@ The statement allows arbitrary node and edge cardinalities, including parallel c
 
 ## Proof
 
+The two hypotheses on $\Phi$ are used separately: preservation of the marked diagonal recovers the node set, and preservation of degree one recovers the channel multiplicities.
+
 ### Recovery of the nodes
 
 An idempotent of $\mathcal D(G)$ has the form

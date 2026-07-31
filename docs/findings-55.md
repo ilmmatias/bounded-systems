@@ -438,7 +438,7 @@ The remaining continuum questions lie outside this finite dissociated setting. T
 
 # 10. Literature relation
 
-Janson and Nowicki proved that arbitrary symmetric generalized $U$-statistics have limits described by Wick products of Gaussian variables associated with the connected components of their principal support graphs. Their two-component theorem gives the familiar independent Gaussian plus centered chi-square form, and their general theorem gives higher Wick products.
+S. Janson and K. Nowicki, *The asymptotic distributions of generalized U-statistics with applications to random graphs*, Probability Theory and Related Fields 90 (1991), 341-375, proved that arbitrary symmetric generalized $U$-statistics have limits described by Wick products of Gaussian variables associated with the connected components of their principal support graphs. Their two-component theorem gives the familiar independent Gaussian plus centered chi-square form, and their general theorem gives higher Wick products.
 
 The present derivation adds the nested-level and logarithmic-size process structure. Each connected component becomes a time-changed Brownian field, and its Lamperti transform is an OU field weighted by the component's vertex count. Wick multiplication then preserves the total relaxation eigenvalue $v(P)/2$.
 

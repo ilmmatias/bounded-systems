@@ -372,7 +372,7 @@ The remaining functional problem is confined to disconnected principal supports.
 
 # 9. Literature relation
 
-Janson and Nowicki proved the fixed-level Gaussian limit for generalized $U$-statistics whose principal support graphs are connected. Their proof uses the same canonical-support pairing lemma that appears here.
+S. Janson and K. Nowicki, *The asymptotic distributions of generalized U-statistics with applications to random graphs*, Probability Theory and Related Fields 90 (1991), 341-375, proved the fixed-level Gaussian limit for generalized $U$-statistics whose principal support graphs are connected. Their proof uses the same canonical-support pairing lemma that appears here.
 
 The present result adds the nested-level process structure. Pair embeddings restricted to two levels contribute according to the smaller level, producing the covariance $\min(s,t)^r$ in linear size. The Lamperti transform then turns that self-similar Gaussian process into a stationary Ornstein-Uhlenbeck process with rate $r/2$.
 

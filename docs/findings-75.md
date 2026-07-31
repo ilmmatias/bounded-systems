@@ -223,9 +223,4 @@ Exact rational calculations confirm that:
 
 # 6. Literature relation
 
-The proof uses the same general principle as decorated graphon forcing: a finitely forcible payload is inserted into an intrinsically identifiable finite partition, and decorated constraints are then converted into ordinary density constraints. The new point is the acyclic balancing operation. It makes every ambient part have a constant and distinct directed degree pair while allowing the payload itself to be arbitrary.
-
-References:
-
-- L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
-- J. W. Cooper, D. Kral, and T. L. Martins, *Finitely forcible graph limits are universal*, Advances in Mathematics 340 (2018), 819-854, arXiv:1701.03846.
+The proof uses the same general principle as decorated graphon forcing: a finitely forcible payload is inserted into an intrinsically identifiable finite partition, and decorated constraints are then converted into ordinary density constraints, as in L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929, and J. W. Cooper, D. Kral, and T. L. Martins, *Finitely forcible graph limits are universal*, Advances in Mathematics 340 (2018), 819-854, arXiv:1701.03846. The new point is the acyclic balancing operation. It makes every ambient part have a constant and distinct directed degree pair while allowing the payload itself to be arbitrary.

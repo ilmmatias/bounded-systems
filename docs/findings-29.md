@@ -569,7 +569,7 @@ There are two infinite routes:
 o\to a\to v_0\to v_1\to\cdots,
 ```
 
-The corresponding map is
+and
 
 ```math
 \xi_b:

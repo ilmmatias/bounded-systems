@@ -500,7 +500,7 @@ Fix $r$. Assume that whenever
 x_{n,r}(G_n)\to x,
 ```
 
-The corresponding map is
+one has
 
 ```math
 b_{n,r}^h(G_n)\to b_r^h(x)

@@ -497,7 +497,7 @@ The operator decomposition and the interval-topology construction meet naturally
 \widetilde H_0,
 ```
 
-At the level of maps,
+and
 
 ```math
 \text{many compatible cuts}

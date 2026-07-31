@@ -204,9 +204,4 @@ Enumeration of all labelled DAGs through five vertices gives the exact Gibbs end
 
 # 8. Literature relation
 
-The construction combines finite forcibility with the weighted endpoint and harmonic-transform machinery of the DAG branching graph. Vershik's central-measure framework identifies coherent laws through canonical cotransitions and harmonic functions; the present theorem supplies a finite relational Gibbs mechanism that selects one such harmonic sector.
-
-References:
-
-- A. M. Vershik, *The problem of describing central measures on the path spaces of graded graphs*, Functional Analysis and Its Applications 48 (2014), 256-271, arXiv:1408.3291.
-- L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
+The construction combines finite forcibility with the weighted endpoint and harmonic-transform machinery of the DAG branching graph. The central-measure framework of A. M. Vershik, *The problem of describing central measures on the path spaces of graded graphs*, Functional Analysis and Its Applications 48 (2014), 256-271, arXiv:1408.3291, identifies coherent laws through canonical cotransitions and harmonic functions; the present theorem supplies a finite relational Gibbs mechanism that selects one such harmonic sector. For the finite-forcibility side, see L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.

@@ -809,11 +809,14 @@ Do not close a manuscript with phrases such as:
 
 State the proved result, its limitation, and a specific open problem.
 
-## 3.17 Punctuation and rhythm are not standalone AI markers
+## 3.17 Punctuation and rhythm
 
-Do not ban em dashes, semicolons, parenthetical remarks, or three-part lists solely because they are popularly described as AI markers. These are established features of scholarly prose.
+To prevent structural ambiguity and maintain mathematical precision, enforce strict limits on complex punctuation. Do not use humanities-style rhetorical prose elements.
 
-Revise them only when they produce monotony, ambiguity, excessive qualification, or rhetorical symmetry without mathematical function.
+1. Dashes: Ban em dashes (—) and en dashes (–) entirely. They visually conflict with minus signs and mathematical operators. Use standard precise conjunctions instead.
+2. Semicolons: Restrict semicolons to separating distinct mathematical conditions, coordinate clauses with mathematical equivalence, or parameter arguments in functions. Do not use them for stylistic variation.
+3. Parentheses: Reserve parenthetical remarks strictly for technical specifications, alternative units, or grouping operators. If a remark can be deleted without changing the logical proof of the sentence, remove it.
+4. Rhetorical Lists: Eliminate decorative three-part lists. Information must be presented as binary logical progressions, chronological steps, or explicit bulleted items.
 
 ## 3.18 Permitted lists
 

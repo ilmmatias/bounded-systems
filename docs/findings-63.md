@@ -265,8 +265,4 @@ Across a rational grid in the positive two-layer sector, exact arithmetic shows 
 
 # 8. Literature relation
 
-The proof uses the Noetherianity of polynomial rings rather than a graphon-specific forcing theorem. It is compatible with the theory of finitely forcible graphons, where prescribed finite subgraph densities can isolate individual limit objects. The present theorem is deliberately relative: it gives finite identification inside an algebraic central family and does not claim absolute forcibility in the full digraphon space.
-
-References:
-
-- L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
+The proof uses the Noetherianity of polynomial rings rather than a graphon-specific forcing theorem. It is compatible with the theory of finitely forcible graphons of L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929, where prescribed finite subgraph densities can isolate individual limit objects. The present theorem is deliberately relative: it gives finite identification inside an algebraic central family and does not claim absolute forcibility in the full digraphon space.

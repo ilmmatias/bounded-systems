@@ -204,9 +204,4 @@ Exact rational calculations give the following finite-compression identities and
 
 # 8. Literature relation
 
-Graph-limit theory distinguishes full identification by all finite pattern densities from finite forcibility by a selected finite list. Lovász and Szegedy introduced finitely forcible graphons and showed both positive examples and obstructions. Later work established that finite forcibility does not imply a simple finite-dimensional latent structure. The present theorem concerns a different issue: the impossibility of one universal finite-dimensional continuous coordinate system on the complete DAG central boundary.
-
-References:
-
-- L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
-- J. W. Cooper, D. Král', and T. L. Martins, *Finitely forcible graph limits are universal*, Advances in Mathematics 340 (2018), 819-854, arXiv:1701.03846.
+Graph-limit theory distinguishes full identification by all finite pattern densities from finite forcibility by a selected finite list. Finitely forcible graphons were introduced in L. Lovász and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929, which gives both positive examples and obstructions. Later work, including J. W. Cooper, D. Král', and T. L. Martins, *Finitely forcible graph limits are universal*, Advances in Mathematics 340 (2018), 819-854, arXiv:1701.03846, established that finite forcibility does not imply a simple finite-dimensional latent structure. The present theorem concerns a different issue: the impossibility of one universal finite-dimensional continuous coordinate system on the complete DAG central boundary.
