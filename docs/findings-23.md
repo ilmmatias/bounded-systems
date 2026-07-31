@@ -1,5 +1,25 @@
 # 1. Fixed-depth inequality chain
 
+Fix a source node $u$ and a length $n$, and abbreviate the endpoint multiplicities of `findings-22.md` by
+
+```math
+a_v=N_n(v,u).
+```
+
+Four quantities are formed from them: the route total, the quadratic collapse weight, the largest endpoint multiplicity, and the number of endpoints reached,
+
+```math
+T=\sum_va_v,
+\qquad
+Q=\sum_va_v^2,
+\qquad
+M=\sup_va_v,
+\qquad
+R=\left|\{v:a_v>0\}\right|.
+```
+
+In the notation of `findings-22.md`, $T=T_n(u)=|S_+^nP_u|^2$ and $M=M_n(u)$, while $Q=|A^n\delta_u|_2^2$ is the squared norm of the aggregated route vector $C_{n,u}\Psi_{n,u}$.
+
 The resulting bound is
 
 ```math
