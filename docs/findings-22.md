@@ -38,8 +38,6 @@ which is the largest number of length-$n$ routes terminating at one node.
 
 These may be infinite. The operator conclusions below apply when the relevant quantities are finite and uniformly bounded.
 
----
-
 # 2. Exact $\ell^2$-to-$\ell^1$ growth identity
 
 Let $S_+=\sum_{e\in E}L_e$ be the forward Fock creator.
@@ -108,8 +106,6 @@ r(S_+)=
 
 The square root arises because route counts are $\ell^1$ mass, while mutually orthogonal Fock routes combine by Pythagoras.
 
----
-
 # 3. Backward growth and node-space $\ell^2$
 
 A backward Fock construction gives
@@ -140,8 +136,6 @@ The two terms separate directional sources of growth:
 * backward reconvergence.
 
 A highly branching nonreconverging tree can have large $S_+$ but small endpoint concentration, whereas repeated merging of many routes can make both directional quantities large.
-
----
 
 # 4. Endpoint aggregation and reconvergence
 
@@ -230,8 +224,6 @@ The lower bound is attained when no two routes end at the same node, whereas the
 
 Thus the endpoint-summation map destroys orthogonality with norm amplification $\sqrt{M_n(u)}$.
 
----
-
 # 5. From route counting to min-plus geometry
 
 Define the endpoint path series
@@ -300,8 +292,6 @@ The three geometries meet in the exact formula
 z^{d(u,v)}
 +\text{higher-length terms}.
 ```
-
----
 
 # 6. Endpoint growth versus route growth
 
@@ -383,8 +373,6 @@ while shortest-path endpoint growth is trivial.
 
 So tropical geometry can discard an arbitrarily large exponential amount of route information.
 
----
-
 # 7. Weighted Möbius coefficients
 
 Let $M_d(z)=\zeta_d(z)^{-1}$ be the weighted thin Möbius kernel.
@@ -424,8 +412,6 @@ The first exact bound is
 ```
 
 Equality occurs when there is no cancellation between even- and odd-length factorizations.
-
----
 
 # 8. Bounding Möbius coefficients by actual routes
 
@@ -493,8 +479,6 @@ The inequality relates weighted Möbius coefficients, route multiplicity, and or
 
 The factor $2^{L-1}$ is optimal for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets, although its signed Möbius coefficient may cancel to zero.
 
----
-
 # 9. Spectral-radius consequence
 
 Assume $S_+$ is bounded and the scalar Möbius coefficients are finite.
@@ -538,8 +522,6 @@ with the usual interpretation when the denominator is zero.
 The estimate is only a lower bound for the convergence radius; alternating cancellation can make the true radius larger.
 
 For finite-height systems, all relevant series are polynomials.
-
----
 
 # 10. A uniform operator-norm bound
 
@@ -588,8 +570,6 @@ The elementary region
 is always contained in the $\ell^1$-operator convergence domain whenever the scalar weighted kernel is defined.
 
 Again, this is a universal safe region, not usually the optimal one.
-
----
 
 # 11. The three geometries as successive algebraic operations
 

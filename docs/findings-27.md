@@ -51,8 +51,6 @@ N_n(v,u)\le T_n(u),
 
 The fixed-endpoint series can remain finite beyond the rooted one.
 
----
-
 # 2. Two local critical radii
 
 The forward path-growth rate is
@@ -117,8 +115,6 @@ R_{\mathrm{col}}\ge R_{\mathrm{Fock}}.
 
 Endpoint collapse can remain bounded after the global rooted Fock sum ceases to exist.
 
----
-
 # 3. Rooted boundary-escape theorem
 
 Assume:
@@ -166,8 +162,6 @@ The vectors disappear weakly, while their states can survive.
 
 Toeplitz-Cuntz-type state spaces naturally include such non-vector-normal or “essential” states, although precise terminology and the quotient depend on the operator-algebraic setting.
 
----
-
 # 4. Compact operators disappear at the boundary
 
 Define $\Theta_{p,q}$ by
@@ -201,8 +195,6 @@ It follows first for finite-rank operators and then, by norm approximation, for 
 Every critical escape state factors through the represented Toeplitz algebra modulo its compact ideal.
 
 Operator-theoretically, no finite path retains positive mass at the boundary.
-
----
 
 # 5. Cylinder projections
 
@@ -268,8 +260,6 @@ The critical cylinder state becomes purely extendable:
 
 A finitely branching rooted path tree yields an ordinary consistent cylinder system on the genuine infinite-path boundary.
 
----
-
 # 6. When the limit is an actual infinite-path measure
 
 Assume the forward prefix tree from $u$ is finitely branching.
@@ -278,7 +268,7 @@ Under this hypothesis:
 
 * every cylinder has finitely many immediate subcylinders;
 * the conservation equation passes directly to the limit;
-* unbounded rooted depth guarantees an infinite ray by König’s lemma;
+* unbounded rooted depth guarantees an infinite ray by König's lemma;
 * the cylinder weights determine a countably additive Borel measure on the infinite-path space.
 
 Thus, under finite branching,
@@ -292,8 +282,6 @@ Z_u(r)\to\infty
 A measure on $\partial_u^+G$ then represents the boundary state's restriction to the commutative cylinder algebra.
 
 In standard graph $C^*$-algebra constructions, the boundary-path space is precisely the spectrum of a distinguished commutative diagonal subalgebra and, depending on the graph, may include infinite paths and finite paths ending at singular vertices.
-
----
 
 # 7. Infinite branching changes the conclusion
 
@@ -345,8 +333,6 @@ This is the same logical distinction expressed by
 
 without a finite-branching or compactness assumption.
 
----
-
 # 8. The fixed-endpoint fiber cannot produce a ray
 
 Now consider the normalized fixed-endpoint vector
@@ -393,8 +379,6 @@ The route-fiber vectors do not approach nested prefixes but spread across mutual
 fixed-endpoint critical escape is not an infinite-path boundary phenomenon.
 
 It is a boundary of alternative finite route choices.
-
----
 
 # 9. The route-choice corona
 
@@ -458,8 +442,6 @@ The name is descriptive.
 
 Its points represent generalized ways of escaping through infinitely many mutually incomparable finite routes.
 
----
-
 # 10. Three distinct escape mechanisms
 
 Three analytically distinct phenomena occur.
@@ -512,8 +494,6 @@ Consequently, no single endpoint pair carries the singularity; the maximizing pa
 
 The divergence comes from global depth drift, not a local fiber.
 
----
-
 # 11. Example: one infinite chain
 
 Consider the infinite chain $u_0\to u_1\to u_2\to\cdots$.
@@ -563,8 +543,6 @@ The normalized vectors themselves satisfy
 
 but their cylinder states converge nontrivially.
 
----
-
 # 12. Example: the $d$-ary tree
 
 Suppose each node has $d$ outgoing edges to distinct children.
@@ -606,8 +584,6 @@ The measure is the equal-weight state on the $d$-ary infinite-path boundary.
 Yet each fixed endpoint pair has at most one path, so every local route-fiber series is a monomial with infinite radius.
 
 The infinite-path boundary appears even though no endpoint fiber is singular.
-
----
 
 # 13. Example: infinitely many finite routes but no ray
 
@@ -654,8 +630,6 @@ Thus no rooted radial Fock vector exists at all.
 
 The example separates endpoint-collapse criticality from infinite-ray emergence.
 
----
-
 # 14. Critical regularity versus critical escape
 
 For a rooted source $u$, there are three regimes. In the subcritical regime $0\le r<R_u^+$, the vector $\Omega_{u,r}$ lies in Fock space. At a critical regular point,
@@ -673,8 +647,6 @@ Z_u(R_u^+)=\infty,
 normalized vectors tend weakly to zero while cluster states may survive outside the normal Fock sector.
 
 Thus the radius alone is insufficient. The behavior of the series at the boundary matters.
-
----
 
 # 15. Noncommutative versus diagonal boundary data
 

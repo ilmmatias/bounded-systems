@@ -3,6 +3,7 @@
 #   make
 #   make findings-2
 #   THREADS=32 SORT_MEM=2G make findings-43
+#   make verify
 #   make clean
 
 CXX      ?= clang++
@@ -11,6 +12,7 @@ CXXFLAGS ?= -O3 -march=native -std=c++23 -Wall -Wextra
 LTOFLAGS ?= -flto=thin
 LDFLAGS  ?=
 LDLIBS   ?=
+PYTHON   ?= python3
 
 SRC   := src
 BIN   := bin
@@ -29,9 +31,10 @@ HEADERS := \
     $(SRC)/spectral_profile.hxx \
     $(SRC)/wl_profile.hxx
 
-PROGRAM := $(BIN)/driver
+PROGRAM        := $(BIN)/driver
+VERIFY_SCRIPTS := $(sort $(wildcard scripts/verify_*.py))
 
-.PHONY: all clean check-docs
+.PHONY: all clean check-docs verify
 .PHONY: findings-2 findings-43
 
 all: $(PROGRAM)
@@ -40,6 +43,15 @@ check-docs:
 	@npm --prefix tools/check-docs ci --ignore-scripts --silent
 	@npm --prefix tools/check-docs run check --silent
 	@npm --prefix tools/check-docs run validate --silent
+
+verify:
+	@set -eu; \
+	count=0; \
+	for script in $(VERIFY_SCRIPTS); do \
+		printf '==> %s\n' "$$script"; \
+		$(PYTHON) "$$script"; \
+		count=$$((count + 1)); \
+	done;
 
 findings-2: $(PROGRAM)
 	@scripts/generate_spectral.sh 4 $(DATA)/findings-2/n4

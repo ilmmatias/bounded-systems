@@ -41,8 +41,6 @@ N(n)=\max{m:S_m\le n}.
 
 Nothing temporal was added. Both $S_m$ and $N(n)$ are built from compositional length.
 
----
-
 # 2. Finite-mean clock: no anomaly
 
 If
@@ -74,8 +72,6 @@ If the operational profile process has generator $\mathcal L^h$, the coarse proc
 ```
 
 The anomalous regime begins when the mean block length diverges.
-
----
 
 # 3. Heavy-tailed intrinsic clock
 
@@ -125,8 +121,6 @@ N(n)\asymp n^\gamma.
 
 Long stretches of primitive compositional evolution can be invisible at the chosen profile resolution.
 
----
-
 # 4. Operational and observed profile processes
 
 Let $Y_s$ be the profile process indexed by coarse-transition count $s$. Its semigroup is
@@ -162,8 +156,6 @@ T_s f\,
 where $\ell_\gamma(\tau,s)$ is the density of the inverse stable clock.
 
 The construction is inverse subordination, not ordinary semigroup subordination, and yields fractional Cauchy problems.
-
----
 
 # 5. Laplace resolvent
 
@@ -218,8 +210,6 @@ And for densities,
 
 The inverse-stable time change and the Caputo equation equivalently represent the limiting evolution.
 
----
-
 # 6. Memory-integral form
 
 The fractional equation can also be written without fractional-derivative notation:
@@ -251,8 +241,6 @@ The memory kernel results from:
 
 General semi-Markov processes satisfy Volterra-type evolution equations; the fractional equation arises for heavy-tailed renewal laws.
 
----
-
 # 7. Markovianity is restored by adding the hidden age
 
 Define the age of the current coarse block:
@@ -280,8 +268,6 @@ So the temporal memory has a precise source:
 ```
 
 The result matches the route-collapse picture: resolved histories evolve locally, while profile compression creates an effective memory kernel.
-
----
 
 # 8. General intrinsic clock
 
@@ -352,8 +338,6 @@ M_\Phi(\tau)=
 
 Mixtures of stable subordinators produce distributed-order fractional equations, while adding exponential truncation produces tempered memory.
 
----
-
 # 9. Spectral relaxation
 
 Suppose that
@@ -411,8 +395,6 @@ E_\gamma(-\omega_j\tau^\gamma)
 ```
 
 A positive operational spectral gap no longer gives exponential decay in the compressed primitive clock.
-
----
 
 # 10. Combined space-time anomalous regime
 
@@ -493,8 +475,6 @@ and, when a second moment exists,
 \mathbb E|X_\tau|^2\sim\tau^\gamma.
 ```
 
----
-
 # 11. The gauge-clock issue
 
 There are two mathematically distinct ways the gauge phase can couple to the anomalous clock.
@@ -546,8 +526,6 @@ E_\gamma
 
 Here random coarse-event counts affect both damping and phase.
 
----
-
 ## Primitive-channel gauge
 
 But the gauge originally derived from the path algebra was
@@ -587,8 +565,6 @@ E_\gamma(-\omega\tau^\gamma)
 The phase remains exponential in primitive compositional depth, while relaxation becomes fractional.
 
 The distinction determines the appropriate clock equation.
-
----
 
 # 12. Gauge-covariant fractional derivative
 
@@ -631,8 +607,6 @@ Its Laplace transform is
 The fractional power uses the principal branch. Since $q>0$, the spectrum of $q+i\beta N$ lies in the open right half-plane, making this functional calculus well defined on the natural domain.
 
 The operator is the fractional substantial derivative associated with the path-length gauge.
-
----
 
 # 13. Stable spatial mode with intrinsic gauge clock
 
@@ -688,8 +662,6 @@ E_\gamma
 
 The combined stable-space, anomalous-clock, primitive-gauge regime has the mode equation
 
----
-
 # 14. Canonical form of the primitive-gauge equation
 
 The coarse-event equation
@@ -730,8 +702,6 @@ E_\gamma(-i\beta n\tau^\gamma).
 
 The original path-length construction selects the first behavior.
 
----
-
 # 15. When scalar fractional time is insufficient
 
 The Caputo equation requires more than a heavy-tailed $W$.
@@ -771,8 +741,6 @@ Similarly:
 ```
 
 identifies the fractional order only after the necessary decoupling or joint-limit condition is checked.
-
----
 
 # 16. Closure conditions
 

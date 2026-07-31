@@ -486,7 +486,7 @@ and
 
 Every reachable node has finite compositional distance from $o$, so agreement on every $B_n(o)$ is exactly agreement at every reachable node.
 
-The filtration uses only the graph’s intrinsic compositional depth.
+The filtration uses only the graph's intrinsic compositional depth.
 
 # 11. First separation depth
 

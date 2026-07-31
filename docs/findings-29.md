@@ -18,8 +18,6 @@ At an infinite emitter, this equality lies in the extended nonnegative reals. Sc
 
 The standard Martin construction likewise begins with a Green kernel and normalizes its columns by a reference state.
 
----
-
 # 2. The node Martin kernel
 
 For every node $x$ reachable from $o$, with
@@ -91,8 +89,6 @@ The added points constitute its node Martin boundary
 
 For countable transient Markov kernels, this is the usual Martin compactification; for arbitrary set-sized systems, the product-closure formulation remains meaningful whenever the Green columns are finite. Standard Martin convergence is exactly coordinatewise convergence of the normalized kernels.
 
----
-
 # 3. Boundary limits are harmonic
 
 For an ordinary node $x$,
@@ -135,8 +131,6 @@ t\sum_{e\in F}h(r(e)).
 ```
 
 Node Martin boundary points yield exactly the harmonic or superharmonic functions derived in the preceding section.
-
----
 
 # 4. Minimal harmonic functions
 
@@ -183,8 +177,6 @@ then $ah_1\le h$; minimality forces $h_1=h$, and similarly $h_2=h$. The converse
 The minimal Martin boundary comprises the boundary kernels that are minimal harmonic; the full boundary can be larger and coincides with its minimal part only in special systems.
 
 Under the countable, transient hypotheses, positive harmonic functions admit integral representations over the minimal Martin boundary. In the unrestricted bounded system setting, the kernel compactification and minimality definition are unconditional once the Green kernels are finite, but a full integral-representation theorem requires additional analytic assumptions.
-
----
 
 # 5. Weighted finite bridges to a node
 
@@ -239,8 +231,6 @@ t^{|p|}K_t(v,x).
 
 The node Martin kernel is thus exactly the terminal-route bridge viewed through a fixed prefix.
 
----
-
 # 6. Boundary lift to prefix cylinders
 
 Suppose $K_t(\cdot,x_i)\longrightarrow h$.
@@ -289,8 +279,6 @@ t^{-|p|}\mu_h[p]
 ```
 
 The identity is the endpoint-factorization condition.
-
----
 
 # 7. Same-endpoint route law
 
@@ -348,8 +336,6 @@ The node Martin construction cannot favor one equal-length route over another ha
 
 It is intrinsically endpoint-compressed.
 
----
-
 # 8. Fock realization of the finite bridge
 
 Define the normalized endpoint Fock vector
@@ -387,8 +373,6 @@ Equivalently,
 If $x_i$ escapes and the vectors converge weakly to zero, their cylinder states may still converge to the boundary lift $\mu_h$.
 
 The construction unifies the Fock route representation, endpoint Green kernels, node harmonic functions, and boundary cylinder states.
-
----
 
 # 9. The full prefix-tree Martin kernel
 
@@ -448,8 +432,6 @@ Multiplying by $t^{|p|}$ gives its cylinder function:
 
 The corresponding state is the Dirac mass on the infinite route $\xi$.
 
----
-
 # 10. The node kernel is a barycenter of prefix kernels
 
 For a node $x$, recall the terminal-route distribution
@@ -495,8 +477,6 @@ The two boundaries are related by:
 
 The node kernel has already averaged over all routes to the terminal node.
 
----
-
 # 11. Full route-sensitive versus endpoint-factorized cones
 
 Let $\mathscr P_o$ denote the normalized prefix-harmonic cone:
@@ -535,8 +515,6 @@ The full prefix cone can assign different weights to parallel paths, equal-lengt
 
 The node cone cannot distinguish these possibilities.
 
----
-
 # 12. Unique-route criterion
 
 If every node reachable from $o$ is reached by at most one path, then a node determines its unique prefix.
@@ -573,8 +551,6 @@ In a genuinely reconvergent system,
 in general.
 
 Thus reconvergence is exactly the obstruction to node harmonic data being complete boundary data.
-
----
 
 # 13. Diamond followed by an infinite tail
 
@@ -644,8 +620,6 @@ The same boundary object can be:
 
 The structural distinction is that extremality depends on the level of compression.
 
----
-
 # 14. Shortcut followed by an infinite tail
 
 Suppose there are two routes from $o$ to $v$:
@@ -672,11 +646,9 @@ The node Martin lift is
 \frac{t}{1+t}\delta_{\xi_q}.
 ```
 
-At the critical value $t=R^2$, the graph’s intrinsic path-growth scale determines the mixture.
+At the critical value $t=R^2$, the graph's intrinsic path-growth scale determines the mixture.
 
 The full prefix boundary still contains both Dirac route states separately.
-
----
 
 # 15. Node memorylessness as a compression property
 
@@ -707,8 +679,6 @@ A general prefix-harmonic state can retain the full history:
 ```
 
 may depend on the entire path $p$, even when two paths share the same endpoint.
-
----
 
 # 16. Three boundary levels
 

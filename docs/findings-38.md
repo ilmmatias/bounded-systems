@@ -63,8 +63,6 @@ z=\alpha.
 
 The Gaussian regime is the boundary case $z=2$. For $0<\alpha<2$, macroscopic motion is dominated by heavy-tailed route blocks rather than finite quadratic variation.
 
----
-
 # 2. Vague convergence of the channel-increment law
 
 Let $K_{\delta,h}(x,dy)$ be the derived one-block profile-increment law.

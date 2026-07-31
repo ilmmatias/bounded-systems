@@ -40,8 +40,6 @@ Thus the pair
 
 isolates the genuinely asymptotic part of Martin collapse.
 
----
-
 # 2. Relative homology theorem
 
 Every $E(T_\tau)$ is contractible, and $K_h$ is contractible.
@@ -109,8 +107,6 @@ Globally,
 
 The relative homology sequence realizes the algebraic exact sequence.
 
----
-
 # 3. No hidden higher syzygies inside one fiber
 
 The result also gives a useful negative theorem:
@@ -169,8 +165,6 @@ H_n(K_h,A_h)=0
 
 Thus large asymptotic multiplicity does not imply higher homological complexity. Similarly, many route ambiguities need not produce higher route syzygies.
 
----
-
 # 4. Where higher structure can actually reside
 
 If higher structure is not in the indiscrete equivalence relation of one fiber, it must come from one of two sources:
@@ -205,8 +199,6 @@ Set-theoretically,
 ```
 
 The new information is the variation of the fibers with $h$, beyond their individual cardinalities.
-
----
 
 # 5. The global Čech nerve
 
@@ -256,8 +248,6 @@ Z_t^{[\bullet]}
 is the Čech, or kernel-pair, nerve of the quotient map, built from these iterated fiber products and their alternating face maps.
 
 It remains fiberwise contractible, but globally its topology records how collapse fibers fit together over $Y_t$.
-
----
 
 # 6. The hidden-end sheaf
 
@@ -316,8 +306,6 @@ The difference is useful:
 * the defect module uses signed end combinations with total zero;
 * the quotient sheaf uses functions on hidden ends modulo functions constant across the fiber.
 
----
-
 # 7. Monodromy: global structure with trivial individual fibers
 
 Suppose every Martin fiber contains exactly $r$ tail ends locally.
@@ -354,8 +342,6 @@ The first higher-level information absent from the isolated modules is
 
 The topology lies in the variation of fibers, not within an individual fiber.
 
----
-
 # 8. Derived pushforwards
 
 More generally, retain the derived sheaves
@@ -386,8 +372,6 @@ The Leray spectral sequence is the standard tool relating the cohomology of a so
 
 The index $q$ records cohomology inside collapse fibers, while $p$ records the global organization over Martin directions. The bicomplex is therefore the appropriate setting for higher topology.
 
----
-
 # 9. The common zero-dimensional case
 
 Graph prefix boundaries and spectra of cylinder Boolean algebras are frequently zero-dimensional.
@@ -415,8 +399,6 @@ So even when every fiber is totally disconnected:
 * their hidden-end spaces can have monodromy;
 * the quotient $Y_t$ can have nontrivial global topology;
 * the sheaf $\mathscr Q_t$ can possess nonzero cohomology.
-
----
 
 # 10. A completely unconditional observable system
 
@@ -474,8 +456,6 @@ The complete Martin relation is
 
 Two functions on $V$ agree exactly when they agree on every finite subset, indeed on every singleton.
 
----
-
 # 11. The inverse system of finite observations
 
 Define $Y_{t,F}$ by
@@ -517,8 +497,6 @@ It is injective because the node coordinates separate distinct Martin functions.
 The pro-object remains meaningful even when the quotient topology is ill behaved.
 
 It records exactly how much node information is needed to distinguish asymptotic ends.
-
----
 
 # 12. Observable defect filtration
 
@@ -573,8 +551,6 @@ At the full Martin level, only ends with identical complete Green-ratio profiles
 
 No arbitrary metric or external resolution scale is introduced; the index is the directed set of finite subsets of the existing node set.
 
----
-
 # 13. Relative-homology interpretation at finite observation
 
 For a finite observation set $F$, partition the tail ends according to their $F$-profiles.
@@ -603,8 +579,6 @@ and all other relative homology vanishes.
 Thus each refinement step creates only first-order distinctions.
 
 Higher complexity arises through the organization of many refinement steps, not through one equivalence-relation fiber.
-
----
 
 # 14. Replacement invariants after the sanity check
 

@@ -30,8 +30,6 @@ d\Gamma(B_{\alpha,h}),&\alpha\text{-stable regime},\\[1mm]
 
 The variable $s$ counts operational profile evolution before applying an anomalous clock.
 
----
-
 # 2. Eliminate the hidden route sector
 
 Take a Laplace transform in $s$. Ignoring a nonzero hidden initial condition for the moment,
@@ -99,8 +97,6 @@ and
 
 Eliminating unresolved variables yields an operator-valued memory kernel, as standard in generalized Langevin/Mori-Zwanzig reductions.
 
----
-
 # 3. Spectral representation of the self-energy
 
 When $D_h$ is nonnegative self-adjoint,
@@ -158,8 +154,6 @@ The power-law memory self-energy is
 ```
 
 A gapless hidden route spectrum therefore produces long memory through the singular self-energy.
-
----
 
 # 4. The general intrinsic clock
 
@@ -227,8 +221,6 @@ Substituting the operational resolvent gives
 
 Already, without gauge, this combines spatial propagation, renewal clock and hidden-route memory.
 
----
-
 # 5. Restore the primitive path gauge
 
 The original gauge counts primitive edge degree:
@@ -265,8 +257,6 @@ The dissipative and hidden-route equations contain no explicit gauge phase.
 The ordinary scalar clock variable $q$ is therefore replaced by the operator $Z_q$.
 
 Under the degree-preserving hypothesis, $\Phi(Z_q)$ is defined by the holomorphic functional calculus. Bernstein and complete Bernstein functions are naturally compatible with sectorial-generator functional calculus and subordination.
-
----
 
 # 6. The master resolvent
 
@@ -318,8 +308,6 @@ qI+i(\log\lambda)N
 
 A nonzero hidden-sector initial condition or external forcing adds a numerator source but does not change the regime-controlling denominator.
 
----
-
 # 7. Time-domain master equation
 
 Define the gauge-covariant generalized derivative by
@@ -365,8 +353,6 @@ It says:
 \text{hidden-route self-energy}
 =0.
 ```
-
----
 
 # 8. Mode reduction
 
@@ -435,8 +421,6 @@ The asymptotic behavior is controlled by the poles, branch points and threshold 
 \mathcal D_n(q,\mathbf k)^{-1}.
 ```
 
----
-
 # 9. Gaussian regime
 
 Take
@@ -476,8 +460,6 @@ e^{-D_2\tau\sum_j|k_j|^2}
 \Psi_n(\mathbf k,0).
 ```
 
----
-
 # 10. Stable spatial regime
 
 Take
@@ -516,8 +498,6 @@ e^{-i\beta n\tau}
 e^{-D_\alpha\tau\sum_j|k_j|^\alpha}
 \Psi_n(\mathbf k,0).
 ```
-
----
 
 # 11. Renewal-clock regime
 
@@ -560,8 +540,6 @@ E_\gamma
 ```
 
 The reduction reproduces the primitive-gauge anomalous-clock equation.
-
----
 
 # 12. Hidden-route memory regime
 
@@ -610,8 +588,6 @@ The $n$-th degree sector has the zero-degree sector's memory envelope, modulated
 ```math
 e^{-i\beta n\tau}.
 ```
-
----
 
 # 13. Fully combined nested regime
 
@@ -673,8 +649,6 @@ D_\alpha\sum_j|k_j|^\alpha
 
 The denominator contains the stable spatial exponent $\alpha$, anomalous clock exponent $\gamma$, hidden-route memory exponent $\eta$, and primitive gauge rate $\beta$.
 
----
-
 # 14. Nested versus parallel anomalies
 
 There is one structural distinction that cannot be erased.
@@ -728,8 +702,6 @@ D_\alpha|k|^\alpha
 These two equations represent different causal organizations. The term $\Sigma(\Phi(z))$ places memory inside the operational dynamics before the clock change, whereas $\Sigma(z)$ makes the memory act directly in primitive time.
 
 The microscopic block construction decides which one applies.
-
----
 
 # 15. Stability of the master denominator
 
@@ -794,8 +766,6 @@ Instability would require:
 * a nonadmissible clock law;
 * or a sign-changing coupling not represented by the positive Schur complement above.
 
----
-
 # 16. Gauge-translated spectral structure
 
 Because every appearance of $q$ is through
@@ -824,8 +794,6 @@ The translation law holds whether $A_n$ is:
 Thus the primitive gauge phase is universal across these regimes: the gauge changes spectral location but not the dissipative envelope.
 
 Degree preservation is necessary; if the dissipative generator changes path degree, the sectors couple and the translation law fails.
-
----
 
 # 17. The degree-mixing obstruction
 
@@ -867,8 +835,6 @@ q\mapsto q+i\beta n
 cannot be performed separately in each sector. One must retain the full operator resolvent.
 
 Thus degree mixing is the precise obstruction to diagonal gauge closure.
-
----
 
 # 18. The universality data
 

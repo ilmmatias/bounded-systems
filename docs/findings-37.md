@@ -42,8 +42,6 @@ The general question is instead:
 \text{ have a finite nontrivial limit?}
 ```
 
----
-
 # 2. The universal Markovian continuum generator
 
 Under the usual tightness and convergence conditions on the triangular array of increment kernels, the canonical local-in-time Markov limit is a Lévy-type operator
@@ -84,8 +82,6 @@ The density equation is simply
 ```
 
 The Lévy-type equation is the general Markovian replacement for Fokker-Planck diffusion.
-
----
 
 # 3. The nonlocal $h$-transform
 
@@ -185,8 +181,6 @@ P_h(e\mid v)=
 \frac{h(r(e))}{\lambda h(v)}.
 ```
 
----
-
 # 4. The nonlocal critical-profile equation
 
 Write $u=\log h$.
@@ -252,8 +246,6 @@ e^{\Delta_yu}
 
 The exponential jump term is not a perturbative correction. It is the exact survival of finite profile displacements.
 
----
-
 # 5. Regime I: ballistic transport
 
 Suppose $\Delta_\delta x=O(\delta)$, but the conditional mean is also $O(\delta)$, rather than $O(\delta^2)$.
@@ -286,8 +278,6 @@ and
 ```
 
 It occurs when directed bias survives more strongly than route dispersion.
-
----
 
 # 6. Regime II: Gaussian diffusion
 
@@ -326,8 +316,6 @@ b_h\cdot\nabla f
 
 Central-limit results for dependent or nonhomogeneous Markov triangular arrays require appropriate mixing or correlation control, which must eventually be checked for the graph-derived kernels.
 
----
-
 # 7. Regime III: rare finite jumps
 
 Suppose most increments vanish, but finite displacements $y=O(1)$ occur with probability
@@ -364,8 +352,6 @@ f(x+y)-f(x).
 ```
 
 The anomalous object is the jump integral, not an infinite higher-derivative PDE.
-
----
 
 # 8. Regime IV: stable and fractional spatial dynamics
 
@@ -434,8 +420,6 @@ e^{u(x+y)-u(x)}
 
 plus any surviving local drift or diffusion terms.
 
----
-
 # 9. Regime V: mixed Lévy dynamics
 
 Nothing forces the limit to be purely Gaussian or purely stable.
@@ -482,8 +466,6 @@ Thus the complete Markovian classification is encoded by the Lévy triplet
 (b_h,a_h,\nu_h).
 ```
 
----
-
 # 10. Regime VI: anomalous internal clock
 
 There is another failure mode that does not alter spatial increments. Instead, the number of microscopic channel steps required for one coarse profile transition becomes heavy-tailed.
@@ -518,8 +500,6 @@ where $\partial_\tau^\gamma$ is the Caputo-type fractional derivative.
 Inverse-stable-subordinator time changes convert ordinary Kolmogorov or Fokker-Planck equations into time-fractional equations.
 
 The distribution of microscopic path lengths between coarse profile events can therefore generate fractional time.
-
----
 
 # 11. Regime VII: long-range history dependence
 
@@ -581,8 +561,6 @@ K(\tau-s)
 
 Unlike the Lévy case, no single universal memory kernel is determined solely by a tail exponent; the detailed route-correlation structure matters.
 
----
-
 # 12. Regime classification procedure
 
 The continuum regime is determined from the microscopic characteristics by the following procedure:
@@ -608,8 +586,6 @@ The resulting classification is
 \text{several of these}&\text{mixed anomalous regime}
 \end{array}
 ```
-
----
 
 # 13. The fluctuation representation also changes
 
@@ -664,8 +640,6 @@ i\beta N_{\mathrm{tot}}
 \right]\Psi.
 ```
 
----
-
 # 14. The new obstruction: chaos-degree mixing
 
 In the Gaussian linear regime,
@@ -705,8 +679,6 @@ e^{-i\beta\tau N_{\mathrm{tot}}}
 and the modes can be resolved simultaneously by relaxation and compositional degree. If $\mathfrak C_h\ne0$, jump interactions create or destroy effective fluctuation degree. The gauge grading remains defined, but it is no longer conserved by the dissipative dynamics.
 
 The commutator is the first invariant beyond the free quadratic regime.
-
----
 
 # 15. The completed anomalous equations
 

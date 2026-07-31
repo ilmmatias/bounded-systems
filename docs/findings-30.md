@@ -57,8 +57,6 @@ exists for every fixed node $v$.
 
 The function $h_\xi$ is the node shadow of the complete history $\xi$.
 
----
-
 # 2. Exact node-equivalence relation
 
 On the Martin-regular rays, define
@@ -95,8 +93,6 @@ The relation has the following observational interpretation:
 exactly when every fixed node $v$, using normalized weighted route counts toward the distant endpoints, sees the two histories asymptotically identically.
 
 The quotient forgets route history precisely insofar as normalized Green observations fail to separate rays.
-
----
 
 # 3. Three levels of route identification
 
@@ -177,8 +173,6 @@ Thus, on regular rays,
 
 Both inclusions can be strict.
 
----
-
 # 4. One reconvergence is not sufficient
 
 Suppose two rays meet at a node $w$, then take different outgoing branches and never meet again.
@@ -196,8 +190,6 @@ The sufficient conditions are instead:
 * a permanently common tail;
 * an unbounded sequence of common later nodes, assuming regularity;
 * or direct equality of all limiting Green ratios.
-
----
 
 # 5. Unique-route systems: no boundary collapse
 
@@ -243,8 +235,6 @@ X_G=0
 
 at the finite-path level.
 
----
-
 # 6. Eventual reconvergence: the diamond-tail fiber
 
 Consider $o\to a\to v_0\to v_1\to v_2\to\cdots$.
@@ -287,8 +277,6 @@ The difference
 is invisible after node compression.
 
 It is the asymptotic counterpart of a finite diamond route defect.
-
----
 
 # 7. Complete layered mixing: collapse without reconvergence
 
@@ -369,8 +357,6 @@ node Martin collapse can be caused by asymptotic mixing,
 
 not only by literal reconvergence.
 
----
-
 # 8. The canonical quotient in the regular compact case
 
 Assume now that:
@@ -423,8 +409,6 @@ The boundary quotient is:
 \text{normalized endpoint-asymptotic directions}.
 ```
 
----
-
 # 9. The node-observable boundary algebra
 
 Under the same compactness assumptions, define
@@ -460,8 +444,6 @@ The inclusion is the commutative boundary counterpart of the finite-level inclus
 \text{route-resolved data}.
 ```
 
----
-
 # 10. The Martin-collapse relation groupoid
 
 The Martin-collapse relation groupoid is
@@ -484,8 +466,6 @@ The size and topology of $F_h$ quantify how much route history the boundary eras
 For example, a unique-route tree has $|F_h|=1$; a diamond followed by a tail has $|F_h|=2$; and complete layered mixing has $F_h\cong\{1,\ldots,b\}^{\mathbb N}$.
 
 A single node Martin direction can conceal anything from one history to an entire Cantor family of histories.
-
----
 
 # 11. Boundary route-defect spaces
 
@@ -542,8 +522,6 @@ m-1&m-1
 
 The finite route-collapse ideal has become an asymptotic history-collapse space.
 
----
-
 # 12. A boundary route-resolution nerve
 
 For each node boundary point $h$, form the chaotic simplicial set
@@ -585,8 +563,6 @@ The first resolves collapse of finite paths to one reachability arrow.
 
 The second resolves collapse of infinite histories to one node Martin direction.
 
----
-
 # 13. Minimality after compression
 
 Suppose $h$ is a minimal node harmonic function.
@@ -612,8 +588,6 @@ F_h.
 ```
 
 Node minimality therefore does not imply route-history purity. It implies only that all histories in the decomposition have the same compressed node shadow.
-
----
 
 # 14. Nonregular rays
 
@@ -647,8 +621,6 @@ the ray has a well-defined node shadow. If the cluster set contains several poin
 even though neither has a unique limit, or their cluster sets may intersect without being equal. Therefore, without regularity, there is no canonical point-valued quotient of the literal ray space. The unconditional object is the relation between prefix histories and their sets of Martin cluster points.
 
 A genuine quotient map appears only after imposing or proving appropriate convergence.
-
----
 
 # 15. Arbitrary branching
 

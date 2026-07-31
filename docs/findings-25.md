@@ -57,8 +57,6 @@ is strictly associative.
 
 The tensor is the primary multiplicative object and retains all route information.
 
----
-
 # 2. Cardinal convolution of route multiplicities
 
 Recall
@@ -100,8 +98,6 @@ N_n=A^n.
 ```
 
 The multiplicity tower is determined by the direct-channel kernel, provided ordinary scalar convolution is defined.
-
----
 
 # 3. Endpoint collapse respects concatenation
 
@@ -165,8 +161,6 @@ Thus endpoint collapse is compatible with composition algebraically.
 
 In general, it is not an isometry.
 
----
-
 # 4. Multiplicity operators under composition
 
 Assume the relevant route fibers are finite, and recall
@@ -213,8 +207,6 @@ D_{m+n}=
 ```
 
 The length-$(m+n)$ multiplicity is the Gram norm of all possible intermediate-node factorizations.
-
----
 
 # 5. Equal-route vectors do not tensor naively
 
@@ -273,8 +265,6 @@ but
 normalized equal-route sectors generally do not.
 
 Reconvergence mixes the intermediate sectors.
-
----
 
 # 6. Exact decomposition of route defects
 
@@ -369,8 +359,6 @@ compares different possible cut nodes $w$.
 
 These are new defects created by composition.
 
----
-
 # 7. Finite-dimensional count
 
 Define $k_{m,n}(v,u)$ by
@@ -419,8 +407,6 @@ The internal defect dimension is zero, while the factorization defect dimension 
 
 The kernel vector is the diamond relation.
 
----
-
 # 8. Kernel propagation and its strict failure
 
 The commutative composition diagram implies
@@ -458,8 +444,6 @@ The operator identity separates:
 
 * route ambiguity internal to factors;
 * coherence ambiguity among different factorizations.
-
----
 
 # 9. Connection to interval topology
 
@@ -521,8 +505,6 @@ At the level of maps,
 \widetilde H_*(\Delta(u,v)).
 ```
 
----
-
 # 10. A new infinite singularity created by composition
 
 Suppose every lower-level endpoint fiber is finite but infinitely many intermediate nodes contribute.
@@ -583,8 +565,6 @@ There are therefore two independent causes of analytic collapse failure:
 
 The second cannot be detected from $\Sigma_m$ and $\Sigma_n$ separately.
 
----
-
 # 11. Support tower and Boolean composition
 
 Define the Boolean support kernel by
@@ -633,8 +613,6 @@ The example exhibits the three multiplicative laws:
 ```
 
 Each layer changes the meaning of addition while preserving compositional multiplication.
-
----
 
 # 12. Geodesic multiplicity under cutting
 
@@ -685,8 +663,6 @@ to the pair
 ```
 
 with min-plus composition for distances and ordinary addition and multiplication for geodesic multiplicities along minimizing intermediates.
-
----
 
 # 13. Propagation of total branching
 
@@ -770,8 +746,6 @@ When the operators are bounded,
 ```
 
 The normalization separates forward branching from backward reconvergence.
-
----
 
 # 14. The tower is multiplicative only before normalization
 

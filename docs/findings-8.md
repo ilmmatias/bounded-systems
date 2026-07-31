@@ -181,7 +181,7 @@ d^+(v)<\infty
 
 For a fixed root $v$, every set $\mathsf P_n(v)$ is then finite.
 
-If paths of every length begin at $v$, the rooted prefix tree is infinite, finitely branching, and nonempty at every level. König’s infinity lemma therefore yields an infinite branch.
+If paths of every length begin at $v$, the rooted prefix tree is infinite, finitely branching, and nonempty at every level. König's infinity lemma therefore yields an infinite branch.
 
 ```math
 \begin{aligned}
@@ -404,7 +404,7 @@ For the infinitely branching root $v$, increasingly long finite branches can con
 
 Under finite branching, every finite path is isolated; hence any accumulation point of arbitrarily long paths must be an actual infinite path.
 
-The implication is the topological form of König’s lemma.
+The implication is the topological form of König's lemma.
 
 # 11. Formal resolvent and the inverse system
 

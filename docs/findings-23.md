@@ -46,8 +46,6 @@ R\sum_{a_v>0}a_v^2=
 RQ.
 ```
 
----
-
 # 2. Exact equality criteria
 
 Each equality identifies a precise structural regime.
@@ -75,8 +73,6 @@ Endpoint collapse has caused no amplification because every route remains in its
 
 Call this lengthwise thinness at $(u,n)$. It is weaker than global route uniqueness because different lengths may still connect the same endpoints.
 
----
-
 ## Maximal endpoint funneling
 
 Under maximal endpoint funneling,
@@ -98,8 +94,6 @@ It follows that
 
 Every orthogonal route amplitude has been collapsed into one endpoint coordinate.
 
----
-
 ## Uniform reconvergence
 
 For uniform reconvergence,
@@ -114,8 +108,6 @@ a_v=\frac TR
 The path multiplicity is distributed equally among the $R$ endpoints.
 
 The uniform distribution minimizes $Q$ for fixed $T$ and $R$.
-
----
 
 ## Saturation of the endpoint-collapse norm
 
@@ -136,8 +128,6 @@ Recall that the endpoint-collapse operator satisfies
 ```
 
 $Q=MT$ is exactly the condition under which the all-route vector attains the norm of $C_{n,u}$.
-
----
 
 # 3. A parameter-free reconvergence profile
 
@@ -189,8 +179,6 @@ It is the effective number of endpoint sectors occupied by the route family:
 
 Neither introduces a probability law or dynamics. They are normalized expressions of finite route counts.
 
----
-
 # 4. Global structural versions
 
 ## Lengthwise-thin systems
@@ -213,8 +201,6 @@ u\to w\to v,
 
 because these two routes have different lengths.
 
----
-
 ## Fully unique-route systems
 
 The following are equivalent:
@@ -235,8 +221,6 @@ The following are equivalent:
 ```
 
 Global route uniqueness is stronger than lengthwise thinness because it also forbids different-length alternatives.
-
----
 
 ## Maximal funnel systems
 
@@ -281,8 +265,6 @@ and
 ```math
 Q_n(u)=T_n(u)^2.
 ```
-
----
 
 # 5. Spectral twins with opposite endpoint geometry
 
@@ -358,8 +340,6 @@ Q_n&d^n&d^{2n}\\
 ```
 
 Thus $r(S_+)$ alone cannot distinguish expansion from reconvergence. The example obstructs any complete description by a single spectral radius.
-
----
 
 # 6. Refined bounds for weighted Möbius coefficients
 
@@ -443,8 +423,6 @@ factorizes more precisely as
 2^{L-1}N_L.
 ```
 
----
-
 # 7. Exact Möbius cancellation criteria
 
 Separate the factorization chains by parity:
@@ -494,8 +472,6 @@ E_L=O_L.
 Equal numbers of even- and odd-factor chains cancel exactly.
 
 The vanishing is only Euler cancellation; it does not imply contractibility, since even- and odd-degree homology may cancel.
-
----
 
 # 8. Unique routes produce maximal combinatorial cancellation
 
@@ -547,8 +523,6 @@ In the extremal case, maximal factorization abundance can coexist with zero Möb
 
 Every factorization merely places cuts differently along the same route, so there is no genuine route ambiguity.
 
----
-
 # 9. Diamonds break the cancellation
 
 For a symmetric diamond of total cost two,
@@ -578,8 +552,6 @@ m_3=1.
 ```
 
 The first nonzero Möbius coefficient identifies the first budget at which route-independent factorization multiplicity survives cancellation.
-
----
 
 # 10. Equality structure of the spectral growth bound
 

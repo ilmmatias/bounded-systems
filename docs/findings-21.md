@@ -19,8 +19,6 @@ All composite paths disappear under inversion, leaving precisely the primitive c
 
 This formal identity requires neither finite cardinality nor bounded degree, local finiteness, a topology, or an operator norm.
 
----
-
 # 2. Endpoint route counting
 
 For nodes $u,v$, define
@@ -56,8 +54,6 @@ It is the endpoint aggregation of the full resolvent:
 ```math
 \mathcal P_G(z)=Q_\Sigma(R_G(z)).
 ```
-
----
 
 # 3. The direct-edge kernel
 
@@ -98,8 +94,6 @@ R_G(z)^{-1}&=1-z\mathbf E,
 The coefficient of $z$ in $\mathcal P_G$ recovers $A_G$, so the complete path-count kernel determines the underlying directed multigraph up to isomorphism when the node diagonal remains marked.
 
 It does not canonically distinguish two parallel edges inside their multiplicity space.
-
----
 
 # 4. The analytic obstruction to route summation
 
@@ -150,8 +144,6 @@ If infinitely many routes share the endpoint pair, this functional has no bounde
 
 Route collapse is algebraically meaningful on finite-support expressions but may fail to be bounded on the Fock completion.
 
----
-
 # 5. Support and attainable lengths
 
 Before reducing to shortest paths, retain only which lengths occur:
@@ -194,8 +186,6 @@ It loses, respectively:
 2. route multiplicity;
 3. every nonminimal path length.
 
----
-
 # 6. Tropicalization
 
 For a nonzero power series with nonnegative coefficients, define
@@ -229,8 +219,6 @@ is a min-plus, or tropical, compression of the path-counting kernel.
 It remembers the earliest compositional depth at which communication is possible.
 
 It forgets everything that occurs later or in parallel.
-
----
 
 # 7. Re-embedding the distance matrix
 
@@ -325,8 +313,6 @@ X_G=0
 \mathsf P(G)\text{ is already thin}.
 ```
 
----
-
 # 8. The weighted Möbius kernel
 
 When the weighted incidence convolution is coefficientwise finite, define
@@ -364,8 +350,6 @@ M_d(z).
 The first is local.
 
 The second can contain arbitrarily long alternating factorization terms.
-
----
 
 # 9. Exact Möbius-defect identity
 
@@ -423,8 +407,6 @@ M_d=
 
 Every occurrence of $X_G$ represents one insertion of information discarded by the shortest-path compression.
 
----
-
 # 10. Unique-route theorem
 
 Under the finiteness conditions needed for both inverses, the following are equivalent:
@@ -438,8 +420,6 @@ Under the finiteness conditions needed for both inverses, the following are equi
 Möbius complexity measures failure of the path category to be thin.
 
 The defect detects parallel primitive channels, diamonds, shortcuts, longer detours, and repeated branching and reconvergence.
-
----
 
 # 11. Examples
 
@@ -591,8 +571,6 @@ M_d(v,u;z)=-z+z^2.
 
 The $z^2$ correction is the longer factorization made invisible by shortest reduction.
 
----
-
 # 12. Möbius complexity is compression compensation
 
 The contrast can be stated at three levels. At the full path level,
@@ -616,8 +594,6 @@ routes have been aggregated, but their multiplicities and lengths remain and pri
 alternative routes, multiplicities, and nonminimal lengths have been deleted; Möbius inversion must therefore recreate their net factorization effects through alternating global corrections.
 
 Möbius nonlocality is the algebraic price of lossy route compression.
-
----
 
 # 13. The compression sequence
 
@@ -652,8 +628,6 @@ The operations have different mathematical types:
 * Möbius inversion is convolutional and noncommutative.
 
 They should not be treated as one algebra homomorphism.
-
----
 
 # 14. Unconditional results for arbitrary systems
 

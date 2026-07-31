@@ -34,8 +34,6 @@ Bounded total forward or backward path growth implies bounded endpoint collapse 
 
 The converse fails sharply.
 
----
-
 # 2. Three singular depths
 
 Define the three singular depths by
@@ -112,8 +110,6 @@ because arbitrarily many or infinitely many intermediate sectors reconverge.
 
 Thus $\delta_{\mathrm{ub}}$ and $\delta_{\mathrm{nc}}$ can occur at genuinely higher depths.
 
----
-
 # 3. Exact closability criterion under composition
 
 Recall
@@ -170,8 +166,6 @@ or
 
 The formula decomposes higher-depth nonclosability by cardinality.
 
----
-
 # 4. Exact boundedness criterion
 
 When all route fibers are finite,
@@ -207,8 +201,6 @@ The corresponding inequality is
 ```
 
 These inequalities can be strict because global suprema replace the actual compatibility pattern of intermediate nodes.
-
----
 
 # 5. Regularity is not monotone in depth
 
@@ -268,8 +260,6 @@ is infinite.
 Similarly, any path entering $u$ propagates the singularity backward in compositional depth.
 
 Singularity propagates exactly along available extensions, not merely with increasing integer depth.
-
----
 
 # 6. Strict examples for the three thresholds
 
@@ -371,8 +361,6 @@ k.
 
 The first nonclosable collapse can occur at any prescribed finite compositional depth.
 
----
-
 # 7. Local finiteness and closability
 
 Suppose every node has finitely many outgoing primitive channels, counting multiplicity.
@@ -414,8 +402,6 @@ and
 ```
 
 The bounded system definition implies none of these local-finiteness properties.
-
----
 
 # 8. A collapse-growth exponent
 
@@ -490,8 +476,6 @@ so
 
 The same total path-growth exponent can therefore split into very different collapse-growth exponents.
 
----
-
 # 9. The all-length endpoint-collapse operator
 
 The fixed-length operators can be assembled into one length-weighted map.
@@ -530,8 +514,6 @@ Then the squared norm of the endpoint block of $\Sigma(z)$ is
 ```math
 H_{v,u}(|z|^2).
 ```
-
----
 
 # 10. Exact all-length trichotomy
 
@@ -600,8 +582,6 @@ Thus the graph again approaches
 (0,\eta_{v,u}).
 ```
 
----
-
 # 11. Positive generating operator
 
 When $\Sigma(z)$ is closed, define
@@ -629,8 +609,6 @@ in the appropriate diagonal operator sense.
 The positive operator packages the full multiplicity tower.
 
 The Hilbert-space series uses squared modulus because route amplitudes combine quadratically.
-
----
 
 # 12. Weighted equal-route directions
 
@@ -684,9 +662,7 @@ The all-length polar decomposition is
 
 where $U(z)$ sends each weighted equal-route direction to its endpoint-pair basis vector and kills the weighted defect space.
 
-The variable $z$ weights the path algebra’s intrinsic path-length grading; it does not represent time.
-
----
+The variable $z$ weights the path algebra's intrinsic path-length grading; it does not represent time.
 
 # 13. Collapse radius
 
@@ -745,8 +721,6 @@ and fails to exist for
 
 The formula gives a local collapse radius for each ordered pair.
 
----
-
 # 14. Comparison with the Fock resolvent radius
 
 Since
@@ -776,7 +750,7 @@ R_{\mathrm{col}}
 \left\lbrace \frac1{r(S_+)}, \frac1{r(S_-)} \right\rbrace.
 ```
 
-The endpoint-collapse generating operator can remain bounded beyond the global Fock route sum’s convergence radius.
+The endpoint-collapse generating operator can remain bounded beyond the global Fock route sum's convergence radius.
 
 ## $d$-ary tree
 

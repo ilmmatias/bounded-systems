@@ -46,7 +46,7 @@ The filtered interval complex $\Delta^{N,\alpha}(u,v)$ contains precisely those 
 
 Assume for the moment that $\Delta^{N,\alpha}(u,v)$ has finite-dimensional homology, vanishing outside finitely many degrees.
 
-The filtered Euler--Möbius value is
+The filtered Euler-Möbius value is
 
 ```math
 \mu^{N,\alpha}_{\mathrm E}(u,v)=

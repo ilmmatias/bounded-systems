@@ -24,8 +24,6 @@ this is
 
 It need not define a bounded operator on any fixed Banach space. The pointwise formula remains meaningful whenever the indicated sum is finite or otherwise convergent.
 
----
-
 # 2. The rooted partition resolvent
 
 For a node $v$, define
@@ -66,8 +64,6 @@ Z(r)=
 ```
 
 The series is the node-compressed positive resolvent associated with the full path resolvent.
-
----
 
 # 3. Critical normalization
 
@@ -152,8 +148,6 @@ The critical growth scale has become a positive adjacency eigenvalue.
 
 Positive vectors satisfying adjacency inequalities, with equality at regular vertices and possible defects at sinks or infinite emitters, arise naturally in graph-operator-algebra treatments of harmonic and boundary weights.
 
----
-
 ## 4. Local boundedness of ratio limits
 
 Suppose $q:u\to v$ is a fixed path.
@@ -173,8 +167,6 @@ h_r(v)\le r^{-2|q|}.
 For each node reachable from $u$, the normalized ratios are bounded on every interval bounded away from $r=0$.
 
 Pointwise cluster functions may therefore exist while the unnormalized partition functions diverge.
-
----
 
 # 5. The unrestricted infinite-emitter inequality
 
@@ -217,8 +209,6 @@ h(v)=0.
 At an infinite emitter, strict inequality can remain, representing boundary mass that cannot be assigned to any finite collection of outgoing cylinders.
 
 Graph-algebra formulations likewise impose equality at ordinary vertices, while sinks and infinite emitters may carry a positive defect.
-
----
 
 # 6. Critical cylinder weights
 
@@ -278,8 +268,6 @@ The adjacency eigenvector equation is exactly the cylinder-conservation equation
 
 For arbitrary directed graphs, the boundary-path space is naturally the spectrum of the graph diagonal, so consistent cylinder values define boundary-state data.
 
----
-
 # 7. Derived edge splitting
 
 When $h(v)>0$, define
@@ -326,8 +314,6 @@ Since $h(u)=1$,
 ```
 
 Here $\pi_h(e\mid v)$ is the conditional splitting of a boundary cylinder, derived from the graph, the critical path-length scale, and the boundary state.
-
----
 
 # 8. The primary object is path-harmonic, not node-harmonic
 
@@ -376,8 +362,6 @@ R^{-2|q|}\Psi(q)
 ```
 
 The condition imposes strong endpoint symmetry.
-
----
 
 ## Consequences for alternative routes
 
@@ -428,8 +412,6 @@ node-harmonic vectors classify only endpoint-factorized boundary states.
 
 They do not classify arbitrary route-sensitive boundary states.
 
----
-
 # 9. When node compression loses nothing
 
 If every node reachable from $u$ is reached by at most one path, the endpoint uniquely determines the prefix.
@@ -462,8 +444,6 @@ contain equivalent information.
 When routes reconverge, this equivalence fails. The node function identifies cylinders that remain distinct in the full path boundary.
 
 Thin compression loses the distribution of mass among routes at this step.
-
----
 
 # 10. Potential-harmonic decomposition
 
@@ -540,7 +520,7 @@ the limit exists pointwise. Under finite outgoing sums,
 T_Rh_\infty=h_\infty.
 ```
 
-Therefore the potential--harmonic decomposition is
+Therefore the potential-harmonic decomposition is
 
 ```math
 h
@@ -551,8 +531,6 @@ h_\infty.
 ```
 
 The formula is the potential-boundary decomposition.
-
----
 
 # 11. The resolvent is the pure potential case
 
@@ -601,8 +579,6 @@ At critical divergence,
 The finite-path source disappears, and any nonzero limit becomes harmonic because normalizing a diverging path resolvent removes its potential source and leaves boundary harmonic mass.
 
 The limit gives the resolvent-to-boundary transition.
-
----
 
 # 12. Harmonic mass and the infinite-future core
 
@@ -657,8 +633,6 @@ The boundary eigenvector is thereby linked to the ordinal decomposition.
 
 A nonzero pure harmonic state cannot live on a finite DAG or on a row-finite region whose forward paths all terminate.
 
----
-
 ## Constructive version
 
 If $h(v)>0$ and $v$ has finitely many outgoing edges, then the equality
@@ -684,8 +658,6 @@ h(v)>0
 ```
 
 At an infinite emitter, this implication can fail because positive superharmonic defect may remain there.
-
----
 
 # 13. Examples
 
@@ -718,8 +690,6 @@ h(v_n)=h(v_{n+1}).
 ```
 
 The derived cylinder split assigns weight one to the unique continuation.
-
----
 
 ## $d$-ary tree
 
@@ -756,8 +726,6 @@ Equivalently,
 
 The equal cylinder splitting is derived from symmetry and path growth, not externally assigned.
 
----
-
 ## Spherically varying branching
 
 Suppose every node at depth $n$ has $b_n$ children.
@@ -783,8 +751,6 @@ R^{2n}h_n=
 ```
 
 The critical scale cancels after normalization, leaving the equal split forced by the branching profile.
-
----
 
 ## A reconvergent diamond followed by an infinite tail
 
@@ -825,8 +791,6 @@ The two route cylinders receive equal weight
 ```
 
 A general route-sensitive prefix state could favor one branch over the other, an asymmetry that the node eigenvector compression cannot retain.
-
----
 
 # 14. The convex boundary cone
 

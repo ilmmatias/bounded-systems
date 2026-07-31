@@ -41,8 +41,6 @@ S_{\lfloor ns\rfloor}
 
 Covariance convergence alone does not prove a Gaussian functional limit; tightness, Lindeberg/projective conditions or corresponding chaos assumptions are also required. Functional limit theorems for nonstationary dependent triangular arrays require precisely such additional dependence controls.
 
----
-
 # 2. Absence of long memory in harmonic score increments
 
 Let $\phi$ be a tangent score:
@@ -113,8 +111,6 @@ Thus, long-range dependence can arise only from something omitted by the harmoni
 
 Long memory therefore signals unresolved route information.
 
----
-
 # 3. Asymptotically homogeneous special case
 
 Suppose that sufficiently deep in the graph, the block correlations become approximately translation invariant:
@@ -173,8 +169,6 @@ a_n=\sqrt n
 The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$; functional central limit theorems for additive functionals of stationary reversible Markov processes establish this phenomenon under operator-domain conditions.
 
 Thus summable route correlation does not create a new continuum regime. It renormalizes the quadratic tensor.
-
----
 
 # 4. Power-law correlation and the Hurst exponent
 
@@ -243,8 +237,6 @@ So the correlation exponent and Hurst exponent are related by
 \eta=2-2H.
 ```
 
----
-
 # 5. Nonlinear route observables and Hermite rank
 
 Long memory becomes richer when the coarse profile increment is a nonlinear function of a correlated Gaussian route field.
@@ -307,8 +299,6 @@ Thus the route-correlation regime has a new discrete invariant:
 ```math
 m=\text{first nonlinear chaos degree visible after profile compression}.
 ```
-
----
 
 # 6. Exact elimination of hidden route variables
 
@@ -379,8 +369,6 @@ Eliminating unresolved degrees of freedom likewise yields generalized Langevin r
 
 A fluctuation-dissipation identity does not follow from the bounded system definition alone; it requires a suitable symmetric or equilibrium state.
 
----
-
 # 7. Spectral origin of power-law memory
 
 Assume, conditionally, that
@@ -443,8 +431,6 @@ e^{-\omega\tau}
 ```
 
 Thus long-range memory corresponds to a gapless hidden-route spectrum carrying weight near $\omega=0$. Acyclicity forbids exact cyclic recurrence but not arbitrarily slow hidden modes; infinite depth and repeated route reconvergence can generate a continuum of relaxation scales accumulating at zero.
-
----
 
 # 8. The power-law memory equation
 
@@ -509,8 +495,6 @@ The two anomalies have different resolvents:
 
 They can produce similar algebraic scaling while representing mathematically different mechanisms.
 
----
-
 # 9. Fractional Brownian forcing versus memory friction
 
 There are also two distinct long-correlation descriptions.
@@ -550,8 +534,6 @@ K_h(\tau-s)X_s\,ds
 These need not be equivalent.
 
 They become linked only when the memory kernel and colored forcing covariance satisfy an additional fluctuation-dissipation condition. Fractional Langevin equations use precisely such power-law memory and correlated forcing, but the relation depends on the assumed equilibrium structure.
-
----
 
 # 10. Markovian reconstruction of the memory
 
@@ -613,8 +595,6 @@ The fractional memory is exactly a continuum of hidden exponential modes with de
 
 The non-Markovian profile equation becomes Markovian again when the unresolved spectral continuum is restored.
 
----
-
 # 11. Primitive gauge coupling
 
 Define $G$ by
@@ -664,8 +644,6 @@ e^{-G(\tau-s)}
 assuming $G$ commutes with $\mathbb B_h$ and $K_h$.
 
 A past state's memory therefore carries the gauge phase accumulated over the intervening primitive compositional depth.
-
----
 
 # 12. Gauge-covariant memory resolvent
 
@@ -729,8 +707,6 @@ q+i\beta n
 
 That denominator is the complete complex dispersion relation of the linear power-memory regime.
 
----
-
 # 13. Gaussian long-memory fluctuation space
 
 If the limiting correlation field is Gaussian, its one-particle space is not merely the local tangent space $\mathfrak t_h$.
@@ -772,8 +748,6 @@ d\Gamma(B_h)
 ```
 
 on the instantaneous profile space. Its natural object is the memory resolvent above, or an enlarged Markovian hidden-mode representation.
-
----
 
 # 14. Higher-Hermite route fields
 
@@ -821,8 +795,6 @@ m\text{-th Hermite process}
 
 Multivariate long-range systems can similarly produce operator fractional Brownian limits or matrix-valued Rosenblatt limits.
 
----
-
 # 15. Three genuinely different sources of temporal anomaly
 
 The anomalies separate into three mechanisms. A renewal anomaly occurs when the number of primitive channels inside one coarse transition is heavy-tailed,
@@ -862,8 +834,6 @@ Z_{m,H_m}(t).
 ```
 
 These mechanisms can coexist, but they are not interchangeable.
-
----
 
 # 16. Closure theorem for the long-memory branch
 

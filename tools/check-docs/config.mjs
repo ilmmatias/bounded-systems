@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,14 +11,12 @@ export const artifactsDirectory = path.join(
   "check-docs",
 );
 
-const findingsNames = [
-  ...Array.from({ length: 50 }, (_, index) => `findings-${index + 3}.md`),
-  "findings-53-wip.md",
-];
+const docsDirectory = path.join(repositoryRoot, "docs");
 
-export const findingsFiles = findingsNames.map((name) =>
-  path.join(repositoryRoot, "docs", name),
-);
+export const findingsFiles = fs
+  .readdirSync(docsDirectory)
+  .filter((file) => /^findings-.*\.md$/.test(file))
+  .map((file) => path.join(docsDirectory, file));
 
 export const githubRepository =
   process.env.GITHUB_REPOSITORY ?? "ilmmatias/bounded-systems";
