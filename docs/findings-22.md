@@ -175,7 +175,7 @@ by
 C_{n,u}\xi_p=\eta_{r(p)},
 ```
 
-where ${\eta_v}$ is the node basis.
+where $\{\eta_v\}$ is the node basis.
 
 Routes ending at the same node are added.
 

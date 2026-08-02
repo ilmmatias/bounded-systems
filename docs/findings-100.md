@@ -106,15 +106,7 @@ Consequently, every measure of the form in Theorem 2 satisfies the pairwise
 identity. A separate scalar constraint is required to remove the two
 endpoint masses and the degenerate singleton solution.
 
-# 5. Intrinsic meaning
-
-The two-root path-volume law reconstructs the coordinate measure locally.
-Between every two observed coordinate values, the weighted volume of
-intermediates is exactly the Euclidean cubic volume. Distributional
-differentiation then recovers unit Lebesgue density.
-
-The only undetected information is mass concentrated at the extreme
-coordinate values, where no lower or higher intermediate state exists.
+# 5. Exact symbolic verification
 
 On polynomial test functions, exact symbolic calculation confirms the
 distributional kernel formula and shows that arbitrary endpoint masses leave

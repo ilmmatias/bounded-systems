@@ -78,7 +78,7 @@ q^{++}(v)&=\sum_{v\to w}d^+(w),
 & q^{+-}(v)&=\sum_{v\to w}d^-(w),\\
 q^{--}(v)&=\sum_{w\to v}d^-(w),
 & q^{-+}(v)&=\sum_{w\to v}d^+(w).
-\end{aligned}.
+\end{aligned}
 ```
 
 The six-coordinate state is

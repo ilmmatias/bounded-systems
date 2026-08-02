@@ -493,7 +493,7 @@ It refines the pointwise Euler profile but remains much coarser than the full
 graded rank invariant:
 
 ```math
-{\rho_n}_n
+\{\rho_n\}_n
 \longrightarrow
 \Xi
 ```

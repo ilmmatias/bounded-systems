@@ -54,7 +54,7 @@ symmetrized tensors
 \left(
 \varphi_1\otimes\cdots\otimes\varphi_m
 \right),
-qquad
+\qquad
 \varphi_a\in\mathcal M_{C_a}.
 ```
 

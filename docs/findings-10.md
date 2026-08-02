@@ -48,9 +48,9 @@ F^+_\alpha=
 The families
 
 ```math
-{F^-_\alpha}_\alpha,
+\{F^-_\alpha\}_\alpha,
 \qquad
-{F^+_\alpha}_\alpha
+\{F^+_\alpha\}_\alpha
 ```
 
 are linearly ordered projection nests. In an operator realization they produce

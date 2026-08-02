@@ -178,7 +178,7 @@ The Fock representation makes the route kernel geometrically explicit.
 For a fixed endpoint pair, the path creators
 
 ```math
-{L_p:p\in\mathscr P(u,v)}
+\{L_p:p\in\mathscr P(u,v)\}
 ```
 
 have mutually orthogonal ranges.

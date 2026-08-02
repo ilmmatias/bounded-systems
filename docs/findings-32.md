@@ -95,7 +95,7 @@ The pure asymptotic defect module has an exact homological realization:
 
 ```math
 H_1(K_h,A_h;k)=
-\left\lbrace (c_\tau): \text{finite support},\\ \sum_\tau c_\tau=0 \right\rbrace.
+\left\lbrace (c_\tau): \text{finite support}, \sum_\tau c_\tau=0 \right\rbrace.
 ```
 
 Globally,
@@ -497,7 +497,7 @@ Y_{t,F}.
 The finite-observation quotients form an inverse system:
 
 ```math
-{Y_{t,F}}_{F\Subset V}.
+\{Y_{t,F}\}_{F\Subset V}.
 ```
 
 The full Martin quotient maps into its inverse limit:

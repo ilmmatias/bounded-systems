@@ -169,7 +169,7 @@ Alternatively, one may retain the complete sequence
 and the local branching data
 
 ```math
-{b_n(c):c\in C_n}.
+\{b_n(c):c\in C_n\}.
 ```
 
 The scalar $\Lambda_{\mathrm{split}}$ is only a compression. Different diagrams
@@ -493,7 +493,7 @@ The full node Martin compactification is
 ```math
 \mathcal M_t=
 \overline{
-{K_t(\cdot,x):x\in V_o}
+\{K_t(\cdot,x):x\in V_o\}
 }.
 ```
 
@@ -703,7 +703,7 @@ ray lies in every residual class:
 
 ```math
 \bigcap_{n\ge1}
-{\xi_m:m>n}=
+\{\xi_m:m>n\}=
 \varnothing.
 ```
 

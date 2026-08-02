@@ -612,7 +612,7 @@ is Markovian on the enlarged state
 
 ```math
 \left(
-x,{z_\omega}_{\omega>0}
+x,\{z_\omega\}_{\omega>0}
 \right).
 ```
 

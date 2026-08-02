@@ -148,7 +148,7 @@ If there is no path, it is empty. Hence
 \pi_0
 \mathrm{Map}_{\mathfrak R_G}(u,v)=
 \begin{cases}
-{\ast},&u\le v,\\
+\{\ast\},&u\le v,\\
 \varnothing,&u\nleq v.
 \end{cases}
 ```
@@ -199,7 +199,7 @@ For every comparable pair $u\le v$, its mapping-space component is
 ```math
 E(\mathscr P_G(u,v))
 \longrightarrow
-{\ast}.
+\{\ast\}.
 ```
 
 The map is a weak homotopy equivalence because its source is contractible.
@@ -243,7 +243,7 @@ Consequently,
 
 ```math
 \mathrm{Map}_{\mathfrak R_G}(v,v)=
-E({1_v})
+E(\{1_v\})
 \cong\Delta^0.
 ```
 
@@ -296,7 +296,7 @@ There is an augmentation
 \varepsilon:
 C_0^{\mathrm{route}}(v,u)
 \longrightarrow
-k,\varepsilon_{v,u}
+k\varepsilon_{v,u}
 ```
 
 sending every route $p:u\to v$ to the unique thin reachability arrow:
@@ -783,7 +783,7 @@ From bottom to top, there are six saturated routes.
 The route mapping space is
 
 ```math
-E({p_1,\ldots,p_6}),
+E(\{p_1,\ldots,p_6\}),
 ```
 
 which is contractible.

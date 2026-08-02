@@ -80,7 +80,7 @@ Define the weighted node Martin compactification
 ```math
 \overline V_t^{\,M}=
 \overline{
-{K_t(\cdot,x):x\in V_o}
+\{K_t(\cdot,x):x\in V_o\}
 }.
 ```
 

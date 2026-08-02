@@ -307,7 +307,7 @@ Between
 ```math
 \varnothing
 \quad\text{and}\quad
-{1,2,3},
+\{1,2,3\},
 ```
 
 the open interval consists of three singleton subsets and three two-element
@@ -328,7 +328,7 @@ Consequently,
 giving
 
 ```math
-\mathcal K_3({1,2,3},\varnothing)
+\mathcal K_3(\{1,2,3\},\varnothing)
 \cong\mathbb Z.
 ```
 
@@ -418,7 +418,7 @@ The homotopy type determines the hierarchy
 \longrightarrow
 \widetilde H_*(\Delta(u,v))
 \longrightarrow
-{\beta_n(u,v)}
+\{\beta_n(u,v)\}
 \longrightarrow
 \mu(u,v).
 ```
@@ -622,9 +622,9 @@ Its simplicial chain group is the free abelian group on finite chains:
 
 ```math
 C_r(\Delta(u,v))=
-\mathbb Z^{({
+\mathbb Z^{(\{
 u<w_0<\cdots<w_r<v
-})}.
+\})}.
 ```
 
 The boundary is always a finite alternating sum.

@@ -324,7 +324,7 @@ Define the incidence algebra
 
 ```math
 \mathcal I(P_G)=
-\left\lbrace f:{(u,v):u\le v}\to\mathbb K \right\rbrace.
+\left\lbrace f:\{(u,v):u\le v\}\to\mathbb K \right\rbrace.
 ```
 
 Multiplication is convolution:
@@ -363,7 +363,7 @@ The bounded system definition does not imply that intervals are finite.
 For example, take nodes
 
 ```math
-u,\quad v,\quad {w_i:i\in I}
+u,\quad v,\quad \{w_i:i\in I\}
 ```
 
 with channels

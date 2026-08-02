@@ -84,7 +84,7 @@ complex.
 Also define
 
 ```math
-\mathscr E_G^0(u,u)=k,1_u,
+\mathscr E_G^0(u,u)=k\,1_u,
 ```
 
 and
@@ -258,7 +258,7 @@ Their cochain composite is supported on the single intermediate node $v$.
 However,
 
 ```math
-\Delta(u,w)={v}
+\Delta(u,w)=\{v\}
 ```
 
 is contractible, so
@@ -313,7 +313,7 @@ consists of two isolated points, so
 
 ```math
 H^2\mathscr E_G(1,0)=
-\widetilde H^0({a,b};k)
+\widetilde H^0(\{a,b\};k)
 \cong k.
 ```
 
@@ -548,7 +548,7 @@ topological criterion separating these regimes.
 The previous hierarchy treated the individual interval homotopy types
 
 ```math
-{\Delta(u,v)}
+\{\Delta(u,v)\}
 ```
 
 as the primary thin-coherence invariant.

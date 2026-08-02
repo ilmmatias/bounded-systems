@@ -629,20 +629,3 @@ Equality of this spectral radius does not require equality of:
 
 The extremal tree/funnel pair shows that all can differ exponentially while
 $r(S_+)$ remains identical.
-
-The invariants therefore stratify as follows:
-
-```math
-\begin{aligned}
-T_n
-&:\text{total route growth},\\
-(R_n,M_n,Q_n)
-&:\text{endpoint-distribution geometry},\\
-d
-&:\text{earliest compositional access},\\
-m_L
-&:\text{signed thin-factorization complexity}.
-\end{aligned}
-```
-
-No single one determines all the others.

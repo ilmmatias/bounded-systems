@@ -18,7 +18,7 @@ q^{++}(u)&=\sum_{u\to v}d^+(v),
 & q^{+-}(u)&=\sum_{u\to v}d^-(v),\\
 q^{--}(u)&=\sum_{v\to u}d^-(v),
 & q^{-+}(u)&=\sum_{v\to u}d^+(v).
-\end{aligned}.
+\end{aligned}
 ```
 
 The state supplied to every closure and coefficient estimator is

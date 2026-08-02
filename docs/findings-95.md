@@ -261,7 +261,7 @@ equation forces them to become absolutely continuous. It also rules out
 positive-measure twin classes, because these appear as flat intervals of the
 quantile.
 
-# 5. Interpretation
+# 5. Compositional content of the quadratic route identity
 
 The identity $6G=F^2$ is a compositional law. It compares the volume of
 two-step incoming factorizations with the square of the one-step incoming

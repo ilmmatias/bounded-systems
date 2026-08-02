@@ -135,7 +135,7 @@ Between
 ```math
 \varnothing
 \quad\text{and}\quad
-{1,2,3},
+\{1,2,3\},
 ```
 
 the six saturated paths are the six permutations:

@@ -17,7 +17,7 @@ be the set of length-$n$ paths, and define the route Hilbert space
 Its canonical orthonormal basis is
 
 ```math
-{\xi_p:p\in\mathsf P_n(G)}.
+\{\xi_p:p\in\mathsf P_n(G)\}.
 ```
 
 For each ordered node pair $(u,v)$, let
@@ -504,7 +504,7 @@ identity.
 The family
 
 ```math
-{D_n}_{n\ge0}
+\{D_n\}_{n\ge0}
 ```
 
 is a canonical positive shadow of the resolved path system for finite endpoint
@@ -560,9 +560,9 @@ D_{d(u,v)}\eta_{v,u},
 The min-plus data arise from the positive tower by:
 
 ```math
-{D_n}
+\{D_n\}
 \longrightarrow
-{\mathrm{supp}D_n}
+\{\mathrm{supp}D_n\}
 \longrightarrow
 \text{first supported }n.
 ```
@@ -791,19 +791,3 @@ What fails is precisely the Hilbert-space endpoint-summation operator:
 
 is nonclosable; no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$
 represents an infinite cardinal as an ordinary scalar eigenvalue.
-
-Thus the unrestricted hierarchy is:
-
-```math
-\begin{aligned}
-\text{all cardinalities:}&\quad
-N_n^\mathcal{\#},\ Z_n,\ d,\\
-\text{finite route fibers:}&\quad
-\Sigma_n,\ D_n,\\
-\text{uniformly finite fibers:}&\quad
-\Sigma_n\text{ bounded}.
-\end{aligned}
-```
-
-The analytic failure marks the Hilbert representation's boundary without
-changing the underlying relational data.

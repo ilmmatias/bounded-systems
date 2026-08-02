@@ -300,7 +300,7 @@ Concretely, on the finite-path Hilbert space,
 The commuting family
 
 ```math
-{\Pi_p:p\in\mathsf P(G)}
+\{\Pi_p:p\in\mathsf P(G)\}
 ```
 
 forms a semilattice of projections.
@@ -308,7 +308,7 @@ forms a semilattice of projections.
 A character of this semilattice is a map
 
 ```math
-\chi:{\Pi_p}\to{0,1}
+\chi:\{\Pi_p\}\to\{0,1\}
 ```
 
 that preserves multiplication and is not identically zero.
@@ -330,7 +330,7 @@ finite path. If their lengths are unbounded, compatibility determines an
 infinite path. Therefore,
 
 ```math
-\mathrm{Spec}({\Pi_p})
+\mathrm{Spec}(\{\Pi_p\})
 \cong
 \mathsf P(G)\sqcup\partial^+G.
 ```
@@ -410,7 +410,7 @@ Let $p$ end at node $v$.
 If $v$ emits finitely many edges $e_1,\ldots,e_k$, then
 
 ```math
-{p}=
+\{p\}=
 Z(p)
 \setminus
 \bigcup_{i=1}^k Z(pe_i).

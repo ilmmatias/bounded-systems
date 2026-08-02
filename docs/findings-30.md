@@ -41,7 +41,7 @@ defined.
 Call $\xi$ $t$-Martin regular when
 
 ```math
-\mathrm{Cl}_t(\xi)={h_\xi}
+\mathrm{Cl}_t(\xi)=\{h_\xi\}
 ```
 
 is a singleton.
@@ -297,7 +297,7 @@ Fix an integer $b\ge2$.
 
 Define the layered graph as follows:
 
-* $V_0={o}$;
+* $V_0=\{o\}$;
 * every level $V_n$, $n\ge1$, contains $b$ nodes;
 * $o$ connects to every node of $V_1$;
 * every node of $V_n$ connects to every node of $V_{n+1}$.
@@ -430,7 +430,7 @@ Under the same compactness assumptions, define
 
 ```math
 \mathcal N_t=
-C^\ast\bigl(1,{k_v:v\in V}\bigr)
+C^\ast\bigl(1,\{k_v:v\in V\}\bigr)
 \subseteq
 C(X_{\mathrm{pre}}).
 ```
@@ -533,7 +533,7 @@ The finite and boundary defect data correspond as follows:
 \begin{array}{c|c}
 \text{Finite route fiber}&\text{Boundary Martin fiber}\\
 \hline
-{p:u\to v}&F_h\\
+\{p:u\to v\}&F_h\\
 \sum c_p=0&\nu(F_h)=0\\
 p-q&\delta_\xi-\delta_\eta\\
 m-1&m-1

@@ -76,7 +76,7 @@ The stable candidate is determined by the vague convergence
 ```math
 \frac1{a_\delta}
 K_{\delta,h}(x,dy)
-;\xrightarrow[\delta\to0]{v};
+\;\xrightarrow[\delta\to0]{v}\;
 \nu_h(x,dy)
 ```
 

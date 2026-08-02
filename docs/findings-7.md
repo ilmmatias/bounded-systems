@@ -504,8 +504,8 @@ There are three tiers:
 
 | Tier                     | Positive-path spectrum | What it records                    |
 | ------------------------ | ---------------------- | ---------------------------------- |
-| Algebraic path algebra   | ${0}$                  | finite expressions                 |
-| Formal path completion   | ${0}$                  | all finite paths and formal depth  |
+| Algebraic path algebra   | $\{0\}$                | finite expressions                 |
+| Formal path completion   | $\{0\}$                | all finite paths and formal depth  |
 | Fock/operator completion | potentially nonzero    | norm growth and infinite branching |
 
 A nonzero operator spectrum is therefore a growth and convergence phenomenon;

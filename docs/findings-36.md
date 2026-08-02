@@ -30,7 +30,7 @@ define, on the rooted analytic monomials,
 
 ```math
 \omega_h(L_pL_q^\ast)=
-\delta_{p,q},
+\delta_{p,q}\,
 e^{-\beta|p|}
 \frac{h(r(p))}{h(o)}.
 ```
@@ -226,9 +226,9 @@ define its quadratic profile image formally by
 \mathscr S_h\xi_p=
 \mathrm{Sym}
 \left(
-\sqrt{P_h(e_1\mid v_0)},j_{e_1}
+\sqrt{P_h(e_1\mid v_0)}\,j_{e_1}
 \otimes\cdots\otimes
-\sqrt{P_h(e_n\mid v_{n-1})},j_{e_n}
+\sqrt{P_h(e_n\mid v_{n-1})}\,j_{e_n}
 \right).
 ```
 
@@ -480,34 +480,6 @@ U_t=e^{-itN_h}.
 ```
 
 Because both arise from $N_h$, they are analytic continuations of one another.
-
-Thus the derivation is:
-
-```math
-\begin{aligned}
-\text{directed channels}
-&\longrightarrow
-P_h,\\
-P_h
-&\longrightarrow
-\text{martingale quadratic variation},\\
-\text{quadratic variation}
-&\longrightarrow
-\mathfrak t_h,\\
-\mathfrak t_h
-&\longrightarrow
-\Gamma_s(\mathfrak t_h),\\
-\Gamma_s(\mathfrak t_h)
-&\longrightarrow
-N_h,\\
-N_h
-&\longrightarrow
-e^{-\tau N_h}
-\text{ and }
-e^{-itN_h}.
-\end{aligned}
-```
-
 The Hamiltonian is therefore $N_h$.
 
 # 9. Third-order correction

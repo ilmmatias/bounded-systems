@@ -51,7 +51,7 @@ C_{\ell,m+n}
 The resolved route tower
 
 ```math
-{\mathcal H_n,C_{m,n}}_{m,n\ge0}
+\{\mathcal H_n,C_{m,n}\}_{m,n\ge0}
 ```
 
 is strictly associative.

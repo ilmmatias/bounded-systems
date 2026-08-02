@@ -106,7 +106,7 @@ The condition $p^2=p$ forces
 The nonzero primitive idempotents of $\mathcal D(G)$ are exactly
 
 ```math
-{e_v:v\in V}.
+\{e_v:v\in V\}.
 ```
 
 Because $\Phi$ restricts to an isomorphism of the diagonal algebras, it

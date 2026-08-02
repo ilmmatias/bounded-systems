@@ -419,7 +419,7 @@ row-contractive realization.
 For positive-path polynomials in an acyclic system, this enclosure collapses to
 
 ```math
-{0}.
+\{0\}.
 ```
 
 For infinite-limit elements, it may be much larger.
