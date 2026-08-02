@@ -80,8 +80,9 @@ relation-count cylinders add no independent first-order information.
 Partner-degree averages that do not depend on $u$ are also graph-global
 constants and do not contribute to node motion.
 
-These six coordinates are the minimal nonredundant linear node cylinders
-supplied by the current communication record.
+The three families just eliminated are the redundant ones among the linear node
+cylinders available from the current communication record; these six coordinates
+are the survivors.
 
 # 2. Integer node signatures
 
@@ -937,3 +938,21 @@ $\mathfrak E_{G,p,r}$ is below tolerance or reaches zero exactly.
 
 Thus the Markov-closure defect, rather than graph-isomorphism separation,
 selects the required refinement depth.
+
+# 16. Literature relation
+
+The vanishing-jump ratio $\mathfrak J_{G,p}$ and the Lindeberg quantity
+$\mathfrak L_{G,p}(\epsilon)$ of section 10, assembled into the criterion of
+section 12, are finite-graph versions of two conditions in the generator
+convergence scheme for triangular arrays. That scheme requires in addition
+compact containment of the approximating family and uniqueness of the limiting
+martingale problem, and its conditions are asymptotic along the sequence
+$(G_n,p_n,r_n)$ rather than properties of a single pair $(G,p)$. Neither
+additional requirement is a function of the quantities computed in section 13,
+so the diagnostics can fall below tolerance on a finite sample without the
+convergence conclusion following.
+
+Reference:
+
+- S. N. Ethier and T. G. Kurtz, *Markov Processes: Characterization and
+  Convergence*, Wiley, 1986, Chapter 4.

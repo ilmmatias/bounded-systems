@@ -796,3 +796,35 @@ perturbation sensitivity, or the accumulation of long cross-layer paths.
 The spectral set is coarser than the resolvent, the unfiltered resolvent is
 coarser than the rank-filtered family, and the full marked path algebra
 retains the finest information among these objects.
+
+# 14. Literature relation
+
+The nests $\{F^-_\alpha\}_\alpha$ and $\{F^+_\alpha\}_\alpha$ of section 1
+determine, in an operator realization, the algebra of bounded operators leaving
+every member of the nest invariant. Algebras of that kind are the nest algebras
+of J. R. Ringrose, *On some algebras of operators*, Proceedings of the London
+Mathematical Society 15 (1965), 61-83, where the nest is a totally ordered
+family of closed subspaces of a single Hilbert space and the algebra is studied
+through that lattice. Here the index set is a set of ordinals produced by the
+rank functions, and each projection is a sum of node projections in the
+completed diagonal $\widehat{\mathcal D}$, so the nest carries the additional
+information that the interval between consecutive members is a rank layer.
+Sections 5, 6 and 13 use only the triangular form attached to one cut at a time
+and none of the structure theory of nest algebras.
+
+The containment $\sigma(S)\subseteq\sigma(S_P)\cup\sigma(S_Q)$ in section 13,
+and the failure of equality noted there, concern the triangular operator
+matrices treated in Du Hong-Ke and Pan Jin, *Perturbation of spectrums of
+$2\times2$ operator matrices*, Proceedings of the American Mathematical Society
+121 (1994), 761-766, and in J. K. Han, H. Y. Lee, and W. Y. Lee, *Invertible
+completions of $2\times2$ upper triangular operator matrices*, Proceedings of
+the American Mathematical Society 128 (2000), 119-123. Han, Lee and Lee sharpen
+the statement of section 13 in one direction: for an upper triangular operator
+matrix with diagonal entries $A$ and $B$, the spectrum contains
+$(\sigma(A)\cup\sigma(B))\setminus(\sigma(A)\cap\sigma(B))$ and is contained in
+$\sigma(A)\cup\sigma(B)$, so a point of $\sigma(S_P)\cup\sigma(S_Q)$ can be
+missing from $\sigma(S)$ only when it lies in $\sigma(S_P)\cap\sigma(S_Q)$, and
+the failure of equality fills holes inside that intersection. Their matrices are
+upper triangular for a single decomposition of the space into two summands,
+which is the display of section 13 after the two summands are interchanged, and
+that decomposition is one member of the transfinite nest of section 1.

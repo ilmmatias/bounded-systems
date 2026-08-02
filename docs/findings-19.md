@@ -746,3 +746,22 @@ The route-factorization filtration can be summarized as:
 \text{paths supported by }R_G^{\le N}
 \quad\text{and admitted by the rank stage }F^-_\alpha.
 ```
+
+# 17. Literature relation
+
+The complexes filtered in section 6 are subcomplexes of the augmented order
+complex of an open interval of $P_G$, whose unfiltered reduced homology
+section 9 recovers in the limit. For a finite interval, the alternating count of
+strict chains and the reduced Euler characteristic of that complex both compute
+the Möbius function of the interval, by Propositions 3.8.5 and 3.8.6 of
+R. P. Stanley, *Enumerative Combinatorics, Volume 1*, second edition, Cambridge
+Studies in Advanced Mathematics 49, Cambridge University Press, 2012. The
+alternating chain count originates in P. Hall, *The Eulerian functions of a
+group*, Quarterly Journal of Mathematics os-7 (1936), 134-151, and the Möbius
+function in G.-C. Rota, *On the foundations of combinatorial theory I. Theory of
+Möbius functions*, Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte
+Gebiete 2 (1964), 340-368. All three treat the unfiltered interval of a finite
+poset, with no length budget and no restriction on which intermediate nodes are
+admitted; the conditions imposed in section 6, the resulting complexes
+$\Delta^{N,\alpha}(u,v)$, and the two-parameter maps of section 8 are
+constructed here.

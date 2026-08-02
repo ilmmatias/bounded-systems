@@ -528,3 +528,27 @@ But a bounded infinite sum can converge to a shift-like operator $T$ with
 Thus the algebraic positive-path structure may be locally nilpotent while its
 operator completion has nontrivial spectrum. The example isolates the role of
 infinite limits in producing this spectral behavior.
+
+# 9. Literature relation
+
+Theorem 1 recovers a directed multigraph from its path algebra together with the
+marked diagonal and the grading. Reconstruction theorems for the operator
+algebras attached to a directed graph are proved in E. G. Katsoulis and D. W.
+Kribs, *Isomorphisms of algebras associated with directed graphs*, Mathematische
+Annalen 330 (2004), 709-728, arXiv:math/0309363, and in B. Solel, *You can see
+the arrows in a quiver operator algebra*, Journal of the Australian Mathematical
+Society 77 (2004), 111-122, arXiv:math/0309420. Katsoulis and Kribs work with
+countable graphs and recover the graph from a Banach-algebra isomorphism of the
+associated algebras, and from an algebraic isomorphism when the graph has no
+sinks; Solel shows that an isometric isomorphism of quiver operator algebras
+forces an isomorphism of the underlying quivers.
+
+Theorem 1 assumes an algebra isomorphism that carries the diagonal onto the
+diagonal and each grading component onto the corresponding component, and it
+imposes no norm, no topology, no restriction on the cardinality of the node or
+edge set, and no condition on sinks. Neither statement implies the other. The
+hypotheses of Theorem 1 include the diagonal and the grading, which the cited
+theorems do not assume, and exclude the analytic and countability hypotheses on
+which their proofs rest; conversely those theorems apply to isomorphisms of
+completed algebras that are not given as graded maps, about which Theorem 1
+says nothing.

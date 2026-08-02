@@ -100,3 +100,39 @@ six-node computation, the two-level fingerprint is
 ```
 
 It distinguishes all $5{,}984$ isomorphism classes of simple DAGs on six nodes.
+
+# 5. Literature relation
+
+The totals 31, 302 and 5,984 in the first row of the table in section 1 are the
+numbers of acyclic digraphs on four, five and six unlabeled nodes listed as
+Sequence A003087, On-Line Encyclopedia of Integer Sequences. The computation
+reported here reproduces those values as a check on the generation procedure and
+does not establish them; the counting problem was solved by R. W. Robinson,
+*Counting unlabeled acyclic digraphs*, in Combinatorial Mathematics V, Lecture
+Notes in Mathematics 622, Springer, 1977, 28-43, by an argument that counts
+isomorphism classes without producing representatives of them, whereas the
+invariant profiles of sections 1 and 2 are evaluated on explicit representatives
+of every class.
+
+The directed line graph of section 3 is the line digraph studied in F. Harary
+and R. Z. Norman, *Some properties of line digraphs*, Rendiconti del Circolo
+Matematico di Palermo 9 (1960), 161-168, for digraphs in general and with no
+acyclicity hypothesis. Acyclicity enters only in section 4, where the nilpotency
+index $\nu$ of a finite DAG makes the iteration
+$G^{(r+1)}=\mathcal{L}(G^{(r)})$ terminate at $r=\nu-1$, so that the spectral
+tower is a finite family; their general setting provides no such termination.
+
+The invariant recorded in section 1 as the Hermitian orientation spectrum is the
+spectrum of the skew matrix $A-A^\mathsf T$. For a digraph without digons, which
+every simple DAG is, the Hermitian adjacency matrix equals
+$i(A-A^\mathsf T)$ under the convention that an arc contributes the entry $i$ in
+its own direction, so the two matrices have the same eigenvectors and their
+eigenvalues differ by the factor $i$. That matrix is studied for mixed graphs,
+in which a digon is read as an undirected edge, in K. Guo and B. Mohar,
+*Hermitian adjacency matrix of digraphs and mixed graphs*, Journal of Graph
+Theory 85 (2017), 217-248, arXiv:1505.01321, and in J. Liu and X. Li,
+*Hermitian-adjacency matrices and Hermitian energies of mixed graphs*, Linear
+Algebra and its Applications 466 (2015), 182-207. Their cospectrality statements
+concern that matrix by itself, while the corresponding row of the table records
+how many additional isomorphism classes it separates once the preceding
+invariants of the profile have been applied.

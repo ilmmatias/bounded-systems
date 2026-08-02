@@ -130,7 +130,12 @@ but
 \sup_{u,v}N_n(v,u)=\infty.
 ```
 
-Then $\Sigma_n^0$ is unbounded, but it is closable. Its closure has domain
+Then $\Sigma_n^0$ is unbounded, but it is closable, because each endpoint block
+$\mathsf P_n(u,v)$ is finite, so $(\Sigma_n^0)^\ast\eta_{v,u}=\sum_{p\in\mathsf
+P_n(u,v)}\xi_p$ lies in $\mathcal H_n$ and the adjoint has dense domain. Since
+the blocks are finite dimensional, truncating to finitely many of them
+approximates any vector of the maximal domain together with its image, so the
+closure has domain
 
 ```math
 \mathrm{Dom}(\Sigma_n)=
@@ -479,14 +484,14 @@ the singular values retain only the multiset
 
 They no longer say which multiplicity belongs to which endpoint pair.
 
-With the marked pair diagonal,
+The marked pair diagonal is
 
 ```math
 \mathcal D_{\mathrm{pair}}=
-\mathrm{alg}{E_{v,u}},
+\mathrm{alg}\{E_{v,u}\},
 ```
 
-Equivalently,
+and retaining it recovers each multiplicity from its own endpoint pair:
 
 ```math
 N_n(v,u)=
@@ -791,3 +796,25 @@ What fails is precisely the Hilbert-space endpoint-summation operator:
 
 is nonclosable; no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$
 represents an infinite cardinal as an ordinary scalar eigenvalue.
+
+# 14. Literature relation
+
+Section 3 decides closability of $\Sigma_n^0$ by exhibiting a densely defined
+adjoint, and section 6 factors $\Sigma_n$ as $D_n^{1/2}U_n$. Both steps rest on
+facts about unbounded Hilbert-space operators established in J. von Neumann,
+*Über adjungierte Funktionaloperatoren*, Annals of Mathematics 33 (1932),
+294-310, where the double adjoint of a densely defined operator is identified
+with its closure and a closed densely defined operator is factored into a
+Hermitian operator times an isometric one. Those statements are about a single
+operator with dense domain, and the factorization is obtained without a
+description of its factors. Section 6 assumes instead that every length-$n$
+endpoint fiber is finite, and both factors are exhibited: $D_n$ is the diagonal
+multiplicity operator $\eta_{v,u}\mapsto N_n(v,u)\eta_{v,u}$, and $U_n$ is the
+partial isometry carrying each normalized equal-route vector to its endpoint
+pair and annihilating the route defects, so the factorization is verified block
+by block. The classification of endpoint collapse by route-fiber cardinality
+into a bounded, a closed unbounded, and a nonclosable regime, and the
+identification of $\Sigma_n\Sigma_n^\ast$ with the multiplicity profile
+$N_n(v,u)$, are carried out in sections 3 and 7; the nonclosable regime is
+settled there by the sequence $x_N=N^{-1}\sum_{j\le N}\xi_{p_j}$, whose graph
+limit $(0,\eta_{v,u})$ excludes every closed extension.

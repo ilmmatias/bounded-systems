@@ -106,7 +106,7 @@ Equivalently, when the angular measure has a density,
 {|y|^{d+\alpha}}\,dy.
 ```
 
-Such stable-like operators are standard pure-jump Lévy-type generators;
+Such stable-like operators are pure-jump Lévy-type generators;
 well-posed martingale problems require regularity and nondegeneracy of the
 state-dependent angular coefficient.
 
@@ -303,8 +303,9 @@ When the transformed measure remains admissible,
 \alpha_h=\alpha-\gamma.
 ```
 
-Sufficiently strong asymptotic positive-profile growth can change the stable
-universality class beyond biasing anomalous-propagation directions.
+The identity $\alpha_h=\alpha-\gamma$ shows that asymptotic positive-profile
+growth shifts the stable exponent itself, and not only the angular measure that
+biases anomalous-propagation directions.
 
 The stable exponent is preserved only when the profile is asymptotically
 neutral at the radial power-law scale.
@@ -898,3 +899,26 @@ D_\alpha|k|^\alpha+i\beta.
 Its real part is anomalous profile relaxation.
 
 Its imaginary part is compositional gauge phase.
+
+# 17. Literature relation
+
+Uniqueness in law for the pure-jump martingale problems invoked in sections 2
+and 3 is the subject of R. F. Bass, *Uniqueness in law for pure jump Markov
+processes*, Probability Theory and Related Fields 79 (1988), 271-287. The proof
+there is carried out in dimension one, with the extension to $\mathbb R^d$
+indicated, and uniqueness is obtained under Dini continuity of the
+coefficients. The generator $\mathcal L_{\alpha,0}$ of section 3 carries a
+state-dependent angular measure $\Lambda_h(x,d\theta)$ in unrestricted
+dimension, with no continuity modulus assumed for its dependence on $x$, so the
+uniqueness used there is not an instance of that theorem.
+
+The nonlocal form integrated against $q_h(x,\widehat y)|y|^{-d-\alpha}\,dy$ in
+section 2 is the class treated by Dirichlet-form methods in M. T. Barlow,
+R. F. Bass, Z.-Q. Chen, and M. Kassmann, *Non-local Dirichlet forms and
+symmetric jump processes*, Transactions of the American Mathematical Society
+361 (2009), 1963-1999, arXiv:math/0609842, where the jump kernel is symmetric
+and satisfies two-sided power bounds. The transformed kernel
+$\nu_h(x,dy)=r_h(x,y)\nu_0(x,dy)$ of section 4 has tilt factors obeying
+$r_h(x,y)r_h(x+y,-y)=1$, so symmetry of the transformed kernel would force
+$r_h\equiv1$, that is, $h$ constant along the displacements carried by $\nu_0$.
+The symmetric hypothesis of section 10 applies to $\nu_0$ and not to $\nu_h$.

@@ -172,7 +172,7 @@ D_n(H,G)=
 
 It requires no ensemble choice and no positive eigenfunction.
 
-Every coherent infinite growth law on the DAG Bratteli diagram has
+A growth law coherent with respect to uniform one-node deletion therefore has
 cotransition probabilities $D_n$.
 
 # 5. Finite-horizon route counts on the configuration graph
@@ -518,7 +518,9 @@ b_{n,r}^h(G_n)\to b_r^h(x)
 
 uniformly on relevant profile regions.
 
-Assume also sufficient Markov closure and regularity of $b_r^h$.
+Assume in addition that $b_r^h$ is bounded and Lipschitz on those regions and
+that the increment noise is a martingale difference with uniformly bounded
+second moments.
 
 Then the interpolation of $X_n$ in logarithmic size time converges to
 
@@ -853,3 +855,39 @@ The fluctuation relaxation matrix is then
 ```
 
 The matrix is a directly computable spectral object for the continuum theory.
+
+# 19. Literature relation
+
+The configuration graph of sections 4 to 7, graded by node count with finite
+levels $\mathfrak D_n$, the down transitions $D_n$, the coherence identity
+between $\mu_n^{N,w}U_n^{N,w}$ and $\mu_{n+1}^{N,w}D_n$, and the central
+measures on the infinite boundary named in section 8, are the objects studied in
+A. M. Vershik, *Equipped graded graphs, projective limits of simplices, and
+their boundaries*, Journal of Mathematical Sciences 209 (2015), 860-873,
+arXiv:1503.04447, with the diagrams of O. Bratteli, *Inductive limits of finite
+dimensional $C^\ast$-algebras*, Transactions of the American Mathematical
+Society 171 (1972), 195-234. In that setting the cotransition probabilities are
+part of the given data, tail equivalence and the Martin compactification are
+taken with respect to them, and the boundary is obtained as a projective limit
+of simplices. Here $D_n$ is not given but computed in section 4 from uniform
+one-node deletion, through $\dim$ and the extension multiplicity, and the
+constructions of sections 5 to 7 are carried out at a finite terminal level $N$
+with weight $w_N$, so they approximate rather than realize that projective
+limit.
+
+The recursion $X_{n+1}=X_n+F_{n,r}/(n+1)$ of section 10 is a Robbins-Monro
+recursion with step $1/(n+1)$, and the logarithmic size time $s_n$ used there
+and in section 12 is its associated time change $\sum\gamma_k$, as treated in
+M. Benaïm, *Dynamics of stochastic approximation algorithms*, in Séminaire de
+Probabilités XXXIII, Lecture Notes in Mathematics 1709, Springer, 1999, 1-68.
+What that source supplies is the law of large numbers, the convergence of the
+interpolated recursion to the flow of $b_r^h$ asserted in section 12; it does
+not supply the fluctuation limit.
+
+The fluctuation statement of section 13 is of the type established in
+V. Fabian, *On asymptotic normality in stochastic approximation*, Annals of
+Mathematical Statistics 39 (1968), 1327-1332, for the normalization $\sqrt n$.
+The shift of the drift by $\frac12I$ is obtained in section 13 by
+differentiating that normalization along the logarithmic time change, and is not
+read off from that source; the Lindeberg and covariance-convergence hypotheses
+listed in section 13 remain assumptions on the extension data.

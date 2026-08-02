@@ -621,3 +621,35 @@ definition provides no canonical subtraction of infinite cardinals. Then:
 \quad
 \text{do not force a scalar Möbius value}.
 ```
+
+# 13. Literature relation
+
+The statement quoted in section 2, that for finite poset intervals the ordinary
+Möbius function is the reduced Euler characteristic of the open-interval order
+complex, and the alternating chain count used there are Propositions 3.8.6 and
+3.8.5 of R. P. Stanley, *Enumerative Combinatorics, Volume 1*, second edition,
+Cambridge Studies in Advanced Mathematics 49, Cambridge University Press, 2012.
+The chain count is due to P. Hall, *The Eulerian functions of a group*,
+Quarterly Journal of Mathematics os-7 (1936), 134-151, and the Möbius function
+to G.-C. Rota, *On the foundations of combinatorial theory I. Theory of Möbius
+functions*, Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 2
+(1964), 340-368. Those results concern the unfiltered interval: the chains they
+count carry no cost bound and no admissibility condition on intermediate nodes,
+whereas $c_m^{N,\alpha}(u,v)$ counts only chains of cost at most $N$ whose
+intermediate nodes are admitted at rank stage $\alpha$. The specialization
+$\mathfrak m_\infty(u,v;1)=\mu_P(u,v)$ of section 5 is the point at which the
+two counts agree.
+
+A graded form of Möbius inversion, in which the zeta element of a category
+carries a formal variable, is given in T. Leinster, *Notions of Möbius
+inversion*, Bulletin of the Belgian Mathematical Society Simon Stevin 19 (2012),
+909-933, arXiv:1201.0413. Examples 4.1(vi) there treats a finite directed graph
+and its free category, whose length grading is additive along composition, and
+obtains the inverse $\delta-\zeta_Gt$. The weight $z^{d_\alpha(a,b)}$ of
+section 5 is not additive along composites: section 6 gives only the
+subadditivity $d_\alpha(u,v)\le\sum_id_\alpha(x_{i-1},x_i)$, so the exponent
+attached to a chain can exceed the exponent attached to the arrow it factors.
+The inverse $\mathfrak m_\alpha(u,v;z)$ computed in section 5 is therefore not
+an instance of the graded inversion of that example; its coefficients are
+indexed by the chainwise total cost of section 1 rather than by a degree
+function on the arrows of $P_\alpha^{u,v}$.

@@ -539,3 +539,31 @@ Cuntz-Krieger algebra.
 The nonselfadjoint algebra remains primary because the adjoints $L_e^\ast$ are
 Hilbert-space operators used to remove path prefixes; they do not represent
 reverse communication channels.
+
+# 12. Literature relation
+
+The Fock representation of section 7, and the statement quoted there that the
+directed graph is a complete unitary invariant of the algebra it generates, are
+the subject of D. W. Kribs and S. C. Power, *Free semigroupoid algebras*,
+Journal of the Ramanujan Mathematical Society 19 (2004), 117-159,
+arXiv:math/0309394, where the graph is assumed countable and the Fock space is
+consequently separable. The relations among the operators $P_v$ and $L_e$ used
+in sections 7 to 9 are verified directly from the definitions and hold at
+arbitrary cardinality, whereas the unitary-invariant statement is quoted only in
+the countable case; a nonseparable $\mathcal H_G$ falls outside the hypothesis
+of that paper.
+
+The norm-closed algebra named in section 11 is the tensor algebra of the
+$C^\ast$-correspondence attached to the graph, in the sense of P. S. Muhly and
+B. Solel, *Tensor algebras over $C^\ast$-correspondences: representations,
+dilations, and $C^\ast$-envelopes*, Journal of Functional Analysis 158 (1998),
+389-457, where the tensor algebra of a correspondence over a $C^\ast$-algebra is
+characterized as universal for completely contractive covariant representations
+of that correspondence. Their hypotheses concern the correspondence and its
+coefficient algebra and mention no graph. The identification of the
+$C^\ast$-envelope with the universal Cuntz-Krieger algebra of the graph, quoted
+at the end of section 11, is proved in E. G. Katsoulis and D. W. Kribs, *The
+$C^\ast$-envelope of the tensor algebra of a directed graph*, Integral Equations
+and Operator Theory 56 (2006), 401-414, arXiv:math/0411417, for an arbitrary
+countable graph, and the restriction to the countable case in section 11 is
+exactly that hypothesis.

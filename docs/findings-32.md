@@ -287,7 +287,7 @@ For a finite discrete fiber
 \overline F_h=\{\tau_1,\ldots,\tau_r\}
 ```
 
-that varies locally immediately, the stalk is
+that is locally constant near $h$, the stalk is
 
 ```math
 (\mathscr Q_t)_h
@@ -342,11 +342,14 @@ Thus two quotient systems can have:
 * identical fiberwise relative homology;
 * different global twisting.
 
-The first higher-level information absent from the isolated modules is
+The first higher-level information absent from the isolated modules is therefore
+the variation of
 
 ```math
-\widetilde{k}^{(\overline F_h)}.
+\widetilde{k}^{(\overline F_h)}
 ```
+
+over $Y_t$, that is, the sheaf $\mathscr Q_t$ regarded as a local system.
 
 The topology lies in the variation of fibers, not within an individual fiber.
 
@@ -365,7 +368,7 @@ Informally, the derived sheaves record the following data:
 * higher $R^q$ record higher cohomological information that survives within
   those inverse images.
 
-Under standard sheaf-theoretic hypotheses, the quotient map has a Leray
+In derived-functor sheaf cohomology, the quotient map has a Leray
 spectral sequence
 
 ```math
@@ -602,3 +605,24 @@ Thus each refinement step creates only first-order distinctions.
 
 Higher complexity arises through the organization of many refinement steps, not
 through one equivalence-relation fiber.
+
+# 14. Literature relation
+
+Section 9 uses the zero-dimensionality of graph prefix boundaries and of spectra
+of cylinder Boolean algebras. For an arbitrary directed graph the boundary-path
+space carries a locally compact Hausdorff topology with a basis of compact open
+cylinder sets, and coincides with the spectrum of the diagonal subalgebra, by
+S. B. G. Webster, *The path space of a directed graph*, Proceedings of the
+American Mathematical Society 142 (2014), 213-225, arXiv:1102.1225. A basis of
+compact open sets is what makes that space totally disconnected, and its points
+are the infinite paths together with the finite paths ending at singular
+vertices, so no restriction on emitter cardinality or on sinks enters.
+
+The space so topologized is the prefix boundary itself. The spaces of sections 4
+to 9 are the tail-end space $Z_t=X_{\mathrm{pre}}/\!\sim_{\mathrm{tail}}$ and
+the Martin quotient $Y_t=Z_t/\!\sim_t^M$, obtained from it by two successive
+quotients, and a basis of compact open sets is not carried along a quotient map
+by the cited construction. Accordingly section 5 assumes topologies on $Z_t$ and
+$Y_t$ and continuity of $\bar\pi_t$, and the hypothesis of section 9 that the
+fibers $\bar\pi_t^{-1}(h)=\overline F_h$ are zero-dimensional compact spaces is
+a hypothesis on those quotients, not an instance of the cylinder basis above.

@@ -421,7 +421,7 @@ If $c$ precedes the diamond and $d$ follows it, the transported defect
 d(p-q)c
 ```
 
-also vanishes in $\mathcal R$. It contains no new local route ambiguity; it is
+vanishes in $\mathcal R$. It contains no new local route ambiguity; it is
 the original diamond transported into a longer context.
 
 ### Shortcut relation
@@ -842,7 +842,7 @@ I^2/I^3,
 # 13. Relation to existing path homology
 
 Established homology theories for allowed directed paths begin with the
-path-homology construction of Grigorýan, Lin, Muranov, and Yau; recent work
+path-homology construction of Grigor'yan, Lin, Muranov, and Yau; recent work
 extends these ideas to quivers, marked categories, and marked algebras.
 
 Those theories are not automatically identical to the route-syzygy structure
@@ -864,3 +864,30 @@ Path algebras modulo relation ideals and higher relations are standard in
 quiver theory, including reduction-system and diamond-condition approaches,
 but here the reachability collapse canonically fixes the relation ideal rather
 than supplying it as external data.
+
+# 14. Literature relation
+
+The path-homology construction named in section 13 is that of A. Grigor'yan,
+Y. Lin, Y. Muranov, and S.-T. Yau, *Cohomology of digraphs and (undirected)
+graphs*, Asian Journal of Mathematics 19 (2015), 887-932. Its extension to
+quivers is A. Grigor'yan, Y. Muranov, V. Vershinin, and S.-T. Yau, *Path
+homology theory of multigraphs and quivers*, Forum Mathematicum 30 (2018),
+1319-1337, and the treatment of marked categories and algebras is S. O. Ivanov
+and F. Pavutnitskiy, *Simplicial approach to path homology of quivers, marked
+categories, groups and algebras*, Journal of the London Mathematical Society 109
+(2024), article e12812, arXiv:2211.06202. In each of these the chain-level datum
+is the digraph or quiver itself, with a boundary operation on allowed directed
+paths, whereas the graded objects of sections 6 to 8 are formed from the kernel
+$I$ of the collapse $A\to B$ and its powers.
+
+The reduction-system approach referred to at the end of section 13 is that of
+S. Chouhy and A. Solotar, *Projective resolutions of associative algebras and
+ambiguities*, Journal of Algebra 432 (2015), 22-61, arXiv:1406.2300, which
+assumes a quiver with finitely many vertices and constructs a resolution from a
+reduction system supplied as data, the result not being minimal in general. The
+diamond condition is that of G. M. Bergman, *The diamond lemma for ring theory*,
+Advances in Mathematics 29 (1978), 178-218, which likewise takes a reduction
+system as given. The ideal $I$ decomposed in section 1 is instead fixed by the
+reachability collapse itself, for a node set of arbitrary cardinality, so no
+reduction system, no ordering of paths, and no vertex-finiteness hypothesis
+enters.

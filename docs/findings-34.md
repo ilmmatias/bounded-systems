@@ -733,3 +733,32 @@ one actual ray.
 Completion occurs without route collapse: every actual ray remains
 distinguishable, but the noncompact observation diagram adds one generalized
 exit.
+
+# 12. Literature relation
+
+The inverse-limit description of path-space and boundary data invoked at the end
+of section 8 for Bratteli-type diagrams is the technique of O. Bratteli,
+*Inductive limits of finite dimensional $C^\ast$-algebras*, Transactions of the
+American Mathematical Society 171 (1972), 195-234, in the form given for graded
+graphs, with tail equivalence and the projective limit of simplices, in
+A. M. Vershik, *Equipped graded graphs, projective limits of simplices, and
+their boundaries*, Journal of Mathematical Sciences 209 (2015), 860-873,
+arXiv:1503.04447. Both assume a grading whose levels are finite, and that
+hypothesis does the work that appears explicitly here: finite levels make each
+approximating space finite and discrete, hence compact, make every bonding map
+continuous, and make the inverse limit compact and every coherent branch
+realized, all without further assumption.
+
+No grading is assumed in the present setting, and the corresponding properties
+are hypotheses 1 and 2 of the compact realization theorem of section 8,
+compactness of $X$ and continuity of every finite-coordinate profile map
+$\Phi_F$. The proof uses exactly these: continuity makes each $A_F$ closed,
+compactness converts the finite-intersection property into
+$\bigcap_FA_F\ne\varnothing$. The hypotheses also fail in the present class of
+systems. In the infinite-emitter example of section 11 the root emits one edge
+into each of countably many disjoint infinite chains, so $X$ is not compact, the
+coherent branch that remains in the residual class of every $C_n$ is realized by
+no ray, and $\mathcal G_t\ne\varnothing$. A grading with finite levels would
+have to place all the successors of $o$ in one level, so that graph admits none,
+and the generalized branch it produces lies outside the scope of the cited
+constructions.

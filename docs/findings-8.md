@@ -602,3 +602,37 @@ has both and contains a bi-infinite path.
 
 The boundary layer distinguishes actual infinite paths from unbounded finite
 depth.
+
+# 16. Literature relation
+
+Sections 5 and 10 invoke König's infinity lemma, proved in D. König, *Über
+eine Schlußweise aus dem Endlichen ins Unendliche*, Acta Litterarum ac
+Scientiarum Regiae Universitatis Hungaricae Francisco-Josephinae, Sectio
+Scientiarum Mathematicarum 3 (1927), 121-130. The form matching section 5 takes
+disjoint nonempty finite sets $V_0,V_1,\ldots$ in which every vertex of $V_n$
+with $n\ge1$ has a neighbour in $V_{n-1}$ and produces an infinite ray; the
+reference below states it in that form. Here $V_n=\mathsf P_n(v)$ and the
+neighbour of a path is its length-$(n-1)$ prefix, so finiteness of each $V_n$ is
+the finite-outdegree hypothesis of section 5, and the infinitely branching
+example of section 2 violates it by having an infinite level.
+
+The prefix topology of section 7 and the character space computed in section 8
+admit a comparison with S. B. G. Webster, *The path space of a directed graph*,
+Proceedings of the American Mathematical Society 142 (2014), 213-225,
+arXiv:1102.1225, who equips the boundary-path space of an arbitrary directed
+graph with a locally compact Hausdorff topology having a basis of compact open
+cylinder sets and identifies that space with the Gelfand spectrum of the
+diagonal subalgebra. His boundary-path space consists of the infinite paths
+together with the finite paths whose terminal vertex is singular. The
+semilattice $\{\Pi_p:p\in\mathsf P(G)\}$ of section 8 is indexed by every finite
+path, and every prefix chain with a maximal element yields a character, so the
+spectrum computed there is $\mathsf P(G)\sqcup\partial^+G$ and retains all
+finite paths. Webster's theorem is therefore a comparison for that computation
+and not its source; the two spaces contain the same infinite paths, and they
+differ on the finite paths, among which section 10 isolates those whose terminal
+node emits finitely many edges.
+
+Reference:
+
+- R. Diestel, *Graph Theory*, sixth edition, Graduate Texts in Mathematics 173,
+  Springer, 2025, Lemma 8.1.2.

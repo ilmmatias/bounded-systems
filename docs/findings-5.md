@@ -41,8 +41,8 @@ L_e\xi_p=
 ```
 
 The notation $ep$ means that $p$ is traversed first and $e$ second. For
-countable graphs, the operators $P_v$ and $L_e$ are the standard left-regular,
-or Fock, representation used in free semigroupoid algebra theory.
+countable graphs, the operators $P_v$ and $L_e$ are the left-regular, or Fock,
+representation used in free semigroupoid algebra theory.
 
 ## Operator relations
 
@@ -171,7 +171,7 @@ Define
 The weak-operator closure contains bounded global operators obtained as weak
 limits, including strong limits of uniformly bounded finite sums.
 
-In the standard countable setting, this is called the free semigroupoid algebra.
+In the countable setting, this is called the free semigroupoid algebra.
 
 ## Self-adjoint Fock algebra
 
@@ -357,7 +357,14 @@ The Fejér sums
 \left(1-\frac{n}{N+1}\right)\Phi_n(X)
 ```
 
-converge to $X$ in norm for $X\in\mathcal T_+(G)$.
+converge to $X$ in norm for $X\in\mathcal T_+(G)$. Each $\gamma_z$ is
+isometric, so the set of elements whose orbit $z\mapsto\gamma_z(X)$ is norm
+continuous is norm closed; it contains the path polynomials, whose orbits are
+trigonometric polynomials, and therefore all of $\mathcal T_+(G)$. For fixed
+$X$ the orbit is thus a norm-continuous Banach-space-valued function on the
+circle whose $n$-th Fourier coefficient is $\Phi_n(X)$, and $\Phi_n(X)=0$ for
+$n<0$. The displayed sums are the Cesaro means of that function evaluated at
+$z=1$.
 
 The norm-closed algebra is therefore recovered as the norm limit of finite
 compositional-depth components; the grading persists after completion.
@@ -643,3 +650,55 @@ quotient invariant and is not interpreted automatically as the system itself.
 This distinction is consistent with reconstruction results for finite graph
 Toeplitz algebras, where the gauge action alone need not recover the graph and
 the distinguished vertex diagonal must also be retained.
+
+# 13. Literature relation
+
+The operators $P_v$ and $L_e$ of section 1 and the weak-operator closure
+$\mathcal L(G)$ of section 3 are the left regular representation and the free
+semigroupoid algebra of D. W. Kribs and S. C. Power, *Free semigroupoid
+algebras*, Journal of the Ramanujan Mathematical Society 19 (2004), 117-159,
+arXiv:math/0309394, where the graph is assumed countable, the Fock space is
+consequently separable, and the graph is shown to be a complete unitary
+invariant of the algebra. Sections 1 to 4 restrict neither $V$ nor $E$ in
+cardinality and derive the operator relations, the faithfulness statement of
+section 2 and the diagonal computations of section 4 from the definitions.
+
+The norm closure $\mathcal T_+(G)$ is the tensor algebra of the
+$C^\ast$-correspondence attached to the graph, in the sense of P. S. Muhly and
+B. Solel, *Tensor algebras over $C^\ast$-correspondences: representations,
+dilations, and $C^\ast$-envelopes*, Journal of Functional Analysis 158 (1998),
+389-457, where the tensor algebra of a correspondence over a $C^\ast$-algebra is
+characterized as universal for completely contractive covariant representations.
+That characterization is a statement about a correspondence and involves no
+combinatorial hypothesis on a graph.
+
+The sums $\Sigma_N(X)$ of section 6 are the Cesaro means of the orbit
+$z\mapsto\gamma_z(X)$, and their convergence at $z=1$ is Fejér summation
+applied to a Banach-space-valued continuous function on the circle. The scalar
+case is L. Fejér, *Untersuchungen über Fouriersche Reihen*, Mathematische
+Annalen 58 (1903), 51-69. Kribs and Power establish convergence of the Cesaro
+sums in the strong operator topology on the weak-operator-closed algebra of a
+countable graph. Section 6 asserts norm convergence on the norm-closed algebra
+$\mathcal T_+(G)$ and obtains it from the isometry of each $\gamma_z$ and the
+norm closedness of the set of elements with norm-continuous orbit, so neither
+the countability hypothesis nor the strong-operator form of the conclusion
+enters.
+
+The identification of the $C^\ast$-envelope quoted in section 12 is proved in
+E. G. Katsoulis and D. W. Kribs, *Tensor algebras of $C^\ast$-correspondences
+and their $C^\ast$-envelopes*, Journal of Functional Analysis 234 (2006),
+226-233, arXiv:math/0506151, for an arbitrary correspondence, with the
+Cuntz-Pimsner algebra taken in the sense of T. Katsura, *On $C^\ast$-algebras
+associated with $C^\ast$-correspondences*, Journal of Functional Analysis 217
+(2004), 366-401, arXiv:math/0309088. The hypothesis there is on the
+correspondence rather than on a graph, and the theorem computes the envelope
+without selecting which quotient of the Fock algebra a bounded system is to be
+identified with, which is the distinction section 12 records.
+
+The closing sentence of section 12 follows N. Brownlowe, M. Laca, D. Robertson,
+and A. Sims, *Reconstructing directed graphs from generalized gauge actions on
+their Toeplitz algebras*, Proceedings of the Royal Society of Edinburgh, Section
+A 150 (2020), 2632-2641, arXiv:1812.08903, clause by clause: their graphs are
+finite, their reconstruction uses the Toeplitz algebra together with a gauge
+action and the subalgebra generated by the vertex projections, and they give an
+example in which the gauge action alone does not determine the graph.

@@ -158,8 +158,8 @@ B(P)
 ```
 
 imposes equality of every two paths with the same endpoints; it is the
-quotient of a path algebra by the parallel-path ideal, a standard presentation
-of incidence algebras.
+quotient of a path algebra by the parallel-path ideal, a presentation of
+incidence algebras.
 
 Different choices of relation generators, such as diamonds, shortcuts,
 arbitrary path pairs, can produce different-looking resolutions. But
@@ -187,7 +187,11 @@ The normalized relative bar resolution yields
 \widetilde H^{\,n-2}\bigl(\Delta(u,v);k\bigr)
 ```
 
-for $u<v$ and $n\ge1$, with the corresponding empty-complex convention.
+for $u<v$ and $n\ge1$, subject to the usual left/right module convention, which
+fixes which of $u,v$ occupies the first argument. The published form of the
+isomorphism assumes the open interval nonempty; the cover case, where
+$\Delta(u,v)$ is empty, is covered here by the convention that the reduced
+cohomology of the empty complex is concentrated in degree $-1$.
 
 The reason for the shift is that an $(n-2)$-simplex
 
@@ -197,9 +201,10 @@ u<w_0<\cdots<w_{n-2}<v
 
 contains $n$ strict reachability factors.
 
-For finite incidence algebras, projective resolutions of simple modules and
-Ext calculations derive entirely from the underlying poset, while simplicial
-chain complexes of poset chains compute incidence-algebra cohomology.
+For a finite incidence algebra, projective resolutions of the simple modules,
+and hence the Ext groups between them, are determined by the underlying poset.
+The Hochschild cohomology of that algebra is separately identified with the
+simplicial cohomology of the complex of poset chains.
 
 Over a field and for finite intervals,
 
@@ -208,8 +213,9 @@ Over a field and for finite intervals,
 \dim_k\widetilde H_{n-2}(\Delta(u,v);k).
 ```
 
-The canonical invariant admits two equivalent interpretations: interval
-topology and the Ext hierarchy of the thin reachability algebra.
+For a finite poset over a field, the canonical invariant therefore admits two
+interpretations: interval topology and the Ext hierarchy of the thin
+reachability algebra.
 
 # 5. Basic examples
 
@@ -386,15 +392,11 @@ bottom-to-top coherence is concentrated in degree $d$.
 
 # 7. The full homotopy type is primary
 
-Homology is more informative than the Möbius number but remains a compression.
-
-Two interval complexes can have identical homology while having different:
-
-* fundamental groups;
-* higher homotopy groups;
-* simple-homotopy types;
-* cup products;
-* torsion operations.
+Homology is more informative than the Möbius number but remains a compression:
+the homotopy type of an interval complex carries a fundamental group, higher
+homotopy groups, a simple-homotopy type, cup products, and torsion operations
+that its homology does not determine in general. No interval-complex pair
+separating these invariants at equal homology is exhibited here.
 
 Therefore the most complete canonical coherence datum is
 
@@ -549,7 +551,7 @@ The basic finite examples are
 \begin{array}{c|c}
 P&\mathrm{gldim}B(P)\\
 \hline
-\text{total order}&1\\
+\text{total order, at least two elements}&1\\
 \text{diamond }B_2&2\\
 B_3&3\\
 B_d&d
@@ -655,3 +657,46 @@ For the unrestricted theory, the primary definition is therefore
 
 The incidence-algebra Ext interpretation is then a conditional algebraic
 realization in settings where the relevant module theory is well behaved.
+
+# 13. Literature relation
+
+The isomorphism of section 4 between the Ext groups of the simple modules of a
+finite incidence algebra over a field and the reduced cohomology of the open
+interval, shifted by two, is the theorem of K. Igusa and D. Zacharia, *On the
+cohomology of incidence algebras of partially ordered sets*, Communications in
+Algebra 18 (1990), 873-887. Their statement assumes a finite poset and a
+nonempty open interval, which is the restriction section 4 records, and their
+indexing places the larger element in the first argument, which fixes the
+left/right convention there. The presentation of $B(P)$ used in section 3 is
+that of C. Cibils, *Cohomology of incidence algebras and simplicial complexes*,
+Journal of Pure and Applied Algebra 56 (1989), 221-232, again for a finite
+poset. The separate Hochschild statement in section 4 is M. Gerstenhaber and
+S. D. Schack, *Simplicial cohomology is Hochschild cohomology*, Journal of Pure
+and Applied Algebra 30 (1983), 143-156, which identifies the Hochschild
+cohomology of the incidence algebra with the simplicial cohomology of the
+complex of poset chains, a different object from the Ext groups between simple
+modules. Algorithms for the projective resolutions mentioned in the same section
+are given in V. Bekkert, J. W. MacQuarrie, and J. Marques, *Projective
+resolutions of simple modules and Hochschild cohomology for incidence algebras*,
+Linear Algebra and its Applications 740 (2026), 139-150, arXiv:2411.07910, for a
+finite-dimensional incidence algebra over a field. The choice dependence
+recorded in section 3 is explicit in S. Chouhy and A. Solotar, *Projective
+resolutions of associative algebras and ambiguities*, Journal of Algebra 432
+(2015), 22-61, arXiv:1406.2300, where the resolution is produced from a
+reduction system chosen as data over a quiver with finitely many vertices; the
+complex $\Delta(u,v)$ requires no such choice.
+
+The identity of section 8 between $\mu(u,v)$ and $\widetilde\chi(\Delta(u,v))$,
+together with the alternating-chain expression it uses, appears as Propositions
+3.8.5 and 3.8.6 of R. P. Stanley, *Enumerative Combinatorics, Volume 1*, second
+edition, Cambridge Studies in Advanced Mathematics 49, Cambridge University
+Press, 2012. The alternating chain count originates in P. Hall, *The Eulerian
+functions of a group*, Quarterly Journal of Mathematics os-7 (1936), 134-151,
+and the Möbius function in G.-C. Rota, *On the foundations of combinatorial
+theory I. Theory of Möbius functions*, Zeitschrift für
+Wahrscheinlichkeitstheorie und Verwandte Gebiete 2 (1964), 340-368. The
+barycentric subdivision used in section 6 is Example 3.8.7 of the same volume.
+These sources work with finite posets, and with a field wherever an algebra is
+involved, while the groups $\mathcal K_n(v,u;\mathbb Z)$ of sections 1, 2, and
+12 are defined over $\mathbb Z$ from finite chains alone, without convolution
+and without interval finiteness.

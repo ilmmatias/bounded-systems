@@ -59,9 +59,7 @@ The harmonic equation ensures consistency at every regular node:
 ```
 
 Subject to the usual representation and summability hypotheses, the
-Martin/harmonic boundary profile is also a gauge-equilibrium state; the
-correspondence among graph gauge dynamics, adjacency eigenvectors and KMS states
-is standard in graph operator algebras.
+Martin/harmonic boundary profile is also a gauge-equilibrium state.
 
 Thus the critical radius has already produced the thermodynamic scaling
 
@@ -580,12 +578,53 @@ If the interaction form
 V=V_3+V_4+\cdots
 ```
 
-is relatively form-bounded with respect to $N_h$ with sufficiently small
-relative bound, then
+is relatively form-bounded with respect to $N_h$, then closedness and
+sectoriality of
 
 ```math
 (\kappa_D+i\beta)N_h+V
 ```
 
-remains closed and sectorial, so the coupled evolution survives beyond the
-Gaussian approximation by sectorial-form perturbation theory.
+would follow from a form-perturbation theorem admitting the complex coefficient
+$\kappa_D+i\beta$. The admissible relative bound is not determined here, so the
+coupled evolution beyond the Gaussian approximation remains conditional on it.
+
+# 11. Literature relation
+
+The relation verified in section 1,
+$\omega_h(L_pL_q^\ast)=\omega_h(L_q^\ast\alpha_{i\beta}(L_p))$ on the rooted
+analytic monomials, is the equilibrium condition of R. Haag, N. M. Hugenholtz,
+and M. Winnink, *On the equilibrium states in quantum statistical mechanics*,
+Communications in Mathematical Physics 5 (1967), 215-236.
+
+For the gauge action on a graph algebra the equilibrium states are determined in
+A. an Huef, M. Laca, I. Raeburn, and A. Sims, *KMS states on the
+$C^\ast$-algebras of finite graphs*, Journal of Mathematical Analysis and
+Applications 405 (2013), 388-399, arXiv:1205.2194, where the graph is finite,
+the critical inverse temperature is $\log\rho(A)$ for the vertex matrix $A$, no
+state exists below it, and at it the state is given by the Perron-Frobenius
+eigenvector and is unique when the graph is strongly connected. The finite case
+with a reducible vertex matrix is treated in A. an Huef, M. Laca, I. Raeburn,
+and A. Sims, *KMS states on the $C^\ast$-algebras of reducible graphs*, Ergodic
+Theory and Dynamical Systems 35 (2015), 2535-2558, arXiv:1402.0276. An infinite
+case is treated in R. Exel and M. Laca, *Partial dynamical systems and the KMS
+condition*, Communications in Mathematical Physics 232 (2003), 223-277,
+arXiv:math/0006169, for countably infinite matrices with entries in $\{0,1\}$,
+that is, for graphs with at most one edge between any ordered pair of nodes.
+
+The critical value $\beta=\log\lambda$ of section 1 has the shape of the
+critical inverse temperature above, with the eigenvalue $\lambda=R^{-2}$ in
+place of $\rho(A)$, and the cylinder weights $\mu_h[p]$ have the shape of the
+states constructed there, with $h$ in place of the Perron-Frobenius eigenvector.
+The hypotheses differ: $h$ is an arbitrary positive solution of
+$\mathcal A_+h=\lambda h$, the node set may be infinite, and $\mathcal A_+$ is
+the channel-counting operator, whose entries record edge multiplicities and so
+may exceed one. Finiteness excludes this in the first two sources and the
+restriction to $0$-$1$ matrices excludes parallel edges in the third, so the
+existence of a state on a completion, its uniqueness, and the identification of
+$h$ with a Perron-Frobenius eigenvector are results available under their
+hypotheses and not at the generality of section 1. What section 1 establishes at
+that generality is the elementary relation on monomials together with the
+consistency condition
+$\sum_{e:s(e)=r(p)}\omega_h(L_{pe}L_{pe}^\ast)=\omega_h(L_pL_p^\ast)$ at regular
+nodes.

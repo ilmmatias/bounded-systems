@@ -543,7 +543,8 @@ h
 h_\infty.
 ```
 
-The formula is the potential-boundary decomposition.
+The derivation uses only row finiteness and monotone convergence, without a
+transience hypothesis.
 
 # 11. The resolvent is the pure potential case
 
@@ -851,3 +852,34 @@ The relevant inclusion is
 
 Equality holds in unique-route systems, but generally not in reconvergent
 systems.
+
+# 15. Literature relation
+
+The passage in section 3 from the critical radius to the relation
+$\mathcal A_+h=R^{-2}h$ is a finite-emitter instance of the existence statement
+for subinvariant vectors at the convergence parameter of a nonnegative matrix,
+D. Vere-Jones, *Ergodic properties of nonnegative matrices. I*, Pacific Journal
+of Mathematics 22 (1967), 361-386, Theorem 4.1, where $r$-subinvariant vectors
+exist for $r\le R$ and fail to exist for $r>R$, with uniqueness under
+$R$-recurrence. That theorem assumes an irreducible nonnegative matrix indexed
+by a countable set. Neither hypothesis is used in section 3: the node set is not
+assumed countable and no communication between nodes is assumed, the limit $h$
+being obtained by normalizing $Z_v(r)/Z_u(r)$ along a subnet, with the bound
+$h_r(v)\le r^{-2|q|}$ of section 4 supplying the local control. The eigenvector
+equation itself is weakened, since section 5 retains at an infinite emitter only
+the inequalities $h(v)\ge R^2\sum_{e\in F}h(r(e))$ over finite subsets $F$ and
+asserts equality only at finite nonzero emitters; the cone $\mathscr H_R$ of
+section 14 is defined with that replacement, and no uniqueness statement is made
+for $h$.
+
+Section 6 reads consistent cylinder values as boundary-state data through the
+spectrum of the graph diagonal, which for an arbitrary directed graph is the
+boundary-path space of S. B. G. Webster, *The path space of a directed graph*,
+Proceedings of the American Mathematical Society 142 (2014), 213-225,
+arXiv:1102.1225, where the cylinder sets are compact open in a locally compact
+Hausdorff topology and the boundary paths are the infinite paths together with
+the finite paths ending at singular vertices. The two kinds of boundary point
+are separated here by the decomposition of section 10: the potential term
+$\sum_kT_R^k\varepsilon$ carries the mass terminating at finite or singular
+points, while a nonzero harmonic $h$ is supported in the infinite-future core
+$K^+$ by section 12.

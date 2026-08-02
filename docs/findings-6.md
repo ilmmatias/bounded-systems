@@ -448,3 +448,28 @@ sum is nilpotent.
 
 Nontrivial spectrum for such an infinite aggregate is therefore a completion
 phenomenon.
+
+# 12. Literature relation
+
+The dilation used in section 5 to bound $\lvert\rho_T(x)\rvert$ by
+$\lvert\lambda_G(x)\rvert$ is the minimal isometric dilation of a row
+contraction constructed in G. Popescu, *Isometric dilations for infinite
+sequences of noncommuting operators*, Transactions of the American Mathematical
+Society 316 (1989), 523-536. Its hypothesis is the row condition
+$\sum_nT_nT_n^\ast\le I$ for a family of operators on one Hilbert space, with no
+node projections and no source-target constraint of the form
+$T_e=Q_{r(e)}T_eQ_{s(e)}$. Every path polynomial is supported on finitely many
+paths, hence on a finite subquiver, so only the finite case of that construction
+is used; the passage to an arbitrary edge set is made in section 5 by taking
+norm limits of polynomials and not by dilating an infinite channel family.
+
+The relations $T_e^\ast T_f=\delta_{e,f}Q_{s(e)}$ and
+$\sum_{r(e)=v}T_eT_e^\ast\le Q_v$ of section 7 are the Toeplitz-Cuntz-Krieger
+relations of N. J. Fowler and I. Raeburn, *The Toeplitz algebra of a Hilbert
+bimodule*, Indiana University Mathematics Journal 48 (1999), 155-181,
+arXiv:math/9806093, whose framework is a Hilbert bimodule over a
+$C^\ast$-algebra and whose principal result is a uniqueness theorem for
+representations of the associated Toeplitz algebra. Section 7 uses only the
+universal property, namely that an isometric channel family determines the
+representation $\pi_T$, and the uniqueness theorem for that algebra is not
+invoked.

@@ -100,8 +100,8 @@ and
 \widetilde K_h(z)=\Sigma_h(z).
 ```
 
-Eliminating unresolved variables yields an operator-valued memory kernel, as
-standard in generalized Langevin/Mori-Zwanzig reductions.
+Eliminating unresolved variables yields an operator-valued memory kernel, as in
+generalized Langevin/Mori-Zwanzig reductions.
 
 # 3. Spectral representation of the self-energy
 
@@ -270,10 +270,11 @@ the dissipative and hidden-route equations contain no explicit gauge phase.
 The ordinary scalar clock variable $q$ is therefore replaced by the operator
 $Z_q$.
 
-Under the degree-preserving hypothesis, $\Phi(Z_q)$ is defined by the
-holomorphic functional calculus. Bernstein and complete Bernstein functions
-are naturally compatible with sectorial-generator functional calculus and
-subordination.
+Under the degree-preserving hypothesis the replacement of $q$ by $Z_q$ is
+legitimate. Since $N$ is self-adjoint, $Z_q$ is normal with spectrum in the
+open half-plane $\Re z=\Re q>0$, on which a Bernstein function is holomorphic,
+so $\Phi(Z_q)$ is defined by the spectral calculus of $Z_q$ on its natural
+domain.
 
 # 6. The master resolvent
 
@@ -345,6 +346,10 @@ Define the clock-renormalized memory kernel through
 \widetilde{\mathcal K}_{\Phi,G}(q)=
 \Sigma_h\!\left(\Phi(Z_q)\right).
 ```
+
+The composition requires $\Phi$ to map the open right half-plane into itself,
+which holds for a complete Bernstein function, so that the spectrum of
+$\Phi(Z_q)$ avoids the poles of the Stieltjes representation of $\Sigma_h$.
 
 Then the time-domain equation is
 
@@ -875,3 +880,34 @@ The exponents $\alpha$, $\gamma$, $\eta$ and $\beta$ therefore do not determine
 the regime by themselves: the angular stable-jump measure, the hidden-route
 spectral measure $M_h$ and the degree-mixing defects retain information beyond
 those four scalars.
+
+# 18. Literature relation
+
+The elimination performed in section 2, producing the memory kernel
+$K_h(s)=C^\ast e^{-sD_h}C$ and the self-energy $\Sigma_h$, is the projection
+construction of R. Zwanzig, *Ensemble method in the theory of irreversibility*,
+Journal of Chemical Physics 33 (1960), 1338-1341, and H. Mori, *Transport,
+collective motion, and Brownian motion*, Progress of Theoretical Physics 33
+(1965), 423-455. Those constructions project onto an equilibrium ensemble,
+Gibbsian in Zwanzig's case, and the memory kernel is exact only relative to that
+projection. Here the visible-hidden system of section 1 is linear, so
+$\Sigma_h$ is the Schur complement of the visible-hidden operator, as recorded
+in section 2, and the reduction is exact without any equilibrium state. The same
+absence removes the fluctuation-dissipation relation those papers use to tie
+$K_h$ to the covariance of the residual forcing.
+
+The prefactor $\Phi(q)/q$ and the identification of the inverse-subordinated
+resolvent as a generalized Caputo-type Cauchy problem, used in section 4, are
+from B. Toaldo, *Convolution-type derivatives, hitting-times of subordinators
+and time-changed $C_0$-semigroups*, Potential Analysis 42 (2015), 115-140,
+arXiv:1308.1327, and A. N. Kochubei, *General fractional calculus, evolution
+equations, and renewal processes*, Integral Equations and Operator Theory 71
+(2011), 583-600, arXiv:1105.1239, the latter for kernels that are complete
+Bernstein functions. Both are stated for a scalar Laplace variable $q$, and
+Toaldo's analysis is what shows the time-changed family to fail the semigroup
+property. Two steps taken afterwards here are outside those statements: the
+replacement of the scalar $q$ by the operator $Z_q=qI+i(\log\lambda)N$ in
+sections 5 and 6, and the nesting $\Sigma_h(\Phi(Z_q))$ of the self-energy
+inside the clock exponent in section 6, whose noncommutation with the reverse
+order is the content of section 14. Both are introduced in this document and
+neither is an instance of the scalar results.

@@ -21,14 +21,12 @@ Its first group does recover
 \mathrm{Tor}^A_1(B,B)\cong I/I^2.
 ```
 
-But path algebras are hereditary in the standard quiver setting, so their
-module homology vanishes above degree one. Thus $\mathrm{Tor}^A_n(B,B)$ can be
-zero for $n\ge2$ even though the route relations possess nontrivial
-compositions and dependencies.
-
-Structurally, $A$ is the free path algebra, so resolving $B$ over it measures
-the complexity of $B$ as an $A$-module, not the internal interaction of route
-ambiguities.
+For a finite quiver the path algebra is hereditary, so its module homology
+vanishes above degree one and $\mathrm{Tor}^A_n(B,B)=0$ for $n\ge2$, even
+though the route relations possess nontrivial compositions and dependencies.
+The obstruction does not depend on that vanishing. Structurally, $A$ is the
+free path algebra, so resolving $B$ over it measures the complexity of $B$ as
+an $A$-module, not the internal interaction of route ambiguities.
 
 The correct algebra is instead the associated graded route algebra.
 
@@ -385,7 +383,8 @@ Multiplying a relation on the left or right by further ambiguity generators
 does not create a new independent relation; it merely places an existing
 relation into a larger context.
 
-The standard bar-presentation identification gives
+Consequently, the degree-two route homology is the independent relation
+module:
 
 ```math
 H_2^{\mathrm{rt}}(G)
@@ -780,3 +779,27 @@ H_{n,m}^{\mathrm{rt}}(G;\mathbb Z).
 
 Torsion, should it occur, would contain information invisible to vector-space
 dimensions over a field.
+
+# 16. Literature relation
+
+Section 1 states its vanishing remark under a finite-quiver hypothesis. The same
+hypothesis, together with a field and an admissible ideal, is the setting of
+B. Keller, *A-infinity algebras in representation theory*, in Representations of
+Algebras, Volume I, Beijing Normal University Press, 2002, 74-86, where the
+degree-two Ext group between simple modules is identified with the dual of the
+relation ideal modulo its products with the arrow ideal on either side, and
+where the Ext algebra of the simples is generated in degrees zero and one.
+Section 7 forms the analogous degree-two quotient one level up, as
+$S/(T_+S+ST_+)$ inside the tensor algebra $T_B(N)$ of the associated graded
+route algebra, over $\mathbb Z$ as in section 15 and for a node set of arbitrary
+cardinality.
+
+Section 3 records that smaller resolutions are preferable for calculation in the
+quiver-with-relations setting. Two constructions of that kind are S. Chouhy and
+A. Solotar, *Projective resolutions of associative algebras and ambiguities*,
+Journal of Algebra 432 (2015), 22-61, arXiv:1406.2300, and M. J. Bardzell, *The
+alternating syzygy behavior of monomial algebras*, Journal of Algebra 188
+(1997), 69-89. Chouhy and Solotar require a quiver with finitely many vertices
+and a chosen reduction system, and their resolution is not minimal in general;
+Bardzell requires a finite quiver and a monomial ideal, which the route ideal is
+not, its generators being differences of same-endpoint paths.

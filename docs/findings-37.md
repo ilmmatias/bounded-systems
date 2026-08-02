@@ -325,9 +325,8 @@ b_h\cdot\nabla f
 \frac12a_h:\nabla^2f.
 ```
 
-Central-limit results for dependent or nonhomogeneous Markov triangular arrays
-require appropriate mixing or correlation control, which must eventually be
-checked for the graph-derived kernels.
+The mixing or correlation control needed for a central limit in this regime must
+be checked for the graph-derived kernels.
 
 # 7. Regime III: rare finite jumps
 
@@ -418,9 +417,8 @@ The effective equation is
 
 with a profile-biased fractional or stable-like operator.
 
-Stable limits can arise for heavy-tailed additive functionals of Markov chains
-under suitable mixing and operator assumptions, whereas state-dependent
-stable-like generators require separate martingale-problem analysis.
+A state-dependent stable-like generator requires its own martingale-problem
+analysis.
 
 The critical-profile equation becomes
 
@@ -521,8 +519,9 @@ equation
 
 where $\partial_\tau^\gamma$ is the Caputo-type fractional derivative.
 
-Inverse-stable-subordinator time changes convert ordinary Kolmogorov or
-Fokker-Planck equations into time-fractional equations.
+In a continuous-time random walk limit, an inverse-stable time change replaces
+the Kolmogorov or Fokker-Planck equation of the untimed process by its
+time-fractional counterpart.
 
 The distribution of microscopic path lengths between coarse profile events can
 therefore generate fractional time.
@@ -726,3 +725,50 @@ and the modes can be resolved simultaneously by relaxation and compositional
 degree. If $\mathfrak C_h\ne0$, jump interactions create or destroy effective
 fluctuation degree. The gauge grading remains defined, but it is no longer
 conserved by the dissipative dynamics.
+
+# 15. Literature relation
+
+The integro-differential shape of the limit operator written in section 2, a
+drift term, a second-order term and a compensated jump integral, is the
+representation established for operators satisfying the positive maximum
+principle in P. Courrège, *Sur la forme intégro-différentielle des opérateurs
+de $C_k^\infty$ dans $C$ satisfaisant au principe du maximum*, Séminaire
+Brelot-Choquet-Deny, Théorie du potentiel 10 (1965/66), exposé no. 2, 1-38.
+That result takes the operator as given and constrains its form. In section 2
+the coefficients $b_h$, $a_h$ and $\nu_h$ are instead produced as limits of the
+rescaled kernels $K_{\delta,h}$ of section 1, and the positive maximum
+principle for the limiting operator is not verified there.
+
+The step from convergence of the rescaled generators to convergence of
+processes, invoked in section 2 through the martingale problem, uses the scheme
+of S. N. Ethier and T. G. Kurtz, *Markov Processes: Characterization and
+Convergence*, Wiley, 1986, Chapter 4. Beyond convergence of the operators
+$\mathcal L_\delta^h$ on a core, that scheme requires compact containment of
+the approximating family and uniqueness for the martingale problem of the
+limiting operator. Neither is checked here for the graph-derived kernels
+$K_{\delta,h}$.
+
+The inverse-stable time change of section 10, which replaces the untimed
+evolution equation by its Caputo-type counterpart, is the continuous-time
+random walk limit theorem of M. M. Meerschaert and H.-P. Scheffler, *Limit
+theorems for continuous-time random walks with infinite mean waiting times*,
+Journal of Applied Probability 41 (2004), 623-638. The waiting times there are
+independent, identically distributed, and independent of the jumps. The first
+exit lengths $W$ of section 10 are successive block lengths of a single route
+process, and neither their independence nor their independence of the profile
+displacements is established.
+
+The limits listed in section 11, fractional Brownian motion and the Rosenblatt
+or higher Hermite processes, are those obtained in M. S. Taqqu, *Weak
+convergence to fractional Brownian motion and to the Rosenblatt process*,
+Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 31 (1975),
+287-302, in R. L. Dobrushin and P. Major, *Non-central limit theorems for
+non-linear functionals of Gaussian fields*, Zeitschrift für
+Wahrscheinlichkeitstheorie und Verwandte Gebiete 50 (1979), 27-52, and in
+M. S. Taqqu, *Convergence of integrated processes of arbitrary Hermite rank*,
+Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 50 (1979),
+53-83. Each of those theorems concerns a nonlinear function of a stationary
+Gaussian sequence or field. The increments $\Delta X_n$ of section 11 are
+assumed only to have correlations decaying as $m^{-\eta}$, so the decay rate
+fixes the normalization $n^{-H}$ without placing the increments in the scope of
+those theorems.

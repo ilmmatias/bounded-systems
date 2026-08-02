@@ -256,8 +256,8 @@ For $B_3$,
 one generator for each rank-two Boolean diamond. Their transported images
 satisfy the one hexagonal syzygy above.
 
-The standard presentation of an incidence algebra as a path algebra uses the
-ideal identifying parallel paths, often called the parallel ideal.
+The presentation of an incidence algebra as a path algebra uses the ideal
+identifying parallel paths, often called the parallel ideal.
 
 # 6. Initial terms of the corrected resolution
 
@@ -436,10 +436,9 @@ For the Boolean interval of rank $d$:
 * independent exchanges produce square coherence diagrams;
 * overlapping exchanges produce hexagonal braid diagrams.
 
-The two-dimensional faces of a permutohedron are exactly the commuting-square
-and braid-polygon types; higher faces encode compatibility among these moves.
-
-Thus the $B_3$ hexagon is the first permutohedral coherence cell.
+Independent and overlapping exchanges therefore contribute square and
+hexagonal two-dimensional coherence cells, and the $B_3$ hexagon is the first
+permutohedral coherence cell.
 
 For larger $d$, one obtains:
 
@@ -493,3 +492,40 @@ resolving the same quotient; the meaningful invariant is therefore the
 resulting chain-homotopy or derived object, not the selected generators'
 names. Squier and polygraphic constructions formalize this distinction between
 a presentation and its coherent higher completion.
+
+# 11. Literature relation
+
+The presentation used in section 5, an incidence algebra as a path algebra
+modulo the differences of parallel paths, is that of C. Cibils, *Cohomology of
+incidence algebras and simplicial complexes*, Journal of Pure and Applied
+Algebra 56 (1989), 221-232, established there for a finite poset. The module
+$R_2=I/(JI+IJ)$ of section 5 has the form of the module whose dual is identified
+with the degree-two Ext group between simple modules in B. Keller, *A-infinity
+algebras in representation theory*, in Representations of Algebras, Volume I,
+Beijing Normal University Press, 2002, 74-86, where the quiver is finite, the
+ground ring is a field, and the relation ideal is admissible; sections 6 to 8
+use $R_2$ and the successive modules $R_3,R_4,\ldots$ as generator modules of a
+bimodule resolution over the node diagonal, with no field and no finiteness of
+the node set. The practical algorithms referred to in section 8 are those of
+V. Bekkert, J. W. MacQuarrie, and J. Marques, *Projective resolutions of simple
+modules and Hochschild cohomology for incidence algebras*, Linear Algebra and
+its Applications 740 (2026), 139-150, arXiv:2411.07910, which assume a
+finite-dimensional incidence algebra over a field and therefore apply to the
+finite systems and finite ordinal-rank bands named there.
+
+The distinction drawn in section 10 between a presentation and its coherent
+higher completion is the one formalized in C. C. Squier, F. Otto, and
+Y. Kobayashi, *A finiteness condition for rewriting systems*, Theoretical
+Computer Science 131 (1994), 271-294, for monoids, where finite derivation type
+is a property of a finite presentation, and in Y. Guiraud and P. Malbos,
+*Higher-dimensional normalisation strategies for acyclicity*, Advances in
+Mathematics 231 (2012), 2294-2351, arXiv:1011.0558, for small categories
+equipped with a convergent presentation, whose acyclic polygraphs carry
+generators, relations, and higher syzygies. Both require the presentation to be
+supplied, and the polygraphic resolutions of the second are built from a chosen
+convergent rewriting system, while the route relations of section 5 are indexed
+by all pairs of parallel paths and section 10 records that the selection of a
+small basis among them is not unique. The permutohedral cells of section 9 occur
+in Guiraud and Malbos as cells of such a polygraph, the order-three cell being
+the braid or Yang-Baxter cell; section 3 obtains its hexagon from the six
+adjacent exchanges among the saturated chains of $B_3$.

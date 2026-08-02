@@ -110,7 +110,7 @@ indistinguishable.
 Write $\xi\sim_{\mathrm{tail}}\eta$ when, after possibly different finite
 prefixes, the two paths follow exactly the same infinite edge sequence.
 
-The relation is the standard tail relation for Bratteli path spaces and related
+The relation is the tail relation for Bratteli path spaces and related
 graded graphs.
 
 If two rays have an eventual common tail, their node sequences are eventually
@@ -241,7 +241,8 @@ other. The corresponding coordinate separates their node kernels.
 
 The node Martin boundary retains the entire infinite route history.
 
-The map is the boundary analogue of
+The hypothesis of unique rooted routes is the boundary analogue of the
+condition
 
 ```math
 X_G=0
@@ -605,10 +606,12 @@ The node function is extreme because the compressed node cone has only one
 direction. But the lifted route measure decomposes into two distinct
 route-extreme states.
 
-More generally, under an integral representation in which Martin-regular rays
-project through $\pi_t$, minimality of $h$ forces its representing node-shadow
-measure to be concentrated at $h$. Its route-sensitive representing measure may
-nevertheless spread arbitrarily inside
+More generally, suppose an integral representation is available in which
+Martin-regular rays project through $\pi_t$. No such representation is
+established here, and `findings-29.md` leaves the corresponding minimality
+question open. Under that hypothesis, minimality of $h$ forces its representing
+node-shadow measure to be concentrated at $h$. Its route-sensitive representing
+measure may nevertheless spread arbitrarily inside
 
 ```math
 F_h.
@@ -677,3 +680,39 @@ Thus the algebraic formulation
 ```
 
 is more general than the literal topological map between infinite-ray spaces.
+
+# 16. Literature relation
+
+The relation $\sim_{\mathrm{tail}}$ of section 3 is the tail equivalence
+relation on the path space of a graded graph. The diagrams carrying such a path
+space are those of O. Bratteli, *Inductive limits of finite dimensional
+$C^\ast$-algebras*, Transactions of the American Mathematical Society 171
+(1972), 195-234, and the tail relation, together with the Martin
+compactification obtained from pointwise convergence of normalized kernels, is
+treated in A. M. Vershik, *Equipped graded graphs, projective limits of
+simplices, and their boundaries*, Journal of Mathematical Sciences 209 (2015),
+860-873, arXiv:1503.04447. Both works assume a grading of the vertex set into
+finite levels, and Vershik assumes in addition a given system of cotransition
+probabilities along that grading. The graphs treated here carry no grading, and
+the normalized Green columns $K_t(\cdot,x)$ take over the role of the
+cotransition data. The grading also fixes the shape of the tail relation: when
+the level of a node is determined by the grading, two paths that eventually
+follow the same edge sequence do so at the same index, whereas section 3 allows
+finite prefixes of different lengths, so that the node sequences agree only up
+to a finite shift. Sections 3 and 7 place two strictly coarser relations beside
+it. Under cofinal reconvergence the rays return to common nodes along
+subsequences $n_k,m_k$ but may split after every one of them, and under
+asymptotic Green equivalence, realized in the completely layered graph with $b$
+nodes per level where every ray has the profile $h(v)=(bt)^{-k}$ for $v\in V_k$,
+two rays need not share any node after the root.
+
+Section 15 replaces the space of actual rays by the spectrum of the
+prefix-cylinder algebra. For an arbitrary directed graph the boundary-path space
+carries a locally compact Hausdorff topology with a basis of compact open
+cylinder sets and is identified with the spectrum of the diagonal subalgebra in
+S. B. G. Webster, *The path space of a directed graph*, Proceedings of the
+American Mathematical Society 142 (2014), 213-225, arXiv:1102.1225, its points
+being the infinite paths together with the finite paths that end at singular
+vertices. That description is of the prefix side alone. The node observables
+$k_v$ and the profile map $\pi_t$ are not part of it, and their continuity is a
+hypothesis of section 8 rather than a consequence of the cylinder basis.

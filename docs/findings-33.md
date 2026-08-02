@@ -696,3 +696,34 @@ construction.
 
 The general Martin profile spaces need not be discrete, so the unrestricted
 construction is compact inverse-limit rather than necessarily profinite.
+
+# 17. Literature relation
+
+The compactification of section 1, which embeds each reachable node by its
+normalized Green profile $\kappa_x$ and closes the image inside the product
+$\mathcal P_t$, and its presentation in section 3 as the inverse limit of the
+finite-observation spaces $\mathcal M_{t,F}$, follow the treatment of the Martin
+compactification by pointwise convergence of normalized kernels, and of the
+boundaries read off inside it, in A. M. Vershik, *Equipped graded graphs,
+projective limits of simplices, and their boundaries*, Journal of Mathematical
+Sciences 209 (2015), 860-873, arXiv:1503.04447, where the projective limit of
+simplices is identified as a Choquet simplex. The hypotheses there are a graded
+graph whose levels are finite and a given system of cotransition probabilities
+along the grading, and the projective system is indexed by the levels of that
+grading.
+
+No grading is present here. The cotransition data are replaced by the weight $t$
+and the Green kernel through $\kappa_x(v)=G_t(v,x)/G_t(o,x)$, and the inverse
+system of sections 2 and 3 is indexed by the finite subsets $F\Subset V_o$ of
+the reachable node set, a directed set that exists for any bounded system. The
+absence of finite levels appears directly in section 4: the approximating spaces
+$\mathcal M_{t,F}$ are compact but need not be finite, and closures are
+therefore required, since the raw images
+$Y_{t,F}=\mathrm{pr}_F(\iota_t(V_o))$ can omit coordinate values that are
+approximated by actual nodes without being attained, so
+$\mathcal M_t=\varprojlim_F\overline{Y_{t,F}}$ while $\varprojlim_FY_{t,F}$ can
+fail. Section 6 records the corresponding limitation on reading boundaries
+inside the compactification: a point of $\mathcal M_t$ is a net limit of node
+columns and need not be produced by any single ray, so identifying the boundary
+of $\mathcal M_t$ with a set of ray profiles is stated there as requiring an
+additional ray-generation theorem.

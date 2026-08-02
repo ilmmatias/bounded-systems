@@ -647,7 +647,10 @@ Then there exists a process
 X^{(\infty)}
 ```
 
-on $\mathcal Y_\infty$ having these finite-refinement projections.
+on $\mathcal Y_\infty$ having these finite-refinement projections, provided the
+consistency holds at the level of path-space laws so that the Kolmogorov
+extension applies on $\mathcal Y_\infty=\varprojlim_r\mathcal Y_r$. Consistency
+of one-dimensional distributions alone does not supply it.
 
 Its generator is determined on cylinder functions by
 
@@ -664,3 +667,38 @@ manifold into $\mathbb R^d$.
 
 Finite cylinder observables define and compute the operator, which the
 projective limit assembles.
+
+# 14. Literature relation
+
+Section 11 orders the limits as $n,p\to\infty$ at fixed $r$, followed by
+$r\to\infty$, in place of a diagonal sequence satisfying
+$r_{\mathrm{stab}}(n)=o(n)$. Two results make that order forced rather than
+convenient. M. Fürer, *Weisfeiler-Lehman refinement requires at least a linear
+number of iterations*, in Automata, Languages and Programming, Lecture Notes in
+Computer Science 2076, Springer, 2001, 322-333, exhibits for each fixed
+dimension pairs on which refinement requires a linear number of iterations, and
+the best available general upper bound at dimension two is the superlinear
+$O(n\log n)$ of M. Lichter, I. Ponomarenko, and P. Schweitzer, *Walk refinement,
+walk logic, and the iteration number of the Weisfeiler-Leman algorithm*, in 2019
+34th Annual ACM/IEEE Symposium on Logic in Computer Science, IEEE, 2019, 1-13,
+arXiv:1905.03008. No bound of the form $o(n)$ follows from either. Both concern
+undirected graphs; whether Fürer's pairs can be realized inside the
+acyclic-digraph class used here, and whether the $O(n\log n)$ bound holds on
+that class, is not settled.
+
+The convergence statement of section 12 is an instance of the scheme in
+S. N. Ethier and T. G. Kurtz, *Markov Processes: Characterization and
+Convergence*, Wiley, 1986, Chapter 4, which combines generator convergence on a
+core with compact containment and uniqueness of the limiting martingale problem.
+Hypothesis 2 of section 12 is the generator convergence and hypothesis 6 the
+uniqueness requirement, both for the cylinder core on $\mathcal Y_r$, and the
+compactness of $\mathcal Y_r$ established in section 11 is what makes the
+compact-containment requirement automatic; uniqueness for $\mathcal G$ on that
+core is assumed and not proved.
+
+The count $20{,}286{,}025$ quoted in section 11 is the number of acyclic
+digraphs on eight unlabeled nodes, recorded as Sequence A003087, On-Line
+Encyclopedia of Integer Sequences; the counting theory for unlabeled graphs and
+digraphs is developed in F. Harary and E. M. Palmer, *Graphical Enumeration*,
+Academic Press, 1973. The collision count $509$ quoted beside it comes from the
+computation reported there.

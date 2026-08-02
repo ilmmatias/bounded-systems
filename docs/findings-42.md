@@ -518,8 +518,10 @@ X_\delta\Rightarrow X,
 
 where $X$ has generator $\mathcal L^h$.
 
-The exact proof program applies to Gaussian, stable and mixed jump regimes,
-which differ only in the surviving parts of the characteristic triplet.
+The same statement covers the Gaussian, stable and mixed jump regimes, which
+differ only in the surviving parts of the characteristic triplet. Hypothesis 5
+is an assumption in each of them; no uniqueness theorem covering the
+state-dependent kernels extracted above is invoked here.
 
 # 9. Convergence of the $h$-transform itself
 
@@ -1054,3 +1056,35 @@ The old form with
 
 is recovered only when the gauge parameter has already been expressed per
 unit of the chosen continuum clock.
+
+# 17. Literature relation
+
+The three-part scheme of section 5, compact containment, martingale tightness in
+Skorokhod space, and uniqueness of the limiting martingale problem, is the
+convergence scheme of S. N. Ethier and T. G. Kurtz, *Markov Processes:
+Characterization and Convergence*, Wiley, 1986, Chapter 4, where these
+requirements accompany convergence of the generators on a core. Hypotheses 4
+and 5 of section 8 are the first and third of them, restated for the extracted
+characteristic triplet rather than derived from it.
+
+For the nonlocal case, uniqueness of the martingale problem is the subject of
+R. F. Bass, *Uniqueness in law for pure jump Markov processes*, Probability
+Theory and Related Fields 79 (1988), 271-287, proved in dimension one, with the
+extension to $\mathbb R^d$ indicated, and requiring Dini continuity of the
+coefficients. The kernels $\nu_h(x,dy)$ extracted in sections 6 and 7 carry no
+assumed continuity modulus in $x$, so hypothesis 5 of section 8 remains an
+assumption there.
+
+The joint convergence $(Y_\delta,D_\delta)\Rightarrow(Y,D)$ of section 15 and
+the passage to the inverse clocks $E_\delta\Rightarrow E$ follow the argument of
+M. M. Meerschaert and H.-P. Scheffler, *Limit theorems for continuous-time
+random walks with infinite mean waiting times*, Journal of Applied Probability
+41 (2004), 623-638, whose waiting times are independent, identically
+distributed, and independent of the jumps; that independence is what yields the
+scalar inverse-subordination equation quoted at the end of section 15. The
+coupled alternative recorded there, a joint semi-Markov kernel in place of a
+scalar $\Phi$, is treated in M. M. Meerschaert and P. Straka, *Semi-Markov
+approach to continuous time random walk limit processes*, Annals of Probability
+42 (2014), 1699-1723, arXiv:1206.1960, where jumps and waiting times may be
+coupled and vary with space and time, and the Markov property is recovered by
+augmenting the state with the age.

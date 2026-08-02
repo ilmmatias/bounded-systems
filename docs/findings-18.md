@@ -29,8 +29,7 @@ Equivalently, $E(S)$ is the nerve of the indiscrete groupoid on $S$, with
 exactly one isomorphism between each ordered pair of objects.
 
 If $S\ne\varnothing$, choosing any element gives this groupoid an initial and
-terminal object, so its nerve is contractible; these are standard categorical
-constructions.
+terminal object, so its nerve is contractible.
 
 But it remains marked:
 
@@ -109,7 +108,7 @@ associative.
 
 Thus $\mathfrak R_G$ is a genuine simplicially enriched category: its morphism
 objects are simplicial sets, and composition is simplicial. Its
-homotopy-coherent nerve is a standard model of higher categorical structure.
+homotopy-coherent nerve is a model of higher categorical structure.
 
 # 3. The two visible truncations
 
@@ -320,9 +319,6 @@ C_0^{\mathrm{route}}(v,u)
 k\varepsilon_{v,u}
 \to0.
 ```
-
-Normalized chains on simplicial sets and dg categories are standard
-linearizations of simplicial higher structures.
 
 # 7. The route ideal is exactly the first boundary
 
@@ -606,10 +602,6 @@ d_{\mathrm{fact}}.
 
 It changes factorization degree but preserves total route-resolution degree.
 
-The standard bar construction organizes these iterated compositions, while
-homotopy limits and colimits are commonly expressed by bar and cobar
-totalizations.
-
 With the usual total-complex signs,
 
 ```math
@@ -812,3 +804,35 @@ relations.
 
 Route-collapse coherence is contractible, while factorization coherence can be
 topologically nontrivial.
+
+# 16. Literature relation
+
+Section 1 uses the contractibility of the nerve of the indiscrete groupoid on a
+nonempty set. G. Segal, *Classifying spaces and spectral sequences*,
+Publications Mathématiques de l'IHÉS 34 (1968), 105-112, states this for the
+indiscrete groupoid on a topological group and supplies the homotopy invariance
+of nerves in Proposition 2.1. The version used here is the set-level one, where
+$\mathscr P_G(u,v)$ carries no group structure and no topology, and section 1
+obtains it from the presence of an initial object.
+
+The homotopy-coherent nerve named in section 2 is that of J.-M. Cordier and
+T. Porter, *Vogt's theorem on categories of homotopy coherent diagrams*,
+Mathematical Proceedings of the Cambridge Philosophical Society 100 (1986),
+65-90, whose results assume the simplicially enriched category to be locally
+Kan. That hypothesis holds for $\mathfrak R_G$: a horn in $E(S)$ determines its
+vertices, and every tuple of elements of $S$ is a simplex of $E(S)$, so the
+tuple of vertices fills the horn, while the mapping spaces at incomparable pairs
+are empty.
+
+The equivalence notion used in section 4 for the functor $\epsilon$ is the one
+for simplicially enriched categories going back to W. G. Dwyer and D. M. Kan,
+*Simplicial localizations of categories*, Journal of Pure and Applied Algebra 17
+(1980), 267-284, and characterized in J. E. Bergner, *A model category structure
+on the category of simplicial categories*, Transactions of the American
+Mathematical Society 359 (2007), 2043-2058, arXiv:math/0406507, as an
+equivalence on $\pi_0$ together with weak equivalences of mapping spaces.
+Bergner's model structure is imposed on small simplicial categories, a
+hypothesis satisfied by $\mathfrak R_G$ because $V$ and each route set
+$\mathscr P_G(u,v)$ are sets; the criterion therefore applies to $\epsilon$,
+whose mapping-space equivalences and $\pi_0$ isomorphism are established in
+section 4.

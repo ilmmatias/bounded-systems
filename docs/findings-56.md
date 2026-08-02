@@ -371,7 +371,7 @@ random graphs*, Rendiconti di Matematica 28 (2008), 33-61,
 arXiv:0712.2749, which shows that extreme exchangeable directed-graph
 laws admit a representation without a global variable. D. Cai,
 N. Ackerman, and C. Freer, *Priors on exchangeable directed graphs*,
-Electronic Journal of Statistics 10 (2016), 1112-1145, arXiv:1510.08440,
+Electronic Journal of Statistics 10 (2016), 3490-3515, arXiv:1510.08440,
 package the same structure as a digraphon with four joint edge-direction
 probabilities.
 

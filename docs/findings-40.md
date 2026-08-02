@@ -42,8 +42,7 @@ S_{\lfloor ns\rfloor}
 
 Covariance convergence alone does not prove a Gaussian functional limit;
 tightness, Lindeberg/projective conditions or corresponding chaos assumptions
-are also required. Functional limit theorems for nonstationary dependent
-triangular arrays require precisely such additional dependence controls.
+are also required.
 
 # 2. Absence of long memory in harmonic score increments
 
@@ -174,10 +173,11 @@ normalization remains
 a_n=\sqrt n
 ```
 
-The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$;
-functional central limit theorems for additive functionals of stationary
-reversible Markov processes establish this phenomenon under operator-domain
-conditions.
+The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$.
+Functional central limit theorems for additive functionals of stationary
+reversible Markov processes establish this phenomenon when the observable lies
+in the range of the square root of the resolvent operator; the route process
+constructed above is not shown to be stationary or reversible.
 
 Thus summable route correlation renormalizes the quadratic tensor rather than
 creating a new continuum regime.
@@ -259,12 +259,12 @@ So the correlation exponent and Hurst exponent are related by
 Additional long-memory regimes arise when the coarse profile increment is a
 nonlinear function of a correlated Gaussian route field.
 
-Suppose $G_k$ is centered Gaussian with
+Suppose $G_k$ is a stationary centered Gaussian sequence with
 
 ```math
 \mathbb E[G_0G_m]
 \sim
-c,m^{-\eta}L(m),
+c\,m^{-\eta}L(m),
 ```
 
 and the observed route quantity is
@@ -297,7 +297,7 @@ m!c_m^2
 \mathrm{Cov}(G_0,G_k)
 \right]^m
 \sim
-\widetilde c,k^{-m\eta}L(k)^m.
+\widetilde c\,k^{-m\eta}L(k)^m.
 ```
 
 Three cases follow. If $m\eta>1$, the transformed correlation is summable and
@@ -891,3 +891,48 @@ Z_{m,H_m}(t).
 ```
 
 These mechanisms can coexist, but they are not interchangeable.
+
+# 16. Literature relation
+
+The functional central limit theorem quoted in section 3 for the summable case
+is C. Kipnis and S. R. S. Varadhan, *Central limit theorem for additive
+functionals of reversible Markov processes and applications to simple
+exclusions*, Communications in Mathematical Physics 104 (1986), 1-19. Its
+hypotheses are stationarity, reversibility, and membership of the observable in
+the range of the square root of the relevant operator. The route process of
+section 3 is constructed from a finite acyclic graph through a deep-region
+translation-invariance assumption on $C_{jk}$, and none of the three hypotheses
+is verified for it.
+
+The noncentral mechanism named in sections 4 and 5 is that of M. S. Taqqu,
+*Weak convergence to fractional Brownian motion and to the Rosenblatt
+process*, Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 31
+(1975), 287-302, R. L. Dobrushin and P. Major, *Non-central limit theorems for
+non-linear functionals of Gaussian fields*, Zeitschrift für
+Wahrscheinlichkeitstheorie und Verwandte Gebiete 50 (1979), 27-52, and
+M. S. Taqqu, *Convergence of integrated processes of arbitrary Hermite rank*,
+Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 50 (1979),
+53-83; the summable case $m\eta>1$ is P. Breuer and P. Major, *Central limit
+theorems for non-linear functionals of Gaussian fields*, Journal of
+Multivariate Analysis 13 (1983), 425-441. All four concern a fixed nonlinear
+function of a stationary Gaussian sequence or field. Section 5 supplies that
+hypothesis by assumption, positing a stationary centered Gaussian route
+sequence $G_k$ with the stated covariance decay; the Hermite rank $m$ is then
+an invariant of the pair $(F,G)$ so assumed, not of the graph.
+
+The limiting covariance $\mathcal R_H$ written in section 4 is the covariance of
+the process introduced in B. B. Mandelbrot and J. W. Van Ness, *Fractional
+Brownian motions, fractional noises and applications*, SIAM Review 10 (1968),
+422-437, for a scalar index; section 4 uses it with the positive semidefinite
+tensor $Q$ in place of a scalar variance.
+
+The elimination of the hidden sector in section 6 is the projection construction
+of R. Zwanzig, *Ensemble method in the theory of irreversibility*, Journal of
+Chemical Physics 33 (1960), 1338-1341, and H. Mori, *Transport, collective
+motion, and Brownian motion*, Progress of Theoretical Physics 33 (1965),
+423-455. Both project onto an equilibrium ensemble, Zwanzig's construction using
+a Gibbsian one, and it is that ensemble which links the memory kernel $K_h$ to
+the covariance of the forcing $\eta_h$. Section 6 performs the elimination
+without such a state, so the identity of propagators $e^{-\tau D_h}$ obtained
+there is an algebraic consequence of the linear system and carries no
+fluctuation-dissipation relation, as section 9 also records.

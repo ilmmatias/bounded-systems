@@ -40,16 +40,19 @@ More strongly, a path of length $n$ from $u$ to $v$ gives
 \rho_-(v)\ge \rho_-(u)+n.
 ```
 
-$\rho_-$ is a canonical transfinite topological ordering.
+The map $\rho_-$ therefore assigns ordinals so that every channel strictly
+increases rank.
 
 ## Theorem 1. Existence of past rank
 
-Under ordinary set theory with dependent choice, the following conditions are
-equivalent:
+In ordinary set theory the following conditions are equivalent:
 
 1. every node has a past rank;
 2. every nonempty set of nodes has a $\prec$-minimal element;
 3. there is no infinite backward path.
+
+The equivalence of the first two conditions uses no choice principle. The
+implication from the third consumes the principle of dependent choices.
 
 ```math
 \partial^-G=\varnothing
@@ -693,3 +696,18 @@ future, and contained in both infinite cores.
 The last sector contains all nodes on bi-infinite chains but can also contain
 nodes connected to separate backward and forward infinite branches that do not
 form a unique bi-infinite route.
+
+# 14. Literature relation
+
+The source-pruning stages of section 4, restricted to a finite system, and the
+finite reduction of the ranks noted in section 7 correspond to the procedure of
+A. B. Kahn, *Topological sorting of large networks*, Communications of the ACM 5
+(1962), 558-562, which orders a finite network consistently with its edges by
+repeatedly removing nodes that have no remaining predecessor. Kahn supplies an
+algorithm for the finite case rather than an existence statement about ordinal
+ranks: the loop halts because each round deletes at least one node, and the
+output is a linear order on the nodes. Sections 4 and 5 keep the successor
+stages of that removal but add limit stages
+$W^+_\lambda=\bigcap_{\beta<\lambda}W^+_\beta$ and the fixed point $K^+$, which
+have no counterpart in a finite run; the infinitely branching tree of section 3
+survives every finite stage and is removed only at stage $\omega+1$.

@@ -6,7 +6,8 @@ observation or 2-WL refinement depth, and $p$ is the resolved path horizon.
 They play different roles:
 
 * $n\to\infty$ constructs the continuum profile space;
-* $r\to\infty$ removes observational/profile collapse;
+* $r\to\infty$ removes the profile collapse observed at the sizes enumerated
+  below;
 * $p\to\infty$ constructs the operational dynamics and asymptotic harmonic
   profile.
 
@@ -30,6 +31,10 @@ so one refinement round is missing only
 ```
 
 distinctions.
+
+The enumeration establishes injectivity of the stabilized second-order profile
+at eight nodes. Whether two-dimensional refinement separates every finite size
+is not settled by it.
 
 The fraction of graphs involved in collisions is
 
@@ -248,14 +253,15 @@ For a diagonal limit $r=r_n$, vanishing profile jumps are guaranteed when
 r_n=o(n).
 ```
 
-Stabilized 2-WL may be used in a continuum limit only after checking that its
-required stabilization depth grows sublinearly:
+A diagonal limit that uses stabilized 2-WL therefore requires the chosen
+sequence to satisfy
 
 ```math
 r_{\mathrm{stab}}(n)=o(n).
 ```
 
-The eight-node result proves finite injectivity, but the per-class
+This is a hypothesis on the sequence $G_n$ rather than a property of the
+refinement. The eight-node result proves finite injectivity, but the per-class
 first-separation rounds must now be exported to estimate the growth of
 $r_{\mathrm{stab}}(n)$.
 
@@ -802,3 +808,46 @@ The coefficient enters
 ```math
 Z_q=qI+i\Omega N.
 ```
+
+# 14. Literature relation
+
+Sections 1 and 4 hold the refinement dimension fixed at two and let the round
+depth $r$ grow. J.-Y. Cai, M. Fürer, and N. Immerman, *An optimal lower bound on
+the number of variables for graph identification*, Combinatorica 12 (1992),
+389-410, prove that $\Omega(n)$ variables are needed for graph identification,
+and that the $k$-variable counting logic has exactly the distinguishing power of
+$(k-1)$-dimensional Weisfeiler-Leman refinement. Taken together these give an
+obstruction to the limit taken here: at fixed refinement dimension, increasing
+the number of rounds does not separate all non-isomorphic graphs, since
+separation across all sizes requires the dimension itself to grow with $n$. The
+exhaustive computation reported in section 1 is a statement at the single size
+eight and is consistent with that lower bound; the narrower claim recorded
+there, that whether two-dimensional refinement separates every finite size is
+not settled by the enumeration, is what the lower bound leaves available.
+
+The growth of the stabilization depth is also constrained. M. Fürer,
+*Weisfeiler-Lehman refinement requires at least a linear number of iterations*,
+in Automata, Languages and Programming, Lecture Notes in Computer Science 2076,
+Springer, 2001, 322-333, exhibits, for each fixed dimension, pairs requiring a
+linear number of iterations, and the best available general upper bound for
+two-dimensional refinement is the superlinear $O(n\log n)$ of M. Lichter,
+I. Ponomarenko, and P. Schweitzer, *Walk refinement, walk logic, and the
+iteration number of the Weisfeiler-Leman algorithm*, in 2019 34th Annual
+ACM/IEEE Symposium on Logic in Computer Science, IEEE, 2019, 1-13,
+arXiv:1905.03008. No sublinear stabilization bound is therefore available, and
+the condition $r_{\mathrm{stab}}(n)=o(n)$ required in section 4 for a diagonal
+limit is not supplied by either result.
+
+All three of these results concern undirected graphs. Whether the pair
+constructions underlying the identification and iteration lower bounds can be
+realized inside the class of acyclic digraphs used throughout this document,
+and whether the $O(n\log n)$ upper bound holds on that class, is not settled
+here.
+
+The count $20{,}286{,}025$ used in section 1 is the number of acyclic digraphs
+on eight unlabeled nodes, recorded as Sequence A003087, On-Line Encyclopedia of
+Integer Sequences; the counting theory for unlabeled graphs and digraphs is
+developed in F. Harary and E. M. Palmer, *Graphical Enumeration*, Academic
+Press, 1973. That count fixes the number of isomorphism classes at eight nodes
+and carries no refinement information; the collision figures $509$ and $1020$
+come from the computation reported in section 1.

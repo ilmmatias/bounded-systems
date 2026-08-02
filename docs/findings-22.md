@@ -661,3 +661,30 @@ d(u,v),
 |\Gamma_{v,u}|^2
 \right).
 ```
+
+# 12. Literature relation
+
+The Schur bound invoked in section 3,
+$|A^n|_{\ell^2\to\ell^2}\le\sqrt{T_n^+T_n^-}$, is the test of I. Schur,
+*Bemerkungen zur Theorie der beschränkten Bilinearformen mit unendlich vielen
+Veränderlichen*, Journal für die reine und angewandte Mathematik 140 (1911),
+1-28, which bounds the norm by the square root of the supremum row sum times the
+supremum column sum. The test presupposes both suprema finite for the matrix to
+which it is applied. Section 3 applies it to every power $A^n$ separately, and
+section 1 records that $T_n^+$ and $T_n^-$ may be infinite, so the inequality
+has content only where both are finite; the passage to
+$r_{\ell^2}(A)\le r(S_+)r(S_-)$ uses the bound at every $n$ and so requires
+finiteness at every $n$. The identification of the two suprema with the squared
+norms of the forward and the backward Fock creator, which is what makes them
+separate into forward branching and backward reconvergence, is carried out in
+sections 2 and 3 and is not part of the cited test.
+
+The forward creator $S_+=\sum_{e\in E}L_e$ of section 2 is assembled from the
+partial isometries $L_e$ on the Fock space of a directed graph, for which see
+D. W. Kribs and S. C. Power, *Free semigroupoid algebras*, Journal of the
+Ramanujan Mathematical Society 19 (2004), 117-159, arXiv:math/0309394. The graph
+there is countable and the operators $L_e$ are treated individually. The sum
+over all edges is formed in section 2, where the identity $|S_+^n|^2=T_n^+$
+makes $S_+$ bounded precisely when the outgoing degrees are uniformly finite,
+which is the hypothesis under which the spectral-radius identity
+$r(S_+)^2=r_{\ell^1}(A)$ is stated.

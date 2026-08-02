@@ -219,8 +219,9 @@ And for densities,
 (\mathcal L^h)^\ast\rho.
 ```
 
-The inverse-stable time change and the Caputo equation equivalently represent
-the limiting evolution.
+The inverse-stable time change produces a solution of the Caputo equation. The
+two descriptions agree as representations of the limiting evolution when that
+equation has a unique solution for the given initial datum.
 
 # 6. Memory-integral form
 
@@ -628,8 +629,8 @@ The fractional power uses the principal branch. Since $q>0$, the spectrum of
 $q+i\beta N$ lies in the open right half-plane, making this functional
 calculus well defined on the natural domain.
 
-The operator is the fractional substantial derivative associated with the
-path-length gauge.
+The operator has the form of a fractional substantial derivative, with the
+scalar shift replaced by the gauge generator $i\beta N$.
 
 # 13. Stable spatial mode with intrinsic gauge clock
 
@@ -774,3 +775,37 @@ Similarly:
 
 identifies the fractional order only after the necessary decoupling or
 joint-limit condition is checked.
+
+# 16. Literature relation
+
+The convergence of the rescaled clock to a $\gamma$-stable subordinator and of
+the rescaled renewal count to its inverse, used in sections 3 to 5 to produce
+the Caputo equation, is the limit theorem of M. M. Meerschaert and
+H.-P. Scheffler, *Limit theorems for continuous-time random walks with infinite
+mean waiting times*, Journal of Applied Probability 41 (2004), 623-638. The
+waiting times there are independent, identically distributed, and independent of
+the jumps. Section 3 assumes only the tail law of the single block length $W$,
+and section 15 isolates the coupling between $J_m$ and $W_m$ that the
+independence hypothesis excludes, so that hypothesis is imposed rather than
+derived from the route structure.
+
+The general clock of section 8, with Bernstein exponent $\Phi$, the prefactor
+$\Phi(q)/q$ in the resolvent, and the representation of the time-changed family
+as an inverse subordination rather than a semigroup subordination noted in
+section 4, follows B. Toaldo, *Convolution-type derivatives, hitting-times of
+subordinators and time-changed $C_0$-semigroups*, Potential Analysis 42 (2015),
+115-140, arXiv:1308.1327, where the time-changed family is shown not to be a
+semigroup, and A. N. Kochubei, *General fractional calculus, evolution
+equations, and renewal processes*, Integral Equations and Operator Theory 71
+(2011), 583-600, arXiv:1105.1239, whose kernels are complete Bernstein
+functions. Both are stated for a scalar Laplace variable $q$. Section 12
+replaces $q$ by the operator $q+i\beta N$ inside $\Phi$ and inside the
+resolvent, which is not covered by either statement.
+
+The enlarged state $(Z_\tau,A_\tau)$ of section 7, and the joint kernel
+$Q_h(x,dy,dw)$ retained in section 15 when block length and displacement do not
+decouple, correspond to M. M. Meerschaert and P. Straka, *Semi-Markov approach
+to continuous time random walk limit processes*, Annals of Probability 42
+(2014), 1699-1723, arXiv:1206.1960, where jumps and waiting times may be
+coupled and may vary with space and time, and where the Markov property is
+restored by augmenting the state with the age of the current block.

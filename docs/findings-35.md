@@ -504,8 +504,9 @@ at leading order.
 
 Under the usual vanishing-jump, tightness and martingale-limit conditions, the
 rescaled profile-coordinate process converges to a continuous local martingale
-with covariance $a_h$; quadratic variation exactly fixes the Brownian time
-change.
+with covariance $a_h$. Its quadratic variation determines that covariance. A
+representation as a time-changed Brownian motion requires in addition that
+$a_h$ be nondegenerate, so that one time change serves every coordinate.
 
 The limiting generator in harmonic coordinates is
 
@@ -807,3 +808,32 @@ and
 \longrightarrow
 \text{geodesic equation}.
 ```
+
+# 13. Literature relation
+
+The kernel $P_h(e\mid v)=h(r(e))/(\lambda h(v))$ of section 1 is an $h$-path
+transform in the sense of J. L. Doob, *Conditional Brownian motion and the
+boundary limits of harmonic functions*, Bulletin de la Société Mathématique de
+France 85 (1957), 431-458. The transform is applied there to Brownian motion on
+a Green space with a strictly positive superharmonic $h$, so the base kernel is
+substochastic and the relevant eigenvalue is one, and the transformed kernel is
+again substochastic with no further factor. The base object here is the
+channel-counting operator $\mathcal A_+$, whose row sums count outgoing edges
+and are not bounded by one, and the eigenvalue is the critical
+$\lambda=R^{-2}$. Division by $\lambda$ is what makes $P_h(\cdot\mid v)$ sum to
+one over the outgoing edges at $v$, so the normalization is a consequence of the
+eigenpair $(h,\lambda)$ rather than a hypothesis imposed on the kernel, which is
+the content of the remark in section 1 that no probability was added.
+
+The form $\mathsf Q_v$ of section 3 is the carré du champ of D. Bakry and
+M. Émery, *Diffusions hypercontractives*, in Séminaire de Probabilités XIX,
+Lecture Notes in Mathematics 1123, Springer, 1985, 177-206, where it is stated
+for diffusion generators. The operator here is the discrete Markov kernel
+$P_h$, and $\mathsf Q_v(\phi)$ is the finite sum of squared increments
+$\bigl[\phi(r(e))-\phi(v)\bigr]^2$ against $P_h(\cdot\mid v)$, so the increments
+entering it are differences along outgoing edges rather than derivatives, and
+the properties used in section 3, symmetry, nonnegativity, and degeneracy
+exactly in directions locally constant over the supported outgoing channels, are
+read off from that sum. The divergence whose second-order limit appears in
+section 4 is that of S. Kullback and R. A. Leibler, *On information and
+sufficiency*, Annals of Mathematical Statistics 22 (1951), 79-86.

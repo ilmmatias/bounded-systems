@@ -449,9 +449,9 @@ Multiplying by $t^{|p|}$ gives its cylinder function:
 \mathbf1_{\{p\preceq\xi\}}.
 ```
 
-The corresponding state is the Dirac mass on the infinite route $\xi$. Under
-suitable finite-branching assumptions, the minimal points of the prefix
-boundary are individual route directions.
+The corresponding state is the Dirac mass on the infinite route $\xi$.
+Identification of the minimal points of the prefix boundary with individual
+route directions is open, including under finite branching.
 
 # 10. The node kernel is a barycenter of prefix kernels
 
@@ -708,3 +708,28 @@ A general prefix-harmonic state can retain the full history:
 ```
 
 may depend on the entire path $p$, even when two paths share the same endpoint.
+
+# 16. Literature relation
+
+The compactification of section 2, obtained by closing the family of normalized
+Green columns $K_t(\cdot,x)$ inside a product of intervals, and the description
+in sections 4 and 11 of boundary data as a convex set whose extreme points are
+the minimal harmonic functions, appear in graded-graph form in A. M. Vershik,
+*Equipped graded graphs, projective limits of simplices, and their boundaries*,
+Journal of Mathematical Sciences 209 (2015), 860-873, arXiv:1503.04447, where
+the Martin compactification is taken with respect to pointwise convergence and
+the boundary is presented as a projective limit of finite-dimensional simplices,
+which is a Choquet simplex. The hypotheses there are a grading of the graph with
+finite levels and a given system of cotransition probabilities. Neither is
+available here: the data fixed in sections 1 and 2 are the weight $t$ and the
+finiteness $0<G_t(o,x)<\infty$ of the Green columns, the node set carries no
+grading, and the splitting weights are not given but derived from a boundary
+limit, section 15 obtaining them as $t\,h(r(e))/h(v)$. Compactness in section 2
+therefore comes from the route bound $K_t(v,x)\le t^{-|q_v|}$ rather than from
+finiteness of levels, the equation defining $\mathscr H_t(o)$ is replaced at an
+infinite emitter by the finite-subset inequalities of section 3, and no
+projective-limit description of $\mathscr H_t(o)$ or of the prefix cone
+$\mathscr P_o$ is used; section 4 states the additional analytic assumptions
+that an integral representation over the minimal boundary would require, and
+section 9 records the identification of the minimal points of the prefix
+boundary as open.

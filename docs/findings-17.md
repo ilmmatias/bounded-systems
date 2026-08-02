@@ -57,9 +57,6 @@ but
 \right).
 ```
 
-Such cochain, operadic, and brace-compatible structures on posets and their
-incidence algebras belong to the broader cohomology-comparison framework.
-
 # 2. The derived reachability category
 
 Fix a coefficient field $k$. Define a graded category
@@ -418,7 +415,10 @@ of degree
 ```
 
 Here $m_1=0$, $m_2$ is the Yoneda product, and the higher operations
-$m_3,m_4,\ldots$ record dependencies among products and null-homotopies.
+$m_3,m_4,\ldots$ record dependencies among products and null-homotopies. The
+transfer requires a choice of representatives and contracting homotopies, so
+the individual operations are not canonical; Section 11 records what survives
+that choice.
 
 For example,
 
@@ -437,11 +437,12 @@ m_2(c,b)=0,
 but the chosen null-homotopies need not be compatible. The obstruction is
 closely related to a triple Massey product.
 
-A natural $A_\infty$ structure exists on Ext, and its higher products encode
-defining relations; in suitable graded settings, the coefficients of $m_r$ on
-degree-one classes recover length-$r$ relations. The Yoneda algebra of simples
-is generated in degrees zero and one when regarded as a minimal $A_\infty$
-algebra.
+For a finite quiver with an admissible relation ideal over a field, the higher
+operations of the corresponding minimal $A_\infty$ structure on the Ext algebra
+of the simples are known to encode the defining relations: the coefficients of
+$m_r$ on degree-one classes recover the length-$r$ relations, and that algebra
+is generated in degrees zero and one. Neither statement is used below; the
+reachability posets treated here need not be finite.
 
 # 10. Origin of the higher operations
 
@@ -497,7 +498,7 @@ The more directly canonical object is the dg category itself:
 \mathscr E_G.
 ```
 
-The induced morphism is
+The comparison is
 
 ```math
 \mathscr E_G
@@ -527,7 +528,10 @@ m_r=0
 \qquad(r\ge3)
 ```
 
-in the grading-compatible minimal model.
+in the grading-compatible minimal model: such an $m_r$ has cohomological degree
+$2-r$ and preserves internal degree, so on classes of cohomological degrees
+$n_1,\ldots,n_r$ its value has cohomological degree $\sum_in_i+2-r$ and internal
+degree $\sum_in_i$, and diagonal concentration of the target requires $r=2$.
 
 Thus the ordinary Yoneda algebra with its binary product is sufficient:
 
@@ -540,8 +544,8 @@ Thus the ordinary Yoneda algebra with its binary product is sufficient:
 For a non-Koszul or nongraded incidence structure, the binary product may not
 retain all relation data, making nonzero higher operations essential.
 
-The Cohen-Macaulay characterization of Koszul incidence algebras gives the
-topological criterion separating these regimes.
+The Cohen-Macaulay condition on intervals is therefore a topological criterion
+for the Koszul side of this division.
 
 # 13. A correction to the previous hierarchy
 
@@ -611,3 +615,53 @@ Q,
 The first component is already sufficient to reconstruct $G$. The additional
 components expose systematic derived invariants that spectra and path counts do
 not reveal.
+
+# 15. Literature relation
+
+The identification in section 4 of $H^n\mathscr E_G(v,u)$ with an Ext group
+between simple modules of a finite incidence algebra is the theorem of K. Igusa
+and D. Zacharia, *On the cohomology of incidence algebras of partially ordered
+sets*, Communications in Algebra 18 (1990), 873-887, stated there for a finite
+poset over a field and for a nonempty open interval, with the larger element in
+the first argument. The presentation of an incidence algebra as a path algebra
+modulo the parallel-path ideal, also used in section 4, is that of C. Cibils,
+*Cohomology of incidence algebras and simplicial complexes*, Journal of Pure and
+Applied Algebra 56 (1989), 221-232, for a finite poset. The Hochschild
+cohomology of such an algebra is identified with the simplicial cohomology of
+the complex of poset chains in M. Gerstenhaber and S. D. Schack, *Simplicial
+cohomology is Hochschild cohomology*, Journal of Pure and Applied Algebra 30
+(1983), 143-156; that statement concerns Hochschild cohomology and not the Ext
+groups between simple modules used here.
+
+The transfer performed in section 9 rests on the existence of a minimal model,
+proved in T. V. Kadeishvili, *Algebraic structure in the homology of an
+$A(\infty)$-algebra*, Soobshcheniya Akademii Nauk Gruzinskoi SSR 108 (1982),
+249-252, where the model is unique up to a non-unique isomorphism; that
+non-uniqueness is the choice dependence recorded in sections 9 and 11. The
+finite-quiver statements quoted in section 9 are those of B. Keller,
+*A-infinity algebras in representation theory*, in Representations of Algebras,
+Volume I, Beijing Normal University Press, 2002, 74-86, for a field and a finite
+quiver with admissible ideal: the coefficients of $m_r$ on degree-one classes
+give the relations, the Ext algebra of the simples is generated in degrees zero
+and one, and that algebra is formal exactly when the quiver algebra is Koszul.
+Section 12 does not use the last equivalence; it derives $m_r=0$ for $r\ge3$ in
+the grading-compatible minimal model from a degree count. The relation of the
+higher operations to Massey products, invoked in section 9, is developed for
+connected graded algebras in D.-M. Lu, J. H. Palmieri, Q.-S. Wu, and
+J. J. Zhang, *A-infinity structure on Ext-algebras*, Journal of Pure and Applied
+Algebra 213 (2009), 2017-2037, arXiv:math/0606144, where $m_n$ on
+$\operatorname{Ext}^1$ produces the relation coefficients; $\mathscr E_G$ is not
+a connected graded algebra and carries no such internal grading in general.
+
+The Koszul criterion invoked in sections 7 and 12 is the biconditional between
+the Koszul property of the incidence algebra and the Cohen-Macaulay property of
+the open intervals, proved in P. Polo, *On Cohen-Macaulay posets, Koszul
+algebras and certain modules associated to Schubert varieties*, Bulletin of the
+London Mathematical Society 27 (1995), 425-434, for a finite poset, and in
+D. Woodcock, *Cohen-Macaulay complexes and Koszul rings*, Journal of the London
+Mathematical Society 57 (1998), 398-410, for a finite graded poset, which is the
+hypothesis-matching form for the finite graded situation assumed in section 12.
+Each source cited in this section assumes a finite poset, or a finite quiver
+over a field, whereas $\mathscr E_G$ is defined for arbitrary set-sized
+reachability posets and its composition is strictly associative at cochain level
+by section 3.

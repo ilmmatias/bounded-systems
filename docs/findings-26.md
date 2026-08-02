@@ -133,6 +133,10 @@ $\Sigma_{m+n}$ is closable exactly when
 \text{for every }u,v.
 ```
 
+Finiteness of every endpoint fiber makes the adjoint densely defined. If one
+fiber is infinite, averaging $N$ distinct routes in it gives unit-image vectors
+of norm $N^{-1/2}$, so $(0,\eta_{v,u})$ lies in the graph closure.
+
 Since these are nonnegative cardinal sums, this means precisely:
 
 1. every contributing product $N_m(v,w)N_n(w,u)$ is finite; and
@@ -401,7 +405,8 @@ The degrees need not be uniformly bounded. Thus the operators can still be
 unbounded.
 
 Dually, finite incoming degree at every node also guarantees finite endpoint
-fibers at every finite depth.
+fibers at every finite depth, since a length-$n$ path ending at $v$ is
+determined by its reversed edge sequence.
 
 If there is a uniform outgoing-degree bound $D$, then
 
@@ -561,8 +566,8 @@ H_{v,u}(|z|^2)<\infty
 \text{for every }u,v.
 ```
 
-If this series diverges for even one endpoint pair, then $\Sigma(z)^0$ is
-nonclosable.
+Finiteness of every value again makes the adjoint densely defined. If this
+series diverges for even one endpoint pair, then $\Sigma(z)^0$ is nonclosable.
 
 ## Divergence and nonclosability
 
@@ -825,3 +830,37 @@ R_{\mathrm{col}}=
 
 The local radius equals the Fock radius because all route growth is concentrated
 in one endpoint fiber.
+
+# 15. Literature relation
+
+The closability criteria of sections 3 and 10 turn on whether the adjoint of the
+algebraic collapse map has dense domain, and section 12 factors the all-length
+operator as $\Sigma(z)=D(z)^{1/2}U(z)$. The general statements behind both
+steps, that the double adjoint of a densely defined operator is its closure and
+that a closed densely defined operator factors as a Hermitian operator times an
+isometric one, are due to J. von Neumann, *Über adjungierte
+Funktionaloperatoren*, Annals of Mathematics 33 (1932), 294-310. There the
+operator is given and the factors are produced from it. Section 12 works under
+the hypothesis $0<H_{v,u}(|z|^2)<\infty$ at the endpoint pairs concerned and
+names both factors: the Hermitian factor is the diagonal operator
+$D(z)\eta_{v,u}=H_{v,u}(|z|^2)\eta_{v,u}$, and the isometric factor is fixed by
+sending each weighted equal-route direction $\omega_{v,u}(z)$ to $\eta_{v,u}$
+and annihilating the weighted defect space. Failure of closability is decided by
+explicit graph limits rather than by the general criterion: section 3 averages
+$N$ distinct routes of an infinite fiber and section 10 uses the vectors $x_F$
+of a divergent endpoint series, each family placing $(0,\eta_{v,u})$ in the
+graph closure.
+
+The graded route spaces $\mathcal H_n$, their sum
+$\mathcal H_{\mathrm{path}}=\ell^2(\mathsf P(G))$, and the creators $S_+$ and
+$S_-$ whose norms enter section 1 are those of the Fock space of a directed
+graph, for which see D. W. Kribs and S. C. Power, *Free semigroupoid algebras*,
+Journal of the Ramanujan Mathematical Society 19 (2004), 117-159,
+arXiv:math/0309394. The graph there is countable, whereas sections 2 and 3 admit
+endpoint fibers of infinite cardinality, at which the collapse map has no closed
+extension. The three singular depths $\delta_{\mathrm{br}}$,
+$\delta_{\mathrm{ub}}$, $\delta_{\mathrm{nc}}$ of section 2 and the collapse
+radius $R_{\mathrm{col}}$ of section 13 are introduced here; the cited
+construction supplies the route spaces and the creators, and the comparison
+$\rho_{\mathrm{col}}\le r(S_\pm)$ of section 14 is proved from
+$M_n\le B_n^\pm$.

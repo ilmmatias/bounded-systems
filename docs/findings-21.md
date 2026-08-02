@@ -16,8 +16,11 @@ R_G(z)^{-1}=1-z\mathbf E.
 All composite paths disappear under inversion, leaving precisely the primitive
 channels.
 
-This formal identity requires no finite cardinality, bounded degree, local
-finiteness, topology, or operator norm.
+Every path of positive length factors uniquely as a primitive channel followed
+by a shorter path, so each coefficient of the product $(1-z\mathbf E)R_G(z)$ is
+a one-term sum and the identity holds coefficientwise. It therefore requires no
+finite cardinality, bounded degree, local finiteness, topology, or operator
+norm.
 
 # 2. Endpoint route counting
 
@@ -68,7 +71,7 @@ A_G(v,u)=
 \left|\{e:u\to v\}\right|.
 ```
 
-$C_1$ is the primitive-channel multiplicity kernel.
+$A_G$ is the primitive-channel multiplicity kernel.
 
 Since concatenating $n$ primitive channels produces exactly a length-$n$ path,
 
@@ -190,7 +193,8 @@ The reduction is:
 d.
 ```
 
-It loses, respectively:
+Together with the earlier passage from the route kernel $R_G$ to
+$\mathcal P^{\mathcal{\#}}$, the reduction loses, respectively:
 
 1. route identity;
 2. route multiplicity;
@@ -648,3 +652,36 @@ The operations have different mathematical types:
 * Möbius inversion is convolutional and noncommutative.
 
 They should not be treated as one algebra homomorphism.
+
+# 14. Literature relation
+
+The inverse identities of sections 1 and 3, $R_G(z)^{-1}=1-z\mathbf E$ and
+$\mathcal P_G(z)^{-1}=I-zA_G$, are the free-category case of the Möbius
+inversion recorded in T. Leinster, *Notions of Möbius inversion*, Bulletin of
+the Belgian Mathematical Society Simon Stevin 19 (2012), 909-933,
+arXiv:1201.0413, whose Examples 4.1(vi) give $\mu=\delta-\zeta_G t$ for the free
+category on a directed graph. That statement assumes a finite directed graph and
+an additive length grading. Section 1 instead verifies the identity
+coefficientwise, each coefficient of $(1-z\mathbf E)R_G(z)$ being a one-term
+sum, so the node and edge sets may have arbitrary cardinality. The weighted
+kernel $\zeta_d(z)$ of section 8 is not an instance of the cited statement: its
+exponent $d(u,v)$ is subadditive along composition rather than additive, and
+section 7 exhibits pairs at which $\zeta_d(z)\ne\mathcal P_G(z)$, so the inverse
+$M_d(z)$ carries the alternating chain sums of section 8 in place of a two-term
+local expression.
+
+The orthogonality relations $L_{p_i}^\ast L_{p_j}=\delta_{ij}P_u$ used in
+section 4 are those of the creation operators on the Fock space of a directed
+graph, for which see D. W. Kribs and S. C. Power, *Free semigroupoid algebras*,
+Journal of the Ramanujan Mathematical Society 19 (2004), 117-159,
+arXiv:math/0309394. That construction is carried out for a countable directed
+graph. Section 4 uses it only on the span of the $m$ length-$n$ routes joining
+one fixed pair of nodes, where the computation is the norm $\sqrt m$ of the
+all-ones functional on a finite corner together with its growth in $m$.
+
+The valuation $\nu$ of section 6 takes values in the min-plus semiring, for
+which an expository account is D. Speyer and B. Sturmfels, *Tropical
+mathematics*, Mathematics Magazine 82 (2009), 163-173, arXiv:math/0408099. The
+identities $\nu(fg)=\nu(f)+\nu(g)$ and $\nu(f+g)=\min\{\nu(f),\nu(g)\}$ are
+derived in section 6 from the absence of cancellation among nonnegative
+coefficients, and only the semiring axioms are taken from the reference.

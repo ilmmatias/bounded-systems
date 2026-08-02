@@ -764,3 +764,29 @@ When the operators are bounded,
 ```
 
 The normalization separates forward branching from backward reconvergence.
+
+# 14. Literature relation
+
+The graded route spaces $\mathcal H_n=\ell^2(\mathsf P_n(G))$ and the forward
+creator $S_+$ appearing in section 13 are those of the Fock space of a directed
+graph, for which see D. W. Kribs and S. C. Power, *Free semigroupoid algebras*,
+Journal of the Ramanujan Mathematical Society 19 (2004), 117-159,
+arXiv:math/0309394. The graph there is countable, whereas section 2 states the
+convolution $N_{m+n}(v,u)=\sum_wN_m(v,w)N_n(w,u)$ for arbitrary cardinalities
+and section 10 uses an infinite set of intermediate nodes. The identity
+$T_n^+=|S_+^n|^2$ of section 13 is used only where the total branching at
+length $n$ is finite.
+
+The balanced tensor product
+$\mathcal H_m\overline\otimes_{\mathcal D}\mathcal H_n$ of section 1, formed
+over the atomic node diagonal $\mathcal D$, is the module tensor product used in
+constructing the Toeplitz algebra of a Hilbert bimodule, for which see N. J.
+Fowler and I. Raeburn, *The Toeplitz algebra of a Hilbert bimodule*, Indiana
+University Mathematics Journal 48 (1999), 155-181, arXiv:math/9806093. That
+construction starts from a Hilbert bimodule over a $C^\ast$-algebra and produces
+Toeplitz-Cuntz-Krieger relations together with a uniqueness theorem for the
+algebra they generate. Section 1 remains at the
+Hilbert-space level: the unitarity of $C_{m,n}$ and the associativity relation
+$C_{\ell+m,n}(C_{\ell,m}\otimes I)=C_{\ell,m+n}(I\otimes C_{m,n})$ are proved
+from the unique cut of a length-$(m+n)$ path after its first $n$ edges, and no
+relation among generators and no uniqueness statement enters the argument.
