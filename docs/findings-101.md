@@ -40,7 +40,7 @@ e(\nu)
 pqD.
 ```
 
-The three terms are respectively the continuous--continuous, endpoint--continuous, and lower-endpoint--upper-endpoint contributions.
+The three terms are respectively the continuous-continuous, endpoint-continuous, and lower-endpoint-upper-endpoint contributions.
 
 # 2. The maximal density at fixed interval length
 
