@@ -24,9 +24,10 @@ where $M$ is locally represented by coordinates
 x=(x^1,\ldots,x^d).
 ```
 
-For infinite-dimensional profile spaces, the same construction is performed first on cylindrical observables.
+For infinite-dimensional profile spaces, the same construction is performed
+first on cylindrical observables.
 
-### Positive critical profile
+## Positive critical profile
 
 Let the transfer operator be
 
@@ -64,7 +65,7 @@ Indeed,
 \sum_{e:s(e)=v}p_\delta^h(e\mid v)=1.
 ```
 
-### Continuum time scale
+## Continuum time scale
 
 Let one microscopic edge step represent
 
@@ -173,7 +174,8 @@ b_h^i\partial_i f
 \frac12a_h^{ij}\partial_i\partial_jf.
 ```
 
-The tensor $a_h$ is positive semidefinite because each $A_\delta$ is a weighted sum of rank-one positive tensors.
+The tensor $a_h$ is positive semidefinite because each $A_\delta$ is a
+weighted sum of rank-one positive tensors.
 
 For a tangent field $\phi$,
 
@@ -191,7 +193,8 @@ p_\delta^h(e\mid x)
 \end{aligned}
 ```
 
-The continuum diffusion tensor is exactly the scaled limit of the derived discrete quadratic variation.
+The continuum diffusion tensor is exactly the scaled limit of the derived
+discrete quadratic variation.
 
 # 4. A direct diffusion-limit theorem
 
@@ -279,7 +282,7 @@ R_f(x,Y_\delta(e)).
 \end{aligned}
 ```
 
-The final term vanishes by the scaled third-moment condition.
+The final term vanishes by the scaled third-moment condition, leaving
 
 ```math
 \mathcal L_\delta^hf
@@ -293,11 +296,13 @@ Generator convergence follows.
 
 # 5. From generator convergence to process convergence
 
-Generator convergence alone is not enough. The full continuum-limit proof requires three pieces.
+Generator convergence alone is not enough. The full continuum-limit proof
+requires three pieces.
 
 ## Compact containment
 
-For every $T>0$ and $\varepsilon>0$, there must be a compact $K\Subset M$ such that
+For every $T>0$ and $\varepsilon>0$, there must be a compact $K\Subset M$
+such that
 
 ```math
 \inf_\delta
@@ -309,7 +314,8 @@ X_\delta(\tau)\in K
 \ge1-\varepsilon.
 ```
 
-Compact containment prevents probability from escaping through unrepresented parts of the profile space.
+Compact containment prevents probability from escaping through unrepresented
+parts of the profile space.
 
 ## Tightness
 
@@ -327,7 +333,8 @@ f(X_\delta(\tau))
 
 is a martingale.
 
-Drift and quadratic-variation bounds for these martingales establish tightness in Skorokhod path space.
+Drift and quadratic-variation bounds for these martingales establish
+tightness in Skorokhod path space.
 
 ## Uniqueness of the limiting martingale problem
 
@@ -341,13 +348,16 @@ f(X_\tau)-f(X_0)
 
 is a martingale.
 
-If the martingale problem for $\mathcal L^h$ is unique, all subsequences have the same limit, and therefore
+If the martingale problem for $\mathcal L^h$ is unique, all subsequences have
+the same limit, and therefore
 
 ```math
 X_\delta\Rightarrow X.
 ```
 
-For example, local Lipschitz regularity of $b_h$ and sufficiently regular, nondegenerate $a_h$ provide a standard uniqueness route; degenerate profile metrics require greater care.
+For example, local Lipschitz regularity of $b_h$ and sufficiently regular,
+nondegenerate $a_h$ provide a standard uniqueness route; degenerate profile
+metrics require greater care.
 
 # 6. General jump-coefficient extraction
 
@@ -370,7 +380,8 @@ p_\delta^h(e\mid v)
 \delta_{Y_\delta(e)}(dy).
 ```
 
-The limiting measure is generally infinite near $y=0$, so test convergence against continuous functions $g$ vanishing in a neighborhood of zero:
+The limiting measure is generally infinite near $y=0$, so test convergence
+against continuous functions $g$ vanishing in a neighborhood of zero:
 
 ```math
 \int g(y)\nu_\delta^h(x,dy)
@@ -492,7 +503,8 @@ for any unit vector $e$, when isotropy holds.
 
 Suppose on every compact profile region:
 
-1. for every continuous $g$ vanishing near zero, $\int g\,d\nu_\delta^h \to \int g\,d\nu_h$;
+1. for every continuous $g$ vanishing near zero,
+   $\int g\,d\nu_\delta^h \to \int g\,d\nu_h$;
 2. the truncated drifts converge, $b_\delta^\chi\to b_h^\chi$;
 3. the residual small-jump covariance converges to $a_h$;
 4. the family satisfies compact containment;
@@ -506,7 +518,8 @@ X_\delta\Rightarrow X,
 
 where $X$ has generator $\mathcal L^h$.
 
-The exact proof program applies to Gaussian, stable and mixed jump regimes, which differ only in the surviving parts of the characteristic triplet.
+The exact proof program applies to Gaussian, stable and mixed jump regimes,
+which differ only in the surviving parts of the characteristic triplet.
 
 # 9. Convergence of the $h$-transform itself
 
@@ -592,8 +605,6 @@ The theorem gives the continuum limit of the discrete harmonic normalization.
 
 # 10. Bulk-growth renormalization
 
-There is a subtle issue here.
-
 The transfer eigenvalue $\lambda_\delta$ need not approach $1$. If
 
 ```math
@@ -607,7 +618,8 @@ it follows that
 \to\infty.
 ```
 
-The raw transfer operator cannot converge directly to a finite differential generator.
+The raw transfer operator cannot converge directly to a finite differential
+generator.
 
 One must separate bulk route multiplication from finite continuum evolution.
 
@@ -619,7 +631,8 @@ Write $\lambda_\delta$ in the form
 e^{a_\delta\kappa_\delta},
 ```
 
-where $\Lambda_\delta$ is the dominant combinatorial growth factor removed before taking the local generator limit.
+where $\Lambda_\delta$ is the dominant combinatorial growth factor removed
+before taking the local generator limit.
 
 Define the renormalized transfer
 
@@ -646,7 +659,8 @@ Now
 
 can have a finite continuum limit.
 
-Thus $\Lambda_\delta$ is not an ignorable normalization but one of the principal coefficients that must be extracted from path growth.
+Thus $\Lambda_\delta$ is not an ignorable normalization but one of the
+principal coefficients that must be extracted from path growth.
 
 # 11. Correct continuum gauge coefficient
 
@@ -673,7 +687,8 @@ Suppose one microscopic edge contributes phase
 \vartheta_\delta.
 ```
 
-Since one edge represents $a_\delta$ continuum-time units, the continuum gauge frequency is
+Since one edge represents $a_\delta$ continuum-time units, the continuum
+gauge frequency is
 
 ```math
 \Omega_\delta=
@@ -686,7 +701,7 @@ Under the KMS-locked choice
 \vartheta_\delta=\beta_\delta=\log\lambda_\delta,
 ```
 
-Thus the rescaled gauge frequency is
+the rescaled gauge frequency is
 
 ```math
 \Omega_\delta=
@@ -715,7 +730,8 @@ then the phase contains a rapidly oscillating carrier
 e^{-i\beta_0\tau N/a_\delta}.
 ```
 
-One must pass to the interaction picture by removing this carrier. The finite residual rate is then
+One must pass to the interaction picture by removing this carrier. The finite
+residual rate is then
 
 ```math
 \Omega=
@@ -739,7 +755,9 @@ not automatically
 qI+i(\log\lambda)N.
 ```
 
-The latter is correct only when the continuum clock is literally primitive step count, $a_\delta=1$, or when a separate gauge parametrization $\theta=\beta\tau$ has been explicitly chosen.
+The latter is correct only when the continuum clock is literally primitive
+step count, $a_\delta=1$, or when a separate gauge parametrization
+$\theta=\beta\tau$ has been explicitly chosen.
 
 The coefficient extraction separates:
 
@@ -765,7 +783,8 @@ Its continuum duration is
 J_\delta=a_\delta W_\delta.
 ```
 
-Let one operational coarse transition represent $c_\delta\downarrow0$ units of operational time. Define
+Let one operational coarse transition represent $c_\delta\downarrow0$ units
+of operational time. Define
 
 ```math
 \widehat\psi_\delta(q)=
@@ -807,7 +826,8 @@ For a stable clock,
 \Phi(q)=c_\gamma q^\gamma.
 ```
 
-Both the order $\gamma$ and the coefficient $c_\gamma$ come from the small-$q$ asymptotics of the block-length transform.
+Both the order $\gamma$ and the coefficient $c_\gamma$ come from the
+small-$q$ asymptotics of the block-length transform.
 
 # 13. Extracting the hidden-route self-energy
 
@@ -838,7 +858,8 @@ C_\delta&D_\delta
 \end{pmatrix}.
 ```
 
-The opposite off-diagonal signs conservatively couple the visible and hidden sectors, while $H_\delta,D_\delta$ provide dissipation.
+The opposite off-diagonal signs conservatively couple the visible and hidden
+sectors, while $H_\delta,D_\delta$ provide dissipation.
 
 Eliminating the hidden block gives
 
@@ -926,7 +947,7 @@ z^{\eta-1}
 \end{aligned}
 ```
 
-as $z\to0$ in the appropriate sector.
+as $z\to0$ in the appropriate sector. The exponent is therefore identified as
 
 ```math
 \eta=
@@ -944,7 +965,8 @@ is the corresponding memory strength.
 
 # 15. Joint convergence with an anomalous clock
 
-Let $Y_\delta$ be the operational profile process and $D_\delta$ the accumulated block-length process.
+Let $Y_\delta$ be the operational profile process and $D_\delta$ the
+accumulated block-length process.
 
 The correct proof target is joint convergence:
 
@@ -961,14 +983,15 @@ E_\delta(\tau)=
 \inf{s:D_\delta(s)>\tau},
 ```
 
-Equivalently,
+and
 
 ```math
 E(\tau)=
 \inf{s:D(s)>\tau}.
 ```
 
-Under the continuity conditions for the inverse-map operation, in particular when $D$ is strictly increasing,
+Under the continuity conditions for the inverse-map operation, in particular
+when $D$ is strictly increasing,
 
 ```math
 E_\delta\Rightarrow E.
@@ -982,7 +1005,9 @@ Y_\delta(E_\delta(\tau))
 Y(E_\tau).
 ```
 
-Independence of $Y$ and $D$ gives the scalar inverse-subordination equation. If they remain coupled, one obtains a joint semi-Markov kernel rather than a scalar $\Phi$.
+Independence of $Y$ and $D$ gives the scalar inverse-subordination equation.
+If they remain coupled, one obtains a joint semi-Markov kernel rather than a
+scalar $\Phi$.
 
 # 16. The corrected continuum master resolvent
 
@@ -996,7 +1021,7 @@ C,\qquad
 \Omega,
 ```
 
-The continuum gauge variable is
+the continuum gauge variable is
 
 ```math
 Z_q=qI+i\Omega N.
@@ -1027,54 +1052,5 @@ The old form with
 \Omega=\log\lambda
 ```
 
-is recovered only when the gauge parameter has already been expressed per unit of the chosen continuum clock.
-
-# 17. Complete proof obligations
-
-For a concrete refinement family, the continuum theorem is reduced to proving:
-
-```math
-\begin{aligned}
-&x_\delta(V_\delta)
-\text{ has compactly controlled profile geometry},\\
-&h_\delta\to h,\\
-&\mathcal L_\delta^h\to\mathcal L^h
-\text{ on a core},\\
-&\text{the limiting martingale problem is unique},\\
-&\Phi_\delta\to\Phi,\\
-&H_\delta\to H,\quad D_\delta\to D,\quad C_\delta\to C,\\
-&\Omega_\delta\to\Omega
-\text{ after carrier renormalization if needed}.
-\end{aligned}
-```
-
-The coefficients are then:
-
-```math
-\begin{aligned}
-b_h
-&=
-\lim
-\frac{\mathbb E[\Delta X_\delta]}{a_\delta},\\[1mm]
-a_h
-&=
-\lim
-\frac{\mathbb E[\Delta X_\delta\otimes\Delta X_\delta]}{a_\delta},\\[1mm]
-\nu_h
-&=
-\lim
-\frac{\text{profile-jump law}}{a_\delta},\\[1mm]
-\Phi(q)
-&=
-\lim
-\frac{1-\mathbb E[e^{-qJ_\delta}]}{c_\delta},\\[1mm]
-\Sigma(z)
-&=
-\lim
-C_\delta^\ast(z+D_\delta)^{-1}C_\delta,\\[1mm]
-\Omega
-&=
-\lim
-\frac{\vartheta_\delta-\vartheta_\delta^{(0)}}{a_\delta}.
-\end{aligned}
-```
+is recovered only when the gauge parameter has already been expressed per
+unit of the chosen continuum clock.

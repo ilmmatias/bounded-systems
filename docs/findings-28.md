@@ -22,7 +22,9 @@ this is
 \sum_w A(w,v)f(w).
 ```
 
-It need not define a bounded operator on any fixed Banach space. The pointwise formula remains meaningful whenever the indicated sum is finite or otherwise convergent.
+It need not define a bounded operator on any fixed Banach space. The pointwise
+formula remains meaningful whenever the indicated sum is finite or otherwise
+convergent.
 
 # 2. The rooted partition resolvent
 
@@ -33,7 +35,8 @@ Z_v(r)=
 \sum_{p:s(p)=v}r^{2|p|}.
 ```
 
-The partition function is the squared norm of the unnormalized rooted radial vector
+The partition function is the squared norm of the unnormalized rooted radial
+vector
 
 ```math
 \sum_{p:s(p)=v}r^{|p|}\xi_p.
@@ -63,7 +66,8 @@ Z(r)=
 \sum_{n\ge0}r^{2n}\mathcal A_+^n\mathbf 1.
 ```
 
-The series is the node-compressed positive resolvent associated with the full path resolvent.
+The series is the node-compressed positive resolvent associated with the full
+path resolvent.
 
 # 3. Critical normalization
 
@@ -146,13 +150,12 @@ Set $\lambda=R^{-2}$. It follows that
 
 The critical growth scale has become a positive adjacency eigenvalue.
 
-Positive vectors satisfying adjacency inequalities, with equality at regular vertices and possible defects at sinks or infinite emitters, arise naturally in graph-operator-algebra treatments of harmonic and boundary weights.
-
 # 4. Local boundedness of ratio limits
 
 Suppose $q:u\to v$ is a fixed path.
 
-Every path beginning at $v$ gives, after prefixing by $q$, a path beginning at $u$. Therefore
+Every path beginning at $v$ gives, after prefixing by $q$, a path beginning at
+$u$. Therefore
 
 ```math
 Z_u(r)\ge r^{2|q|}Z_v(r).
@@ -164,13 +167,16 @@ The resulting bound is
 h_r(v)\le r^{-2|q|}.
 ```
 
-For each node reachable from $u$, the normalized ratios are bounded on every interval bounded away from $r=0$.
+For each node reachable from $u$, the normalized ratios are bounded on every
+interval bounded away from $r=0$.
 
-Pointwise cluster functions may therefore exist while the unnormalized partition functions diverge.
+Pointwise cluster functions may therefore exist while the unnormalized
+partition functions diverge.
 
 # 5. The unrestricted infinite-emitter inequality
 
-If $v$ emits infinitely many edges, passing an infinite sum through the limit is not automatic.
+If $v$ emits infinitely many edges, passing an infinite sum through the limit
+is not automatic.
 
 For every finite subset
 
@@ -178,7 +184,7 @@ For every finite subset
 F\subseteq\{e:s(e)=v\},
 ```
 
-Thus,
+one has
 
 ```math
 h_r(v)
@@ -206,9 +212,8 @@ At a sink, a purely harmonic vector must satisfy
 h(v)=0.
 ```
 
-At an infinite emitter, strict inequality can remain, representing boundary mass that cannot be assigned to any finite collection of outgoing cylinders.
-
-Graph-algebra formulations likewise impose equality at ordinary vertices, while sinks and infinite emitters may carry a positive defect.
+At an infinite emitter, strict inequality can remain, representing boundary
+mass that cannot be assigned to any finite collection of outgoing cylinders.
 
 # 6. Critical cylinder weights
 
@@ -218,7 +223,7 @@ For a finite path
 q:u\to v,
 ```
 
-The subcritical rooted vector gives the cylinder weight
+the subcritical rooted vector gives the cylinder weight
 
 ```math
 \mu_{u,r}[q]=
@@ -264,9 +269,12 @@ R^{2|q|}h(v)\\
 \end{aligned}
 ```
 
-The adjacency eigenvector equation is exactly the cylinder-conservation equation.
+The adjacency eigenvector equation is exactly the cylinder-conservation
+equation.
 
-For arbitrary directed graphs, the boundary-path space is naturally the spectrum of the graph diagonal, so consistent cylinder values define boundary-state data.
+For arbitrary directed graphs, the boundary-path space is naturally the
+spectrum of the graph diagonal, so consistent cylinder values define
+boundary-state data.
 
 # 7. Derived edge splitting
 
@@ -291,7 +299,7 @@ q=e_n\cdots e_1,
 u=v_0\to v_1\to\cdots\to v_n,
 ```
 
-The factors telescope:
+the factors telescope:
 
 ```math
 \begin{aligned}
@@ -313,7 +321,8 @@ Since $h(u)=1$,
 \mu_{u,\partial}[q].
 ```
 
-Here $\pi_h(e\mid v)$ is the conditional splitting of a boundary cylinder, derived from the graph, the critical path-length scale, and the boundary state.
+Here $\pi_h(e\mid v)$ is the conditional splitting of a boundary cylinder,
+derived from the graph, the critical path-length scale, and the boundary state.
 
 # 8. The primary object is path-harmonic, not node-harmonic
 
@@ -388,7 +397,8 @@ it follows that
 \Psi(p)=\Psi(q).
 ```
 
-The node compression assigns equal cylinder weight to every equal-length route with the same endpoints.
+The node compression assigns equal cylinder weight to every equal-length route
+with the same endpoints.
 
 ### Shortcut versus composite route
 
@@ -408,15 +418,15 @@ The longer route receives the fixed length-scaling factor.
 
 A general prefix-harmonic boundary state need not obey either condition.
 
-node-harmonic vectors classify only endpoint-factorized boundary states.
-
-They do not classify arbitrary route-sensitive boundary states.
+Node-harmonic vectors classify only endpoint-factorized boundary states.
 
 # 9. When node compression loses nothing
 
-If every node reachable from $u$ is reached by at most one path, the endpoint uniquely determines the prefix.
+If every node reachable from $u$ is reached by at most one path, the endpoint
+uniquely determines the prefix.
 
-In that case, given any prefix-harmonic weight $\Psi$ and any fixed $R>0$, one may define
+In that case, given any prefix-harmonic weight $\Psi$ and any fixed $R>0$, one
+may define
 
 ```math
 h(v)=
@@ -441,7 +451,8 @@ On a rooted tree or any unique-route forward system:
 
 contain equivalent information.
 
-When routes reconverge, this equivalence fails. The node function identifies cylinders that remain distinct in the full path boundary.
+When routes reconverge, this equivalence fails. The node function identifies
+cylinders that remain distinct in the full path boundary.
 
 Thin compression loses the distribution of mass among routes at this step.
 
@@ -501,7 +512,9 @@ The two terms have different meanings. The potential term
 \sum_{k\ge0}T_R^k\varepsilon
 ```
 
-propagates finite-node defects backward along all paths and represents mass terminating at finite or singular boundary points. For the harmonic remainder, define the pointwise limit
+propagates finite-node defects backward along all paths and represents mass
+terminating at finite or singular boundary points. For the harmonic remainder,
+define the pointwise limit
 
 ```math
 h_\infty=
@@ -576,9 +589,9 @@ At critical divergence,
 \varepsilon_r\longrightarrow0.
 ```
 
-The finite-path source disappears, and any nonzero limit becomes harmonic because normalizing a diverging path resolvent removes its potential source and leaves boundary harmonic mass.
-
-The limit gives the resolvent-to-boundary transition.
+The finite-path source disappears, and any nonzero limit becomes harmonic
+because normalizing a diverging path resolvent removes its potential source and
+leaves boundary harmonic mass.
 
 # 12. Harmonic mass and the infinite-future core
 
@@ -629,9 +642,8 @@ Accordingly,
 
 where $K^+$ is the infinite-future core obtained by transfinite sink pruning.
 
-The boundary eigenvector is thereby linked to the ordinal decomposition.
-
-A nonzero pure harmonic state cannot live on a finite DAG or on a row-finite region whose forward paths all terminate.
+A nonzero pure harmonic state cannot live on a finite DAG or on a row-finite
+region whose forward paths all terminate.
 
 ## Constructive version
 
@@ -647,7 +659,8 @@ implies that at least one successor $w$ satisfies
 h(w)>0.
 ```
 
-Repeating this choice produces an infinite path of positive harmonic support, under the usual dependent-choice principle.
+Repeating this choice produces an infinite path of positive harmonic support,
+under the usual dependent-choice principle.
 
 Thus in the row-finite case:
 
@@ -657,7 +670,8 @@ h(v)>0
 \text{an infinite forward path begins at }v.
 ```
 
-At an infinite emitter, this implication can fail because positive superharmonic defect may remain there.
+At an infinite emitter, this implication can fail because positive
+superharmonic defect may remain there.
 
 # 13. Examples
 
@@ -724,7 +738,8 @@ Equivalently,
 \pi_h(e\mid v)=\frac1d.
 ```
 
-The equal cylinder splitting is derived from symmetry and path growth, not externally assigned.
+The equal cylinder splitting is derived from symmetry and path growth, not
+externally assigned.
 
 ## Spherically varying branching
 
@@ -750,13 +765,12 @@ R^{2n}h_n=
 \frac1{b_0b_1\cdots b_{n-1}}.
 ```
 
-The critical scale cancels after normalization, leaving the equal split forced by the branching profile.
+The critical scale cancels after normalization, leaving the equal split forced
+by the branching profile.
 
 ## A reconvergent diamond followed by an infinite tail
 
-Consider $u\to a\to v\to v_1\to v_2\to\cdots$.
-
-and
+Consider $u\to a\to v\to v_1\to v_2\to\cdots$ and
 
 ```math
 u\to b\to v.
@@ -790,7 +804,8 @@ The two route cylinders receive equal weight
 \frac12.
 ```
 
-A general route-sensitive prefix state could favor one branch over the other, an asymmetry that the node eigenvector compression cannot retain.
+A general route-sensitive prefix state could favor one branch over the other,
+an asymmetry that the node eigenvector compression cannot retain.
 
 # 14. The convex boundary cone
 
@@ -834,4 +849,5 @@ The relevant inclusion is
 \mathscr P.
 ```
 
-Equality holds in unique-route systems, but generally not in reconvergent systems.
+Equality holds in unique-route systems, but generally not in reconvergent
+systems.

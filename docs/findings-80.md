@@ -6,7 +6,9 @@ The continuous ordered sector of `findings-58.md` assigns independent marks
 U_i\sim\operatorname{Uniform}[0,1]
 ```
 
-and places the edge from the smaller mark to the larger mark with probability equal to their separation. For an integer $\ell\geq1$, consider a subset of $\ell+1$ sampled vertices, order its marks as
+and places the edge from the smaller mark to the larger mark with probability
+equal to their separation. For an integer $\ell\geq1$, consider a subset of
+$\ell+1$ sampled vertices, order its marks as
 
 ```math
 U_{(0)}<U_{(1)}<\cdots<U_{(\ell)},
@@ -19,7 +21,8 @@ U_{(j-1)}\longrightarrow U_{(j)}
 \qquad(1\leq j\leq\ell)
 ```
 
-is present. Edges between nonadjacent ordered vertices are not constrained. Define
+is present. Edges between nonadjacent ordered vertices are not constrained.
+Define
 
 ```math
 R_n^{(\ell)}
@@ -28,11 +31,15 @@ R_n^{(\ell)}
 \sum_{|S|=\ell+1}H_S^{(\ell)}.
 ```
 
-This extends the edge statistic $R_n^{(1)}$ and the two-step route statistic $R_n^{(2)}$ studied previously.
+This extends the edge statistic $R_n^{(1)}$ and the two-step route statistic
+$R_n^{(2)}$ studied previously.
 
 # 2. Route means
 
-The $\ell+2$ spacings determined by $\ell+1$ uniform order statistics have the Dirichlet distribution with every parameter equal to one. The route probability is the product of the $\ell$ internal spacings. The Dirichlet moment formula therefore gives
+The $\ell+2$ spacings determined by $\ell+1$ uniform order statistics have
+the Dirichlet distribution with every parameter equal to one. The route
+probability is the product of the $\ell$ internal spacings. The Dirichlet
+moment formula therefore gives
 
 ```math
 \theta_\ell
@@ -54,7 +61,9 @@ and $\theta_\ell=(\ell+1)!p_\ell$.
 
 # 3. Conditional one-vertex profile
 
-Fix one distinguished mark at $x$. Suppose it has rank $r$ among the $\ell+1$ ordered marks, so that $r$ other marks lie to its left and $\ell-r$ lie to its right.
+Fix one distinguished mark at $x$. Suppose it has rank $r$ among the
+$\ell+1$ ordered marks, so that $r$ other marks lie to its left and $\ell-r$
+lie to its right.
 
 The ordered left integral is
 
@@ -113,7 +122,8 @@ A_\ell
 \right].
 ```
 
-For $\ell=1$ and $\ell=2$, these formulas reproduce the edge and two-step route projections of `findings-58.md`.
+For $\ell=1$ and $\ell=2$, these formulas reproduce the edge and two-step
+route projections of `findings-58.md`.
 
 # 4. Exact leading coefficients
 
@@ -132,7 +142,8 @@ A_\ell^2
 \right].
 ```
 
-Since the route kernel has $\ell+1$ vertex positions, its intrinsic order-one coefficient is
+Since the route kernel has $\ell+1$ vertex positions, its intrinsic order-one
+coefficient is
 
 ```math
 C_1(\ell,\ell)
@@ -161,7 +172,8 @@ C_1(\ell,m)
 \end{aligned}
 ```
 
-At $(\ell,m)=(1,2)$, this gives $1/210$, agreeing with the independent calculation in `findings-58.md`.
+At $(\ell,m)=(1,2)$, this gives $1/210$, agreeing with the independent
+calculation in `findings-58.md`.
 
 # 5. Joint logarithmic process limit
 
@@ -174,13 +186,16 @@ R_{m_N(s)}^{(\ell_a)}-\theta_{\ell_a}
 \right)_{a=1}^r
 ```
 
-converges to a stationary Gaussian Ornstein-Uhlenbeck process with common drift rate $1/2$ and stationary covariance matrix
+converges to a stationary Gaussian Ornstein-Uhlenbeck process with common
+drift rate $1/2$ and stationary covariance matrix
 
 ```math
 \left(C_1(\ell_a,\ell_b)\right)_{a,b=1}^r.
 ```
 
-The common rate follows because every route length has a nonzero one-vertex projection. The route length changes the projection polynomial and covariance amplitude, but not the support order.
+The common rate follows because every route length has a nonzero one-vertex
+projection. The route length changes the projection polynomial and covariance
+amplitude, but not the support order.
 
 # 6. Infinite-rank route state
 
@@ -191,11 +206,17 @@ The functions
 \qquad \ell\geq1,
 ```
 
-are linearly independent. Indeed, each has a different highest polynomial degree. Hence the covariance matrices of the first $L$ route observables have rank $L$.
+are linearly independent. Indeed, each has a different highest polynomial
+degree. Hence the covariance matrices of the first $L$ route observables have
+rank $L$.
 
-The complete route hierarchy therefore does not collapse to a fixed finite-dimensional Gaussian state. Every finite family has a closed Ornstein-Uhlenbeck limit, but increasing the maximum route length reveals new independent directions in the latent empirical field.
+The complete route hierarchy therefore does not collapse to a fixed
+finite-dimensional Gaussian state. Every finite family has a closed
+Ornstein-Uhlenbeck limit, but increasing the maximum route length reveals new
+independent directions in the latent empirical field.
 
-This is an explicit distinction between finite-observable closure and universal finite-dimensional closure.
+This is an explicit distinction between finite-observable closure and
+universal finite-dimensional closure.
 
 Exact rational calculations confirm:
 

@@ -1,6 +1,7 @@
 # 1. Exact observation classes
 
-Let $X$ be the set of $t$-Martin-regular tail ends after eventual-tail collapse, and let
+Let $X$ be the set of $t$-Martin-regular tail ends after eventual-tail
+collapse, and let
 
 ```math
 \Phi_t:X\longrightarrow \mathcal M_t,
@@ -25,13 +26,15 @@ Define $C_F$ by
 C_F=X/\!\equiv_F.
 ```
 
-If $F\subseteq F'$, then $F'$ distinguishes at least as much as $F$, giving a surjection
+If $F\subseteq F'$, then $F'$ distinguishes at least as much as $F$, giving a
+surjection
 
 ```math
 \rho_{F',F}:C_{F'}\longrightarrow C_F.
 ```
 
-The inverse system $\{C_F,\rho_{F',F}\}_{F\Subset V_o}$ is the exact observation-refinement diagram.
+The inverse system $\{C_F,\rho_{F',F}\}_{F\Subset V_o}$ is the exact
+observation-refinement diagram.
 
 For a locally finite rooted component, the balls
 
@@ -51,7 +54,9 @@ with bonding maps
 \rho_n:C_{n+1}\to C_n.
 ```
 
-For arbitrary branching, the directed system over all finite $F$ remains primary; there may be no canonical one-parameter sequence of finite observations.
+For arbitrary branching, the directed system over all finite $F$ remains
+primary; there may be no canonical one-parameter sequence of finite
+observations.
 
 # 2. Local splitting and the associated graded defect
 
@@ -61,7 +66,8 @@ For $c\in C_n$, define its splitting multiplicity
 b_n(c)=|\rho_n^{-1}(c)|.
 ```
 
-The splitting multiplicity counts the depth-$(n+1)$ profiles hidden inside one depth-$n$ profile.
+The splitting multiplicity counts the depth-$(n+1)$ profiles hidden inside one
+depth-$n$ profile.
 
 If the class sets are finite, then
 
@@ -115,7 +121,7 @@ At every level,
 \to0.
 ```
 
-Equivalently,
+The associated graded module
 
 ```math
 \mathrm{gr}_{\mathrm{obs}}\mathfrak D=
@@ -124,7 +130,8 @@ Equivalently,
 \mathfrak D_{n+1}^{\mathrm{obs}}
 ```
 
-records distinctions according to the first observation layer at which they become visible.
+records distinctions according to the first observation layer at which they
+become visible.
 
 When $C_n$ and $C_{n+1}$ are finite,
 
@@ -135,7 +142,8 @@ When $C_n$ and $C_{n+1}$ are finite,
 |C_{n+1}|-|C_n|.
 ```
 
-No canonical splitting of these exact sequences is implied. The filtration is canonical; a direct-sum decomposition into layers generally is not.
+No canonical splitting of these exact sequences is implied. The filtration is
+canonical; a direct-sum decomposition into layers generally is not.
 
 # 3. Exact splitting growth
 
@@ -152,7 +160,7 @@ A simple growth invariant is
 \limsup_{n\to\infty}c_n^{1/n}.
 ```
 
-Equivalently, one may retain the complete sequence
+Alternatively, one may retain the complete sequence
 
 ```math
 (c_0,c_1,c_2,\ldots)
@@ -164,9 +172,16 @@ and the local branching data
 {b_n(c):c\in C_n}.
 ```
 
-The scalar $\Lambda_{\mathrm{split}}$ is only a compression. Different diagrams can have the same exponential rate but radically different splitting patterns.
+The scalar $\Lambda_{\mathrm{split}}$ is only a compression. Different diagrams
+can have the same exponential rate but different splitting patterns.
 
-Three extremal cases are already visible. If $c_n=1$ for every $n$, there is no node-level separation and every tail end has the same node Martin profile. A profile is eventually finitely determined when its class ceases to split after some finite level; such a profile is isolated in the exact refinement structure. Persistent refinement occurs when a compatible branch passes through classes that split infinitely often, so its full profile cannot be determined at any finite observation depth.
+Three extremal cases occur. If $c_n=1$ for every $n$, there is no node-level
+separation and every tail end has the same node Martin profile. A profile is
+eventually finitely determined when its class ceases to split after some finite
+level; such a profile is isolated in the exact refinement structure. Persistent
+refinement occurs when a compatible branch passes through classes that split
+infinitely often, so its full profile cannot be determined at any finite
+observation depth.
 
 # 4. Failure of exact separation depth to define a topology
 
@@ -185,7 +200,8 @@ s_t(\tau,\zeta)
 \min{s_t(\tau,\sigma),s_t(\sigma,\zeta)}.
 ```
 
-After quotienting permanent Martin-equivalent ends, one may formally construct an ultrametric such as
+After quotienting permanent Martin-equivalent ends, one may formally construct
+an ultrametric such as
 
 ```math
 d_\theta(\tau,\sigma)=\theta^{s_t(\tau,\sigma)},
@@ -194,7 +210,9 @@ d_\theta(\tau,\sigma)=\theta^{s_t(\tau,\sigma)},
 
 But this topology can be much finer than the actual Martin topology.
 
-If two profiles differ by $10^{-100}$ at a shallow node, the exact ultrametric treats them as immediately separated. The Martin product topology treats them as extremely close.
+If two profiles differ by $10^{-100}$ at a shallow node, the exact ultrametric
+treats them as immediately separated. The Martin product topology treats them as
+extremely close.
 
 ```math
 s_t
@@ -224,9 +242,10 @@ d_F(h,g)=
 |\widehat h(v)-\widehat g(v)|.
 ```
 
-The metric gives the finite-coordinate geometry of the Martin profiles.
+The pseudometric gives the finite-coordinate geometry of the Martin profiles.
 
-Let $\mathcal N_F(\varepsilon)$ be the minimum number of $d_F$-balls of radius $\varepsilon$ required to cover the profile image $\Phi_t(X)$.
+Let $\mathcal N_F(\varepsilon)$ be the minimum number of $d_F$-balls of radius
+$\varepsilon$ required to cover the profile image $\Phi_t(X)$.
 
 For a locally finite rooted component, define
 
@@ -254,19 +273,21 @@ The full family
 
 is more informative than one exact class-growth scalar.
 
-If the finite profile set at depth $n$ is discrete with minimum pairwise separation $\delta_n>0$, then for
+If the finite profile set at depth $n$ is discrete with minimum pairwise
+separation $\delta_n>0$, then for
 
 ```math
 \varepsilon<\frac{\delta_n}{2}
 ```
 
-The exact count is recovered:
+the exact count is recovered:
 
 ```math
 \mathcal N_n(\varepsilon)=c_n.
 ```
 
-In continuous-profile situations, the covering numbers remain meaningful even when $c_n$ is infinite.
+In continuous-profile situations, the covering numbers remain meaningful even
+when $c_n$ is infinite.
 
 # 6. Finite determination of route profiles
 
@@ -286,13 +307,17 @@ Define the approximate observation lag
 
 Set it to $\infty$ when no finite $m$ works.
 
-Thus $\ell_t(n,\varepsilon)$ measures how much route history is needed to predict all node observations through depth $n$ to precision $\varepsilon$.
+Thus $\ell_t(n,\varepsilon)$ measures how much route history is needed to
+predict all node observations through depth $n$ to precision $\varepsilon$.
 
 The comparison separates three regimes.
 
 ## Profile-locality regimes
 
-When $\ell_t(n,\varepsilon)\approx n$, shallow node profiles are determined by comparably shallow route history. Strong asymptotic mixing corresponds to $\ell_t(n,\varepsilon)\ll n$, because little route history is needed when many histories have nearly identical node profiles. Long-range dependence occurs when
+When $\ell_t(n,\varepsilon)\approx n$, shallow node profiles are determined by
+comparably shallow route history. Strong asymptotic mixing corresponds to
+$\ell_t(n,\varepsilon)\ll n$, because little route history is needed when many
+histories have nearly identical node profiles. Long-range dependence occurs when
 
 ```math
 \ell_t(n,\varepsilon)\gg n
@@ -300,15 +325,18 @@ When $\ell_t(n,\varepsilon)\approx n$, shallow node profiles are determined by c
 \ell_t(n,\varepsilon)=\infty,
 ```
 
-so even shallow node asymptotics depend on very long, or complete, infinite history.
+so even shallow node asymptotics depend on very long, or complete, infinite
+history.
 
-If the prefix boundary is compact, finitely branching, and the profile map is continuous, then
+If the prefix boundary is compact, finitely branching, and the profile map is
+continuous, then
 
 ```math
 \ell_t(n,\varepsilon)<\infty
 ```
 
-for every finite $n$ and every $\varepsilon>0$; this is uniform continuity in the intrinsic cylinder structure.
+for every finite $n$ and every $\varepsilon>0$; this is uniform continuity in
+the intrinsic cylinder structure.
 
 If $P_m(o)$ is the number of length-$m$ prefixes from $o$, then
 
@@ -320,7 +348,8 @@ P_{\ell_t(n,\varepsilon)}(o)
 
 whenever the right side is finite.
 
-Thus profile geometry is bounded by resolved route growth only after accounting for observation lag.
+Thus profile geometry is bounded by resolved route growth only after accounting
+for observation lag.
 
 # 7. Coherent branches and generalized branches
 
@@ -362,7 +391,8 @@ Define the generalized branch set
 C_\infty\setminus\beta(X).
 ```
 
-These are coherent finite-observation profiles not realized by any actual tail end.
+These are coherent finite-observation profiles not realized by any actual tail
+end.
 
 There is then an exact algebraic sequence
 
@@ -379,13 +409,15 @@ k^{(\mathcal G_t)}
 \to0.
 ```
 
-The distinction is between collapse, measured by the kernel $\mathfrak D_M$, and completion, measured by the cokernel $k^{(\mathcal G_t)}$.
+The distinction is between collapse, measured by the kernel $\mathfrak D_M$,
+and completion, measured by the cokernel $k^{(\mathcal G_t)}$.
 
-Several histories can collapse to one branch, whereas other branches can be added without representing any history.
+Several histories can collapse to one branch, whereas other branches can be
+added without representing any history.
 
 # 8. Compact realization theorem
 
-Suppose:
+Suppose the following hold:
 
 1. $X$ is compact;
 2. every finite-coordinate profile map $\Phi_F:X\to\mathbb R^F$ is continuous.
@@ -406,7 +438,8 @@ It follows that
 \varprojlim_{F\Subset V_o}Y_F.
 ```
 
-In particular, every coherent family of realized finite profiles is realized by at least one point of $X$.
+In particular, every coherent family of realized finite profiles is realized by
+at least one point of $X$.
 
 ## Proof
 
@@ -444,7 +477,8 @@ Any point in the intersection realizes the whole compatible profile.
 
 for the inverse system built from the realized ray-profile images.
 
-Inverse-limit descriptions of path-space and boundary data are standard for Bratteli-type diagrams; the same compactness mechanism operates here.
+Inverse-limit descriptions of path-space and boundary data are standard for
+Bratteli-type diagrams; the same compactness mechanism operates here.
 
 # 9. Limits of compact realization
 
@@ -463,9 +497,11 @@ The full node Martin compactification is
 }.
 ```
 
-It can contain profiles not generated by any ray, even when every coherent branch of the ray-profile refinement diagram is realized.
+It can contain profiles not generated by any ray, even when every coherent
+branch of the ray-profile refinement diagram is realized.
 
-If $X$ is compact and $\Phi_t$ is continuous, then $\Phi_t(X)$ is closed. Therefore
+If $X$ is compact and $\Phi_t$ is continuous, then $\Phi_t(X)$ is closed.
+Therefore
 
 ```math
 \text{every Martin point is ray-generated}
@@ -487,18 +523,20 @@ for completion of the observation diagram of actual ends, and
 
 for Martin points not generated by actual ends.
 
-The first vanishes under compactness and continuity. The second may still survive.
+The first vanishes under compactness and continuity. The second may still
+survive.
 
 # 10. A sufficient ray-realization condition
 
-Assume:
+Assume the following:
 
 1. the rooted infinite-path space $X$ is compact;
 2. every sufficiently deep node lies on an infinite ray;
 3. $\Phi_t:X\to\mathcal M_t$ is continuous;
 4. Green columns approach ray profiles uniformly along deep prefixes:
 
-for every finite $F\Subset V_o$ and every $\varepsilon>0$, there is $N$ such that
+for every finite $F\Subset V_o$ and every $\varepsilon>0$, there is $N$ such
+that
 
 ```math
 d_F\bigl(K_t(\cdot,x),\Phi_t(\xi)\bigr)<\varepsilon
@@ -546,7 +584,8 @@ Consequently,
 \mathcal M_t^\partial=\Phi_t(X).
 ```
 
-The essential hypothesis is uniform convergence of deep node columns toward the profile of the ray containing them.
+The proof uses hypothesis 4, uniform convergence of deep node columns toward
+the profile of the ray containing them.
 
 # 11. Examples
 
@@ -558,7 +597,7 @@ At depth $n$, a ray profile is determined by its length-$n$ prefix.
 c_n=d^n,
 ```
 
-Equivalently,
+so
 
 ```math
 \Lambda_{\mathrm{split}}=d,
@@ -578,7 +617,8 @@ Also,
 
 for the natural separated profile scale.
 
-The ray space is compact, every compatible prefix branch is an actual ray, and every Martin point is ray-generated.
+The ray space is compact, every compatible prefix branch is an actual ray, and
+every Martin point is ray-generated.
 
 Here the node boundary preserves the full route boundary.
 
@@ -614,7 +654,8 @@ The example exhibits collapse without completion.
 
 ### Complete layered mixing
 
-The prefix boundary can contain an uncountable family of histories, but every history has the same node profile.
+The prefix boundary can contain an uncountable family of histories, but every
+history has the same node profile.
 
 Again,
 
@@ -626,9 +667,11 @@ c_n=1,
 \Lambda_{\mathrm{split}}=1.
 ```
 
-The permanent Martin defect is enormous, but the node-observation refinement diagram is trivial.
+The permanent Martin defect is infinite-dimensional, but the node-observation
+refinement diagram is trivial.
 
-The example shows that route-boundary size and node-profile growth are independent.
+The example shows that route-boundary size does not determine node-profile
+growth.
 
 ### Infinite emitter with disjoint infinite rays
 
@@ -655,7 +698,8 @@ Observe successively the first $n$ branch-entry nodes. Then $C_n$ has:
 c_n=n+1.
 ```
 
-A coherent branch remains in the residual class for every $n$, but no actual ray lies in every residual class:
+A coherent branch remains in the residual class for every $n$, but no actual
+ray lies in every residual class:
 
 ```math
 \bigcap_{n\ge1}
@@ -683,17 +727,9 @@ h(v)=0
 
 at every node lying on a named outgoing branch.
 
-It represents mass escaping through the infinite emitter without selecting any one actual ray.
+It represents mass escaping through the infinite emitter without selecting any
+one actual ray.
 
-Completion occurs without route collapse: every actual ray remains distinguishable, but the noncompact observation diagram adds one generalized exit.
-
-# 12. The invariant package
-
-The observation-refinement geometry has four distinct components:
-
-1. The graded defect $\mathrm{gr}_{\mathrm{obs}}\mathfrak D$ records which history distinctions first become exactly visible at each observation layer.
-2. The quantities $\mathcal N_F(\varepsilon)$, or $\Lambda_{\mathrm{obs}}(\varepsilon)$ in the locally finite rooted case, record how many distinguishable profile regions exist at finite precision.
-3. The locality scale $\ell_t(n,\varepsilon)$ records how much route history is required to predict shallow node asymptotics.
-4. The realization defect $\mathcal G_t=C_\infty\setminus\beta(X)$ records coherent profile branches with no actual historical realization.
-
-These components answer different questions and cannot be reduced to one scalar.
+Completion occurs without route collapse: every actual ray remains
+distinguishable, but the noncompact observation diagram adds one generalized
+exit.

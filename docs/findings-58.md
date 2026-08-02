@@ -1,6 +1,9 @@
 # 1. A continuous ordered-kernel sector
 
-The universal theorem of `findings-56.md` applies to arbitrary extremal exchangeable DAG kernels. The continuous ordered sector below supplies an explicit non-block example with exactly computable finite-pattern coefficients.
+The universal theorem of `findings-56.md` applies to arbitrary extremal
+exchangeable DAG kernels. The continuous ordered sector below supplies an
+explicit non-block example with exactly computable finite-pattern
+coefficients.
 
 Let
 
@@ -10,13 +13,18 @@ Let
 (V_{ij})_{1\leq i<j<\infty}
 ```
 
-be independent uniform random variables on $[0,1]$. For each pair $i<j$, place one directed edge from the vertex with smaller $U$-mark to the vertex with larger $U$-mark when
+be independent uniform random variables on $[0,1]$. For each pair $i<j$,
+place one directed edge from the vertex with smaller $U$-mark to the vertex
+with larger $U$-mark when
 
 ```math
 V_{ij}\leq|U_i-U_j|.
 ```
 
-No edge is placed otherwise. Every edge follows the strict latent order, so the resulting directed graph is acyclic almost surely. The law is exchangeable and dissociated, hence it determines an extremal central sector.
+No edge is placed otherwise. Every edge follows the strict latent order, so
+the resulting directed graph is acyclic almost surely. The law is
+exchangeable and dissociated, hence it determines an extremal central
+sector.
 
 The conditional edge probability is the continuous kernel
 
@@ -26,7 +34,8 @@ w(x,y)
 |x-y|.
 ```
 
-This sector is not equivalent to a finite ordered-block model. Its conditional expected incident-edge density
+This sector is not equivalent to a finite ordered-block model. Its
+conditional expected incident-edge density
 
 ```math
 q_E(x)
@@ -34,11 +43,15 @@ q_E(x)
 \int_0^1|x-y|\,dy
 ```
 
-has a continuous distribution under $x\sim\operatorname{Uniform}[0,1]$, whereas a finite block kernel has only finitely many such conditional values.
+has a continuous distribution under $x\sim\operatorname{Uniform}[0,1]$,
+whereas a finite block kernel has only finitely many such conditional
+values. For a continuous kernel of this kind, exact finite-time recovery of
+latent coordinates is generally unavailable.
 
 # 2. Edge-density coefficient
 
-Let $B_{ij}$ be the indicator that the unordered pair $\{i,j\}$ carries an edge, and define
+Let $B_{ij}$ be the indicator that the unordered pair $\{i,j\}$ carries an
+edge, and define
 
 ```math
 E_n
@@ -92,7 +105,8 @@ Its squared norm is
 \frac1{180}.
 ```
 
-Because the edge kernel has two vertex positions, its intrinsic order-one coefficient is
+Because the edge kernel has two vertex positions, its intrinsic order-one
+coefficient is
 
 ```math
 C_1(E,E)
@@ -135,7 +149,11 @@ Its covariance is
 
 ## Proof
 
-The principal projection is the nonzero one-vertex kernel $h_E$, so the principal degree is one. The universal process theorem of `findings-56.md` gives a rate-$1/2$ Gaussian limit with stationary variance $C_1(E,E)=1/45$. The displayed diffusion coefficient is the one satisfying the stationary Lyapunov identity for drift $1/2$.
+The principal projection is the nonzero one-vertex kernel $h_E$, so the
+principal degree is one. The universal process theorem of
+`findings-56.md` gives a rate-$1/2$ Gaussian limit with stationary
+variance $C_1(E,E)=1/45$. The displayed diffusion coefficient is the one
+satisfying the stationary Lyapunov identity for drift $1/2$.
 
 # 3. Exact second-order edge coefficient
 
@@ -147,7 +165,8 @@ The marginal edge indicator is Bernoulli with mean $1/3$, and therefore
 \frac29.
 ```
 
-The two one-vertex projections contribute $2\sigma_{E,1}^2=1/90$. Hence the total canonical order-two kernel has squared norm
+The two one-vertex projections contribute $2\sigma_{E,1}^2=1/90$. Hence
+the total canonical order-two kernel has squared norm
 
 ```math
 \sigma_{E,2}^2
@@ -185,17 +204,22 @@ C_2(E,E)
 \frac{19}{45}.
 ```
 
-After the order-one empirical projection is removed, the remaining edge statistic has normalization $n$, logarithmic rate one, and stationary variance $19/45$. Its process law is generally a sum of connected Gaussian and disconnected Wick components rather than a single Gaussian coordinate.
+After the order-one empirical projection is removed, the remaining edge
+statistic has normalization $n$, logarithmic rate one, and stationary
+variance $19/45$. Its process law is generally a sum of connected Gaussian
+and disconnected Wick components rather than a single Gaussian coordinate.
 
 # 4. Two-step route density
 
-The model also yields an explicit compositional observable. For a three-element vertex set $S$, write
+The model also yields an explicit compositional observable. For a
+three-element vertex set $S$, write
 
 ```math
 U_{(1)}<U_{(2)}<U_{(3)}
 ```
 
-for its ordered marks, and let $H_S$ be the indicator that both adjacent edges
+for its ordered marks, and let $H_S$ be the indicator that both adjacent
+edges
 
 ```math
 U_{(1)}\longrightarrow U_{(2)},
@@ -203,7 +227,8 @@ U_{(1)}\longrightarrow U_{(2)},
 U_{(2)}\longrightarrow U_{(3)}
 ```
 
-are present. The possible shortcut from $U_{(1)}$ to $U_{(3)}$ is not constrained. Define
+are present. The possible shortcut from $U_{(1)}$ to $U_{(3)}$ is not
+constrained. Define
 
 ```math
 R_n
@@ -212,7 +237,10 @@ R_n
 \sum_{|S|=3}H_S.
 ```
 
-Conditional on the three marks, the route probability is the product of the two adjacent gaps. The vector of four spacings determined by three uniform order statistics has the Dirichlet distribution with all parameters equal to one. Hence
+Conditional on the three marks, the route probability is the product of the
+two adjacent gaps. The vector of four spacings determined by three uniform
+order statistics has the Dirichlet distribution with all parameters equal
+to one. Hence
 
 ```math
 \theta_R
@@ -227,7 +255,9 @@ Conditional on the three marks, the route probability is the product of the two 
 
 # 5. One-vertex route projection
 
-Condition on one sampled mark being equal to $x$. The distinguished point can be the minimum, middle, or maximum of the triple. Direct integration over the other two points gives the three contributions
+Condition on one sampled mark being equal to $x$. The distinguished point
+can be the minimum, middle, or maximum of the triple. Direct integration
+over the other two points gives the three contributions
 
 ```math
 q_{R,\min}(x)
@@ -333,11 +363,14 @@ and
 \frac1{900}e^{-|s-t|/2}.
 ```
 
-This is an explicit path-sensitive continuum law in a genuinely continuous extremal sector.
+This is an explicit path-sensitive continuum law in a continuous extremal
+sector.
 
 # 6. Joint edge-route process
 
-The leading edge and route modes are driven by the same empirical vertex field. Their one-vertex inner product is
+The leading edge and route modes are driven by the same empirical vertex
+field, since both respond to the location of one distinguished vertex in
+the latent order. Their one-vertex inner product is
 
 ```math
 \int_0^1h_E(x)h_R(x)\,dx
@@ -396,15 +429,11 @@ The determinant is
 
 so the two continuum observables are correlated but not linearly redundant.
 
-# 7. Interpretation of the example
+The kernel sector is infinite-dimensional, while any finite family of
+relational observables has an exact finite covariance matrix and a joint
+continuum process.
 
-This sector establishes several points not visible in a finite block model.
-
-The latent state space is continuous, and the continuum coefficients are integrals rather than finite sums. Nevertheless, the exact support hierarchy and logarithmic process limit remain unchanged. Stable coefficients therefore do not rely on a finite hidden alphabet.
-
-The edge and route observables share a first-order relaxation field because both respond to the location of one distinguished vertex in the latent order. Their different polynomial projections determine a nontrivial covariance matrix. Higher-order residuals then separate mark interactions from irreducible pair noise at rates one and above.
-
-The example also illustrates why a finite-dimensional closed profile need not be postulated at the start. The complete kernel sector is infinite-dimensional, but any chosen finite family of relational observables has an exact finite covariance matrix and a joint continuum process.
+# 7. Exact rational verification
 
 Exact rational calculations confirm:
 
@@ -414,9 +443,3 @@ Exact rational calculations confirm:
 - the route mean and projection norm;
 - the edge-route cross coefficient;
 - positivity of the joint covariance matrix.
-
-# 8. Open closure problem
-
-The finite-pattern continuum problem is now solved in arbitrary extremal central sectors, and a non-block path-sensitive example has explicit coefficients. The remaining structural problem is whether the infinite pattern profile can be represented by a smaller graph-intrinsic state.
-
-For continuous kernels, exact finite-time recovery of latent coordinates is generally unavailable. A natural next step is therefore to study whether the finite pattern algebra determines the kernel up to weak isomorphism, and whether a finite or compact set of profile coordinates is sufficient in restricted acyclic kernel classes.

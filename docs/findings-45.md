@@ -1,6 +1,7 @@
 # 1. Minimal first-pass cylinder dictionary
 
-Let $A$ be the adjacency matrix of a DAG, including channel multiplicities, and let
+Let $A$ be the adjacency matrix of a DAG, including channel multiplicities,
+and let
 
 ```math
 \mathbf 1=(1,\ldots,1)^\mathsf T.
@@ -25,7 +26,8 @@ q^{-+}&=A^\mathsf TA\mathbf1=A^\mathsf T d^+.
 \end{aligned}
 ```
 
-At a node $u$, $q^{++}(u)$ and $q^{--}(u)$ count the directed length-two routes starting and ending at $u$, respectively, while
+At a node $u$, $q^{++}(u)$ and $q^{--}(u)$ count the directed length-two routes
+starting and ending at $u$, respectively, while
 
 ```math
 q^{+-}(u)=
@@ -52,15 +54,19 @@ q^{-+}(u)/n^2
 \in\mathbb R^6.
 ```
 
-The six-coordinate dictionary is the first-moment projection of the second-order pair profile.
+The six-coordinate dictionary is the first-moment projection of the
+second-order pair profile.
 
-It is label invariant, comparable across system sizes, computable by sparse-matrix methods, bounded in a fixed compact subset of $\mathbb R^6$, and sensitive to direction, two-step flow, divergence, and reconvergence.
+It is label invariant, comparable across system sizes, computable by
+sparse-matrix methods, bounded in a fixed compact subset of $\mathbb R^6$,
+and sensitive to direction, two-step flow, divergence, and reconvergence.
 
 No manually selected graph statistic has been added.
 
 ## Sufficiency of the six-coordinate profile
 
-The direct-relation frequencies are already determined by the first two coordinates:
+The direct-relation frequencies are already determined by the first two
+coordinates:
 
 ```math
 \frac{\left|\{v:u\to v\}\right|}n=\frac{d^+(u)}n,
@@ -68,11 +74,14 @@ The direct-relation frequencies are already determined by the first two coordina
 \frac{\left|\{v:v\to u\}\right|}n=\frac{d^-(u)}n.
 ```
 
-Equality contributes $1/n$; incomparability is the remainder, so these relation-count cylinders add no independent first-order information.
+Equality contributes $1/n$; incomparability is the remainder, so these
+relation-count cylinders add no independent first-order information.
 
-Partner-degree averages that do not depend on $u$ are also graph-global constants and do not contribute to node motion.
+Partner-degree averages that do not depend on $u$ are also graph-global
+constants and do not contribute to node motion.
 
-These six coordinates are the minimal nonredundant linear node cylinders supplied by the current communication record.
+These six coordinates are the minimal nonredundant linear node cylinders
+supplied by the current communication record.
 
 # 2. Integer node signatures
 
@@ -107,7 +116,8 @@ Each class has one normalized coordinate
 
 The first-pass state space has at most $n$ states and usually fewer.
 
-The exact profile-refinement hierarchy will later replace $S_G(u)$ by increasingly refined node colors. But this six-integer signature is the smallest useful starting point.
+The exact profile-refinement hierarchy will later replace $S_G(u)$ by
+increasingly refined node colors.
 
 # 3. Route counting
 
@@ -127,7 +137,8 @@ and
 \ell_{k+1}=A^\mathsf T\ell_k.
 ```
 
-Thus $r_k(v)$ counts the length-$k$ routes starting at $v$, and $\ell_k(v)$ counts the length-$k$ routes ending at $v$.
+Thus $r_k(v)$ counts the length-$k$ routes starting at $v$, and $\ell_k(v)$
+counts the length-$k$ routes ending at $v$.
 
 The total number of length-$p$ routes is
 
@@ -145,7 +156,8 @@ m_e
 r_{p-j-1}(w).
 ```
 
-The count sums the occurrences of $e$ over all positions in all length-$p$ routes.
+The count sums the occurrences of $e$ over all positions in all length-$p$
+routes.
 
 The normalized route-averaged edge flow is
 
@@ -168,7 +180,7 @@ hence
 
 A failure of this identity means the route-flow implementation is wrong.
 
-# 4. Compress the route flow to node-profile classes
+# 4. Compression of the route flow to node-profile classes
 
 Define the integer class-flow matrix
 
@@ -231,7 +243,8 @@ a_{G,p}
 
 where $a_{G,p}$ is the continuum-time scale extracted below.
 
-The matrix is a directly computable approximation to the continuum profile operator.
+The matrix is a directly computable approximation to the continuum profile
+operator.
 
 # 5. Local coefficient fields
 
@@ -286,7 +299,8 @@ K_{ab}^{(p)}
 \Delta\xi_{ab}^{\otimes3}.
 ```
 
-These classwise tensors determine whether different profile regions have different continuum regimes.
+These classwise tensors determine whether different profile regions have
+different continuum regimes.
 
 # 6. Exact global tensors
 
@@ -343,8 +357,6 @@ one primitive edge represents $a_{G_n,p_n}$ units of continuum time.
 
 # 7. An exact telescoping identity for the drift
 
-There is a useful simplification that should be built into the analysis.
-
 Under the uniform length-$p$ route ensemble,
 
 ```math
@@ -386,9 +398,9 @@ Because $X$ is bounded,
 \frac{\mathrm{diam}(X_G)}p.
 ```
 
-> The globally route-averaged drift is a horizon-boundary effect.
-
-It normally vanishes as $p\to\infty$; therefore, global mean drift alone cannot determine whether the local continuum dynamics has drift.
+The globally route-averaged drift is therefore a horizon-boundary effect. It
+normally vanishes as $p\to\infty$, so global mean drift alone cannot determine
+whether the local continuum dynamics has drift.
 
 The local quantities
 
@@ -396,7 +408,8 @@ The local quantities
 b_a^{(p)}
 ```
 
-must be retained. They can remain nonzero even while the globally averaged drift vanishes.
+must be retained. They can remain nonzero even while the globally averaged
+drift vanishes.
 
 The identity also provides an audit:
 
@@ -407,7 +420,8 @@ p,m_{G,p}=
 
 # 8. Markov-closure or lumpability defect
 
-A class transition matrix is exact only if nodes with the same profile class have the same conditional transition law over classes.
+A class transition matrix is exact only if nodes with the same profile class
+have the same conditional transition law over classes.
 
 For remaining horizon $k$, define
 
@@ -474,7 +488,8 @@ The condition
 \mathfrak E_{G,p}=0
 ```
 
-means that the six-coordinate state is exactly Markov-complete at that horizon. Along a sequence of systems, convergence
+means that the six-coordinate state is exactly Markov-complete at that horizon.
+Along a sequence of systems, convergence
 
 ```math
 \mathfrak E_{G_n,p_n}\to0
@@ -496,7 +511,8 @@ The defect provides a data-driven stopping rule for refinement depth.
 
 # 9. Bulk-plateau defect
 
-The finite route law depends on the remaining horizon. The relevant test is whether an autonomous bulk generator emerges.
+The finite route law depends on the remaining horizon. The relevant test is
+whether an autonomous bulk generator emerges.
 
 At route position $j$, let
 
@@ -510,7 +526,8 @@ be the remaining horizon, and compute the class transition matrix
 K^{(p,j)}.
 ```
 
-Choose a bulk fraction $0<\varepsilon<1/2$, for example $\varepsilon=0.2$, and define
+Choose a bulk fraction $0<\varepsilon<1/2$, for example $\varepsilon=0.2$,
+and define
 
 ```math
 J_{\mathrm{bulk}}=
@@ -554,7 +571,8 @@ The autonomous continuum generator requires
 \mathfrak P_{G_n,p_n}\to0.
 ```
 
-If it converges instead to a nonzero profile as a function of $j/p$, the continuum limit is nonautonomous.
+If it converges instead to a nonzero profile as a function of $j/p$, the
+continuum limit is nonautonomous.
 
 # 10. Small-jump and Gaussian-closure diagnostics
 
@@ -573,7 +591,9 @@ The basic small-jump ratio is
 \frac{J_{\max}}{\sqrt{a_{G,p}}}.
 ```
 
-For a conventional triangular-array diffusion limit, the stronger useful condition is that the largest absolute jump tends to zero and the Lindeberg contribution vanishes:
+For a conventional triangular-array diffusion limit, the stronger useful
+condition is that the largest absolute jump tends to zero and the Lindeberg
+contribution vanishes:
 
 ```math
 \mathfrak L_{G,p}(\epsilon)=
@@ -613,7 +633,8 @@ In an ordinary diffusive regime,
 \mathfrak K_{3,G_n,p_n}\to0.
 ```
 
-If it remains finite or diverges, inspect the full jump measure rather than forcing a diffusion approximation.
+If it remains finite or diverges, inspect the full jump measure rather than
+forcing a diffusion approximation.
 
 # 11. Route-growth and gauge diagnostics
 
@@ -632,7 +653,9 @@ The finite route-growth sequence is
 \log\frac{T_{p+1}}{T_p}.
 ```
 
-For finite DAGs, it eventually collapses because $T_p=0$ beyond the maximum path length. The relevant diagnostic is an interior plateau across graph families of increasing height.
+For finite DAGs, it eventually collapses because $T_p=0$ beyond the maximum
+path length. The relevant diagnostic is an interior plateau across graph
+families of increasing height.
 
 The mean bulk growth rate is
 
@@ -681,7 +704,8 @@ The coefficient enters the continuum master resolvent.
 
 # 12. A computable convergence criterion
 
-For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the diffusion candidate is supported when
+For a graph sequence $G_n$, horizons $p_n$, and profile levels $r_n$, the
+diffusion candidate is supported when
 
 ```math
 a_n\to0,
@@ -811,12 +835,6 @@ for each graph G {
 }
 ```
 
-For large route counts, use:
-
-* unsigned 128-bit integers where safe;
-* arbitrary-precision integers when required;
-* or mantissa-plus-log representations for very large $n$.
-
 The identity
 
 ```math
@@ -870,15 +888,9 @@ for the quadratic tensor and
 
 for the symmetric cubic tensor.
 
-So the full low-order coefficient record remains small.
-
 # 15. Hierarchy beyond the six-coordinate pass
 
-The progression should be:
-
-## Level 0: six-coordinate dictionary
-
-The level-zero dictionary is
+The refinement hierarchy begins with the level-zero dictionary
 
 ```math
 X^{[0]}=
@@ -886,11 +898,12 @@ X^{[0]}=
 AA^\mathsf T\mathbf1,A^\mathsf TA\mathbf1).
 ```
 
-The calculation reuses the existing communication counts and adds little cost.
+The calculation reuses the existing communication counts.
 
 ## Profile-histogram refinement
 
-At the first level, let $c_1(u,v)$ be the canonical one-round ordered-pair profile key. Define
+At the first level, let $c_1(u,v)$ be the canonical one-round ordered-pair
+profile key. Define
 
 ```math
 x_u(c,d)=
@@ -913,10 +926,14 @@ It follows that
 |Y_u-Y_w|_2^2
 ```
 
-is twice the squared Hellinger distance between their exact one-round node profiles.
+is twice the squared Hellinger distance between their exact one-round node
+profiles.
 
-The construction supplies an information-geometric metric without arbitrary weights among profile fields.
+The construction supplies an information-geometric metric without arbitrary
+weights among profile fields.
 
-At refinement level $r$, replace $c_1$ by $c_r$ and stop when $\mathfrak E_{G,p,r}$ is below tolerance or reaches zero exactly.
+At refinement level $r$, replace $c_1$ by $c_r$ and stop when
+$\mathfrak E_{G,p,r}$ is below tolerance or reaches zero exactly.
 
-Thus the required refinement depth is selected dynamically by Markov closure, not merely by graph-isomorphism separation.
+Thus the Markov-closure defect, rather than graph-isomorphism separation,
+selects the required refinement depth.

@@ -1,6 +1,8 @@
 # 1. The completed compositional distance sector
 
-Apply the transfer theorem of `findings-84.md` to the decorated three-layer sector of `findings-83.md`. The payload parts $L_0,L_1,L_2$ have equal normalized masses and nonzero blocks
+Apply the transfer theorem of `findings-84.md` to the decorated three-layer
+sector of `findings-83.md`. The payload parts $L_0,L_1,L_2$ have equal
+normalized masses and nonzero blocks
 
 ```math
 \Gamma_{01}(x,y)=\mathbf 1_{\{x<y\}},
@@ -56,7 +58,8 @@ and
 \right).
 ```
 
-These masses sum to one after adding the scaled payload, the three source markers, the three sink markers, and the two global compensators.
+These masses sum to one after adding the scaled payload, the three source
+markers, the three sink markers, and the two global compensators.
 
 # 2. Exact graph-intrinsic part signatures
 
@@ -120,23 +123,37 @@ and
 \left(\frac9{32},\frac{31}{96}\right).
 ```
 
-All eleven degree pairs are distinct. The complete partition is therefore recoverable from the unmarked directed kernel through one finite rooted-degree polynomial.
+All eleven degree pairs are distinct. The complete partition is therefore
+recoverable from the unmarked directed kernel through one finite
+rooted-degree polynomial.
 
 # 3. Absolute compositional forcing
 
+The distinct degree pairs of the preceding section identify all eleven
+completed parts, which gives the following absolute forcing statement.
+
 ## Theorem 1. Uncolored compositional distance completion
 
-The tagged-compensated completion of the three-layer distance sector is absolutely finitely forcible in the full central DAG boundary.
+The tagged-compensated completion of the three-layer distance sector is
+absolutely finitely forcible in the full central DAG boundary.
 
 ## Proof
 
-The part polynomial and mass constraints recover all eleven completed parts. The relative forcing result of `findings-83.md` then forces the two adjacent half-kernels, aligns their middle coordinate, and forces the shortcut block to equal their normalized composition. The marker blocks are deterministic. The one-sided Gram defects force the two compensator blocks. Theorem 2 of `findings-84.md` completes the argument.
+The part polynomial and mass constraints recover all eleven completed parts.
+The relative forcing result of `findings-83.md` then forces the two adjacent
+half-kernels, aligns their middle coordinate, and forces the shortcut block
+to equal their normalized composition. The marker blocks are deterministic.
+The one-sided Gram defects force the two compensator blocks. Theorem 2 of
+`findings-84.md` completes the argument.
 
-No external colors or latent layer labels remain in the final selector. Every decorated expression used in the proof is converted into an ordinary finite quantum-DAG expression through the graph-intrinsic part indicators.
+No external colors or latent layer labels remain in the final selector. Every
+decorated expression used in the proof is converted into an ordinary finite
+quantum-DAG expression through the graph-intrinsic part indicators.
 
 # 4. The derived shortcut law
 
-Inside the selected uncolored sector, the two-step path density through the recovered middle part is
+Inside the selected uncolored sector, the two-step path density through the
+recovered middle part is
 
 ```math
 P_{02}(x,z)
@@ -154,7 +171,10 @@ The shortcut block satisfies
 36P_{02}(x,z).
 ```
 
-The coefficient differs from `findings-83.md` because the complete payload has been scaled to mass $\beta=1/12$. The relation itself is unchanged: the shortcut probability is the normalized volume of admissible intermediate states.
+The coefficient differs from `findings-83.md` because the complete payload
+has been scaled to mass $\beta=1/12$. The relation itself is unchanged: the
+shortcut probability is the normalized volume of admissible intermediate
+states.
 
 Set
 
@@ -174,18 +194,23 @@ The valid simple-DAG forcing observable is the one-sided Gram defect
 \,d\mu(x)d\mu(x').
 ```
 
-It vanishes exactly when the shortcut block equals the normalized path composition. After substituting the graph-intrinsic part indicators, it is an ordinary uncolored quantum-DAG observable assembled from simple DAG patterns.
+It vanishes exactly when the shortcut block equals the normalized path
+composition. After substituting the graph-intrinsic part indicators, it is an
+ordinary uncolored quantum-DAG observable assembled from simple DAG patterns.
 
 # 5. Scope of the forcing result
 
-The theorem removes the decorated-part assumption from the compositional construction. It proves absolute forcing of an uncolored finite completion containing the gap kernel as a graph-intrinsic derived block.
-
-It does not prove that the standalone one-population kernel
+Theorem 1 constrains the completed eleven-part architecture. For the
+standalone one-population kernel
 
 ```math
 (x,y)\longmapsto(y-x)_+
 ```
 
-is absolutely finitely forcible without auxiliary parts. The completion is a selector for the compositional scaffold, not an identification of that scaffold with a single undivided population.
+absolute finite forcibility without auxiliary parts remains open, and the
+completion selects the compositional scaffold rather than identifying it with
+a single undivided population.
 
-Exact calculations reproduce the payload degree functions, the edge density $7/54$, all eleven completed degree pairs, pointwise degree flattening, normalized path composition, and separation of the graph-intrinsic parts.
+Exact calculations reproduce the payload degree functions, the edge density
+$7/54$, all eleven completed degree pairs, pointwise degree flattening,
+normalized path composition, and separation of the graph-intrinsic parts.

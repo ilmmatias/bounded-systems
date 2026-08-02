@@ -1,8 +1,12 @@
 # 1. The projective boundary profile
 
-The extremal central-sector analysis identifies each sector with a deterministic sequence of finite induced-DAG probabilities. This sequence is not merely a coordinate system for the continuum limit. It reconstructs the positive harmonic function on the DAG branching graph and therefore determines every upward growth transition exactly.
+The extremal central-sector analysis identifies each sector with a
+deterministic sequence of finite induced-DAG probabilities. That sequence
+reconstructs the positive harmonic function on the DAG branching graph and
+therefore determines every upward growth transition exactly.
 
-Let $\mathfrak D_n$ denote the isomorphism classes of simple DAGs on $n$ vertices. Retain the extension multiplicity $e(G,H)$, the path dimension
+Let $\mathfrak D_n$ denote the isomorphism classes of simple DAGs on $n$
+vertices. Retain the extension multiplicity $e(G,H)$, the path dimension
 
 ```math
 \dim(G)=\frac{n!}{|\operatorname{Aut}(G)|},
@@ -18,7 +22,8 @@ D_n(H,G)
 \frac{d(G,H)}{n+1}.
 ```
 
-A coherent profile is a sequence $\mu=(\mu_n)_{n\geq0}$, where $\mu_n$ is a probability measure on $\mathfrak D_n$ and
+A coherent profile is a sequence $\mu=(\mu_n)_{n\geq0}$, where $\mu_n$ is
+a probability measure on $\mathfrak D_n$ and
 
 ```math
 \mu_n(G)
@@ -27,7 +32,9 @@ A coherent profile is a sequence $\mu=(\mu_n)_{n\geq0}$, where $\mu_n$ is a prob
 \mu_{n+1}(H)D_n(H,G).
 ```
 
-The set of all coherent profiles is the inverse limit of the finite-dimensional simplices $\Delta(\mathfrak D_n)$. It is the central simplex of the multiplicity Bratteli diagram.
+The set of all coherent profiles is the inverse limit of the
+finite-dimensional simplices $\Delta(\mathfrak D_n)$. It is the central
+simplex of the multiplicity Bratteli diagram.
 
 # 2. Harmonic coordinates
 
@@ -48,13 +55,16 @@ h_n(G)
 e(G,H)h_{n+1}(H),
 ```
 
-and $h_0(\varnothing)=1$. Conversely, every nonnegative family $h=(h_n)$ satisfying these relations and the root normalization determines a unique coherent profile through
+and $h_0(\varnothing)=1$. Conversely, every nonnegative family $h=(h_n)$
+satisfying these relations and the root normalization determines a unique
+coherent profile through
 
 ```math
 \mu_n(G)=\dim(G)h_n(G).
 ```
 
-Thus the central simplex is affinely isomorphic to the normalized base of the positive harmonic cone of the DAG branching graph.
+Thus the central simplex is affinely isomorphic to the normalized base of
+the positive harmonic cone of the DAG branching graph.
 
 ## Proof
 
@@ -72,7 +82,8 @@ h_n(G)
 \end{aligned}
 ```
 
-Conversely, suppose that $h$ is nonnegative, harmonic, and normalized at the root. The dimension recursion
+Conversely, suppose that $h$ is nonnegative, harmonic, and normalized at
+the root. The dimension recursion
 
 ```math
 \dim(H)
@@ -93,11 +104,14 @@ implies
 \end{aligned}
 ```
 
-The total mass is therefore independent of the level and equals one at the root. Hence $\mu_n(G)=\dim(G)h_n(G)$ is a probability distribution. Substitution into the harmonic relation gives coherence.
+The total mass is therefore independent of the level and equals one at the
+root. Hence $\mu_n(G)=\dim(G)h_n(G)$ is a probability distribution.
+Substitution into the harmonic relation gives coherence.
 
 # 3. Exact upward transitions
 
-A coherent profile supplies a forward growth law on every state in its support.
+A coherent profile supplies a forward growth law on every state in its
+support.
 
 ## Theorem 2. Boundary reconstruction of the up kernel
 
@@ -118,7 +132,8 @@ D_n(H,G)
 \frac{\mu_{n+1}(H)}{\mu_n(G)}.
 ```
 
-Then $U_n^{\mu}(G,\cdot)$ is a probability distribution, and the forward and backward transitions satisfy
+Then $U_n^{\mu}(G,\cdot)$ is a probability distribution, and the forward
+and backward transitions satisfy
 
 ```math
 \mu_n(G)U_n^{\mu}(G,H)
@@ -126,7 +141,8 @@ Then $U_n^{\mu}(G,\cdot)$ is a probability distribution, and the forward and bac
 \mu_{n+1}(H)D_n(H,G).
 ```
 
-The central path measure is the Markov measure obtained from the initial root and these upward transitions.
+The central path measure is the Markov measure obtained from the initial
+root and these upward transitions.
 
 ## Proof
 
@@ -152,11 +168,15 @@ Using $\mu_n(G)=\dim(G)h_n(G)$ and the definition of $D_n$, we obtain
 \end{aligned}
 ```
 
-Every finite path ending at $G$ has central cylinder probability $h_n(G)$. Multiplying the displayed upward transition probabilities along a path telescopes to that cylinder probability, proving the last statement.
+Every finite path ending at $G$ has central cylinder probability
+$h_n(G)$. Multiplying the displayed upward transition probabilities along
+a path telescopes to that cylinder probability, proving the last
+statement.
 
 # 4. Induced-pattern coordinates are complete
 
-Let $X$ be the exchangeable infinite DAG associated with $\mu$. For $F\in\mathfrak D_k$, define
+Let $X$ be the exchangeable infinite DAG associated with $\mu$. For
+$F\in\mathfrak D_k$, define
 
 ```math
 p_F
@@ -178,7 +198,8 @@ Two coherent profiles $\mu$ and $\nu$ are equal if and only if
 p_F^{\mu}=p_F^{\nu}
 ```
 
-for every finite DAG $F$. In particular, the full induced-pattern profile determines:
+for every finite DAG $F$. In particular, the full induced-pattern profile
+determines:
 
 1. every finite labeled distribution of the exchangeable DAG;
 2. the coherent system on the Bratteli diagram;
@@ -188,13 +209,21 @@ for every finite DAG $F$. In particular, the full induced-pattern profile determ
 
 ## Proof
 
-The coordinate indexed by $F\in\mathfrak D_k$ is exactly $\mu_k(F)$. Equality of all coordinates is therefore equality of the coherent profiles. The labeled law on $[k]$ is uniform inside each isomorphism class and assigns probability
+The coordinate indexed by $F\in\mathfrak D_k$ is exactly $\mu_k(F)$.
+Equality of all coordinates is therefore equality of the coherent
+profiles. The labeled law on $[k]$ is uniform inside each isomorphism
+class and assigns probability
 
 ```math
 \frac{\mu_k(F)}{\dim(F)}
 ```
 
-to every labeled realization of $F$. The finite labeled distributions determine the infinite exchangeable law by projective extension. Theorems 1 and 2 then reconstruct the harmonic function and upward transitions. Standard digraphon representation theory identifies two representing digraphons precisely when they induce the same exchangeable directed-graph law.
+to every labeled realization of $F$. The finite labeled distributions
+determine the infinite exchangeable law by projective extension. Theorems
+1 and 2 then reconstruct the harmonic function and upward transitions.
+Standard digraphon representation theory identifies two representing
+digraphons precisely when they induce the same exchangeable
+directed-graph law.
 
 # 5. Exact finite-horizon closure
 
@@ -206,7 +235,8 @@ For $N\geq1$, write
 (\mu_0,\mu_1,\ldots,\mu_N).
 ```
 
-This is a finite-dimensional vector because every level $\mathfrak D_n$ is finite.
+This is a finite-dimensional vector because every level $\mathfrak D_n$ is
+finite.
 
 ## Corollary 4. Finite truncation determines finite growth
 
@@ -225,25 +255,23 @@ D_n(H,G)
 \frac{\mu_{n+1}(H)}{\mu_n(G)}.
 ```
 
-No latent ordering, block partition, graphon representative, external time parameter, or separately postulated transition probability is required.
+No latent ordering, block partition, graphon representative, external time
+parameter, or separately postulated transition probability is required.
 
-The required state has two parts. The finite endpoint $G$ is the current relational microstate, while $\mu$ is the selected boundary or sector state. Once the sector is fixed, the endpoint process is Markov with the displayed transition law.
+The required state has two parts. The finite endpoint $G$ is the current
+relational microstate, while $\mu$ is the selected boundary or sector
+state. Once the sector is fixed, the endpoint process is Markov with the
+displayed transition law.
 
-# 6. Consequences for closure and selection
+A nonextremal central law makes $\mu$ random through its boundary
+variable, as described in `findings-57.md`. Conditional on that variable,
+the same reconstruction is exact.
 
-The infinite pattern profile is therefore an exact graph-intrinsic predictive state for the central growth problem. The remaining compression question is not whether a closed state exists. It is whether the projective state can be represented by fewer coordinates in a specified class of sectors.
+# 6. Exact verification through four vertices
 
-Selection and closure are now separate:
-
-```math
-\text{selection chooses }\mu,
-\qquad
-\text{harmonic reconstruction gives }U^{\mu}.
-```
-
-A nonextremal central law makes $\mu$ random through its boundary variable, as described in `findings-57.md`. Conditional on that variable, the same reconstruction is exact.
-
-Exhaustive construction of the DAG branching graph through four vertices gives the following exact rational results for several positive terminal profiles:
+Exhaustive construction of the DAG branching graph through four vertices
+gives the following exact rational results for several positive terminal
+profiles:
 
 - the harmonic recursion;
 - normalization of every level measure;
@@ -254,4 +282,16 @@ Exhaustive construction of the DAG branching graph through four vertices gives t
 
 # 7. Literature relation
 
-The equivalence between coherent systems, positive harmonic functions, and Markov central measures is standard in the theory of equipped graded graphs and Bratteli diagrams, for which see A. M. Vershik, *Equipped graded graphs, projective limits of simplices, and their boundaries*, Journal of Mathematical Sciences 209 (2015), 860-873, arXiv:1503.04447. The identification of complete finite-pattern probabilities with an exchangeable graph law is the graph-limit form of the Aldous-Hoover correspondence, developed in P. Diaconis and S. Janson, *Graph limits and exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61, arXiv:0712.2749. Directed graph laws are represented by digraphons, with uniqueness understood up to weak isomorphism, as in D. Cai, N. Ackerman, and C. Freer, *Priors on exchangeable directed graphs*, Electronic Journal of Statistics 10 (2016), 3490-3515, arXiv:1510.08440.
+The equivalence between coherent systems, positive harmonic functions, and
+Markov central measures is standard in the theory of equipped graded
+graphs and Bratteli diagrams, for which see A. M. Vershik, *Equipped
+graded graphs, projective limits of simplices, and their boundaries*,
+Journal of Mathematical Sciences 209 (2015), 860-873, arXiv:1503.04447.
+The identification of complete finite-pattern probabilities with an
+exchangeable graph law is the graph-limit form of the Aldous-Hoover
+correspondence, developed in P. Diaconis and S. Janson, *Graph limits and
+exchangeable random graphs*, Rendiconti di Matematica 28 (2008), 33-61,
+arXiv:0712.2749. Directed graph laws are represented by digraphons, with
+uniqueness understood up to weak isomorphism, as in D. Cai, N. Ackerman,
+and C. Freer, *Priors on exchangeable directed graphs*, Electronic
+Journal of Statistics 10 (2016), 3490-3515, arXiv:1510.08440.

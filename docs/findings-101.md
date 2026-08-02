@@ -40,7 +40,8 @@ e(\nu)
 pqD.
 ```
 
-The three terms are respectively the continuous-continuous, endpoint-continuous, and lower-endpoint-upper-endpoint contributions.
+The three terms are respectively the continuous-continuous,
+endpoint-continuous, and lower-endpoint-upper-endpoint contributions.
 
 # 2. The maximal density at fixed interval length
 
@@ -109,7 +110,8 @@ For every directed kernel,
 =0.
 ```
 
-Thus the intrinsic coordinate distribution has mean zero. The unique length-one interval with mean zero is
+Thus the intrinsic coordinate distribution has mean zero. The unique
+length-one interval with mean zero is
 
 ```math
 \left[-\frac12,\frac12\right].
@@ -131,7 +133,8 @@ Let
 u(x)=s_W(x)+\frac12.
 ```
 
-The map $u$ pushes $\mu$ forward to uniform measure on $[0,1]$. The intrinsic gap reconstruction gives
+The map $u$ pushes $\mu$ forward to uniform measure on $[0,1]$.
+The intrinsic gap reconstruction gives
 
 ```math
 W(x,y)
@@ -145,9 +148,8 @@ Consequently, $W$ is weakly isomorphic to
 A(r,s)=(s-r)_+.
 ```
 
-The scale, translation, coordinate distribution, and edge law have all been reconstructed from graph-intrinsic finite constraints.
-
-Exact symbolic calculation gives the edge-density decomposition and the factorization
+Exact symbolic calculation gives the edge-density decomposition and the
+factorization
 
 ```math
 \frac16-e_{\max}(D)

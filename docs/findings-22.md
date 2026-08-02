@@ -1,6 +1,7 @@
 # 1. Common path-counting data
 
-Let $A(v,u)=\left|\{e:u\to v\}\right|$ be the primitive-channel multiplicity kernel.
+Let $A(v,u)=\left|\{e:u\to v\}\right|$ be the primitive-channel multiplicity
+kernel.
 
 Let the length-$n$ route multiplicity be
 
@@ -36,7 +37,8 @@ T_n^-=
 
 which is the largest number of length-$n$ routes terminating at one node.
 
-These may be infinite. The operator conclusions below apply when the relevant quantities are finite and uniformly bounded.
+These may be infinite. The operator conclusions below apply when the relevant
+quantities are finite and uniformly bounded.
 
 # 2. Exact $\ell^2$-to-$\ell^1$ growth identity
 
@@ -85,14 +87,16 @@ T_n^+=
 
 The bound is attained.
 
-If $A$ is bounded on $\ell^1$, equivalently if outgoing degree is uniformly finite, the spectral-radius formula gives
+If $A$ is bounded on $\ell^1$, equivalently if outgoing degree is uniformly
+finite, the spectral-radius formula gives
 
 ```math
 r(S_+)^2=
 r_{\ell^1}(A).
 ```
 
-The Fock spectral radius is the square root of the endpoint-counting spectral radius.
+The Fock spectral radius is the square root of the endpoint-counting spectral
+radius.
 
 Equivalently,
 
@@ -104,7 +108,8 @@ r(S_+)=
 \right)^{1/(2n)}.
 ```
 
-The square root arises because route counts are $\ell^1$ mass, while mutually orthogonal Fock routes combine by Pythagoras.
+The square root arises because route counts are $\ell^1$ mass, while mutually
+orthogonal Fock routes combine by Pythagoras.
 
 # 3. Backward growth and node-space $\ell^2$
 
@@ -114,7 +119,8 @@ A backward Fock construction gives
 |S_-^n|^2=T_n^-.
 ```
 
-For the ordinary node-space adjacency operator on $\ell^2(V)$, the Schur bound gives
+For the ordinary node-space adjacency operator on $\ell^2(V)$, the Schur bound
+gives
 
 ```math
 |A^n|_{\ell^2\to\ell^2}
@@ -135,7 +141,9 @@ The two terms separate directional sources of growth:
 * forward branching;
 * backward reconvergence.
 
-A highly branching nonreconverging tree can have large $S_+$ but small endpoint concentration, whereas repeated merging of many routes can make both directional quantities large.
+A highly branching nonreconverging tree can have large $S_+$ but small endpoint
+concentration, whereas repeated merging of many routes can make both directional
+quantities large.
 
 # 4. Endpoint aggregation and reconvergence
 
@@ -177,7 +185,8 @@ Let $M_n(u)=\sup_vN_n(v,u)$ be the largest endpoint route multiplicity. Then
 |C_{n,u}|=\sqrt{M_n(u)}.
 ```
 
-Endpoint collapse is most singular precisely where many orthogonal routes reconverge onto one node.
+Endpoint collapse is most singular precisely where many orthogonal routes
+reconverge onto one node.
 
 Apply this to the all-route Fock vector
 
@@ -220,9 +229,12 @@ M_n(u)T_n(u)
 T_n(u)^2.
 ```
 
-The lower bound is attained when no two routes end at the same node, whereas the upper bound is attained when every route ends at one node. The middle quantity measures reconvergence concentration.
+The lower bound is attained when no two routes end at the same node, whereas the
+upper bound is attained when every route ends at one node. The middle quantity
+measures reconvergence concentration.
 
-Thus the endpoint-summation map destroys orthogonality with norm amplification $\sqrt{M_n(u)}$.
+Thus the endpoint-summation map destroys orthogonality with norm amplification
+$\sqrt{M_n(u)}$.
 
 # 5. From route counting to min-plus geometry
 
@@ -235,7 +247,8 @@ Define the endpoint path series
 \sum_{n\ge1}N_n(v,u)z^n.
 ```
 
-For a reachable pair $u<v$, the shortest compositional distance is exactly the $z$-adic valuation:
+For a reachable pair $u<v$, the shortest compositional distance is exactly the
+$z$-adic valuation:
 
 ```math
 d(u,v)=
@@ -261,7 +274,8 @@ The first two pieces of the scalar path series are:
 \end{aligned}
 ```
 
-The min-plus reduction retains only the valuation, discarding the leading and all higher coefficients.
+The min-plus reduction retains only the valuation, discarding the leading and
+all higher coefficients.
 
 ## Fock meaning of geodesic multiplicity
 
@@ -282,7 +296,8 @@ Orthogonality gives
 |\Gamma_{v,u}|^2=g(v,u).
 ```
 
-The first scalar correction discarded by tropicalization is the square of a canonical Fock norm.
+The first scalar correction discarded by tropicalization is the square of a
+canonical Fock norm.
 
 The three geometries meet in the exact formula
 
@@ -302,7 +317,7 @@ R_n(u)=
 \left|\{v:d(u,v)=n\}\right|
 ```
 
-be the number of nodes whose shortest distance from $u$ is exactly $n$.
+which is the number of nodes whose shortest distance from $u$ is exactly $n$.
 
 Every such node has at least one length-$n$ path, so
 
@@ -327,7 +342,7 @@ At the exponential-growth level,
 r(S_+)^2.
 ```
 
-The inequality can be either an equality or extremely strict.
+The inequality can be an equality or strict by an exponential factor.
 
 ## Regular branching tree
 
@@ -345,11 +360,13 @@ Equivalently,
 r(S_+)=\sqrt d.
 ```
 
-Here min-plus endpoint growth retains all route growth because every route reaches a distinct endpoint.
+Here min-plus endpoint growth retains all route growth because every route
+reaches a distinct endpoint.
 
 ## Complete reconvergence
 
-Suppose there is one node at every layer and $d$ parallel channels between consecutive layers.
+Suppose there is one node at every layer and $d$ parallel channels between
+consecutive layers.
 
 It follows that
 
@@ -371,7 +388,8 @@ r(S_+)=\sqrt d,
 
 while shortest-path endpoint growth is trivial.
 
-So tropical geometry can discard an arbitrarily large exponential amount of route information.
+So tropical geometry can discard an arbitrarily large exponential amount of
+route information.
 
 # 7. Weighted Möbius coefficients
 
@@ -411,11 +429,13 @@ The first exact bound is
 \sum_{r=1}^L c_{r,L}(v,u).
 ```
 
-Equality occurs when there is no cancellation between even- and odd-length factorizations.
+Equality occurs when there is no cancellation between even- and odd-length
+factorizations.
 
 # 8. Bounding Möbius coefficients by actual routes
 
-For each comparable pair, select one shortest path only for the counting proof; the resulting inequality is independent of this selection.
+For each comparable pair, select one shortest path only for the counting proof;
+the resulting inequality is independent of this selection.
 
 Given a factorization chain
 
@@ -423,7 +443,8 @@ Given a factorization chain
 u=x_0<\cdots<x_r=v
 ```
 
-of total cost $L$, concatenate the selected geodesic for each factor. This produces:
+of total cost $L$, concatenate the selected geodesic for each factor. This
+produces:
 
 1. an actual length-$L$ path from $u$ to $v$;
 2. a choice of $r-1$ cut positions among the $L-1$ internal edge positions.
@@ -452,13 +473,13 @@ The corresponding inequality is
 2^{L-1}N_L(v,u).
 ```
 
-And since
+Since
 
 ```math
 N_L(v,u)\le T_L(u),
 ```
 
-Combining these bounds yields
+it follows that
 
 ```math
 |m_L(v,u)|
@@ -475,9 +496,12 @@ Finally,
 2^{L-1}|S_+^L|^2.
 ```
 
-The inequality relates weighted Möbius coefficients, route multiplicity, and orthogonal Fock growth.
+The inequality relates weighted Möbius coefficients, route multiplicity, and
+orthogonal Fock growth.
 
-The factor $2^{L-1}$ is optimal for the unsigned number of factorization chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets, although its signed Möbius coefficient may cancel to zero.
+The factor $2^{L-1}$ is optimal for the unsigned number of factorization
+chains: one unique path of length $L$ has $2^{L-1}$ possible cut subsets,
+although its signed Möbius coefficient may cancel to zero.
 
 # 9. Spectral-radius consequence
 
@@ -498,7 +522,7 @@ Using
 r(S_+)^2=r_{\ell^1}(A),
 ```
 
-Thus,
+this becomes
 
 ```math
 \limsup_{L\to\infty}
@@ -519,7 +543,8 @@ M_d(v,u;\cdot)
 
 with the usual interpretation when the denominator is zero.
 
-The estimate is only a lower bound for the convergence radius; alternating cancellation can make the true radius larger.
+The estimate is only a lower bound for the convergence radius; alternating
+cancellation can make the true radius larger.
 
 For finite-height systems, all relevant series are polynomials.
 
@@ -539,7 +564,8 @@ For $a<1$,
 \frac{a}{1-a}.
 ```
 
-Because the shortest-path strict kernel $W_d=\zeta_d-I$ is coefficientwise bounded by $\mathcal P-I$,
+Because the shortest-path strict kernel $W_d=\zeta_d-I$ is coefficientwise
+bounded by $\mathcal P-I$,
 
 ```math
 |W_d(|z|)|_1
@@ -567,9 +593,11 @@ The elementary region
 |z|<\frac{1}{2|A|_1}
 ```
 
-is always contained in the $\ell^1$-operator convergence domain whenever the scalar weighted kernel is defined.
+is always contained in the $\ell^1$-operator convergence domain whenever the
+scalar weighted kernel is defined.
 
-Again, this is a universal safe region, not usually the optimal one.
+The region is sufficient for every bounded $A$ and is usually smaller than the
+optimal domain.
 
 # 11. The three geometries as successive algebraic operations
 
@@ -614,7 +642,8 @@ d(u,v)=
 \min{n:N_n(v,u)>0}.
 ```
 
-Ordinary addition of alternatives is replaced by minimum, while path concatenation becomes addition of lengths.
+Ordinary addition of alternatives is replaced by minimum, while path
+concatenation becomes addition of lengths.
 
 The geodesic operator retains only the earliest compositional possibility.
 

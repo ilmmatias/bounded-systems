@@ -6,7 +6,8 @@ The route projections in `findings-80.md` are centered even polynomials in
 t=1-2x.
 ```
 
-Their natural orthogonal coordinates are the even Legendre polynomials. Let $P_j$ denote the standard Legendre polynomial and define
+Their natural orthogonal coordinates are the even Legendre polynomials. Let
+$P_j$ denote the standard Legendre polynomial and define
 
 ```math
 e_j(x)
@@ -15,7 +16,8 @@ e_j(x)
 \qquad j\geq1.
 ```
 
-The functions $e_j$ form an orthonormal basis for the mean-zero even subspace of $L^2([0,1])$.
+The functions $e_j$ form an orthonormal basis for the mean-zero even subspace
+of $L^2([0,1])$.
 
 # 2. Triangular route expansion
 
@@ -55,7 +57,8 @@ a_{\ell\ell}
 \frac{(4\ell+1)(2\ell)!}{(4\ell+1)!!}
 ```
 
-are nonzero. The first $L$ route projections therefore span exactly the first $L$ even Legendre modes.
+are nonzero. The first $L$ route projections therefore span exactly the first
+$L$ even Legendre modes.
 
 # 3. Independent Ornstein-Uhlenbeck modes
 
@@ -68,7 +71,8 @@ Z_{j,N}(s)
 \sum_{i=1}^{m_N(s)}e_j(U_i).
 ```
 
-For every fixed $J$, the vector $(Z_{1,N},\ldots,Z_{J,N})$ converges to independent stationary processes satisfying
+For every fixed $J$, the vector $(Z_{1,N},\ldots,Z_{J,N})$ converges to
+independent stationary processes satisfying
 
 ```math
 dZ_j(s)
@@ -95,7 +99,8 @@ X_\ell(s)
 Z_j(s).
 ```
 
-This representation diagonalizes every finite route covariance matrix and reproduces the closed coefficient formula of `findings-80.md`.
+This representation diagonalizes every finite route covariance matrix and
+reproduces the closed coefficient formula of `findings-80.md`.
 
 # 4. Rooted star hierarchy
 
@@ -125,7 +130,9 @@ and the corresponding outgoing-star density is
 O_r(x)=\left(\frac{(1-x)^2}{2}\right)^r.
 ```
 
-In the centered coordinate $t=2x-1$, the sums $I_r+O_r$ have even leading degree $2r$, while the differences $I_r-O_r$ have odd leading degree $2r-1$. The resulting triangular system implies that
+In the centered coordinate $t=2x-1$, the sums $I_r+O_r$ have even leading
+degree $2r$, while the differences $I_r-O_r$ have odd leading degree $2r-1$.
+The resulting triangular system implies that
 
 ```math
 1,
@@ -136,7 +143,9 @@ I_L,O_L
 
 spans every polynomial of degree at most $2L$.
 
-Since polynomials are dense in $L^2([0,1])$, the infinite rooted-star hierarchy recovers the complete latent empirical Gaussian field, not only its even route sector.
+Since polynomials are dense in $L^2([0,1])$, the infinite rooted-star
+hierarchy recovers the complete latent empirical Gaussian field, not only its
+even route sector.
 
 # 5. Graph-intrinsic latent coordinate
 
@@ -148,7 +157,8 @@ d^-(x)-d^+(x)
 x-\frac12.
 ```
 
-Thus the latent coordinate is reconstructed directly from the rooted directed-degree profile:
+Thus the latent coordinate is reconstructed directly from the rooted
+directed-degree profile:
 
 ```math
 x
@@ -184,13 +194,19 @@ and
 s(y)-s(x).
 ```
 
-The continuous latent order is therefore not an external hidden coordinate once the complete rooted profile is known. It is a graph-intrinsic function of the expected incoming and outgoing relations.
+Once the complete rooted profile is known, the continuous latent order is a
+graph-intrinsic function of the expected incoming and outgoing relations rather
+than an external hidden coordinate.
 
 # 6. Closure and finite forcing
 
-The preceding reconstruction is an exact continuum closure statement. The rooted degree functions determine the coordinate, the coordinate determines the kernel, and the kernel determines the coherent profile and harmonic growth law.
+The preceding reconstruction is an exact continuum closure statement. The
+rooted degree functions determine the coordinate, the coordinate determines the
+kernel, and the kernel determines the coherent profile and harmonic growth law.
 
-It does not by itself prove absolute finite forcing. A finite forcing family consists of finitely many scalar pattern densities, whereas the reconstruction above uses the full rooted degree functions. The distinction is essential:
+A finite forcing family consists of finitely many scalar pattern densities,
+whereas the reconstruction above uses the full rooted degree functions. The
+closure statement therefore stops short of absolute finite forcing:
 
 ```math
 \text{functional reconstruction}

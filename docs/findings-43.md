@@ -1,14 +1,19 @@
 # 1. Three separate refinement variables
 
-Three indices must remain distinct: $n$ is the system size, $r$ is the observation or 2-WL refinement depth, and $p$ is the resolved path horizon.
+Three indices must remain distinct: $n$ is the system size, $r$ is the
+observation or 2-WL refinement depth, and $p$ is the resolved path horizon.
 
 They play different roles:
 
 * $n\to\infty$ constructs the continuum profile space;
 * $r\to\infty$ removes observational/profile collapse;
-* $p\to\infty$ constructs the operational dynamics and asymptotic harmonic profile.
+* $p\to\infty$ constructs the operational dynamics and asymptotic harmonic
+  profile.
 
-Exhaustive data show why $r$ matters: the second-order pair profile classifies every non-isomorphic simple DAG through seven nodes; at eight nodes, one 2-WL round leaves only $509$ collision classes containing $1020$ graphs, whereas stabilized 2-WL separates all $20{,}286{,}025$ configurations.
+Exhaustive data show why $r$ matters: the second-order pair profile classifies
+every non-isomorphic simple DAG through seven nodes; at eight nodes, one 2-WL
+round leaves only $509$ collision classes containing $1020$ graphs, whereas
+stabilized 2-WL separates all $20{,}286{,}025$ configurations.
 
 Numerically,
 
@@ -36,13 +41,15 @@ The fraction of graphs involved in collisions is
 
 or about $0.00503\%$.
 
-At $n=8$, the pair profile is nearly injective, while stabilized refinement is fully separating.
+At $n=8$, the pair profile is nearly injective, while stabilized refinement
+is fully separating.
 
 # 2. A normalized 2-WL profile space valid for every $n$
 
-Because raw WL color integers are incomparable across graph sizes, use a recursively normalized object.
+Because raw WL color integers are incomparable across graph sizes, use a
+recursively normalized object.
 
-Define $\mathcal Z_0$ by
+Let
 
 ```math
 \mathcal Z_0=
@@ -76,7 +83,8 @@ z_r^G(w,v)
 }.
 ```
 
-The normalized empirical distribution records how a third node $w$ relates to the ordered pair $(u,v)$.
+The normalized empirical distribution records how a third node $w$ relates
+to the ordered pair $(u,v)$.
 
 Set $z_{r+1}^G(u,v)$ by
 
@@ -97,7 +105,9 @@ The profile spaces satisfy
 \mathcal P(\mathcal Z_r^2).
 ```
 
-At fixed $n$, multiplying $m_r$ by $n$ recovers the ordinary integer multiset used by exact 2-WL. Across different $n$, the normalized measure remains comparable.
+At fixed $n$, multiplying $m_r$ by $n$ recovers the ordinary integer multiset
+used by exact 2-WL. Across different $n$, the normalized measure remains
+comparable.
 
 The graph-level profile is
 
@@ -116,7 +126,10 @@ The normalized profile has the following properties:
 * naturally measure-valued;
 * directly computable with sparse canonical hashes.
 
-The explicit second-order communication profile used in the exhaustive computations is precisely a finite-coordinate realization of the first refinement, counting degrees, length-two routes, common targets, and common sources.
+The explicit second-order communication profile used in the exhaustive
+computations is precisely a finite-coordinate realization of the first
+refinement, counting degrees, length-two routes, common targets, and common
+sources.
 
 # 3. Compactness of the finite-observation profile spaces
 
@@ -130,7 +143,8 @@ Recursively equip
 \times\mathcal P(\mathcal Z_r^2)
 ```
 
-with a product metric involving the Wasserstein metric on the probability-measure factor.
+with a product metric involving the Wasserstein metric on the
+probability-measure factor.
 
 Because $\mathcal Z_0$ is finite and compact, induction gives
 
@@ -139,7 +153,7 @@ Because $\mathcal Z_0$ is finite and compact, induction gives
 \text{ is compact for every finite }r.
 ```
 
-This gives
+The space
 
 ```math
 \mathcal X_r=
@@ -154,7 +168,7 @@ Every finite DAG is now represented by a point
 \mu_{G,r}\in\mathcal X_r.
 ```
 
-The resulting compact space is
+The space
 
 ```math
 \mathcal M_r=
@@ -168,9 +182,11 @@ The resulting compact space is
 
 is a canonical compact finite-observation continuum profile space.
 
-The candidate continuum state space satisfies the following compactness statement:
+The candidate continuum state space satisfies the following compactness
+statement:
 
-> For every fixed observation depth $r$, every sequence of finite DAG profiles has a convergent subsequence.
+> For every fixed observation depth $r$, every sequence of finite DAG profiles
+> has a convergent subsequence.
 
 Compactness alone does not prove convergence of the operational path process.
 
@@ -184,7 +200,8 @@ For surviving ordered pairs $u,v\neq a$,
 z_0^H(u,v)=z_0^G(u,v).
 ```
 
-At the next refinement round, removing one atom and renormalizing changes the empirical measure over intermediate nodes. Inductively,
+At the next refinement round, removing one atom and renormalizing changes the
+empirical measure over intermediate nodes. Inductively,
 
 ```math
 d_r\left(
@@ -231,17 +248,21 @@ For a diagonal limit $r=r_n$, vanishing profile jumps are guaranteed when
 r_n=o(n).
 ```
 
-Stabilized 2-WL may be used in a continuum limit only after checking that its required stabilization depth grows sublinearly:
+Stabilized 2-WL may be used in a continuum limit only after checking that its
+required stabilization depth grows sublinearly:
 
 ```math
 r_{\mathrm{stab}}(n)=o(n).
 ```
 
-The eight-node result proves finite injectivity, but the per-class first-separation rounds must now be exported to estimate the growth of $r_{\mathrm{stab}}(n)$.
+The eight-node result proves finite injectivity, but the per-class
+first-separation rounds must now be exported to estimate the growth of
+$r_{\mathrm{stab}}(n)$.
 
 # 5. Node profiles for operational dynamics
 
-The graph-level measure $\mu_{G,r}$ describes the whole system. The operational path process needs a profile attached to each current node.
+The graph-level measure $\mu_{G,r}$ describes the whole system. The
+operational path process needs a profile attached to each current node.
 
 Define the normalized node profile
 
@@ -267,7 +288,8 @@ x_{G,r}(u)
 \mathcal P(\mathcal Z_r^2).
 ```
 
-Two nodes are close when their complete normalized relational views of the graph are close.
+Two nodes are close when their complete normalized relational views of the
+graph are close.
 
 For an edge
 
@@ -275,36 +297,37 @@ For an edge
 e:u\to w,
 ```
 
-The operational profile jump is
+the operational profile jump is
 
 ```math
 \Delta_{G,r}(e)=
 x_{G,r}(w)-x_{G,r}(u).
 ```
 
-Unlike the graph-level deletion increment, this edge increment is not automatically small as $n\to\infty$.
+Unlike the graph-level deletion increment, this edge increment is not
+automatically small as $n\to\infty$.
 
-The relevant test is:
+The relevant test for a local differential limit is
 
 ```math
 |\Delta_{G_n,r}(e)|\to0
 ```
 
-is the condition for a local differential limit.
-
-If a nonzero fraction of channel jumps remains macroscopic, the continuum limit is a jump or Lévy operator.
+If a nonzero fraction of channel jumps remains macroscopic, the continuum
+limit is a jump or Lévy operator.
 
 The limiting jump data determine whether the regime is Gaussian or anomalous.
 
 # 6. Canonical finite-horizon route dynamics
 
-Because finite DAGs have no positive adjacency eigenvalue, define the finite-horizon route-count functions
+Because finite DAGs have no positive adjacency eigenvalue, define the
+finite-horizon route-count functions
 
 ```math
 R_0(v)=1,
 ```
 
-The recursion is
+with the recursion
 
 ```math
 R_{k+1}(v)=
@@ -349,7 +372,8 @@ P_k(e\mid v)=
 ).
 ```
 
-After traversing one edge, the remaining horizon changes from $k$ to $k-1$. Therefore
+After traversing one edge, the remaining horizon changes from $k$ to $k-1$.
+Therefore
 
 ```math
 (v,k)\longmapsto(r(e),k-1)
@@ -357,7 +381,8 @@ After traversing one edge, the remaining horizon changes from $k$ to $k-1$. Ther
 
 is a genuine Markov process on the augmented finite-horizon state space.
 
-No eigenvector, asymptotic limit, or external probability law is required; the kernel is normalized route counting.
+No eigenvector, asymptotic limit, or external probability law is required;
+the kernel is normalized route counting.
 
 # 7. Canonical route ensemble over the whole graph
 
@@ -369,7 +394,7 @@ T_p(G)=
 \sum_{u,v}(A^p)_{uv}.
 ```
 
-Define $L_j(v)$ by
+Let
 
 ```math
 L_j(v)=
@@ -378,7 +403,8 @@ L_j(v)=
 
 be the number of length-$j$ paths ending at $v$.
 
-Under the uniform counting measure on resolved length-$p$ paths, the probability of being at $v$ after $j$ steps is
+Under the uniform counting measure on resolved length-$p$ paths, the
+probability of being at $v$ after $j$ steps is
 
 ```math
 \rho_{p,j}(v)=
@@ -400,7 +426,8 @@ T_p(G)
 }.
 ```
 
-For $A_{vw}$ parallel channels, summing over them introduces the factor $A_{vw}$.
+For $A_{vw}$ parallel channels, summing over them introduces the factor
+$A_{vw}$.
 
 The kernel gives finite formulas for every continuum coefficient.
 
@@ -432,7 +459,8 @@ For an edge $v\to w$,
 X_{G,r}(w)-X_{G,r}(v).
 ```
 
-The exact $q$-th route-increment moment, averaged over all steps of all length-$p$ routes, is
+The exact $q$-th route-increment moment, averaged over all steps of all
+length-$p$ routes, is
 
 ```math
 M_{n,p,r}^{(q)}=
@@ -567,7 +595,8 @@ The jump measure is obtained directly from the empirical edge-jump law.
 
 The correct positive harmonic profile arises from finite route counts.
 
-Suppose for a graph sequence and horizons $p_n\to\infty$, there are positive normalizations $c_{n,k}$ such that
+Suppose for a graph sequence and horizons $p_n\to\infty$, there are positive
+normalizations $c_{n,k}$ such that
 
 ```math
 \frac{R_k^{(n)}}{c_{n,k}}
@@ -596,7 +625,8 @@ passing to the limit gives
 Ah=\lambda h.
 ```
 
-The asymptotic ratio limit of finite route-count vectors yields the infinite-volume positive eigenprofile.
+The asymptotic ratio limit of finite route-count vectors yields the
+infinite-volume positive eigenprofile.
 
 A rootless global growth estimator is
 
@@ -612,7 +642,8 @@ A local estimator is
 \frac{R_{p+1}(v)}{R_p(v)}.
 ```
 
-The required bulk condition is that these ratios stabilize away from the path-horizon boundaries.
+The required bulk condition is that these ratios stabilize away from the
+path-horizon boundaries.
 
 # 11. Finite-horizon boundary effects
 
@@ -622,7 +653,8 @@ The finite kernel
 P_k(e\mid v)
 ```
 
-depends on the remaining horizon $k$. Therefore the first candidate continuum generator may be nonautonomous.
+depends on the remaining horizon $k$. Therefore the first candidate continuum
+generator may be nonautonomous.
 
 Define the rescaled time coordinate $s$ by
 
@@ -637,7 +669,7 @@ If the coefficient tensors converge to
 b(s,x),\qquad a(s,x),
 ```
 
-The limit equation is
+the limit equation is
 
 ```math
 \partial_\tau f=
@@ -646,7 +678,8 @@ b(\tau,x)\cdot\nabla f
 \frac12a(\tau,x):\nabla^2f.
 ```
 
-The autonomous master equation previously derived requires a stronger bulk plateau condition:
+The autonomous master equation previously derived requires a stronger bulk
+plateau condition:
 
 ```math
 P_k(e\mid v)
@@ -654,7 +687,8 @@ P_k(e\mid v)
 P_h(e\mid v)
 ```
 
-uniformly when both $k\to\infty$ and the distance from the terminal horizon diverges.
+uniformly when both $k\to\infty$ and the distance from the terminal horizon
+diverges.
 
 Equivalently, the coefficients measured in the middle portion
 
@@ -688,7 +722,8 @@ the normalized covariance satisfies
 \to a,
 ```
 
-the Lindeberg quantity vanishes, the coefficient fields are tight on compact profile spaces, and the finite-horizon bulk plateau exists.
+the Lindeberg quantity vanishes, the coefficient fields are tight on compact
+profile spaces, and the finite-horizon bulk plateau exists.
 
 Then the route-weighted node-profile process, rescaled by
 
@@ -707,7 +742,8 @@ b(X_\tau)\,d\tau
 \sigma\sigma^\mathsf T=a.
 ```
 
-If Lindeberg fails but the scaled edge-jump measures converge, the same construction yields the corresponding Lévy-type operator.
+If Lindeberg fails but the scaled edge-jump measures converge, the same
+construction yields the corresponding Lévy-type operator.
 
 The computable bridge is:
 
@@ -723,7 +759,9 @@ The computable bridge is:
 \text{continuum coefficients}.
 ```
 
-Dynamic programming and sparse profile hashing compute every quantity in that chain, without diagonalizing the nilpotent adjacency matrix or assuming the continuum regime in advance.
+Dynamic programming and sparse profile hashing compute every quantity in that
+chain, without diagonalizing the nilpotent adjacency matrix or assuming the
+continuum regime in advance.
 
 # 13. Gauge coefficient from route growth
 
@@ -734,7 +772,8 @@ The per-edge route-growth parameter is
 \log\frac{T_{p+1}}{T_p}.
 ```
 
-If one primitive edge represents $a_{n,p,r}$ continuum-time units, then the continuum gauge rate is
+If one primitive edge represents $a_{n,p,r}$ continuum-time units, then the
+continuum gauge rate is
 
 ```math
 \Omega_{n,p,r}=
@@ -745,7 +784,8 @@ a_{n,p,r}
 },
 ```
 
-where $\beta_0$ is any nonvanishing bulk carrier removed in the interaction picture.
+where $\beta_0$ is any nonvanishing bulk carrier removed in the interaction
+picture. Explicitly,
 
 ```math
 \Omega=
@@ -762,52 +802,3 @@ The coefficient enters
 ```math
 Z_q=qI+i\Omega N.
 ```
-
-# 14. Required computational outputs
-
-For every processed graph and every selected $p,r$, the next data pass should emit:
-
-```math
-\begin{aligned}
-&n,\quad |E|,\quad \text{height},\quad |\mathrm{Aut}(G)|,\\
-&r_{\mathrm{stab}}(G),\\
-&\text{canonical hashes of }\mu_{G,r},\\
-&T_p,\quad T_{p+1}/T_p,\\
-&M^{(1)}_{n,p,r},\quad
-M^{(2)}_{n,p,r},\quad
-M^{(3)}_{n,p,r},\\
-&\text{large-jump tail histogram},\\
-&\text{coefficient profile versus }j/p.
-\end{aligned}
-```
-
-The first new global tables should record both the number of distinct $r$-round profiles and the stabilization-rank distribution:
-
-```math
-\begin{aligned}
-c_{n,r}&=\left|\{\text{distinct }r\text{-round profiles}\}\right|,\\
-s_n(k)&=\left|\{G:r_{\mathrm{stab}}(G)=k\}\right|.
-\end{aligned}
-```
-
-Define the intrinsic scale and route-growth rate by
-
-```math
-\delta_{n,p,r}^2=
-\mathrm{tr}C_{n,p,r},
-\qquad
-\beta_{n,p}=
-\log(T_{p+1}/T_p),
-```
-
-and the scaled ratios
-
-```math
-\frac{|M^{(1)}|}{\delta},
-\qquad
-\frac{|M^{(1)}|}{\delta^2},
-\qquad
-\frac{|M^{(3)}|}{\delta^2}.
-```
-
-The three ratios distinguish ballistic, Gaussian, and non-Gaussian scaling.

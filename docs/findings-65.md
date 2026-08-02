@@ -1,8 +1,15 @@
 # 1. Information contraction and support order
 
-The fluctuation results of `findings-48.md` through `findings-58.md` associate a support on $r$ vertices with normalization $n^{r/2}$ and logarithmic relaxation rate $r/2$. The conjugate central family of `findings-64.md` gives an independent information-theoretic derivation of the same exponents.
+The fluctuation results of `findings-48.md` through `findings-58.md`
+associate a support on $r$ vertices with normalization $n^{r/2}$ and
+logarithmic relaxation rate $r/2$. The conjugate central family of
+`findings-64.md` gives an independent information-theoretic derivation of
+the same exponents.
 
-Parameters attached to one-vertex frequencies receive $O(n)$ observations. Parameters attached to pair relations receive $O(n^2)$ observations. Their posterior standard deviations therefore contract respectively as $n^{-1/2}$ and $n^{-1}$.
+Parameters attached to one-vertex frequencies receive $O(n)$ observations.
+Parameters attached to pair relations receive $O(n^2)$ observations. Their
+posterior standard deviations therefore contract respectively as
+$n^{-1/2}$ and $n^{-1}$.
 
 # 2. Exact Dirichlet uncertainty
 
@@ -43,11 +50,14 @@ n\,
 \operatorname{diag}(p)-pp^{\mathsf T}.
 ```
 
-The posterior standard deviation of every nonconstant linear functional of $p$ is therefore of order $n^{-1/2}$. In logarithmic size $s=\log n$, this is contraction at rate $1/2$.
+The posterior standard deviation of every nonconstant linear functional of
+$p$ is therefore of order $n^{-1/2}$. In logarithmic size $s=\log n$, this
+is contraction at rate $1/2$.
 
 ## Proof
 
-The exact covariance formula is the standard Dirichlet moment identity. The strong law gives $\bar p_n\to p$, while
+The exact covariance formula is the standard Dirichlet moment identity. The
+strong law gives $\bar p_n\to p$, while
 
 ```math
 \frac n{\alpha_0+n+1}\longrightarrow1.
@@ -55,7 +65,9 @@ The exact covariance formula is the standard Dirichlet moment identity. The stro
 
 Substitution gives the limit.
 
-The matrix $\Sigma_p$ is exactly the stationary covariance of the rate-$1/2$ empirical-proportion Ornstein-Uhlenbeck field derived in `findings-48.md` and `findings-51.md`.
+The matrix $\Sigma_p$ is exactly the stationary covariance of the
+rate-$1/2$ empirical-proportion Ornstein-Uhlenbeck field derived in
+`findings-48.md` and `findings-51.md`.
 
 # 3. Exact beta uncertainty
 
@@ -100,7 +112,8 @@ n^2
 }.
 ```
 
-The posterior standard deviation is therefore of order $n^{-1}$, corresponding to logarithmic contraction rate $1$.
+The posterior standard deviation is therefore of order $n^{-1}$,
+corresponding to logarithmic contraction rate $1$.
 
 ## Proof
 
@@ -121,7 +134,8 @@ and
 
 Multiplying the exact beta variance by $n^2$ gives the displayed limit.
 
-The limiting coefficient is the stationary variance of the rate-one edge-parameter Ornstein-Uhlenbeck process of `findings-51.md`:
+The limiting coefficient is the stationary variance of the rate-one
+edge-parameter Ornstein-Uhlenbeck process of `findings-51.md`:
 
 ```math
 \operatorname{Var}(\Xi_{ij})
@@ -129,11 +143,14 @@ The limiting coefficient is the stationary variance of the rate-one edge-paramet
 \frac{w_{ij}(1-w_{ij})}{p_ip_j}.
 ```
 
-Thus posterior uncertainty and quenched estimator fluctuations have the same support-order coefficient.
+Thus posterior uncertainty and quenched estimator fluctuations have the
+same support-order coefficient.
 
 # 4. Predictive correlations from boundary uncertainty
 
-Let $X$ and $Y$ be two distinct future possible edges in the same ordered block. Conditional on the current data, they are independent given $w_{ij}$, but not after $w_{ij}$ is integrated out.
+Let $X$ and $Y$ be two distinct future possible edges in the same ordered
+block. Conditional on the current data, they are independent given
+$w_{ij}$, but not after $w_{ij}$ is integrated out.
 
 ## Proposition 3. Exact future-edge correlation
 
@@ -166,13 +183,20 @@ Conditional independence gives
 =w_{ij}^2.
 ```
 
-The law of total covariance therefore reduces the predictive covariance to the posterior variance of $w_{ij}$.
+The law of total covariance therefore reduces the predictive covariance to
+the posterior variance of $w_{ij}$.
 
-The unresolved boundary variable creates an order-two correlation between otherwise independent future relational events. That correlation vanishes at the same rate as the pair-supported continuum mode.
+The unresolved boundary variable creates an order-two correlation between
+otherwise independent future relational events. That correlation vanishes
+at the same rate as the pair-supported continuum mode.
 
 # 5. General support-order information law
 
-The preceding calculations are instances of a general counting principle. Suppose a scalar Bernoulli parameter $\lambda$ controls independent relation variables attached to admissible $r$-vertex supports. Give $\lambda$ a beta prior and let $M_n$ be the number of observed admissible supports by level $n$. Assume
+The preceding calculations are instances of a general counting principle.
+Suppose a scalar Bernoulli parameter $\lambda$ controls independent
+relation variables attached to admissible $r$-vertex supports. Give
+$\lambda$ a beta prior and let $M_n$ be the number of observed admissible
+supports by level $n$. Assume
 
 ```math
 \frac{M_n}{n^r}\longrightarrow c>0
@@ -182,7 +206,8 @@ almost surely.
 
 ## Theorem 4. Conjugate support-order contraction
 
-Let $\bar\lambda_n$ be the beta posterior mean. Conditional on the selected value $\lambda$,
+Let $\bar\lambda_n$ be the beta posterior mean. Conditional on the selected
+value $\lambda$,
 
 ```math
 n^r
@@ -218,15 +243,22 @@ The beta posterior variance has the exact form
 }.
 ```
 
-The conditional strong law gives $\bar\lambda_n\to\lambda$. Multiplication by $n^r$ and the assumed opportunity asymptotic give the result.
+The conditional strong law gives $\bar\lambda_n\to\lambda$. Multiplication by
+$n^r$ and the assumed opportunity asymptotic give the result.
 
-The same statement holds componentwise for a finite categorical relation with a Dirichlet prior.
+The same statement holds componentwise for a finite categorical relation
+with a Dirichlet prior.
 
 # 6. The dual meaning of the half-integer spectrum
 
-The support-order spectrum has two independent derivations. For quenched finite-pattern fluctuations, $r$ supporting vertices give normalization $n^{r/2}$ and relaxation rate $r/2$. For posterior sector uncertainty, $O(n^r)$ relational observations give standard deviation $n^{-r/2}$ and contraction rate $r/2$.
+The support-order spectrum has two independent derivations. For quenched
+finite-pattern fluctuations, $r$ supporting vertices give normalization
+$n^{r/2}$ and relaxation rate $r/2$. For posterior sector uncertainty,
+$O(n^r)$ relational observations give standard deviation $n^{-r/2}$ and
+contraction rate $r/2$.
 
-The same exponent therefore governs both random fluctuations around a selected sector and information gained about an unresolved sector parameter.
+The same exponent therefore governs both random fluctuations around a
+selected sector and information gained about an unresolved sector parameter.
 
 # 7. Martingale distinction
 
@@ -246,16 +278,24 @@ and
 \mathbb E[w_{ij}\mid\mathcal F_n]
 ```
 
-are bounded martingales under the nonextremal mixture law. They converge to the boundary variable. This learning process should not be confused with the stationary Ornstein-Uhlenbeck fluctuations obtained after conditioning on a fixed extremal sector.
+are bounded martingales under the nonextremal mixture law. They converge
+to the boundary variable. The stationary Ornstein-Uhlenbeck fluctuations
+arise instead after conditioning on a fixed extremal sector.
 
-The two descriptions are complementary. Under the annealed law, the posterior martingale learns $\Theta$; under the quenched law, the empirical field fluctuates around a fixed value of $\Theta$.
+Under the annealed law, the posterior martingale learns $\Theta$; under
+the quenched law, the empirical field fluctuates around a fixed value of
+$\Theta$.
 
-The degree-zero mode is the unresolved limiting boundary value, while the positive half-integer modes describe the finite-size information and fluctuation scales around it.
+The degree-zero mode is the unresolved limiting boundary value, while the
+positive half-integer modes describe the finite-size information and
+fluctuation scales around it.
 
 Exact rational calculations confirm:
 
 - the Dirichlet covariance matrix against direct first and second moments;
 - the beta posterior variance against direct moments;
-- the equality between future-edge predictive covariance and posterior beta variance;
-- convergence of the rescaled one-vertex and pair-information coefficients in representative rational sectors;
+- the equality between future-edge predictive covariance and posterior beta
+  variance;
+- convergence of the rescaled one-vertex and pair-information coefficients
+  in representative rational sectors;
 - the general beta support-order formula for several support orders.

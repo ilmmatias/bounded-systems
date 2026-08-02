@@ -12,7 +12,8 @@ x_{G,r}(u)=
 \mathcal P(\mathcal Z_r^2).
 ```
 
-Instead of selecting ad hoc numerical graph statistics, take any continuous test function
+Instead of selecting ad hoc numerical graph statistics, take any continuous
+test function
 
 ```math
 \varphi\in C(\mathcal Z_r^2)
@@ -66,7 +67,8 @@ For computation, choose a countable dense dictionary
 \varphi_1,\varphi_2,\ldots
 ```
 
-and retain more cylinders. The final operator is independent of the chosen dense enumeration.
+and retain more cylinders. The final operator is independent of the chosen
+dense enumeration.
 
 # 2. Exact finite-horizon route kernel
 
@@ -89,7 +91,8 @@ and the backward route-count vectors
 (A^\mathsf T)^j\mathbf1.
 ```
 
-Thus $r_k(v)$ counts the length-$k$ routes starting at $v$, whereas $\ell_j(v)$ counts the length-$j$ routes ending at $v$.
+Thus $r_k(v)$ counts the length-$k$ routes starting at $v$, whereas
+$\ell_j(v)$ counts the length-$j$ routes ending at $v$.
 
 The total number of length-$p$ routes is
 
@@ -113,7 +116,8 @@ Normalization follows because
 \sum_wA_{vw}r_{k-1}(w)=r_k(v).
 ```
 
-No stochastic law was independently chosen; $P_k$ uniformly counts all resolved routes with $k$ remaining edges.
+No stochastic law was independently chosen; $P_k$ uniformly counts all
+resolved routes with $k$ remaining edges.
 
 # 3. Exact edge-flow matrices
 
@@ -170,7 +174,8 @@ Average over route position:
 \mathsf F_{p,j}.
 ```
 
-The matrix contains the route-weighted one-step statistics needed for the coefficient calculations.
+The matrix contains the route-weighted one-step statistics needed for the
+coefficient calculations.
 
 # 4. Finite-dimensional cylinder coordinates
 
@@ -314,25 +319,13 @@ M_{p,r}^{(q)}=
 \Delta X_{vw}^{\otimes q}.
 ```
 
-All Kramers-Moyal coefficients are edge sums weighted by $\overline{\mathsf F}_p$.
-
-The complexity is approximately
-
-```math
-O(p|E|)
-```
-
-for route counting and flow construction, plus
-
-```math
-O(|E|d^2)
-```
-
-for the quadratic tensor. This is radically cheaper than enumerating the $T_p$ routes individually.
+All Kramers-Moyal coefficients are edge sums weighted by
+$\overline{\mathsf F}_p$.
 
 # 7. Local coefficients rather than only global averages
 
-The global tensor gives the average regime; a state-dependent continuum operator requires local conditional coefficients.
+The global tensor gives the average regime; a state-dependent continuum
+operator requires local conditional coefficients.
 
 For a node $v$ with $r_k(v)>0$, define
 
@@ -379,13 +372,17 @@ b_{G,r,k}^i\partial_iF
 \text{higher terms}.
 ```
 
-The local drift and diffusion fields are thus directly computable at every node and remaining horizon.
+The local drift and diffusion fields are thus directly computable at every
+node and remaining horizon.
 
 # 8. The intrinsic time normalization
 
-Because the bounded system definition contains no external clock, the continuum time scale is determined only up to a global multiplicative constant.
+Because the bounded system definition contains no external clock, the
+continuum time scale is determined only up to a global multiplicative
+constant.
 
-A coordinate-independent normalization can nevertheless be defined using the canonical metric $d_r$ on $\mathcal Y_r$:
+A coordinate-independent normalization can nevertheless be defined using the
+canonical metric $d_r$ on $\mathcal Y_r$:
 
 ```math
 a_{G,p,r}=
@@ -410,11 +407,15 @@ Continuum time is then
 \tau=j,a_{G_n,p_n,r}.
 ```
 
-With this normalization, the average intrinsic quadratic variation per unit continuum time equals one.
+With this normalization, the average intrinsic quadratic variation per unit
+continuum time equals one.
 
-Changing the normalization of the base metric rescales time globally but does not change the dimensionless geometry, drift directions, anisotropy, tail exponents or spectral ratios.
+Changing the normalization of the base metric rescales time globally but does
+not change the dimensionless geometry, drift directions, anisotropy, tail
+exponents or spectral ratios.
 
-The absence of an external clock leaves this residual global rescaling undetermined.
+The absence of an external clock leaves this residual global rescaling
+undetermined.
 
 # 9. Label invariance
 
@@ -457,13 +458,15 @@ Q_{p,r}\mapsto Q_{p,r}.
 
 Thus $m_{p,r}$, $Q_{p,r}$, and $C_{p,r}$ are exact isomorphism invariants.
 
-The coefficient extraction does not depend on the topological ordering used to encode the DAG.
+The coefficient extraction does not depend on the topological ordering used
+to encode the DAG.
 
 # 10. Avoiding a premature graph ensemble
 
 The coefficients above are defined per graph.
 
-The bounded system definition does not select a probability measure over non-isomorphic DAGs. In particular, two natural averages differ:
+The bounded system definition does not select a probability measure over
+non-isomorphic DAGs. In particular, two natural averages differ:
 
 ## Equal unlabeled weighting
 
@@ -477,7 +480,7 @@ The equal-unlabeled average is
 
 Each physical isomorphism class receives equal weight.
 
-### Uniform labeled weighting
+## Uniform labeled weighting
 
 The corresponding labeled average is
 
@@ -494,17 +497,21 @@ The corresponding labeled average is
 
 The measure comes from uniform counting of labeled adjacency structures.
 
-Neither measure is selected by the bounded system definition alone. The canonical procedure is therefore to compute coefficients per isomorphism class first and then study:
+Neither measure is selected by the bounded system definition alone. The
+canonical procedure is therefore to compute coefficients per isomorphism
+class first and then study:
 
 * universality across graph sequences;
 * conditional distributions at fixed height or density;
 * equal-class and automorphism-weighted ensemble summaries separately.
 
-Keeping the ensembles separate prevents a sampling convention from being mistaken for derived dynamics.
+Keeping the ensembles separate prevents a sampling convention from being
+mistaken for derived dynamics.
 
 # 11. No need to choose a single $r_n$ immediately
 
-A diagonal sequence $r_n\to\infty$ is useful computationally, but it is not mathematically necessary at first.
+A diagonal sequence $r_n\to\infty$ is useful computationally, but it is not
+mathematically necessary at first.
 
 For every fixed $r$, the profile space $\mathcal Y_r$ is compact. Let
 
@@ -536,7 +543,8 @@ Because it is a closed subset of a product of compact spaces,
 \text{ is compact}.
 ```
 
-Cylinder functions depend on only finitely many refinement levels. The safer order is therefore
+Cylinder functions depend on only finitely many refinement levels. The safer
+order is therefore
 
 ```math
 n,p\to\infty
@@ -553,7 +561,11 @@ r_{\mathrm{stab}}(n)=o(n)
 
 at the outset.
 
-The exhaustive eight-node computation already shows that stabilized refinement resolves all $20{,}286{,}025$ non-isomorphic DAGs, while one round has only $509$ collision classes. The next computation should record the first separation round for each of those classes, because that begins measuring how rapidly the projective coordinate depth must grow.
+The exhaustive eight-node computation already shows that stabilized
+refinement resolves all $20{,}286{,}025$ non-isomorphic DAGs, while one round
+has only $509$ collision classes. The next computation should record the
+first separation round for each of those classes, because that begins
+measuring how rapidly the projective coordinate depth must grow.
 
 # 12. Fixed-(r) continuum convergence theorem
 
@@ -592,12 +604,16 @@ a_n=a_{G_n,p_n,r}.
 Suppose:
 
 1. Vanishing jumps: $\sup_{\text{route-relevant }e}d_r(x(s(e)),x(r(e)))\to0$.
-2. Cylinder generator convergence: For every polynomial cylinder $F$, $\mathcal G_nF\to\mathcal GF$ uniformly on the relevant embedded states.
+2. Cylinder generator convergence: For every polynomial cylinder $F$,
+   $\mathcal G_nF\to\mathcal GF$ uniformly on the relevant embedded states.
 3. Quadratic convergence: $\Gamma_n(F,G)\to\Gamma(F,G)$.
-4. Lindeberg condition: $\frac1{a_n}\mathbb E\left[d_r(\Delta X_n)^2 \mathbf1_{\{d_r(\Delta X_n)>\varepsilon\}} \right]\to0$.
+4. Lindeberg condition:
+   $\frac1{a_n}\mathbb E\left[d_r(\Delta X_n)^2 \mathbf1_{\{d_r(\Delta X_n)>\varepsilon\}} \right]\to0$.
 
-5. Bulk plateau: the coefficients become independent of the normalized route position away from both horizon boundaries.
-6. Uniqueness: the martingale problem for $\mathcal G$ on the cylinder core is unique.
+5. Bulk plateau: the coefficients become independent of the normalized route
+   position away from both horizon boundaries.
+6. Uniqueness: the martingale problem for $\mathcal G$ on the cylinder core is
+   unique.
 
 It follows that
 
@@ -607,7 +623,8 @@ X_n\Rightarrow X
 
 in the path space over $\mathcal Y_r$, where $X$ has generator $\mathcal G$.
 
-Compact containment is substantially simplified because $\mathcal Y_r$ is already compact.
+Compact containment is substantially simplified because $\mathcal Y_r$ is
+already compact.
 
 # 13. Passing to the full profile limit
 
@@ -642,139 +659,8 @@ Its generator is determined on cylinder functions by
 
 The projective limit defines the infinite-profile continuum operator.
 
-The construction does not require embedding the entire infinite profile manifold into $\mathbb R^d$.
+The construction does not require embedding the entire infinite profile
+manifold into $\mathbb R^d$.
 
-Finite cylinder observables define and compute the operator, which the projective limit assembles.
-
-# 14. An executable numerical pass
-
-For each canonical DAG $G$, each path horizon $p\le\mathrm{height}(G)$, and each selected refinement depth $r$, compute
-
-```math
-\begin{gathered}
-r_0,\ldots,r_p,
-\qquad
-\ell_0,\ldots,\ell_p,
-\qquad
-T_0,\ldots,T_p,\\
-\overline{\mathsf F}_p,
-\qquad
-a_{G,p,r},
-\qquad
-m_{G,p,r},
-\qquad
-Q_{G,p,r},
-\qquad
-M_{G,p,r}^{(3)}.
-\end{gathered}
-```
-
-Also retain route-position-resolved versions
-
-```math
-m_{G,p,r}(j),
-\qquad
-Q_{G,p,r}(j),
-```
-
-to test the bulk plateau.
-
-The primary output ratios are
-
-```math
-\mathfrak b_{G,p,r}=
-\frac{|m_{G,p,r}|}{a_{G,p,r}},
-```
-
-and
-
-```math
-\mathfrak q_{G,p,r}=
-\frac{
-\mathrm{tr}Q_{G,p,r}
-}{
-a_{G,p,r}
-},
-```
-
-and
-
-```math
-\mathfrak k_{3,G,p,r}=
-\frac{
-|M_{G,p,r}^{(3)}|
-}{
-a_{G,p,r}
-}.
-```
-
-Under the intrinsic normalization,
-
-```math
-\mathfrak q_{G,p,r}\approx1
-```
-
-by construction. The informative quantities are then:
-
-* whether $\mathfrak b$ stabilizes;
-* whether $\mathfrak k_3\to0$;
-* whether the maximal jump divided by $\sqrt{a}$ vanishes;
-* whether $m(j)$ and $Q(j)$ develop a route-position plateau;
-* whether results stabilize as $r$ increases.
-
-# 15. Computational reduction
-
-The full route computation requires only repeated sparse matrix-vector multiplication:
-
-```math
-r_{k+1}=Ar_k,
-\qquad
-\ell_{k+1}=A^\mathsf T\ell_k.
-```
-
-The flow need not be stored as a dense $n\times n$ matrix. For each edge $v\to w$, accumulate
-
-```math
-\overline f_{vw}=
-\frac1{pT_p}
-\sum_{j=0}^{p-1}
-\ell_j(v)A_{vw}r_{p-j-1}(w).
-```
-
-Then update the moments directly:
-
-```math
-m\mathrel{+}=
-\overline f_{vw}\Delta X_{vw},
-```
-
-Equivalently,
-
-```math
-Q\mathrel{+}=
-\overline f_{vw}
-\Delta X_{vw}\Delta X_{vw}^\mathsf T,
-```
-
-This gives
-
-```math
-M^{(3)}
-\mathrel{+}=
-\overline f_{vw}
-\Delta X_{vw}^{\otimes3}.
-```
-
-Memory usage is therefore
-
-```math
-O(pn+|E|+nd),
-```
-
-rather than
-
-```math
-O(n^2)
-```
-
-or $O(T_p)$.
+Finite cylinder observables define and compute the operator, which the
+projective limit assembles.

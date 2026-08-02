@@ -59,7 +59,7 @@ The mark reconstructed from the graph is
 \widehat x(u)=\frac12+\frac{d^-(u)-d^+(u)}N,
 ```
 
-Its RMSE is $0.0219804\pm0.0004290$ and $0.00544334\pm0.0001034$ at those two
+with RMSE $0.0219804\pm0.0004290$ and $0.00544334\pm0.0001034$ at those two
 sizes. These are ground-truth validation statistics rather than inputs to the
 numerical state.
 
@@ -259,7 +259,7 @@ The main grid used master seed `20260801`, bulk fraction $\eta=0.2$, and
 Lindeberg thresholds $0.01,0.025,0.05,0.1,0.2$. Its parameter family was:
 
 | $N$ | route horizons $p$ | graph samples |
-|---:|---|---:|
+| ---: | --- | ---: |
 | 512 | 4, 8, 12, 16 | 32 |
 | 1024 | 4, 8, 16, 24 | 16 |
 | 2048 | 4, 8, 16, 24, 32 | 8 |
@@ -323,7 +323,7 @@ The first case also gives $t(\mathord\to)=1/6$. At $N=8192$, using $128$
 samples, the direct estimates were:
 
 | $\ell$ | $p_\ell$ estimate | exact $p_\ell$ | signed error | $\theta_\ell$ estimate | exact $\theta_\ell$ | signed error |
-|---:|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 | $0.1666214\pm0.0000767$ | $0.1666667$ | $(-4.525\pm7.667)10^{-5}$ | $0.3332428\pm0.0001533$ | $0.3333333$ | $(-9.050\pm15.334)10^{-5}$ |
 | 2 | $0.008330818\pm0.000005499$ | $0.008333333$ | $(-2.515\pm5.499)10^{-6}$ | $0.04998491\pm0.00003299$ | $0.05$ | $(-1.509\pm3.299)10^{-5}$ |
 | 3 | $(1.983507\pm0.001607)10^{-4}$ | $1.98412710^{-4}$ | $(-0.620\pm1.607)10^{-7}$ | $0.004760416\pm0.000003857$ | $0.004761905$ | $(-1.489\pm3.857)10^{-6}$ |
@@ -339,7 +339,7 @@ has exact coefficient $C_1(\ell,m)$. The following $N=8192$ entries are
 delete-one jackknife estimates over $128$ complete graph samples:
 
 | $(\ell,m)$ | estimate | standard error | exact $C_1(\ell,m)$ | signed error |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | (1,1) | $2.46559\,10^{-2}$ | $3.63579\,10^{-3}$ | $2.22222\,10^{-2}$ | $2.43365\,10^{-3}$ |
 | (1,2) | $5.08289\,10^{-3}$ | $7.38938\,10^{-4}$ | $4.76190\,10^{-3}$ | $3.20984\,10^{-4}$ |
 | (1,3) | $5.49768\,10^{-4}$ | $8.12202\,10^{-5}$ | $5.29101\,10^{-4}$ | $2.06672\,10^{-5}$ |
@@ -387,7 +387,7 @@ The table gives delete-one jackknife rates and standard errors for adjacent
 doublings. The target is $1/2$ in every entry.
 
 | $(N,M)$ | $j=1$ | $j=2$ | $j=3$ | $j=4$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | (512,1024) | $0.4800\pm0.1008$ | $0.5958\pm0.0863$ | $0.5078\pm0.1022$ | $0.4184\pm0.0780$ |
 | (1024,2048) | $0.5471\pm0.1055$ | $0.5707\pm0.1088$ | $0.4853\pm0.0704$ | $0.4212\pm0.0756$ |
 | (2048,4096) | $0.4116\pm0.0757$ | $0.4892\pm0.0926$ | $0.4474\pm0.0774$ | $0.4343\pm0.0707$ |
@@ -413,7 +413,7 @@ This is the ratio of the analytic expected counts. The final column is the
 observed ratio's relative error against this reference.
 
 | $N$ | $p$ | samples | $\log T_p$ | $T_{p+1}/T_p$ | $\log(T_{p+1}/T_p)$ | reference ratio | relative error |
-|---:|---:|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 512 | 16 | 32 | $20.5661\pm0.1185$ | $0.3867\pm0.0089$ | $-0.9585\pm0.0237$ | 0.4160 | $-0.0703\pm0.0214$ |
 | 1024 | 24 | 16 | $28.1751\pm0.2344$ | $0.3630\pm0.0116$ | $-1.0211\pm0.0319$ | 0.3918 | $-0.0735\pm0.0296$ |
 | 2048 | 32 | 8 | $41.8909\pm0.1927$ | $0.4446\pm0.0085$ | $-0.8119\pm0.0194$ | 0.4557 | $-0.0243\pm0.0187$ |
@@ -452,7 +452,7 @@ All $56$ entries of both symmetric third-moment tensors are stored in each
 horizon record. Their six diagonal entries at $N=8192$, $p=32$ are:
 
 | coordinate | raw third moment | centered third moment |
-|---|---:|---:|
+| --- | ---: | ---: |
 | $d^+$ | $(-1.9946\pm0.0349)10^{-5}$ | $(-5.9587\pm0.1333)10^{-6}$ |
 | $d^-$ | $(1.9988\pm0.0226)10^{-5}$ | $(5.9383\pm0.0706)10^{-6}$ |
 | $q^{++}$ | $(-3.1412\pm0.0737)10^{-8}$ | $(-1.6597\pm0.0450)10^{-8}$ |
@@ -466,11 +466,11 @@ unresolved at this sample count, giving a finite-sample symmetry audit.
 
 # 8. Route-position dependence and graph-intrinsic closure
 
-The local coefficients are visibly position dependent. For $N=8192$ and
-$p=32$, three bulk positions give:
+The local coefficients depend on route position. For $N=8192$ and $p=32$,
+three bulk positions give:
 
 | $r$ | $r/p$ | $b_r(d^+)$ | $b_r(d^-)$ | $b_r(q^{++})$ | $\operatorname{tr}A_r$ |
-|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: |
 | 7 | 0.21875 | $-0.022832\pm0.000197$ | $0.007545\pm0.000037$ | $-0.0021875\pm0.0000154$ | $(3.4063\pm0.0618)10^{-4}$ |
 | 16 | 0.5 | $-0.014725\pm0.000082$ | $0.015705\pm0.000114$ | $-0.0006038\pm0.0000039$ | $(2.9456\pm0.0342)10^{-4}$ |
 | 25 | 0.78125 | $-0.006467\pm0.000112$ | $0.023618\pm0.000244$ | $-0.00005894\pm0.00000143$ | $(3.4723\pm0.0555)10^{-4}$ |
@@ -480,7 +480,7 @@ horizons, the coefficient and binned-transition plateau defects remain nonzero
 as $N$ increases:
 
 | $p$ | statistic | $N=512$ | $N=1024$ | $N=2048$ | $N=4096$ | $N=8192$ |
-|---:|---|---:|---:|---:|---:|---:|
+| ---: | --- | ---: | ---: | ---: | ---: | ---: |
 | 4 | drift plateau $D_b$ | 3.882 | 3.951 | 4.020 | 4.044 | 4.048 |
 | 4 | covariance plateau $D_A$ | 0.222 | 0.211 | 0.213 | 0.212 | 0.210 |
 | 4 | 32-bin transition plateau | 0.250 | 0.248 | 0.256 | 0.263 | 0.271 |
@@ -500,7 +500,7 @@ reports the maximal bulk corrected RMS defect for $32$ bins per coordinate.
 Parenthesized values are the minimum assessable route mass over the bulk.
 
 | $N$ | $p=4$ | $p=8$ | $p=16$ | $p=32$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 512 | 0.2700 (0.9146) | 0.4078 (0.8985) | 0.6802 (0.7221) | -- |
 | 1024 | 0.1947 (0.9761) | 0.2914 (0.9724) | 0.4899 (0.9530) | -- |
 | 2048 | 0.1389 (0.9932) | 0.2087 (0.9921) | 0.3573 (0.9903) | 0.6105 (0.9711) |
@@ -538,7 +538,7 @@ resolved at the largest size and increases with $p$ at fixed $N$.
 At $N=8192$, the horizon dependence is:
 
 | $p$ | $\alpha_{N,p}$ | maximal scaled jump | scaled raw third norm | scaled centered third norm | $L(0.1)$ | $L(0.2)$ |
-|---:|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 4 | $1.2965\,10^{-2}$ | 6.423 | 0.5721 | 0.06152 | 2.5541 | 1.8692 |
 | 8 | $5.0100\,10^{-3}$ | 10.045 | 0.2941 | 0.05010 | 1.8614 | 0.60888 |
 | 16 | $1.6255\,10^{-3}$ | 16.433 | 0.1498 | 0.03264 | 0.80000 | 0.033118 |
@@ -834,7 +834,7 @@ The matched continuation grid used master seed `20260803`, bulk fraction
 $\eta=0.2$, and reference histograms with $256$ bins:
 
 | $N$ | horizons $p$ | graph samples |
-|---:|---|---:|
+| ---: | --- | ---: |
 | 512 | 4, 8, 16, 32 | 32 |
 | 1024 | 4, 8, 16, 32 | 32 |
 | 2048 | 4, 8, 16, 32 | 24 |
@@ -861,7 +861,7 @@ The table reports $R_N$, its $\sqrt N$ rescaling, and the latent-validation
 RMSE of $\widehat x$:
 
 | $N$ | samples | $R_N$ | $\sqrt N R_N$ | $\operatorname{RMSE}(\widehat x,x)$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 512 | 32 | $0.0045398\pm0.0000885$ | $0.10272\pm0.00200$ | $0.02204\pm0.00099$ |
 | 1024 | 32 | $0.0032586\pm0.0000574$ | $0.10428\pm0.00184$ | $0.01636\pm0.00056$ |
 | 2048 | 24 | $0.0022489\pm0.0000540$ | $0.10178\pm0.00244$ | $0.01142\pm0.00065$ |
@@ -878,7 +878,7 @@ requires a separate joint-limit argument.
 At $N=8192$, the marginal and conditional Dirichlet audits give:
 
 | $p$ | samples | maximal latent mean error | maximal latent Kolmogorov distance | maximal conditional-fraction mean error | maximal conditional-fraction Kolmogorov bound |
-|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: |
 | 4 | 8 | $0.00343\pm0.00049$ | $0.02510\pm0.00126$ | $0.00384\pm0.00065$ | $0.02236\pm0.00125$ |
 | 8 | 8 | $0.00370\pm0.00037$ | $0.03597\pm0.00181$ | $0.00558\pm0.00109$ | $0.03278\pm0.00107$ |
 | 16 | 8 | $0.00378\pm0.00049$ | $0.04493\pm0.00421$ | $0.00692\pm0.00142$ | $0.06077\pm0.00183$ |
@@ -897,7 +897,7 @@ harder.
 The separated covariance and third-moment coefficients at $N=8192$ are:
 
 | $p$ | $p^2\operatorname{tr}A^{\mathrm{within}}_{N,p}$ | $p^2\operatorname{tr}A^{\mathrm{between}}_{N,p}$ | $p^3\lVert K^{(3),\mathrm{within}}_{N,p}\rVert_F$ |
-|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: |
 | 4 | $0.15284\pm0.00027$ | $0.05516\pm0.00035$ | $0.03782\pm0.00024$ |
 | 8 | $0.22565\pm0.00024$ | $0.09637\pm0.00061$ | $0.08548\pm0.00035$ |
 | 16 | $0.28903\pm0.00035$ | $0.12926\pm0.00082$ | $0.13472\pm0.00032$ |
@@ -911,10 +911,10 @@ a finite-grid coincidence. The between-position and third coefficients remain
 respectively $0.02511\pm0.00104$ and $0.05329\pm0.00064$ below their targets
 at that point.
 
-Log--log fits over the matched horizons $4,8,16,32$ give:
+Log-log fits over the matched horizons $4,8,16,32$ give:
 
 | $N$ | decay power of $\lVert m\rVert$ | decay power of within covariance trace | decay power of within centered third norm | decay power of maximal six-coordinate jump |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 2048 | $0.90997\pm0.00046$ | $1.46497\pm0.00378$ | $2.29874\pm0.00898$ | $0.28724\pm0.00383$ |
 | 4096 | $0.90953\pm0.00036$ | $1.54639\pm0.00225$ | $2.28806\pm0.00484$ | $0.18341\pm0.00190$ |
 | 8192 | $0.90916\pm0.00029$ | $1.59612\pm0.00155$ | $2.28136\pm0.00310$ | $0.12170\pm0.00182$ |
@@ -930,7 +930,7 @@ The local scaled coefficients remain nonconstant in route position. At
 $(N,p)=(8192,32)$:
 
 | $r/p$ | $p\,m_r(d^+)$ | $p\,m_r(d^-)$ | $p\,m_r(q^{++})$ | $p^2\operatorname{tr}\Sigma_r$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 0.25 | $-0.70185\pm0.00435$ | $0.26726\pm0.00146$ | $-0.06252\pm0.00051$ | $0.33540\pm0.00314$ |
 | 0.50 | $-0.47369\pm0.00412$ | $0.50189\pm0.00324$ | $-0.019459\pm0.000201$ | $0.30313\pm0.00331$ |
 | 0.75 | $-0.23749\pm0.00188$ | $0.72988\pm0.00323$ | $-0.002773\pm0.000028$ | $0.34763\pm0.00187$ |
@@ -940,7 +940,7 @@ $\chi'(s)$ and $\frac12\chi'(s)\chi'(s)^{\mathsf T}$. The direct bulk
 deviations at $N=8192$ are:
 
 | $p$ | maximal drift-curve deviation | maximal covariance-curve deviation |
-|---:|---:|---:|
+| ---: | ---: | ---: |
 | 4 | $0.21145\pm0.00100$ | $0.04396\pm0.00032$ |
 | 8 | $0.27164\pm0.00112$ | $0.08992\pm0.00072$ |
 | 16 | $0.31216\pm0.00131$ | $0.13447\pm0.00104$ |
@@ -955,7 +955,7 @@ At $p=16$, with $32$ source classes and $32$ target bins, the $\widehat x$
 predictor behaves as follows:
 
 | $N$ | held-out mark RMSE | held-out transverse RMSE | held-out Wasserstein-$1$ | held-out $R^2$ | holdout coverage |
-|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: |
 | 512 | $0.03596\pm0.00066$ | $0.08262\pm0.00182$ | $0.03478\pm0.00049$ | $-0.1152\pm0.0274$ | $0.9812$ |
 | 1024 | $0.02428\pm0.00019$ | $0.05956\pm0.00075$ | $0.02402\pm0.00016$ | $0.1445\pm0.0119$ | $0.9990$ |
 | 2048 | $0.01734\pm0.00012$ | $0.04193\pm0.00035$ | $0.01682\pm0.00010$ | $0.3176\pm0.0058$ | $0.99998$ |
@@ -972,7 +972,7 @@ At $(N,p)=(8192,16)$ and the same $32$ classes and target bins, the state
 comparison is:
 
 | source state | held-out mark RMSE | held-out transverse RMSE | held-out total variation | held-out Wasserstein-$1$ | held-out $R^2$ |
-|:---|---:|---:|---:|---:|---:|
+| :--- | ---: | ---: | ---: | ---: | ---: |
 | $\widehat x$ | $0.010708\pm0.000033$ | $0.02064\pm0.00015$ | $0.15816\pm0.00027$ | $0.009788\pm0.000026$ | $0.6758\pm0.0045$ |
 | full $X_N$ | $0.011459\pm0.000056$ | $0.02066\pm0.00015$ | $0.16389\pm0.00028$ | $0.010334\pm0.000037$ | $0.6732\pm0.0042$ |
 | $\widehat x$ plus transverse residual | $0.05920\pm0.00046$ | $0.02286\pm0.00033$ | $0.47369\pm0.00198$ | $0.05479\pm0.00045$ | $0.1882\pm0.0063$ |
@@ -994,7 +994,7 @@ provides no additional predictive resolution.
 The $\widehat x$ refinements at $(8192,16)$ are:
 
 | source classes | held-out mark RMSE | held-out Wasserstein-$1$ | held-out $R^2$ |
-|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: |
 | 8 | $0.02937\pm0.00015$ | $0.02675\pm0.00013$ | $0.5705\pm0.0032$ |
 | 16 | $0.01693\pm0.00006$ | $0.01528\pm0.00006$ | $0.6508\pm0.0043$ |
 | 32 | $0.010708\pm0.000033$ | $0.009788\pm0.000026$ | $0.6758\pm0.0045$ |
@@ -1020,7 +1020,7 @@ detect this distinction.
 At $N=8192$, the centered fluctuation diagnostics are:
 
 | $p$ | maximal $\sqrt{2p}$ centered intrinsic jump | Lindeberg sum at $0.2$ | at $0.5$ | at $1$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 4 | $2.2569\pm0.0034$ | $0.44519\pm0.00134$ | $0.22417\pm0.00119$ | $0.04653\pm0.00051$ |
 | 8 | $3.4281\pm0.0091$ | $0.61817\pm0.00113$ | $0.27569\pm0.00091$ | $0.05813\pm0.00055$ |
 | 16 | $4.7586\pm0.0164$ | $0.69858\pm0.00100$ | $0.26844\pm0.00070$ | $0.03435\pm0.00025$ |

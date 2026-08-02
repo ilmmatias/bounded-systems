@@ -6,7 +6,8 @@ For
 u<v<w,
 ```
 
-a strict chain from $u$ to $w$ that passes through $v$ decomposes uniquely into:
+a strict chain from $u$ to $w$ that passes through $v$ decomposes uniquely
+into:
 
 ```math
 u<\cdots<v
@@ -32,13 +33,14 @@ For a longer sequence
 u=v_0<v_1<\cdots<v_r=w,
 ```
 
-The same construction concatenates factorization chains from every interval
+the same construction concatenates factorization chains from every interval
 
 ```math
 (v_{i-1},v_i).
 ```
 
-These concatenations are strictly compatible with regrouping: first combining the intervals around $v_1$ or those around $v_2$ yields the same full chain.
+These concatenations are strictly compatible with regrouping: first combining
+the intervals around $v_1$ or those around $v_2$ yields the same full chain.
 
 Thus the primary thin-coherence object is not merely
 
@@ -55,7 +57,8 @@ but
 \right).
 ```
 
-Such cochain, operadic, and brace-compatible structures on posets and their incidence algebras belong to the broader cohomology-comparison framework.
+Such cochain, operadic, and brace-compatible structures on posets and their
+incidence algebras belong to the broader cohomology-comparison framework.
 
 # 2. The derived reachability category
 
@@ -75,7 +78,8 @@ For $u<v$, set
 \bigl(\Delta(u,v);k\bigr),
 ```
 
-where $\widetilde C^\bullet$ is the augmented reduced simplicial cochain complex.
+where $\widetilde C^\bullet$ is the augmented reduced simplicial cochain
+complex.
 
 Also define
 
@@ -93,7 +97,8 @@ when $u$ and $v$ are incomparable or $v<u$.
 
 The shift by two gives the expected degrees:
 
-* a cover $u\lessdot v$ has empty open interval, whose reduced cochains occur in degree $-1$, so it becomes a degree-one morphism;
+* a cover $u\lessdot v$ has empty open interval, whose reduced cochains occur
+  in degree $-1$, so it becomes a degree-one morphism;
 * a diamond relation occurs in degree two;
 * the Boolean $B_3$ hexagon occurs in degree three.
 
@@ -106,7 +111,11 @@ d:
 \mathscr E_G^{n+1}(v,u).
 ```
 
-Only finite chains are used, so the construction is defined for arbitrary set-sized posets without local-finiteness or countability assumptions.
+Only finite chains are used, so the construction is defined for arbitrary
+set-sized posets without local-finiteness or countability assumptions: every
+simplex is a finite chain, every coboundary evaluation involves finitely many
+faces, every cochain composition examines one finite chain, and no sum over an
+entire interval is needed.
 
 # 3. Cochain-level composition
 
@@ -155,15 +164,17 @@ define, up to the standard suspension sign,
 \end{cases}
 ```
 
-When $q=1$, the list supplied to $f$ is empty; that is exactly the augmented degree-$-1$ cover class.
+When $q=1$, the list supplied to $f$ is empty; that is exactly the augmented
+degree-$-1$ cover class.
 
-The degrees work because:
+The degrees match because
 
 ```math
 (q-2)+(p-2)+2=p+q-2.
 ```
 
-The extra two positions join the lower factorization, the intermediate node $v$, and the upper factorization.
+The extra two positions join the lower factorization, the intermediate node
+$v$, and the upper factorization.
 
 With the standard signs,
 
@@ -181,7 +192,9 @@ h\star(g\star f)=
 (h\star g)\star f.
 ```
 
-Thus $\mathscr E_G$ is a differential graded category. Its noncommutativity is directional. A product exists only when endpoints match in the correct order; reversing it is generally impossible or zero.
+Thus $\mathscr E_G$ is a differential graded category. Its noncommutativity is
+directional. A product exists only when endpoints match in the correct order;
+reversing it is generally impossible or zero.
 
 # 4. Cohomology and the Yoneda category
 
@@ -193,7 +206,8 @@ H^n\mathscr E_G(v,u)=
 \bigl(\Delta(u,v);k\bigr).
 ```
 
-For finite posets, these groups identify with extension groups between the corresponding simple modules of the incidence algebra:
+For finite posets, these groups identify with extension groups between the
+corresponding simple modules of the incidence algebra:
 
 ```math
 H^n\mathscr E_G(v,u)
@@ -201,7 +215,10 @@ H^n\mathscr E_G(v,u)
 \operatorname{Ext}_{B(P_G)}^n(S_u,S_v),
 ```
 
-subject to the usual left/right module convention.
+subject to the usual left/right module convention. For infinite posets, this
+identification with Ext over a particular completed incidence algebra may
+require additional finiteness or module-theoretic hypotheses, while
+$\mathscr E_G$ itself is unconditional.
 
 The induced product
 
@@ -213,9 +230,11 @@ The induced product
 \operatorname{Ext}^{p+q}(S_u,S_w)
 ```
 
-is the Yoneda product. Incidence algebras are path algebras modulo the parallel-path ideal, and poset-interval combinatorics governs their projective resolutions and Ext groups.
+is the Yoneda product. Incidence algebras are path algebras modulo the
+parallel-path ideal, and poset-interval combinatorics governs their projective
+resolutions and Ext groups.
 
-Thus the isolated groups from the previous step assemble into a graded category:
+Thus the individual cohomology groups assemble into a graded category:
 
 ```math
 \mathcal Y_G=
@@ -262,7 +281,8 @@ u\le v\le w
 u\le w.
 ```
 
-The unique two-step factorization creates no independent degree-two coherence class.
+The unique two-step factorization creates no independent degree-two coherence
+class.
 
 ```math
 \text{reachability composition}
@@ -297,7 +317,8 @@ H^2\mathscr E_G(1,0)=
 \cong k.
 ```
 
-The two cover products are the cochains supported at $a$ and $b$. Reduced cohomology identifies their sum with zero. With consistent orientation,
+The two cover products are the cochains supported at $a$ and $b$. Reduced
+cohomology identifies their sum with zero. With consistent orientation,
 
 ```math
 \eta_{1,a}\eta_{a,0}=
@@ -305,14 +326,16 @@ The two cover products are the cochains supported at $a$ and $b$. Reduced cohomo
 \ne0.
 ```
 
-The class is dual to the incidence-algebra relation identifying the two parallel paths:
+The class is dual to the incidence-algebra relation identifying the two
+parallel paths:
 
 ```math
 (0\to a\to1)=
 (0\to b\to1).
 ```
 
-The original relation uses equality; its dual Yoneda relation appears with an alternating sign.
+The original relation uses equality; its dual Yoneda relation appears with an
+alternating sign.
 
 # 7. Boolean intervals
 
@@ -335,16 +358,21 @@ Every saturated chain corresponds to a permutation
 \pi\in S_d.
 ```
 
-Composing the $d$ cover classes along that chain gives the top degree class. Exchanging two adjacent steps reverses its orientation, so after a consistent choice of generator $\omega$,
+Composing the $d$ cover classes along that chain gives the top degree class.
+Exchanging two adjacent steps reverses its orientation, so after a consistent
+choice of generator $\omega$,
 
 ```math
 \eta_{\pi(d)}\cdots\eta_{\pi(1)}=
 \operatorname{sgn}(\pi)\,\omega.
 ```
 
-The diamond relations account for adjacent exchanges, and higher interval topology makes all sequences of such exchanges coherently compatible.
+The diamond relations account for adjacent exchanges, and higher interval
+topology makes all sequences of such exchanges coherently compatible.
 
-The exterior-like behavior is consistent with the Koszul property of graded incidence algebras under the relevant Cohen-Macaulay interval conditions, which Boolean intervals satisfy.
+The exterior-like behavior is consistent with the Koszul property of graded
+incidence algebras under the relevant Cohen-Macaulay interval conditions, which
+Boolean intervals satisfy.
 
 # 8. The Yoneda product is not always enough
 
@@ -354,7 +382,8 @@ The graded category
 H^\bullet(\mathscr E_G)
 ```
 
-retains the cohomology groups and binary product but forgets the cochain complexes and their specific null-homotopies.
+retains the cohomology groups and binary product but forgets the cochain
+complexes and their specific null-homotopies.
 
 For example, a product may vanish in cohomology because it is a coboundary:
 
@@ -362,13 +391,16 @@ For example, a product may vanish in cohomology because it is a coboundary:
 g\star f=dh.
 ```
 
-The cohomology category remembers only that the product is zero. It forgets the cochain $h$ witnessing why it is zero.
+The cohomology category remembers only that the product is zero. It forgets
+the cochain $h$ witnessing why it is zero.
 
-When several such null-homotopies interact, that forgotten information produces higher operations.
+When several such null-homotopies interact, that forgotten information
+produces higher operations.
 
 # 9. The minimal $A_\infty$ category
 
-Transfer the dg category $\mathscr E_G$ to its cohomology. The result is a minimal $A_\infty$ category with operations
+Transfer the dg category $\mathscr E_G$ to its cohomology. The result is a
+minimal $A_\infty$ category with operations
 
 ```math
 m_r:
@@ -385,7 +417,8 @@ of degree
 2-r.
 ```
 
-Here $m_1=0$, $m_2$ is the Yoneda product, and the higher operations $m_3,m_4,\ldots$ record dependencies among products and null-homotopies.
+Here $m_1=0$, $m_2$ is the Yoneda product, and the higher operations
+$m_3,m_4,\ldots$ record dependencies among products and null-homotopies.
 
 For example,
 
@@ -401,11 +434,16 @@ m_2(b,a)=0
 m_2(c,b)=0,
 ```
 
-but the chosen null-homotopies need not be compatible. The obstruction is closely related to a triple Massey product.
+but the chosen null-homotopies need not be compatible. The obstruction is
+closely related to a triple Massey product.
 
-A natural $A_\infty$ structure exists on Ext, and its higher products encode defining relations; in suitable graded settings, the coefficients of $m_r$ on degree-one classes recover length-$r$ relations. The Yoneda algebra of simples is generated in degrees zero and one when regarded as a minimal $A_\infty$ algebra.
+A natural $A_\infty$ structure exists on Ext, and its higher products encode
+defining relations; in suitable graded settings, the coefficients of $m_r$ on
+degree-one classes recover length-$r$ relations. The Yoneda algebra of simples
+is generated in degrees zero and one when regarded as a minimal $A_\infty$
+algebra.
 
-# 10. These are not additional laws
+# 10. Origin of the higher operations
 
 The operations
 
@@ -429,9 +467,11 @@ A_\infty\text{ correction data}.
 
 The full dg category is already strictly associative.
 
-Higher $A_\infty$ operations appear only after replacing the full chain-level object by its smaller cohomology groups. They restore information lost under this compression.
+Higher $A_\infty$ operations appear only after replacing the full chain-level
+object by its smaller cohomology groups. They restore information lost under
+this compression.
 
-So the correct interpretation is:
+The correct interpretation is therefore
 
 ```math
 A_\infty\text{ operations measure compression loss, not added dynamics}.
@@ -439,7 +479,9 @@ A_\infty\text{ operations measure compression loss, not added dynamics}.
 
 # 11. Canonical structure
 
-A transferred minimal $A_\infty$ structure requires choices such as representatives and contracting homotopies. Therefore the individual formulas for
+A transferred minimal $A_\infty$ structure requires choices such as
+representatives and contracting homotopies. Therefore the individual formulas
+for
 
 ```math
 m_3,m_4,\ldots
@@ -469,11 +511,14 @@ The first object is large and strict.
 
 The second is small but loses information.
 
-The third is small while retaining the lost information up to higher coherent operations.
+The third is small while retaining the lost information up to higher coherent
+operations.
 
 # 12. Koszul versus non-Koszul reachability
 
-Suppose the reachability poset is finite, graded, and its intervals satisfy the Cohen-Macaulay conditions that make the incidence algebra Koszul. Then the Ext groups are concentrated on the expected diagonal.
+Suppose the reachability poset is finite, graded, and its intervals satisfy the
+Cohen-Macaulay conditions that make the incidence algebra Koszul. Then the Ext
+groups are concentrated on the expected diagonal.
 
 That degree concentration forces
 
@@ -492,9 +537,11 @@ Thus the ordinary Yoneda algebra with its binary product is sufficient:
 \text{no essential higher }A_\infty\text{ products}.
 ```
 
-For a non-Koszul or nongraded incidence structure, the binary product may not retain all relation data, making nonzero higher operations essential.
+For a non-Koszul or nongraded incidence structure, the binary product may not
+retain all relation data, making nonzero higher operations essential.
 
-The Cohen-Macaulay characterization of Koszul incidence algebras gives the topological criterion separating these regimes.
+The Cohen-Macaulay characterization of Koszul incidence algebras gives the
+topological criterion separating these regimes.
 
 # 13. A correction to the previous hierarchy
 
@@ -508,7 +555,8 @@ as the primary thin-coherence invariant.
 
 That was incomplete.
 
-Two systems could have intervals with matching homotopy types while differing in how the intervals sit inside larger intervals and how their classes compose.
+Two systems could have intervals with matching homotopy types while differing
+in how the intervals sit inside larger intervals and how their classes compose.
 
 The correct object is the compositional interval system:
 
@@ -532,9 +580,15 @@ The separate homotopy groups and Ext groups are shadows of this richer object.
 
 The derived reachability category depends only on the thin reachability poset.
 
-It still does not remember parallel primitive channels, shortcut edges, multiple original paths realizing one order chain, or original path lengths when shortcuts exist.
+It still does not remember parallel primitive channels, shortcut edges,
+multiple original paths realizing one order chain, or original path lengths
+when shortcuts exist.
 
-Therefore the complete framework has two distinct layers. The resolved communication layer, represented by $\bigl(A(G),D(G),\{e\in E\}\bigr)$, retains the nodes, primitive channels, and all actual routes. The derived thin layer $\mathscr E_G$ retains the factorization topology and higher coherence of the reachability order.
+Therefore the complete framework has two distinct layers. The resolved
+communication layer, represented by $\bigl(A(G),D(G),\{e\in E\}\bigr)$, retains
+the nodes, primitive channels, and all actual routes. The derived thin layer
+$\mathscr E_G$ retains the factorization topology and higher coherence of the
+reachability order.
 
 They are linked by the route-collapse map
 
@@ -554,23 +608,6 @@ Q,
 \right).
 ```
 
-The first component is already sufficient to reconstruct $G$. The additional components expose systematic derived invariants that spectra and path counts do not reveal.
-
-# 15. Cardinality-independent status
-
-The combinatorial dg category remains valid for arbitrary cardinality because:
-
-* every simplex is a finite chain;
-* every coboundary evaluation involves finitely many faces;
-* every cochain composition examines one finite chain;
-* no sum over an entire interval is needed.
-
-For infinite posets, the identification with Ext over a particular completed incidence algebra may require additional finiteness or module-theoretic hypotheses.
-
-But the primary construction
-
-```math
-\mathscr E_G
-```
-
-itself is unconditional.
+The first component is already sufficient to reconstruct $G$. The additional
+components expose systematic derived invariants that spectra and path counts do
+not reveal.

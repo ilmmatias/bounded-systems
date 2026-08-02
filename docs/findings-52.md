@@ -1,8 +1,12 @@
 # 1. Canonical projections of finite relational statistics
 
-The explicit ordered-layer sectors exhibit logarithmic relaxation rates $1/2$ and $1$. These rates are not isolated features of the chosen edge and route coordinates; they are the first two levels of the Hoeffding decomposition of a finite relational statistic.
+The explicit ordered-layer sectors exhibit logarithmic relaxation rates $1/2$
+and $1$. These rates are not isolated features of the chosen edge and route
+coordinates; they are the first two levels of the Hoeffding decomposition of a
+finite relational statistic.
 
-Let $(A_v)_{v\geq1}$ be independent variables taking values in a finite set $\mathcal A$ with law $p$. Let
+Let $(A_v)_{v\geq1}$ be independent variables taking values in a finite set
+$\mathcal A$ with law $p$. Let
 
 ```math
 h:\mathcal A^k\longrightarrow\mathbb R
@@ -41,7 +45,8 @@ The empty-set term is $h_\varnothing=\theta$.
 
 ## Proposition 1. Canonical degeneracy
 
-For every $j\geq1$, every coordinate $r\leq j$, and every fixed choice of the other arguments,
+For every $j\geq1$, every coordinate $r\leq j$, and every fixed choice of the
+other arguments,
 
 ```math
 \mathbb E
@@ -63,9 +68,13 @@ h(x_1,\ldots,x_k)-\theta
 
 ## Proof
 
-Averaging the inclusion-exclusion formula over one coordinate pairs every subset containing that coordinate with the corresponding subset omitting it. The two conditional expectations agree after the averaging and enter with opposite signs. This proves degeneracy.
+Averaging the inclusion-exclusion formula over one coordinate pairs every
+subset containing that coordinate with the corresponding subset omitting it.
+The two conditional expectations agree after the averaging and enter with
+opposite signs. This proves degeneracy.
 
-The pointwise identity is the Möbius inversion formula on the Boolean lattice of coordinate subsets.
+The pointwise identity is the Möbius inversion formula on the Boolean lattice
+of coordinate subsets.
 
 # 2. Exact Hoeffding decomposition
 
@@ -137,7 +146,8 @@ U_{m,j}(\pi_jh)
 
 ## Proof
 
-Average the pointwise decomposition of Proposition 1 over all $k$-subsets of $[n]$. A fixed $j$-subset is contained in exactly
+Average the pointwise decomposition of Proposition 1 over all $k$-subsets of
+$[n]$. A fixed $j$-subset is contained in exactly
 
 ```math
 \binom{n-j}{k-j}
@@ -153,11 +163,18 @@ of those $k$-subsets. Dividing by $\binom nk$ gives the coefficient
 
 which proves the decomposition.
 
-For two canonical kernel evaluations on vertex sets $S$ and $T$, the covariance vanishes unless $S=T$. If $S\neq T$, one of the sets contains a vertex absent from the other; averaging over that variable annihilates the corresponding canonical kernel. The same argument shows orthogonality between different projection orders.
+For two canonical kernel evaluations on vertex sets $S$ and $T$, the
+covariance vanishes unless $S=T$. If $S\neq T$, one of the sets contains a
+vertex absent from the other; averaging over that variable annihilates the
+corresponding canonical kernel. The same argument shows orthogonality between
+different projection orders.
 
-The variance therefore receives one contribution from each of the $\binom nj$ diagonal pairs. For $n\leq m$, exactly the $\binom nj$ common $j$-subsets contribute to the cross covariance, giving the displayed formula.
+The variance therefore receives one contribution from each of the $\binom nj$
+diagonal pairs. For $n\leq m$, exactly the $\binom nj$ common $j$-subsets
+contribute to the cross covariance, giving the displayed formula.
 
-This exact covariance identity already contains the logarithmic relaxation spectrum.
+This exact covariance identity already contains the logarithmic relaxation
+spectrum.
 
 # 3. Sequential chaos limits
 
@@ -185,7 +202,8 @@ Let $\mathcal W$ be a Gaussian random measure on
 [0,\infty)\times\mathcal A
 ```
 
-with control measure $dt\otimes p$. For a canonical kernel $g$ of order $j$, let
+with control measure $dt\otimes p$. For a canonical kernel $g$ of order $j$,
+let
 
 ```math
 I_j(t;g)
@@ -201,7 +219,8 @@ with respect to $\mathcal W$.
 
 ## Theorem 3. Hoeffding-Lamperti limit
 
-For every finite collection of projection orders, the processes $X_{j,N}$ converge jointly in the Skorohod topology to
+For every finite collection of projection orders, the processes $X_{j,N}$
+converge jointly in the Skorohod topology to
 
 ```math
 X_j(s)
@@ -211,7 +230,8 @@ X_j(s)
  I_j(e^s;\pi_jh).
 ```
 
-The process $X_j$ is stationary, belongs to the $j$-th Wiener chaos, and has covariance
+The process $X_j$ is stationary, belongs to the $j$-th Wiener chaos, and has
+covariance
 
 ```math
 \mathbb E[X_j(s)X_j(t)]
@@ -221,7 +241,9 @@ j!\sigma_j^2
  e^{-j|s-t|/2}.
 ```
 
-Processes of different orders are orthogonal in $L^2$, although they need not be probabilistically independent because they are built from the same Gaussian random measure.
+Processes of different orders are orthogonal in $L^2$, although they need not
+be probabilistically independent because they are built from the same
+Gaussian random measure.
 
 ## Proof
 
@@ -263,7 +285,9 @@ I_j(e^t;\pi_jh)
 j!e^{js}\sigma_j^2.
 ```
 
-Multiplication by $e^{-j(s+t)/2}$ yields the covariance. Stationarity follows because all finite joint moments of multiple Gaussian integrals depend only on logarithmic time differences after this normalization.
+Multiplication by $e^{-j(s+t)/2}$ yields the covariance. Stationarity follows
+because all finite joint moments of multiple Gaussian integrals depend only on
+logarithmic time differences after this normalization.
 
 The exact finite covariance from Theorem 2 gives the same limit directly:
 
@@ -313,7 +337,8 @@ U_{m_N(s)}(h)-\theta
 X_r(s).
 ```
 
-All higher projection orders vanish under this normalization. The limiting process lies in the $r$-th Wiener chaos and has covariance proportional to
+All higher projection orders vanish under this normalization. The limiting
+process lies in the $r$-th Wiener chaos and has covariance proportional to
 
 ```math
  e^{-r|s-t|/2}.
@@ -333,11 +358,13 @@ n^{r/2}\text{ normalization}
 
 for every bounded finite-state $U$-statistic.
 
-The limit is Gaussian only for $r=1$. For $r\geq2$, it is generally a non-Gaussian Gaussian-chaos process.
+The limit is Gaussian only for $r=1$. For $r\geq2$, it is generally a
+non-Gaussian Gaussian-chaos process.
 
 # 5. Application to ordered-layer pattern densities
 
-In a stochastic ordered block sector, let $F$ be a $k$-vertex DAG pattern and retain the conditional mark kernel
+In a stochastic ordered block sector, let $F$ be a $k$-vertex DAG pattern and
+retain the conditional mark kernel
 
 ```math
 \psi_F(a_1,\ldots,a_k)
@@ -363,7 +390,8 @@ A_1,\ldots,A_n
 U_n(\psi_F).
 ```
 
-Theorem 3 therefore gives a complete orthogonal relaxation spectrum for its latent empirical component:
+Theorem 3 therefore gives a complete orthogonal relaxation spectrum for its
+latent empirical component:
 
 ```math
 \frac12,
@@ -373,7 +401,8 @@ Theorem 3 therefore gives a complete orthogonal relaxation spectrum for its late
 \frac k2.
 ```
 
-The first projection is exactly the predictive layer coefficient from the ordered-layer analysis:
+The first projection is exactly the predictive layer coefficient from the
+ordered-layer analysis:
 
 ```math
 \pi_1\psi_F(i)
@@ -381,13 +410,28 @@ The first projection is exactly the predictive layer coefficient from the ordere
 q_F(i)-P_F.
 ```
 
-If this projection is nonzero, the generic $\sqrt n$ Gaussian mode dominates. If it vanishes, the next nonzero projection determines both the normalization and the logarithmic decay.
+If this projection is nonzero, the generic $\sqrt n$ Gaussian mode dominates.
+If it vanishes, the next nonzero projection determines both the normalization
+and the logarithmic decay.
 
-The actual graph statistic also contains edge-variable fluctuations around its conditional expectation. Those components begin at support order two because an edge is attached to two vertices. The stochastic edge and route calculations already prove that their order-two modes have rate $1$. A full generalized Hoeffding decomposition for all vertex and edge variables would extend Theorem 3 from the conditional mark statistic to the complete graph statistic at every support order.
+The actual graph statistic also contains edge-variable fluctuations around its
+conditional expectation. Those components begin at support order two because
+an edge is attached to two vertices. The stochastic edge and route
+calculations already prove that their order-two modes have rate $1$. A full
+generalized Hoeffding decomposition for all vertex and edge variables would
+extend Theorem 3 from the conditional mark statistic to the complete graph
+statistic at every support order. In that extension the index is the number of
+vertices supporting a canonical component rather than the number of primitive
+random variables: a centered edge variable has support order two, a triangle
+of centered edges has support order three, and a general connected edge-noise
+monomial is indexed by the size of its incident vertex set. The natural
+extension assigns logarithmic rate $j/2$ to every canonical component
+supported on $j$ vertices.
 
 # 6. Two-step route projection
 
-Consider the three-layer two-step route kernel. Conditional on three marks, the route probability is
+Consider the three-layer two-step route kernel. Conditional on three marks,
+the route probability is
 
 ```math
 h_R(a_1,a_2,a_3)
@@ -440,13 +484,19 @@ in the path-sensitive limit derived previously. Its covariance decays as
  e^{-|s-t|},
 ```
 
-confirming that the quadratic term is the canonical order-two route projection rather than an accidental Taylor correction.
+confirming that the quadratic term is the canonical order-two route projection
+rather than an accidental Taylor correction.
 
-The remaining order-two variance in the full route statistic comes from the centered $12$ and $23$ edge variables. The complete second-order coefficient is therefore the orthogonal sum of the canonical mark projection and the pair-noise projections.
+The remaining order-two variance in the full route statistic comes from the
+centered $12$ and $23$ edge variables. The complete second-order coefficient
+is therefore the orthogonal sum of the canonical mark projection and the
+pair-noise projections.
 
 # 7. Spectral interpretation
 
-The empirical mark process has the rate-$1/2$ Ornstein-Uhlenbeck generator. Its $j$-th Wiener chaos is an eigenspace of the second-quantized generator with eigenvalue
+The empirical mark process has the rate-$1/2$ Ornstein-Uhlenbeck generator.
+Its $j$-th Wiener chaos is an eigenspace of the second-quantized generator
+with eigenvalue
 
 ```math
 \frac j2.
@@ -460,11 +510,13 @@ The support-order decomposition is therefore simultaneously:
 - the Wiener-chaos decomposition of its continuum limit;
 - the logarithmic relaxation spectrum $j/2$.
 
-These are not separate analogies. They are equivalent descriptions of the same orthogonal structure in the finite ordered-layer sectors.
+They are equivalent descriptions of the same orthogonal structure in the
+finite ordered-layer sectors.
 
 # 8. Consequences for stable coefficients
 
-The stable-coefficient problem now has an exact hierarchy. For a finite pattern kernel $h$, define
+The stable-coefficient problem now has an exact hierarchy. For a finite
+pattern kernel $h$, define
 
 ```math
 C_j(h)
@@ -472,7 +524,9 @@ C_j(h)
 \binom kj^2j!\sigma_j^2.
 ```
 
-The coefficient $C_j(h)$ is the stationary variance of the order-$j$ continuum component. It is finite, nonnegative, and computable directly from the finite conditional kernel.
+The coefficient $C_j(h)$ is the stationary variance of the order-$j$
+continuum component. It is finite, nonnegative, and computable directly from
+the finite conditional kernel.
 
 For two kernels $h$ and $g$, the cross coefficient is
 
@@ -495,20 +549,20 @@ The corresponding logarithmic cross covariance is
 C_j(h,g)e^{-j|s-t|/2}.
 ```
 
-Thus the full finite-pattern coefficient problem in a recovered ordered block sector reduces to finite sums over the layer alphabet. No phenomenological fitting or continuum approximation is required.
+Thus the full finite-pattern coefficient problem in a recovered ordered block
+sector reduces to finite sums over the layer alphabet. No phenomenological
+fitting or continuum approximation is required.
 
-# 9. Scope of the theorem
+# 9. Literature relation
 
-Theorem 3 proves the full $j/2$ rule for the canonical projections generated by independent vertex marks. The complete stochastic DAG contains additional independent pair variables. At order two, their contribution has already been proved and agrees with the same support-order rule.
+The orthogonal decomposition is the classical Hoeffding decomposition of
+$U$-statistics. Sequential weak convergence of $U$-statistics was developed by
+Miller and Sen, and the general multiple-Wiener-integral limits of symmetric
+statistics were developed by Dynkin and Mandelbaum. The logarithmic stationary
+form used here is the Lamperti transform of those self-similar sequential
+limits.
 
-For arbitrary finite graph patterns, the remaining task is to formulate the joint vertex-edge projection complex and prove its functional chaos limit. The expected index is not the number of primitive random variables but the number of vertices supporting a canonical component. A centered edge variable has support order two, a triangle of centered edges has support order three, and a general connected edge-noise monomial is indexed by the size of its incident vertex set.
-
-The natural extension assigns logarithmic rate $j/2$ to every canonical component supported on $j$ vertices.
-
-The vertex-mark theorem proves this statement at every order for the latent empirical hierarchy. The edge and two-step route results prove it for the first nontrivial pair-supported components.
-
-# 10. Literature relation
-
-The orthogonal decomposition is the classical Hoeffding decomposition of $U$-statistics. Sequential weak convergence of $U$-statistics was developed by Miller and Sen, and the general multiple-Wiener-integral limits of symmetric statistics were developed by Dynkin and Mandelbaum. The logarithmic stationary form used here is the Lamperti transform of those self-similar sequential limits.
-
-The contribution of the present construction is the identification of Hoeffding order with overlap order and logarithmic relaxation in the relational growth setting, together with explicit graph and route sectors in which both the mark and edge-supported coefficients can be computed exactly.
+The contribution of the present construction is the identification of
+Hoeffding order with overlap order and logarithmic relaxation in the
+relational growth setting, together with explicit graph and route sectors in
+which both the mark and edge-supported coefficients can be computed exactly.

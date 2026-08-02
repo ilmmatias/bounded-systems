@@ -15,7 +15,8 @@ d(G,H)=
 \left|\left\lbrace v\in V(H):H-v\cong G \right\rbrace\right|.
 ```
 
-$d(G,H)$ counts how many vertices of $H$ can be deleted to obtain the isomorphism class $G$.
+$d(G,H)$ counts how many vertices of $H$ can be deleted to obtain the
+isomorphism class $G$.
 
 It satisfies
 
@@ -29,7 +30,7 @@ and
 \sum_{G\in\mathfrak D_n}d(G,H)=n+1.
 ```
 
-It is computed from:
+It is computed by the following steps:
 
 * take a canonical representative of $H$;
 * delete each vertex $v$;
@@ -41,11 +42,13 @@ The operator is sparse: every $H$ has at most $n+1$ predecessor classes.
 
 # 2. Extension multiplicity
 
-Deletion multiplicity is not yet the multiplicity of labeled one-node extensions.
+Deletion multiplicity is not yet the multiplicity of labeled one-node
+extensions.
 
 Let $a(G)=|\mathrm{Aut}(G)|$ be the automorphism-group size.
 
-Fix a labeled representative of $G$ on $[n]$. Define $e(G,H)$ to be the number of labeled DAGs on $[n+1]$ that:
+Fix a labeled representative of $G$ on $[n]$. Define $e(G,H)$ to be the
+number of labeled DAGs on $[n+1]$ that:
 
 * restrict exactly to the fixed labeled $G$ on $[n]$;
 * belong to the unlabeled class $H$.
@@ -61,7 +64,7 @@ d(G,H),
 
 Although written as a ratio, this is always a nonnegative integer.
 
-## Check: empty DAG
+## Check for the empty DAG
 
 For the empty DAGs $E_n,E_{n+1}$,
 
@@ -142,7 +145,8 @@ The identity is a consistency check for the extension matrix.
 
 # 4. Canonical down transition
 
-Suppose a labeled realization of $H$ is given and one of its $n+1$ vertices is deleted uniformly.
+Suppose a labeled realization of $H$ is given and one of its $n+1$ vertices
+is deleted uniformly.
 
 The probability that the resulting unlabeled graph is $G$ is
 
@@ -168,7 +172,8 @@ D_n(H,G)=
 
 It requires no ensemble choice and no positive eigenfunction.
 
-Every coherent infinite growth law on the DAG Bratteli diagram has cotransition probabilities $D_n$.
+Every coherent infinite growth law on the DAG Bratteli diagram has
+cotransition probabilities $D_n$.
 
 # 5. Finite-horizon route counts on the configuration graph
 
@@ -192,7 +197,8 @@ R_{n,N}(G)=
 e(G,H)R_{n+1,N}(H).
 ```
 
-$R_{n,N}(G)$ is the weighted number of labeled one-node extension histories from $G$ to level $N$.
+$R_{n,N}(G)$ is the weighted number of labeled one-node extension histories
+from $G$ to level $N$.
 
 The exact finite-horizon up transition is
 
@@ -211,7 +217,8 @@ Normalization follows:
 \sum_HU_n^{N,w}(G,H)=1.
 ```
 
-The kernel is the whole-configuration analogue of the finite route kernel inside a DAG.
+The kernel is the whole-configuration analogue of the finite route kernel
+inside a DAG.
 
 # 6. Two canonical finite endpoint ensembles
 
@@ -252,7 +259,8 @@ so every isomorphism class at level $N$ is equally weighted.
 
 These are distinct measures, both computable by the finite-horizon machinery.
 
-More general $w_N$ can select a profile region, height window, edge-density window, or candidate Martin-boundary sector.
+More general $w_N$ can select a profile region, height window, edge-density
+window, or candidate Martin-boundary sector.
 
 # 7. Coherent level measures
 
@@ -290,11 +298,9 @@ Z_{N,w}
 }.
 ```
 
-The identity gives:
-
-* exact forward/backward consistency;
-* an implementation audit;
-* a finite approximation to the central measures on the infinite Bratteli boundary.
+The identity gives exact forward and backward consistency, an implementation
+audit, and a finite approximation to the central measures on the infinite
+Bratteli boundary.
 
 If, as $N\to\infty$,
 
@@ -316,11 +322,13 @@ U_n^h(G,H)=
 \frac{e(G,H)h_{n+1}(H)}{h_n(G)}.
 ```
 
-The graph-profile process is a positive harmonic transform unavailable from any single finite nilpotent adjacency matrix.
+The graph-profile process is a positive harmonic transform unavailable from
+any single finite nilpotent adjacency matrix.
 
 # 8. The canonical graph-profile process
 
-Let $x_{n,r}(G)=\mu_{G,r}$ be the normalized graph-level refinement profile at observation depth $r$.
+Let $x_{n,r}(G)=\mu_{G,r}$ be the normalized graph-level refinement profile
+at observation depth $r$.
 
 Under the up transition $U_n^h$, define
 
@@ -345,7 +353,8 @@ From the one-node stability estimate,
 
 with $C_r$ growing at most linearly in $r$ under the recursive profile metric.
 
-Thus the whole-graph profile process has automatically vanishing jumps at every fixed observation depth.
+Thus the whole-graph profile process has automatically vanishing jumps at
+every fixed observation depth.
 
 By contrast, edge jumps in the internal node-profile process need not shrink.
 
@@ -390,11 +399,8 @@ F_{n,r}(G,H)-b_{n,r}^h(G)
 \right)^{\otimes3}.
 ```
 
-Every term is computable from:
-
-* the sparse extension incidence;
-* the finite-horizon route counts;
-* the normalized graph profiles.
+Every term is computable from the sparse extension incidence, the
+finite-horizon route counts, and the normalized graph profiles.
 
 # 10. The size continuum is generically hydrodynamic
 
@@ -441,13 +447,15 @@ then over one unit of $s$:
 * the drift accumulates at order one;
 * the raw noise accumulates only at order $1/n$.
 
-Hence the unscaled graph profile generically converges to a deterministic hydrodynamic flow, not to a diffusion:
+Hence the unscaled graph profile generically converges to a deterministic
+hydrodynamic flow, not to a diffusion:
 
 ```math
 \frac{dx}{ds}=b_r^h(x).
 ```
 
-The stochastic diffusion appears in the fluctuations around this hydrodynamic law.
+The stochastic diffusion appears in the fluctuations around this
+hydrodynamic law.
 
 # 11. Failure of direct graph-profile diffusion
 
@@ -463,13 +471,15 @@ Its variance is therefore order
 \frac1{n^2}.
 ```
 
-If $a_n=1/n^2$ were used directly as the continuum-time increment, the total future time would be:
+If $a_n=1/n^2$ were used directly as the continuum-time increment, the
+total future time would be:
 
 ```math
 \sum_{n=n_0}^\infty\frac1{n^2}<\infty.
 ```
 
-One-node graph growth cannot produce an indefinitely evolving raw diffusion at the graph-profile level under that clock.
+One-node graph growth cannot produce an indefinitely evolving raw diffusion
+at the graph-profile level under that clock.
 
 The correct hierarchy is instead
 
@@ -522,7 +532,8 @@ A fixed point satisfies
 b_r^h(x_\ast)=0.
 ```
 
-Such a point is a scale-invariant limiting graph profile under the chosen harmonic boundary sector.
+Such a point is a scale-invariant limiting graph profile under the chosen
+harmonic boundary sector.
 
 The Jacobian
 
@@ -561,7 +572,8 @@ Suppose that the covariance coefficients satisfy
 a_{n,r}^h(G_n)\to a_r^h(x),
 ```
 
-that the conditional Lindeberg condition holds, and that the drift admits a differentiable limit.
+that the conditional Lindeberg condition holds, and that the drift admits a
+differentiable limit.
 
 Then the candidate fluctuation SDE is
 
@@ -619,7 +631,7 @@ B_h=
 
 on compatible cylinder sectors, provided that projective limit exists.
 
-So the spectral problem has finally become concrete:
+The spectral problem is now concrete:
 
 ```math
 \text{estimate }Db_r^h(x_\ast)
@@ -628,7 +640,8 @@ So the spectral problem has finally become concrete:
 
 # 14. Stationary fluctuation covariance
 
-If $B_r$ is stable, with spectrum in the open right half-plane, the OU covariance $C_r$ satisfies the Lyapunov equation
+If $B_r$ is stable, with spectrum in the open right half-plane, the OU
+covariance $C_r$ satisfies the Lyapunov equation
 
 ```math
 B_rC_r+C_rB_r^\mathsf T=
@@ -645,12 +658,9 @@ a_r^h(x_\ast)
 e^{-sB_r^\mathsf T}\,ds.
 ```
 
-The matrix gives direct numerical access to:
-
-* the fluctuation metric;
-* the dominant covariance directions;
-* the spectral gap;
-* neutral or nearly neutral modes.
+The matrix gives direct numerical access to the fluctuation metric, the
+dominant covariance directions, the spectral gap, and neutral or nearly
+neutral modes.
 
 The second-quantized generator from the candidate stage is then
 
@@ -705,7 +715,8 @@ for every $H$, and
 
 for every $H$.
 
-The second follows from the first but is useful for detecting automorphism or integer-overflow errors.
+The second follows from the first but is useful for detecting automorphism
+or integer-overflow errors.
 
 # 16. Backward finite-horizon dynamic program
 
@@ -729,7 +740,9 @@ U_n^{N,w}(G,H)=
 \frac{eR_{n+1,N}(H)}{R_{n,N}(G)}.
 ```
 
-Arbitrary-precision arithmetic will be needed quickly, but normalized log weights can be used if only probabilities and coefficient moments are required.
+Arbitrary-precision arithmetic will be needed quickly, but normalized log
+weights can be used if only probabilities and coefficient moments are
+required.
 
 # 17. Streaming coefficient accumulation
 
@@ -760,7 +773,7 @@ After completing the row:
 b_{n,r}(G)=\text{mean}[G],
 ```
 
-Equivalently,
+The conditional covariance is
 
 ```math
 a_{n,r}(G)=
@@ -782,11 +795,13 @@ Averaging over the ensemble gives
 \sum_G\mu_n(G)a_{n,r}(G).
 ```
 
-But the state-dependent values must also be retained to reconstruct $b_r(x)$ and $a_r(x)$.
+But the state-dependent values must also be retained to reconstruct
+$b_r(x)$ and $a_r(x)$.
 
 # 18. Estimating the Jacobian from finite data
 
-Near a candidate fixed profile $x_\ast$, regress the conditional scaled increments against profile displacement.
+Near a candidate fixed profile $x_\ast$, regress the conditional scaled
+increments against profile displacement.
 
 For classes $G$ near $x_\ast$,
 

@@ -32,7 +32,9 @@ K_t(\cdot,x_n^\xi):n\ge N
 
 The closure is taken in the product topology of pointwise convergence.
 
-Because every coordinate is bounded by prefixing estimates, the ambient product is compact, so this cluster set is nonempty whenever all columns are defined.
+Because every coordinate is bounded by prefixing estimates, the ambient
+product is compact, so this cluster set is nonempty whenever all columns are
+defined.
 
 ## Martin-regular ray
 
@@ -82,7 +84,8 @@ K_t(v,x_n^\eta)
 \text{for every }v.
 ```
 
-The synchronization by the same $n$ is not essential; both sequences simply converge to the same product-space point.
+The synchronization by the same $n$ is not essential; both sequences simply
+converge to the same product-space point.
 
 The relation has the following observational interpretation:
 
@@ -90,23 +93,28 @@ The relation has the following observational interpretation:
 \xi\sim_t^M\eta
 ```
 
-exactly when every fixed node $v$, using normalized weighted route counts toward the distant endpoints, sees the two histories asymptotically identically.
+exactly when every fixed node $v$, using normalized weighted route counts
+toward the distant endpoints, sees the two histories asymptotically
+identically.
 
-The quotient forgets route history precisely insofar as normalized Green observations fail to separate rays.
+The quotient forgets route history precisely insofar as normalized Green
+observations fail to separate rays.
 
 # 3. Three levels of route identification
 
-There are three progressively weaker ways for two rays to become indistinguishable.
+There are three progressively weaker ways for two rays to become
+indistinguishable.
 
 ## Eventual common tail
 
-Write $\xi\sim_{\mathrm{tail}}\eta$.
+Write $\xi\sim_{\mathrm{tail}}\eta$ when, after possibly different finite
+prefixes, the two paths follow exactly the same infinite edge sequence.
 
-when, after possibly different finite prefixes, the two paths follow exactly the same infinite edge sequence.
+The relation is the standard tail relation for Bratteli path spaces and related
+graded graphs.
 
-The relation is the standard tail relation for Bratteli path spaces and related graded graphs.
-
-If two rays have an eventual common tail, their node sequences are eventually identical up to a finite shift. Hence
+If two rays have an eventual common tail, their node sequences are eventually
+identical up to a finite shift. Hence
 
 ```math
 \xi\sim_{\mathrm{tail}}\eta
@@ -139,7 +147,8 @@ x_{n_k}^\xi=x_{m_k}^\eta
 
 for every $k$.
 
-If both rays are Martin regular, their Green-column sequences contain the same cofinal subsequence. Therefore
+If both rays are Martin regular, their Green-column sequences contain the same
+cofinal subsequence. Therefore
 
 ```math
 \text{cofinal reconvergence}
@@ -147,7 +156,8 @@ If both rays are Martin regular, their Green-column sequences contain the same c
 \xi\sim_t^M\eta.
 ```
 
-The rays may split after every common node and need not have an eventual common tail.
+The rays may split after every common node and need not have an eventual
+common tail.
 
 ## Asymptotic Green equivalence
 
@@ -159,7 +169,8 @@ Two rays can satisfy
 
 without ever meeting after the root.
 
-Their distant nodes can simply become indistinguishable under all normalized Green ratios.
+Their distant nodes can simply become indistinguishable under all normalized
+Green ratios.
 
 Thus, on regular rays,
 
@@ -175,9 +186,11 @@ Both inclusions can be strict.
 
 # 4. One reconvergence is not sufficient
 
-Suppose two rays meet at a node $w$, then take different outgoing branches and never meet again.
+Suppose two rays meet at a node $w$, then take different outgoing branches and
+never meet again.
 
-The common finite prefix after reconvergence alone says nothing about the asymptotic Green columns of later endpoints.
+The common finite prefix after reconvergence alone says nothing about the
+asymptotic Green columns of later endpoints.
 
 ```math
 \text{one finite reconvergence}
@@ -189,7 +202,7 @@ The sufficient conditions are instead:
 
 * a permanently common tail;
 * an unbounded sequence of common later nodes, assuming regularity;
-* or direct equality of all limiting Green ratios.
+* direct equality of all limiting Green ratios.
 
 # 5. Unique-route systems: no boundary collapse
 
@@ -215,7 +228,8 @@ t^{-|p_v|}
 \mathbf1_{\{p_v\preceq\xi\}}.
 ```
 
-If $\xi\ne\eta$, there is a first prefix belonging to one ray and not the other. The corresponding coordinate separates their node kernels.
+If $\xi\ne\eta$, there is a first prefix belonging to one ray and not the
+other. The corresponding coordinate separates their node kernels.
 
 ```math
 \text{unique rooted routes}
@@ -237,9 +251,7 @@ at the finite-path level.
 
 # 6. Eventual reconvergence: the diamond-tail fiber
 
-Consider $o\to a\to v_0\to v_1\to v_2\to\cdots$.
-
-and
+Consider $o\to a\to v_0\to v_1\to v_2\to\cdots$ and
 
 ```math
 o\to b\to v_0.
@@ -257,7 +269,8 @@ but after reaching $v_0$ they have the same tail. Thus
 \xi_a\sim_t^M\xi_b.
 ```
 
-The prefix boundary has two points, while the node Martin boundary has one corresponding direction.
+The prefix boundary has two points, while the node Martin boundary has one
+corresponding direction.
 
 The node bridge weights average the two equal-length histories:
 
@@ -282,7 +295,7 @@ It is the asymptotic counterpart of a finite diamond route defect.
 
 Fix an integer $b\ge2$.
 
-Let:
+Define the layered graph as follows:
 
 * $V_0={o}$;
 * every level $V_n$, $n\ge1$, contains $b$ nodes;
@@ -315,7 +328,7 @@ All such paths have their level-determined lengths, so
 G_t(v,x)=b^{n-k-1}t^{n-k},
 ```
 
-Equivalently,
+and
 
 ```math
 G_t(o,x)=b^{n-1}t^n.
@@ -327,7 +340,8 @@ This gives
 K_t(v,x)=(bt)^{-k},
 ```
 
-independent of the terminal node $x$, the route used to reach $x$, and every future symbol choice.
+independent of the terminal node $x$, the route used to reach $x$, and every
+future symbol choice.
 
 Consequently every infinite ray has exactly the same node shadow:
 
@@ -336,7 +350,7 @@ h(v)=(bt)^{-k}
 \qquad(v\in V_k).
 ```
 
-Consequently,
+Therefore,
 
 ```math
 \partial_{\mathrm{pre}}G
@@ -351,11 +365,11 @@ while
 \text{ consists of one point}.
 ```
 
-Two rays can choose different nodes at every positive level and never reconverge, yet still be Martin-equivalent.
+Two rays can choose different nodes at every positive level and never
+reconverge, yet still be Martin-equivalent.
 
-node Martin collapse can be caused by asymptotic mixing,
-
-not only by literal reconvergence.
+Node Martin collapse can be caused by asymptotic mixing, not only by literal
+reconvergence.
 
 # 8. The canonical quotient in the regular compact case
 
@@ -363,7 +377,8 @@ Assume now that:
 
 1. the prefix boundary $X_{\mathrm{pre}}$ is compact;
 2. every boundary path is $t$-Martin regular;
-3. for every node $v$, the function $k_v(\xi)=h_\xi(v)$ is continuous on $X_{\mathrm{pre}}$.
+3. for every node $v$, the function $k_v(\xi)=h_\xi(v)$ is continuous on
+   $X_{\mathrm{pre}}$.
 
 Define the Martin-profile map by
 
@@ -373,7 +388,7 @@ X_{\mathrm{pre}}\longrightarrow
 \prod_{v\in V}[0,C_v]
 ```
 
-Equivalently,
+where
 
 ```math
 \pi_t(\xi)=\bigl(k_v(\xi)\bigr)_{v\in V}.
@@ -432,11 +447,15 @@ Conversely, because the coordinate functions separate points of $Y_t$,
 C(Y_t).
 ```
 
-Thus node Martin compression is the restriction from all prefix observables to the subalgebra $\mathcal N_t$. The full boundary algebra $C(X_{\mathrm{pre}})$ retains route history.
+Thus node Martin compression is the restriction from all prefix observables to
+the subalgebra $\mathcal N_t$. The full boundary algebra $C(X_{\mathrm{pre}})$
+retains route history.
 
-The subalgebra $\mathcal N_t$ retains only what can be detected through asymptotic node Green ratios.
+The subalgebra $\mathcal N_t$ retains only what can be detected through
+asymptotic node Green ratios.
 
-The inclusion is the commutative boundary counterpart of the finite-level inclusion
+The inclusion is the commutative boundary counterpart of the finite-level
+inclusion
 
 ```math
 \text{endpoint data}
@@ -461,11 +480,12 @@ Its fiber over a node boundary point $h\in Y_t$ is
 F_h=\pi_t^{-1}(h).
 ```
 
-The size and topology of $F_h$ quantify how much route history the boundary erases.
+The size and topology of $F_h$ quantify how much route history the boundary
+erases.
 
-For example, a unique-route tree has $|F_h|=1$; a diamond followed by a tail has $|F_h|=2$; and complete layered mixing has $F_h\cong\{1,\ldots,b\}^{\mathbb N}$.
-
-A single node Martin direction can conceal anything from one history to an entire Cantor family of histories.
+For example, a unique-route tree has $|F_h|=1$; a diamond followed by a tail
+has $|F_h|=2$; and complete layered mixing has
+$F_h\cong\{1,\ldots,b\}^{\mathbb N}$.
 
 # 11. Boundary route-defect spaces
 
@@ -507,7 +527,7 @@ For a finite fiber of size $m$,
 \dim\mathfrak D_t(h)=m-1.
 ```
 
-With respect to this decomposition,
+The finite and boundary defect data correspond as follows:
 
 ```math
 \begin{array}{c|c}
@@ -549,7 +569,8 @@ Its first image spans the atomic boundary defects
 \delta_\eta-\delta_\xi.
 ```
 
-If $F_h\ne\varnothing$, the unmarked simplicial set $E(F_h)$ is contractible. But its marked zero-skeleton remembers every actual history.
+If $F_h\ne\varnothing$, the unmarked simplicial set $E(F_h)$ is contractible.
+But its marked zero-skeleton remembers every actual history.
 
 The complex parallels the finite route-resolution construction:
 
@@ -567,7 +588,8 @@ The second resolves collapse of infinite histories to one node Martin direction.
 
 Suppose $h$ is a minimal node harmonic function.
 
-Its lifted endpoint-factorized boundary measure can still be non-extreme among all route-sensitive measures.
+Its lifted endpoint-factorized boundary measure can still be non-extreme among
+all route-sensitive measures.
 
 The diamond-tail example already shows this:
 
@@ -579,15 +601,21 @@ h
 \frac12\delta_{\xi_b}.
 ```
 
-The node function is extreme because the compressed node cone has only one direction. But the lifted route measure decomposes into two distinct route-extreme states.
+The node function is extreme because the compressed node cone has only one
+direction. But the lifted route measure decomposes into two distinct
+route-extreme states.
 
-More generally, under an integral representation in which Martin-regular rays project through $\pi_t$, minimality of $h$ forces its representing node-shadow measure to be concentrated at $h$. Its route-sensitive representing measure may nevertheless spread arbitrarily inside
+More generally, under an integral representation in which Martin-regular rays
+project through $\pi_t$, minimality of $h$ forces its representing node-shadow
+measure to be concentrated at $h$. Its route-sensitive representing measure may
+nevertheless spread arbitrarily inside
 
 ```math
 F_h.
 ```
 
-Node minimality therefore does not imply route-history purity. It implies only that all histories in the decomposition have the same compressed node shadow.
+Node minimality therefore does not imply route-history purity. It implies only
+that all histories in the decomposition have the same compressed node shadow.
 
 # 14. Nonregular rays
 
@@ -611,24 +639,34 @@ Several cases must be distinguished. When
 \mathrm{Cl}_t(\xi)=\{h\},
 ```
 
-the ray has a well-defined node shadow. If the cluster set contains several points, the same route history presents different node asymptotic profiles along different subsequences. Two nonregular rays may have
+the ray has a well-defined node shadow. If the cluster set contains several
+points, the same route history presents different node asymptotic profiles
+along different subsequences. Two nonregular rays may have
 
 ```math
 \mathrm{Cl}_t(\xi)=
 \mathrm{Cl}_t(\eta)
 ```
 
-even though neither has a unique limit, or their cluster sets may intersect without being equal. Therefore, without regularity, there is no canonical point-valued quotient of the literal ray space. The unconditional object is the relation between prefix histories and their sets of Martin cluster points.
+even though neither has a unique limit, or their cluster sets may intersect
+without being equal. Therefore, without regularity, there is no canonical
+point-valued quotient of the literal ray space. The unconditional object is the
+relation between prefix histories and their sets of Martin cluster points.
 
-A genuine quotient map appears only after imposing or proving appropriate convergence.
+A genuine quotient map appears only after imposing or proving appropriate
+convergence.
 
 # 15. Arbitrary branching
 
-When the literal infinite-ray space is not compact, for example because of infinite emitters, the same construction should be made on the spectrum of the prefix-cylinder algebra rather than only on actual rays.
+When the literal infinite-ray space is not compact, for example because of
+infinite emitters, the same construction should be made on the spectrum of the
+prefix-cylinder algebra rather than only on actual rays.
 
-That spectrum includes generalized exits through infinite branching, exactly as encountered in the earlier boundary-state analysis.
+That spectrum includes generalized exits through infinite branching, exactly
+as encountered in the earlier boundary-state analysis.
 
-The node observables $k_v$, whenever defined, still generate a subalgebra. Its spectrum is again the endpoint-asymptotic quotient.
+The node observables $k_v$, whenever defined, still generate a subalgebra. Its
+spectrum is again the endpoint-asymptotic quotient.
 
 Thus the algebraic formulation
 

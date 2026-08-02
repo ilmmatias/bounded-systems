@@ -1,8 +1,11 @@
 # 1. General stochastic ordered sectors
 
-`findings-69.md` absolutely forces a stochastic source-sink sector. The rooted calculus of `findings-70.md` extends the result to any fixed finite number of ordered layers.
+The rooted calculus of `findings-70.md` extends the absolute forcing of the
+stochastic source-sink sector in `findings-69.md` to any fixed finite number of
+ordered layers.
 
-Fix $q\geq2$, positive masses $p_1,\ldots,p_q$, and block probabilities $w_{ij}$ for $i<j$, with
+Fix $q\geq2$, positive masses $p_1,\ldots,p_q$, and block probabilities
+$w_{ij}$ for $i<j$, with
 
 ```math
 w_{i,i+1}>0.
@@ -12,7 +15,8 @@ Write $\mu^{p,W}$ for the corresponding extremal stochastic ordered-DAG sector.
 
 # 2. Intrinsic layer partition
 
-For an extremal central sector $\xi$, choose a dissociated acyclic digraphon representation $\Gamma$, form the rooted path signature $S(x)$, and define
+For an extremal central sector $\xi$, choose a dissociated acyclic digraphon
+representation $\Gamma$, form the rooted path signature $S(x)$, and define
 
 ```math
 q_0(\xi)
@@ -76,7 +80,8 @@ C_{ij}(\xi)
 \right)^2dy.
 ```
 
-Their vanishing makes the normalized row and column degrees in the $(i,j)$ block equal to $w_{ij}$.
+Their vanishing makes the normalized row and column degrees in the $(i,j)$
+block equal to $w_{ij}$.
 
 Let $B_{ij}(\xi)$ be the raw directed $K_{2,2}$ density in that block:
 
@@ -120,7 +125,8 @@ Define the nonnegative sector energy
 \end{aligned}
 ```
 
-Every term is finite-pattern observable data. By the boundary polynomial lift of `findings-70.md`, the central functional
+Every term is finite-pattern observable data. By the boundary polynomial lift
+of `findings-70.md`, the central functional
 
 ```math
 \mathfrak E_{p,W}(\mu)
@@ -156,14 +162,18 @@ if and only if $K=r$ almost everywhere.
 
 ## Proof
 
-Use normalized probability measures on $A$ and $B$. The constant functions form a singular pair of the Hilbert-Schmidt operator $T_K$ with singular value $r$. If $\sigma_1,\sigma_2,\ldots$ are its remaining singular values, the normalized four-edge density is
+Use normalized probability measures on $A$ and $B$. The constant functions
+form a singular pair of the Hilbert-Schmidt operator $T_K$ with singular value
+$r$. If $\sigma_1,\sigma_2,\ldots$ are its remaining singular values, the
+normalized four-edge density is
 
 ```math
 r^4+
 \sum_{k\geq1}\sigma_k^4.
 ```
 
-Equality with $r^4$ is equivalent to the vanishing of every nonconstant singular mode.
+Equality with $r^4$ is equivalent to the vanishing of every nonconstant
+singular mode.
 
 # 6. Absolute forcing theorem
 
@@ -181,25 +191,36 @@ then
 \mu=\mu^{p,W}.
 ```
 
-Consequently, every stochastic ordered $q$-layer sector with positive layer masses and positive adjacent block probabilities is absolutely finitely forcible in the full central DAG boundary.
+Consequently, every stochastic ordered $q$-layer sector with positive layer
+masses and positive adjacent block probabilities is absolutely finitely
+forcible in the full central DAG boundary.
 
 ## Proof
 
-The integrand $\mathcal E_{p,W}$ is nonnegative, so zero central energy makes it vanish in almost every extremal component $\xi$.
+The integrand $\mathcal E_{p,W}$ is nonnegative, so zero central energy makes
+it vanish in almost every extremal component $\xi$.
 
-The path-signature term gives a measurable partition $A_1,\ldots,A_q$. The mass terms give $|A_i|=p_i$. The terms $e_{ij}=0$ for $i\geq j$ remove every within-layer and backward edge up to null sets.
+The path-signature term gives a measurable partition $A_1,\ldots,A_q$. The
+mass terms give $|A_i|=p_i$. The terms $e_{ij}=0$ for $i\geq j$ remove every
+within-layer and backward edge up to null sets.
 
-For each forward block, $R_{ij}=C_{ij}=0$ gives constant normalized row and column degree $w_{ij}$. The four-edge term and Proposition 1 then force
+For each forward block, $R_{ij}=C_{ij}=0$ gives constant normalized row and
+column degree $w_{ij}$. The four-edge term and Proposition 1 then force
 
 ```math
 \Gamma(x,y)=w_{ij}
 ```
 
-for almost every $(x,y)\in A_i\times A_j$. Thus the component is weakly isomorphic to the target ordered step digraphon. Almost every extremal component is the same, so the original central measure is $\mu^{p,W}$.
+for almost every $(x,y)\in A_i\times A_j$. Thus the component is weakly
+isomorphic to the target ordered step digraphon. Almost every extremal
+component is the same, so the original central measure is $\mu^{p,W}$.
 
 # 7. Pattern order
 
-The proof is finite but not optimized for pattern size. A rooted path coordinate uses at most $q$ vertices. Each interpolation polynomial $L_i$ has degree $2(q-1)$ in those coordinates. Expanding all sector squares and replacing homomorphism densities by induced densities gives the crude bound
+The proof uses finitely many patterns. A rooted path coordinate uses at most
+$q$ vertices. Each interpolation polynomial $L_i$ has degree $2(q-1)$ in
+those coordinates. Expanding all sector squares and replacing homomorphism
+densities by induced densities gives the crude bound
 
 ```math
 16(q-1)^2+8
@@ -207,7 +228,9 @@ The proof is finite but not optimized for pattern size. A rooted path coordinate
 
 on the largest pattern order required by the displayed energy.
 
-The two-layer construction of `findings-69.md` is much smaller because its partition is detected directly by in- and outdegrees. The present theorem prioritizes a uniform proof for arbitrary $q$, not minimal forcing complexity.
+The two-layer construction of `findings-69.md` is much smaller because its
+partition is detected directly by in- and outdegrees. The displayed bound
+holds uniformly in $q$ and is not minimal.
 
 # 8. Structural interpretation
 
@@ -216,16 +239,27 @@ The selector has four independent tasks:
 1. rooted path signatures create graph-intrinsic layer names;
 2. mass constraints fix the size of each layer;
 3. zero wrong-direction densities fix the ordered architecture;
-4. block regularity and four-cycle equalities remove every nonconstant edge mode.
+4. block regularity and four-cycle equalities remove every nonconstant edge
+   mode.
 
-No transition kernel is postulated. Once the sector is selected, its coherent profile, harmonic function, and up transition follow from the projective reconstruction of `findings-59.md`.
+No transition kernel is postulated. Once the sector is selected, its coherent
+profile, harmonic function, and up transition follow from the projective
+reconstruction of `findings-59.md`.
 
-For rational three- and four-layer targets, exact calculations give zero energy on arbitrary refinements of the target partition and positive four-cycle excess for nonconstant biregular perturbations.
+For rational three- and four-layer targets, exact calculations give zero
+energy on arbitrary refinements of the target partition and positive
+four-cycle excess for nonconstant biregular perturbations.
 
 # 9. Literature relation
 
-The block equality is the bipartite quasirandomness mechanism used in graphon forcing. Lovasz and Szegedy describe finite forcing through quantum-graph identities and note the Lovasz-Sos theorem that every finite step graphon is finitely forcible. The present theorem is a direct directed-acyclic construction: rooted path signatures force the ordered partition, and blockwise singular-value equalities force its stochastic edge constants.
+The block equality is the bipartite quasirandomness mechanism used in graphon
+forcing. Lovasz and Szegedy describe finite forcing through quantum-graph
+identities and note the Lovasz-Sos theorem that every finite step graphon is
+finitely forcible. The present theorem is a direct directed-acyclic
+construction: rooted path signatures force the ordered partition, and
+blockwise singular-value equalities force its stochastic edge constants.
 
 Reference:
 
-- L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.
+- L. Lovasz and B. Szegedy, *Finitely forcible graphons*, Journal of
+  Combinatorial Theory, Series B 101 (2011), 269-301, arXiv:0901.0929.

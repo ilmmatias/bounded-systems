@@ -6,7 +6,8 @@ Let $q:[0,1]\to\mathbb R$ be nondecreasing and define
 W_q(u,v)=\bigl(q(v)-q(u)\bigr)_+.
 ```
 
-We first treat the strictly increasing case and then remove that assumption by imposing the incoming and outgoing identities together.
+We first treat the strictly increasing case and then remove that assumption
+by imposing the incoming and outgoing identities together.
 
 The incoming degree is
 
@@ -42,6 +43,9 @@ so
 ```
 
 # 2. A quantile rigidity theorem
+
+Theorem 1 shows that the affine gap kernel is the only continuous strictly
+increasing solution of the quadratic route identity.
 
 ## Theorem 1. Quadratic route rigidity
 
@@ -81,7 +85,8 @@ dF=u\,dq,
 dG=J\,dq.
 ```
 
-Because $q$ is continuous, the ordinary chain rule for continuous functions of bounded variation gives
+Because $q$ is continuous, the ordinary chain rule for continuous functions
+of bounded variation gives
 
 ```math
 d\left(\frac{F^2}{6}\right)
@@ -97,7 +102,8 @@ The assumed identity therefore implies
 \left(J-\frac{uF}{3}\right)dq=0.
 ```
 
-Strict increase means that the support of $dq$ is all of $[0,1]$. The function in parentheses is continuous, so
+Strict increase means that the support of $dq$ is all of $[0,1]$. The
+function in parentheses is continuous, so
 
 ```math
 J(u)=\frac{uF(u)}{3}
@@ -120,7 +126,8 @@ Hence
 u\,dF=2F\,du.
 ```
 
-The measure $dF$ is therefore absolutely continuous on $(0,1]$, and the differential equation
+The measure $dF$ is therefore absolutely continuous on $(0,1]$, and the
+differential equation
 
 ```math
 u F'(u)=2F(u)
@@ -142,7 +149,8 @@ Thus $q(u)=2Cu+c$ almost everywhere.
 
 # 3. Fixing translation and scale intrinsically
 
-Suppose the coordinate is not externally supplied but is the signed degree coordinate
+Suppose the coordinate is not externally supplied but is the signed degree
+coordinate
 
 ```math
 q(u)=s_W(u)=d_W^-(u)-d_W^+(u).
@@ -223,28 +231,46 @@ hold almost everywhere, then $q$ is affine.
 
 ## Proof
 
-Continuity makes all four functions continuous, so the identities hold everywhere. Let
+Continuity makes all four functions continuous, so the identities hold
+everywhere. Let
 
 ```math
 D_-(u)=J(u)-\frac{uF(u)}3.
 ```
 
-The Stieltjes calculation in Theorem 1 shows that $D_-=0$ on the support of $dq$. On an interval where $q$ is constant, $F$ is constant and
+The Stieltjes calculation in Theorem 1 shows that $D_-=0$ on the support of
+$dq$. On an interval where $q$ is constant, $F$ is constant and
 
 ```math
 D_-'(u)=\frac{2F(u)}3.
 ```
 
-A flat interval with increasing support on both sides would therefore force $F=0$ at its left endpoint, which is possible only before any increase has occurred. The measure equation $u\,dF=2F\,du$ then shows that a nonconstant solution cannot begin with a flat interval. Thus the incoming identity allows at most one terminal flat interval, and $q$ is affine before it.
+A flat interval with increasing support on both sides would therefore force
+$F=0$ at its left endpoint, which is possible only before any increase has
+occurred. The measure equation $u\,dF=2F\,du$ then shows that a nonconstant
+solution cannot begin with a flat interval. Thus the incoming identity allows
+at most one terminal flat interval, and $q$ is affine before it.
 
-Applying the same argument to the reversed coordinate $u\mapsto-q(1-u)$ shows that the outgoing identity allows at most one initial flat interval. A nonconstant function satisfying both identities can have neither. Hence the support of $dq$ is all of $[0,1]$, and Theorem 1 gives the affine conclusion.
+Applying the same argument to the reversed coordinate $u\mapsto-q(1-u)$
+shows that the outgoing identity allows at most one initial flat interval. A
+nonconstant function satisfying both identities can have neither. Hence the
+support of $dq$ is all of $[0,1]$, and Theorem 1 gives the affine conclusion.
 
-The theorem permits singular continuous coordinates a priori; the Stieltjes equation forces them to become absolutely continuous. It also rules out positive-measure twin classes, because these appear as flat intervals of the quantile.
+The theorem permits singular continuous coordinates a priori; the Stieltjes
+equation forces them to become absolutely continuous. It also rules out
+positive-measure twin classes, because these appear as flat intervals of the
+quantile.
 
 # 5. Interpretation
 
-The identity $6G=F^2$ is a compositional law. It compares the volume of two-step incoming factorizations with the square of the one-step incoming volume. On the regular stratum, that single relation forces the intrinsic coordinate to have constant density.
+The identity $6G=F^2$ is a compositional law. It compares the volume of
+two-step incoming factorizations with the square of the one-step incoming
+volume. On the regular stratum, that single relation forces the intrinsic
+coordinate to have constant density.
 
-The uniform interval geometry is therefore not inserted as a coordinate convention. It is selected by a rooted route-composition identity.
+A rooted route-composition identity therefore selects the uniform interval
+geometry.
 
-Exact symbolic calculations reproduce the affine formulas, the Stieltjes identities on polynomial test families, and the failure of the quadratic route relation for finite atomic gap sectors.
+Exact symbolic calculations reproduce the affine formulas, the Stieltjes
+identities on polynomial test families, and the failure of the quadratic
+route relation for finite atomic gap sectors.

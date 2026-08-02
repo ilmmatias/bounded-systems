@@ -1,6 +1,8 @@
 # 1. Stochastic ordered block sectors
 
-The stochastic two-layer construction extends to finitely many ordered latent layers without sacrificing exchangeability or exact acyclicity. Fix an integer $q\geq2$, a probability vector
+The stochastic two-layer construction extends to finitely many ordered latent
+layers without sacrificing exchangeability or exact acyclicity. Fix an integer
+$q\geq2$, a probability vector
 
 ```math
 p=(p_1,\ldots,p_q),
@@ -18,9 +20,14 @@ W=(w_{ij})_{1\leq i<j\leq q},
 0\leq w_{ij}\leq1.
 ```
 
-Let $(A_v)_{v\geq1}$ be independent layer marks with law $p$. Conditional on the marks, place each possible edge between distinct layers independently: if $A_u=i<A_v=j$, place $u\to v$ with probability $w_{ij}$, and if $A_v=i<A_u=j$, place $v\to u$ with the same probability. No edge is placed within a layer.
+Let $(A_v)_{v\geq1}$ be independent layer marks with law $p$. Conditional on
+the marks, place each possible edge between distinct layers independently: if
+$A_u=i<A_v=j$, place $u\to v$ with probability $w_{ij}$, and if
+$A_v=i<A_u=j$, place $v\to u$ with the same probability. No edge is placed
+within a layer.
 
-Every edge points from a lower layer to a higher layer, so the resulting infinite directed graph $X_{p,W}$ is acyclic. Write
+Every edge points from a lower layer to a higher layer, so the resulting
+infinite directed graph $X_{p,W}$ is acyclic. Write
 
 ```math
 G_n=X_{p,W}|_{[n]}.
@@ -28,13 +35,21 @@ G_n=X_{p,W}|_{[n]}.
 
 ## Proposition 1. Extremal centrality
 
-The law of $X_{p,W}$ is exchangeable and dissociated. It therefore determines an extremal central measure on the DAG branching graph.
+The law of $X_{p,W}$ is exchangeable and dissociated. It therefore determines
+an extremal central measure on the DAG branching graph.
 
 ## Proof
 
-A finite permutation of the vertices permutes the independent mark variables and pair variables without changing their joint law. Restrictions to disjoint vertex sets depend on disjoint collections of those variables and are therefore independent. The central-exchangeable correspondence for extremal sectors gives the result.
+A finite permutation of the vertices permutes the independent mark variables
+and pair variables without changing their joint law. Restrictions to disjoint
+vertex sets depend on disjoint collections of those variables and are
+therefore independent. The central-exchangeable correspondence for extremal
+sectors gives the result.
 
-The sector is represented by a finite ordered directed kernel. Partition $[0,1]$ into intervals of lengths $p_1,\ldots,p_q$; for points in blocks $i<j$, place the directed edge from block $i$ to block $j$ with probability $w_{ij}$.
+The sector is represented by a finite ordered directed kernel. Partition
+$[0,1]$ into intervals of lengths $p_1,\ldots,p_q$; for points in blocks
+$i<j$, place the directed edge from block $i$ to block $j$ with probability
+$w_{ij}$.
 
 # 2. Exact latent coefficients
 
@@ -84,11 +99,14 @@ is
 dY_s=-\frac12Y_s\,ds+\Sigma_p^{1/2}\,dW_s.
 ```
 
-As in the deterministic ordered-layer sector, the coefficient fields are exact and independent of $n$. The new issue is that the finite graph generally does not reveal $Z_n$.
+As in the deterministic ordered-layer sector, the coefficient fields are exact
+and independent of $n$. The new issue is that the finite graph generally does
+not reveal $Z_n$.
 
 # 3. First projections of finite DAG observables
 
-Let $F$ be a finite DAG on $k$ vertices. Conditional on a mark vector $a=(a_1,\ldots,a_k)\in[q]^k$, define
+Let $F$ be a finite DAG on $k$ vertices. Conditional on a mark vector
+$a=(a_1,\ldots,a_k)\in[q]^k$, define
 
 ```math
 \psi_F(a_1,\ldots,a_k)
@@ -101,7 +119,8 @@ A_1=a_1,\ldots,A_k=a_k
 \right).
 ```
 
-The kernel $\psi_F$ is symmetric in its arguments because the event is unlabeled. Its continuum density is
+The kernel $\psi_F$ is symmetric in its arguments because the event is
+unlabeled. Its continuum density is
 
 ```math
 P_F(p,W)=
@@ -127,7 +146,9 @@ Then
 P_F(p,W)=\sum_{i=1}^q p_iq_F(i).
 ```
 
-The quantity $q_F(i)-P_F$ is the first Hoeffding projection of the pattern event. It measures the predictive effect of knowing the layer of one observed vertex.
+The quantity $q_F(i)-P_F$ is the first Hoeffding projection of the pattern
+event. It measures the predictive effect of knowing the layer of one observed
+vertex.
 
 ## Theorem 2. Generic cylinder fluctuation mode
 
@@ -163,11 +184,14 @@ P_{F_r}P_{F_t}
 \right].
 ```
 
-Equivalently, every nondegenerate first-order cylinder mode has logarithmic relaxation rate $1/2$.
+Equivalently, every nondegenerate first-order cylinder mode has logarithmic
+relaxation rate $1/2$.
 
 ## Proof
 
-Condition on all layer marks. The conditional expectation of $T_F(G_n)$ is the bounded $U$-statistic with kernel $\psi_F$. Its first Hoeffding projection is
+Condition on all layer marks. The conditional expectation of $T_F(G_n)$ is
+the bounded $U$-statistic with kernel $\psi_F$. Its first Hoeffding
+projection is
 
 ```math
 \frac{k}{n}
@@ -177,9 +201,14 @@ q_F(A_v)-P_F
 \right).
 ```
 
-The remaining mark kernel is degenerate of order at least two and has variance $O(n^{-2})$.
+The remaining mark kernel is degenerate of order at least two and has
+variance $O(n^{-2})$.
 
-The difference between the graph statistic and its conditional expectation also has variance $O(n^{-2})$. Indeed, two induced-pattern indicators use disjoint edge variables whenever their vertex sets intersect in at most one vertex. Conditional covariances can therefore occur only for pairs of $k$-sets with overlap at least two, whose proportion is $O(n^{-2})$.
+The difference between the graph statistic and its conditional expectation
+also has variance $O(n^{-2})$. Indeed, two induced-pattern indicators use
+disjoint edge variables whenever their vertex sets intersect in at most one
+vertex. Conditional covariances can therefore occur only for pairs of
+$k$-sets with overlap at least two, whose proportion is $O(n^{-2})$.
 
 It follows that
 
@@ -197,13 +226,16 @@ q_F(A_v)-P_F
 \longrightarrow0
 ```
 
-in $L^2$. The sequential Hoeffding decomposition gives the same approximation uniformly on compact size intervals. Applying the invariance principle to the empirical mark process and then the logarithmic time change gives
+in $L^2$. The sequential Hoeffding decomposition gives the same approximation
+uniformly on compact size intervals. Applying the invariance principle to the
+empirical mark process and then the logarithmic time change gives
 
 ```math
 V_F(s)=kq_F^{\mathsf T}Y(s).
 ```
 
-Since $Y$ has covariance $e^{-|s-u|/2}\Sigma_p$, the displayed covariance follows from
+Since $Y$ has covariance $e^{-|s-u|/2}\Sigma_p$, the displayed covariance
+follows from
 
 ```math
 q_F^{\mathsf T}\Sigma_pq_K
@@ -211,11 +243,20 @@ q_F^{\mathsf T}\Sigma_pq_K
 \sum_i p_iq_F(i)q_K(i)-P_FP_K.
 ```
 
-This result isolates the graph-observable first-order coefficient without assuming that the latent layers are recoverable from the finite graph.
+This result isolates the graph-observable first-order coefficient without
+assuming that the latent layers are recoverable from the finite graph.
+
+Whether a finite or projective family of observed rooted densities
+reconstructs $p_i$, $w_{ij}$, and $q_F(i)$ up to the natural block
+symmetries is an open identifiability and posterior-concentration question.
 
 # 4. Route-density hierarchy
 
-For $r\geq1$, let $\mathcal R_{r,n}$ be the fraction of $(r+1)$-element vertex subsets whose induced graph contains a directed route visiting all selected vertices. In an ordered block sector, such a route exists only when the selected marks are strictly increasing, and then its required consecutive edges are unique.
+For $r\geq1$, let $\mathcal R_{r,n}$ be the fraction of $(r+1)$-element
+vertex subsets whose induced graph contains a directed route visiting all
+selected vertices. In an ordered block sector, such a route exists only when
+the selected marks are strictly increasing, and then its required consecutive
+edges are unique.
 
 The continuum route density is therefore
 
@@ -232,7 +273,9 @@ The continuum route density is therefore
 \right).
 ```
 
-This formula gives a path-sensitive continuum coordinate rather than an endpoint or edge-density coordinate. It detects products of edge probabilities along composable layer chains.
+This formula gives a path-sensitive continuum coordinate rather than an
+endpoint or edge-density coordinate. It detects products of edge
+probabilities along composable layer chains.
 
 The first nontrivial case is the two-step route density
 
@@ -267,7 +310,8 @@ p_ip_j w_{ij}w_{ja}
 \end{aligned}
 ```
 
-The three sums correspond respectively to the distinguished vertex acting as the lower endpoint, middle vertex, or upper endpoint of the route.
+The three sums correspond respectively to the distinguished vertex acting as
+the lower endpoint, middle vertex, or upper endpoint of the route.
 
 ## Corollary 3. Generic route Ornstein-Uhlenbeck limit
 
@@ -303,7 +347,8 @@ a=w_{12},
 b=w_{23}.
 ```
 
-The parameter $w_{13}$ does not affect the number of two-step routes. The continuum route density is
+The parameter $w_{13}$ does not affect the number of two-step routes. The
+continuum route density is
 
 ```math
 \tau=6abp_1p_2p_3,
@@ -329,7 +374,8 @@ p_1=p_2=p_3=\frac13.
 
 ## Proof
 
-The first projection vanishes precisely when $q_R(1)=q_R(2)=q_R(3)$. Since $2abp_1p_2p_3>0$, these equalities reduce to
+The first projection vanishes precisely when $q_R(1)=q_R(2)=q_R(3)$. Since
+$2abp_1p_2p_3>0$, these equalities reduce to
 
 ```math
 p_1=p_2=p_3.
@@ -337,11 +383,13 @@ p_1=p_2=p_3.
 
 Normalization gives the stated value.
 
-Thus the equal-layer sector is not merely a convenient symmetric example. It is the unique interior point at which the two-step route loses its $\sqrt n$ fluctuation mode.
+The equal-layer sector is therefore the unique interior point at which the
+two-step route loses its $\sqrt n$ fluctuation mode.
 
 # 6. Exact decomposition of the route count
 
-Let $V_i(n)$ be the layer-$i$ vertices among $[n]$, and write $C_{n,i}=|V_i(n)|$. Let
+Let $V_i(n)$ be the layer-$i$ vertices among $[n]$, and write
+$C_{n,i}=|V_i(n)|$. Let
 
 ```math
 E_{12,n}
@@ -410,7 +458,8 @@ R_n=\frac{L_n}{\binom n3}.
 
 ## Proposition 5. Negligibility of the bilinear residual
 
-With respect to the natural vertex-exposure filtration, $(Q_n)$ is a martingale and
+With respect to the natural vertex-exposure filtration, $(Q_n)$ is a
+martingale and
 
 ```math
 \mathbb E[Q_n^2\mid A_1,\ldots,A_n]
@@ -431,9 +480,12 @@ in probability.
 
 ## Proof
 
-When a new vertex is exposed, every new contribution to $Q_n-Q_{n-1}$ contains at least one newly revealed centered edge residual. Its conditional expectation is therefore zero, so $Q_n$ is a martingale.
+When a new vertex is exposed, every new contribution to $Q_n-Q_{n-1}$
+contains at least one newly revealed centered edge residual. Its conditional
+expectation is therefore zero, so $Q_n$ is a martingale.
 
-Conditional on the marks, the pairs $(X_v,Y_v)$ are independent across $v\in V_2(n)$, and $X_v$ is independent of $Y_v$. Therefore
+Conditional on the marks, the pairs $(X_v,Y_v)$ are independent across
+$v\in V_2(n)$, and $X_v$ is independent of $Y_v$. Therefore
 
 ```math
 \operatorname{Var}(X_v\mid A)=
@@ -447,7 +499,9 @@ and
 b(1-b)C_{n,3}.
 ```
 
-Summing the product variances over the $C_{n,2}$ middle vertices gives the displayed identity. In particular, $\mathbb E[Q_n^2]=O(n^3)$. Doob's maximal inequality then gives
+Summing the product variances over the $C_{n,2}$ middle vertices gives the
+displayed identity. In particular, $\mathbb E[Q_n^2]=O(n^3)$. Doob's maximal
+inequality then gives
 
 ```math
 \mathbb E
@@ -509,7 +563,8 @@ The Brownian drivers are mutually independent.
 
 ## Proof
 
-The centered block-edge counts are martingales under vertex exposure. Their predictable quadratic variations satisfy
+The centered block-edge counts are martingales under vertex exposure. Their
+predictable quadratic variations satisfy
 
 ```math
 \frac1{N^2}
@@ -520,7 +575,14 @@ N_{ij}
 p_ip_jw_{ij}(1-w_{ij})t^2.
 ```
 
-The bounded increments satisfy the martingale Lindeberg condition. Distinct block residuals have zero predictable cross variation because every cross product contains independent centered edge variables. Their predictable cross variations with the empirical mark martingale also vanish. The multivariate martingale functional central limit theorem therefore gives independent time-changed Brownian limits in ordinary size time. Multiplication by $2e^{-s}$ after the change $t=e^s$ yields the displayed Ornstein-Uhlenbeck equations.
+The bounded increments satisfy the martingale Lindeberg condition. Distinct
+block residuals have zero predictable cross variation because every cross
+product contains independent centered edge variables. Their predictable cross
+variations with the empirical mark martingale also vanish. The multivariate
+martingale functional central limit theorem therefore gives independent
+time-changed Brownian limits in ordinary size time. Multiplication by
+$2e^{-s}$ after the change $t=e^s$ yields the displayed Ornstein-Uhlenbeck
+equations.
 
 # 8. Symmetric two-step route limit
 
@@ -548,7 +610,8 @@ The conditional-mean part of the route density satisfies
 \frac{2ab}{9}.
 ```
 
-Because the coordinates of $Y_N$ sum to zero, the first-order term cancels exactly. Expanding the product gives
+Because the coordinates of $Y_N$ sum to zero, the first-order term cancels
+exactly. Expanding the product gives
 
 ```math
 n
@@ -604,7 +667,8 @@ V(s)=
 +aZ_{23}(s).
 ```
 
-Here $Y$ is the stationary two-dimensional Ornstein-Uhlenbeck process on $H_3$ with covariance matrix
+Here $Y$ is the stationary two-dimensional Ornstein-Uhlenbeck process on
+$H_3$ with covariance matrix
 
 ```math
 \Sigma_{1/3}
@@ -612,7 +676,8 @@ Here $Y$ is the stationary two-dimensional Ornstein-Uhlenbeck process on $H_3$ w
 \frac13I-\frac19\mathbf 1\mathbf 1^{\mathsf T},
 ```
 
-while $Z_{12}$ and $Z_{23}$ are independent rate-one Ornstein-Uhlenbeck processes with stationary variances
+while $Z_{12}$ and $Z_{23}$ are independent rate-one Ornstein-Uhlenbeck
+processes with stationary variances
 
 ```math
 \operatorname{Var}(Z_{12})=
@@ -636,7 +701,8 @@ The process $V$ is non-Gaussian whenever $ab>0$. Its covariance is
 
 ## Proof
 
-The exact route decomposition and the preceding convergence statements give the process limit. The quadratic mark term is centered because
+The exact route decomposition and the preceding convergence statements give
+the process limit. The quadratic mark term is centered because
 
 ```math
 \mathbb E\|Y(s)\|^2
@@ -666,7 +732,8 @@ Wick's formula gives
 \frac49e^{-|s-t|}.
 ```
 
-The pair-noise processes are independent of $Y$ and of one another. Adding their covariance contributions gives
+The pair-noise processes are independent of $Y$ and of one another. Adding
+their covariance contributions gives
 
 ```math
 \frac49
@@ -682,13 +749,21 @@ which simplifies to the displayed coefficient.
 
 # 9. Overlap order and path observables
 
-The two-step route now exhibits both established fluctuation orders in a genuinely compositional observable.
+The two-step route now exhibits both established fluctuation orders in a
+compositional observable.
 
-Away from equal layer weights, its first projection is nonzero and the route density has a $\sqrt n$ Gaussian mode with logarithmic relaxation rate $1/2$. At equal layer weights, that projection vanishes, and the $n$-scale limit combines a quadratic empirical-mark term with two centered edge-noise modes. Every surviving covariance decays at rate $1$.
+Away from equal layer weights, its first projection is nonzero and the route
+density has a $\sqrt n$ Gaussian mode with logarithmic relaxation rate
+$1/2$. At equal layer weights, that projection vanishes, and the $n$-scale
+limit combines a quadratic empirical-mark term with two centered edge-noise
+modes. Every surviving covariance decays at rate $1$.
 
-Thus, for a path-sensitive DAG coordinate, a first nonvanishing overlap of order $j$ produces logarithmic relaxation rate $j/2$ at the established orders $j=1$ and $j=2$.
+Thus, for a path-sensitive DAG coordinate, a first nonvanishing overlap of
+order $j$ produces logarithmic relaxation rate $j/2$ at the established
+orders $j=1$ and $j=2$.
 
-The result also separates two distinct sources of second-order behavior. The term
+The result also separates two distinct sources of second-order behavior. The
+term
 
 ```math
 \frac{2ab}{3}-ab\|Y\|^2
@@ -700,28 +775,21 @@ comes from a degenerate projection of the latent empirical measure, whereas
 bZ_{12}+aZ_{23}
 ```
 
-comes from irreducible edge randomness. They share the same relaxation rate because both belong to overlap order two, but one is Gaussian chaos and the other is Gaussian pair noise.
+comes from irreducible edge randomness. They share the same relaxation rate
+because both belong to overlap order two, but one is Gaussian chaos and the
+other is Gaussian pair noise.
 
-# 10. Path-observable consequences
+# 10. Literature relation
 
-The stochastic ordered block sectors now connect extremal central DAG laws and ordered directed kernels to stable route densities, first-projection coefficients, and path-sensitive functional limits.
+The first-projection argument is the classical Hoeffding decomposition for
+bounded $U$-statistics. The sequential form used for the process limit is the
+corresponding functional invariance principle. Degenerate higher-order terms
+are naturally described by the theory of Gaussian chaoses and degenerate
+$U$-statistics.
 
-The remaining closure problem has become more precise. The latent simplex is finite-dimensional and exactly Markov, while graph observables inherit stable coefficients through their predictive projections. A graph-intrinsic closure theorem would have to show that a finite or projective family of observed rooted densities consistently reconstructs the relevant quantities
-
-```math
-p_i,
-\qquad
-w_{ij},
-\qquad
-q_F(i),
-```
-
-up to the natural block symmetries. That is an identifiability and posterior-concentration problem rather than a continuum-existence problem.
-
-The next useful target is therefore the graph-intrinsic recovery of the three-layer parameters from finite induced densities and rooted extension statistics. Once this is proved, the stable coefficient fields above can be expressed in observable coordinates rather than latent ones.
-
-# 11. Literature relation
-
-The first-projection argument is the classical Hoeffding decomposition for bounded $U$-statistics. The sequential form used for the process limit is the corresponding functional invariance principle. Degenerate higher-order terms are naturally described by the theory of Gaussian chaoses and degenerate $U$-statistics.
-
-The present calculation differs from an ordinary vertex-sampled $U$-statistic because the graph also contains independent pair variables. The overlap decomposition shows exactly how this additional randomness enters: one-vertex overlaps carry the latent empirical mode, while shared edges first appear at two-vertex overlap. This produces the separate rate-$1/2$ and rate-$1$ logarithmic modes derived above.
+The present calculation differs from an ordinary vertex-sampled
+$U$-statistic because the graph also contains independent pair variables. The
+overlap decomposition shows exactly how this additional randomness enters:
+one-vertex overlaps carry the latent empirical mode, while shared edges first
+appear at two-vertex overlap. This produces the separate rate-$1/2$ and
+rate-$1$ logarithmic modes derived above.

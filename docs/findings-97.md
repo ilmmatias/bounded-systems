@@ -1,6 +1,9 @@
 # 1. Finite-type competitors are excluded
 
-The unresolved part of `findings-96.md` concerns singular distributions of the intrinsic coordinate. The first possible competitors are finite atomic distributions, corresponding to finite ordered layers with edge probability equal to the difference of their coordinate values.
+The unresolved part of `findings-96.md` concerns singular distributions of
+the intrinsic coordinate. The first possible competitors are finite atomic
+distributions, corresponding to finite ordered layers with edge probability
+equal to the difference of their coordinate values.
 
 Let
 
@@ -20,7 +23,8 @@ At the second coordinate value $q_2$, the incoming degree is
 d^-(q_2)=p_1(q_2-q_1)>0.
 ```
 
-However, there is no intermediate coordinate strictly between $q_1$ and $q_2$. The rooted incoming two-step route density is therefore
+However, there is no intermediate coordinate strictly between $q_1$ and
+$q_2$. The rooted incoming two-step route density is therefore
 
 ```math
 P^-(q_2)=0.
@@ -37,7 +41,8 @@ Hence
 
 ## Proposition 1. No nontrivial finite atomic solution
 
-No nonzero finite atomic gap-generated sector satisfies the rooted composition identity
+No nonzero finite atomic gap-generated sector satisfies the rooted
+composition identity
 
 ```math
 6P^-=\left(d^-\right)^2
@@ -45,15 +50,22 @@ No nonzero finite atomic gap-generated sector satisfies the rooted composition i
 
 almost everywhere.
 
-Thus every nontrivial finite ordered-layer competitor is excluded before any cyclic higher-pattern constraint is used.
+Thus every nontrivial finite ordered-layer competitor is excluded before
+any cyclic higher-pattern constraint is used.
 
 # 2. The singular problem is narrower than finite-step ambiguity
 
-A remaining counterexample, if one exists, must have coordinate values accumulating immediately above the essential minimum. The same conclusion holds after restricting to any positive-mass component: there can be no second isolated coordinate level.
+A remaining counterexample, if one exists, must have coordinate values
+accumulating immediately above the essential minimum. The same conclusion
+holds after restricting to any positive-mass component: there can be no
+second isolated coordinate level.
 
-The continuous case is settled by Theorem 2 of `findings-95.md`: singular continuous growth and flat quantile intervals are both forced away. The unresolved possibilities therefore require genuine gaps in the essential coordinate support, represented by jump discontinuities of the monotone quantile. They may be accompanied by diffuse or atomic mass on the remaining components.
-
-This is substantially narrower than the full graphon forcing problem.
+The continuous case is settled by Theorem 2 of `findings-95.md`: singular
+continuous growth and flat quantile intervals are both forced away. The
+unresolved possibilities therefore require genuine gaps in the essential
+coordinate support, represented by jump discontinuities of the monotone
+quantile. They may be accompanied by diffuse or atomic mass on the remaining
+components.
 
 # 3. Quantile form of the singular equation
 
@@ -78,24 +90,38 @@ The exact remaining equation is
 
 for almost every $u$. Its outgoing dual is obtained by reversing the interval.
 
-On every continuity component, the two-sided Stieltjes argument of `findings-95.md` forces $q$ to be affine and excludes flat intervals. Any remaining solution must therefore join affine components across jump discontinuities while preserving both rooted identities.
+On every continuity component, the two-sided Stieltjes argument of
+`findings-95.md` forces $q$ to be affine and excludes flat intervals. Any
+remaining solution must therefore join affine components across jump
+discontinuities while preserving both rooted identities.
 
 # 4. A sharpened conjecture
 
-The calculations suggest the following precise statement.
+The exclusion of finite atomic sectors in Proposition 1 and the affine
+rigidity on continuity components suggest the following statement.
 
 ## Conjecture 2. Absolute quantile rigidity
 
-Let $q$ be nondecreasing and nonconstant. If both the incoming and outgoing rooted composition identities hold almost everywhere, then $q$ is affine almost everywhere.
+Let $q$ be nondecreasing and nonconstant. If both the incoming and outgoing
+rooted composition identities hold almost everywhere, then $q$ is affine
+almost everywhere.
 
-If this conjecture is proved, the four finite constraints of `findings-96.md` absolutely force the standalone gap kernel in the full acyclic central boundary.
+If this conjecture is proved, the four finite constraints of
+`findings-96.md` absolutely force the standalone gap kernel in the full
+acyclic central boundary.
 
-The conjecture is now a one-dimensional Stieltjes rigidity problem rather than an unrestricted two-variable graphon problem.
+The conjecture is now a one-dimensional Stieltjes rigidity problem rather
+than an unrestricted two-variable graphon problem.
 
 # 5. Relation to finite forcibility
 
-Lovász and Szegedy showed that finite forcibility can be expressed through vanishing quantum-graph identities and that finitely forcible graphons are exceptional. The present reduction identifies a concrete candidate identity rather than appealing only to general rarity.
+Lovász and Szegedy showed that finite forcibility can be expressed through
+vanishing quantum-graph identities and that finitely forcible graphons are
+exceptional. The present reduction identifies a concrete candidate identity
+rather than appealing only to general rarity.
 
-The gap kernel has infinite rank, so the finite-rank obstruction does not apply. The new result instead isolates the exact singular mechanism that must be controlled to complete a direct forcing theorem.
+The gap kernel has infinite rank, so the finite-rank obstruction does not apply.
 
-Enumeration of finite rational atomic sectors gives the exact second-level obstruction, the affine solution, and the incoming and outgoing defects for non-affine monotone polynomial quantiles.
+Enumeration of finite rational atomic sectors gives the exact second-level
+obstruction, the affine solution, and the incoming and outgoing defects for
+non-affine monotone polynomial quantiles.

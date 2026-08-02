@@ -204,7 +204,7 @@ The oracle probability transform has exact mean $1/2$ and variance $1/12$.
 Direct samples give:
 
 | $m$ | horizons | PIT mean | PIT variance | Kolmogorov distance | maximal conditional-mean error | $\operatorname{corr}(U,G_r/X_r)$ | $\operatorname{corr}(U,\sum_{j\leq r}(G_j/X_r)^2)$ |
-|---:|:---|---:|---:|---:|---:|---:|---:|
+| ---: | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 | 16, 32, 64, 128 | $0.499721$ | $0.0832018$ | $0.0010370$ | $0.0011701$ | $-0.0000661$ | $-0.0005084$ |
 | 2 | 32, 64, 128, 256 | $0.499010$ | $0.0833617$ | $0.0017520$ | $0.0013229$ | $-0.0001652$ | $0.0001501$ |
 | 4 | 64, 128, 256, 512 | $0.500091$ | $0.0833580$ | $0.0009043$ | $0.0012871$ | $-0.0002209$ | $-0.0000605$ |
@@ -237,7 +237,7 @@ where $q_*$ is the oracle. Positive values are losses relative to the full
 conditional law. For the exact transition fraction:
 
 | $m$ | $D_0$ | $D_s$ | $S(q_s)-S(q_0)$ | exact augmented loss |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 1 | $0.369608\pm0.000984$ | $0.321329\pm0.000982$ | $0.048279\pm0.000506$ | $0$ |
 | 2 | $0.339183\pm0.000975$ | $0.315397\pm0.000971$ | $0.023786\pm0.000354$ | $0$ |
 | 4 | $0.320177\pm0.000960$ | $0.314198\pm0.000961$ | $0.005979\pm0.000172$ | $0$ |
@@ -250,7 +250,7 @@ multiplicatively rescaled horizon families.
 The corresponding Wasserstein defects are:
 
 | $m$ | $W_1(q_0,q_*)$ for $Z$ | $W_1(q_s,q_*)$ for $Z$ | $W_1(q_0,q_*)$ for $Y$ | $W_1(q_s,q_*)$ for $Y$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 1 | $0.048709\pm0.000081$ | $0.042632\pm0.000070$ | $0.278093\pm0.000738$ | $0.093716\pm0.000184$ |
 | 2 | $0.024643\pm0.000041$ | $0.022863\pm0.000038$ | $0.151324\pm0.000573$ | $0.050836\pm0.000104$ |
 | 4 | $0.012184\pm0.000020$ | $0.011865\pm0.000020$ | $0.064495\pm0.000359$ | $0.026599\pm0.000055$ |
@@ -323,7 +323,7 @@ retains the additional parameter $p$.
 The sampled route-time log losses are:
 
 | $m$ | clock-free loss | normalized-clock loss | normalized-clock gain |
-|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: |
 | 1 | $0.023076\pm0.000255$ | $0.004260\pm0.000093$ | $0.018816\pm0.000234$ |
 | 2 | $0.009078\pm0.000170$ | $0.001054\pm0.000050$ | $0.008024\pm0.000162$ |
 | 4 | $0.002817\pm0.000098$ | $0.000164\pm0.000026$ | $0.002654\pm0.000095$ |
@@ -395,15 +395,15 @@ refinement have nonpositive point estimates. The largest estimate and the
 finest joint estimate are:
 
 | $m$ | largest held-out $\Delta_H$ | associated PIT $W_1$ | joint $8\times8$, 64-bin $\Delta_H$ | associated PIT $W_1$ |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | 1 | $-0.0000118\pm0.0000072$ | $0.0002283$ | $-0.003184\pm0.000108$ | $0.002753$ |
 | 2 | $-0.0000127\pm0.0000068$ | $0.0004205$ | $-0.003288\pm0.000108$ | $0.002553$ |
 | 4 | $-0.0000252\pm0.0000090$ | $0.0007862$ | $-0.003437\pm0.000110$ | $0.003134$ |
 
 The negative values at finer resolution are the held-out cost of estimating
-more histogram probabilities. All history gains are nonpositive. The exact
-augmented law closes on $(X_r,p-r)$, and the direct Dirichlet paths have no
-residual memory conditional on that state.
+more histogram probabilities. The exact augmented law closes on $(X_r,p-r)$,
+and the direct Dirichlet paths have no residual memory conditional on that
+state.
 
 # 8. Exact and sampled verification
 

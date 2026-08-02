@@ -1,6 +1,8 @@
 # 1. Operational visible-hidden system
 
-Let $\mathscr H_{\mathrm{vis}}$ be the visible profile-fluctuation space and $\mathscr H_{\mathrm{hid}}$ the hidden route sector discarded by profile compression.
+Let $\mathscr H_{\mathrm{vis}}$ be the visible profile-fluctuation space and
+$\mathscr H_{\mathrm{hid}}$ the hidden route sector discarded by profile
+compression.
 
 Write the linearized operational dynamics as
 
@@ -15,7 +17,8 @@ Write the linearized operational dynamics as
 \end{aligned}
 ```
 
-Here $\mathbb H_h\ge0$ contains the directly visible profile dynamics, $D_h\ge0$ contains hidden-route relaxation, and $C$ couples the two sectors.
+Here $\mathbb H_h\ge0$ contains the directly visible profile dynamics,
+$D_h\ge0$ contains hidden-route relaxation, and $C$ couples the two sectors.
 
 Depending on the regime,
 
@@ -28,11 +31,13 @@ d\Gamma(B_{\alpha,h}),&\alpha\text{-stable regime},\\[1mm]
 \end{cases}
 ```
 
-The variable $s$ counts operational profile evolution before applying an anomalous clock.
+The variable $s$ counts operational profile evolution before applying an
+anomalous clock.
 
 # 2. Eliminate the hidden route sector
 
-Take a Laplace transform in $s$. Ignoring a nonzero hidden initial condition for the moment,
+Take a Laplace transform in $s$. Ignoring a nonzero hidden initial condition
+for the moment,
 
 ```math
 (s+D_h)\widetilde Y(s)=
@@ -95,7 +100,8 @@ and
 \widetilde K_h(z)=\Sigma_h(z).
 ```
 
-Eliminating unresolved variables yields an operator-valued memory kernel, as standard in generalized Langevin/Mori-Zwanzig reductions.
+Eliminating unresolved variables yields an operator-valued memory kernel, as
+standard in generalized Langevin/Mori-Zwanzig reductions.
 
 # 3. Spectral representation of the self-energy
 
@@ -153,11 +159,13 @@ The power-law memory self-energy is
 \Sigma_h(s)\sim\kappa_hs^{\eta-1}.
 ```
 
-A gapless hidden route spectrum therefore produces long memory through the singular self-energy.
+A gapless hidden route spectrum therefore produces long memory through the
+singular self-energy.
 
 # 4. The general intrinsic clock
 
-Let the accumulated hidden block-length process converge to a subordinator with Laplace exponent
+Let the accumulated hidden block-length process converge to a subordinator
+with Laplace exponent
 
 ```math
 \mathbb E[e^{-qD_s}]=
@@ -189,7 +197,8 @@ for a stable anomalous clock, and
 
 for a tempered stable clock.
 
-If $R_{\mathrm{op}}(s)$ is the operational resolvent, inverse subordination gives the observed-time resolvent
+If $R_{\mathrm{op}}(s)$ is the operational resolvent, inverse subordination
+gives the observed-time resolvent
 
 ```math
 \widetilde R_\Phi(q)=
@@ -203,7 +212,9 @@ The factor
 \frac{\Phi(q)}q
 ```
 
-encodes the initial condition for the generalized Caputo-type equation. Inverse subordinators generate these generalized time-nonlocal Cauchy problems.
+encodes the initial condition for the generalized Caputo-type equation.
+Inverse subordinators generate these generalized time-nonlocal Cauchy
+problems.
 
 Substituting the operational resolvent gives
 
@@ -219,7 +230,8 @@ Substituting the operational resolvent gives
 \right]^{-1}.
 ```
 
-Already, without gauge, this combines spatial propagation, renewal clock and hidden-route memory.
+Already, without gauge, this combines spatial propagation, renewal clock and
+hidden-route memory.
 
 # 5. Restore the primitive path gauge
 
@@ -243,7 +255,8 @@ The gauge-covariant Laplace variable is
 Z_q=qI+G=qI+i\beta N.
 ```
 
-The replacement is valid when the visible and hidden dynamics preserve gauge degree, so the coupling intertwines the number operators.
+The replacement is valid when the visible and hidden dynamics preserve gauge
+degree, so the coupling intertwines the number operators.
 
 Equivalently, in the interaction picture
 
@@ -252,11 +265,15 @@ Equivalently, in the interaction picture
 e^{G\tau}\Psi(\tau),
 ```
 
-The dissipative and hidden-route equations contain no explicit gauge phase.
+the dissipative and hidden-route equations contain no explicit gauge phase.
 
-The ordinary scalar clock variable $q$ is therefore replaced by the operator $Z_q$.
+The ordinary scalar clock variable $q$ is therefore replaced by the operator
+$Z_q$.
 
-Under the degree-preserving hypothesis, $\Phi(Z_q)$ is defined by the holomorphic functional calculus. Bernstein and complete Bernstein functions are naturally compatible with sectorial-generator functional calculus and subordination.
+Under the degree-preserving hypothesis, $\Phi(Z_q)$ is defined by the
+holomorphic functional calculus. Bernstein and complete Bernstein functions
+are naturally compatible with sectorial-generator functional calculus and
+subordination.
 
 # 6. The master resolvent
 
@@ -306,7 +323,8 @@ qI+i(\log\lambda)N
 \Psi_0.
 ```
 
-A nonzero hidden-sector initial condition or external forcing adds a numerator source but does not change the regime-controlling denominator.
+A nonzero hidden-sector initial condition or external forcing adds a numerator
+source but does not change the regime-controlling denominator.
 
 # 7. Time-domain master equation
 
@@ -343,7 +361,7 @@ Then the time-domain equation is
 
 The master equation contains the candidate regimes derived above.
 
-It says:
+In words, the equation is
 
 ```math
 \text{generalized covariant time derivative}
@@ -356,7 +374,8 @@ It says:
 
 # 8. Mode reduction
 
-Assume the regime is homogeneous and degree preserving, so that $\mathbb H_h$, $N$, and the hidden self-energy can be simultaneously decomposed.
+Assume the regime is homogeneous and degree preserving, so that $\mathbb H_h$,
+$N$, and the hidden self-energy can be simultaneously decomposed.
 
 On the $n$-excitation sector, let
 
@@ -415,7 +434,8 @@ The generalized complex dispersion denominator is
 \right).
 ```
 
-The asymptotic behavior is controlled by the poles, branch points and threshold singularities of
+The asymptotic behavior is controlled by the poles, branch points and threshold
+singularities of
 
 ```math
 \mathcal D_n(q,\mathbf k)^{-1}.
@@ -583,7 +603,8 @@ z_n=0
 q=-i\beta n.
 ```
 
-The $n$-th degree sector has the zero-degree sector's memory envelope, modulated by the primitive gauge phase
+The $n$-th degree sector has the zero-degree sector's memory envelope,
+modulated by the primitive gauge phase
 
 ```math
 e^{-i\beta n\tau}.
@@ -597,7 +618,7 @@ Now take:
 \Phi(z)=z^\gamma,
 ```
 
-This gives
+with
 
 ```math
 \omega_n(\mathbf k)=
@@ -647,11 +668,14 @@ D_\alpha\sum_j|k_j|^\alpha
 (q+i\beta n)^{\gamma(\eta-1)}.
 ```
 
-The denominator contains the stable spatial exponent $\alpha$, anomalous clock exponent $\gamma$, hidden-route memory exponent $\eta$, and primitive gauge rate $\beta$.
+The denominator contains the stable spatial exponent $\alpha$, anomalous clock
+exponent $\gamma$, hidden-route memory exponent $\eta$, and primitive gauge
+rate $\beta$.
 
 # 14. Nested versus parallel anomalies
 
-There is one structural distinction that cannot be erased.
+The nesting order of clock change and hidden-route elimination cannot be
+erased.
 
 The preceding combined equation assumes the order
 
@@ -669,7 +693,8 @@ The self-energy is evaluated at
 
 The clock and memory operations are nested.
 
-If route memory is generated directly in primitive time after compressing the operational clock, the denominator becomes
+If route memory is generated directly in primitive time after compressing the
+operational clock, the denominator becomes
 
 ```math
 \Phi(z)
@@ -699,7 +724,10 @@ D_\alpha|k|^\alpha
 \kappa z^{\gamma(\eta-1)}.
 ```
 
-These two equations represent different causal organizations. The term $\Sigma(\Phi(z))$ places memory inside the operational dynamics before the clock change, whereas $\Sigma(z)$ makes the memory act directly in primitive time.
+These two equations represent different causal organizations. The term
+$\Sigma(\Phi(z))$ places memory inside the operational dynamics before the
+clock change, whereas $\Sigma(z)$ makes the memory act directly in primitive
+time.
 
 The microscopic block construction decides which one applies.
 
@@ -745,7 +773,8 @@ If $\Phi$ maps the right half-plane into an appropriate positive sector, then
 
 is likewise accretive for $\Re q>0$, subject to the standard domain conditions.
 
-Therefore the master resolvent has no exponentially growing pole in the open right half-plane.
+Therefore the master resolvent has no exponentially growing pole in the open
+right half-plane.
 
 The stability criterion is:
 
@@ -764,7 +793,8 @@ Instability would require:
 * a nonaccretive transformed spatial generator;
 * an active rather than dissipative hidden sector;
 * a nonadmissible clock law;
-* or a sign-changing coupling not represented by the positive Schur complement above.
+* or a sign-changing coupling not represented by the positive Schur complement
+  above.
 
 # 16. Gauge-translated spectral structure
 
@@ -774,7 +804,8 @@ Because every appearance of $q$ is through
 z_n=q+i\beta n,
 ```
 
-the $n$-th gauge sector is a vertical translation of the zero-degree spectral structure.
+the $n$-th gauge sector is a vertical translation of the zero-degree spectral
+structure.
 
 If the ungauged amplitude has inverse Laplace transform $A_n(\tau)$, then
 
@@ -791,9 +822,11 @@ The translation law holds whether $A_n$ is:
 * power-law-memory;
 * or a general Volterra relaxation profile.
 
-Thus the primitive gauge phase is universal across these regimes: the gauge changes spectral location but not the dissipative envelope.
+Thus the primitive gauge phase is universal across these regimes: the gauge
+changes spectral location but not the dissipative envelope.
 
-Degree preservation is necessary; if the dissipative generator changes path degree, the sectors couple and the translation law fails.
+Degree preservation is necessary; if the dissipative generator changes path
+degree, the sectors couple and the translation law fails.
 
 # 17. The degree-mixing obstruction
 
@@ -803,7 +836,7 @@ The degree-mixing commutator is
 \mathfrak C_H=[\mathbb H_h,N],
 ```
 
-Equivalently,
+and
 
 ```math
 \mathfrak C_D=[D_h,N_{\mathrm{hid}}],
@@ -824,7 +857,8 @@ The scalar sector equation exists exactly in the gauge-compatible case
 \mathfrak C_C=0.
 ```
 
-If any of these fail, the path grading is not preserved by the effective dynamics.
+If any of these fail, the path grading is not preserved by the effective
+dynamics.
 
 The master equation still exists on the full block space, but the substitution
 
@@ -832,27 +866,12 @@ The master equation still exists on the full block space, but the substitution
 q\mapsto q+i\beta n
 ```
 
-cannot be performed separately in each sector. One must retain the full operator resolvent.
+cannot be performed separately in each sector. One must retain the full
+operator resolvent.
 
 Thus degree mixing is the precise obstruction to diagonal gauge closure.
 
-# 18. The universality data
-
-The candidate continuum regime is now classified by
-
-```math
-\mathfrak U=
-\left(
-\alpha,\gamma,\eta,\beta;
-\Lambda_h,
-\Phi,
-M_h,
-\mathfrak C_H,
-\mathfrak C_D,
-\mathfrak C_C
-\right).
-```
-
-Here $\alpha$ is the spatial or profile jump exponent, $\gamma$ is the renewal-clock exponent, $\eta$ is the hidden spectral or memory exponent, and $\beta=\log\lambda$ is the primitive gauge rate. The measure $\Lambda_h$ is the angular stable-jump measure, whereas $M_h$ is the hidden-route spectral measure.
-
-The exponents alone do not determine the theory: the angular jump measure, hidden spectral measure and degree-mixing defects retain information beyond four scalar parameters.
+The exponents $\alpha$, $\gamma$, $\eta$ and $\beta$ therefore do not determine
+the regime by themselves: the angular stable-jump measure, the hidden-route
+spectral measure $M_h$ and the degree-mixing defects retain information beyond
+those four scalars.

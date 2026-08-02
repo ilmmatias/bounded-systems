@@ -14,10 +14,9 @@ Its order complex
 \Delta(u,v)
 ```
 
-is the simplicial complex whose:
-
-* vertices are intermediate nodes $w\in(u,v)$;
-* $r$-simplices are strict chains $u<w_0<w_1<\cdots<w_r<v$.
+is the simplicial complex whose vertices are the intermediate nodes
+$w\in(u,v)$ and whose $r$-simplices are the strict chains
+$u<w_0<w_1<\cdots<w_r<v$.
 
 An $r$-simplex represents a factorization of the single reachability arrow
 
@@ -31,7 +30,9 @@ into $r+2$ nonidentity reachability morphisms:
 u\to w_0\to w_1\to\cdots\to w_r\to v.
 ```
 
-Deleting an intermediate node composes its neighboring factors, so the simplicial boundary is exactly the “merge adjacent factors” operation from the bar complexes.
+Deleting an intermediate node composes its neighboring factors, so the
+simplicial boundary is exactly the “merge adjacent factors” operation from the
+bar complexes.
 
 For
 
@@ -39,7 +40,7 @@ For
 \sigma=[w_0<\cdots<w_r],
 ```
 
-The boundary is
+the boundary is
 
 ```math
 \partial\sigma=
@@ -48,11 +49,12 @@ The boundary is
 [w_0<\cdots<\widehat{w_i}<\cdots<w_r].
 ```
 
-The construction applies to any set-sized interval, finite or infinite; every simplex and boundary has finitely many terms.
+The construction applies to any set-sized interval, finite or infinite; every
+simplex and boundary has finitely many terms.
 
 # 2. Canonical coherence groups
 
-For $n\ge1$, define the canonical coherence group
+Define the canonical coherence group
 
 ```math
 \mathcal K_n(v,u;\mathbb Z)=
@@ -64,8 +66,6 @@ for $n\ge1$, with the convention
 ```math
 \widetilde H_{-1}(\varnothing;\mathbb Z)=\mathbb Z.
 ```
-
-The shift by two is meaningful.
 
 ## $n=1$: primitive cover generators
 
@@ -98,9 +98,12 @@ Here
 \widetilde H_0(\Delta(u,v)).
 ```
 
-Reduced $H_0$ measures how many connected components the factorization space has, minus one.
+Reduced $H_0$ measures how many connected components the factorization space
+has, minus one.
 
-A nonzero class means distinct families of factorizations from $u$ to $v$ cannot be connected by elementary refinements and coarsenings without an independent relation.
+A nonzero class means distinct families of factorizations from $u$ to $v$
+cannot be connected by elementary refinements and coarsenings without an
+independent relation.
 
 ## $n=3$: relations among relations
 
@@ -111,11 +114,12 @@ Now
 \widetilde H_1(\Delta(u,v)).
 ```
 
-These are loops in the factorization complex: coherent cycles of relations that require a third-level filling.
+These are loops in the factorization complex: coherent cycles of relations
+that require a third-level filling.
 
 ## Higher $n$
 
-For higher degrees, the coherence group is
+For higher degrees, the coherence group
 
 ```math
 \mathcal K_n(v,u)=
@@ -144,7 +148,8 @@ The original path algebra
 A(G)
 ```
 
-is free on the primitive channels. Distinct paths are not equal there, so it contains no intrinsic equations among routes.
+is free on the primitive channels. Distinct paths are not equal there, so it
+contains no intrinsic equations among routes.
 
 The thin reachability algebra
 
@@ -152,21 +157,27 @@ The thin reachability algebra
 B(P)
 ```
 
-imposes equality of every two paths with the same endpoints; it is the quotient of a path algebra by the parallel-path ideal, a standard presentation of incidence algebras.
+imposes equality of every two paths with the same endpoints; it is the
+quotient of a path algebra by the parallel-path ideal, a standard presentation
+of incidence algebras.
 
-Different choices of relation generators, such as diamonds, shortcuts, arbitrary path pairs, can produce different-looking resolutions. But
+Different choices of relation generators, such as diamonds, shortcuts,
+arbitrary path pairs, can produce different-looking resolutions. But
 
 ```math
 \Delta(u,v)
 ```
 
-depends only on the reachability order. It is therefore independent of preferred paths, a Gröbner ordering, chosen diamond generators, a minimal basis, and the original node labels.
+depends only on the reachability order. It is therefore independent of
+preferred paths, a Gröbner ordering, chosen diamond generators, a minimal
+basis, and the original node labels.
 
 The full complex is canonical even when a minimal cellular presentation is not.
 
 # 4. Relation to Ext groups
 
-For a finite poset $P$, let $B=B(P)$ be its incidence algebra over a field $k$, with simple modules $S_u,S_v$ at $u,v$.
+For a finite poset $P$, let $B=B(P)$ be its incidence algebra over a field
+$k$, with simple modules $S_u,S_v$ at $u,v$.
 
 The normalized relative bar resolution yields
 
@@ -186,7 +197,9 @@ u<w_0<\cdots<w_{n-2}<v
 
 contains $n$ strict reachability factors.
 
-For finite incidence algebras, projective resolutions of simple modules and Ext calculations derive entirely from the underlying poset, while simplicial chain complexes of poset chains compute incidence-algebra cohomology.
+For finite incidence algebras, projective resolutions of simple modules and
+Ext calculations derive entirely from the underlying poset, while simplicial
+chain complexes of poset chains compute incidence-algebra cohomology.
 
 Over a field and for finite intervals,
 
@@ -195,7 +208,8 @@ Over a field and for finite intervals,
 \dim_k\widetilde H_{n-2}(\Delta(u,v);k).
 ```
 
-The canonical invariant admits two equivalent interpretations: interval topology and the Ext hierarchy of the thin reachability algebra.
+The canonical invariant admits two equivalent interpretations: interval
+topology and the Ext hierarchy of the thin reachability algebra.
 
 # 5. Basic examples
 
@@ -240,7 +254,8 @@ Equivalently,
 \qquad\forall n.
 ```
 
-There is a unique factorization through $w$, so no relation is needed between alternative routes.
+There is a unique factorization through $w$, so no relation is needed between
+alternative routes.
 
 ## A diamond
 
@@ -295,7 +310,8 @@ Between
 {1,2,3},
 ```
 
-The open interval consists of three singleton subsets and three two-element subsets.
+the open interval consists of three singleton subsets and three two-element
+subsets.
 
 Its order complex is the six-cycle
 
@@ -316,15 +332,20 @@ giving
 \cong\mathbb Z.
 ```
 
-The open-interval complex is the natural home of the hexagonal relation among the six diamond relations.
+The open-interval complex is the natural home of the hexagonal relation among
+the six diamond relations.
 
-The earlier $I$-adic complex missed it by searching for products of ambiguity ideals; the interval complex records relations among contextualized local relations.
+The earlier $I$-adic complex missed it by searching for products of ambiguity
+ideals; the interval complex records relations among contextualized local
+relations.
 
 # 6. Boolean intervals of arbitrary rank
 
-For the Boolean lattice $B_d$, the open bottom-to-top interval comprises all nonempty proper subsets of a $d$-element set.
+For the Boolean lattice $B_d$, the open bottom-to-top interval comprises all
+nonempty proper subsets of a $d$-element set.
 
-Its order complex is the barycentric subdivision of the boundary of a $(d-1)$-simplex. Therefore
+Its order complex is the barycentric subdivision of the boundary of a
+$(d-1)$-simplex. Therefore
 
 ```math
 \Delta(\varnothing,[d])
@@ -360,7 +381,8 @@ d&\text{highest coherence}\\
 \end{array}
 ```
 
-The complete interval may have $d!$ saturated routes, but their minimal higher bottom-to-top coherence is concentrated in degree $d$.
+The complete interval may have $d!$ saturated routes, but their minimal higher
+bottom-to-top coherence is concentrated in degree $d$.
 
 # 7. The full homotopy type is primary
 
@@ -412,7 +434,8 @@ When the reachability interval is finite, its Möbius function satisfies
 \widetilde\chi\bigl(\Delta(u,v)\bigr).
 ```
 
-The identity follows from the alternating-chain expression for $\mu$: an $r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
+The identity follows from the alternating-chain expression for $\mu$: an
+$r$-simplex of $\Delta(u,v)$ is a strict chain with $r+1$ intermediate nodes.
 
 Over a field $k$,
 
@@ -432,7 +455,8 @@ Using the coherence index $n=j+2$,
 \dim_k\mathrm{Ext}^n_B(S_u,S_v).
 ```
 
-Möbius inversion retains only the alternating total of all higher coherence dimensions.
+Möbius inversion retains only the alternating total of all higher coherence
+dimensions.
 
 For a diamond:
 
@@ -462,7 +486,7 @@ If an $(n-2)$-simplex occurs in $\Delta(u,v)$, then there is a strict chain
 u<w_0<\cdots<w_{n-2}<v
 ```
 
-containing $n$ strict reachability steps.
+containing $n$ strict reachability steps. Hence
 
 ```math
 \rho_-(u)+n\le\rho_-(v).
@@ -484,7 +508,8 @@ Dually,
 \rho_+(v)+n\le\rho_+(u).
 ```
 
-The higher coherence groups inherit the same transfinite triangularity as paths and resolvents.
+The higher coherence groups inherit the same transfinite triangularity as
+paths and resolvents.
 
 Define the past-rank block
 
@@ -509,7 +534,8 @@ Higher syzygies require correspondingly larger ordinal separation.
 
 # 10. Finite global dimension
 
-For a finite reachability poset, its incidence algebra has global dimension equal to the largest $n$ with a nonzero simple-module Ext group:
+For a finite reachability poset, its incidence algebra has global dimension
+equal to the largest $n$ with a nonzero simple-module Ext group:
 
 ```math
 \mathrm{gldim}B=
@@ -530,9 +556,11 @@ B_d&d
 \end{array}
 ```
 
-A long chain alone does not increase global dimension because its intervals are contractible simplices.
+A long chain alone does not increase global dimension because its intervals
+are contractible simplices.
 
-What increases homological dimension is not mere path length but topologically nontrivial multiplicity of factorizations.
+What increases homological dimension is not mere path length but topologically
+nontrivial multiplicity of factorizations.
 
 The distinction is:
 
@@ -546,7 +574,10 @@ The distinction is:
 
 The interval complex depends only on the reachability poset.
 
-It does not record how many parallel primitive channels existed, which original edges were shortcuts, how many distinct original paths represented one saturated order chain, whether an original cover relation was realized by one channel or many, or the original path lengths when shortcuts exist.
+It does not record how many parallel primitive channels existed, which
+original edges were shortcuts, how many distinct original paths represented one
+saturated order chain, whether an original cover relation was realized by one
+channel or many, or the original path lengths when shortcuts exist.
 
 For example, these systems have the same reachability interval topology:
 
@@ -564,14 +595,18 @@ u\to v.
 
 The shortcut is invisible after thin collapse.
 
-Therefore the full theory needs two separate invariants. The presentation defect
+Therefore the full theory needs two separate invariants. The presentation
+defect
 
 ```math
 I_G=
 \ker\!\left(A(G)\to B(P_G)\right)
 ```
 
-records the route information lost from the original system. By contrast, the family of interval complexes $\{\Delta(u,v)\}_{u<v}$ records the higher coherence intrinsic to the reachability order after all routes have been identified. Neither invariant replaces the other.
+records the route information lost from the original system. By contrast, the
+family of interval complexes $\{\Delta(u,v)\}_{u<v}$ records the higher
+coherence intrinsic to the reachability order after all routes have been
+identified. Neither invariant replaces the other.
 
 # 12. Infinite systems
 
@@ -607,13 +642,16 @@ is defined independently of:
 * countability;
 * bounded degree.
 
-In the infinite case, identifying these groups with Ext groups of a particular completed incidence algebra requires more care; the combinatorial homology has no such problem.
+In the infinite case, identifying these groups with Ext groups of a particular
+completed incidence algebra requires more care; the combinatorial homology has
+no such problem.
 
-So for the unrestricted theory, the safest primary definition is:
+For the unrestricted theory, the primary definition is therefore
 
 ```math
 \mathcal K_n(v,u)=
 \widetilde H_{n-2}(\Delta(u,v);\mathbb Z).
 ```
 
-The incidence-algebra Ext interpretation is then a conditional algebraic realization in settings where the relevant module theory is well behaved.
+The incidence-algebra Ext interpretation is then a conditional algebraic
+realization in settings where the relevant module theory is well behaved.

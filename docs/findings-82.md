@@ -18,11 +18,13 @@ The stochastic distance kernel of `findings-58.md` is
 A(x,y)=(y-x)_+.
 ```
 
-It is not introduced independently: it is the second operator power of the primitive order relation.
+It is the second operator power of the primitive order relation rather than an
+independently introduced kernel.
 
 ## Proposition 1. Two-step route volume
 
-The two-step route operator is the second compositional power of the order kernel:
+The two-step route operator is the second compositional power of the order
+kernel:
 
 ```math
 A=K^{\circ2}.
@@ -44,9 +46,13 @@ K^{\circ2}(x,y)
 (y-x)_+.
 ```
 
-The transition amplitude is therefore the measure of admissible intermediate relational states.
+The transition amplitude is therefore the measure of admissible intermediate
+relational states.
 
 # 2. Complete path-volume algebra
+
+Proposition 1 is the case $m=2$ of the following closed form for all
+compositional powers of $K$.
 
 ## Theorem 2. Volterra powers
 
@@ -131,13 +137,16 @@ Then
 \delta(x,y)=|x-y|.
 ```
 
-It follows directly that $\delta$ is a metric on the latent quotient. For ordered triples $x<y<z$,
+It follows directly that $\delta$ is a metric on the latent quotient. For
+ordered triples $x<y<z$,
 
 ```math
 A(x,z)=A(x,y)+A(y,z).
 ```
 
-Thus interval length is reconstructed from the volume of two-step factorizations of the primitive order relation. The higher route kernels satisfy
+Thus interval length is reconstructed from the volume of two-step
+factorizations of the primitive order relation. The higher route kernels
+satisfy
 
 ```math
 K^{\circ m}(x,y)
@@ -147,7 +156,10 @@ K^{\circ m}(x,y)
 
 on comparable pairs.
 
-Together with `findings-81.md`, this geometry is graph-intrinsic: the coordinate difference is recoverable from directed degree profiles, so $\delta$ does not require an externally supplied embedding of the vertices into an interval.
+Together with `findings-81.md`, this geometry is graph-intrinsic: the
+coordinate difference is recoverable from directed degree profiles, so
+$\delta$ does not require an externally supplied embedding of the vertices
+into an interval.
 
 # 5. All-path resolvents
 
@@ -204,9 +216,13 @@ Its factorial decay implies
 \left\|K^{\circ m}\right\|^{1/m}=0.
 ```
 
-The Volterra operator therefore has spectral radius zero. The same holds for $A=K^{\circ2}$. Their path resolvents are entire operator-valued functions.
+The Volterra operator therefore has spectral radius zero. The same holds for
+$A=K^{\circ2}$. Their path resolvents are entire operator-valued functions.
 
-This supplies an exact example in which an infinite route algebra closes without introducing a separate local evolution equation. The order relation, its compositional volumes, the induced metric, and the all-path resolvent belong to one operator structure.
+This supplies an exact example in which an infinite route algebra closes
+without introducing a separate local evolution equation. The order relation,
+its compositional volumes, the induced metric, and the all-path resolvent
+belong to one operator structure.
 
 Exact symbolic calculations confirm:
 

@@ -6,7 +6,10 @@ Let
 G=(V,E,s,r)
 ```
 
-be a set-sized directed multigraph. A representative of a bounded system is acyclic, although the constructions below do not require acyclicity unless stated explicitly. Parallel channels are allowed because the pair of maps $s,r:E\to V$ need not be jointly injective.
+be a set-sized directed multigraph. A representative of a bounded system is
+acyclic, although the constructions below do not require acyclicity unless
+stated explicitly. Parallel channels are allowed because the pair of maps
+$s,r:E\to V$ need not be jointly injective.
 
 Over a field $\mathbb K$, usually $\mathbb C$, define the algebraic path algebra
 
@@ -52,7 +55,8 @@ These definitions do not require $V$ or $E$ to be finite or countable.
 
 ## Theorem 1. Weak reconstruction
 
-Let $G$ and $H$ be two set-sized directed multigraphs. Suppose there is an algebra isomorphism
+Let $G$ and $H$ be two set-sized directed multigraphs. Suppose there is an
+algebra isomorphism
 
 ```math
 \Phi:\mathcal A(G)\longrightarrow\mathcal A(H)
@@ -73,11 +77,15 @@ and
 
 Then $G$ and $H$ are isomorphic as directed multigraphs.
 
-The statement allows arbitrary node and edge cardinalities, including parallel channels, and applies to both finite and infinite multigraphs. Acyclicity is not required for the reconstruction argument.
+The statement allows arbitrary node and edge cardinalities, including parallel
+channels, and applies to both finite and infinite multigraphs. Acyclicity is
+not required for the reconstruction argument.
 
 ## Proof
 
-The two hypotheses on $\Phi$ are used separately: preservation of the marked diagonal recovers the node set, and preservation of degree one recovers the channel multiplicities.
+The two hypotheses on $\Phi$ are used separately: preservation of the marked
+diagonal recovers the node set, and preservation of degree one recovers the
+channel multiplicities.
 
 ### Recovery of the nodes
 
@@ -101,7 +109,8 @@ The nonzero primitive idempotents of $\mathcal D(G)$ are exactly
 {e_v:v\in V}.
 ```
 
-Because $\Phi$ restricts to an isomorphism of the diagonal algebras, it permutes their primitive idempotents and induces a bijection
+Because $\Phi$ restricts to an isomorphism of the diagonal algebras, it
+permutes their primitive idempotents and induces a bijection
 
 ```math
 \phi:V(G)\longrightarrow V(H)
@@ -151,13 +160,16 @@ Taking dimensions gives
 
 as cardinals.
 
-For each ordered pair $(u,v)$, choose a bijection between the corresponding channel sets. Together with $\phi$, these bijections define a directed multigraph isomorphism
+For each ordered pair $(u,v)$, choose a bijection between the corresponding
+channel sets. Together with $\phi$, these bijections define a directed
+multigraph isomorphism
 
 ```math
 G\cong H.
 ```
 
-Conversely, every directed multigraph isomorphism induces a diagonal- and grading-preserving path-algebra isomorphism. Thus
+Conversely, every directed multigraph isomorphism induces a diagonal- and
+grading-preserving path-algebra isomorphism. Thus
 
 ```math
 G\cong H
@@ -167,11 +179,14 @@ G\cong H
 \bigl(\mathcal A(H),\mathcal D(H),\text{grading}\bigr).
 ```
 
-The marked graded algebra is therefore a complete invariant of the directed multigraph.
+The marked graded algebra is therefore a complete invariant of the directed
+multigraph.
 
 # 3. Linear mixing of parallel channels
 
-The theorem recovers the underlying system up to isomorphism, but it does not imply that every algebra isomorphism is induced by a permutation of individual channels.
+The theorem recovers the underlying system up to isomorphism, but it does not
+imply that every algebra isomorphism is induced by a permutation of individual
+channels.
 
 Consider two nodes $u,v$ and two parallel channels
 
@@ -195,19 +210,24 @@ a\mapsto a-b,
 b\mapsto b.
 ```
 
-The transformation mixes the two-dimensional channel basis rather than permuting the discrete channels.
+The transformation mixes the two-dimensional channel basis rather than
+permuting the discrete channels.
 
-More generally, if there are $\kappa$ parallel channels from $u$ to $v$, the algebra admits invertible linear transformations of the corner
+More generally, if there are $\kappa$ parallel channels from $u$ to $v$, the
+algebra admits invertible linear transformations of the corner
 
 ```math
 e_v\mathcal A_1e_u.
 ```
 
-Thus the marked graded algebra determines the system's isomorphism class. The stronger assertion that every algebra isomorphism extends a channel permutation is generally false.
+Thus the marked graded algebra determines the system's isomorphism class. The
+stronger assertion that every algebra isomorphism extends a channel permutation
+is generally false.
 
 ## Channel-resolved marking
 
-To recover individual channels rather than only their multiplicities, retain the distinguished subset
+To recover individual channels rather than only their multiplicities, retain
+the distinguished subset
 
 ```math
 \mathcal E(G)\subseteq\mathcal A_1(G)
@@ -219,7 +239,9 @@ and require
 \Phi(\mathcal E(G))=\mathcal E(H).
 ```
 
-The isomorphism then maps channels to channels. Since the node idempotents and primitive channels generate the path algebra, such a $\Phi$ is precisely the extension of a directed multigraph isomorphism.
+The isomorphism then maps channels to channels. Since the node idempotents and
+primitive channels generate the path algebra, such a $\Phi$ is precisely the
+extension of a directed multigraph isomorphism.
 
 This gives two natural levels of marking. The multiplicity-level object is
 
@@ -228,14 +250,18 @@ This gives two natural levels of marking. The multiplicity-level object is
 (\mathcal A,\mathcal D,\text{grading}),
 ```
 
-which remembers the cardinality of each parallel-channel space. The channel-resolved object is
+which remembers the cardinality of each parallel-channel space. The
+channel-resolved object is
 
 ```math
 \mathbf A_{\mathrm{resolved}}(G)=
 (\mathcal A,\mathcal D,\text{grading},\mathcal E),
 ```
 
-which also remembers the distinguished discrete set of channels. Since the definition assigns no additional primitive attributes to parallel channels, the resolved marking is the more conservative universal object; it may be forgotten when only channel multiplicities are relevant.
+which also remembers the distinguished discrete set of channels. Since the
+definition assigns no additional primitive attributes to parallel channels, the
+resolved marking is the more conservative universal object; it may be forgotten
+when only channel multiplicities are relevant.
 
 # 4. Generation by the degree-one bimodule
 
@@ -271,7 +297,8 @@ A pure tensor
 a_n\otimes\cdots\otimes a_1
 ```
 
-survives precisely when the channels are composable and then corresponds to the path
+survives precisely when the channels are composable and then corresponds to
+the path
 
 ```math
 a_n\cdots a_1.
@@ -300,7 +327,11 @@ T_{\mathcal D}(\mathcal M)=
 \oplus\cdots.
 ```
 
-Thus $\mathcal D$ encodes the mutually orthogonal nodes, while $\mathcal M$ encodes the primitive directed channels. Tensor multiplication produces indirect communication, the order of multiplication records direction, and noncomposable tensors vanish. The complete finite-path structure is freely generated by the pair
+Thus $\mathcal D$ encodes the mutually orthogonal nodes, while $\mathcal M$
+encodes the primitive directed channels. Tensor multiplication produces
+indirect communication, the order of multiplication records direction, and
+noncomposable tensors vanish. The complete finite-path structure is freely
+generated by the pair
 
 ```math
 (\mathcal D,\mathcal M).
@@ -322,18 +353,21 @@ The following are equivalent:
 1. $G$ contains no directed cycle.
 2. For every $v\in V$ and $n\ge1$, $e_v\mathcal A_n(G)e_v=0$.
 3. Every element of $J(G)$ is nilpotent.
-4. $J(G)$ is locally nilpotent: every finitely generated subalgebra of $J(G)$ is nilpotent.
+4. $J(G)$ is locally nilpotent: every finitely generated subalgebra of $J(G)$
+   is nilpotent.
 
 ## Proof
 
-The path basis identifies the first two conditions. If $G$ has a directed cycle $p$, then
+The path basis identifies the first two conditions. If $G$ has a directed cycle
+$p$, then
 
 ```math
 p^m\ne0
 \qquad(m\ge1).
 ```
 
-Thus $p\in J$ is not nilpotent, so neither condition 3 nor condition 4 can hold.
+Thus $p\in J$ is not nilpotent, so neither condition 3 nor condition 4 can
+hold.
 
 Conversely, take finitely many elements
 
@@ -341,11 +375,15 @@ Conversely, take finitely many elements
 x_1,\ldots,x_k\in J.
 ```
 
-Each is a finite linear combination of finite paths. Their combined supports involve only finitely many vertices; call this finite set $F$.
+Each is a finite linear combination of finite paths. Their combined supports
+involve only finitely many vertices; call this finite set $F$.
 
-Any sufficiently long nonzero product of the $x_i$ would contain a composable path through more than $|F|$ vertices, forcing a repeated vertex and hence a directed cycle.
+Any sufficiently long nonzero product of the $x_i$ would contain a composable
+path through more than $|F|$ vertices, forcing a repeated vertex and hence a
+directed cycle.
 
-Acyclicity therefore forces all sufficiently long products to vanish, and the subalgebra generated by the $x_i$ is nilpotent. Hence
+Acyclicity therefore forces all sufficiently long products to vanish, and the
+subalgebra generated by the $x_i$ is nilpotent. Hence
 
 ```math
 \text{acyclicity}
@@ -378,7 +416,8 @@ if and only if no path has length greater than $h$. Equivalently,
 J\text{ is globally nilpotent}.
 ```
 
-An acyclic infinite multigraph with paths of arbitrary finite length instead satisfies
+An acyclic infinite multigraph with paths of arbitrary finite length instead
+satisfies
 
 ```math
 J^n\ne0
@@ -401,18 +440,22 @@ The three cases may be summarized as follows:
 \end{array}
 ```
 
-Both an infinite chain and a disjoint union of finite chains with unbounded lengths lie in the middle row. Their distinction requires finer order-theoretic information than the non-nilpotence of $J$ alone.
+Both an infinite chain and a disjoint union of finite chains with unbounded
+lengths lie in the middle row. Their distinction requires finer
+order-theoretic information than the non-nilpotence of $J$ alone.
 
 # 7. Recovery of finite communication data
 
-The marked graded algebra gives exact recovery formulas. Direct-channel multiplicities are
+The marked graded algebra gives exact recovery formulas. Direct-channel
+multiplicities are
 
 ```math
 \left|\{e:u\to v\}\right|=
 \dim e_v\mathcal A_1e_u.
 ```
 
-Since $\mathcal A_1\cong J/J^2$, the same multiplicity is recovered intrinsically from
+Since $\mathcal A_1\cong J/J^2$, the same multiplicity is recovered
+intrinsically from
 
 ```math
 \left|\{e:u\to v\}\right|=
@@ -426,7 +469,8 @@ More generally, the number of length-$n$ paths is
 \dim e_v\mathcal A_ne_u,
 ```
 
-which may be a finite or infinite cardinal. Reachability and acyclicity are characterized by
+which may be a finite or infinite cardinal. Reachability and acyclicity are
+characterized by
 
 ```math
 u\prec v
@@ -448,17 +492,24 @@ respectively. Finally, the least $n$ for which
 e_v\mathcal A_ne_u\ne0
 ```
 
-is the shortest channel-composition length from $u$ to $v$. The supremum of such integers measures finite compositional depth; it is not an external time duration.
+is the shortest channel-composition length from $u$ to $v$. The supremum of
+such integers measures finite compositional depth; it is not an external time
+duration.
 
 # 8. Spectral consequences of local nilpotence
 
-For an acyclic system, every finitely supported element $x\in J$ is nilpotent. Hence in every bounded representation,
+For an acyclic system, every finitely supported element $x\in J$ is nilpotent.
+Hence in every bounded representation,
 
 ```math
 \sigma(x)=\{0\}.
 ```
 
-A finitely supported positive-path expression therefore has no nonzero spectrum. Nonzero spectral data may enter through diagonal components, through expressions involving adjoints in a Hilbert-space representation, or through norm and operator-topology completions. Within the positive-path sector, the first such behavior arises from infinite limits.
+A finitely supported positive-path expression therefore has no nonzero
+spectrum. Nonzero spectral data may enter through diagonal components, through
+expressions involving adjoints in a Hilbert-space representation, or through
+norm and operator-topology completions. Within the positive-path sector, the
+first such behavior arises from infinite limits.
 
 For example, finite partial sums along an infinite chain are nilpotent:
 
@@ -474,4 +525,6 @@ But a bounded infinite sum can converge to a shift-like operator $T$ with
 \sigma(T)=\{z:|z|\le1\}.
 ```
 
-Thus the algebraic positive-path structure may be locally nilpotent while its operator completion has nontrivial spectrum. The example isolates the role of infinite limits in producing this spectral behavior.
+Thus the algebraic positive-path structure may be locally nilpotent while its
+operator completion has nontrivial spectrum. The example isolates the role of
+infinite limits in producing this spectral behavior.

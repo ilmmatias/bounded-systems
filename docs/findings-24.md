@@ -1,6 +1,6 @@
 # 1. Fixed-length route spaces
 
-Define $\mathsf P_n(G)$ by
+Let
 
 ```math
 \mathsf P_n(G)=
@@ -56,7 +56,8 @@ with basis vectors
 \eta_{v,u}.
 ```
 
-The ordered pair remains marked: $\eta_{v,u}$ represents routes beginning at $u$ and terminating at $v$.
+The ordered pair remains marked: $\eta_{v,u}$ represents routes beginning at
+$u$ and terminating at $v$.
 
 # 2. The algebraic endpoint-collapse map
 
@@ -80,13 +81,15 @@ By linearity,
 \right)\eta_{v,u}.
 ```
 
-Thus individual routes remain orthogonal in $\mathcal H_n$, whereas routes with the same endpoints are added in $\mathcal K$.
+Thus individual routes remain orthogonal in $\mathcal H_n$, whereas routes with
+the same endpoints are added in $\mathcal K$.
 
-The behavior of $\Sigma_n^0$ is controlled completely by the cardinalities $N_n(v,u)$.
+The behavior of $\Sigma_n^0$ is controlled completely by the cardinalities
+$N_n(v,u)$.
 
 # 3. Analytic trichotomy
 
-There are three sharply different regimes.
+There are three regimes, distinguished by the route multiplicities $N_n(v,u)$.
 
 ## Regime I: uniformly finite route fibers
 
@@ -138,9 +141,7 @@ It is a densely defined closed operator.
 
 ## Regime III: one endpoint fiber is infinite
 
-Suppose $N_n(v,u)$.
-
-is infinite for at least one pair.
+Suppose $N_n(v,u)$ is infinite for at least one pair.
 
 Then the algebraic collapse map is not closable.
 
@@ -277,9 +278,11 @@ If $\mathsf P_n(u,v)$ is infinite, the formal equal-route vector
 
 does not lie in $\ell^2$.
 
-There is therefore no normalized equal-route direction orthogonal to the route defects.
+There is therefore no normalized equal-route direction orthogonal to the route
+defects.
 
-The finite-support zero-sum vectors are dense in the entire fiber. For any fixed route $p$, choose distinct alternatives $q_1,\ldots,q_N$ and define
+The finite-support zero-sum vectors are dense in the entire fiber. For any fixed
+route $p$, choose distinct alternatives $q_1,\ldots,q_N$ and define
 
 ```math
 y_N=
@@ -318,11 +321,13 @@ So the finite case has
 
 while the infinite case has only the closure of route-defect directions.
 
-The loss of the equal-route direction is the Hilbert-space reason endpoint summation becomes nonclosable.
+The loss of the equal-route direction is the Hilbert-space reason endpoint
+summation becomes nonclosable.
 
 # 6. Polar decomposition of endpoint collapse
 
-Assume every fixed endpoint fiber at length $n$ is finite, although their sizes may be unbounded.
+Assume every fixed endpoint fiber at length $n$ is finite, although their sizes
+may be unbounded.
 
 Define the diagonal multiplicity operator on $\mathcal K$:
 
@@ -371,7 +376,9 @@ Equivalently,
 U_n|\Sigma_n|.
 ```
 
-The general polar-decomposition theorem applies to closed densely defined Hilbert-space operators, whereas here the endpoint blocks display the decomposition directly.
+The general polar-decomposition theorem applies to closed densely defined
+Hilbert-space operators, whereas here the endpoint blocks display the
+decomposition directly.
 
 The initial projection is
 
@@ -380,7 +387,7 @@ U_n^\ast U_n=
 P_n^{\mathrm{eq}},
 ```
 
-The projection onto all equal-route directions, while
+the projection onto all equal-route directions, while
 
 ```math
 U_nU_n^\ast
@@ -408,7 +415,8 @@ The factorization acts in three stages:
 2. identify each normalized equal-route sector with its endpoint pair;
 3. amplify it by the square root of the number of routes.
 
-The polar decomposition gives the operator-level bridge from $\ell^2$ routes to endpoint counting.
+The polar decomposition gives the operator-level bridge from $\ell^2$ routes to
+endpoint counting.
 
 # 7. The two Gram operators
 
@@ -441,15 +449,18 @@ acts on each finite route fiber as the all-ones matrix:
 J_{N_n(v,u)}.
 ```
 
-It has eigenvalue $N_n(v,u)$ on the equal-route direction and eigenvalue zero on every route-defect direction.
+It has eigenvalue $N_n(v,u)$ on the equal-route direction and eigenvalue zero
+on every route-defect direction.
 
-Therefore the nonzero singular value associated with the endpoint pair $(u,v)$ is
+Therefore the nonzero singular value associated with the endpoint pair $(u,v)$
+is
 
 ```math
 \sqrt{N_n(v,u)}.
 ```
 
-The complete singular-value family of $\Sigma_n$ is exactly the square-root route-multiplicity profile.
+The complete singular-value family of $\Sigma_n$ is exactly the square-root
+route-multiplicity profile.
 
 # 8. Necessity of the marked endpoint diagonal
 
@@ -460,7 +471,7 @@ E_{v,u}=
 |\eta_{v,u}\rangle\langle\eta_{v,u}|,
 ```
 
-The singular values retain only the multiset
+the singular values retain only the multiset
 
 ```math
 \left\lbrace \sqrt{N_n(v,u)} \right\rbrace_{u,v}.
@@ -485,7 +496,8 @@ D_n\eta_{v,u},
 \rangle.
 ```
 
-an operator without its distinguished orthogonal sectors loses relational identity.
+An operator without its distinguished orthogonal sectors loses relational
+identity.
 
 # 9. The positive multiplicity tower
 
@@ -495,7 +507,8 @@ The family
 {D_n}_{n\ge0}
 ```
 
-is a canonical positive shadow of the resolved path system for finite endpoint multiplicities.
+is a canonical positive shadow of the resolved path system for finite endpoint
+multiplicities.
 
 It contains all path counts:
 
@@ -554,7 +567,7 @@ The min-plus data arise from the positive tower by:
 \text{first supported }n.
 ```
 
-And the geodesic multiplicity is the first nonzero diagonal value.
+The geodesic multiplicity is the first nonzero diagonal value.
 
 # 10. The three geometries now factor exactly
 
@@ -568,7 +581,8 @@ The resolved geometry is carried by
 \ell^2(\mathsf P_n(u,v)).
 ```
 
-This space retains every individual route, route orthogonality, the route-defect directions, and the endpoint decomposition.
+This space retains every individual route, route orthogonality, the
+route-defect directions, and the endpoint decomposition.
 
 ## Multiplicity geometry
 
@@ -579,9 +593,11 @@ D_n=
 \Sigma_n\Sigma_n^\ast.
 ```
 
-This operator retains the exact path multiplicity for every endpoint pair, the magnitude of reconvergence, and the singular values of endpoint collapse.
+This operator retains the exact path multiplicity for every endpoint pair, the
+magnitude of reconvergence, and the singular values of endpoint collapse.
 
-It discards the identities of individual paths, their internal overlap and branching structure, and the route-defect basis.
+It discards the identities of individual paths, their internal overlap and
+branching structure, and the route-defect basis.
 
 ## Support/min-plus geometry
 
@@ -597,9 +613,11 @@ and
 d(u,v)=\min{n:Z_n(v,u)=1}.
 ```
 
-These objects retain the attainable path lengths and identify the first such length.
+These objects retain the attainable path lengths and identify the first such
+length.
 
-They discard route multiplicity, orthogonality, and every later path length once the minimum is taken.
+They discard route multiplicity, orthogonality, and every later path length
+once the minimum is taken.
 
 The exact compression chain is therefore
 
@@ -615,7 +633,7 @@ d.
 
 # 11. Finite/infinite boundary refinement
 
-The endpoint-collapse tower exposes three notions that had previously been mixed:
+The endpoint-collapse tower separates three finiteness conditions:
 
 ```math
 \begin{aligned}
@@ -632,7 +650,7 @@ They control different operators.
 
 ## Endpoint collapse
 
-The endpoint-collapse operator is
+The endpoint-collapse operator
 
 ```math
 \Sigma_n
@@ -640,9 +658,9 @@ The endpoint-collapse operator is
 
 is bounded exactly under uniform finite endpoint multiplicity.
 
-### Forward Fock creator
+## Forward Fock creator
 
-The forward Fock creator is
+The forward Fock creator
 
 ```math
 S_+^n
@@ -738,7 +756,8 @@ and
 
 Route growth appears entirely as endpoint-collapse amplification.
 
-The two systems have the same total Fock growth but radically different collapse operators:
+The two systems have the same total Fock growth but exponentially different
+collapse operators:
 
 ```math
 \begin{array}{c|c|c}
@@ -770,7 +789,8 @@ What fails is precisely the Hilbert-space endpoint-summation operator:
 \Sigma_n^0
 ```
 
-is nonclosable; no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$ represents an infinite cardinal as an ordinary scalar eigenvalue.
+is nonclosable; no positive Hilbert operator $D_n=\Sigma_n\Sigma_n^\ast$
+represents an infinite cardinal as an ordinary scalar eigenvalue.
 
 Thus the unrestricted hierarchy is:
 
@@ -785,4 +805,5 @@ N_n^\mathcal{\#},\ Z_n,\ d,\\
 \end{aligned}
 ```
 
-The analytic failure marks the Hilbert representation's boundary without changing the underlying relational data.
+The analytic failure marks the Hilbert representation's boundary without
+changing the underlying relational data.

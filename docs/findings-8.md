@@ -69,7 +69,8 @@ C_1\sqcup C_2\sqcup C_3\sqcup\cdots,
 
 where $C_n$ has length $n$.
 
-There are paths of every finite length somewhere, but every individual node lies in a finite chain.
+There are paths of every finite length somewhere, but every individual node
+lies in a finite chain.
 
 ```math
 \mathcal A_n\ne0\quad\forall n,
@@ -79,7 +80,8 @@ but no node has paths of every length, and there is no infinite path.
 
 ## Rooted depth without an infinite path
 
-Take one root $v$. For every positive integer $n$, attach a separate branch of length $n$:
+Take one root $v$. For every positive integer $n$, attach a separate branch of
+length $n$:
 
 ```math
 v\to v_{n,1}\to v_{n,2}\to\cdots\to v_{n,n}.
@@ -96,7 +98,8 @@ because a sufficiently long branch supplies a path of length $k$.
 
 But every chosen branch eventually terminates. There is no infinite path.
 
-Infinite branching at $v$ causes the failure: choosing a different first edge realizes every desired length.
+Infinite branching at $v$ causes the failure: choosing a different first edge
+realizes every desired length.
 
 # 3. Infinite paths as an inverse limit
 
@@ -126,7 +129,8 @@ An element of this inverse limit is a sequence
 (p_0,p_1,p_2,\ldots)
 ```
 
-in which $p_n$ has length $n$ and is the prefix of $p_{n+1}$. Such a compatible sequence determines exactly one infinite path.
+in which $p_n$ has length $n$ and is the prefix of $p_{n+1}$. Such a compatible
+sequence determines exactly one infinite path.
 
 ```math
 \partial^+_vG\ne\varnothing
@@ -141,7 +145,8 @@ The total forward boundary is
 \bigsqcup_{v\in V}\partial^+_vG.
 ```
 
-This definition requires neither countability nor finite degree and introduces no topology, measure, or global adjacency operator.
+This definition requires neither countability nor finite degree and introduces
+no topology, measure, or global adjacency operator.
 
 # 4. Nonempty finite levels and compatibility
 
@@ -154,7 +159,9 @@ Rooted unbounded depth says merely
 
 But the paths chosen at different levels might be incompatible.
 
-In the finite-branch example of Section 2, a path of length $n$ lies on the branch specifically selected to be sufficiently long. There need not be one sequence
+In the finite-branch example of Section 2, a path of length $n$ lies on the
+branch specifically selected to be sufficiently long. There need not be one
+sequence
 
 ```math
 p_1\prec p_2\prec p_3\prec\cdots
@@ -181,7 +188,9 @@ d^+(v)<\infty
 
 For a fixed root $v$, every set $\mathsf P_n(v)$ is then finite.
 
-If paths of every length begin at $v$, the rooted prefix tree is infinite, finitely branching, and nonempty at every level. König's infinity lemma therefore yields an infinite branch.
+If paths of every length begin at $v$, the rooted prefix tree is infinite,
+finitely branching, and nonempty at every level. König's infinity lemma
+therefore yields an infinite branch.
 
 ```math
 \begin{aligned}
@@ -192,7 +201,9 @@ If paths of every length begin at $v$, the rooted prefix tree is infinite, finit
 \partial^+_vG\ne\varnothing.
 ```
 
-Under finite branching, rooted unbounded depth at a node is equivalent to the existence of an infinite path from that node. Uniformly bounded degree is unnecessary. Each node may have a different finite outdegree.
+Under finite branching, rooted unbounded depth at a node is equivalent to the
+existence of an infinite path from that node. Uniformly bounded degree is
+unnecessary. Each node may have a different finite outdegree.
 
 # 6. The compactness proof
 
@@ -214,17 +225,21 @@ The compatibility conditions
 
 define closed subsets.
 
-Every finite set of compatibility conditions is satisfiable by taking all prefixes of a sufficiently long finite path.
+Every finite set of compatibility conditions is satisfiable by taking all
+prefixes of a sufficiently long finite path.
 
-Compactness implies that all compatibility conditions can be satisfied simultaneously.
+Compactness implies that all compatibility conditions can be satisfied
+simultaneously.
 
 Thus the inverse limit is nonempty.
 
-The infinitely branching counterexample fails exactly because its prefix levels are infinite discrete spaces and therefore are not compact.
+The infinitely branching counterexample fails exactly because its prefix levels
+are infinite discrete spaces and therefore are not compact.
 
 # 7. The completed prefix space
 
-To understand the boundary topologically, include both finite and infinite paths:
+To understand the boundary topologically, include both finite and infinite
+paths:
 
 ```math
 \Omega_G=
@@ -241,7 +256,8 @@ p\text{ is an initial segment of }x
 \}.
 ```
 
-Here $x$ may itself be the finite path $p$, a longer finite path, or an infinite path.
+Here $x$ may itself be the finite path $p$, a longer finite path, or an infinite
+path.
 
 The cylinder sets form the basic observable neighborhoods.
 
@@ -309,7 +325,9 @@ For every finite or infinite path $x$, define
 
 Conversely, a character selects a chain of mutually compatible prefixes.
 
-If the selected prefixes have a longest member, the character is determined by a finite path. If their lengths are unbounded, compatibility determines an infinite path. Therefore,
+If the selected prefixes have a longest member, the character is determined by a
+finite path. If their lengths are unbounded, compatibility determines an
+infinite path. Therefore,
 
 ```math
 \mathrm{Spec}({\Pi_p})
@@ -317,9 +335,11 @@ If the selected prefixes have a longest member, the character is determined by a
 \mathsf P(G)\sqcup\partial^+G.
 ```
 
-The infinite boundary is precisely the set of non-principal prefix characters, those whose selected prefix chain has no maximal finite element.
+The infinite boundary is precisely the set of non-principal prefix characters,
+those whose selected prefix chain has no maximal finite element.
 
-Infinite paths thus occur as characters in the spectrum of the prefix diagonal, rather than necessarily as vectors in the finite-path Fock space.
+Infinite paths thus occur as characters in the spectrum of the prefix diagonal,
+rather than necessarily as vectors in the finite-path Fock space.
 
 # 9. Infinite paths and Fock basis vectors
 
@@ -375,9 +395,11 @@ The infinite path is not represented by a nonzero vector lying in
 
 That intersection is zero.
 
-Instead, the infinite path is an asymptotic character of the commutative prefix algebra.
+Instead, the infinite path is an asymptotic character of the commutative prefix
+algebra.
 
-The finite-path vector states must therefore be distinguished from boundary characters determined by paths at infinity.
+The finite-path vector states must therefore be distinguished from boundary
+characters determined by paths at infinity.
 
 # 10. Finite paths at finite and infinite emitters
 
@@ -396,13 +418,16 @@ Z(p)
 
 $p$ is isolated in the prefix space.
 
-If $v$ emits infinitely many edges, no finite exclusion list removes every proper extension of $p$, so $p$ need not be isolated.
+If $v$ emits infinitely many edges, no finite exclusion list removes every
+proper extension of $p$, so $p$ need not be isolated.
 
 The topology explains the rooted counterexample.
 
-For the infinitely branching root $v$, increasingly long finite branches can converge to the finite path $1_v$ rather than an infinite branch.
+For the infinitely branching root $v$, increasingly long finite branches can
+converge to the finite path $1_v$ rather than an infinite branch.
 
-Under finite branching, every finite path is isolated; hence any accumulation point of arbitrarily long paths must be an actual infinite path.
+Under finite branching, every finite path is isolated; hence any accumulation
+point of arbitrarily long paths must be an actual infinite path.
 
 The implication is the topological form of König's lemma.
 
@@ -449,7 +474,10 @@ e_{\bullet}\mathbf E^ne_v
 \right),
 ```
 
-with the source corner fixed at $v$. The full marked formal resolvent therefore determines the finite path levels, their prefix maps, and hence the infinite boundary through the inverse system of all degrees. No single coefficient or spectral value carries this information.
+with the source corner fixed at $v$. The full marked formal resolvent therefore
+determines the finite path levels, their prefix maps, and hence the infinite
+boundary through the inverse system of all degrees. No single coefficient or
+spectral value carries this information.
 
 # 12. The tail map
 
@@ -465,13 +493,16 @@ define
 \sigma(x)=e_2e_3\cdots.
 ```
 
-Prefix deletion removes the first primitive channel from a channel factorization.
+Prefix deletion removes the first primitive channel from a channel
+factorization.
 
-It reduces finite-path length by one and produces the remaining infinite tail of an infinite path.
+It reduces finite-path length by one and produces the remaining infinite tail of
+an infinite path.
 
 ## Theorem 1. Acyclicity and the tail map
 
-A system is acyclic if and only if the infinite-path tail map has no periodic point of positive period.
+A system is acyclic if and only if the infinite-path tail map has no periodic
+point of positive period.
 
 If
 
@@ -479,9 +510,11 @@ If
 \sigma^k(x)=x
 ```
 
-for some $k>0$, then the first $k$ channels repeat indefinitely. They form a directed cycle.
+for some $k>0$, then the first $k$ channels repeat indefinitely. They form a
+directed cycle.
 
-Conversely, a directed cycle can be repeated forever to produce a periodic infinite path.
+Conversely, a directed cycle can be repeated forever to produce a periodic
+infinite path.
 
 ```math
 \text{acyclicity}
@@ -503,7 +536,8 @@ Two infinite paths are tail equivalent when
 
 for some $m,n\ge0$.
 
-The paths may begin differently but eventually merge into the same infinite communication route. Tail equivalence therefore records confluence:
+The paths may begin differently but eventually merge into the same infinite
+communication route. Tail equivalence therefore records confluence:
 
 ```math
 \begin{matrix}
@@ -513,11 +547,13 @@ The paths may begin differently but eventually merge into the same infinite comm
 \end{matrix}
 ```
 
-Although invisible to simple path counts and often to aggregate spectra, it is intrinsic to the full path structure.
+Although invisible to simple path counts and often to aggregate spectra, it is
+intrinsic to the full path structure.
 
 # 14. Forward and backward boundaries
 
-Direction gives distinct forward, backward, and bi-infinite boundary notions. The forward boundary $\partial^+G$ contains paths of the form
+Direction gives distinct forward, backward, and bi-infinite boundary notions.
+The forward boundary $\partial^+G$ contains paths of the form
 
 ```math
 v_0\to v_1\to v_2\to\cdots,
@@ -529,19 +565,24 @@ whereas the backward boundary $\partial^-G$ contains chains of the form
 \cdots\to v_{-2}\to v_{-1}\to v_0.
 ```
 
-The bi-infinite boundary $\partial^{\mathbb Z}G$ consists of chains indexed by all integers:
+The bi-infinite boundary $\partial^{\mathbb Z}G$ consists of chains indexed by
+all integers:
 
 ```math
 \cdots\to v_{-1}\to v_0\to v_1\to\cdots.
 ```
 
-Acyclicity permits all three because none requires a directed cycle. The forward and backward boundaries are independent: either may be nonempty while the other is empty, and both may be simultaneously empty or nonempty. For example, the one-way chain
+Acyclicity permits all three because none requires a directed cycle. The forward
+and backward boundaries are independent: either may be nonempty while the other
+is empty, and both may be simultaneously empty or nonempty. For example, the
+one-way chain
 
 ```math
 0\to1\to2\to\cdots
 ```
 
-has a forward boundary but no backward boundary from node $0$, whereas the integer chain
+has a forward boundary but no backward boundary from node $0$, whereas the
+integer chain
 
 ```math
 \cdots\to-1\to0\to1\to\cdots
@@ -559,4 +600,5 @@ has both and contains a bi-infinite path.
 | Actual infinite path                                   | compatible prefixes at all depths     | $\partial^+_vG\ne\varnothing$         |
 | Bi-infinite chain                                      | compatible forward and backward tails | $\partial^{\mathbb Z}G\ne\varnothing$ |
 
-The boundary layer distinguishes actual infinite paths from unbounded finite depth.
+The boundary layer distinguishes actual infinite paths from unbounded finite
+depth.

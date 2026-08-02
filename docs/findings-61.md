@@ -1,6 +1,9 @@
 # 1. Exact truncations and approximate closure
 
-The universal compression obstruction rules out one fixed finite-dimensional state for the entire central boundary. It does not rule out a convergent hierarchy of finite states. The projective structure supplies such a hierarchy canonically.
+The universal compression obstruction excludes one fixed
+finite-dimensional state for the entire central boundary. A convergent
+hierarchy of finite states remains possible, and the projective structure
+supplies such a hierarchy canonically.
 
 For a coherent profile $\mu=(\mu_n)_{n\geq0}$, define the level-$N$ truncation
 
@@ -10,7 +13,10 @@ For a coherent profile $\mu=(\mu_n)_{n\geq0}$, define the level-$N$ truncation
 (\mu_0,\ldots,\mu_N).
 ```
 
-By `findings-59.md`, this finite vector determines every upward transition through level $N-1$ exactly. The estimates below add quantitative stability and show that the truncated transition laws can be recovered graph-intrinsically from one large sample in an extremal sector.
+By `findings-59.md`, this finite vector determines every upward
+transition through level $N-1$ exactly. The estimates below add quantitative
+stability and show that the truncated transition laws can be recovered
+graph-intrinsically from one large sample in an extremal sector.
 
 # 2. A metric on projective profiles
 
@@ -36,11 +42,13 @@ d_{\mathrm{prof}}(\mu,\nu)
 |p_j(\mu)-p_j(\nu)|.
 ```
 
-This metric generates the coordinatewise induced-pattern topology on the compact central simplex.
+This metric generates the coordinatewise induced-pattern topology on
+the compact central simplex.
 
 ## Proposition 1. Uniform truncation error
 
-If two coherent profiles agree in their first $M$ enumerated pattern coordinates, then
+If two coherent profiles agree in their first $M$ enumerated pattern
+coordinates, then
 
 ```math
 d_{\mathrm{prof}}(\mu,\nu)
@@ -48,7 +56,8 @@ d_{\mathrm{prof}}(\mu,\nu)
 2^{-M}.
 ```
 
-More generally, if the first $M$ coordinates are known with errors $\delta_1,\ldots,\delta_M$, then
+More generally, if the first $M$ coordinates are known with errors
+$\delta_1,\ldots,\delta_M$, then
 
 ```math
 d_{\mathrm{prof}}(\mu,\nu)
@@ -68,7 +77,9 @@ Every coordinate lies in $[0,1]$. The unobserved tail is bounded by
 
 The displayed estimates follow by splitting the defining series at $M$.
 
-Thus every sector is approximately specified, to any prescribed profile resolution, by finitely many pattern coordinates even though no fixed finite list identifies all sectors exactly.
+Thus every sector is approximately specified, to any prescribed profile
+resolution, by finitely many pattern coordinates even though no fixed
+finite list identifies all sectors exactly.
 
 # 3. Stability of the reconstructed growth kernel
 
@@ -142,19 +153,25 @@ Coherence gives
 \sum_H D_n(H,G)\nu_{n+1}(H)=\nu_n(G)=b.
 ```
 
-Since $0\leq D_n(H,G)\leq1$, the first sum is at most $2\delta_{n+1}$, while the second term becomes $|a-b|/a\leq2\delta_n/\eta$. Using $a\geq\eta$ yields the result.
+Since $0\leq D_n(H,G)\leq1$, the first sum is at most $2\delta_{n+1}$,
+while the second term becomes $|a-b|/a\leq2\delta_n/\eta$. Using $a\geq\eta$
+yields the result.
 
-The denominator is essential. Transition probabilities can be unstable near a state whose sector probability tends to zero. This is a genuine boundary singularity rather than a defect of the estimate.
+The dependence on $\eta$ cannot be removed. Transition probabilities are
+unstable near a state whose sector probability tends to zero, and the
+divergence of the bound records a singularity of the boundary itself.
 
 # 4. Finite graphs already define coherent profiles
 
-Let $K$ be any fixed finite DAG on $N$ vertices. For $F\in\mathfrak D_n$, define
+Let $K$ be any fixed finite DAG on $N$ vertices. For
+$F\in\mathfrak D_n$, define
 
 ```math
 \widehat\mu_{K,n}(F)=T_F(K).
 ```
 
-These are the isomorphism-class probabilities obtained by choosing a uniformly random $n$-vertex subset of $K$.
+These are the isomorphism-class probabilities obtained by choosing a
+uniformly random $n$-vertex subset of $K$.
 
 ## Theorem 3. Exact empirical coherence
 
@@ -167,7 +184,8 @@ For every $n<N$,
 \widehat\mu_{K,n+1}(H)D_n(H,G).
 ```
 
-Thus every finite DAG produces an exact truncated coherent profile through its own level. Whenever $T_G(K)>0$, the empirical transition
+Thus every finite DAG produces an exact truncated coherent profile through
+its own level. Whenever $T_G(K)>0$, the empirical transition
 
 ```math
 \widehat U_{K,n}(G,H)
@@ -176,7 +194,8 @@ D_n(H,G)
 \frac{T_H(K)}{T_G(K)}
 ```
 
-is a probability distribution in $H$ and satisfies the exact forward-backward identity
+is a probability distribution in $H$ and satisfies the exact
+forward-backward identity
 
 ```math
 T_G(K)\widehat U_{K,n}(G,H)
@@ -186,17 +205,25 @@ T_H(K)D_n(H,G).
 
 ## Proof
 
-Choose a uniformly random $n+1$-vertex subset of $K$, and then delete one of its vertices uniformly. The remaining $n$-vertex subset is uniform among all $n$-vertex subsets: every such subset has exactly $N-n$ possible added vertices. Conditional on the $n+1$-vertex isomorphism class being $H$, the probability that deletion produces $G$ is $D_n(H,G)$. The law of total probability gives empirical coherence. The transition statements then follow exactly as in `findings-59.md`.
+Choose a uniformly random $n+1$-vertex subset of $K$, and then delete
+one of its vertices uniformly. The remaining $n$-vertex subset is uniform
+among all $n$-vertex subsets: every such subset has exactly $N-n$ possible
+added vertices. Conditional on the $n+1$-vertex isomorphism class being
+$H$, the probability that deletion produces $G$ is $D_n(H,G)$. The law
+of total probability gives empirical coherence. The transition
+statements then follow exactly as in `findings-59.md`.
 
 # 5. Empirical recovery from one large graph
 
-Let $X$ be an extremal exchangeable infinite DAG with coherent profile $\mu$, and let
+Let $X$ be an extremal exchangeable infinite DAG with coherent profile
+$\mu$, and let
 
 ```math
 G_N=X|_{[N]}.
 ```
 
-For a fixed finite DAG $F$, its induced density $T_F(G_N)$ converges almost surely to $\mu_{|F|}(F)$. Theorem 3 shows that the random vectors
+For a fixed finite DAG $F$, its induced density $T_F(G_N)$ converges
+almost surely to $\mu_{|F|}(F)$. Theorem 3 shows that the random vectors
 
 ```math
 \widehat\mu_{N,n}(F)=T_F(G_N)
@@ -206,7 +233,8 @@ form exact finite coherent profiles before the limit is taken.
 
 ## Theorem 4. Consistent graph-intrinsic transition estimator
 
-Fix $n$, $G\in\mathfrak D_n$, and $H\in\mathfrak D_{n+1}$, with $\mu_n(G)>0$. Then
+Fix $n$, $G\in\mathfrak D_n$, and $H\in\mathfrak D_{n+1}$, with
+$\mu_n(G)>0$. Then
 
 ```math
 \widehat U_{N,n}(G,H)
@@ -223,7 +251,9 @@ is eventually defined and satisfies
 U_n^{\mu}(G,H)
 ```
 
-almost surely. Because $\mathfrak D_n$ and $\mathfrak D_{n+1}$ are finite, the convergence holds jointly for every transition from every fixed positive-mass level-$n$ state.
+almost surely. Because $\mathfrak D_n$ and $\mathfrak D_{n+1}$ are
+finite, the convergence holds jointly for every transition from every
+fixed positive-mass level-$n$ state.
 
 ## Proof
 
@@ -235,21 +265,29 @@ T_G(G_N)\longrightarrow\mu_n(G),
 T_H(G_N)\longrightarrow\mu_{n+1}(H)
 ```
 
-almost surely. The limiting denominator is positive, so the ratio converges. Multiplication by the fixed cotransition $D_n(H,G)$ gives the reconstructed up kernel of `findings-59.md`.
+almost surely. The limiting denominator is positive, so the ratio
+converges. Multiplication by the fixed cotransition $D_n(H,G)$ gives
+the reconstructed up kernel of `findings-59.md`.
 
 ## Corollary 5. Quenched recovery in a central mixture
 
-For a nonextremal central law with boundary variable $\Theta$, the same estimator converges almost surely to
+For a nonextremal central law with boundary variable $\Theta$, the same
+estimator converges almost surely to
 
 ```math
 U_n^{\mu^{\Theta}}(G,H)
 ```
 
-on every state having positive mass in the selected sector. A single large realization therefore estimates its own quenched extremal growth law rather than the prior mixture average.
+on every state having positive mass in the selected sector. A single
+large realization therefore estimates its own quenched extremal growth
+law rather than the prior mixture average.
 
 # 6. Finite-horizon predictive closure
 
-The empirical estimator gives a precise sense in which the infinite boundary profile is operationally accessible. For every fixed horizon $N_0$, one sufficiently large graph supplies consistent estimates of all coordinates
+The empirical estimator gives a precise sense in which the infinite
+boundary profile is operationally accessible. For every fixed horizon
+$N_0$, one sufficiently large graph supplies consistent estimates of
+all coordinates
 
 ```math
 \mu_n(G),
@@ -265,19 +303,22 @@ U_n^{\mu}(G,H),
 n<N_0.
 ```
 
-The required number of coordinates grows with the requested horizon. A fixed horizon therefore has a finite exact state, whereas simultaneous closure over all horizons and sectors requires the infinite projective state.
-
-There is no contradiction between exact finite-horizon closure and the absence of a universal fixed finite-dimensional closure.
+The required number of coordinates grows with the requested horizon. A
+fixed horizon therefore has a finite exact state, whereas simultaneous
+closure over all horizons and sectors requires the infinite projective
+state.
 
 # 7. Continuous observables of the boundary
 
-Let $\mathcal C$ be the compact central simplex in the profile topology. The algebra generated by the finite coordinate maps
+Let $\mathcal C$ be the compact central simplex in the profile topology.
+The algebra generated by the finite coordinate maps
 
 ```math
 \mu\longmapsto p_F(\mu)
 ```
 
-contains the constants and separates points of $\mathcal C$. The Stone-Weierstrass theorem therefore gives the following result.
+contains the constants and separates points of $\mathcal C$. The
+Stone-Weierstrass theorem therefore gives the following result.
 
 ## Proposition 6. Uniform finite-coordinate approximation
 
@@ -287,7 +328,8 @@ For every continuous functional
 A:\mathcal C\longrightarrow\mathbb R
 ```
 
-and every $\epsilon>0$, there exist finite patterns $F_1,\ldots,F_M$ and a polynomial $Q$ such that
+and every $\epsilon>0$, there exist finite patterns $F_1,\ldots,F_M$
+and a polynomial $Q$ such that
 
 ```math
 \sup_{\mu\in\mathcal C}
@@ -301,16 +343,16 @@ Q\left(
 <\epsilon.
 ```
 
-Thus cylinder functions are uniformly dense in the continuous observables of the compact profile space.
+Thus cylinder functions are uniformly dense in the continuous
+observables of the compact profile space.
 
-Finite profiles are therefore universally sufficient for approximate evaluation of continuous macroscopic observables, even though they are not universally sufficient for exact sector identification.
+Finite profiles therefore suffice for approximate evaluation of continuous
+macroscopic observables, while exact sector identification requires the
+complete profile.
 
-# 8. Projective-state consequences
+# 8. Exact rational checks
 
-The closure problem now has a three-level answer.
-
-First, the complete projective profile is an exact boundary state and determines the central growth law. Second, every fixed finite horizon has an exact finite-dimensional truncation. Third, no fixed finite dimension identifies every sector at every horizon, but finite truncations approximate the profile and all continuous boundary observables uniformly.
-
-The remaining question is whether a physically or structurally selected subclass of sectors admits a lower-dimensional invariant manifold inside the projective profile space, and whether the reconstructed up kernels preserve that manifold.
-
-Exact rational calculations on independently generated coherent profiles through four vertices satisfy the stated stability estimate. With exact level frequencies, the empirical reconstruction formula also agrees algebraically with the harmonic up kernel.
+Exact rational calculations on independently generated coherent profiles
+through four vertices satisfy the stated stability estimate. With exact
+level frequencies, the empirical reconstruction formula also agrees
+algebraically with the harmonic up kernel.

@@ -1,10 +1,19 @@
 # 1. Connected canonical support statistics
 
-The support-pattern expansion gives exact finite-level covariance identities for every joint vertex-edge support pattern. The remaining question is whether those covariance limits arise from genuine process limits.
+The support-pattern expansion gives exact finite-level covariance identities
+for every joint vertex-edge support pattern. The remaining question is whether
+those covariance limits arise from genuine process limits.
 
-Connected support patterns admit a complete answer. Their canonical sums have Gaussian sequential limits in linear size, and the logarithmic-size transform is an Ornstein-Uhlenbeck process whose relaxation rate is half the number of supporting vertices.
+Connected support patterns admit a complete answer. Their canonical sums have
+Gaussian sequential limits in linear size, and the logarithmic-size transform
+is an Ornstein-Uhlenbeck process whose relaxation rate is half the number of
+supporting vertices.
 
-Retain the independent vertex variables $(X_i)$ and pair variables $(Y_{ij})$. Let $P$ be a looped support pattern on $r$ vertices, with no isolated vertices. A single loop on one vertex is regarded as connected. For $r\geq2$, connectedness means that the ordinary edges of $P$ connect all supporting vertices; loops do not connect distinct vertices.
+Retain the independent vertex variables $(X_i)$ and pair variables
+$(Y_{ij})$. Let $P$ be a looped support pattern on $r$ vertices, with no
+isolated vertices. A single loop on one vertex is regarded as connected. For
+$r\geq2$, connectedness means that the ordinary edges of $P$ connect all
+supporting vertices; loops do not connect distinct vertices.
 
 Let
 
@@ -18,7 +27,8 @@ be canonical in the sense that
 \mathbb E[g_P\mid\mathscr F_Q]=0
 ```
 
-for every proper subpattern $Q\subsetneq P$, and assume that $g_P$ is invariant under $\operatorname{Aut}(P)$. Define the ordered embedding sum
+for every proper subpattern $Q\subsetneq P$, and assume that $g_P$ is
+invariant under $\operatorname{Aut}(P)$. Define the ordered embedding sum
 
 ```math
 S_{n,P}(g_P)
@@ -37,7 +47,8 @@ U_{n,P}(g_P)
 
 # 2. Martingale structure
 
-Let $\mathcal F_n$ contain all vertex variables $X_i$ with $i\leq n$ and all pair variables $Y_{ij}$ with $i,j\leq n$.
+Let $\mathcal F_n$ contain all vertex variables $X_i$ with $i\leq n$ and all
+pair variables $Y_{ij}$ with $i,j\leq n$.
 
 ## Proposition 1. Canonical embedding sums are martingales
 
@@ -51,9 +62,16 @@ is a square-integrable martingale.
 
 ## Proof
 
-The increment from level $n-1$ to level $n$ is the sum of the embedded copies whose support contains the new vertex $n$. In every such copy, at least one primitive coordinate is new: either the vertex variable $X_n$, when the corresponding support vertex carries a loop, or a pair variable $Y_{in}$ attached to an incident ordinary edge.
+The increment from level $n-1$ to level $n$ is the sum of the embedded copies
+whose support contains the new vertex $n$. In every such copy, at least one
+primitive coordinate is new: either the vertex variable $X_n$, when the
+corresponding support vertex carries a loop, or a pair variable $Y_{in}$
+attached to an incident ordinary edge.
 
-Conditioning on $\mathcal F_{n-1}$ integrates all new primitive coordinates. The old coordinates form a proper subpattern of $P$, so canonicality gives zero conditional expectation for every new copy. Summing proves the martingale identity.
+Conditioning on $\mathcal F_{n-1}$ integrates all new primitive coordinates.
+The old coordinates form a proper subpattern of $P$, so canonicality gives
+zero conditional expectation for every new copy. Summing proves the martingale
+identity.
 
 The exact support-pattern covariance formula gives
 
@@ -99,9 +117,12 @@ M_{N,P}
 B(t^r)
 ```
 
-in the Skorohod topology on every compact time interval, where $B$ is a standard Brownian motion.
+in the Skorohod topology on every compact time interval, where $B$ is a
+standard Brownian motion.
 
-More generally, let $g_P^{(1)},\ldots,g_P^{(d)}$ be canonical kernels on the same connected pattern. Their joint limit is a centered Gaussian process with covariance
+More generally, let $g_P^{(1)},\ldots,g_P^{(d)}$ be canonical kernels on the
+same connected pattern. Their joint limit is a centered Gaussian process with
+covariance
 
 ```math
 \mathbb E
@@ -117,26 +138,38 @@ g_P^{(a)}g_P^{(b)}
 \min(s,t)^r.
 ```
 
-Canonical sums belonging to nonisomorphic connected support patterns converge jointly to independent Gaussian processes.
+Canonical sums belonging to nonisomorphic connected support patterns converge
+jointly to independent Gaussian processes.
 
 ## Proof
 
-Assume first that the kernels are bounded. Expand a mixed moment of finitely many process coordinates. Every summand is indexed by a family of embedded copies of connected support patterns.
+Assume first that the kernels are bounded. Expand a mixed moment of finitely
+many process coordinates. Every summand is indexed by a family of embedded
+copies of connected support patterns.
 
-Canonicality implies that the expectation of such a product vanishes whenever a primitive vertex or pair coordinate occurs in exactly one copy. Suppose no coordinate is unique. The connected-support counting lemma gives two possibilities:
+Canonicality implies that the expectation of such a product vanishes whenever
+a primitive vertex or pair coordinate occurs in exactly one copy. Suppose no
+coordinate is unique. The connected-support counting lemma gives two
+possibilities:
 
 1. the embedded support patterns coincide in pairs;
 2. some supporting vertex belongs to at least three copies.
 
-In the second case, the union of the embedded supports has strictly fewer than half the total number of listed support vertices. After multiplication by $N^{-r/2}$ for every factor, the number of such configurations is of lower order and their total contribution vanishes.
+In the second case, the union of the embedded supports has strictly fewer than
+half the total number of listed support vertices. After multiplication by
+$N^{-r/2}$ for every factor, the number of such configurations is of lower
+order and their total contribution vanishes.
 
-The leading configurations are therefore pairings of identical embedded primitive-coordinate sets. A pair whose process times are $s$ and $t$ can be embedded in
+The leading configurations are therefore pairings of identical embedded
+primitive-coordinate sets. A pair whose process times are $s$ and $t$ can be
+embedded in
 
 ```math
 \left(\lfloor N\min(s,t)\rfloor\right)_r
 ```
 
-ways, with $|\operatorname{Aut}(P)|$ equivalent ordered identifications. Its contribution tends to
+ways, with $|\operatorname{Aut}(P)|$ equivalent ordered identifications. Its
+contribution tends to
 
 ```math
 |\operatorname{Aut}(P)|
@@ -144,9 +177,13 @@ ways, with $|\operatorname{Aut}(P)|$ equivalent ordered identifications. Its con
 \min(s,t)^r.
 ```
 
-Summing over pairings gives Wick's formula for the stated Gaussian vector. Nonisomorphic support patterns cannot have identical primitive-coordinate sets, so their leading cross pairings are absent and their Gaussian limits are independent.
+Summing over pairings gives Wick's formula for the stated Gaussian vector.
+Nonisomorphic support patterns cannot have identical primitive-coordinate sets,
+so their leading cross pairings are absent and their Gaussian limits are
+independent.
 
-For tightness, the same support-union count applied to four increment factors gives, for bounded kernels and $0\leq s\leq t\leq T$,
+For tightness, the same support-union count applied to four increment factors
+gives, for bounded kernels and $0\leq s\leq t\leq T$,
 
 ```math
 \mathbb E
@@ -160,9 +197,14 @@ C_T
 \right).
 ```
 
-The corresponding fourth-moment estimate for one-level martingale jumps shows that their maximal normalized size converges to zero in probability. The standard tightness criterion for càdlàg processes then applies, and the Gaussian finite-dimensional limit is continuous.
+The corresponding fourth-moment estimate for one-level martingale jumps shows
+that their maximal normalized size converges to zero in probability. The
+standard tightness criterion for càdlàg processes then applies, and the
+Gaussian finite-dimensional limit is continuous.
 
-For a general square-integrable kernel, approximate $g_P$ in $L^2$ by bounded canonical kernels. The exact variance formula and Doob's maximal inequality give uniform process-level control of the approximation error:
+For a general square-integrable kernel, approximate $g_P$ in $L^2$ by bounded
+canonical kernels. The exact variance formula and Doob's maximal inequality
+give uniform process-level control of the approximation error:
 
 ```math
 \mathbb E
@@ -178,7 +220,10 @@ C_T\|g_P-g_P^{(L)}\|_2^2.
 
 Letting the truncation level tend to infinity completes the proof.
 
-The moment argument is the sequential version of the connected-support proof for generalized $U$-statistics. The nested time restrictions alter only the number of admissible pair embeddings and replace the fixed-time covariance by $\min(s,t)^r$.
+The moment argument is the sequential version of the connected-support proof
+for generalized $U$-statistics. The nested time restrictions alter only the
+number of admissible pair embeddings and replace the fixed-time covariance by
+$\min(s,t)^r$.
 
 # 4. Logarithmic-size Ornstein-Uhlenbeck limit
 
@@ -243,15 +288,22 @@ S_{m_N(s),P}(g_P)
  e^{-rs/2}M_{N,P}(e^s)+o_P(1)
 ```
 
-uniformly on compact intervals. Theorem 2 and the continuous-mapping theorem give the Lamperti form.
+uniformly on compact intervals. Theorem 2 and the continuous-mapping theorem
+give the Lamperti form.
 
-The process $e^{-rs/2}B(e^{rs})$ is stationary Gaussian with exponential covariance. Applying the Brownian time-change formula gives the displayed stochastic differential equation.
+The process $e^{-rs/2}B(e^{rs})$ is stationary Gaussian with exponential
+covariance. Applying the Brownian time-change formula gives the displayed
+stochastic differential equation.
 
-This proves the process law anticipated by the finite-level covariance expansion. A connected support pattern on $r$ vertices does not merely have covariance decay rate $r/2$; its complete logarithmic-size limit is the rate-$r/2$ Ornstein-Uhlenbeck process.
+This proves the process law anticipated by the finite-level covariance
+expansion. For a connected support pattern on $r$ vertices, the complete
+logarithmic-size limit is the rate-$r/2$ Ornstein-Uhlenbeck process.
 
 # 5. Full observables with connected principal support
 
-Let $f$ be a symmetric $k$-vertex joint vertex-edge kernel, and let $d=d(f)$ be its principal vertex-support degree. Assume that every support pattern $P$ with
+Let $f$ be a symmetric $k$-vertex joint vertex-edge kernel, and let $d=d(f)$
+be its principal vertex-support degree. Assume that every support pattern $P$
+with
 
 ```math
 v(P)=d,
@@ -300,7 +352,8 @@ dZ_f(s)
 \sqrt{dC_d(f,f)}\,dW_s.
 ```
 
-For a finite collection $f_1,\ldots,f_q$ with the same principal degree $d$ and connected principal supports, the joint limit is the multivariate OU process
+For a finite collection $f_1,\ldots,f_q$ with the same principal degree $d$
+and connected principal supports, the joint limit is the multivariate OU process
 
 ```math
 dZ(s)
@@ -318,15 +371,25 @@ where
 
 ## Proof
 
-The exact support decomposition separates the order-$d$ principal component from all higher orders. The higher support terms vanish in $L^2$ under the normalization $m_N^{d/2}$.
+The exact support decomposition separates the order-$d$ principal component
+from all higher orders. The higher support terms vanish in $L^2$ under the
+normalization $m_N^{d/2}$.
 
-Each connected principal support pattern converges by Corollary 3. Nonisomorphic support patterns have independent Gaussian limits, while kernels on the same support pattern have covariance given by their $L^2$ inner product. Multiplication by the exact orbit coefficient
+Each connected principal support pattern converges by Corollary 3.
+Nonisomorphic support patterns have independent Gaussian limits, while kernels
+on the same support pattern have covariance given by their $L^2$ inner product.
+Multiplication by the exact orbit coefficient
 
 ```math
 \frac{(k)_d}{|\operatorname{Aut}(P)|}
 ```
 
-and summation gives stationary covariance $C_d(f,g)$. Since every component has the same relaxation rate $d/2$, their Gaussian sum is the displayed OU process.
+and summation gives stationary covariance $C_d(f,g)$. Since every component
+has the same relaxation rate $d/2$, their Gaussian sum is the displayed OU
+process.
+
+No continuum coefficient is fitted independently. The OU generator is fixed by
+the combinatorial support degree and the exact finite projection norm.
 
 # 6. Examples across support orders
 
@@ -338,45 +401,69 @@ For a one-loop pattern, $r=1$. The limit is the empirical-mark OU process
 dX_s=-\frac12X_s\,ds+\sigma\,dW_s.
 ```
 
-For a single centered pair variable, the support pattern is one ordinary edge on two vertices. Hence $r=2$, and the limit is the rate-one pair-noise process.
+For a single centered pair variable, the support pattern is one ordinary edge
+on two vertices. Hence $r=2$, and the limit is the rate-one pair-noise process.
 
-A centered product on the two edges of a three-vertex path has connected support order three. Its logarithmic limit is Gaussian despite being a product of two primitive pair variables:
+A centered product on the two edges of a three-vertex path has connected
+support order three. Its logarithmic limit is Gaussian despite being a product
+of two primitive pair variables:
 
 ```math
 dX_s=-\frac32X_s\,ds+\sqrt{6}\,\sigma\,dW_s
 ```
 
-when the support kernel has unit variance and the path automorphism group has order two.
+when the support kernel has unit variance and the path automorphism group has
+order two.
 
-Likewise, a canonical centered triangle of pair variables has support order three and a Gaussian rate-$3/2$ limit. The Gaussianity follows from connected support topology, not from linearity in the primitive variables.
+Likewise, a canonical centered triangle of pair variables has support order
+three and a Gaussian rate-$3/2$ limit. The Gaussianity follows from connected
+support topology, not from linearity in the primitive variables.
 
 # 7. Connected and disconnected modes at one rate
 
-The symmetric two-layer edge density has principal degree two, but its principal support contains both connected and disconnected patterns. The disconnected two-loop component gives a quadratic Gaussian-chaos limit, while the connected edge components give a Gaussian rate-one OU process.
+The symmetric two-layer edge density has principal degree two, but its
+principal support contains both connected and disconnected patterns. The
+disconnected two-loop component gives a quadratic Gaussian-chaos limit, while
+the connected edge components give a Gaussian rate-one OU process.
 
-Theorem 4 does not apply to the full statistic because not every principal pattern is connected. It does apply separately to its connected projection, proving that the process denoted previously by $Z$ is the universal connected-support OU component.
+Theorem 4 does not apply to the full statistic because not every principal
+pattern is connected. It does apply separately to its connected projection,
+proving that the process denoted previously by $Z$ is the universal
+connected-support OU component.
 
-The same separation holds for the symmetric three-layer route density. Its connected order-two edge residuals are OU processes, while its disconnected order-two mark projection is non-Gaussian. Both have covariance decay $e^{-|s-t|}$ because both use two supporting vertices.
+The same separation holds for the symmetric three-layer route density. Its
+connected order-two edge residuals are OU processes, while its disconnected
+order-two mark projection is non-Gaussian. Both have covariance decay
+$e^{-|s-t|}$ because both use two supporting vertices.
 
-At process level, connected principal support gives a Gaussian Ornstein-Uhlenbeck mode, whereas disconnected principal support gives a composite or chaos mode.
+At process level, connected principal support gives a Gaussian
+Ornstein-Uhlenbeck mode, whereas disconnected principal support gives a
+composite or chaos mode.
 
-Support size fixes the relaxation rate; connected-component structure fixes whether that rate is carried by a primitive Gaussian mode or by a nonlinear composite field.
+Support size fixes the relaxation rate; connected-component structure fixes
+whether that rate is carried by a primitive Gaussian mode or by a nonlinear
+composite field.
 
-# 8. Consequences for stable laws
+The remaining functional problem is confined to disconnected principal
+supports. Their covariance is already known exactly, but their process laws may
+involve products, contractions, and sums of connected OU fields.
 
-The finite ordered-kernel sectors now have a complete process theorem whenever the principal support is connected. Its finite primitive-coordinate projection determines the normalization $n^{d/2}$, stationary covariance $C_d$, relaxation rate $d/2$, and diffusion coefficient $\sqrt{dC_d}$.
+# 8. Literature relation
 
-No continuum coefficient is fitted independently. The OU generator is fixed by the combinatorial support degree and the exact finite projection norm.
+S. Janson and K. Nowicki, *The asymptotic distributions of generalized
+U-statistics with applications to random graphs*, Probability Theory and
+Related Fields 90 (1991), 341-375, proved the fixed-level Gaussian limit for
+generalized $U$-statistics whose principal support graphs are connected. Their
+proof uses the same canonical-support pairing lemma that appears here.
 
-The remaining functional problem is confined to disconnected principal supports. Their covariance is already known exactly, but their process laws may involve products, contractions, and sums of connected OU fields. A complete theorem should classify those limits by the connected-component decomposition of each principal support pattern.
+The present result adds the nested-level process structure. Pair embeddings
+restricted to two levels contribute according to the smaller level, producing
+the covariance $\min(s,t)^r$ in linear size. The Lamperti transform then turns
+that self-similar Gaussian process into a stationary Ornstein-Uhlenbeck process
+with rate $r/2$.
 
-# 9. Literature relation
-
-S. Janson and K. Nowicki, *The asymptotic distributions of generalized U-statistics with applications to random graphs*, Probability Theory and Related Fields 90 (1991), 341-375, proved the fixed-level Gaussian limit for generalized $U$-statistics whose principal support graphs are connected. Their proof uses the same canonical-support pairing lemma that appears here.
-
-The present result adds the nested-level process structure. Pair embeddings restricted to two levels contribute according to the smaller level, producing the covariance $\min(s,t)^r$ in linear size. The Lamperti transform then turns that self-similar Gaussian process into a stationary Ornstein-Uhlenbeck process with rate $r/2$.
-
-Thus the generalized $U$-statistic topology and the logarithmic relaxation spectrum are two forms of one statement:
+Thus the generalized $U$-statistic topology and the logarithmic relaxation
+spectrum are two forms of one statement:
 
 ```math
 \text{connected support on }r\text{ vertices}

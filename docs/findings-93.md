@@ -9,9 +9,15 @@ The compositional sector of `findings-83.md` used the formal defect
 \right)^2.
 ```
 
-Analytically, this vanishes exactly at the desired shortcut. However, its expansion contains the square of one direct edge value. In the simple-DAG density algebra, duplicating the same labelled edge does not create a second independent factor. The formal $L^2$ defect is therefore not directly an ordinary simple-DAG observable.
+Analytically, this vanishes exactly at the desired shortcut. However, its
+expansion contains the square of one direct edge value. In the simple-DAG
+density algebra, duplicating the same labelled edge does not create a second
+independent factor. The formal $L^2$ defect is therefore not directly an
+ordinary simple-DAG observable.
 
-It would be valid in a directed multigraph observable algebra with parallel edge probes, but the central branching theory from `findings-46.md` onward uses simple DAGs. The proof requires a simple-pattern replacement.
+It would be valid in a directed multigraph observable algebra with parallel edge
+probes, but the central branching theory from `findings-46.md` onward uses
+simple DAGs. The proof requires a simple-pattern replacement.
 
 # 2. One-sided Gram correction
 
@@ -67,9 +73,14 @@ The kernel $G_R(x,x')$ is a linear combination of terms in which:
 - one shortcut edge and one two-step path share a terminal endpoint;
 - two two-step paths share a terminal endpoint.
 
-Squaring $G_R$ introduces a second independently sampled terminal endpoint. Every edge occurrence then belongs to a distinct pair of sampled vertices. No parallel copy of a single labelled edge is needed.
+Squaring $G_R$ introduces a second independently sampled terminal endpoint.
+Every edge occurrence then belongs to a distinct pair of sampled vertices. No
+parallel copy of a single labelled edge is needed.
 
-Consequently, after expanding the path integrals and forgetting the labels, $\mathcal G(R)$ is a finite linear combination of decorated simple-DAG homomorphism densities. The tagged-compensated transfer of `findings-84.md` then converts it into an uncolored finite constraint.
+Consequently, after expanding the path integrals and forgetting the labels,
+$\mathcal G(R)$ is a finite linear combination of decorated simple-DAG
+homomorphism densities. The tagged-compensated transfer of `findings-84.md`
+then converts it into an uncolored finite constraint.
 
 # 4. Corrected theorem status
 
@@ -77,9 +88,11 @@ With the Gram defect substituted for the direct $L^2$ defect:
 
 1. the relative compositional forcing theorem of `findings-83.md` remains valid;
 2. the tagged-compensated absolute completion of `findings-85.md` remains valid;
-3. the graph-intrinsic route geometry and terminal selection statements of `findings-86.md` remain valid.
+3. the graph-intrinsic route geometry and terminal selection statements of
+   `findings-86.md` remain valid.
 
-The correction is substantive but local. It changes the observable used to prove shortcut equality, not the selected kernel or the compositional identity.
+The correction changes only the observable used to prove shortcut equality; the
+selected kernel and the compositional identity are unchanged.
 
 # 5. Finite-dimensional consistency identities
 
@@ -111,4 +124,5 @@ and therefore
 
 Both are strictly positive, while the target defect vanishes.
 
-The corrected finite calculation uses the Gram defect in place of the formal direct-edge square and reproduces the compositional and completion identities.
+The corrected finite calculation uses the Gram defect in place of the formal
+direct-edge square and reproduces the compositional and completion identities.

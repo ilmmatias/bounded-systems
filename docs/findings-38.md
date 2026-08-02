@@ -1,12 +1,14 @@
-# 1. Where the stable exponent comes from
+# 1. Origin of the stable exponent
 
-A stable limit cannot arise from one fixed finite graph by merely renaming its edges. It requires either:
+A stable limit cannot arise from one fixed finite graph by merely renaming its
+edges. It requires either:
 
 * a refinement family $G_\delta$;
 * increasingly fine profile coordinates;
 * or block increments built from increasingly long finite path segments.
 
-Let $Z_{\delta,x}$ be the unscaled profile displacement associated with one coarse block beginning near profile point $x$, and let
+Let $Z_{\delta,x}$ be the unscaled profile displacement associated with one
+coarse block beginning near profile point $x$, and let
 
 ```math
 Y_{\delta,x}=\delta Z_{\delta,x}.
@@ -61,7 +63,9 @@ The dynamical exponent is not chosen independently:
 z=\alpha.
 ```
 
-The Gaussian regime is the boundary case $z=2$. For $0<\alpha<2$, macroscopic motion is dominated by heavy-tailed route blocks rather than finite quadratic variation.
+The Gaussian regime is the boundary case $z=2$. For $0<\alpha<2$, macroscopic
+motion is dominated by heavy-tailed route blocks rather than finite quadratic
+variation.
 
 # 2. Vague convergence of the channel-increment law
 
@@ -102,7 +106,13 @@ Equivalently, when the angular measure has a density,
 {|y|^{d+\alpha}}\,dy.
 ```
 
-Such stable-like operators are standard pure-jump Lévy-type generators; well-posed martingale problems require regularity and nondegeneracy of the state-dependent angular coefficient.
+Such stable-like operators are standard pure-jump Lévy-type generators;
+well-posed martingale problems require regularity and nondegeneracy of the
+state-dependent angular coefficient.
+
+The vague limit is a stable-like Lévy kernel only under anti-clustering, so
+that one large route block does not force an uncontrolled cluster of equally
+large blocks unless that cluster is incorporated in the limiting Lévy measure.
 
 The parameters already separate naturally:
 
@@ -118,7 +128,8 @@ while
 \text{directional profile-jump structure}.
 ```
 
-$\alpha$ is one scalar, but the full stable regime also carries an angular spectral measure.
+$\alpha$ is one scalar, but the full stable regime also carries an angular
+spectral measure.
 
 # 3. The general stable-like profile generator
 
@@ -145,7 +156,10 @@ f(x+y)-f(x)-\chi(y)\cdot\nabla f(x)
 \end{aligned}
 ```
 
-For $\alpha<1$, the compensation term may be omitted when the integral converges absolutely; a fixed truncation convention merely transfers the difference into the drift. The standard stable-like generator has this nonlocal form.
+For $\alpha<1$, the compensation term may be omitted when the integral
+converges absolutely; a fixed truncation convention merely transfers the
+difference into the drift. The standard stable-like generator has this nonlocal
+form.
 
 Let the critical positive profile satisfy
 
@@ -165,7 +179,13 @@ Then the derived Markov generator is the exact Doob transform
 h^{-1}\mathcal L_{\alpha,0}(hf)-\kappa f.
 ```
 
-Ground-state and Doob transforms of nonlocal Lévy generators produce state-dependent drift and jump intensities of this kind.
+Ground-state and Doob transforms of nonlocal Lévy generators produce
+state-dependent drift and jump intensities of this kind.
+
+Convergence of the rescaled block generators
+$\mathcal L_{\delta}^h f\to\mathcal L_\alpha^h f$ on a core of test functions,
+together with uniqueness for the martingale problem of the limiting operator, is
+required before the transformed operator describes a limit process.
 
 # 4. Exact transformation of the stable jump kernel
 
@@ -196,6 +216,9 @@ b(x)
 \nu_0(x,dy).
 ```
 
+For $\alpha>1$, the truncated first moment that determines the drift must be
+controlled.
+
 The resulting Lévy-type generator is
 
 ```math
@@ -220,7 +243,8 @@ P_h(e\mid v)=
 {\lambda h(v)}.
 ```
 
-The discrete profile reweights channels by a successor-to-current ratio. The stable continuum profile reweights every displacement by
+The discrete profile reweights channels by a successor-to-current ratio. The
+stable continuum profile reweights every displacement by
 
 ```math
 \frac{h(x+y)}{h(x)}.
@@ -279,9 +303,11 @@ When the transformed measure remains admissible,
 \alpha_h=\alpha-\gamma.
 ```
 
-Sufficiently strong asymptotic positive-profile growth can change the stable universality class beyond biasing anomalous-propagation directions.
+Sufficiently strong asymptotic positive-profile growth can change the stable
+universality class beyond biasing anomalous-propagation directions.
 
-The stable exponent is preserved only when the profile is asymptotically neutral at the radial power-law scale.
+The stable exponent is preserved only when the profile is asymptotically
+neutral at the radial power-law scale.
 
 # 6. The nonlocal critical-profile equation
 
@@ -339,7 +365,8 @@ q_0(x,\widehat y)\,dy.
 \end{aligned}
 ```
 
-It reduces to the quadratic viscous Hamilton-Jacobi equation only when the jump kernel concentrates into vanishing finite-variance increments.
+It reduces to the quadratic viscous Hamilton-Jacobi equation only when the
+jump kernel concentrates into vanishing finite-variance increments.
 
 # 7. First variation: stable harmonic tangent fields
 
@@ -370,7 +397,8 @@ once gives
 \mathcal L_\alpha^h\phi=0.
 ```
 
-Tangent vectors to the fixed-critical-value stable profile manifold are harmonic functions of the transformed stable process.
+Tangent vectors to the fixed-critical-value stable profile manifold are
+harmonic functions of the transformed stable process.
 
 The equation parallels its discrete counterpart
 
@@ -447,7 +475,11 @@ The quadratic-profile structure becomes nonlocal in the stable regime:
 \text{integrated squared jump difference}.
 ```
 
-Although an $\alpha$-stable coordinate process generally has no finite global second moment for $\alpha<2$, the Dirichlet/carré-du-champ form remains finite on suitable bounded or sufficiently regular test functions because the squared difference controls the small-jump singularity. Such nonlocal quadratic forms naturally represent fractional and stable generators.
+Although an $\alpha$-stable coordinate process generally has no finite global
+second moment for $\alpha<2$, the Dirichlet/carré-du-champ form remains finite
+on suitable bounded or sufficiently regular test functions because the squared
+difference controls the small-jump singularity. Such nonlocal quadratic forms
+naturally represent fractional and stable generators.
 
 # 9. Information geometry of stable jump intensities
 
@@ -563,7 +595,8 @@ The generator is
 -D_\alpha(-\Delta)^{\alpha/2}.
 ```
 
-The isotropic fractional Laplacian generates the isotropic $\alpha$-stable Lévy process with Fourier multiplier $|k|^\alpha$.
+The isotropic fractional Laplacian generates the isotropic $\alpha$-stable
+Lévy process with Fourier multiplier $|k|^\alpha$.
 
 The profile equation becomes
 
@@ -605,7 +638,8 @@ For constant $h$, this reduces to the fractional heat equation
 
 # 12. Ground-state form and the one-particle operator
 
-Assume the untransformed stable kernel is symmetric. Then the $h$-transformed process is naturally represented on
+Assume the untransformed stable kernel is symmetric. Then the $h$-transformed
+process is naturally represented on
 
 ```math
 L^2(h^2dx).
@@ -641,13 +675,17 @@ Subject to the usual domain and integrability conditions,
 B_{\alpha,h}\ge0
 ```
 
-and is the nonlocal one-particle relaxation operator. Ground-state transformation maps a nonlocal Schrödinger operator, shifted by its ground-state eigenvalue, to the negative Markov generator on weighted $L^2$.
+and is the nonlocal one-particle relaxation operator. Ground-state
+transformation maps a nonlocal Schrödinger operator, shifted by its
+ground-state eigenvalue, to the negative Markov generator on weighted $L^2$.
 
-The operator is the object whose continuum existence and spectrum remain to be studied.
+The operator is the object whose continuum existence and spectrum remain to be
+studied.
 
 # 13. Stable fluctuation lift
 
-Let $\mathfrak k_{\alpha,h}$ be the one-particle fluctuation space on which $B_{\alpha,h}$ acts.
+Let $\mathfrak k_{\alpha,h}$ be the one-particle fluctuation space on which
+$B_{\alpha,h}$ acts.
 
 In the degree-preserving linearized regime, pass to
 
@@ -775,8 +813,6 @@ In position space, the one-particle equation is
 -i(\log\lambda)\psi.
 ```
 
-The homogeneous isotropic stable regime satisfies:
-
 # 15. Stable diffusion and fractional unitary evolution
 
 Because
@@ -818,7 +854,9 @@ i\partial_t\psi=
 D_\alpha(-\Delta)^{\alpha/2}\psi.
 ```
 
-Fractional diffusion and fractional Schrödinger-type evolution are analytic continuations of the same stable operator; the path-length gauge supplies the commuting phase $\beta N$.
+Fractional diffusion and fractional Schrödinger-type evolution are analytic
+continuations of the same stable operator; the path-length gauge supplies the
+commuting phase $\beta N$.
 
 # 16. $\alpha$ and $\beta$ are different invariants
 
@@ -847,7 +885,8 @@ They encode different structural sectors:
 * $\alpha$ comes from the radial tail of coarse profile increments;
 * $\beta$ comes from critical route growth.
 
-Any relation between them is additional structure of a particular family, not a universal assumption.
+Any relation between them is additional structure of a particular family, not
+a universal assumption.
 
 The homogeneous stable mode exposes both independently:
 
@@ -859,15 +898,3 @@ D_\alpha|k|^\alpha+i\beta.
 Its real part is anomalous profile relaxation.
 
 Its imaginary part is compositional gauge phase.
-
-# 17. Convergence tests
-
-Convergence of a graph/profile family to this regime requires the following checks:
-
-1. Establish radial regular variation, $\Pr_h(|Z_\delta|>r)\sim r^{-\alpha}L(r)$.
-2. Prove convergence of the directions of large profile displacements to an angular measure $\Lambda_0(x,d\theta)$.
-3. Determine the asymptotics of $h(x+r\theta)/h(x)$; this decides whether the exponent $\alpha$ survives the $h$-tilt.
-4. Establish anti-clustering, so that one large route block does not force an uncontrolled cluster of equally large blocks unless that cluster is incorporated in the limiting Lévy measure.
-5. For $\alpha>1$, control the truncated first moment that determines the drift.
-6. Prove generator convergence $\mathcal L_{\delta}^h f\to\mathcal L_\alpha^h f$ on a core of test functions.
-7. Verify uniqueness for the martingale problem associated with the candidate stable-like operator.

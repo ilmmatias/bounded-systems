@@ -8,19 +8,21 @@ V_\alpha^-=\{x:\tau^-(x)\le \alpha\}
 
 be the nodes admitted by the past-rank filtration.
 
-For fixed endpoints $u<v$, define an endpoint-restricted order $P_\alpha^{u,v}$ on
+For fixed endpoints $u<v$, define an endpoint-restricted order
+$P_\alpha^{u,v}$ on
 
 ```math
 \bigl(V_\alpha^-\cap [u,v]\bigr)\cup\{u,v\}.
 ```
 
-Write $a\le_\alpha b$.
+Write $a\le_\alpha b$ when an $a\to b$ path exists whose internal nodes lie in
+$V_\alpha^-$.
 
-when an $a\to b$ path exists whose internal nodes lie in $V_\alpha^-$.
+The relation is transitive because admissible paths concatenate through
+admitted intermediate nodes.
 
-The relation is transitive because admissible paths concatenate through admitted intermediate nodes.
-
-Define $d_\alpha(a,b)$ as the shortest length of such a path, with $d_\alpha(a,b)=\infty$ when none exists.
+Define $d_\alpha(a,b)$ as the shortest length of such a path, with
+$d_\alpha(a,b)=\infty$ when none exists.
 
 A strict factorization chain
 
@@ -36,7 +38,8 @@ has cost
 \sum_{i=1}^{m}d_\alpha(x_{i-1},x_i).
 ```
 
-The filtered interval complex $\Delta^{N,\alpha}(u,v)$ contains precisely those chains with
+The filtered interval complex $\Delta^{N,\alpha}(u,v)$ contains precisely those
+chains with
 
 ```math
 \ell_\alpha(c)\le N.
@@ -44,7 +47,8 @@ The filtered interval complex $\Delta^{N,\alpha}(u,v)$ contains precisely those 
 
 # 2. Filtered Euler-Möbius value
 
-Assume for the moment that $\Delta^{N,\alpha}(u,v)$ has finite-dimensional homology, vanishing outside finitely many degrees.
+Assume for the moment that $\Delta^{N,\alpha}(u,v)$ has finite-dimensional
+homology, vanishing outside finitely many degrees.
 
 The filtered Euler-Möbius value is
 
@@ -75,18 +79,19 @@ this becomes
 \mathcal K_n^{N,\alpha}(v,u;k).
 ```
 
-The signs have the expected interpretation:
+The lowest coherence degrees contribute as follows:
 
 * a temporary cover class contributes $-1$;
 * a diamond relation contributes $+1$;
-* a third-level hexagonal coherence contributes $-1$;
-* and so forth.
+* a third-level hexagonal coherence contributes $-1$.
 
-For finite poset intervals, the ordinary Möbius function is exactly the reduced Euler characteristic of the open-interval order complex.
+For finite poset intervals, the ordinary Möbius function is exactly the reduced
+Euler characteristic of the open-interval order complex.
 
 ## Chain-count formula
 
-Let $c_m^{N,\alpha}(u,v)$ be the number of strict chains with $m$ reachability factors and cost at most $N$:
+Let $c_m^{N,\alpha}(u,v)$ be the number of strict chains with $m$ reachability
+factors and cost at most $N$:
 
 ```math
 u=x_0<_\alpha x_1<_\alpha\cdots<_\alpha x_m=v.
@@ -101,7 +106,8 @@ It follows that
 c_m^{N,\alpha}(u,v).
 ```
 
-The value is the filtered inclusion-exclusion signature of the accessible factorizations.
+The value is the filtered inclusion-exclusion signature of the accessible
+factorizations.
 
 # 3. Immediate vanishing bound
 
@@ -126,11 +132,10 @@ It follows that
 
 A compositional budget $N$ cannot support coherence order greater than $N$.
 
-It also identifies the exact region in which filtered coherence can occur.
-
 # 4. Length-weighted Möbius series
 
-Instead of cumulatively counting all chains with cost at most $N$, retain their exact costs.
+Instead of cumulatively counting all chains with cost at most $N$, retain their
+exact costs.
 
 The exact-cost Möbius series is
 
@@ -149,7 +154,8 @@ The coefficient
 [z^L]\mathfrak m_\alpha(u,v;z)
 ```
 
-is the signed number of factorization chains whose minimum realizable total path length is exactly $L$.
+is the signed number of factorization chains whose minimum realizable total
+path length is exactly $L$.
 
 The series is integer-valued when only finitely many chains have each cost $L$.
 
@@ -169,11 +175,13 @@ Equivalently, the generating function of cumulative Euler values is
 \frac{\mathfrak m_\alpha(u,v;t)}{1-t}.
 ```
 
-The filtered Euler profile and the exact-cost Möbius series determine one another.
+The filtered Euler profile and the exact-cost Möbius series determine one
+another.
 
 # 5. Weighted zeta inversion
 
-Under local or coefficientwise finiteness, define a weighted zeta kernel on $P_\alpha^{u,v}$:
+Under local or coefficientwise finiteness, define a weighted zeta kernel on
+$P_\alpha^{u,v}$:
 
 ```math
 \zeta_\alpha(z)(a,b)=
@@ -200,7 +208,8 @@ For $u<v$,
 \mathfrak m_\alpha(u,v;z).
 ```
 
-The $m$-fold convolution term sums over strict $m$-factor chains, whose weight products give
+The $m$-fold convolution term sums over strict $m$-factor chains, whose weight
+products give
 
 ```math
 z^{d_\alpha(x_0,x_1)}
@@ -216,7 +225,8 @@ At the final rank stage and for a finite interval,
 \mu_P(u,v).
 ```
 
-The ordinary Möbius value is obtained by forgetting all compositional-cost distinctions:
+The ordinary Möbius value is obtained by forgetting all compositional-cost
+distinctions:
 
 ```math
 \text{weighted Möbius series}
@@ -224,7 +234,8 @@ The ordinary Möbius value is obtained by forgetting all compositional-cost dist
 \text{ordinary Möbius number}.
 ```
 
-The specialization is defined for polynomials and convergent series; arbitrary infinite intervals need not satisfy it.
+The specialization is defined for polynomials and convergent series; arbitrary
+infinite intervals need not satisfy it.
 
 # 6. The leading term: geodesic factorization coherence
 
@@ -250,7 +261,8 @@ Define the geodesic factorization complex
 \Delta^{d_\alpha(u,v),\alpha}(u,v).
 ```
 
-It consists of precisely those factorizations that do not increase the minimum path length.
+It consists of precisely those factorizations that do not increase the minimum
+path length.
 
 It follows that
 
@@ -263,17 +275,17 @@ It follows that
 \right).
 ```
 
-The leading coefficient therefore detects the topology of the shortest-factorization geometry.
+The leading coefficient therefore detects the topology of the
+shortest-factorization geometry.
 
-Higher coefficients measure nongeodesic alternatives that become available only with additional compositional budget.
+Higher coefficients measure nongeodesic alternatives that become available only
+with additional compositional budget.
 
 # 7. Examples
 
 ## Unique two-edge chain
 
-Suppose $u\to w\to v$.
-
-with no shortcut.
+Suppose $u\to w\to v$ with no shortcut.
 
 The unfactored reachability arrow has cost two:
 
@@ -327,7 +339,8 @@ The cumulative Euler profile is
 \end{cases}
 ```
 
-The shortcut creates a temporary primitive class that disappears when the longer factorization becomes visible.
+The shortcut creates a temporary primitive class that disappears when the
+longer factorization becomes visible.
 
 ## Symmetric diamond
 
@@ -366,11 +379,13 @@ It follows that
 z^3.
 ```
 
-The geodesic direct/factorized contributions cancel. The genuine diamond coherence appears only when the longer branch becomes available.
+The geodesic direct/factorized contributions cancel. The genuine diamond
+coherence appears only when the longer branch becomes available.
 
 ## Boolean interval $B_3$
 
-Every strict bottom-to-top factorization chain has total cost three, and the alternating chain count is the ordinary Möbius value $-1$. Thus
+Every strict bottom-to-top factorization chain has total cost three, and the
+alternating chain count is the ordinary Möbius value $-1$. Thus
 
 ```math
 \mathfrak m(\varnothing,[3];z)=
@@ -389,7 +404,9 @@ With several parallel channels $u\to v$ and no intermediate node,
 
 The result is independent of channel multiplicity.
 
-That multiplicity appeared on the route-resolved page but vanished under vertical collapse, confirming that the weighted Möbius series remains a thin invariant.
+That multiplicity appeared on the route-resolved page but vanished under
+vertical collapse, confirming that the weighted Möbius series remains a thin
+invariant.
 
 # 8. Two-parameter persistence remains primary
 
@@ -438,11 +455,14 @@ M_n(M,\beta)
 
 The rank function records which classes survive between length/rank scales.
 
-Rank invariants and their generalizations are central tools in multiparameter persistence, but unlike the one-parameter finite-type case, a simple complete barcode classification does not generally exist.
+Rank invariants and their generalizations are central tools in multiparameter
+persistence, but unlike the one-parameter finite-type case, a simple complete
+barcode classification does not generally exist.
 
 # 9. Persistent Euler rank
 
-The pointwise Euler value records only what exists at one scale; some survival information is retained by defining
+The pointwise Euler value records only what exists at one scale; some survival
+information is retained by defining
 
 ```math
 \Xi
@@ -466,9 +486,11 @@ At equal parameter values,
 \mu_{\mathrm E}^{N,\alpha}(u,v).
 ```
 
-For distinct parameter values, $\Xi$ is the signed number of coherence classes that persist across the specified rectangle in parameter space.
+For distinct parameter values, $\Xi$ is the signed number of coherence classes
+that persist across the specified rectangle in parameter space.
 
-It refines the pointwise Euler profile but remains much coarser than the full graded rank invariant:
+It refines the pointwise Euler profile but remains much coarser than the full
+graded rank invariant:
 
 ```math
 {\rho_n}_n
@@ -478,7 +500,8 @@ It refines the pointwise Euler profile but remains much coarser than the full gr
 
 forgets which homological degree each surviving class occupied.
 
-A surviving degree-two class and a surviving degree-three class can cancel in $\Xi$.
+A surviving degree-two class and a surviving degree-three class can cancel in
+$\Xi$.
 
 # 10. Ordinal rank as an index
 
@@ -490,7 +513,9 @@ N\in\mathbb N,
 
 so the variable $z$ is canonical.
 
-Transfinite rank differs: no canonical real or complex scalar corresponds to an arbitrary ordinal, and ordinal addition is not a commutative grading law for an ordinary power series.
+Transfinite rank differs: no canonical real or complex scalar corresponds to an
+arbitrary ordinal, and ordinal addition is not a commutative grading law for an
+ordinary power series.
 
 Retain
 
@@ -509,9 +534,12 @@ J_\alpha(u,v;z)=
 \mathfrak m_\alpha(u,v;z).
 ```
 
-It records the signed exact-cost factorizations becoming available when the new rank layer enters.
+It records the signed exact-cost factorizations becoming available when the new
+rank layer enters.
 
-At a limit ordinal $\lambda$, no finite chain first appears only at $\lambda$. Every finite chain uses finitely many nodes and therefore already occurs at some earlier stage:
+At a limit ordinal $\lambda$, no finite chain first appears only at $\lambda$.
+Every finite chain uses finitely many nodes and therefore already occurs at
+some earlier stage:
 
 ```math
 \Delta^{N,\lambda}(u,v)=
@@ -519,19 +547,39 @@ At a limit ordinal $\lambda$, no finite chain first appears only at $\lambda$. E
 \Delta^{N,\alpha}(u,v).
 ```
 
-Homology commutes with this filtered union at the algebraic chain level. Scalar Euler characteristics, however, need not commute with it unless suitable finite-type assumptions hold.
+Homology commutes with this filtered union at the algebraic chain level. Scalar
+Euler characteristics, however, need not commute with it unless suitable
+finite-type assumptions hold.
 
-If all ranks are natural numbers, one may introduce a second formal variable $y$; this is a valid specialization, but not the unrestricted cardinality-independent construction.
+If all ranks are natural numbers, one may introduce a second formal variable
+$y$; this is a valid specialization, but not the unrestricted
+cardinality-independent construction.
 
 # 11. Information retained under successive compression
 
-The full bifiltered route-factorization complex $F_{N,\alpha}C_{\bullet,\bullet}^{\mathrm{RF}}$ retains every actual path, parallel channels, exact lengths, internal rank profiles, route-identification chains, factorization topology, and all persistence maps.
+The full bifiltered route-factorization complex
+$F_{N,\alpha}C_{\bullet,\bullet}^{\mathrm{RF}}$ retains every actual path,
+parallel channels, exact lengths, internal rank profiles, route-identification
+chains, factorization topology, and all persistence maps.
 
-Passing to the persistence modules $\mathcal K_n^{N,\alpha}$ retains homological degree, birth, survival, and death through $(N,\alpha)$, together with field-dependent Betti data and, with integral coefficients, torsion information. It discards individual route bases, orthogonality, and chain-level attaching data.
+Passing to the persistence modules $\mathcal K_n^{N,\alpha}$ retains
+homological degree, birth, survival, and death through $(N,\alpha)$, together
+with field-dependent Betti data and, with integral coefficients, torsion
+information. It discards individual route bases, orthogonality, and
+chain-level attaching data.
 
-The rank invariant $\rho_n((N,\alpha),(M,\beta))$ retains only the dimensions of images across scales, losing extension data and much of the full multiparameter module structure. The filtered Euler profile $\mu_{\mathrm E}^{N,\alpha}$ compresses further to one signed total at each parameter value, thereby losing homological degrees, persistence maps, torsion, and the separate even- and odd-degree contributions.
+The rank invariant $\rho_n((N,\alpha),(M,\beta))$ retains only the dimensions
+of images across scales, losing extension data and much of the full
+multiparameter module structure. The filtered Euler profile
+$\mu_{\mathrm E}^{N,\alpha}$ compresses further to one signed total at each
+parameter value, thereby losing homological degrees, persistence maps, torsion,
+and the separate even- and odd-degree contributions.
 
-The weighted Möbius series $\mathfrak m_\alpha(u,v;z)$ retains the exact compositional costs of net Euler contributions, shortcut delays, asymmetric-factorization thresholds, and, when specialization is valid, the final Möbius value. It no longer retains individual Betti degrees, persistence lifespans, route multiplicity, or orthogonality. The terminal scalar
+The weighted Möbius series $\mathfrak m_\alpha(u,v;z)$ retains the exact
+compositional costs of net Euler contributions, shortcut delays,
+asymmetric-factorization thresholds, and, when specialization is valid, the
+final Möbius value. It no longer retains individual Betti degrees, persistence
+lifespans, route multiplicity, or orthogonality. The terminal scalar
 
 ```math
 \mu(u,v)=\mathfrak m_\infty(u,v;1)
@@ -552,7 +600,8 @@ The integer
 is canonical when, for example:
 
 * the sublevel complex has finitely many simplices; or
-* its homology is finite-dimensional and nonzero in only finitely many degrees; or
+* its homology is finite-dimensional and nonzero in only finitely many
+  degrees; or
 * its chain complex is perfect, allowing an Euler class in $K_0$.
 
 Similarly,
@@ -561,9 +610,11 @@ Similarly,
 \mathfrak m_\alpha(u,v;z)
 ```
 
-has ordinary integer coefficients when there are finitely many factorization chains of every exact cost.
+has ordinary integer coefficients when there are finitely many factorization
+chains of every exact cost.
 
-If one cost has infinitely many positive and negative terms, the bounded system definition provides no canonical subtraction of infinite cardinals. Then:
+If one cost has infinitely many positive and negative terms, the bounded system
+definition provides no canonical subtraction of infinite cardinals. Then:
 
 ```math
 \text{retain the chain complex or persistence module;}

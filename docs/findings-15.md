@@ -28,7 +28,10 @@ Put
 d_i=p_i^1-p_i^0.
 ```
 
-For $S\subseteq\{1,\ldots,k\}$, replacing each factor at position $i\in S$ by $d_i$ yields an $|S|$-fold alternating route box; modulo one higher power of $I$, ordinary route choices outside $S$ do not matter. The resulting corner has dimension
+For $S\subseteq\{1,\ldots,k\}$, replacing each factor at position $i\in S$ by
+$d_i$ yields an $|S|$-fold alternating route box; modulo one higher power of
+$I$, ordinary route choices outside $S$ do not matter. The resulting corner has
+dimension
 
 ```math
 \dim e_{v_k}\left(I^m/I^{m+1}\right)e_{v_0}=
@@ -42,11 +45,14 @@ The whole route corner decomposes as
 \sum_{m=0}^{k}\binom{k}{m},
 ```
 
-where $m=0$ is the one-dimensional reachability direction; $m=1$ consists of individual diamond effects; $m=2$ consists of pairwise alternating rectangles; $m=3$ consists of alternating cubes; and so on.
+where $m=0$ is the one-dimensional reachability direction; $m=1$ consists of
+individual diamond effects; $m=2$ consists of pairwise alternating rectangles;
+$m=3$ consists of alternating cubes; and so on.
 
 The orthogonal route space has a Boolean, or Walsh, decomposition.
 
-For this family, there are no higher dependencies among these boxes: each product corresponds uniquely to its selected ambiguity positions.
+For this family, there are no higher dependencies among these boxes: each
+product corresponds uniquely to its selected ambiguity positions. Hence
 
 ```math
 \mathrm{gr}_I A
@@ -61,11 +67,12 @@ H_{n,m}^{\mathrm{rt}}=0
 \qquad(n\ge2).
 ```
 
-There is plenty of higher-order ambiguity, but no higher syzygy.
+There is higher-order ambiguity, but no higher syzygy.
 
 # 2. The $2\times2$ directed grid
 
-Take the Hasse-directed square grid from $(0,0)$ to $(2,2)$, with horizontal and vertical edges increasing coordinates.
+Take the Hasse-directed square grid from $(0,0)$ to $(2,2)$, with horizontal
+and vertical edges increasing coordinates.
 
 There are
 
@@ -75,7 +82,8 @@ There are
 
 monotone routes between the two extreme nodes.
 
-The full endpoint route corner has dimension six. Its route ideal has dimension five:
+The full endpoint route corner has dimension six. Its route ideal has
+dimension five:
 
 ```math
 \dim e_{(2,2)}Ie_{(0,0)}=5.
@@ -89,7 +97,7 @@ Direct calculation gives
 I^3=0
 ```
 
-in that corner. Therefore:
+in that corner. The graded dimensions are therefore
 
 ```math
 \begin{aligned}
@@ -99,7 +107,8 @@ in that corner. Therefore:
 \end{aligned}
 ```
 
-Composing two compatible square ambiguities yields the unique second-order direction, an alternating four-route rectangle.
+Composing two compatible square ambiguities yields the unique second-order
+direction, an alternating four-route rectangle.
 
 Moreover, the relevant multiplication map
 
@@ -113,11 +122,13 @@ is an isomorphism. Hence
 H_{2,2}^{\mathrm{rt}}=0.
 ```
 
-The second-order box is the product of two first-order ambiguities, not a syzygy.
+The second-order box is the product of two first-order ambiguities, not a
+syzygy.
 
-# 3. The Boolean rank-three interval reveals the flaw
+# 3. The Boolean rank-three interval and the hexagonal syzygy
 
-Now consider the Boolean lattice $B_3$, directed by adding one element at a time.
+Now consider the Boolean lattice $B_3$, directed by adding one element at a
+time.
 
 Between
 
@@ -127,13 +138,14 @@ Between
 {1,2,3},
 ```
 
-The six saturated paths are the six permutations:
+the six saturated paths are the six permutations:
 
 ```math
 123,\ 132,\ 312,\ 321,\ 231,\ 213.
 ```
 
-Adjacent paths exchange the order of adding two elements; the six local diamond moves form a hexagon:
+Adjacent paths exchange the order of adding two elements; the six local
+diamond moves form a hexagon:
 
 ```math
 123\to132\to312\to321\to231\to213\to123.
@@ -152,13 +164,14 @@ r_6&=123-213.
 \end{aligned}
 ```
 
-Then immediately,
+Summing these differences gives
 
 ```math
 r_1+r_2+r_3+r_4+r_5+r_6=0.
 ```
 
-The hexagonal sum is a relation among six contextualized local diamond relations.
+The hexagonal sum is a relation among six contextualized local diamond
+relations.
 
 But in $B_3$,
 
@@ -166,7 +179,9 @@ But in $B_3$,
 I^2=0.
 ```
 
-There is not enough rank to concatenate two nontrivial ambiguous intervals: each ambiguity requires at least two rank steps, while the whole interval has only three.
+There is not enough rank to concatenate two nontrivial ambiguous intervals:
+each ambiguity requires at least two rank steps, while the whole interval has
+only three.
 
 Therefore the previous bar construction has
 
@@ -176,7 +191,8 @@ C_2=0
 
 and hence no degree-two chains capable of recording the hexagonal dependency.
 
-The hexagon is a syzygy among local relation generators, but it is not a product relation in the $I$-adic associated graded.
+The hexagon is a syzygy among local relation generators, but it is not a
+product relation in the $I$-adic associated graded.
 
 This disproves the stronger interpretation of $H^{\mathrm{rt}}_{n,m}$.
 
@@ -196,11 +212,15 @@ Meanwhile,
 H_{n,m}^{\mathrm{rt}}
 ```
 
-measures dependencies among factorizations of those multiplicative ambiguity elements.
+measures dependencies among factorizations of those multiplicative ambiguity
+elements.
 
-It does not necessarily measure dependencies among a minimal collection of local route-identification laws.
+It does not necessarily measure dependencies among a minimal collection of
+local route-identification laws.
 
-The ordinary reduced bar construction is standard for an augmented algebra and its derived tensor products, but finding a coherent presentation by generators, relations, and relations among relations is a different question.
+The ordinary reduced bar construction is standard for an augmented algebra and
+its derived tensor products, but finding a coherent presentation by generators,
+relations, and relations among relations is a different question.
 
 # 5. The local relation module
 
@@ -217,11 +237,15 @@ R_2=
 I/(JI+IJ).
 ```
 
-The quotient removes relations obtained only by adding nonempty path context before or after a smaller relation.
+The quotient removes relations obtained only by adding nonempty path context
+before or after a smaller relation.
 
 Thus $R_2$ records the locally irreducible route-identification laws.
 
-For example, two parallel primitive channels give one element of $R_2$; an elementary diamond gives one element; a shortcut versus a composite route gives one element; and a larger diamond obtained by prefixing and suffixing a smaller diamond gives no new element.
+For example, two parallel primitive channels give one element of $R_2$; an
+elementary diamond gives one element; a shortcut versus a composite route
+gives one element; and a larger diamond obtained by prefixing and suffixing a
+smaller diamond gives no new element.
 
 For $B_3$,
 
@@ -229,9 +253,11 @@ For $B_3$,
 \dim R_2=6,
 ```
 
-one generator for each rank-two Boolean diamond. Their transported images satisfy the one hexagonal syzygy above.
+one generator for each rank-two Boolean diamond. Their transported images
+satisfy the one hexagonal syzygy above.
 
-The standard presentation of an incidence algebra as a path algebra uses the ideal identifying parallel paths, often called the parallel ideal.
+The standard presentation of an incidence algebra as a path algebra uses the
+ideal identifying parallel paths, often called the parallel ideal.
 
 # 6. Initial terms of the corrected resolution
 
@@ -267,7 +293,8 @@ d_0(b_L\otimes b_R)=b_Lb_R.
 
 ## Channel differential
 
-For a primitive edge $e$, let $\bar e$ denote its reachability image in $B$. Define
+For a primitive edge $e$, let $\bar e$ denote its reachability image in $B$.
+Define
 
 ```math
 d_1(b_L\otimes e\otimes b_R)=
@@ -299,7 +326,8 @@ define its path derivative
 \overline{e_{j-1}\cdots e_1}.
 ```
 
-Empty prefixes or suffixes are interpreted as their corresponding node identities.
+Empty prefixes or suffixes are interpreted as their corresponding node
+identities.
 
 The formula marks every cut around one primitive channel.
 
@@ -339,7 +367,8 @@ The first part of the resulting complex is
 P_2\xrightarrow{d_2}P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}B\to0.
 ```
 
-It records local relations together with their left and right reachability contexts.
+It records local relations together with their left and right reachability
+contexts.
 
 # 8. Third-level generators
 
@@ -353,7 +382,9 @@ Elements of $Z_2$ are identities among contextualized local route relations.
 
 For $B_3$, the hexagonal sum gives an element of $Z_2$.
 
-To remove identities obtained merely by surrounding a smaller identity with ordinary reachability context, take the local third-generator module schematically as
+To remove identities obtained merely by surrounding a smaller identity with
+ordinary reachability context, take the local third-generator module
+schematically as
 
 ```math
 R_3=
@@ -388,9 +419,13 @@ R_4=
 \text{local generators of }\ker d_3.
 ```
 
-Higher stages are obtained recursively from local generators of the preceding kernel.
+Higher stages are obtained recursively from local generators of the preceding
+kernel.
 
-For finite systems, or finite ordinal-rank bands, this can be implemented through ordinary linear algebra and projective covers. Recent work gives practical algorithms for minimal projective resolutions of finite-dimensional incidence algebras.
+For finite systems, or finite ordinal-rank bands, this can be implemented
+through ordinary linear algebra and projective covers. Recent work gives
+practical algorithms for minimal projective resolutions of finite-dimensional
+incidence algebras.
 
 # 9. Boolean lattices and permutohedral coherence
 
@@ -401,7 +436,8 @@ For the Boolean interval of rank $d$:
 * independent exchanges produce square coherence diagrams;
 * overlapping exchanges produce hexagonal braid diagrams.
 
-The two-dimensional faces of a permutohedron are exactly the commuting-square and braid-polygon types; higher faces encode compatibility among these moves.
+The two-dimensional faces of a permutohedron are exactly the commuting-square
+and braid-polygon types; higher faces encode compatibility among these moves.
 
 Thus the $B_3$ hexagon is the first permutohedral coherence cell.
 
@@ -419,17 +455,20 @@ For larger $d$, one obtains:
 \end{array}
 ```
 
-The full permutohedron is a convex polytope with a contractible cellular complex, so its hierarchy of coherence cells can be rich even though its final reduced homology vanishes.
+The full permutohedron is a convex polytope with a contractible cellular
+complex, so its hierarchy of coherence cells can be rich even though its final
+reduced homology vanishes.
 
-The distinction is that vanishing homology does not imply the absence of higher coherence.
+The distinction is that vanishing homology does not imply the absence of
+higher coherence.
 
-It can mean that every ambiguity loop is coherently filled at a higher dimension.
+It can mean that every ambiguity loop is coherently filled at a higher
+dimension.
 
-Higher-dimensional rewriting and polygraphic resolutions were developed to encode generators, relations, and higher syzygies in this way.
+Higher-dimensional rewriting and polygraphic resolutions were developed to
+encode generators, relations, and higher syzygies in this way.
 
 # 10. Canonical versus minimal
-
-There is an unavoidable distinction.
 
 A completely canonical construction can take:
 
@@ -437,7 +476,8 @@ A completely canonical construction can take:
 * every compatible diagram among them as a higher relation;
 * every higher coherence after that.
 
-But this “all relations” resolution is enormous and largely contractible by construction.
+But this “all relations” resolution is enormous and largely contractible by
+construction.
 
 A small or minimal resolution selects:
 
@@ -448,4 +488,8 @@ A small or minimal resolution selects:
 
 That selection is generally not unique.
 
-Different convergent presentations can yield different cell bases while resolving the same quotient; the meaningful invariant is therefore the resulting chain-homotopy or derived object, not the selected generators' names. Squier and polygraphic constructions formalize this distinction between a presentation and its coherent higher completion.
+Different convergent presentations can yield different cell bases while
+resolving the same quotient; the meaningful invariant is therefore the
+resulting chain-homotopy or derived object, not the selected generators'
+names. Squier and polygraphic constructions formalize this distinction between
+a presentation and its coherent higher completion.

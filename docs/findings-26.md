@@ -20,7 +20,9 @@ These quantities control three operators:
 |\Sigma_n|^2=M_n.
 ```
 
-Their meanings differ: $B_n^+$ measures all length-$n$ branching from one source, $B_n^-$ measures all length-$n$ reconvergence into one target, and $M_n$ measures reconvergence for one fixed endpoint pair.
+Their meanings differ: $B_n^+$ measures all length-$n$ branching from one
+source, $B_n^-$ measures all length-$n$ reconvergence into one target, and
+$M_n$ measures reconvergence for one fixed endpoint pair.
 
 Always,
 
@@ -30,9 +32,10 @@ M_n\le B_n^+,
 M_n\le B_n^-.
 ```
 
-Bounded total forward or backward path growth implies bounded endpoint collapse at that depth.
+Bounded total forward or backward path growth implies bounded endpoint collapse
+at that depth.
 
-The converse fails sharply.
+The converse fails.
 
 # 2. Three singular depths
 
@@ -66,7 +69,8 @@ It follows that
 \delta_{\mathrm{nc}}.
 ```
 
-The third failure requires an infinite route fiber; the first two concern source branching and lack of a uniform endpoint-fiber bound.
+The third failure requires an infinite route fiber; the first two concern source
+branching and lack of a uniform endpoint-fiber bound.
 
 Use $+\infty$ if the corresponding failure never occurs.
 
@@ -78,7 +82,7 @@ Because
 B_{m+n}^+\le B_m^+B_n^+,
 ```
 
-The resulting bound is
+the resulting bound is
 
 ```math
 B_1^+<\infty
@@ -92,7 +96,8 @@ for every $n$.
 \delta_{\mathrm{br}}\in\{1,\infty\}.
 ```
 
-Global forward branching is either already unbounded at the primitive-channel level or remains bounded at every finite depth.
+Global forward branching is either already unbounded at the primitive-channel
+level or remains bounded at every finite depth.
 
 Endpoint collapse is different. Even when
 
@@ -100,7 +105,7 @@ Endpoint collapse is different. Even when
 M_1=1,
 ```
 
-Equivalently,
+one may still have
 
 ```math
 M_2=\infty
@@ -108,7 +113,8 @@ M_2=\infty
 
 because arbitrarily many or infinitely many intermediate sectors reconverge.
 
-Thus $\delta_{\mathrm{ub}}$ and $\delta_{\mathrm{nc}}$ can occur at genuinely higher depths.
+Thus $\delta_{\mathrm{ub}}$ and $\delta_{\mathrm{nc}}$ can occur at higher
+depths.
 
 # 3. Exact closability criterion under composition
 
@@ -130,21 +136,26 @@ $\Sigma_{m+n}$ is closable exactly when
 Since these are nonnegative cardinal sums, this means precisely:
 
 1. every contributing product $N_m(v,w)N_n(w,u)$ is finite; and
-2. only finitely many intermediate nodes $w$ contribute positively for each endpoint pair.
+2. only finitely many intermediate nodes $w$ contribute positively for each
+   endpoint pair.
 
-Hence nonclosability at depth $m+n$ has two distinct causes. An inherited singularity occurs when, for some $w$,
+Hence nonclosability at depth $m+n$ has two distinct causes. An inherited
+singularity occurs when, for some $w$,
 
 ```math
 N_m(v,w)N_n(w,u)
 ```
 
-is infinite; an already-infinite route family has then been prefixed or suffixed by another path family. A fresh factorization singularity occurs when every such product is finite but
+is infinite; an already-infinite route family has then been prefixed or suffixed
+by another path family. A fresh factorization singularity occurs when every such
+product is finite but
 
 ```math
 \left| \left\lbrace w: N_m(v,w)N_n(w,u)>0 \right\rbrace \right|
 ```
 
-is infinite, so infinitely many finite intermediate sectors reconverge onto one endpoint pair.
+is infinite, so infinitely many finite intermediate sectors reconverge onto one
+endpoint pair.
 
 ```math
 N_{m+n}(v,u)\text{ is infinite}
@@ -177,7 +188,8 @@ When all route fibers are finite,
 N_m(v,w)N_n(w,u).
 ```
 
-$\Sigma_{m+n}$ is bounded if and only if admissible cut-sector weight is uniformly bounded over all endpoint pairs.
+$\Sigma_{m+n}$ is bounded if and only if admissible cut-sector weight is
+uniformly bounded over all endpoint pairs.
 
 The decomposition gives the estimates
 
@@ -200,7 +212,8 @@ The corresponding inequality is
 \left\lbrace |\Sigma_m|,|S_+^n|,|\Sigma_n|,|S_-^m| \right\rbrace.
 ```
 
-These inequalities can be strict because global suprema replace the actual compatibility pattern of intermediate nodes.
+These inequalities can be strict because global suprema replace the actual
+compatibility pattern of intermediate nodes.
 
 # 5. Regularity is not monotone in depth
 
@@ -257,9 +270,10 @@ N_m(x,v)N_n(v,u)
 
 is infinite.
 
-Similarly, any path entering $u$ propagates the singularity backward in compositional depth.
+Similarly, any path entering $u$ propagates the singularity backward in
+compositional depth.
 
-Singularity propagates exactly along available extensions, not merely with increasing integer depth.
+Singularity propagates exactly along available extensions.
 
 # 6. Strict examples for the three thresholds
 
@@ -331,7 +345,8 @@ The operator $\Sigma_2$ is closed and unbounded.
 
 ## Later nonclosable collapse
 
-Take infinitely many disjoint length-$k$ paths from one node $u$ to one node $v$, with no reconvergence before the final node.
+Take infinitely many disjoint length-$k$ paths from one node $u$ to one node
+$v$, with no reconvergence before the final node.
 
 Then for
 
@@ -359,13 +374,16 @@ Equivalently,
 k.
 ```
 
-The first nonclosable collapse can occur at any prescribed finite compositional depth.
+The first nonclosable collapse can occur at any prescribed finite compositional
+depth.
 
 # 7. Local finiteness and closability
 
-Suppose every node has finitely many outgoing primitive channels, counting multiplicity.
+Suppose every node has finitely many outgoing primitive channels, counting
+multiplicity.
 
-For each fixed source $u$ and finite $n$, only finitely many length-$n$ paths begin at $u$.
+For each fixed source $u$ and finite $n$, only finitely many length-$n$ paths
+begin at $u$.
 
 ```math
 N_n(v,u)<\infty
@@ -379,9 +397,11 @@ for every $u,v,n$.
 \Sigma_n\text{ is closable for every }n.
 ```
 
-The degrees need not be uniformly bounded. Thus the operators can still be unbounded.
+The degrees need not be uniformly bounded. Thus the operators can still be
+unbounded.
 
-Dually, finite incoming degree at every node also guarantees finite endpoint fibers at every finite depth.
+Dually, finite incoming degree at every node also guarantees finite endpoint
+fibers at every finite depth.
 
 If there is a uniform outgoing-degree bound $D$, then
 
@@ -415,7 +435,7 @@ When every $\Sigma_n$ is bounded, define
 M_n^{1/(2n)}.
 ```
 
-The radius measures exponential endpoint reconvergence.
+The exponent measures exponential endpoint reconvergence.
 
 Since
 
@@ -425,7 +445,7 @@ M_n\le B_n^+,
 M_n\le B_n^-,
 ```
 
-The corresponding inequality is
+the corresponding inequality is
 
 ```math
 \rho_{\mathrm{col}}
@@ -438,7 +458,7 @@ Endpoint reconvergence cannot grow faster than either:
 * total forward route growth;
 * total backward route growth.
 
-But it can be dramatically smaller.
+But it can be strictly smaller.
 
 ## Branching tree
 
@@ -474,7 +494,8 @@ so
 \rho_{\mathrm{col}}=\sqrt d=r(S_+)=r(S_-).
 ```
 
-The same total path-growth exponent can therefore split into very different collapse-growth exponents.
+The same total path-growth exponent can therefore split into different
+collapse-growth exponents.
 
 # 9. The all-length endpoint-collapse operator
 
@@ -540,11 +561,13 @@ H_{v,u}(|z|^2)<\infty
 \text{for every }u,v.
 ```
 
-If this series diverges for even one endpoint pair, then $\Sigma(z)^0$ is nonclosable.
+If this series diverges for even one endpoint pair, then $\Sigma(z)^0$ is
+nonclosable.
 
 ## Divergence and nonclosability
 
-Fix an endpoint pair whose coefficient family is not square summable. For a finite route subset $F$, put
+Fix an endpoint pair whose coefficient family is not square summable. For a
+finite route subset $F$, put
 
 ```math
 a_p=z^{|p|}
@@ -608,7 +631,8 @@ in the appropriate diagonal operator sense.
 
 The positive operator packages the full multiplicity tower.
 
-The Hilbert-space series uses squared modulus because route amplitudes combine quadratically.
+The Hilbert-space series uses squared modulus because route amplitudes combine
+quadratically.
 
 # 12. Weighted equal-route directions
 
@@ -660,9 +684,11 @@ The all-length polar decomposition is
 \Sigma(z)=D(z)^{1/2}U(z),
 ```
 
-where $U(z)$ sends each weighted equal-route direction to its endpoint-pair basis vector and kills the weighted defect space.
+where $U(z)$ sends each weighted equal-route direction to its endpoint-pair
+basis vector and kills the weighted defect space.
 
-The variable $z$ weights the path algebra's intrinsic path-length grading; it does not represent time.
+The variable $z$ weights the path algebra's intrinsic path-length grading; it
+does not represent time.
 
 # 13. Collapse radius
 
@@ -729,7 +755,7 @@ Since
 M_n\le B_n^+,
 ```
 
-The corresponding inequality is
+the corresponding inequality is
 
 ```math
 \rho_{\mathrm{col}}\le r(S_+).
@@ -750,7 +776,8 @@ R_{\mathrm{col}}
 \left\lbrace \frac1{r(S_+)}, \frac1{r(S_-)} \right\rbrace.
 ```
 
-The endpoint-collapse generating operator can remain bounded beyond the global Fock route sum's convergence radius.
+The endpoint-collapse generating operator can remain bounded beyond the global
+Fock route sum's convergence radius.
 
 ## $d$-ary tree
 
@@ -778,7 +805,8 @@ so the global Fock resolvent has radius
 \frac1{\sqrt d}.
 ```
 
-Branching destroys global route summability long before endpoint reconvergence becomes singular.
+Branching destroys global route summability long before endpoint reconvergence
+becomes singular.
 
 ## $d$-parallel funnel
 
@@ -795,4 +823,5 @@ R_{\mathrm{col}}=
 \frac1{\sqrt d}.
 ```
 
-The local radius equals the Fock radius because all route growth is concentrated in one endpoint fiber.
+The local radius equals the Fock radius because all route growth is concentrated
+in one endpoint fiber.

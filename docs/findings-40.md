@@ -2,7 +2,8 @@
 
 Acyclicity does not imply stationarity along compositional depth.
 
-Let $\xi_k\in T_h\mathcal M$ be the centered profile increment for the $k$-th route block. Its primary covariance is the two-index kernel
+Let $\xi_k\in T_h\mathcal M$ be the centered profile increment for the
+$k$-th route block. Its primary covariance is the two-index kernel
 
 ```math
 C_{jk}=
@@ -17,7 +18,7 @@ For
 S_n=\sum_{k=1}^n\xi_k,
 ```
 
-Therefore the covariance of the partial sums is
+the covariance of the partial sums is
 
 ```math
 \mathrm{Cov}(S_{\lfloor nt\rfloor},S_{\lfloor ns\rfloor})=
@@ -39,7 +40,10 @@ S_{\lfloor ns\rfloor}
 \mathcal R(t,s).
 ```
 
-Covariance convergence alone does not prove a Gaussian functional limit; tightness, Lindeberg/projective conditions or corresponding chaos assumptions are also required. Functional limit theorems for nonstationary dependent triangular arrays require precisely such additional dependence controls.
+Covariance convergence alone does not prove a Gaussian functional limit;
+tightness, Lindeberg/projective conditions or corresponding chaos assumptions
+are also required. Functional limit theorems for nonstationary dependent
+triangular arrays require precisely such additional dependence controls.
 
 # 2. Absence of long memory in harmonic score increments
 
@@ -96,9 +100,11 @@ Equivalently,
 \qquad(j\ne k).
 ```
 
-The linear harmonic fluctuation sector is already whitened by the Doob-transformed dynamics.
+The linear harmonic fluctuation sector is already whitened by the
+Doob-transformed dynamics.
 
-Thus, long-range dependence can arise only from something omitted by the harmonic martingale description:
+Thus, long-range dependence can arise only from something omitted by the
+harmonic martingale description:
 
 ```math
 \begin{aligned}
@@ -113,7 +119,8 @@ Long memory therefore signals unresolved route information.
 
 # 3. Asymptotically homogeneous special case
 
-Suppose that sufficiently deep in the graph, the block correlations become approximately translation invariant:
+Suppose that sufficiently deep in the graph, the block correlations become
+approximately translation invariant:
 
 ```math
 C_{jk}\sim C(|j-k|).
@@ -160,15 +167,20 @@ C(m)+C(m)^\ast
 \right].
 ```
 
-Under appropriate mixing or martingale-approximation hypotheses, the normalization remains
+Under appropriate mixing or martingale-approximation hypotheses, the
+normalization remains
 
 ```math
 a_n=\sqrt n
 ```
 
-The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$; functional central limit theorems for additive functionals of stationary reversible Markov processes establish this phenomenon under operator-domain conditions.
+The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$;
+functional central limit theorems for additive functionals of stationary
+reversible Markov processes establish this phenomenon under operator-domain
+conditions.
 
-Thus summable route correlation does not create a new continuum regime. It renormalizes the quadratic tensor.
+Thus summable route correlation renormalizes the quadratic tensor rather than
+creating a new continuum regime.
 
 # 4. Power-law correlation and the Hurst exponent
 
@@ -182,7 +194,8 @@ Q,m^{-\eta}L(m),
 0<\eta<1,
 ```
 
-where $L$ is slowly varying and $Q$ is a positive semidefinite covariance tensor.
+where $L$ is slowly varying and $Q$ is a positive semidefinite covariance
+tensor.
 
 It follows that
 
@@ -215,7 +228,8 @@ Because $0<\eta<1$,
 \frac12<H<1.
 ```
 
-If the correlation field is asymptotically Gaussian or linear enough, the limiting covariance is
+If the correlation field is asymptotically Gaussian or linear enough, the
+limiting covariance is
 
 ```math
 \mathcal R_H(t,s)=
@@ -227,9 +241,12 @@ t^{2H}
 \right).
 ```
 
-The covariance is that of a vector- or operator-valued fractional Brownian field.
+The covariance is that of a vector- or operator-valued fractional Brownian
+field.
 
-Fractional Brownian limits under long-range dependence and possible non-Gaussian Rosenblatt-type limits go back to the noncentral limit theory of Taqqu and Dobrushin-Major.
+Fractional Brownian limits under long-range dependence and possible
+non-Gaussian Rosenblatt-type limits go back to the noncentral limit theory of
+Taqqu and Dobrushin-Major.
 
 So the correlation exponent and Hurst exponent are related by
 
@@ -239,7 +256,8 @@ So the correlation exponent and Hurst exponent are related by
 
 # 5. Nonlinear route observables and Hermite rank
 
-Long memory becomes richer when the coarse profile increment is a nonlinear function of a correlated Gaussian route field.
+Additional long-memory regimes arise when the coarse profile increment is a
+nonlinear function of a correlated Gaussian route field.
 
 Suppose $G_k$ is centered Gaussian with
 
@@ -282,7 +300,9 @@ m!c_m^2
 \widetilde c,k^{-m\eta}L(k)^m.
 ```
 
-Three cases follow. If $m\eta>1$, the transformed correlation is summable and the ordinary Brownian central-limit regime is restored. If $m\eta<1$, the correlation remains nonsummable, the normalization is
+Three cases follow. If $m\eta>1$, the transformed correlation is summable and
+the ordinary Brownian central-limit regime is restored. If $m\eta<1$, the
+correlation remains nonsummable, the normalization is
 
 ```math
 n^{H_m},
@@ -290,9 +310,14 @@ n^{H_m},
 H_m=1-\frac{m\eta}{2},
 ```
 
-and the limit is generally the $m$-th Hermite process: fractional Brownian motion for $m=1$, the Rosenblatt process for $m=2$, and a higher non-Gaussian Hermite process for $m\ge3$. The borderline case $m\eta=1$ typically requires logarithmic normalization.
+and the limit is generally the $m$-th Hermite process: fractional Brownian
+motion for $m=1$, the Rosenblatt process for $m=2$, and a higher non-Gaussian
+Hermite process for $m\ge3$. The borderline case $m\eta=1$ typically requires
+logarithmic normalization.
 
-The fact that nonlinear functionals of slowly decaying Gaussian fields can require faster-than-$\sqrt n$ normalization and converge to non-Gaussian limits is exactly the Dobrushin-Major-Taqqu noncentral-limit mechanism.
+The fact that nonlinear functionals of slowly decaying Gaussian fields can
+require faster-than-$\sqrt n$ normalization and converge to non-Gaussian
+limits is exactly the Dobrushin-Major-Taqqu noncentral-limit mechanism.
 
 Thus the route-correlation regime has a new discrete invariant:
 
@@ -302,9 +327,11 @@ m=\text{first nonlinear chaos degree visible after profile compression}.
 
 # 6. Exact elimination of hidden route variables
 
-There is a more structural derivation of memory that does not start by guessing a correlation law.
+There is a more structural derivation of memory that does not start by
+guessing a correlation law.
 
-Linearize the full resolved dynamics into visible profile variables $x$ and hidden route variables $y$:
+Linearize the full resolved dynamics into visible profile variables $x$ and
+hidden route variables $y$:
 
 ```math
 \begin{aligned}
@@ -320,7 +347,9 @@ D_hy(\tau).
 \end{aligned}
 ```
 
-Here $B_h$ is the direct visible profile relaxation, $D_h$ is the hidden-route relaxation operator, and $C$ couples the visible and hidden sectors.
+Here $B_h$ is the direct visible profile relaxation, $D_h$ is the
+hidden-route relaxation operator, and $C$ couples the visible and hidden
+sectors.
 
 Solve the hidden equation:
 
@@ -357,7 +386,8 @@ and
 C^\ast e^{-\tau D_h}y_0.
 ```
 
-Eliminating the hidden route sector gives the generalized Langevin-Volterra equation.
+Eliminating the hidden route sector gives the generalized Langevin-Volterra
+equation.
 
 The memory kernel and fluctuating term have the same hidden propagator:
 
@@ -365,9 +395,12 @@ The memory kernel and fluctuating term have the same hidden propagator:
 e^{-\tau D_h}.
 ```
 
-Eliminating unresolved degrees of freedom likewise yields generalized Langevin reductions with a memory term and colored forcing, connected under equilibrium assumptions by a fluctuation-dissipation relation.
+Eliminating unresolved degrees of freedom likewise yields generalized
+Langevin reductions with a memory term and colored forcing, connected under
+equilibrium assumptions by a fluctuation-dissipation relation.
 
-A fluctuation-dissipation identity does not follow from the bounded system definition alone; it requires a suitable symmetric or equilibrium state.
+A fluctuation-dissipation identity does not follow from the bounded system
+definition alone; it requires a suitable symmetric or equilibrium state.
 
 # 7. Spectral origin of power-law memory
 
@@ -430,7 +463,11 @@ e^{-\omega\tau}
 \end{aligned}
 ```
 
-Thus long-range memory corresponds to a gapless hidden-route spectrum carrying weight near $\omega=0$. Acyclicity forbids exact cyclic recurrence but not arbitrarily slow hidden modes; infinite depth and repeated route reconvergence can generate a continuum of relaxation scales accumulating at zero.
+Thus long-range memory corresponds to a gapless hidden-route spectrum
+carrying weight near $\omega=0$. Acyclicity forbids exact cyclic recurrence
+but not arbitrarily slow hidden modes; infinite depth and repeated route
+reconvergence can generate a continuum of relaxation scales accumulating at
+zero.
 
 # 8. The power-law memory equation
 
@@ -493,7 +530,8 @@ The two anomalies have different resolvents:
 \end{aligned}
 ```
 
-They can produce similar algebraic scaling while representing mathematically different mechanisms.
+They can produce similar algebraic scaling while representing mathematically
+different mechanisms.
 
 # 9. Fractional Brownian forcing versus memory friction
 
@@ -533,11 +571,15 @@ K_h(\tau-s)X_s\,ds
 
 These need not be equivalent.
 
-They become linked only when the memory kernel and colored forcing covariance satisfy an additional fluctuation-dissipation condition. Fractional Langevin equations use precisely such power-law memory and correlated forcing, but the relation depends on the assumed equilibrium structure.
+They become linked only when the memory kernel and colored forcing covariance
+satisfy an additional fluctuation-dissipation condition. Fractional Langevin
+equations use precisely such power-law memory and correlated forcing, but the
+relation depends on the assumed equilibrium structure.
 
 # 10. Markovian reconstruction of the memory
 
-A completely monotone memory kernel can be represented as a continuous mixture of exponentials:
+A completely monotone memory kernel can be represented as a continuous
+mixture of exponentials:
 
 ```math
 K_h(\tau)=
@@ -546,7 +588,8 @@ e^{-\omega\tau},
 \mu_h(d\omega).
 ```
 
-Introduce one auxiliary hidden mode $z_\omega$ for every relaxation rate $\omega$:
+Introduce one auxiliary hidden mode $z_\omega$ for every relaxation rate
+$\omega$:
 
 ```math
 \dot z_\omega=
@@ -584,7 +627,8 @@ e^{-\omega\tau}
 \omega^{\eta-1}\,d\omega.
 ```
 
-The fractional memory is exactly a continuum of hidden exponential modes with density
+The fractional memory is exactly a continuum of hidden exponential modes with
+density
 
 ```math
 \mu_h(d\omega)=
@@ -593,7 +637,8 @@ The fractional memory is exactly a continuum of hidden exponential modes with de
 \omega^{\eta-1}d\omega.
 ```
 
-The non-Markovian profile equation becomes Markovian again when the unresolved spectral continuum is restored.
+The non-Markovian profile equation becomes Markovian again when the
+unresolved spectral continuum is restored.
 
 # 11. Primitive gauge coupling
 
@@ -605,7 +650,8 @@ G=i\beta N,
 \beta=\log\lambda.
 ```
 
-The original gauge counts primitive channel composition and therefore should not be subordinated to or erased by profile compression.
+The original gauge counts primitive channel composition and therefore should
+not be subordinated to or erased by profile compression.
 
 Move to the interaction-picture variable
 
@@ -643,7 +689,8 @@ e^{-G(\tau-s)}
 
 assuming $G$ commutes with $\mathbb B_h$ and $K_h$.
 
-A past state's memory therefore carries the gauge phase accumulated over the intervening primitive compositional depth.
+A past state's memory therefore carries the gauge phase accumulated over the
+intervening primitive compositional depth.
 
 # 12. Gauge-covariant memory resolvent
 
@@ -705,11 +752,13 @@ q+i\beta n
 }.
 ```
 
-That denominator is the complete complex dispersion relation of the linear power-memory regime.
+That denominator is the complete complex dispersion relation of the linear
+power-memory regime.
 
 # 13. Gaussian long-memory fluctuation space
 
-If the limiting correlation field is Gaussian, its one-particle space is not merely the local tangent space $\mathfrak t_h$.
+If the limiting correlation field is Gaussian, its one-particle space is larger
+than the local tangent space $\mathfrak t_h$.
 
 It is the covariance Hilbert space
 
@@ -741,19 +790,23 @@ The Gaussian fluctuation representation is
 
 There remains a number operator $N$, so the path-growth gauge grading survives.
 
-Nonlocal covariance in compositional depth means that the dissipative dynamics is no longer generally generated by a time-local operator
+Nonlocal covariance in compositional depth means that the dissipative
+dynamics is no longer generally generated by a time-local operator
 
 ```math
 d\Gamma(B_h)
 ```
 
-on the instantaneous profile space. Its natural object is the memory resolvent above, or an enlarged Markovian hidden-mode representation.
+on the instantaneous profile space. Its natural object is the memory
+resolvent above, or an enlarged Markovian hidden-mode representation.
 
 # 14. Higher-Hermite route fields
 
 For Hermite rank $m\ge2$, the limit is non-Gaussian.
 
-It belongs to the $m$-th Wiener chaos of an underlying Gaussian correlation field, but its effective dynamics need not be the second quantization of a one-particle operator.
+It belongs to the $m$-th Wiener chaos of an underlying Gaussian correlation
+field, but its effective dynamics need not be the second quantization of a
+one-particle operator.
 
 Therefore, in the higher-Hermite regime,
 
@@ -765,7 +818,8 @@ d\Gamma(B_h)
 
 in general.
 
-One must retain nonlinear chaos couplings. The previous free-Fock closure fails.
+One must retain nonlinear chaos couplings. The previous free-Fock closure
+fails.
 
 The corresponding classification is
 
@@ -793,11 +847,13 @@ m\text{-th Hermite process}
 \end{array}
 ```
 
-Multivariate long-range systems can similarly produce operator fractional Brownian limits or matrix-valued Rosenblatt limits.
+Multivariate long-range systems can similarly produce operator fractional
+Brownian limits or matrix-valued Rosenblatt limits.
 
-# 15. Three genuinely different sources of temporal anomaly
+# 15. Three sources of temporal anomaly
 
-The anomalies separate into three mechanisms. A renewal anomaly occurs when the number of primitive channels inside one coarse transition is heavy-tailed,
+The anomalies separate into three mechanisms. A renewal anomaly occurs when
+the number of primitive channels inside one coarse transition is heavy-tailed,
 
 ```math
 \Pr(W>n)\sim n^{-\gamma},
@@ -824,7 +880,8 @@ leading to
 K_h(t)\sim t^{-\eta}.
 ```
 
-A nonlinear-chaos anomaly occurs when a profile observable has Hermite rank $m$, so long memory survives in higher chaos and
+A nonlinear-chaos anomaly occurs when a profile observable has Hermite rank
+$m$, so long memory survives in higher chaos and
 
 ```math
 n^{-H_m}
@@ -834,87 +891,3 @@ Z_{m,H_m}(t).
 ```
 
 These mechanisms can coexist, but they are not interchangeable.
-
-# 16. Closure theorem for the long-memory branch
-
-At the candidate-equation level, the long-range route-correlation regime is now closed by the following data:
-
-```math
-(B_h,D_h,C)
-```
-
-for the resolved/hidden linearization,
-
-```math
-K_h(\tau)=C^\ast e^{-\tau D_h}C,
-```
-
-and, in the power-law case,
-
-```math
-d\Sigma_h(\omega)
-\sim
-A_h\omega^{\eta-1}d\omega
-\iff
-K_h(\tau)\sim
-\Gamma(\eta)A_h\tau^{-\eta}.
-```
-
-The profile equation is
-
-```math
-\dot x(\tau)=
--B_hx(\tau)-
-\int_0^\tau
-K_h(\tau-s)x(s)\,ds
-+
-\eta_h(\tau).
-```
-
-Its primitive-gauge fluctuation lift is
-
-```math
-(\partial_\tau+i\beta N)\Psi(\tau)=
--\mathbb B_h\Psi(\tau)-
-\int_0^\tau
-K_h(\tau-s)
-e^{-i\beta N(\tau-s)}
-\Psi(s)\,ds
-+
-\eta_{h,\beta}(\tau).
-```
-
-And its spectral resolvent is
-
-```math
-\widetilde\Psi(q)=
-\left[
-q+i\beta N
-+\mathbb B_h
-+\widetilde K_h(q+i\beta N)
-\right]^{-1}
-\left[
-\Psi_0+\widetilde\eta(q)
-\right].
-```
-
-For
-
-```math
-K_h(t)=
-\frac{\kappa_h}{\Gamma(1-\eta)}t^{-\eta},
-```
-
-this becomes
-
-```math
-\widetilde\Psi(q)=
-\left[
-q+i\beta N
-+\mathbb B_h
-+\kappa_h(q+i\beta N)^{\eta-1}
-\right]^{-1}
-\left[
-\Psi_0+\widetilde\eta(q)
-\right].
-```

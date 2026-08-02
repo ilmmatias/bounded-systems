@@ -6,7 +6,11 @@ A bounded system is an isomorphism class of acyclic directed multigraphs:
 B=\big[(N,E,s,t)\big]_{\cong}.
 ```
 
-The representative data consist of a set $N$ of nodes with no primitive labels or attributes, a set $E$ of directed channels, and source and target maps $s,t:E\to N$. The graph $(N,E,s,t)$ is acyclic, while distinct channels $e,f\in E$ may have the same source and target. All changes of the system are therefore represented internally by its channels.
+The representative data consist of a set $N$ of nodes with no primitive
+labels or attributes, a set $E$ of directed channels, and source and target
+maps $s,t:E\to N$. The graph $(N,E,s,t)$ is acyclic, while distinct channels
+$e,f\in E$ may have the same source and target. All changes of the system are
+therefore represented internally by its channels.
 
 For the finite calculations below, fix a representative
 
@@ -14,13 +18,15 @@ For the finite calculations below, fix a representative
 G=(N,E,s,t)
 ```
 
-of $B$. If $n=|N|$, temporarily label the nodes by $(1,\dots,n)$. Relabeling by a permutation matrix $P$ sends the adjacency matrix to
+of $B$. If $n=|N|$, temporarily label the nodes by $(1,\dots,n)$. Relabeling
+by a permutation matrix $P$ sends the adjacency matrix to
 
 ```math
 A\longmapsto P^{-1}AP.
 ```
 
-Consequently, only quantities invariant under permutation similarity define properties of $B$. The adjacency matrix is given by
+Consequently, only quantities invariant under permutation similarity define
+properties of $B$. The adjacency matrix is given by
 
 ```math
 A_{ij}=
@@ -29,7 +35,8 @@ A_{ij}=
 
 ## Nilpotence of the adjacency matrix
 
-Because $G$ is a finite DAG, its nodes can be topologically ordered. In that ordering,
+Because $G$ is a finite DAG, its nodes can be topologically ordered. In that
+ordering,
 
 ```math
 A=
@@ -56,7 +63,9 @@ It follows that every finite configuration has
 
 ## Path counts and finite spectral data
 
-With this convention, the matrix entry $(A^k)_{ij}$ counts directed paths of length $k$ from $i$ to $j$, including channel multiplicities. Hence the least integer $\nu$ for which
+With this convention, the matrix entry $(A^k)_{ij}$ counts directed paths of
+length $k$ from $i$ to $j$, including channel multiplicities. Hence the least
+integer $\nu$ for which
 
 ```math
 A^\nu=0
@@ -74,7 +83,8 @@ For later comparisons, define the rank profile
 \right)
 ```
 
-and truncate the sequence after it first reaches zero. We also record the singular-value multiset
+and truncate the sequence after it first reaches zero. We also record the
+singular-value multiset
 
 ```math
 \sigma(A)=
@@ -83,7 +93,9 @@ and truncate the sequence after it first reaches zero. We also record the singul
 
 # 2. Simple-channel configurations
 
-We first restrict to the $0/1$ sector, in which at most one channel is present in a fixed direction between any ordered pair of nodes. This is the smallest finite sector of the theory.
+We first restrict to the $0/1$ sector, in which at most one channel is present
+in a fixed direction between any ordered pair of nodes. This is the smallest
+finite sector of the theory.
 
 Let
 
@@ -91,7 +103,9 @@ Let
 \varphi=\frac{1+\sqrt5}{2}.
 ```
 
-The symbols $d^+$ and $d^-$ denote the multisets of out-degrees and in-degrees, respectively. We write $L_u$ for the Laplacian of the underlying undirected graph obtained by forgetting edge orientation.
+The symbols $d^+$ and $d^-$ denote the multisets of out-degrees and in-degrees,
+respectively. We write $L_u$ for the Laplacian of the underlying undirected
+graph obtained by forgetting edge orientation.
 
 ## Classification through three nodes
 
@@ -108,6 +122,9 @@ The symbols $d^+$ and $d^-$ denote the multisets of out-degrees and in-degrees, 
 |     3 | transitive triangle      | $(2,1,0)$ | $(\varphi,\varphi^{-1},0)$ | $\{2,1,0\}$ | $\{2,1,0\}$ | $\{0,3,3\}$                |
 
 # 3. Three-node calculations
+
+The entries of the preceding table for the outgoing fork, incoming fork, chain,
+and transitive triangle are computed below.
 
 ## Outgoing fork
 
@@ -181,7 +198,8 @@ The incoming and outgoing forks have the same rank profile and singular values:
 \sigma(A_{\mathrm{in}})=(\sqrt2,0,0).
 ```
 
-The singular values therefore do not distinguish convergence from divergence. The in- and out-degree multisets do:
+The singular values therefore do not distinguish convergence from divergence.
+The in- and out-degree multisets do:
 
 ```math
 d^+_{\mathrm{out}}=\{2,0,0\},
@@ -311,7 +329,8 @@ where
 
 # 4. Immediate channels and reachability
 
-To distinguish immediate communication from eventual communication, define the binary reachability matrix
+To distinguish immediate communication from eventual communication, define the
+binary reachability matrix
 
 ```math
 R_{ij}=
@@ -344,13 +363,17 @@ This is the adjacency matrix of the transitive triangle:
 R_{\mathrm{chain}}=A_{\triangle}.
 ```
 
-Since the transitive triangle is already transitively closed, $R_{\triangle}=A_{\triangle}$, and hence
+Since the transitive triangle is already transitively closed,
+$R_{\triangle}=A_{\triangle}$, and hence
 
 ```math
 R_{\mathrm{chain}}=R_{\triangle}.
 ```
 
-The chain and the transitive triangle thus have different immediate channel structures but the same reachability relation. The adjacency matrix $A$ records immediate channels, whereas $R$ records eventual reachability; both must be retained.
+The chain and the transitive triangle thus have different immediate channel
+structures but the same reachability relation. The adjacency matrix $A$ records
+immediate channels, whereas $R$ records eventual reachability; both must be
+retained.
 
 # 5. Parallel-channel configurations
 
@@ -487,9 +510,14 @@ G_2:\quad 1\xrightarrow{b}2\xrightarrow{a}3,
 
 with $a\neq b$.
 
-The directed weighted graphs are nonisomorphic. The source, middle, and target are structurally fixed, so an isomorphism cannot exchange the upstream and downstream multiplicities. Nevertheless, they share identical adjacency eigenvalues, singular values, degree multisets, and underlying weighted-Laplacian spectra, as well as the same path multiplicity $ab$.
+The directed weighted graphs are nonisomorphic. The source, middle, and target
+are structurally fixed, so an isomorphism cannot exchange the upstream and
+downstream multiplicities. Nevertheless, they share identical adjacency
+eigenvalues, singular values, degree multisets, and underlying
+weighted-Laplacian spectra, as well as the same path multiplicity $ab$.
 
-The initial spectral package therefore does not determine whether the larger multiplicity occurs upstream or downstream.
+The initial spectral package therefore does not determine whether the larger
+multiplicity occurs upstream or downstream.
 
 # 7. An asymmetric Gram operator
 
@@ -506,7 +534,9 @@ Q_\tau(A)=
 A^\mathsf TA+\tau AA^\mathsf T.
 ```
 
-The term $A^\mathsf TA$ compares incoming-channel profiles, whereas $AA^\mathsf T$ compares outgoing-channel profiles. The condition $\tau\neq1$ prevents these two roles from entering symmetrically.
+The term $A^\mathsf TA$ compares incoming-channel profiles, whereas
+$AA^\mathsf T$ compares outgoing-channel profiles. The condition $\tau\neq1$
+prevents these two roles from entering symmetrically.
 
 For the weighted chain $a$ followed by $b$,
 
@@ -548,4 +578,5 @@ a\neq b
 \tau\neq1,
 ```
 
-the determinants, and therefore the spectra, are distinct. Thus $\mathrm{spec}(Q_\tau)$ distinguishes the two weighted-chain orientations.
+the determinants, and therefore the spectra, are distinct. Thus
+$\mathrm{spec}(Q_\tau)$ distinguishes the two weighted-chain orientations.

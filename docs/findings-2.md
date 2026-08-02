@@ -1,6 +1,7 @@
 # 1. Enumeration through six nodes
 
-An exhaustive computation over simple DAGs with at most six nodes determines how far the node-level spectral profile separates isomorphism classes.
+An exhaustive computation over simple DAGs with at most six nodes determines
+how far the node-level spectral profile separates isomorphism classes.
 
 ## Cumulative separation by invariant
 
@@ -16,11 +17,14 @@ An exhaustive computation over simple DAGs with at most six nodes determines how
 | $+$ reachability singular spectrum |    30 |   276 | 5,505 |
 | $+$ asymmetric Gram operator $Q_2$ |    31 |   302 | 5,980 |
 
-The full node-level profile distinguishes every simple DAG through five nodes. At six nodes, exactly four pairs of non-isomorphic DAGs remain indistinguishable.
+The full node-level profile distinguishes every simple DAG through five nodes.
+At six nodes, exactly four pairs of non-isomorphic DAGs remain
+indistinguishable.
 
 # 2. Six-node collisions among node-level invariants
 
-The simplest surviving collision consists of two six-node chains, each with one shortcut:
+The simplest surviving collision consists of two six-node chains, each with
+one shortcut:
 
 ```math
 \begin{aligned}
@@ -29,21 +33,32 @@ G_B &: \quad 1\to2\to3\to4\to5\to6,\qquad 2\to4.
 \end{aligned}
 ```
 
-The two graphs are order duals: one shortcut occurs earlier along the chain and the other later. They have the same edge count, rank profile, singular spectrum, degree spectra, reachability spectrum, and underlying and orientation Laplacian spectra.
+The two graphs are order duals: one shortcut occurs earlier along the chain
+and the other later. They have the same edge count, rank profile, singular
+spectrum, degree spectra, reachability spectrum, and underlying and
+orientation Laplacian spectra.
 
-The node-level asymmetric Gram operator $Q_2(A)=A^\mathsf TA+2AA^\mathsf T$ also fails to separate them, since both matrices have characteristic polynomial
+The node-level asymmetric Gram operator $Q_2(A)=A^\mathsf TA+2AA^\mathsf T$
+also fails to separate them, since both matrices have characteristic polynomial
 
 ```math
 \chi_{Q_2}(\lambda) = \lambda^6 - 18\lambda^5 + 125\lambda^4 - 429\lambda^3 + 768\lambda^2 - 681\lambda + 234.
 ```
 
-All four surviving collisions at six nodes are non-self-dual pairs of this type. The node-level operators therefore do not determine the position of a compositional shortcut relative to the global orientation.
+All four surviving collisions at six nodes are non-self-dual pairs of this
+type. The node-level operators therefore do not determine the position of a
+compositional shortcut relative to the global orientation.
 
 # 3. Line-graph lift to the channel level
 
-To recover this positional information, let $\mathcal{L}(G)$ denote the directed line graph of $G$. Its vertices are the edges of $G$, and it contains an edge $e\to f$ precisely when $t(e)=s(f)$. If $T$ and $S$ are the target and source incidence matrices, respectively, then the adjacency matrix of $\mathcal{L}(G)$ is $C=T^\mathsf TS$.
+To recover this positional information, let $\mathcal{L}(G)$ denote the
+directed line graph of $G$. Its vertices are the edges of $G$, and it contains
+an edge $e\to f$ precisely when $t(e)=s(f)$. If $T$ and $S$ are the target and
+source incidence matrices, respectively, then the adjacency matrix of
+$\mathcal{L}(G)$ is $C=T^\mathsf TS$.
 
-Applying the asymmetric Gram construction to this channel-level adjacency matrix gives
+Applying the asymmetric Gram construction to this channel-level adjacency
+matrix gives
 
 ```math
 Q_2^{(E)} = C^\mathsf T C + 2 CC^\mathsf T.
@@ -61,7 +76,8 @@ For the early-shortcut graph $G_B$, it is
 \chi_{Q_2^{(E)}}(\lambda) = \lambda^6 - 18\lambda^5 + 127\lambda^4 - 442\lambda^3 + 780\lambda^2 - 640\lambda + 192.
 ```
 
-The two polynomials are distinct. The channel-level operator $Q_2^{(E)}$ likewise separates each of the four remaining six-node pairs.
+The two polynomials are distinct. The channel-level operator $Q_2^{(E)}$
+likewise separates each of the four remaining six-node pairs.
 
 # 4. Iterated line graphs and the spectral tower
 
@@ -71,9 +87,13 @@ Iteration of the line-graph construction defines the sequence
 G^{(0)} = G, \qquad G^{(r+1)} = \mathcal{L}(G^{(r)}).
 ```
 
-A vertex of $G^{(r)}$ represents a composable directed path of length $r$ in the original graph. If $G$ is a finite DAG with nilpotency index $\nu$, the sequence terminates at $r=\nu-1$.
+A vertex of $G^{(r)}$ represents a composable directed path of length $r$ in
+the original graph. If $G$ is a finite DAG with nilpotency index $\nu$, the
+sequence terminates at $r=\nu-1$.
 
-Define the spectral tower by $\mathfrak{S}(G)=\left(\Phi(G^{(0)}),\Phi(G^{(1)}),\ldots\right)$. In the six-node computation, the two-level fingerprint is
+Define the spectral tower by
+$\mathfrak{S}(G)=\left(\Phi(G^{(0)}),\Phi(G^{(1)}),\ldots\right)$. In the
+six-node computation, the two-level fingerprint is
 
 ```math
 \Phi_{\text{aug}}(G) = \left( \Phi_0(G^{(0)}), \, \mathrm{spec}\left(Q_2(A_{\mathcal{L}(G)})\right) \right).

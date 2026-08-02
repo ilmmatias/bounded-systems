@@ -1,6 +1,9 @@
 # 1. Past rank
 
-Acyclicity alone does not guarantee finite height. When one directional boundary is empty, however, the corresponding reachability relation admits a canonical ordinal rank. Write $u\prec v$ when a positive-length directed path runs from $u$ to $v$. The past and future directions give two independent rank theories.
+Acyclicity alone does not guarantee finite height. When one directional boundary
+is empty, however, the corresponding reachability relation admits a canonical
+ordinal rank. Write $u\prec v$ when a positive-length directed path runs from
+$u$ to $v$. The past and future directions give two independent rank theories.
 
 For the past rank, suppose there is no infinite backward chain
 
@@ -41,7 +44,8 @@ $\rho_-$ is a canonical transfinite topological ordering.
 
 ## Theorem 1. Existence of past rank
 
-Under ordinary set theory with dependent choice, the following conditions are equivalent:
+Under ordinary set theory with dependent choice, the following conditions are
+equivalent:
 
 1. every node has a past rank;
 2. every nonempty set of nodes has a $\prec$-minimal element;
@@ -90,7 +94,8 @@ For a path of length $n$,
 
 ## Theorem 2. Existence of future rank
 
-Under the same set-theoretic assumptions, the following conditions are equivalent:
+Under the same set-theoretic assumptions, the following conditions are
+equivalent:
 
 1. every node has a future rank;
 2. every nonempty set of nodes has a $\prec$-maximal element;
@@ -102,7 +107,8 @@ Under the same set-theoretic assumptions, the following conditions are equivalen
 \rho_+\text{ is defined on all nodes}.
 ```
 
-The conditions are independent: a system can have a future rank but no past rank, or vice versa.
+The conditions are independent: a system can have a future rank but no past
+rank, or vice versa.
 
 # 3. Transfinite rank does not mean an infinitely long path
 
@@ -135,7 +141,8 @@ Now add a node $s\to r$. Then
 \rho_+(s)=\omega+1.
 ```
 
-Arbitrarily large transfinite ranks can occur without any infinite forward path. For an ordinal $\alpha$, take nodes indexed by ordinals
+Arbitrarily large transfinite ranks can occur without any infinite forward path.
+For an ordinal $\alpha$, take nodes indexed by ordinals
 
 ```math
 0,1,\ldots,\alpha
@@ -148,17 +155,20 @@ and direct a channel
 \qquad\text{whenever }\beta<\gamma.
 ```
 
-Ordinals admit no infinite strictly decreasing sequence, so every forward path is finite, while
+Ordinals admit no infinite strictly decreasing sequence, so every forward path
+is finite, while
 
 ```math
 \rho_+(\gamma)=\gamma.
 ```
 
-Ordinal rank therefore measures recursive branching complexity rather than the length of a single path.
+Ordinal rank therefore measures recursive branching complexity rather than the
+length of a single path.
 
 # 4. Transfinite pruning
 
-The ranks can be constructed without initially assuming that the boundary is empty.
+The ranks can be constructed without initially assuming that the boundary is
+empty.
 
 ## Sink pruning
 
@@ -203,7 +213,8 @@ K^+=
 
 ## Source pruning
 
-Similarly, source pruning begins with $W^-_0=V$ and proceeds at successor stages by
+Similarly, source pruning begins with $W^-_0=V$ and proceeds at successor
+stages by
 
 ```math
 W^-_{\alpha+1}=
@@ -249,11 +260,14 @@ v\in K^-
 
 ## Proof
 
-If an infinite path begins at $v$, none of its nodes is ever removed as a sink. Transfinite induction shows that every path node remains in every $W^+_\alpha$, so $v\in K^+$.
+If an infinite path begins at $v$, none of its nodes is ever removed as a sink.
+Transfinite induction shows that every path node remains in every
+$W^+_\alpha$, so $v\in K^+$.
 
 Conversely, suppose $v\in K^+$.
 
-Assume every successor $w$ of $v$ is eventually removed. Let $\alpha_w$ be a stage after which $w$ is absent. Since the successor set is a set, the ordinal
+Assume every successor $w$ of $v$ is eventually removed. Let $\alpha_w$ be a
+stage after which $w$ is absent. Since the successor set is a set, the ordinal
 
 ```math
 \beta=\sup_{v\to w}(\alpha_w+1)
@@ -261,11 +275,17 @@ Assume every successor $w$ of $v$ is eventually removed. Let $\alpha_w$ be a sta
 
 exists.
 
-At stage $\beta$, none of $v$'s successors remains. Therefore $v$ becomes a sink and is removed at stage $\beta+1$, contradicting $v\in K^+$.
+At stage $\beta$, none of $v$'s successors remains. Therefore $v$ becomes a
+sink and is removed at stage $\beta+1$, contradicting $v\in K^+$.
 
 Thus $v$ has a successor in $K^+$. Repeating this choice gives an infinite path.
 
-Transfinite pruning therefore corrects the weakness of finite-depth tests. The root of the infinitely branching finite tree survives every finite pruning stage but is removed at stage $\omega+1$, whereas the root of an actual infinite path survives every ordinal stage. Thus finite-stage survival is insufficient for boundary membership; membership in $K^+$ is equivalent to survival through every ordinal stage.
+Transfinite pruning therefore corrects the weakness of finite-depth tests. The
+root of the infinitely branching finite tree survives every finite pruning stage
+but is removed at stage $\omega+1$, whereas the root of an actual infinite path
+survives every ordinal stage. Thus finite-stage survival is insufficient for
+boundary membership; membership in $K^+$ is equivalent to survival through every
+ordinal stage.
 
 # 6. Rank layers
 
@@ -345,7 +365,8 @@ For a system with $|V|=\kappa$,
 \mathrm{ht}_\pm(G)<\kappa^+.
 ```
 
-The pruning sequence must stabilize before $\kappa^+$ because each nonstationary successor stage removes at least one remaining node.
+The pruning sequence must stabilize before $\kappa^+$ because each nonstationary
+successor stage removes at least one remaining node.
 
 In a finite DAG, these ranks reduce to familiar longest-path depths.
 
@@ -411,7 +432,8 @@ The condition
 e_v\mathcal M(1-F^-_\alpha)=0
 ```
 
-says that every immediate predecessor of $v$ has already entered the lower-rank part. The recursion therefore yields
+says that every immediate predecessor of $v$ has already entered the lower-rank
+part. The recursion therefore yields
 
 ```math
 F^-_\alpha=
@@ -449,14 +471,16 @@ The condition
 (1-F^+_\alpha)\mathcal M e_v=0
 ```
 
-says that every immediate successor of $v$ has already entered the lower future-rank part. Consequently,
+says that every immediate successor of $v$ has already entered the lower
+future-rank part. Consequently,
 
 ```math
 F^+_\alpha=
 \sum_{\rho_+(v)<\alpha}e_v.
 ```
 
-Hence the transfinite ranks are intrinsic to $(\mathcal A,\mathcal D)$ and require neither node labels nor an externally supplied ordering.
+Hence the transfinite ranks are intrinsic to $(\mathcal A,\mathcal D)$ and
+require neither node labels nor an externally supplied ordering.
 
 # 9. Triangular operator structure
 
@@ -507,7 +531,8 @@ Their block form is
 \end{pmatrix}.
 ```
 
-The ordinal ranks thus determine canonical past- and future-rank projection nests. Their opposite triangular forms encode the direction of communication.
+The ordinal ranks thus determine canonical past- and future-rank projection
+nests. Their opposite triangular forms encode the direction of communication.
 
 # 10. Canonical rank truncations
 
@@ -519,7 +544,8 @@ I^-_\alpha=
 \left\lbrace p: r(p)\notin V^-_{<\alpha} \right\rbrace.
 ```
 
-These are paths whose terminal node has past rank at least $\alpha$, or belongs to the backward core.
+These are paths whose terminal node has past rank at least $\alpha$, or belongs
+to the backward core.
 
 Because high past-rank nodes are forward-closed,
 
@@ -561,7 +587,9 @@ Then
 \mathcal A\!\left(G[V^+_{<\alpha}]\right).
 ```
 
-These ordinal quotients provide canonical finite or transfinite approximations to the full system. Unlike truncation by node count, rank truncation respects the direction of communication and the associated ancestry relation.
+These ordinal quotients provide canonical finite or transfinite approximations
+to the full system. Unlike truncation by node count, rank truncation respects
+the direction of communication and the associated ancestry relation.
 
 # 11. When both ranks exist
 
@@ -602,21 +630,25 @@ C_{\alpha,\beta}=
 
 are antichains.
 
-The pair of ranks gives a canonical two-dimensional ordinal coordinate system without labeling individual nodes.
+The pair of ranks gives a canonical two-dimensional ordinal coordinate system
+without labeling individual nodes.
 
-The coordinate need not distinguish nodes: those in the same cell remain intrinsically indistinguishable unless their channel relations differ.
+The coordinate need not distinguish nodes: those in the same cell remain
+intrinsically indistinguishable unless their channel relations differ.
 
 # 12. Ordinal ranks and numeric operators
 
-It may be tempting to define
+A numerical rank operator would be defined by
 
 ```math
 R=\sum_v\rho(v)P_v.
 ```
 
-Ordinal values are not ordinary real or complex scalars; arbitrary ordinals have no canonical order-preserving embedding into $\mathbb R$.
+Ordinal values are not ordinary real or complex scalars; arbitrary ordinals have
+no canonical order-preserving embedding into $\mathbb R$.
 
-Turning transfinite ranks into real numbers would therefore require an arbitrary coding.
+Turning transfinite ranks into real numbers would therefore require an
+arbitrary coding.
 
 The canonical analytic object is therefore the ordinal-indexed projection family
 
@@ -632,11 +664,14 @@ or equivalently the family of layer projections
 
 rather than a single self-adjoint rank operator.
 
-These projection nests retain the complete ordinal ordering without numerical distortion.
+These projection nests retain the complete ordinal ordering without numerical
+distortion.
 
 # 13. Combined finite and infinite decomposition
 
-Every node belongs either to a well-founded past layer $L^-_\alpha$ or to the backward boundary core $K^-$. Independently, it belongs either to a well-founded future layer $L^+_\beta$ or to the forward boundary core $K^+$.
+Every node belongs either to a well-founded past layer $L^-_\alpha$ or to the
+backward boundary core $K^-$. Independently, it belongs either to a
+well-founded future layer $L^+_\beta$ or to the forward boundary core $K^+$.
 
 Thus the node set decomposes into four broad sectors:
 
@@ -651,6 +686,10 @@ V=
 (K^-\cap K^+).
 ```
 
-The four summands represent, respectively, nodes that are well-founded in both directions, well-founded only toward the past, well-founded only toward the future, and contained in both infinite cores.
+The four summands represent, respectively, nodes that are well-founded in both
+directions, well-founded only toward the past, well-founded only toward the
+future, and contained in both infinite cores.
 
-The last sector contains all nodes on bi-infinite chains but can also contain nodes connected to separate backward and forward infinite branches that do not form a unique bi-infinite route.
+The last sector contains all nodes on bi-infinite chains but can also contain
+nodes connected to separate backward and forward infinite branches that do not
+form a unique bi-infinite route.

@@ -7,7 +7,8 @@ Let
 \mathcal D\oplus J,
 ```
 
-where $\mathcal D$ is the node diagonal and $J$ is the span of all positive-length paths.
+where $\mathcal D$ is the node diagonal and $J$ is the span of all
+positive-length paths.
 
 Write
 
@@ -77,11 +78,16 @@ The abelianization is therefore
 \mathcal A/[\mathcal A,\mathcal A]\cong\mathcal D.
 ```
 
-Thus abelianization removes every positive-length communication process and retains only the mutually orthogonal node algebra. In this precise sense, the communication structure is the noncommutative part of $\mathcal A$.
+Thus abelianization removes every positive-length communication process and
+retains only the mutually orthogonal node algebra. In this precise sense, the
+communication structure is the noncommutative part of $\mathcal A$.
 
 # 2. Reconstruction from the marked diagonal
 
-A reconstruction argument may initially be formulated for isomorphisms preserving both the diagonal and the path-length grading. In the acyclic case, preservation of the grading follows intrinsically from preservation of the diagonal.
+A reconstruction argument may initially be formulated for isomorphisms
+preserving both the diagonal and the path-length grading. In the acyclic case,
+preservation of the grading follows intrinsically from preservation of the
+diagonal.
 
 Suppose
 
@@ -124,7 +130,8 @@ The corner
 e_v(J/J^2)e_u
 ```
 
-is precisely the vector space of primitive channels from $u$ to $v$. Composite paths vanish modulo $J^2$, and hence
+is precisely the vector space of primitive channels from $u$ to $v$. Composite
+paths vanish modulo $J^2$, and hence
 
 ```math
 \dim e_v(J/J^2)e_u=
@@ -157,7 +164,8 @@ Exact length-$n$ paths appear in
 J^n/J^{n+1}.
 ```
 
-Consequently, the marked pair $(\mathcal A,\mathcal D)$ retains the complete finite communication structure.
+Consequently, the marked pair $(\mathcal A,\mathcal D)$ retains the complete
+finite communication structure.
 
 # 3. Algebraic spectrum
 
@@ -239,7 +247,8 @@ The element
 D_\lambda^{-1}x
 ```
 
-is still a finite positive-path expression. Since $J$ is locally nilpotent, it is nilpotent. Therefore
+is still a finite positive-path expression. Since $J$ is locally nilpotent, it
+is nilpotent. Therefore
 
 ```math
 \bigl(1-D_\lambda^{-1}x\bigr)^{-1}=
@@ -251,7 +260,8 @@ for some finite $N$.
 
 Hence $\lambda1-a$ is invertible, which proves the stated spectral formula.
 
-The ordinary algebraic spectrum therefore depends only on the diagonal node coefficients, regardless of the finite positive-path component.
+The ordinary algebraic spectrum therefore depends only on the diagonal node
+coefficients, regardless of the finite positive-path component.
 
 For example, adding a channel term does not alter the spectrum:
 
@@ -262,13 +272,16 @@ For example, adding a channel term does not alter the spectrum:
 
 for every scalar $t$.
 
-This extends the collapse of the adjacency spectrum for finite DAGs. A single spectral set is too compressed to recover the channel structure, which instead remains visible in multiplication, commutators, corners, and resolvents.
+This extends the collapse of the adjacency spectrum for finite DAGs. A single
+spectral set is too compressed to recover the channel structure, which instead
+remains visible in multiplication, commutators, corners, and resolvents.
 
 # 4. The canonical formal path completion
 
-The Fock norm completion is useful, but it depends on a Hilbert-space norm.
+The Fock norm completion depends on a choice of Hilbert-space norm.
 
-Before any norm is chosen, a formal completion can be defined for every set-sized system.
+Before any norm is chosen, a formal completion can be defined for every
+set-sized system.
 
 Let
 
@@ -294,9 +307,12 @@ Define multiplication by path convolution. For a fixed path $r$,
 \sum_{r=qp}X(q)Y(p).
 ```
 
-The sum is always finite because a path of length $n$ has only $n+1$ cuts into initial and final segments.
+The sum is always finite because a path of length $n$ has only $n+1$ cuts into
+initial and final segments.
 
-The multiplication is therefore well-defined for arbitrary set-sized node and edge sets, including systems with infinitely many paths of a fixed length or unbounded degree.
+The multiplication is therefore well-defined for arbitrary set-sized node and
+edge sets, including systems with infinitely many paths of a fixed length or
+unbounded degree.
 
 The element
 
@@ -323,9 +339,12 @@ Then
 F^mF^n\subseteq F^{m+n}.
 ```
 
-A sequence or net converges in the path-length topology when, for every fixed depth $n$, its coefficients eventually stabilize on all paths of length below $n$.
+A sequence or net converges in the path-length topology when, for every fixed
+depth $n$, its coefficients eventually stabilize on all paths of length below
+$n$.
 
-The positive-length part is $F^1\widehat{\mathcal A}$. For every $X\in F^1\widehat{\mathcal A}$,
+The positive-length part is $F^1\widehat{\mathcal A}$. For every
+$X\in F^1\widehat{\mathcal A}$,
 
 ```math
 X^n\in F^n\widehat{\mathcal A}
@@ -363,7 +382,9 @@ Inside the formal completion, define
 \sum_{e\in E}e.
 ```
 
-Unlike the global Fock operator, this formal sum exists without finite-degree or uniform branching assumptions and requires neither square summability nor operator convergence.
+Unlike the global Fock operator, this formal sum exists without finite-degree or
+uniform branching assumptions and requires neither square summability nor
+operator convergence.
 
 Introduce a formal scalar variable $z$. Then
 
@@ -373,9 +394,11 @@ R_G(z)=
 \sum_{n=0}^{\infty}z^n\mathbf E^n.
 ```
 
-The variable $z$ records compositional depth and carries no temporal interpretation.
+The variable $z$ records compositional depth and carries no temporal
+interpretation.
 
-Because every composable sequence of $n$ primitive channels is exactly one path of length $n$,
+Because every composable sequence of $n$ primitive channels is exactly one path
+of length $n$,
 
 ```math
 \mathbf E^n=
@@ -434,7 +457,8 @@ e_v(R_G(z)-1)e_v=0
 \quad\text{for every }v.
 ```
 
-A positive term in a diagonal corner would be a positive-length closed directed path.
+A positive term in a diagonal corner would be a positive-length closed directed
+path.
 
 Finite height is detected by the degree of the resolvent:
 
@@ -445,9 +469,11 @@ R_G(z)
 \text{ is a polynomial of degree at most }h.
 ```
 
-Unbounded finite compositional depth occurs precisely when $R_G(z)$ has nonzero terms of arbitrarily high degree.
+Unbounded finite compositional depth occurs precisely when $R_G(z)$ has nonzero
+terms of arbitrarily high degree.
 
-The same formal behavior can come from an infinite chain or from finite chains of unbounded length. The infinite-path boundary distinguishes them.
+The same formal behavior can come from an infinite chain or from finite chains
+of unbounded length. The infinite-path boundary distinguishes them.
 
 # 8. Formal spectrum versus operator spectrum
 
@@ -466,7 +492,13 @@ In the completed formal algebra,
 \sigma_{\mathrm{formal}}(\mathbf E)=\{0\}.
 ```
 
-In the Fock norm completion, however, the corresponding bounded operator may have the closed unit disk as its spectrum for an infinite chain, or spectral radius $\sqrt d$ for a regular $d$-branching system. The statements concern different notions of convergence: for every nonzero $\lambda$, the inverse series exists formally but may fail to converge in operator norm. Operator spectrum therefore detects failure of analytic convergence rather than failure of formal path composition.
+In the Fock norm completion, however, the corresponding bounded operator may
+have the closed unit disk as its spectrum for an infinite chain, or spectral
+radius $\sqrt d$ for a regular $d$-branching system. The statements concern
+different notions of convergence: for every nonzero $\lambda$, the inverse
+series exists formally but may fail to converge in operator norm. Operator
+spectrum therefore detects failure of analytic convergence rather than failure
+of formal path composition.
 
 There are three tiers:
 
@@ -476,7 +508,8 @@ There are three tiers:
 | Formal path completion   | ${0}$                  | all finite paths and formal depth  |
 | Fock/operator completion | potentially nonzero    | norm growth and infinite branching |
 
-A nonzero operator spectrum is therefore a growth and convergence phenomenon; nontrivial finite-path structure may still have zero positive-path spectrum.
+A nonzero operator spectrum is therefore a growth and convergence phenomenon;
+nontrivial finite-path structure may still have zero positive-path spectrum.
 
 # 9. Information carried by the marked resolvent
 
@@ -496,15 +529,21 @@ But the full marked resolvent family
 
 contains every finite directed path.
 
-The spectral set is coarser than the resolvent, and the uncornered resolvent is coarser than the cornered marked family. The latter is equivalent to the full finite-path structure. The earlier spectral collisions were not accidental but reflected the loss of the node corners and multiplication structure.
+The spectral set is coarser than the resolvent, and the uncornered resolvent is
+coarser than the cornered marked family. The latter is equivalent to the full
+finite-path structure. The earlier spectral collisions reflect the loss of the
+node corners and the multiplication structure.
 
 # 10. The algebraic and formal centers
 
 The center changes under completion as well.
 
-Let the weak components be the connected components obtained after forgetting edge directions.
+Let the weak components be the connected components obtained after forgetting
+edge directions.
 
-In the algebraic path algebra, a central element must be diagonal and constant along every edge. Because algebraic elements have finite support, a nonzero constant can occur only on a finite weak component. Consequently,
+In the algebraic path algebra, a central element must be diagonal and constant
+along every edge. Because algebraic elements have finite support, a nonzero
+constant can occur only on a finite weak component. Consequently,
 
 ```math
 Z(\mathcal A(G))=
@@ -513,7 +552,8 @@ Z(\mathcal A(G))=
 \left(\sum_{v\in C}e_v\right).
 ```
 
-In the formal completion, arbitrary diagonal coefficient functions are allowed, and therefore
+In the formal completion, arbitrary diagonal coefficient functions are allowed,
+and therefore
 
 ```math
 Z(\widehat{\mathcal A}(G))
@@ -521,6 +561,8 @@ Z(\widehat{\mathcal A}(G))
 \prod_{C\in\pi_0(G)}\mathbb C.
 ```
 
-The formal center assigns one scalar to every weak component, finite or infinite.
+The formal center assigns one scalar to every weak component, finite or
+infinite.
 
-The completion changes which infinite combinations are retained while preserving the edge and interaction structure.
+The completion changes which infinite combinations are retained while preserving
+the edge and interaction structure.

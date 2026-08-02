@@ -6,7 +6,8 @@ Let
 A(x,y)=(y-x)_+
 ```
 
-on $[0,1]^2$. For an integer $m\geq1$, define the directed $m$-edge route density
+on $[0,1]^2$. For an integer $m\geq1$, define the directed $m$-edge route
+density
 
 ```math
 \rho_m(W)
@@ -22,7 +23,9 @@ For the gap kernel,
 \rho_m(A)=\frac1{(2m+1)!}.
 ```
 
-The question addressed here is whether finitely many of these route densities, even together with the complete incoming and outgoing degree functions, can determine $A$.
+The question addressed here is whether finitely many of these route
+densities, even together with the complete incoming and outgoing degree
+functions, can determine $A$.
 
 # 2. Degree-preserving perturbation space
 
@@ -38,7 +41,8 @@ For $\varphi\in C_c^\infty(\Delta)$, set
 H_\varphi=\partial_x\partial_y\varphi
 ```
 
-on $\Delta$ and extend it by zero outside $\Delta$. Integration by parts gives
+on $\Delta$ and extend it by zero outside $\Delta$. Integration by parts
+gives
 
 ```math
 \int_x^1H_\varphi(x,y)\,dy=0,
@@ -60,9 +64,15 @@ d^-_{A_c}(x)=\frac{x^2}{2},
 d^+_{A_c}(x)=\frac{(1-x)^2}{2}.
 ```
 
-Because the perturbations are compactly supported in the open triangle, sufficiently small coefficients also preserve the bounds $0\leq A_c\leq1$ and the strict-order support $x<y$. Thus $A_c$ remains an acyclic directed kernel.
+Because the perturbations are compactly supported in the open triangle,
+sufficiently small coefficients also preserve the bounds $0\leq A_c\leq1$ and
+the strict-order support $x<y$. Thus $A_c$ remains an acyclic directed
+kernel.
 
 # 3. Linearization of every route density
+
+Separating the perturbations of the previous section requires the first
+variation of each $\rho_m$ at $A$.
 
 ## Proposition 1. Route derivative formula
 
@@ -141,17 +151,20 @@ The Volterra formulas from `findings-82.md` give
 T_A^b1(y)=\frac{(1-y)^{2b}}{(2b)!}.
 ```
 
-Summing over $a$ yields $Q_m$. The formula for $R_m$ follows by two integrations by parts.
+Summing over $a$ yields $Q_m$. The formula for $R_m$ follows by two
+integrations by parts.
 
 # 4. Independence of the route derivatives
 
-For $m\geq3$, the polynomial $R_m$ is nonzero and has total degree $2m-4$ in the variables $x$ and $1-y$. Therefore the family
+For $m\geq3$, the polynomial $R_m$ is nonzero and has total degree $2m-4$ in
+the variables $x$ and $1-y$. Therefore the family
 
 ```math
 R_{m_1},\ldots,R_{m_r}
 ```
 
-is linearly independent whenever the integers $m_1,\ldots,m_r\geq3$ are distinct.
+is linearly independent whenever the integers $m_1,\ldots,m_r\geq3$ are
+distinct.
 
 Consequently, for every finite set
 
@@ -159,7 +172,8 @@ Consequently, for every finite set
 M=\{m_1,\ldots,m_r\}\subseteq\{3,4,\ldots\},
 ```
 
-there exist test functions $\varphi_1,\ldots,\varphi_r\in C_c^\infty(\Delta)$ for which the matrix
+there exist test functions $\varphi_1,\ldots,\varphi_r\in C_c^\infty(\Delta)$
+for which the matrix
 
 ```math
 \left(
@@ -172,9 +186,13 @@ is invertible.
 
 # 5. Exact finite-route matching
 
+The linear independence of the $R_{m_i}$ allows the route constraints to be
+solved exactly, which gives the following matching statement.
+
 ## Theorem 2. Local route-matching manifolds
 
-Let $M\subseteq\{1,2,3,\ldots\}$ be finite. There are nonzero smooth perturbations $B$ arbitrarily close to $A$ such that:
+Let $M\subseteq\{1,2,3,\ldots\}$ be finite. There are nonzero smooth
+perturbations $B$ arbitrarily close to $A$ such that:
 
 1. $B$ is an acyclic $[0,1]$-valued directed kernel;
 2. $B$ has exactly the same incoming and outgoing degree functions as $A$;
@@ -183,9 +201,11 @@ Let $M\subseteq\{1,2,3,\ldots\}$ be finite. There are nonzero smooth perturbatio
 
 ## Proof
 
-The cases $m=1,2$ are automatic on the degree-preserving perturbation space. Write the remaining elements of $M$ as $m_1,\ldots,m_r\geq3$.
+The cases $m=1,2$ are automatic on the degree-preserving perturbation space.
+Write the remaining elements of $M$ as $m_1,\ldots,m_r\geq3$.
 
-Choose $r+1$ perturbation directions $H_0,H_1,\ldots,H_r$ so that the Jacobian of
+Choose $r+1$ perturbation directions $H_0,H_1,\ldots,H_r$ so that the
+Jacobian of
 
 ```math
 F(c_0,\ldots,c_r)
@@ -200,9 +220,12 @@ A+\sum_{j=0}^rc_jH_j
 \right)_{i=1}^r
 ```
 
-has rank $r$ at the origin. The finite-dimensional implicit-function theorem implies that $F^{-1}(0)$ is locally a smooth one-dimensional manifold through the origin. It therefore contains nonzero points arbitrarily close to zero.
+has rank $r$ at the origin. The finite-dimensional implicit-function theorem
+implies that $F^{-1}(0)$ is locally a smooth one-dimensional manifold through
+the origin. It therefore contains nonzero points arbitrarily close to zero.
 
-For sufficiently small coefficients, the corresponding kernel $B$ remains in $[0,1]$ and supported in $x<y$.
+For sufficiently small coefficients, the corresponding kernel $B$ remains in
+$[0,1]$ and supported in $x<y$.
 
 Finally, compact support and integration by parts give
 
@@ -220,15 +243,21 @@ Hence every nonzero perturbation satisfies
 \|A\|_2^2.
 ```
 
-The $L^2$ norm is invariant under weak isomorphism, so $B$ cannot be weakly isomorphic to $A$.
+The $L^2$ norm is invariant under weak isomorphism, so $B$ cannot be weakly
+isomorphic to $A$.
 
 # 6. Consequence for route-based selection
 
-No finite collection of directed route densities can force the standalone gap kernel, even after the complete incoming and outgoing degree functions have been fixed exactly and even within the smooth ordered-support class.
+No finite collection of directed route densities can force the standalone gap
+kernel, even after the complete incoming and outgoing degree functions have
+been fixed exactly and even within the smooth ordered-support class.
 
-This is stronger than the first-order obstruction in `findings-87.md`. Each finite route family has an exact positive-dimensional local fiber of non-isomorphic acyclic kernels.
+This is stronger than the first-order obstruction in `findings-87.md`. Each
+finite route family has an exact positive-dimensional local fiber of
+non-isomorphic acyclic kernels.
 
-It does not rule out finite forcing by patterns with branching or undirected cycle structure.
+The argument uses only directed route densities, so patterns with branching
+or undirected cycle structure remain available for a forcing family.
 
 Exact symbolic calculations confirm:
 
@@ -236,4 +265,5 @@ Exact symbolic calculations confirm:
 - the automatic vanishing at $m=1,2$;
 - the generating-function identity for the $R_m$;
 - exact full-rank derivative matrices for the first six finite route families;
-- the orthogonality $\langle A,H_\varphi\rangle=0$ for the specified polynomial test family.
+- the orthogonality $\langle A,H_\varphi\rangle=0$ for the specified
+  polynomial test family.

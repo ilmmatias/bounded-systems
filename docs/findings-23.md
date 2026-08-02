@@ -1,12 +1,14 @@
 # 1. Fixed-depth inequality chain
 
-Fix a source node $u$ and a length $n$, and abbreviate the endpoint multiplicities of `findings-22.md` by
+Fix a source node $u$ and a length $n$, and abbreviate the endpoint
+multiplicities of `findings-22.md` by
 
 ```math
 a_v=N_n(v,u).
 ```
 
-Four quantities are formed from them: the route total, the quadratic collapse weight, the largest endpoint multiplicity, and the number of endpoints reached,
+Four quantities are formed from them: the route total, the quadratic collapse
+weight, the largest endpoint multiplicity, and the number of endpoints reached,
 
 ```math
 T=\sum_va_v,
@@ -18,7 +20,9 @@ M=\sup_va_v,
 R=\left|\{v:a_v>0\}\right|.
 ```
 
-In the notation of `findings-22.md`, $T=T_n(u)=|S_+^nP_u|^2$ and $M=M_n(u)$, while $Q=|A^n\delta_u|_2^2$ is the squared norm of the aggregated route vector $C_{n,u}\Psi_{n,u}$.
+In the notation of `findings-22.md`, $T=T_n(u)=|S_+^nP_u|^2$ and $M=M_n(u)$,
+while $Q=|A^n\delta_u|_2^2$ is the squared norm of the aggregated route vector
+$C_{n,u}\Psi_{n,u}$.
 
 The resulting bound is
 
@@ -80,7 +84,8 @@ Q=T
 a_v\in\{0,1\}\text{ for every }v.
 ```
 
-Equivalently, no two distinct length-$n$ paths from $u$ terminate at the same node.
+Equivalently, no two distinct length-$n$ paths from $u$ terminate at the same
+node.
 
 Operatorially,
 
@@ -89,9 +94,11 @@ Operatorially,
 |S_+^nP_u|.
 ```
 
-Endpoint collapse has caused no amplification because every route remains in its own endpoint sector.
+Endpoint collapse has caused no amplification because every route remains in
+its own endpoint sector.
 
-Call this lengthwise thinness at $(u,n)$. It is weaker than global route uniqueness because different lengths may still connect the same endpoints.
+Call this lengthwise thinness at $(u,n)$. It is weaker than global route
+uniqueness because different lengths may still connect the same endpoints.
 
 ## Maximal endpoint funneling
 
@@ -112,7 +119,8 @@ It follows that
 |S_+^nP_u|^2.
 ```
 
-Every orthogonal route amplitude has been collapsed into one endpoint coordinate.
+Every orthogonal route amplitude has been collapsed into one endpoint
+coordinate.
 
 ## Uniform reconvergence
 
@@ -147,7 +155,8 @@ Recall that the endpoint-collapse operator satisfies
 |C_{n,u}|^2=M.
 ```
 
-$Q=MT$ is exactly the condition under which the all-route vector attains the norm of $C_{n,u}$.
+$Q=MT$ is exactly the condition under which the all-route vector attains the
+norm of $C_{n,u}$.
 
 # 3. A parameter-free reconvergence profile
 
@@ -179,7 +188,7 @@ Equivalently,
 * $\kappa_n(u)=1$ means no reconvergence;
 * $\kappa_n(u)=T$ means complete funneling into one endpoint.
 
-Another useful quantity is
+A second quantity is
 
 ```math
 R_{\mathrm{eff},n}(u)=
@@ -197,7 +206,8 @@ It is the effective number of endpoint sectors occupied by the route family:
 * $R_{\mathrm{eff}}=R$ under uniform multiplicity;
 * $R_{\mathrm{eff}}=1$ under total funneling.
 
-Neither introduces a probability law or dynamics. They are normalized expressions of finite route counts.
+Neither introduces a probability law or dynamics. They are normalized
+expressions of finite route counts.
 
 # 4. Global structural versions
 
@@ -231,7 +241,8 @@ The following are equivalent:
    and all other $N_m(v,u)$ vanish.
 4. Every path is geodesic and no two paths have the same endpoints.
 5. The route-excess kernel vanishes: $X_G(z)=0$.
-6. The route-counting kernel equals the shortest monomial kernel: $\mathcal P_G(z)=\zeta_d(z)$.
+6. The route-counting kernel equals the shortest monomial kernel:
+   $\mathcal P_G(z)=\zeta_d(z)$.
 7. Whenever the scalar inverses exist, $M_d(z)=I-zA_G$.
 
 ```math
@@ -240,11 +251,13 @@ The following are equivalent:
 \text{weighted Möbius inversion remains completely local}.
 ```
 
-Global route uniqueness is stronger than lengthwise thinness because it also forbids different-length alternatives.
+Global route uniqueness is stronger than lengthwise thinness because it also
+forbids different-length alternatives.
 
 ## Maximal funnel systems
 
-Suppose that, for every node $u$, all outgoing primitive channels have the same target, although parallel channels are allowed.
+Suppose that, for every node $u$, all outgoing primitive channels have the same
+target, although parallel channels are allowed.
 
 Then the underlying simple support relation is a partial function
 
@@ -258,7 +271,8 @@ Every length-$n$ path from $u$, when one exists, terminates at the single node
 f^n(u).
 ```
 
-Conversely, if each source has only one possible endpoint at every positive length, the length-one case implies that its outgoing channels share one target.
+Conversely, if each source has only one possible endpoint at every positive
+length, the length-one case implies that its outgoing channels share one target.
 
 ```math
 \begin{aligned}
@@ -346,7 +360,8 @@ but now
 |A^n\delta_u|_2=d^n.
 ```
 
-The two systems have identical Fock route growth and identical $\ell^1$ path-count growth, yet occupy opposite reconvergence extremes:
+The two systems have identical Fock route growth and identical $\ell^1$
+path-count growth, yet occupy opposite reconvergence extremes:
 
 ```math
 \begin{array}{c|c|c}
@@ -359,7 +374,8 @@ Q_n&d^n&d^{2n}\\
 \end{array}
 ```
 
-Thus $r(S_+)$ alone cannot distinguish expansion from reconvergence. The example obstructs any complete description by a single spectral radius.
+Thus $r(S_+)$ alone cannot distinguish expansion from reconvergence. The
+example obstructs any complete description by a single spectral radius.
 
 # 6. Refined bounds for weighted Möbius coefficients
 
@@ -371,7 +387,8 @@ m_L(v,u)=
 \sum_{r=1}^{L}(-1)^r c_{r,L}(v,u),
 ```
 
-where $c_{r,L}$ counts strict $r$-factor chains of total shortest-path cost $L$.
+where $c_{r,L}$ counts strict $r$-factor chains of total shortest-path cost
+$L$.
 
 Define the geodesic multiplicity
 
@@ -390,7 +407,8 @@ u=x_0<\cdots<x_r=v\\
 \prod_{i=1}^{r}g(x_i,x_{i-1}).
 ```
 
-The sum counts each factorization chain with one selected geodesic realization of every factor.
+The sum counts each factorization chain with one selected geodesic realization
+of every factor.
 
 It follows that
 
@@ -404,24 +422,26 @@ G_{r,L}(v,u)
 
 ## First equality
 
-The first equality is equivalent to
+The relation
 
 ```math
 c_{r,L}=G_{r,L}
 ```
 
-if and only if all factors in every cost-$L$, $r$-step chain have unique geodesics.
+holds if and only if all factors in every cost-$L$, $r$-step chain have unique
+geodesics.
 
-### Second equality
+## Second equality
 
-The second equality is equivalent to
+The relation
 
 ```math
 G_{r,L}=
 \binom{L-1}{r-1}N_L
 ```
 
-if and only if every segment obtained by cutting any length-$L$ path at any $r-1$ positions is geodesic.
+holds if and only if every segment obtained by cutting any length-$L$ path at
+any $r-1$ positions is geodesic.
 
 Thus the earlier bound
 
@@ -453,7 +473,7 @@ E_L=
 c_{r,L},
 ```
 
-This gives
+and
 
 ```math
 O_L=
@@ -491,13 +511,15 @@ E_L=O_L.
 
 Equal numbers of even- and odd-factor chains cancel exactly.
 
-The vanishing is only Euler cancellation; it does not imply contractibility, since even- and odd-degree homology may cancel.
+The vanishing is only Euler cancellation; it does not imply contractibility,
+since even- and odd-degree homology may cancel.
 
 # 8. Unique routes produce maximal combinatorial cancellation
 
 Suppose there is exactly one path from $u$ to $v$, of length $L$.
 
-Its $L-1$ internal vertices are the only possible intermediate nodes in $(u,v)$, and every factorization chooses a subset of them.
+Its $L-1$ internal vertices are the only possible intermediate nodes in
+$(u,v)$, and every factorization chooses a subset of them.
 
 Therefore the number of $r$-factor chains is
 
@@ -539,9 +561,11 @@ A unique path of length $L\ge2$ simultaneously has:
 * the largest possible number $2^{L-1}$ of cut factorizations for one route;
 * complete alternating Möbius cancellation.
 
-In the extremal case, maximal factorization abundance can coexist with zero Möbius complexity.
+In the extremal case, maximal factorization abundance can coexist with zero
+Möbius complexity.
 
-Every factorization merely places cuts differently along the same route, so there is no genuine route ambiguity.
+Every factorization merely places cuts differently along the same route, so
+there is no genuine route ambiguity.
 
 # 9. Diamonds break the cancellation
 
@@ -563,15 +587,18 @@ for the two intermediate nodes.
 m_2=-1+2=1.
 ```
 
-The cancellation for a single route fails because there is one additional independent factorization branch.
+The cancellation for a single route fails because there is one additional
+independent factorization branch.
 
-For an asymmetric diamond whose second branch appears only at cost three, the cost-two terms cancel, while
+For an asymmetric diamond whose second branch appears only at cost three, the
+cost-two terms cancel, while
 
 ```math
 m_3=1.
 ```
 
-The first nonzero Möbius coefficient identifies the first budget at which route-independent factorization multiplicity survives cancellation.
+The first nonzero Möbius coefficient identifies the first budget at which
+route-independent factorization multiplicity survives cancellation.
 
 # 10. Equality structure of the spectral growth bound
 
@@ -582,7 +609,8 @@ Recall
 \sup_uT_n(u).
 ```
 
-Two systems have the same forward Fock spectral radius whenever their maximal total route counts have the same exponential growth:
+Two systems have the same forward Fock spectral radius whenever their maximal
+total route counts have the same exponential growth:
 
 ```math
 r(S_+)=
@@ -599,9 +627,10 @@ Equality of this spectral radius does not require equality of:
 * interval topology;
 * Möbius coefficients.
 
-The extremal tree/funnel pair shows that all can differ exponentially while $r(S_+)$ remains identical.
+The extremal tree/funnel pair shows that all can differ exponentially while
+$r(S_+)$ remains identical.
 
-So the correct hierarchy is now:
+The invariants therefore stratify as follows:
 
 ```math
 \begin{aligned}

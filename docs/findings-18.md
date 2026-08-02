@@ -25,20 +25,25 @@ d_i(s_0,\ldots,s_n)=
 
 while the degeneracy $s_i$ repeats the $i$-th entry.
 
-Equivalently, $E(S)$ is the nerve of the indiscrete groupoid on $S$, with exactly one isomorphism between each ordered pair of objects.
+Equivalently, $E(S)$ is the nerve of the indiscrete groupoid on $S$, with
+exactly one isomorphism between each ordered pair of objects.
 
-If $S\ne\varnothing$, choosing any element gives this groupoid an initial and terminal object, so its nerve is contractible; these are standard categorical constructions.
+If $S\ne\varnothing$, choosing any element gives this groupoid an initial and
+terminal object, so its nerve is contractible; these are standard categorical
+constructions.
 
-But it remains richly marked:
+But it remains marked:
 
 * its vertices are the individual elements of $S$;
 * an edge $(s_0,s_1)$ witnesses the formal identification of $s_0$ and $s_1$;
-* a triangle $(s_0,s_1,s_2)$ witnesses compatibility among the three pairwise identifications;
+* a triangle $(s_0,s_1,s_2)$ witnesses compatibility among the three pairwise
+  identifications;
 * higher simplices provide all higher coherences.
 
 # 2. Apply this to every route set
 
-Let $\mathscr P_G(u,v)$ be the set of finite paths from $u$ to $v$, including the identity path when $u=v$.
+Let $\mathscr P_G(u,v)$ be the set of finite paths from $u$ to $v$, including
+the identity path when $u=v$.
 
 Define a simplicial category $\mathfrak R_G$ with object set
 
@@ -99,13 +104,17 @@ The identity at $u$ in degree $n$ is
 (1_u,\ldots,1_u).
 ```
 
-Path concatenation is associative, so this simplicial composition is strictly associative.
+Path concatenation is associative, so this simplicial composition is strictly
+associative.
 
-Thus $\mathfrak R_G$ is a genuine simplicially enriched category: its morphism objects are simplicial sets, and composition is simplicial. Its homotopy-coherent nerve is a standard model of higher categorical structure.
+Thus $\mathfrak R_G$ is a genuine simplicially enriched category: its morphism
+objects are simplicial sets, and composition is simplicial. Its
+homotopy-coherent nerve is a standard model of higher categorical structure.
 
 # 3. The two visible truncations
 
-The single object contains both the path and reachability categories.
+The simplicial category $\mathfrak R_G$ contains both the path and reachability
+categories.
 
 ## Its zero-simplices recover the path category
 
@@ -133,7 +142,7 @@ E(\mathscr P_G(u,v))
 
 is connected and contractible.
 
-If there is no path, it is empty.
+If there is no path, it is empty. Hence
 
 ```math
 \pi_0
@@ -163,7 +172,8 @@ The construction gives the interpolation
 \mathsf R(G).
 ```
 
-The middle object retains actual paths while coherently realizing their collapse to reachability.
+The middle object retains actual paths while coherently realizing their
+collapse to reachability.
 
 # 4. The canonical map to the thin category
 
@@ -194,13 +204,12 @@ E(\mathscr P_G(u,v))
 
 The map is a weak homotopy equivalence because its source is contractible.
 
-Thus $\epsilon$:
+The functor $\epsilon$ is the identity on objects, induces weak equivalences on
+all nonempty mapping spaces, and induces an isomorphism on $\pi_0$.
 
-* is the identity on objects;
-* induces weak equivalences on all nonempty mapping spaces;
-* induces an isomorphism on $\pi_0$.
-
-In simplicial-category language, it is therefore a Dwyer-Kan-type equivalence; mapping-space equivalences are central to comparing simplicial categories and their corresponding higher categories.
+In simplicial-category language, it is therefore a Dwyer-Kan-type equivalence;
+mapping-space equivalences are central to comparing simplicial categories and
+their corresponding higher categories.
 
 However, this must be interpreted carefully:
 
@@ -211,7 +220,7 @@ However, this must be interpreted carefully:
 
 The original route structure is retained by its marked zero-skeleton.
 
-So the complete object should be regarded as
+The complete object should therefore be regarded as
 
 ```math
 \left(
@@ -247,15 +256,16 @@ Thus acyclicity becomes:
 \text{ has exactly the identity as its marked vertex}.
 ```
 
-If directed cycles were allowed, this mapping space would have additional marked vertices corresponding to nonempty closed paths, even though its unmarked homotopy type would still be contractible.
-
-Again, the marking is essential.
+If directed cycles were allowed, this mapping space would have additional
+marked vertices corresponding to nonempty closed paths, even though its
+unmarked homotopy type would still be contractible.
 
 # 6. Linearization: the canonical route-resolution complex
 
 Choose a commutative coefficient ring $k$.
 
-For each endpoint pair, define the free $k$-module on $(n+1)$-tuples of routes by
+For each endpoint pair, define the free $k$-module on $(n+1)$-tuples of routes
+by
 
 ```math
 C_n^{\mathrm{route}}(v,u)=
@@ -295,7 +305,8 @@ sending every route $p:u\to v$ to the unique thin reachability arrow:
 \varepsilon(p)=\varepsilon_{v,u}.
 ```
 
-Because $E(\mathscr P_G(u,v))$ is contractible whenever it is nonempty, this augmented chain complex is exact:
+Because $E(\mathscr P_G(u,v))$ is contractible whenever it is nonempty, this
+augmented chain complex is exact:
 
 ```math
 \cdots
@@ -310,7 +321,8 @@ k\varepsilon_{v,u}
 \to0.
 ```
 
-Normalized chains on simplicial sets and dg categories are standard linearizations of simplicial higher structures.
+Normalized chains on simplicial sets and dg categories are standard
+linearizations of simplicial higher structures.
 
 # 7. The route ideal is exactly the first boundary
 
@@ -337,7 +349,7 @@ Here,
 \mathrm{span}\{p_1-p_0\}.
 ```
 
-The induced morphism is
+Therefore
 
 ```math
 I_{v,u}=
@@ -411,13 +423,15 @@ This gives
 
 at the level of route-identification chains.
 
-It says that the direct identification $p\sim r$ agrees coherently with identifying
+It says that the direct identification $p\sim r$ agrees coherently with
+identifying
 
 ```math
 p\sim q\sim r.
 ```
 
-A three-simplex gives the tetrahedral coherence among these triangular identifications.
+A three-simplex gives the tetrahedral coherence among these triangular
+identifications.
 
 Higher simplices continue indefinitely.
 
@@ -431,7 +445,9 @@ C_3 &: \text{coherences among those coherences},\\
 \end{aligned}
 ```
 
-Because every mapping simplicial set is contractible, this full hierarchy has no residual positive-degree homology. Every coherence cycle is filled at a higher level.
+Because every mapping simplicial set is contractible, this full hierarchy has
+no residual positive-degree homology. Every coherence cycle is filled at a
+higher level.
 
 Thus the collapse to one reachability arrow is completely coherent.
 
@@ -457,11 +473,14 @@ The augmentation kernel has rank
 m-1.
 ```
 
-In the Fock Hilbert realization, this is the codimension-one route-defect subspace orthogonal to the equal-route vector.
+In the Fock Hilbert realization, this is the codimension-one route-defect
+subspace orthogonal to the equal-route vector.
 
 ## Infinite $S$
 
-The algebraic resolution remains well defined: every chain contains finitely many tuples, every boundary is a finite alternating sum, and no summation over all routes is required.
+The algebraic resolution remains well defined: every chain contains finitely
+many tuples, every boundary is a finite alternating sum, and no summation over
+all routes is required.
 
 But the augmentation
 
@@ -477,9 +496,12 @@ does not extend boundedly to
 
 Correspondingly, its kernel is norm dense in the entire Fock route corner.
 
-The simplicial resolution explains the earlier analytic singularity: route collapse is exact algebraically, but it need not be a bounded Hilbert-space quotient.
+The simplicial resolution explains the earlier analytic singularity: route
+collapse is exact algebraically, but it need not be a bounded Hilbert-space
+quotient.
 
-Orthogonality and coherent route identification coexist, but they belong to different categorical levels.
+Orthogonality and coherent route identification coexist, but they belong to
+different categorical levels.
 
 # 10. Two distinct coherence directions
 
@@ -545,7 +567,8 @@ The two coherence directions are distinct.
 
 # 11. The combined route-factorization bicomplex
 
-Let $\mathcal C^{\mathrm{route}}(b,a)$ denote the augmented route-resolution chain complex for paths $a\to b$.
+Let $\mathcal C^{\mathrm{route}}(b,a)$ denote the augmented route-resolution
+chain complex for paths $a\to b$.
 
 For $u<v$, form
 
@@ -563,7 +586,8 @@ There are now two differentials.
 
 ## Vertical differential
 
-The vertical differential applies the route-resolution differential inside one tensor factor:
+The vertical differential applies the route-resolution differential inside one
+tensor factor:
 
 ```math
 d_{\mathrm{route}}.
@@ -573,7 +597,8 @@ It changes route-coherence degree but leaves the intermediate-node chain fixed.
 
 ## Horizontal differential
 
-The horizontal differential removes an intermediate node by composing the adjacent route-resolution factors:
+The horizontal differential removes an intermediate node by composing the
+adjacent route-resolution factors:
 
 ```math
 d_{\mathrm{fact}}.
@@ -581,7 +606,9 @@ d_{\mathrm{fact}}.
 
 It changes factorization degree but preserves total route-resolution degree.
 
-The standard bar construction organizes these iterated compositions, while homotopy limits and colimits are commonly expressed by bar and cobar totalizations.
+The standard bar construction organizes these iterated compositions, while
+homotopy limits and colimits are commonly expressed by bar and cobar
+totalizations.
 
 With the usual total-complex signs,
 
@@ -606,7 +633,7 @@ The primary combined object is the filtered bicomplex
 
 where “RF” means route-factorization.
 
-# 12. Recovering interval topology from it
+# 12. Recovering interval topology from the bicomplex
 
 Take vertical homology first.
 
@@ -620,15 +647,18 @@ k,&j=0,\\
 \end{cases}
 ```
 
-Each tensor product in vertical homology becomes one copy of $k$ for every strict node chain
+Each tensor product in vertical homology becomes one copy of $k$ for every
+strict node chain
 
 ```math
 u=v_0<v_1<\cdots<v_{r+1}=v.
 ```
 
-The remaining horizontal differential deletes intermediate nodes with alternating signs.
+The remaining horizontal differential deletes intermediate nodes with
+alternating signs.
 
-The remaining horizontal complex is the augmented simplicial chain complex of the open interval:
+The remaining horizontal complex is the augmented simplicial chain complex of
+the open interval:
 
 ```math
 \Delta(u,v).
@@ -661,7 +691,8 @@ The bicomplex unifies the resolved and thin layers.
 
 Taking total homology discards most route information.
 
-The vertical route complexes are contractible, so their individual route vertices disappear after homology.
+The vertical route complexes are contractible, so their individual route
+vertices disappear after homology.
 
 Therefore the primary object cannot be merely
 
@@ -686,7 +717,8 @@ Its pages have different meanings:
 * later pages see factorization topology;
 * the terminal homology sees only the surviving thin coherence.
 
-The spectral sequence's intermediate pages identify the structural information lost at each compression stage and determine the limiting group.
+The spectral sequence's intermediate pages identify the structural information
+lost at each compression stage and determine the limiting group.
 
 # 14. Diamond example
 
@@ -739,7 +771,8 @@ The reduced homology class is the independent degree-two factorization relation.
 These are related but not identical:
 
 * vertically, $p_a-p_b$ is a boundary implementing the collapse;
-* horizontally, the two disconnected factorization components create a nontrivial interval-coherence class.
+* horizontally, the two disconnected factorization components create a
+  nontrivial interval-coherence class.
 
 # 15. Boolean $B_3$ example
 
@@ -755,7 +788,8 @@ E({p_1,\ldots,p_6}),
 
 which is contractible.
 
-It contains six route vertices, an edge between every pair, a triangle filling every route triple, and all higher coherent fillings.
+It contains six route vertices, an edge between every pair, a triangle filling
+every route triple, and all higher coherent fillings.
 
 Thus all six routes collapse completely coherently to one reachability arrow.
 
@@ -773,12 +807,8 @@ The resulting isomorphism is
 \widetilde H_1\cong k.
 ```
 
-The resulting class is the third-level coherence among the six diamond relations.
+The resulting class is the third-level coherence among the six diamond
+relations.
 
-route-collapse coherence is contractible,
-
-while
-
-factorization coherence can be topologically nontrivial.
-
-Route-collapse coherence and factorization coherence therefore measure different structures.
+Route-collapse coherence is contractible, while factorization coherence can be
+topologically nontrivial.

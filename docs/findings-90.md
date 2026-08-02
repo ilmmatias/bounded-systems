@@ -1,6 +1,8 @@
 # 1. Signed two-sheet lifts
 
-Let $(\Omega,\mu)$ be a standard probability space. Suppose $W$ is a directed kernel and $h$ is a bounded measurable function such that, for sufficiently small $|\varepsilon|$,
+Let $(\Omega,\mu)$ be a standard probability space. Suppose $W$ is a directed
+kernel and $h$ is a bounded measurable function such that, for sufficiently
+small $|\varepsilon|$,
 
 ```math
 0\leq W(x,y)\pm\varepsilon h(x,y)\leq1.
@@ -23,11 +25,14 @@ with the product probability measure. Define
 W(x,y)+\varepsilon h(x,y)\sigma\tau.
 ```
 
-If both $W$ and $h$ vanish outside a common measurable strict order, then $\widetilde W_\varepsilon$ is also acyclic.
+If both $W$ and $h$ vanish outside a common measurable strict order, then
+$\widetilde W_\varepsilon$ is also acyclic.
 
 # 2. Eulerian-subgraph expansion
 
-For a finite directed graph $F$, expand its homomorphism density in powers of $\varepsilon$. For an edge subset $S\subseteq E(F)$, let $\deg_S(v)$ denote the degree of $v$ in the underlying undirected graph formed by $S$.
+For a finite directed graph $F$, expand its homomorphism density in powers of
+$\varepsilon$. For an edge subset $S\subseteq E(F)$, let $\deg_S(v)$ denote the
+degree of $v$ in the underlying undirected graph formed by $S$.
 
 Averaging the sheet signs gives
 
@@ -55,7 +60,8 @@ t(F,\widetilde W_\varepsilon)
 I_S(F;W,h),
 ```
 
-where $I_S(F;W,h)$ is obtained by placing $h$ on the edges of $S$ and $W$ on the remaining edges.
+where $I_S(F;W,h)$ is obtained by placing $h$ on the edges of $S$ and $W$ on
+the remaining edges.
 
 Only Eulerian edge subsets survive.
 
@@ -73,15 +79,13 @@ for every sufficiently small $\varepsilon$.
 
 ## Proof
 
-Every nonempty subgraph of a forest has a vertex of odd degree. Hence the empty edge set is the only Eulerian subset of $E(F)$, and the expansion contains only its zeroth-order term.
+Every nonempty subgraph of a forest has a vertex of odd degree. Hence the empty
+edge set is the only Eulerian subset of $E(F)$, and the expansion contains only
+its zeroth-order term.
 
-The conclusion applies simultaneously to:
-
-- every directed path;
-- every incoming or outgoing star;
-- every directed double broom;
-- every finite branching tree;
-- every directed forest.
+The conclusion applies simultaneously to every directed path, every incoming or
+outgoing star, every directed double broom, every finite branching tree, and
+every directed forest.
 
 # 4. Application to the gap sector
 
@@ -125,17 +129,26 @@ d^+_{\widetilde A_\varepsilon}(x,\sigma)
 \frac{(1-x)^2}{2}.
 ```
 
-The sign term averages to zero when the opposite endpoint sheet is integrated out.
+The sign term averages to zero when the opposite endpoint sheet is integrated
+out.
 
-Thus $A$ and $\widetilde A_\varepsilon$ have identical degree functions and identical homomorphism densities for every directed forest.
+Thus $A$ and $\widetilde A_\varepsilon$ have identical degree functions and
+identical homomorphism densities for every directed forest.
 
 # 5. Relation to fractional information
 
-In undirected graphon theory, equality of all tree homomorphism densities is closely related to fractional isomorphism and branching-process equivalence. The signed lift supplies a direct directed acyclic mechanism behind the same loss of information: tree observables repeatedly integrate out leaf variables, and every hidden pair-sign contribution is killed at a leaf.
+In undirected graphon theory, equality of all tree homomorphism densities is
+closely related to fractional isomorphism and branching-process equivalence.
+The signed lift supplies a direct directed acyclic mechanism behind the same
+loss of information: tree observables repeatedly integrate out leaf variables,
+and every hidden pair-sign contribution is killed at a leaf.
 
-The result is stronger than finite nonuniqueness. Even the complete infinite forest hierarchy does not determine the full acyclic kernel.
+Theorem 1 gives more than finite nonuniqueness: the complete infinite forest
+hierarchy does not determine the full acyclic kernel.
 
-It concerns homomorphism densities. Induced pattern probabilities also contain nonedge factors and are not claimed to remain unchanged.
+Theorem 1 concerns homomorphism densities. Induced pattern probabilities
+contain nonedge factors, which the Eulerian-subgraph expansion of section 2
+does not cover.
 
 Finite combinatorial expansion gives:
 

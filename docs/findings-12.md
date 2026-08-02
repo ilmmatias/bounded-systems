@@ -1,6 +1,7 @@
 # 1. Endpoint decomposition
 
-For $u\le v$, let $\mathscr P(u,v)$ be the set of all finite paths from $u$ to $v$. Its path-space corner is
+For $u\le v$, let $\mathscr P(u,v)$ be the set of all finite paths from $u$ to
+$v$. Its path-space corner is
 
 ```math
 A_{v,u}=
@@ -39,7 +40,8 @@ I=
 \bigoplus_{u<v}I_{v,u}.
 ```
 
-Every element of $I_{v,u}$ is a finite linear combination of routes from $u$ to $v$ whose coefficients sum to zero.
+Every element of $I_{v,u}$ is a finite linear combination of routes from $u$ to
+$v$ whose coefficients sum to zero.
 
 In particular, it is spanned by differences
 
@@ -96,14 +98,15 @@ p-q
 
 where $p$ and $q$ have the same endpoints and the same length.
 
-Let the attained-length set be
+Let
 
 ```math
 L(u,v)=
 \{n:\mathscr P_n(u,v)\ne\varnothing\}
 ```
 
-be the set of attained route lengths. Its reduced finite-support coefficient space is
+be the set of attained route lengths. Its reduced finite-support coefficient
+space is
 
 ```math
 \widetilde{\mathbb K}^{(L(u,v))}=
@@ -124,7 +127,8 @@ I_{v,u}
 0.
 ```
 
-The last map sends a route combination to the total coefficient contributed by each length.
+The last map sends a route combination to the total coefficient contributed by
+each length.
 
 Thus the endpoint defect has two distinct parts.
 
@@ -142,7 +146,7 @@ Parallel primitive channels occur here at length one.
 
 Branching followed by reconvergence occurs here at greater lengths.
 
-### Length disagreement
+## Length disagreement
 
 Routes with the same endpoints have different compositional depths:
 
@@ -164,7 +168,8 @@ u\to w\to v.
 
 Their difference belongs to the cross-length part.
 
-Generally, the exact sequence has no canonical splitting: choosing a representative path for each length would be arbitrary.
+Generally, the exact sequence has no canonical splitting: choosing a
+representative path for each length would be arbitrary.
 
 # 3. The orthogonal meaning of the route kernel
 
@@ -184,7 +189,9 @@ Indeed, for distinct paths $p,q$ with the same source and target,
 L_p^\ast L_q=0.
 ```
 
-Distinct same-endpoint paths cannot be prefix extensions of one another, because that would leave a positive path from $v$ back to $v$, contradicting acyclicity.
+Distinct same-endpoint paths cannot be prefix extensions of one another,
+because that would leave a positive path from $v$ back to $v$, contradicting
+acyclicity.
 
 Therefore, for
 
@@ -192,7 +199,7 @@ Therefore, for
 x=\sum_{p:u\to v}c_pL_p,
 ```
 
-Equivalently,
+we have
 
 ```math
 x^\ast x=
@@ -242,27 +249,29 @@ orthogonally, where
 \left\lbrace \sum_jc_jL_{p_j}: \sum_jc_j=0 \right\rbrace.
 ```
 
-This is the orthogonal decomposition into the reachability direction and the route-defect directions. The reachability quotient retains the one-dimensional equal-route direction and discards the $m-1$ orthogonal distinctions.
+This is the orthogonal decomposition into the reachability direction and the
+route-defect directions. The reachability quotient retains the one-dimensional
+equal-route direction and discards the $m-1$ orthogonal distinctions.
 
 # 4. Infinite route fibers
 
 Now suppose that infinitely many distinct routes connect $u$ to $v$.
 
-The algebraic summation map exists on finite-support combinations but has no bounded extension to
+The algebraic summation map exists on finite-support combinations but has no
+bounded extension to
 
 ```math
 \ell^2(\mathscr P(u,v)).
 ```
 
-Select $N$ distinct routes with coefficients $1/\sqrt N$: their coefficient norm is one, but their sum is
+Select $N$ distinct routes with coefficients $1/\sqrt N$: their coefficient
+norm is one, but their sum is
 
 ```math
 \sqrt N.
 ```
 
 The summation functional is unbounded.
-
-There is an even stronger fact.
 
 ## Theorem 1. Norm density of infinite route defects
 
@@ -305,17 +314,21 @@ Yet
 \longrightarrow0.
 ```
 
-$L_p$ lies in the norm closure of the route-defect space; since $p$ was arbitrary, the entire route corner does.
+$L_p$ lies in the norm closure of the route-defect space; since $p$ was
+arbitrary, the entire route corner does.
 
 ## Consequences for infinite route fibers
 
-With infinitely many routes, no one-dimensional “equal-route direction” survives in the Fock Hilbert geometry.
+With infinitely many routes, no one-dimensional “equal-route direction”
+survives in the Fock Hilbert geometry.
 
 The algebraic reachability quotient instead becomes analytically singular.
 
-Quotienting the norm-closed Fock algebra by the norm closure of $I$ kills the whole infinite-route corner rather than collapsing it to one nonzero reachability arrow.
+Quotienting the norm-closed Fock algebra by the norm closure of $I$ kills the
+whole infinite-route corner rather than collapsing it to one nonzero
+reachability arrow.
 
-The noncommutation follows from the fact that the operations
+Hence the operations
 
 ```math
 \text{collapse routes}
@@ -329,9 +342,8 @@ do not commute.
 
 Some route relations are merely larger contexts surrounding a smaller ambiguity.
 
-Suppose $r=p-q\in I$.
-
-is a route defect from $u$ to $v$; let $a,b$ be positive paths composable on the left and right. Then
+Suppose $r=p-q\in I$ is a route defect from $u$ to $v$; let $a,b$ be positive
+paths composable on the left and right. Then
 
 ```math
 arb
@@ -354,7 +366,8 @@ Define the indecomposable route-relation module
 I/(JI+IJ).
 ```
 
-Since positive paths act immediately on this quotient, $\mathcal R$ is naturally a bimodule over the node diagonal $\mathcal D=A/J$.
+Since positive paths act immediately on this quotient, $\mathcal R$ is
+naturally a bimodule over the node diagonal $\mathcal D=A/J$.
 
 Its corner
 
@@ -362,7 +375,8 @@ Its corner
 e_v\mathcal Re_u
 ```
 
-records route ambiguity from $u$ to $v$ that cannot be expressed as a smaller ambiguity merely prefixed or suffixed by additional paths.
+records route ambiguity from $u$ to $v$ that cannot be expressed as a smaller
+ambiguity merely prefixed or suffixed by additional paths.
 
 ## Examples
 
@@ -374,7 +388,7 @@ For
 a,b:u\to v,
 ```
 
-The difference
+the difference
 
 ```math
 a-b
@@ -384,7 +398,7 @@ survives in $\mathcal R$.
 
 ### Basic diamond
 
-Suppose $u\to x\to v$.
+Suppose $u\to x\to v$
 
 and
 
@@ -398,7 +412,8 @@ Let the two composite routes be $p$ and $q$. Then
 p-q
 ```
 
-survives in $\mathcal R$, provided there is no smaller route ambiguity inside either branch.
+survives in $\mathcal R$, provided there is no smaller route ambiguity inside
+either branch.
 
 If $c$ precedes the diamond and $d$ follows it, the transported defect
 
@@ -406,7 +421,8 @@ If $c$ precedes the diamond and $d$ follows it, the transported defect
 d(p-q)c
 ```
 
-also vanishes in $\mathcal R$. It contains no new local route ambiguity; it is the original diamond transported into a longer context.
+also vanishes in $\mathcal R$. It contains no new local route ambiguity; it is
+the original diamond transported into a longer context.
 
 ### Shortcut relation
 
@@ -416,13 +432,17 @@ If there is a primitive edge $e:u\to v$ and a composite path $p:u\to v$, then
 e-p
 ```
 
-is an indecomposable cross-length relation unless it is generated by smaller route defects.
+is an indecomposable cross-length relation unless it is generated by smaller
+route defects.
+
+The indecomposable route-relation module
 
 ```math
 \mathcal R
 ```
 
-locates the elementary branching/reconvergence or shortcut structures from which larger route discrepancies are built.
+locates the elementary branching/reconvergence or shortcut structures from
+which larger route discrepancies are built.
 
 # 6. The route-ambiguity filtration
 
@@ -442,17 +462,21 @@ Since
 I\subseteq J,
 ```
 
-The relevant inclusion is
+the relevant inclusion is
 
 ```math
 I^m\subseteq J^m.
 ```
 
+The inclusions have the following consequences:
+
 * $I$ is locally nilpotent;
 * every algebraic route defect is nilpotent;
 * $\bigcap_{m\ge1}I^m=0$.
 
-The last assertion follows because a nonzero path polynomial has bounded path lengths, while every element of $I^m$ is supported on paths of length at least $m$.
+The last assertion follows because a nonzero path polynomial has bounded path
+lengths, while every element of $I^m$ is supported on paths of length at least
+$m$.
 
 Define the associated graded route algebra
 
@@ -466,7 +490,8 @@ I^2/I^3
 \oplus\cdots.
 ```
 
-The filtration measures route sensitivity by the number of independent ambiguity factors.
+The filtration measures route sensitivity by the number of independent
+ambiguity factors.
 
 # 7. First-order route ambiguity
 
@@ -478,7 +503,8 @@ Unlike $\mathcal R$, this is naturally a bimodule over
 B=A/I.
 ```
 
-It retains route defects to first order, while setting products of two defects to zero.
+It retains route defects to first order, while setting products of two defects
+to zero.
 
 The two quotients differ:
 
@@ -494,7 +520,11 @@ removes ordinary path context, while
 
 removes products of independent route ambiguities.
 
-An extended diamond relation may vanish in $\mathcal R$ but remain nonzero in $\mathcal N$, because attaching ordinary paths is not the same as multiplying by another route defect.
+An extended diamond relation may vanish in $\mathcal R$ but remain nonzero in
+$\mathcal N$, because attaching ordinary paths is not the same as multiplying
+by another route defect.
+
+The two modules record different data:
 
 ```math
 \begin{aligned}
@@ -522,7 +552,8 @@ defined by
 [r_m\cdots r_1].
 ```
 
-For infinite node sets, this can be understood corner by corner using finite sums of node idempotents; no global algebraic identity is required.
+For infinite node sets, this can be understood corner by corner using finite
+sums of node idempotents; no global algebraic identity is required.
 
 The maps combine into a graded surjection
 
@@ -615,7 +646,8 @@ The product is a second-order route defect:
 r_2r_1\in I^2.
 ```
 
-It compares the four routes obtained by independently choosing one branch in each diamond.
+It compares the four routes obtained by independently choosing one branch in
+each diamond.
 
 The alternating signs arise from multiplying the two differences.
 
@@ -658,7 +690,8 @@ produce the same second-order defect. Their difference lies in
 
 # 10. Joint path-depth and ambiguity filtration
 
-The positive-path filtration and route-defect filtration measure different things:
+The positive-path filtration and route-defect filtration measure different
+things:
 
 * $J^n$: minimum compositional depth;
 * $I^m$: minimum number of route-ambiguity factors.
@@ -694,10 +727,13 @@ The basic bidegree placements are as follows:
 
 * parallel-edge differences occur at $(m,n)=(1,1)$;
 * an elementary length-two diamond occurs at $(1,2)$;
-* a shortcut/composite disagreement begins at ambiguity order $1$, but is inhomogeneous in path length;
-* two consecutive diamonds contribute at least $(2,4)$ when each branch has length two.
+* a shortcut/composite disagreement begins at ambiguity order $1$, but is
+  inhomogeneous in path length;
+* two consecutive diamonds contribute at least $(2,4)$ when each branch has
+  length two.
 
-The bifiltration is intrinsic to the resolved path structure and uses no scalar weights.
+The bifiltration is intrinsic to the resolved path structure and uses no
+scalar weights.
 
 # 11. Ordinal rank filtering of route ambiguity
 
@@ -715,7 +751,8 @@ unless
 \alpha+m\le\beta.
 ```
 
-Every factor from $I$ contains positive paths, so a product of $m$ route defects advances past rank by at least $m$.
+Every factor from $I$ contains positive paths, so a product of $m$ route
+defects advances past rank by at least $m$.
 
 Dually,
 
@@ -777,13 +814,14 @@ and $J$ is locally nilpotent, every algebraic element
 x\in I
 ```
 
-is nilpotent.
+is nilpotent, and therefore
 
 ```math
 \sigma(x)=\{0\}.
 ```
 
-The same is true for an element representing a parallel-edge difference, a diamond, a shortcut discrepancy, or any finite product of route defects.
+The same is true for an element representing a parallel-edge difference, a
+diamond, a shortcut discrepancy, or any finite product of route defects.
 
 Thus ordinary spectral values cannot distinguish these structures.
 
@@ -801,15 +839,17 @@ I^2/I^3,
 \text{rank-filtered blocks}.
 ```
 
-The finite experiments therefore show that spectra alone are too compressed, whereas orthogonal noncommutative structure retains these distinctions.
-
 # 13. Relation to existing path homology
 
-Established homology theories for allowed directed paths begin with the path-homology construction of Grigorýan, Lin, Muranov, and Yau; recent work extends these ideas to quivers, marked categories, and marked algebras.
+Established homology theories for allowed directed paths begin with the
+path-homology construction of Grigorýan, Lin, Muranov, and Yau; recent work
+extends these ideas to quivers, marked categories, and marked algebras.
 
-Those theories are not automatically identical to the route-syzygy structure above.
+Those theories are not automatically identical to the route-syzygy structure
+above.
 
-They typically start from a chain complex with a boundary operation on directed paths; the present construction starts from the quotient
+They typically start from a chain complex with a boundary operation on
+directed paths; the present construction starts from the quotient
 
 ```math
 A\to B
@@ -817,6 +857,10 @@ A\to B
 
 and its kernel $I$.
 
-The construction asks what is lost when route-sensitive composition is made thin, rather than which directed path chains are cycles or boundaries.
+The construction asks what is lost when route-sensitive composition is made
+thin, rather than which directed path chains are cycles or boundaries.
 
-Path algebras modulo relation ideals and higher relations are standard in quiver theory, including reduction-system and diamond-condition approaches, but here the reachability collapse canonically fixes the relation ideal rather than supplying it as external data.
+Path algebras modulo relation ideals and higher relations are standard in
+quiver theory, including reduction-system and diamond-condition approaches,
+but here the reachability collapse canonically fixes the relation ideal rather
+than supplying it as external data.

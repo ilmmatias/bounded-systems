@@ -35,9 +35,12 @@ P_h(e\mid v)=
 {\sum_{f:s(f)=v}e^{u(r(f))}}.
 ```
 
-The outgoing channel law is the softmax of the successor log-profiles, a generalized Doob $h$-transform of the channel-counting operator obtained from the positive eigenpair $(h,\lambda)$.
+The outgoing channel law is the softmax of the successor log-profiles, a
+generalized Doob $h$-transform of the channel-counting operator obtained from
+the positive eigenpair $(h,\lambda)$.
 
-No probability was added here: normalization of the positive harmonic profile produced it.
+No probability was added here: normalization of the positive harmonic profile
+produced it.
 
 # 2. First variation
 
@@ -78,7 +81,7 @@ D\mathcal F_v(u)[\phi]=
 -\phi(v),
 ```
 
-The tangent equation is
+the tangent equation is
 
 ```math
 P_h\phi=\phi.
@@ -92,7 +95,8 @@ Explicitly,
 P_h(e\mid v)\phi(r(e)).
 ```
 
-Tangent vectors to the fixed-$\lambda$ profile manifold are harmonic observables of the derived dynamics.
+Tangent vectors to the fixed-$\lambda$ profile manifold are harmonic observables
+of the derived dynamics.
 
 The tangent equation is the first dynamical equation on the profile manifold.
 
@@ -129,7 +133,8 @@ P_h(e\mid v)
 
 The quadratic form is the local carré du champ on the profile tangent space.
 
-It is symmetric, nonnegative, and zero exactly in tangent directions locally constant over the supported outgoing channels.
+It is symmetric, nonnegative, and zero exactly in tangent directions locally
+constant over the supported outgoing channels.
 
 After quotienting null directions, it is a genuine local metric.
 
@@ -188,7 +193,8 @@ In this regime, the quadratic variation and Fisher metric are the same tensor:
 \text{local Fisher information}.
 ```
 
-KL divergence standardly has Fisher information as its second-order local term; here, the harmonic profile equation forces the explicit tensor.
+KL divergence standardly has Fisher information as its second-order local term;
+here, the harmonic profile equation forces the explicit tensor.
 
 # 5. The forced second-order profile equation
 
@@ -227,7 +233,7 @@ Equivalently, defining
 \frac12\mathsf Q(\phi),
 ```
 
-Hence the correction satisfies
+the correction satisfies
 
 ```math
 (I-P_h)\chi=
@@ -240,7 +246,8 @@ The first-order deformation is harmonic:
 (I-P_h)\phi=0,
 ```
 
-while its second-order logarithmic correction is sourced by its own quadratic variation:
+while its second-order logarithmic correction is sourced by its own quadratic
+variation:
 
 ```math
 \text{profile curvature}=
@@ -258,7 +265,8 @@ The inverse is the derived Green operator of the effective dynamics.
 
 ## A consistency check
 
-Because the original eigenprofile equation is linear in $h$, a mixture-affine deformation
+Because the original eigenprofile equation is linear in $h$, a mixture-affine
+deformation
 
 ```math
 h_\varepsilon=h+\varepsilon\dot h=
@@ -360,7 +368,8 @@ M^\phi,M^\psi
 \mathsf Q_{X_n}(\phi,\psi).
 ```
 
-The metric is the pathwise fluctuation tensor of the dynamics encoded by the harmonic profile.
+The metric is the pathwise fluctuation tensor of the dynamics encoded by the
+harmonic profile.
 
 # 7. The finite-horizon profile metric
 
@@ -370,7 +379,7 @@ For a length-$N$ route
 p=e_N\cdots e_1,
 ```
 
-The derived path probability telescopes:
+the derived path probability telescopes:
 
 ```math
 \begin{aligned}
@@ -441,7 +450,8 @@ is the asymptotic information-rate metric of the regime.
 
 # 8. Diffusive continuum limit
 
-Introduce a graph/profile refinement scale $\delta$, distinct from the profile displacement $\varepsilon$ just taken to zero.
+Introduce a graph/profile refinement scale $\delta$, distinct from the profile
+displacement $\varepsilon$ just taken to zero.
 
 Suppose outgoing edges produce local profile-coordinate increments
 
@@ -466,7 +476,7 @@ b_h^i(x)=
 \sum_eP_h(e\mid x)\Delta_e x^i,
 ```
 
-Thus the diffusion tensor is
+and the diffusion tensor
 
 ```math
 a_h^{ij}(x)=
@@ -492,7 +502,10 @@ b_h^i=0
 
 at leading order.
 
-Under the usual vanishing-jump, tightness and martingale-limit conditions, the rescaled profile-coordinate process converges to a continuous local martingale with covariance $a_h$; quadratic variation exactly fixes the Brownian time change.
+Under the usual vanishing-jump, tightness and martingale-limit conditions, the
+rescaled profile-coordinate process converges to a continuous local martingale
+with covariance $a_h$; quadratic variation exactly fixes the Brownian time
+change.
 
 The limiting generator in harmonic coordinates is
 
@@ -577,7 +590,8 @@ P_h(e\mid v)=
 \frac{h(r(e))}{\lambda h(v)}.
 ```
 
-The logarithmic gradient of the positive profile is the additional effective drift.
+The logarithmic gradient of the positive profile is the additional effective
+drift.
 
 # 10. The equation of the critical profile regime
 
@@ -596,7 +610,7 @@ by $h=e^u$. Since
 \nabla_i u\nabla_j u,
 ```
 
-Equivalently,
+it follows that
 
 ```math
 \kappa=
@@ -619,7 +633,8 @@ Equivalently, the linear form is
 \mathcal L_0h=\kappa h.
 ```
 
-The nonlinear and linear equations are related by the intrinsic exponential transformation
+The nonlinear and linear equations are related by the intrinsic exponential
+transformation
 
 ```math
 h=e^u.
@@ -631,7 +646,7 @@ For a time-dependent profile satisfying
 \partial_\tau h=\mathcal L_0h,
 ```
 
-The logarithmic field satisfies
+the logarithmic field satisfies
 
 ```math
 \partial_\tau u=
@@ -646,7 +661,8 @@ b^i\nabla_i u
 -c.
 ```
 
-Local quadratic variation produces the second-order term, while positivity/exponential normalization produces the quadratic gradient term.
+Local quadratic variation produces the second-order term, while
+positivity/exponential normalization produces the quadratic gradient term.
 
 # 11. The corresponding effective transport equation
 
@@ -704,7 +720,8 @@ The second transports the resulting effective state.
 
 ## Centered geometric form
 
-If the base drift vanishes and the quadratic-variation tensor is the inverse of a smooth metric,
+If the base drift vanishes and the quadratic-variation tensor is the inverse of
+a smooth metric,
 
 ```math
 a^{ij}=g^{ij},
@@ -734,13 +751,16 @@ and
 \frac12\Delta_g\rho.
 ```
 
-The effective motion is diffusion on the profile manifold with drift generated by the critical Martin/harmonic profile.
+The effective motion is diffusion on the profile manifold with drift generated
+by the critical Martin/harmonic profile.
 
 # 12. Deterministic equation on the profile manifold
 
-The same local Fisher tensor gives a deterministic continuum equation when one asks for the least-distinguishable slowly varying profile curve.
+The same local Fisher tensor gives a deterministic continuum equation when one
+asks for the least-distinguishable slowly varying profile curve.
 
-For a curve $\theta(\tau)$ in profile space, the accumulated infinitesimal KL cost is
+For a curve $\theta(\tau)$ in profile space, the accumulated infinitesimal KL
+cost is
 
 ```math
 \mathcal S[\theta]=

@@ -6,7 +6,8 @@ Choose a profile-resolution map or partition
 \Pi_\delta:\Omega_G\longrightarrow \mathcal X_\delta.
 ```
 
-Along the resolved derived history $X_n$, set the initial coarse-change epoch to
+Along the resolved derived history $X_n$, set the initial coarse-change
+epoch to
 
 ```math
 T_0=0,
@@ -25,7 +26,8 @@ The intrinsic block lengths are
 W_m=T_{m+1}-T_m.
 ```
 
-Each $W_m$ counts primitive edge events before the next observable profile change.
+Each $W_m$ counts primitive edge events before the next observable profile
+change.
 
 The accumulated primitive length after $m$ coarse transitions is
 
@@ -39,7 +41,8 @@ The number of completed coarse transitions by primitive depth $n$ is
 N(n)=\max{m:S_m\le n}.
 ```
 
-Nothing temporal was added. Both $S_m$ and $N(n)$ are built from compositional length.
+Nothing temporal was added. Both $S_m$ and $N(n)$ are built from compositional
+length.
 
 # 2. Finite-mean clock: no anomaly
 
@@ -63,7 +66,9 @@ N(n)\sim \frac{n}{\mathbb E[W]}.
 
 The two clocks differ only by a constant conversion factor.
 
-If the operational profile process has generator $\mathcal L^h$, the coarse process has an ordinary first-order evolution equation with a rescaled generator.
+If the operational profile process has generator $\mathcal L^h$, the coarse
+process has an ordinary first-order evolution equation with a rescaled
+generator.
 
 ```math
 \mathbb E[W]<\infty
@@ -104,14 +109,16 @@ q^\gamma L(q^{-1})
 
 as $q\downarrow0$.
 
-Correspondingly normalized, the partial-sum clock converges to a $\gamma$-stable subordinator $D_s$, and the rescaled renewal count to its inverse
+Correspondingly normalized, the partial-sum clock converges to a $\gamma$-stable
+subordinator $D_s$, and the rescaled renewal count to its inverse
 
 ```math
 E_\tau=
 \inf{s>0:D_s>\tau}.
 ```
 
-Inverse stable subordinators are the standard scaling limits behind fractional Poisson and time-fractional Cauchy problems.
+Inverse stable subordinators are the standard scaling limits behind fractional
+Poisson and time-fractional Cauchy problems.
 
 The number of effective profile changes grows sublinearly:
 
@@ -119,11 +126,13 @@ The number of effective profile changes grows sublinearly:
 N(n)\asymp n^\gamma.
 ```
 
-Long stretches of primitive compositional evolution can be invisible at the chosen profile resolution.
+Long stretches of primitive compositional evolution can be invisible at the
+chosen profile resolution.
 
 # 4. Operational and observed profile processes
 
-Let $Y_s$ be the profile process indexed by coarse-transition count $s$. Its semigroup is
+Let $Y_s$ be the profile process indexed by coarse-transition count $s$. Its
+semigroup is
 
 ```math
 T_s=e^{s\mathcal L^h}=
@@ -142,7 +151,8 @@ The process seen in primitive compositional time is
 Z_\tau=Y_{E_\tau}.
 ```
 
-The profile coordinate alone is non-Markovian because the inverse clock $E_\tau$ does not have independent increments.
+The profile coordinate alone is non-Markovian because the inverse clock
+$E_\tau$ does not have independent increments.
 
 Its evolution family is
 
@@ -155,7 +165,8 @@ T_s f\,
 
 where $\ell_\gamma(\tau,s)$ is the density of the inverse stable clock.
 
-The construction is inverse subordination, not ordinary semigroup subordination, and yields fractional Cauchy problems.
+The construction is inverse subordination, not ordinary semigroup
+subordination, and yields fractional Cauchy problems.
 
 # 5. Laplace resolvent
 
@@ -208,11 +219,13 @@ And for densities,
 (\mathcal L^h)^\ast\rho.
 ```
 
-The inverse-stable time change and the Caputo equation equivalently represent the limiting evolution.
+The inverse-stable time change and the Caputo equation equivalently represent
+the limiting evolution.
 
 # 6. Memory-integral form
 
-The fractional equation can also be written without fractional-derivative notation:
+The fractional equation can also be written without fractional-derivative
+notation:
 
 ```math
 u(\tau)=
@@ -239,7 +252,8 @@ The memory kernel results from:
 2. grouping them into profile-constant blocks;
 3. forgetting the age inside the current block.
 
-General semi-Markov processes satisfy Volterra-type evolution equations; the fractional equation arises for heavy-tailed renewal laws.
+General semi-Markov processes satisfy Volterra-type evolution equations; the
+fractional equation arises for heavy-tailed renewal laws.
 
 # 7. Markovianity is restored by adding the hidden age
 
@@ -258,7 +272,8 @@ But the enlarged state
 (Z_\tau,A_\tau)
 ```
 
-is semi-Markov and often admits a Markov representation on the extended profile-age space.
+is semi-Markov and often admits a Markov representation on the extended
+profile-age space.
 
 So the temporal memory has a precise source:
 
@@ -267,7 +282,8 @@ So the temporal memory has a precise source:
 \text{discarded position inside an unresolved route block}.
 ```
 
-The result matches the route-collapse picture: resolved histories evolve locally, while profile compression creates an effective memory kernel.
+The result matches the route-collapse picture: resolved histories evolve
+locally, while profile compression creates an effective memory kernel.
 
 # 8. General intrinsic clock
 
@@ -336,7 +352,8 @@ M_\Phi(\tau)=
 \frac{\tau^{\gamma-1}}{\Gamma(\gamma)}.
 ```
 
-Mixtures of stable subordinators produce distributed-order fractional equations, while adding exponential truncation produces tempered memory.
+Mixtures of stable subordinators produce distributed-order fractional
+equations, while adding exponential truncation produces tempered memory.
 
 # 9. Spectral relaxation
 
@@ -394,11 +411,13 @@ E_\gamma(-\omega_j\tau^\gamma)
 \sim\tau^{-\gamma}.
 ```
 
-A positive operational spectral gap no longer gives exponential decay in the compressed primitive clock.
+A positive operational spectral gap no longer gives exponential decay in the
+compressed primitive clock.
 
 # 10. Combined space-time anomalous regime
 
-Now combine the $\alpha$-stable spatial operator with the $\gamma$-stable clock:
+Now combine the $\alpha$-stable spatial operator with the $\gamma$-stable
+clock:
 
 ```math
 {}^CD_\tau^\gamma\rho=
@@ -477,9 +496,8 @@ and, when a second moment exists,
 
 # 11. The gauge-clock issue
 
-There are two mathematically distinct ways the gauge phase can couple to the anomalous clock.
-
-They must not be conflated.
+There are two mathematically distinct ways the gauge phase can couple to the
+anomalous clock.
 
 ## Coarse-event gauge
 
@@ -513,7 +531,7 @@ N\Psi_{\omega,n}=
 n\Psi_{\omega,n},
 ```
 
-The solution is
+the solution is
 
 ```math
 \Psi_{\omega,n}(\tau)=
@@ -537,7 +555,8 @@ e^{it|p|}L_p.
 
 It counts primitive edge length, not coarse profile transitions.
 
-If $W_m$ counts primitive edges hidden within one coarse event, gauge phase accumulates throughout the block while the coarse profile remains unchanged.
+If $W_m$ counts primitive edges hidden within one coarse event, gauge phase
+accumulates throughout the block while the coarse profile remains unchanged.
 
 Therefore the original gauge is more faithfully represented by
 
@@ -562,7 +581,8 @@ E_\gamma(-\omega\tau^\gamma)
 \Psi_{\omega,n}(0).
 ```
 
-The phase remains exponential in primitive compositional depth, while relaxation becomes fractional.
+The phase remains exponential in primitive compositional depth, while
+relaxation becomes fractional.
 
 The distinction determines the appropriate clock equation.
 
@@ -604,9 +624,12 @@ Its Laplace transform is
 (q+i\beta N)^{\gamma-1}\Psi_0.
 ```
 
-The fractional power uses the principal branch. Since $q>0$, the spectrum of $q+i\beta N$ lies in the open right half-plane, making this functional calculus well defined on the natural domain.
+The fractional power uses the principal branch. Since $q>0$, the spectrum of
+$q+i\beta N$ lies in the open right half-plane, making this functional
+calculus well defined on the natural domain.
 
-The operator is the fractional substantial derivative associated with the path-length gauge.
+The operator is the fractional substantial derivative associated with the
+path-length gauge.
 
 # 13. Stable spatial mode with intrinsic gauge clock
 
@@ -660,8 +683,6 @@ E_\gamma
 \end{aligned}
 ```
 
-The combined stable-space, anomalous-clock, primitive-gauge regime has the mode equation
-
 # 14. Canonical form of the primitive-gauge equation
 
 The coarse-event equation
@@ -671,7 +692,8 @@ The coarse-event equation
 -(\mathbb H+i\beta N)\Psi
 ```
 
-would apply after redefining the gauge so that one gauge unit corresponds to one coarse profile transition.
+would apply after redefining the gauge so that one gauge unit corresponds to
+one coarse profile transition.
 
 But the original gauge was already fixed by
 
@@ -680,21 +702,25 @@ But the original gauge was already fixed by
 \text{number of primitive channels}.
 ```
 
-When random numbers of primitive edges per coarse transition cause the clock anomaly, the canonical equation is
+When random numbers of primitive edges per coarse transition cause the clock
+anomaly, the canonical equation is
 
 ```math
 {}^CD_{\tau,i\beta N}^{\gamma}\Psi=
 -\mathbb H_h\Psi.
 ```
 
-The gauge is not subordinated because it measures the microscopic count from which the anomalous coarse clock was constructed.
+The gauge is not subordinated because it measures the microscopic count from
+which the anomalous coarse clock was constructed.
 
 The two gauges also differ operationally:
 
-* a neutral mode $\omega=0$ retains the pure gauge oscillation $e^{-i\beta n\tau}$;
+* a neutral mode $\omega=0$ retains the pure gauge oscillation
+  $e^{-i\beta n\tau}$;
 * a stable mode $\omega>0$ has algebraic relaxation multiplied by that phase.
 
-Under coarse-event subordination, even a neutral gauge mode would undergo renewal-induced dephasing through
+Under coarse-event subordination, even a neutral gauge mode would undergo
+renewal-induced dephasing through
 
 ```math
 E_\gamma(-i\beta n\tau^\gamma).
@@ -706,7 +732,8 @@ The original path-length construction selects the first behavior.
 
 The Caputo equation requires more than a heavy-tailed $W$.
 
-It also requires the clock to decouple sufficiently from the profile displacement.
+It also requires the clock to decouple sufficiently from the profile
+displacement.
 
 Let $J_m$ be the coarse profile jump and $W_m$ its hidden primitive length.
 
@@ -718,9 +745,11 @@ J_m
 W_m
 ```
 
-separate, the limiting clock can be represented by a scalar inverse subordinator independent of the operational profile process.
+separate, the limiting clock can be represented by a scalar inverse
+subordinator independent of the operational profile process.
 
-If long blocks preferentially produce particular directions or jump sizes, then the joint kernel
+If long blocks preferentially produce particular directions or jump sizes,
+then the joint kernel
 
 ```math
 Q_h(x,dy,dw)
@@ -728,11 +757,14 @@ Q_h(x,dy,dw)
 
 must be retained.
 
-The resulting equation has an operator-valued memory kernel and is generally semi-Markov, satisfying an abstract Volterra equation; ordinary fractional derivatives are only special cases.
+The resulting equation has an operator-valued memory kernel and is generally
+semi-Markov, satisfying an abstract Volterra equation; ordinary fractional
+derivatives are only special cases.
 
 Similarly:
 
-* a state-dependent tail exponent $\gamma=\gamma(x)$ suggests variable-order memory;
+* a state-dependent tail exponent $\gamma=\gamma(x)$ suggests variable-order
+  memory;
 * mixtures of tail exponents suggest distributed-order equations;
 * directional waiting laws couple temporal and spatial symbols.
 
@@ -740,26 +772,5 @@ Similarly:
 \Pr(W>n)\sim n^{-\gamma}
 ```
 
-identifies the fractional order only after the necessary decoupling or joint-limit condition is checked.
-
-# 16. Closure conditions
-
-The anomalous-clock candidate is now fully specified. A later convergence proof must establish:
-
-1. Coarse-block definition: specify $\Pi_\delta$ and the renewal epochs $T_m$.
-
-2. Regular variation: $\Pr(W>n)\sim c n^{-\gamma}L(n)$.
-
-3. Operational-process convergence: prove the profile process indexed by coarse transitions converges to the generator $\mathcal L^h$ or $\mathcal L_\alpha^h$.
-
-4. Clock convergence: prove the accumulated block lengths converge to a subordinator with exponent $\Phi$.
-
-5. Joint convergence: determine whether the spatial/profile process and clock are asymptotically independent or coupled.
-
-6. Inverse-map convergence: pass from the accumulated clock to its inverse renewal count.
-
-7. Age control: identify initial-age effects and whether the process begins at a renewal epoch.
-
-8. Gauge bookkeeping: verify whether phase accrues per primitive edge or per coarse transition.
-
-These are later proof obligations, not unresolved ambiguity in the candidate equation.
+identifies the fractional order only after the necessary decoupling or
+joint-limit condition is checked.

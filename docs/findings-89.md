@@ -6,7 +6,8 @@ For a directed kernel $W$ on $[0,1]$, define
 W^\dagger(x,y)=W(1-y,1-x).
 ```
 
-This operation reverses the edge direction and simultaneously reverses the latent coordinate. Every directed path is isomorphic to its edge reversal, so
+This operation reverses the edge direction and simultaneously reverses the
+latent coordinate. Every directed path is isomorphic to its edge reversal, so
 
 ```math
 \rho_m(W^\dagger)=\rho_m(W)
@@ -36,7 +37,9 @@ on $0<x<y<1$, and define
 H_*=\partial_x\partial_y\varphi_*.
 ```
 
-The boundary factors imply exact row and column cancellation, so $H_*$ preserves both degree functions. The factor $x+y-1$ is antisymmetric under $(x,y)\mapsto(1-y,1-x)$, while the remaining factor is invariant. Consequently,
+The boundary factors imply exact row and column cancellation, so $H_*$
+preserves both degree functions. The factor $x+y-1$ is antisymmetric under
+$(x,y)\mapsto(1-y,1-x)$, while the remaining factor is invariant. Consequently,
 
 ```math
 H_*^\dagger=-H_*.
@@ -78,17 +81,16 @@ The route equality follows from
 B_-=(B_+)^\dagger
 ```
 
-and invariance of every directed path density under the duality involution. Degree equality follows from the mixed-derivative boundary cancellation.
+and invariance of every directed path density under the duality involution.
+Degree equality follows from the mixed-derivative boundary cancellation.
 
 Thus the complete path-volume sequence cannot distinguish the two sectors.
 
 # 4. Branching observables detect the lost sign
 
-Let $D_{a,b}$ be the directed double broom consisting of:
-
-- a root edge $u\to v$;
-- $a$ incoming leaves pointing to $u$;
-- $b$ outgoing leaves pointed to by $v$.
+Let $D_{a,b}$ be the directed double broom with root edge $u\to v$, with $a$
+incoming leaves pointing to $u$, and with $b$ outgoing leaves pointed to by
+$v$.
 
 Its homomorphism density is
 
@@ -102,7 +104,8 @@ W(x,y)
 \,dx\,dy.
 ```
 
-Because the perturbation preserves the degrees, this density depends affinely on $\varepsilon$:
+Because the perturbation preserves the degrees, this density depends affinely
+on $\varepsilon$:
 
 ```math
 t(D_{a,b},B_\pm)
@@ -159,7 +162,8 @@ The route derivative kernels from `findings-88.md` are symmetric under
 (x,1-y)\longleftrightarrow(1-y,x).
 ```
 
-The perturbation potential $\varphi_*$ is antisymmetric under the same exchange. Hence
+The perturbation potential $\varphi_*$ is antisymmetric under the same
+exchange. Hence
 
 ```math
 D\rho_m(A)[H_*]=0
@@ -167,14 +171,18 @@ D\rho_m(A)[H_*]=0
 
 for every $m$ simultaneously.
 
-The exact duality statement is stronger: not only the first derivatives, but the complete route values agree between the two opposite perturbations.
+Theorem 1 gives more than the vanishing of these first derivatives: the
+complete route values agree between the two opposite perturbations.
 
-The route hierarchy therefore retains only the dual-even part of this local relational information. Asymmetric branching patterns recover information that every path statistic loses.
+The route hierarchy therefore retains only the dual-even part of this local
+relational information. Asymmetric branching patterns recover information that
+every path statistic loses.
 
 Exact symbolic calculations confirm:
 
 - exact dual antisymmetry of $H_*$;
 - exact row and column cancellation;
-- vanishing of the first route variations through the finite orders listed above;
+- vanishing of the first route variations through the finite orders listed
+  above;
 - the two opposite double-broom coefficients;
 - positivity of $\|H_*\|_2^2$.

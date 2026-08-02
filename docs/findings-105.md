@@ -1,9 +1,5 @@
 # 1. Finite-DAG conditional transition
 
-The continuum ordered-gap route has an exact Dirichlet conditional transition.
-We measure its finite-DAG discrepancy and compare latent and graph-intrinsic
-predictor states.
-
 For each $N$, let $x_1,\ldots,x_N$ be independent uniform marks on $[0,1]$.
 When $x_i<x_j$, the edge $i\to j$ is included independently with probability
 $x_j-x_i$. Edges are always directed from the smaller mark to the larger
@@ -145,7 +141,7 @@ $\Delta\widehat x_j=\widehat x_j-\widehat x_{j-1}$. Every fitted model is
 conditioned exactly on $m$. Its additional inputs are:
 
 | model | inputs in addition to $m$ |
-|:---|:---|
+| :--- | :--- |
 | `latent` | $x_r$ |
 | `latent_age` | $x_r,s$, where $s=r/p$ |
 | `latent_history` | $x_r,s,x_{r-1},(x_r-x_{r-1})/x_r,\sum_{j=1}^r(\Delta x_j/x_r)^2$ |
@@ -268,7 +264,7 @@ All $32$ graphs at every reported $(N,p)$ contain routes at the requested
 horizons. The focused-family reconstruction errors and route counts are:
 
 | $N$ | node $\widehat x$ RMSE | route-weighted $\widehat x$ RMSE | $\log T_{16}$ |
-|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: |
 | $4096$ | $0.007730\pm0.000299$ | $0.007720\pm0.000298$ | $56.3175\pm0.0133$ |
 | $8192$ | $0.005310\pm0.000226$ | $0.005306\pm0.000226$ | $68.1261\pm0.0061$ |
 | $16384$ | $0.0035134\pm0.0000683$ | $0.0035136\pm0.0000679$ | $79.9064\pm0.0030$ |
@@ -287,7 +283,7 @@ positive sampling floor, so the paired finite-minus-control contrast is
 reported:
 
 | $N$ | routes per graph | $W_1^{\mathrm F}-W_1^{\mathrm C}$ | $D_{\mathrm{KS}}^{\mathrm F}-D_{\mathrm{KS}}^{\mathrm C}$ |
-|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: |
 | $512$ | $3000$ | $0.0262114\pm0.0010725$ | $0.0432258\pm0.0034153$ |
 | $1024$ | $3000$ | $0.0104736\pm0.0003926$ | $0.0154627\pm0.0009536$ |
 | $2048$ | $3000$ | $0.0040902\pm0.0001826$ | $0.0055538\pm0.0006390$ |
@@ -301,7 +297,7 @@ sampling floor. The focused family fixes the count at $10{,}000$ routes per
 graph:
 
 | $N$ | finite $W_1$ | control $W_1$ | paired excess $W_1$ | paired excess PIT KS |
-|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: |
 | $4096$ | $0.0053840\pm0.0001169$ | $0.0028258\pm0.0000291$ | $0.0025582\pm0.0001177$ | $0.0050690\pm0.0006518$ |
 | $8192$ | $0.0040739\pm0.0000782$ | $0.0027954\pm0.0000279$ | $0.0012785\pm0.0000856$ | $0.0026777\pm0.0004429$ |
 | $16384$ | $0.0034949\pm0.0000496$ | $0.0028146\pm0.0000293$ | $0.0006803\pm0.0000574$ | $0.0015378\pm0.0002768$ |
@@ -341,7 +337,7 @@ The joint family keeps $p/\sqrt N$ bounded away from zero while $p/N\to0$.
 For the primary horizon at each size, the continuum-oracle comparison is:
 
 | $N$ | $p$ | $p/\sqrt N$ | supported graphs | $\log T_p$ | paired excess $W_1$ | paired excess PIT KS |
-|---:|---:|---:|---:|---:|---:|---:|
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | $512$ | $8$ | $0.3536$ | $32$ | $22.4821\pm0.0281$ | $0.0140500\pm0.0006609$ | $0.0175283\pm0.0018299$ |
 | $1024$ | $12$ | $0.3750$ | $32$ | $31.9440\pm0.0276$ | $0.0084315\pm0.0002949$ | $0.0117817\pm0.0009434$ |
 | $2048$ | $16$ | $0.3536$ | $32$ | $44.4761\pm0.0242$ | $0.0040902\pm0.0001826$ | $0.0055538\pm0.0006390$ |
@@ -366,7 +362,7 @@ $\widehat x_r$. The `transverse state` row compares
 $(\widehat x_r,R_r)$ against $\widehat x_r$.
 
 | $N$ | comparison | raw finite log gain | Beta-control log gain | corrected log gain | corrected $W_1$ reduction |
-|---:|:---|---:|---:|---:|---:|
+| ---: | :--- | ---: | ---: | ---: | ---: |
 | $4096$ | mark reconstruction | $-0.000696\pm0.000282$ | $-0.000034\pm0.000058$ | $-0.000661\pm0.000291$ | $-0.000001\pm0.000011$ |
 | $4096$ | transverse state | $-0.020878\pm0.000248$ | $-0.013664\pm0.000091$ | $-0.007214\pm0.000271$ | $0.000064\pm0.000073$ |
 | $8192$ | mark reconstruction | $-0.000300\pm0.000076$ | $-0.000070\pm0.000052$ | $-0.000230\pm0.000107$ | $-0.000007\pm0.000006$ |
@@ -416,7 +412,7 @@ coordinates beyond $\widehat x_r$.
 At the finest focused resolution, the history comparisons are:
 
 | $N$ | augmented history | raw finite log gain | corrected log gain | corrected $W_1$ reduction |
-|---:|:---|---:|---:|---:|
+| ---: | :--- | ---: | ---: | ---: |
 | $4096$ | latent | $-0.013251\pm0.000066$ | $-0.000158\pm0.000087$ | $0.000322\pm0.000039$ |
 | $4096$ | intrinsic | $-0.013322\pm0.000060$ | $-0.000172\pm0.000079$ | $0.000339\pm0.000039$ |
 | $4096$ | full state | $-0.000028\pm0.000035$ | $0.000643\pm0.000090$ | $0.000054\pm0.000017$ |
@@ -472,7 +468,7 @@ For `full_history`, the total number of classes over the $15$ remaining-horizon
 fits and the smallest training class are:
 
 | resolution $(B,L,J)$ | total classes | minimum at $N=4096$ | minimum at $N=8192$ | minimum at $N=16384$ | minimum at $N=32768$ |
-|:---|---:|---:|---:|---:|---:|
+| :--- | ---: | ---: | ---: | ---: | ---: |
 | $(8,2,32)$ | $240$ | $4914$ | $4928$ | $4977$ | $4991$ |
 | $(16,2,64)$ | $480$ | $2423$ | $2448$ | $2473$ | $2491$ |
 | $(16,4,64)$ | $960$ | $145$ | $148$ | $155$ | $154$ |
