@@ -9,7 +9,11 @@ from itertools import combinations
 import sympy as sp
 
 
-def atomic_degrees(values: tuple[Fraction, ...], masses: tuple[Fraction, ...]):
+def atomic_degrees(
+    values: tuple[Fraction, ...], masses: tuple[Fraction, ...]
+) -> tuple[
+    list[Fraction], list[Fraction], list[Fraction], list[Fraction]
+]:
     d_in = []
     p2_in = []
     d_out = []
@@ -71,7 +75,7 @@ def main() -> None:
             raw = tuple(Fraction(i + 1, 1) for i in range(size))
             total = sum(raw)
             masses = tuple(p / total for p in raw)
-            d_in, p2_in, d_out, p2_out = atomic_degrees(values, masses)
+            d_in, p2_in, _, _ = atomic_degrees(values, masses)
             assert d_in[1] > 0
             assert p2_in[1] == 0
             assert 6 * p2_in[1] - d_in[1] ** 2 < 0
@@ -94,4 +98,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

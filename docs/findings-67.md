@@ -166,7 +166,7 @@ distribution and every fixed reconstructed up transition.
 Thus absolute finite selection controls the finite relational predictions
 used by the growth process.
 
-# 6. Approximate data and model testing
+# 6. Graph-intrinsic testing with approximate data
 
 The result also supplies a graph-intrinsic test of a proposed selected
 sector. A large endpoint need not be assigned latent layers before
@@ -174,10 +174,10 @@ testing. One computes only the finite forcing coordinates. If their
 energy is small, every bounded observation horizon has a profile and
 growth kernel close to the target sector.
 
-Failure of the test separates two cases. A nonzero forbidden-pattern
+The test distinguishes two failures. A nonzero forbidden-pattern
 contribution rejects the strict weak-order structure itself. A nonzero
-degree-polynomial contribution preserves the possibility of ordered layers
-but rejects the prescribed layer masses.
+degree-polynomial contribution retains ordered layers while rejecting the
+prescribed layer masses.
 
 Enumeration of ordered rational compositions gives finite forcing gaps
 consistent with Theorems 1 and 2. These values are finite-level

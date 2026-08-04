@@ -25,10 +25,14 @@ def is_forest(vertex_count: int, edges: tuple[tuple[int, int], ...]) -> bool:
     return True
 
 
-def is_even_subset(vertex_count: int, edges: tuple[tuple[int, int], ...], mask: int) -> bool:
+def is_even_subset(
+    vertex_count: int,
+    edges: tuple[tuple[int, int], ...],
+    mask: int,
+) -> bool:
     degree = [0] * vertex_count
-    for index, (u, v) in enumerate(edges):
-        if mask & (1 << index):
+    for i, (u, v) in enumerate(edges):
+        if mask & (1 << i):
             degree[u] += 1
             degree[v] += 1
     return all(value % 2 == 0 for value in degree)
@@ -41,7 +45,11 @@ def main() -> None:
     for vertex_count in range(1, 7):
         possible = tuple(combinations(range(vertex_count), 2))
         for graph_mask in range(1 << len(possible)):
-            edges = tuple(edge for i, edge in enumerate(possible) if graph_mask & (1 << i))
+            edges = tuple(
+                edge
+                for i, edge in enumerate(possible)
+                if graph_mask & (1 << i)
+            )
             if not is_forest(vertex_count, edges):
                 continue
             forest_count += 1
@@ -50,12 +58,18 @@ def main() -> None:
                 checks += 1
 
     triangle = ((0, 1), (0, 2), (1, 2))
-    even_triangle = [mask for mask in range(1 << 3) if is_even_subset(3, triangle, mask)]
+    even_triangle = [
+        mask for mask in range(1 << 3) if is_even_subset(3, triangle, mask)
+    ]
     assert even_triangle == [0, 7]
     checks += 1
 
     four_cycle = ((0, 2), (0, 3), (1, 2), (1, 3))
-    even_four_cycle = [mask for mask in range(1 << 4) if is_even_subset(4, four_cycle, mask)]
+    even_four_cycle = [
+        mask
+        for mask in range(1 << 4)
+        if is_even_subset(4, four_cycle, mask)
+    ]
     assert even_four_cycle == [0, 15]
     checks += 1
 
@@ -107,4 +121,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -13,10 +13,7 @@ struct SpectralKeys {
     std::array<std::string, kSpectralLevelCount> cumulative;
 };
 
-class SpectralProfile {
-  public:
-    SpectralKeys keys(const Graph& graph) const;
-};
+SpectralKeys spectralKeys(const Graph& graph);
 
 int generateSpectralArtifacts(int vertexCount,
                               const std::filesystem::path& outputDirectory);

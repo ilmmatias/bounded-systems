@@ -85,5 +85,4 @@ python3 "$root/scripts/analyze_gap_scaling.py" \
     "$output/n2048" \
     "$output/n4096" \
     "$output/n8192" \
-    --json "$output/summary.json" \
-    --markdown "$output/summary.md"
+    --output "$output/summary.json"

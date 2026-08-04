@@ -1,68 +1,78 @@
 #include "gap_benchmark.hxx"
 #include "gap_output.hxx"
+#include "reference_dag.hxx"
+#include "route_bridge.hxx"
+#include "route_scaling.hxx"
 
 #include <algorithm>
 #include <atomic>
 #include <charconv>
 #include <chrono>
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <exception>
 #include <filesystem>
+#include <format>
 #include <mutex>
 #include <print>
 #include <span>
 #include <stdexcept>
-#include <string>
 #include <string_view>
+#include <system_error>
 #include <thread>
+#include <utility>
 #include <vector>
 
 namespace {
 
 using Clock = std::chrono::steady_clock;
 
-bool hasOption(std::span<char*> arguments, std::string_view option) {
-    return std::ranges::any_of(arguments, [option](const char* argument) {
-        return std::string_view(argument) == option;
-    });
+bool hasOption(std::span<char*> args, std::string_view opt) {
+    return std::ranges::any_of(
+        args, [opt](const char* arg) { return std::string_view(arg) == opt; });
 }
 
-std::string_view requireValue(std::span<char*> arguments, size_t& index,
-                              std::string_view option) {
-    if (index + 1 >= arguments.size()) {
-        throw std::invalid_argument(std::string(option) + " requires a value");
+std::string_view requireValue(std::span<char*> args, size_t& i,
+                              std::string_view opt) {
+    if (i + 1 >= args.size()) {
+        throw std::invalid_argument(std::format("{} requires a value", opt));
     }
-    return arguments[++index];
+
+    return args[++i];
 }
 
 template <typename Integer>
-Integer parseInteger(std::string_view text, std::string_view option) {
+Integer parseInt(std::string_view text, std::string_view opt) {
     Integer value{};
     const auto [end, error] =
         std::from_chars(text.data(), text.data() + text.size(), value);
+
     if (error != std::errc{} || end != text.data() + text.size()) {
-        throw std::invalid_argument(std::string(option) +
-                                    " requires an integer");
+        throw std::invalid_argument(std::format("{} requires an integer", opt));
     }
+
     return value;
 }
 
-double parseReal(std::string_view text, std::string_view option) {
+double parseReal(std::string_view text, std::string_view opt) {
     double value = 0.0;
     const auto [end, error] =
         std::from_chars(text.data(), text.data() + text.size(), value,
                         std::chars_format::general);
+
     if (error != std::errc{} || end != text.data() + text.size() ||
         !std::isfinite(value)) {
-        throw std::invalid_argument(std::string(option) +
-                                    " requires a finite number");
+        throw std::invalid_argument(
+            std::format("{} requires a finite number", opt));
     }
+
     return value;
 }
 
 template <typename Value, typename Parser>
-std::vector<Value> parseList(std::string_view text, std::string_view option,
-                             Parser parser) {
+std::vector<Value> parseList(std::string_view text, std::string_view opt,
+                             Parser parse) {
     std::vector<Value> values;
     size_t first = 0;
 
@@ -70,15 +80,18 @@ std::vector<Value> parseList(std::string_view text, std::string_view option,
         const size_t comma = text.find(',', first);
         const size_t last =
             comma == std::string_view::npos ? text.size() : comma;
+
         if (last == first) {
-            throw std::invalid_argument(std::string(option) +
-                                        " contains an empty item");
+            throw std::invalid_argument(
+                std::format("{} contains an empty item", opt));
         }
 
-        values.push_back(parser(text.substr(first, last - first), option));
+        values.push_back(parse(text.substr(first, last - first), opt));
+
         if (comma == std::string_view::npos) {
             break;
         }
+
         first = comma + 1;
     }
 
@@ -90,138 +103,146 @@ template <typename Value> void sortUnique(std::vector<Value>& values) {
     values.erase(std::unique(values.begin(), values.end()), values.end());
 }
 
-GapOptions parseOptions(std::span<char*> arguments) {
-    GapOptions options;
-    options.threadCount = std::max(1U, std::thread::hardware_concurrency());
+GapOptions parseOptions(std::span<char*> args) {
+    GapOptions opt;
+    opt.threadCount = std::max(1U, std::thread::hardware_concurrency());
 
-    for (size_t index = 1; index < arguments.size(); ++index) {
-        const std::string_view option = arguments[index];
+    for (size_t i = 1; i < args.size(); ++i) {
+        const std::string_view name = args[i];
 
-        if (option == "--vertices") {
-            options.vertexCount = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--horizons") {
-            options.horizons =
-                parseList<int>(requireValue(arguments, index, option), option,
-                               parseInteger<int>);
-        } else if (option == "--samples") {
-            options.sampleCount = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--seed") {
-            options.seed = parseInteger<uint64_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--threads") {
-            options.threadCount = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--output") {
-            options.outputDirectory = requireValue(arguments, index, option);
-        } else if (option == "--closure-bins") {
-            options.bins =
-                parseList<int>(requireValue(arguments, index, option), option,
-                               parseInteger<int>);
-        } else if (option == "--predictive-classes") {
-            options.predictiveClasses =
-                parseList<int>(requireValue(arguments, index, option), option,
-                               parseInteger<int>);
-        } else if (option == "--target-bins") {
-            options.targetBins =
-                parseList<int>(requireValue(arguments, index, option), option,
-                               parseInteger<int>);
-        } else if (option == "--reference-bins") {
-            options.referenceBins = parseInteger<int>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--lindeberg-thresholds") {
-            options.thresholds = parseList<double>(
-                requireValue(arguments, index, option), option, parseReal);
-        } else if (option == "--validation-length") {
-            options.validationLength = parseInteger<int>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--legendre-modes") {
-            options.modeCount = parseInteger<int>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--bulk-fraction") {
-            options.bulkFraction =
-                parseReal(requireValue(arguments, index, option), option);
-        } else if (option == "--overwrite") {
-            options.overwrite = true;
+        if (name == "--vertices") {
+            opt.vertexCount =
+                parseInt<size_t>(requireValue(args, i, name), name);
+        } else if (name == "--horizons") {
+            opt.horizons = parseList<int>(requireValue(args, i, name), name,
+                                          parseInt<int>);
+        } else if (name == "--samples") {
+            opt.sampleCount =
+                parseInt<size_t>(requireValue(args, i, name), name);
+        } else if (name == "--seed") {
+            opt.seed = parseInt<uint64_t>(requireValue(args, i, name), name);
+        } else if (name == "--threads") {
+            opt.threadCount =
+                parseInt<size_t>(requireValue(args, i, name), name);
+        } else if (name == "--output") {
+            opt.outputDirectory = requireValue(args, i, name);
+        } else if (name == "--closure-bins") {
+            opt.bins = parseList<int>(requireValue(args, i, name), name,
+                                      parseInt<int>);
+        } else if (name == "--predictive-classes") {
+            opt.predictiveClasses = parseList<int>(requireValue(args, i, name),
+                                                   name, parseInt<int>);
+        } else if (name == "--target-bins") {
+            opt.targetBins = parseList<int>(requireValue(args, i, name), name,
+                                            parseInt<int>);
+        } else if (name == "--reference-bins") {
+            opt.referenceBins =
+                parseInt<int>(requireValue(args, i, name), name);
+        } else if (name == "--lindeberg-thresholds") {
+            opt.thresholds =
+                parseList<double>(requireValue(args, i, name), name, parseReal);
+        } else if (name == "--validation-length") {
+            opt.validationLength =
+                parseInt<int>(requireValue(args, i, name), name);
+        } else if (name == "--legendre-modes") {
+            opt.modeCount = parseInt<int>(requireValue(args, i, name), name);
+        } else if (name == "--bulk-fraction") {
+            opt.bulkFraction = parseReal(requireValue(args, i, name), name);
+        } else if (name == "--overwrite") {
+            opt.overwrite = true;
         } else {
-            throw std::invalid_argument("unknown option: " +
-                                        std::string(option));
+            throw std::invalid_argument(
+                std::format("unknown option: {}", name));
         }
     }
 
-    sortUnique(options.horizons);
-    sortUnique(options.bins);
-    sortUnique(options.predictiveClasses);
-    sortUnique(options.targetBins);
-    sortUnique(options.thresholds);
+    sortUnique(opt.horizons);
+    sortUnique(opt.bins);
+    sortUnique(opt.predictiveClasses);
+    sortUnique(opt.targetBins);
+    sortUnique(opt.thresholds);
 
-    if (options.vertexCount < 2) {
+    if (opt.vertexCount < 2) {
         throw std::invalid_argument("--vertices must be at least 2");
     }
-    if (options.horizons.empty()) {
+
+    if (opt.horizons.empty()) {
         throw std::invalid_argument("--horizons must not be empty");
     }
-    for (const int horizon : options.horizons) {
-        if (horizon < 1 || horizon >= static_cast<int>(options.vertexCount)) {
+
+    for (const int horizon : opt.horizons) {
+        if (horizon < 1 || std::cmp_greater_equal(horizon, opt.vertexCount)) {
             throw std::invalid_argument(
-                "each route horizon must lie in 1..vertices-1");
+                "--horizons values must lie in 1..vertices-1");
         }
     }
-    if (options.sampleCount == 0) {
+
+    if (opt.sampleCount == 0) {
         throw std::invalid_argument("--samples must be positive");
     }
-    if (options.threadCount == 0) {
+
+    if (opt.threadCount == 0) {
         throw std::invalid_argument("--threads must be positive");
     }
-    if (options.outputDirectory.empty()) {
+
+    if (opt.outputDirectory.empty()) {
         throw std::invalid_argument("--output is required");
     }
-    for (const int bins : options.bins) {
+
+    for (const int bins : opt.bins) {
         if (bins < 2) {
             throw std::invalid_argument(
                 "--closure-bins values must be at least 2");
         }
     }
-    for (const int classes : options.predictiveClasses) {
-        if (classes < 2 || static_cast<size_t>(classes) > options.vertexCount) {
+
+    for (const int classes : opt.predictiveClasses) {
+        if (classes < 2 || std::cmp_greater(classes, opt.vertexCount)) {
             throw std::invalid_argument(
                 "--predictive-classes values must lie in 2..vertices");
         }
     }
-    if (options.targetBins.empty()) {
+
+    if (opt.targetBins.empty()) {
         throw std::invalid_argument("--target-bins must not be empty");
     }
-    const int maximumTargetBins = options.targetBins.back();
-    for (const int bins : options.targetBins) {
-        if (bins < 2 || maximumTargetBins % bins != 0) {
+
+    const int maxBins = opt.targetBins.back();
+
+    for (const int bins : opt.targetBins) {
+        if (bins < 2 || maxBins % bins != 0) {
             throw std::invalid_argument(
                 "--target-bins must be nested divisors of the maximum");
         }
     }
-    if (options.referenceBins < 16) {
+
+    if (opt.referenceBins < 16) {
         throw std::invalid_argument("--reference-bins must be at least 16");
     }
-    for (const double threshold : options.thresholds) {
+
+    for (const double threshold : opt.thresholds) {
         if (!(threshold > 0.0)) {
             throw std::invalid_argument(
                 "--lindeberg-thresholds values must be positive");
         }
     }
-    if (options.validationLength < 1 ||
-        options.validationLength >= static_cast<int>(options.vertexCount)) {
+
+    if (opt.validationLength < 1 ||
+        std::cmp_greater_equal(opt.validationLength, opt.vertexCount)) {
         throw std::invalid_argument(
             "--validation-length must lie in 1..vertices-1");
     }
-    if (options.modeCount < 1) {
+
+    if (opt.modeCount < 1) {
         throw std::invalid_argument("--legendre-modes must be positive");
     }
-    if (!(options.bulkFraction > 0.0 && options.bulkFraction < 0.5)) {
+
+    if (!(opt.bulkFraction > 0.0 && opt.bulkFraction < 0.5)) {
         throw std::invalid_argument(
             "--bulk-fraction must lie strictly between 0 and 0.5");
     }
 
-    return options;
+    return opt;
 }
 
 void printUsage(std::string_view program) {
@@ -268,34 +289,33 @@ void printUsage(std::string_view program) {
 }
 
 size_t graphHeight(const ReferenceDag& graph) {
-    std::vector<size_t> heights(graph.vertexCount(), 1);
+    std::vector<size_t> height(graph.vertexCount(), 1);
     const auto offsets = graph.outgoingOffsets();
     const auto targets = graph.outgoingTargets();
-    size_t maximum = 1;
+    size_t maxHeight = 1;
 
-    for (size_t source = 0; source < graph.vertexCount(); ++source) {
-        for (size_t edge = offsets[source]; edge < offsets[source + 1];
-             ++edge) {
-            const uint32_t target = targets[edge];
-            heights[target] = std::max(heights[target], heights[source] + 1);
-            maximum = std::max(maximum, heights[target]);
+    for (size_t src = 0; src < graph.vertexCount(); ++src) {
+        for (size_t edge = offsets[src]; edge < offsets[src + 1]; ++edge) {
+            const uint32_t dst = targets[edge];
+            height[dst] = std::max(height[dst], height[src] + 1);
+            maxHeight = std::max(maxHeight, height[dst]);
         }
     }
 
-    return maximum;
+    return maxHeight;
 }
 
-GapSample runSample(const GapOptions& options, size_t index) {
+GapSample runSample(const GapOptions& opt, size_t sampleIndex) {
     const auto started = Clock::now();
 
     GapSample sample;
-    sample.index = index;
-    sample.seed = deriveGapSampleSeed(options.seed, index);
-    sample.vertexCount = options.vertexCount;
+    sample.index = sampleIndex;
+    sample.seed = deriveGapSampleSeed(opt.seed, sampleIndex);
+    sample.vertexCount = opt.vertexCount;
 
     const auto generationStarted = Clock::now();
     const ReferenceDag graph =
-        ReferenceDag::generate(options.vertexCount, sample.seed);
+        ReferenceDag::generate(opt.vertexCount, sample.seed);
     sample.generationSeconds =
         std::chrono::duration<double>(Clock::now() - generationStarted).count();
     sample.edgeCount = graph.edgeCount();
@@ -315,56 +335,54 @@ GapSample runSample(const GapOptions& options, size_t index) {
     sample.intrinsicScaling = summarizeIntrinsicState(state);
     sample.signatures = summarizeSignatures(state);
 
-    const int requestedHorizon = *std::ranges::max_element(options.horizons);
-    const int maximumLength =
-        std::max(requestedHorizon + 1, options.validationLength);
+    const int maxHorizon = *std::ranges::max_element(opt.horizons);
+    const int maxLength = std::max(maxHorizon + 1, opt.validationLength);
 
     const auto routeStarted = Clock::now();
     const StableRouteCounts routes =
-        computeRouteCounts(graph, static_cast<size_t>(maximumLength));
+        computeRouteCounts(graph, static_cast<size_t>(maxLength));
     sample.routeSeconds =
         std::chrono::duration<double>(Clock::now() - routeStarted).count();
     sample.routeBytes = routes.estimatedBytes();
     sample.maxLogError = routes.maxLogError;
 
     const std::vector<ProfilePartition> partitions =
-        buildPartitions(state, options.bins);
-    const std::vector<PredictivePartition> predictivePartitions =
-        buildPredictivePartitions(graph, state, options.predictiveClasses);
-    sample.modes = computeLegendreModes(graph, options.modeCount);
-    sample.calibration = computeCalibration(graph, routes, sample.modes,
-                                            options.validationLength);
+        buildPartitions(state, opt.bins);
+    const std::vector<PredictivePartition> predPartitions =
+        buildPredictivePartitions(graph, state, opt.predictiveClasses);
+    sample.modes = computeLegendreModes(graph, opt.modeCount);
+    sample.calibration =
+        computeCalibration(graph, routes, sample.modes, opt.validationLength);
 
-    sample.horizons.reserve(options.horizons.size());
-    sample.scaling.reserve(options.horizons.size());
-    size_t maximumAnalysisBytes =
+    sample.horizons.reserve(opt.horizons.size());
+    sample.scaling.reserve(opt.horizons.size());
+    size_t peakBytes =
         sample.graphBytes + sample.stateBytes + sample.routeBytes;
-    for (const int horizon : options.horizons) {
+
+    for (const int horizon : opt.horizons) {
         HorizonResult bridge =
             analyzeHorizon(graph, state, routes, horizon, partitions,
-                           options.bulkFraction, options.thresholds);
+                           opt.bulkFraction, opt.thresholds);
         RouteScalingResult scaling = analyzeRouteScaling(
-            graph, state, routes, bridge, predictivePartitions,
-            options.targetBins, options.thresholds, options.bulkFraction,
-            options.referenceBins);
+            graph, state, routes, bridge, predPartitions, opt.targetBins,
+            opt.thresholds, opt.bulkFraction, opt.referenceBins);
 
-        maximumAnalysisBytes = std::max(maximumAnalysisBytes, bridge.peakBytes);
-        maximumAnalysisBytes = std::max(
-            maximumAnalysisBytes, sample.graphBytes + sample.stateBytes +
-                                      sample.routeBytes + scaling.peakBytes);
+        peakBytes = std::max(peakBytes, bridge.peakBytes);
+        peakBytes =
+            std::max(peakBytes, sample.graphBytes + sample.stateBytes +
+                                    sample.routeBytes + scaling.peakBytes);
         sample.horizons.push_back(std::move(bridge));
         sample.scaling.push_back(std::move(scaling));
     }
 
-    sample.peakBytes = maximumAnalysisBytes;
+    sample.peakBytes = peakBytes;
     sample.totalSeconds =
         std::chrono::duration<double>(Clock::now() - started).count();
     return sample;
 }
 
-std::vector<GapSample> runSamples(const GapOptions& options,
-                                  size_t threadCount) {
-    std::vector<GapSample> samples(options.sampleCount);
+std::vector<GapSample> runSamples(const GapOptions& opt, size_t threadCount) {
+    std::vector<GapSample> samples(opt.sampleCount);
     std::atomic<size_t> next{0};
     std::atomic<bool> failed{false};
     std::mutex errorMutex;
@@ -373,21 +391,24 @@ std::vector<GapSample> runSamples(const GapOptions& options,
     workers.reserve(threadCount);
 
     for (size_t thread = 0; thread < threadCount; ++thread) {
-        workers.emplace_back([&] {
+        workers.emplace_back([&samples, &next, &failed, &errorMutex, &error,
+                              &opt] {
             while (!failed.load(std::memory_order_relaxed)) {
-                const size_t index =
-                    next.fetch_add(1, std::memory_order_relaxed);
-                if (index >= options.sampleCount) {
+                const size_t i = next.fetch_add(1, std::memory_order_relaxed);
+
+                if (i >= opt.sampleCount) {
                     return;
                 }
 
                 try {
-                    samples[index] = runSample(options, index);
+                    samples[i] = runSample(opt, i);
                 } catch (...) {
-                    std::scoped_lock lock(errorMutex);
+                    const std::scoped_lock lock(errorMutex);
+
                     if (!error) {
                         error = std::current_exception();
                     }
+
                     failed.store(true, std::memory_order_relaxed);
                     return;
                 }
@@ -396,28 +417,31 @@ std::vector<GapSample> runSamples(const GapOptions& options,
     }
 
     workers.clear();
+
     if (error) {
         std::rethrow_exception(error);
     }
+
     return samples;
 }
 
 } // namespace
 
-int main(int argumentCount, char** argumentValues) {
-    const std::span<char*> arguments(argumentValues,
-                                     static_cast<size_t>(argumentCount));
+int main(int argc, char** argv) {
+    const std::span<char*> args(argv, static_cast<size_t>(argc));
 
     try {
-        if (hasOption(arguments, "--help")) {
-            printUsage(arguments.front());
+        if (hasOption(args, "--help")) {
+            printUsage(args.front());
             return 0;
         }
-        if (hasOption(arguments, "--self-test")) {
-            if (arguments.size() != 2) {
+
+        if (hasOption(args, "--self-test")) {
+            if (args.size() != 2) {
                 throw std::invalid_argument(
                     "--self-test cannot be combined with other options");
             }
+
             const size_t routeChecks = runRouteSelfTests();
             const size_t scalingChecks = runRouteScalingSelfTests();
             std::println("gap route-bridge self-tests passed: {} checks",
@@ -425,24 +449,23 @@ int main(int argumentCount, char** argumentValues) {
             return 0;
         }
 
-        const GapOptions options = parseOptions(arguments);
-        const size_t threadCount =
-            std::min(options.threadCount, options.sampleCount);
+        const GapOptions opt = parseOptions(args);
+        const size_t threadCount = std::min(opt.threadCount, opt.sampleCount);
         const auto started = Clock::now();
-        const std::vector<GapSample> samples = runSamples(options, threadCount);
+        const std::vector<GapSample> samples = runSamples(opt, threadCount);
         const double wallSeconds =
             std::chrono::duration<double>(Clock::now() - started).count();
 
-        writeGapOutput(options, samples, threadCount, wallSeconds);
+        writeGapOutput(opt, samples, threadCount, wallSeconds);
         std::println(stderr,
                      "completed samples={} vertices={} threads={} "
                      "wall_seconds={:.6f} peak_rss_kib={}",
-                     options.sampleCount, options.vertexCount, threadCount,
-                     wallSeconds, peakRssKib());
+                     opt.sampleCount, opt.vertexCount, threadCount, wallSeconds,
+                     peakRssKib());
         return 0;
     } catch (const std::exception& error) {
         std::println(stderr, "fatal: {}", error.what());
-        printUsage(arguments.empty() ? "gap-benchmark" : arguments.front());
+        printUsage(args.empty() ? "gap-benchmark" : args.front());
         return 2;
     }
 }

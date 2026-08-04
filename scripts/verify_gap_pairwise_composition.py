@@ -52,7 +52,15 @@ def main() -> None:
 
     # A nontrivial endpoint-atomic example satisfies the pairwise path law
     # but falls strictly below the target edge density.
-    example = sp.simplify(edge_density.subs({d: sp.Rational(1, 2), p: sp.Rational(1, 4), q: sp.Rational(1, 4)}))
+    example = sp.simplify(
+        edge_density.subs(
+            {
+                d: sp.Rational(1, 2),
+                p: sp.Rational(1, 4),
+                q: sp.Rational(1, 4),
+            }
+        )
+    )
     assert example < sp.Rational(1, 6)
     checks += 1
 
@@ -66,4 +74,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

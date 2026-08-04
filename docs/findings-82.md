@@ -199,7 +199,7 @@ The scalar path-generating function is
 
 The apparent singularity at $z=0$ is removable.
 
-# 6. Quasinilpotence and entire closure
+# 6. Entire closure of the Volterra route algebra
 
 The Hilbert-Schmidt norm satisfies
 

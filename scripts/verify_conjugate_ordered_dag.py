@@ -1,22 +1,32 @@
 #!/usr/bin/env python3
 """Exact conjugate-predictive checks for findings-64.md."""
 
+from __future__ import annotations
+
+from collections.abc import Iterator, Sequence
 from fractions import Fraction
 from itertools import product
 
 
-def rising(a, n):
+def rising(a: int, n: int) -> int:
     out = 1
     for t in range(n):
         out *= a + t
     return out
 
 
-def beta_ratio(a, b, successes, failures):
-    return Fraction(rising(a, successes) * rising(b, failures), rising(a + b, successes + failures))
+def beta_ratio(
+    a: int, b: int, successes: int, failures: int
+) -> Fraction:
+    return Fraction(
+        rising(a, successes) * rising(b, failures),
+        rising(a + b, successes + failures),
+    )
 
 
-def sufficient(marks, edges, q):
+def sufficient(
+    marks: Sequence[int], edges: set[tuple[int, int]], q: int
+) -> tuple[list[int], dict[tuple[int, int], int]]:
     counts = [marks.count(i) for i in range(q)]
     ecounts = {(i, j): 0 for i in range(q) for j in range(i + 1, q)}
     for u in range(len(marks)):
@@ -32,7 +42,13 @@ def sufficient(marks, edges, q):
     return counts, ecounts
 
 
-def marginal_probability(marks, edges, alpha, aprior, bprior):
+def marginal_probability(
+    marks: Sequence[int],
+    edges: set[tuple[int, int]],
+    alpha: Sequence[int],
+    aprior: dict[tuple[int, int], int],
+    bprior: dict[tuple[int, int], int],
+) -> Fraction:
     q = len(alpha)
     counts, ecounts = sufficient(marks, edges, q)
     prob = Fraction(1)
@@ -47,7 +63,13 @@ def marginal_probability(marks, edges, alpha, aprior, bprior):
     return prob
 
 
-def extensions(marks, edges, alpha, aprior, bprior):
+def extensions(
+    marks: Sequence[int],
+    edges: set[tuple[int, int]],
+    alpha: Sequence[int],
+    aprior: dict[tuple[int, int], int],
+    bprior: dict[tuple[int, int], int],
+) -> Iterator[tuple[int, tuple[int, ...], set[tuple[int, int]], Fraction]]:
     q = len(alpha)
     n = len(marks)
     counts, ecounts = sufficient(marks, edges, q)
@@ -80,7 +102,9 @@ def extensions(marks, edges, alpha, aprior, bprior):
             yield k, bits, new_edges, pred
 
 
-def all_marked_states(q, n):
+def all_marked_states(
+    q: int, n: int
+) -> Iterator[tuple[list[int], set[tuple[int, int]]]]:
     for marks in product(range(q), repeat=n):
         possible = []
         for u in range(n):
@@ -93,7 +117,7 @@ def all_marked_states(q, n):
             yield list(marks), edges
 
 
-def run_case(q, n):
+def run_case(q: int, n: int) -> int:
     alpha = [2 + i for i in range(q)]
     aprior = {(i, j): 2 + i + j for i in range(q) for j in range(i + 1, q)}
     bprior = {(i, j): 3 + 2 * i + j for i in range(q) for j in range(i + 1, q)}
@@ -101,17 +125,21 @@ def run_case(q, n):
     for marks, edges in all_marked_states(q, n):
         current = marginal_probability(marks, edges, alpha, aprior, bprior)
         total = Fraction(0)
-        for k, bits, new_edges, pred in extensions(marks, edges, alpha, aprior, bprior):
+        for k, _, new_edges, pred in extensions(
+            marks, edges, alpha, aprior, bprior
+        ):
             total += pred
             extended_marks = marks + [k]
-            extended = marginal_probability(extended_marks, new_edges, alpha, aprior, bprior)
+            extended = marginal_probability(
+                extended_marks, new_edges, alpha, aprior, bprior
+            )
             assert current * pred == extended
             checked += 1
         assert total == 1
     return checked
 
 
-def main():
+def main() -> None:
     checked = 0
     checked += run_case(2, 3)
     checked += run_case(3, 2)
@@ -119,4 +147,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

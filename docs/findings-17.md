@@ -441,8 +441,8 @@ For a finite quiver with an admissible relation ideal over a field, the higher
 operations of the corresponding minimal $A_\infty$ structure on the Ext algebra
 of the simples are known to encode the defining relations: the coefficients of
 $m_r$ on degree-one classes recover the length-$r$ relations, and that algebra
-is generated in degrees zero and one. Neither statement is used below; the
-reachability posets treated here need not be finite.
+is generated in degrees zero and one. The reachability-poset argument here is
+independent of both statements and allows infinite posets.
 
 # 10. Origin of the higher operations
 

@@ -475,6 +475,12 @@ Do not place project declarations in `std`.
 
 Avoid nested namespaces that contain only one small one-purpose driver.
 
+Use the global spellings of C-library names that the repository uses from
+the global namespace, including `size_t`, `ptrdiff_t`, `uint8_t`,
+`uint32_t`, `uint64_t`, and character-classification functions such as
+`isspace`. Do not qualify these names with `std::`. Continue to qualify
+C++-specific standard-library facilities with `std::`.
+
 ## 3.4 Types
 
 Use domain types when they prevent invalid combinations or express a stable
@@ -582,6 +588,11 @@ bool isTargetBinsEmpty(const Options& opt) {
 ```
 
 Do not combine unrelated tasks merely because they share a few local variables.
+
+Name parser operations according to their cursor behavior. Use `peek` for
+non-consuming access and `read`, `take`, or `consume` for operations that
+advance the input position. Avoid `get` when the operation mutates parser
+state.
 
 Keep parameter lists small when practical. When several stable parameters always
 travel together, introduce a record. Do not create a record for two locals used
@@ -1913,6 +1924,11 @@ Do not silence a diagnostic globally to permit one local pattern.
 A static analyzer supplements code review. Passing it does not establish that
 naming, spacing, abstraction, or mathematical correspondence satisfies this
 guide.
+
+The build shall provide a current `compile_commands.json` for Clang tooling.
+Compile each translation unit to an object file and reuse that object across
+binaries when the compilation options are identical. Use generated dependency
+files rather than manually duplicating header dependency lists.
 
 ## 11.3 Forbidden toolchain fallbacks
 

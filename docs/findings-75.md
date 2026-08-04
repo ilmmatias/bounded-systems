@@ -242,7 +242,7 @@ column analogue force those blocks to be the required complements. Hence
 almost every extremal component is weakly isomorphic to $\Gamma_U$, and the
 original central law is the corresponding extremal sector.
 
-# 5. Structural consequences
+# 5. Separation of payload and completion
 
 The transfer theorem separates two tasks that were previously combined in the
 ordered step construction.

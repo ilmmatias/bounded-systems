@@ -45,7 +45,10 @@ def verify_threshold(n: int) -> tuple[float, int]:
 
     w_kernel = n * w_operator
     cubic_kernel = n * (w_operator @ w_operator.T @ w_operator)
-    density_residual = abs(kernel_mean(h_kernel) - (kernel_mean(w_kernel) + kernel_mean(cubic_kernel)))
+    density_residual = abs(
+        kernel_mean(h_kernel)
+        - (kernel_mean(w_kernel) + kernel_mean(cubic_kernel))
+    )
     assert density_residual < 2e-12
 
     rounded_distinct = len(np.unique(np.round(w_kernel, 10)))
@@ -58,7 +61,7 @@ def verify_random_rectangular(rows: int, cols: int, seed: int) -> float:
     image = transform(operator)
     recovered = inverse_transform(image)
     residual = np.max(np.abs(recovered - operator))
-    # Polar/SVD sign conventions recover the operator itself because the image has the same polar part.
+    # The image has the same polar part, so the SVD signs recover the operator.
     assert residual < 2e-11
     return residual
 
@@ -75,11 +78,17 @@ def main() -> None:
     assert distinct == sorted(distinct)
     assert distinct[-1] > distinct[0]
 
-    print("threshold transform max residuals:", [f"{r:.3e}" for r, _ in threshold_results])
+    print(
+        "threshold transform max residuals:",
+        [f"{r:.3e}" for r, _ in threshold_results],
+    )
     print("threshold payload distinct-value counts:", distinct)
-    print("random rectangular recovery residuals:", [f"{r:.3e}" for r in random_results])
+    print(
+        "random rectangular recovery residuals:",
+        [f"{r:.3e}" for r in random_results],
+    )
     print("all rectangular cubic-transform diagnostics passed")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

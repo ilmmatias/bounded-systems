@@ -2,56 +2,58 @@
 #include "wl_profile.hxx"
 
 #include <charconv>
+#include <cstddef>
+#include <exception>
 #include <filesystem>
 #include <format>
 #include <print>
 #include <span>
 #include <stdexcept>
 #include <string_view>
+#include <system_error>
 #include <utility>
 
 namespace {
 
-struct OutputArguments {
+struct OutputOptions {
     int vertexCount;
     std::filesystem::path outputDirectory;
 };
 
-int parseInteger(std::string_view text, std::string_view opt) {
+int parseInt(std::string_view text, std::string_view opt) {
     int value = 0;
     const auto [end, error] =
         std::from_chars(text.data(), text.data() + text.size(), value);
 
     if (error != std::errc{} || end != text.data() + text.size()) {
-        throw std::invalid_argument(
-            std::format("{} requires an integer", opt));
+        throw std::invalid_argument(std::format("{} requires an integer", opt));
     }
 
     return value;
 }
 
-OutputArguments parseOutputArguments(std::span<char*> args) {
+OutputOptions parseOutputOptions(std::span<char*> args) {
     int vertexCount = 0;
     std::filesystem::path outputDirectory;
 
-    for (size_t index = 0; index < args.size(); ++index) {
-        const std::string_view opt = args[index];
+    for (size_t i = 0; i < args.size(); ++i) {
+        const std::string_view opt = args[i];
 
         if (opt == "--vertices") {
-            if (++index == args.size()) {
+            if (++i == args.size()) {
                 throw std::invalid_argument("--vertices requires a value");
             }
 
-            vertexCount = parseInteger(args[index], opt);
+            vertexCount = parseInt(args[i], opt);
             continue;
         }
 
         if (opt == "--output") {
-            if (++index == args.size()) {
+            if (++i == args.size()) {
                 throw std::invalid_argument("--output requires a value");
             }
 
-            outputDirectory = args[index];
+            outputDirectory = args[i];
             continue;
         }
 
@@ -86,22 +88,23 @@ void printUsage(std::string_view program) {
 int main(int argc, char** argv) {
     try {
         const std::span args(argv, static_cast<size_t>(argc));
+
         if (args.size() < 2) {
             printUsage(args.front());
             return 1;
         }
 
         const std::string_view command = args[1];
-        const auto options = args.subspan(2);
+        const auto optArgs = args.subspan(2);
 
         if (command == "spectral") {
-            const auto parsed = parseOutputArguments(options);
-            return generateSpectralArtifacts(parsed.vertexCount,
-                                             parsed.outputDirectory);
+            const OutputOptions opt = parseOutputOptions(optArgs);
+            return generateSpectralArtifacts(opt.vertexCount,
+                                             opt.outputDirectory);
         }
 
         if (command == "wl-scan") {
-            if (!options.empty()) {
+            if (!optArgs.empty()) {
                 throw std::invalid_argument("wl-scan takes no options");
             }
 
@@ -109,9 +112,8 @@ int main(int argc, char** argv) {
         }
 
         if (command == "wl-reduce") {
-            const auto parsed = parseOutputArguments(options);
-            return generateWlReduction(parsed.vertexCount,
-                                       parsed.outputDirectory);
+            const OutputOptions opt = parseOutputOptions(optArgs);
+            return generateWlReduction(opt.vertexCount, opt.outputDirectory);
         }
 
         printUsage(args.front());

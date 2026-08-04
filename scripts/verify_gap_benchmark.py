@@ -10,6 +10,7 @@ import os
 import re
 import subprocess
 import statistics
+import sys
 import tempfile
 from fractions import Fraction
 from pathlib import Path
@@ -17,6 +18,8 @@ from typing import Any, NoReturn, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 BENCHMARK = ROOT / "bin" / "gap-benchmark"
+ANALYZER = ROOT / "scripts" / "analyze_gap_benchmark.py"
+SCALING_ANALYZER = ROOT / "scripts" / "analyze_gap_scaling.py"
 VERTICES, SAMPLES, THREADS, SEED = 48, 3, 3, 8_675_309
 HORIZONS = (1, 2, 3)
 CLOSURE_BINS = (2, 3)
@@ -40,13 +43,22 @@ class Checks:
     def close(self, actual: Any, expected: float, message: str) -> None:
         self.require(finite(actual), f"{message}: non-finite value {actual!r}")
         self.require(
-            math.isclose(float(actual), expected, rel_tol=IDENTITY_TOLERANCE, abs_tol=IDENTITY_TOLERANCE),
+            math.isclose(
+                float(actual),
+                expected,
+                rel_tol=IDENTITY_TOLERANCE,
+                abs_tol=IDENTITY_TOLERANCE,
+            ),
             f"{message}: expected {expected:.17g}, got {float(actual):.17g}",
         )
 
 
 def finite(value: Any) -> bool:
-    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+    return (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and math.isfinite(value)
+    )
 
 
 def require_fields(value: Any, names: str, context: str, checks: Checks) -> None:
@@ -66,10 +78,13 @@ def parse_json(text: str, context: str) -> Any:
         raise AssertionError(f"invalid JSON in {context}: {error}") from error
 
 
-def run_checked(arguments: Sequence[str], timeout: float) -> subprocess.CompletedProcess[str]:
+def run_checked(
+    args: Sequence[str],
+    timeout: float,
+) -> subprocess.CompletedProcess[str]:
     try:
-        result = subprocess.run(
-            arguments,
+        proc = subprocess.run(
+            args,
             cwd=ROOT,
             check=False,
             capture_output=True,
@@ -77,16 +92,16 @@ def run_checked(arguments: Sequence[str], timeout: float) -> subprocess.Complete
             timeout=timeout,
         )
     except (OSError, subprocess.TimeoutExpired) as error:
-        raise AssertionError(f"could not run {' '.join(arguments)}: {error}") from error
-    if result.returncode:
+        raise AssertionError(f"could not run {' '.join(args)}: {error}") from error
+    if proc.returncode:
         raise AssertionError(
-            f"command failed ({result.returncode}): {' '.join(arguments)}\n"
-            f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}"
+            f"command failed ({proc.returncode}): {' '.join(args)}\n"
+            f"stdout:\n{proc.stdout}\nstderr:\n{proc.stderr}"
         )
-    return result
+    return proc
 
 
-def arguments(output: Path, threads: int) -> list[str]:
+def command(output: Path, threads: int) -> list[str]:
     return [
         str(BENCHMARK),
         "--vertices",
@@ -132,7 +147,10 @@ def load_output(directory: Path, checks: Checks) -> dict[str, Any]:
             bool(lines) and all(line.strip() for line in lines),
             f"{path} is empty or has blank rows",
         )
-        return [parse_json(line, f"{path}:{number}") for number, line in enumerate(lines, 1)]
+        return [
+            parse_json(line, f"{path}:{number}")
+            for number, line in enumerate(lines, 1)
+        ]
 
     run_path = directory / "run.json"
     return {
@@ -144,10 +162,19 @@ def load_output(directory: Path, checks: Checks) -> dict[str, Any]:
 
 def verify_count(value: Any, context: str, checks: Checks) -> float:
     require_fields(value, "log mantissa base10_exponent", context, checks)
-    logarithm, mantissa, exponent = value["log"], value["mantissa"], value["base10_exponent"]
+    logarithm = value["log"]
+    mantissa = value["mantissa"]
+    exponent = value["base10_exponent"]
     checks.require(finite(logarithm) and finite(mantissa), f"{context} is not finite")
-    checks.require(isinstance(exponent, int) and 1.0 <= mantissa < 10.0, f"{context} notation is invalid")
-    checks.close(math.log(mantissa) + exponent * math.log(10.0), logarithm, f"{context} notation")
+    checks.require(
+        isinstance(exponent, int) and 1.0 <= mantissa < 10.0,
+        f"{context} notation is invalid",
+    )
+    checks.close(
+        math.log(mantissa) + exponent * math.log(10.0),
+        logarithm,
+        f"{context} notation",
+    )
     return float(logarithm)
 
 
@@ -157,12 +184,12 @@ def double_factorial(number: int) -> int:
 
 def upper_frobenius(values: Sequence[float]) -> float:
     squared = 0.0
-    index = 0
+    i = 0
     for row in range(6):
         for column in range(row, 6):
             multiplicity = 1 if row == column else 2
-            squared += multiplicity * values[index] ** 2
-            index += 1
+            squared += multiplicity * values[i] ** 2
+            i += 1
     return math.sqrt(squared)
 
 
@@ -170,21 +197,32 @@ def legendre_coefficient(length: int, mode: int) -> float:
     amplitude = Fraction(math.factorial(length), 2 * math.factorial(2 * length))
     coefficient = Fraction(
         (4 * mode + 1) * math.factorial(2 * length),
-        double_factorial(2 * length - 2 * mode) * double_factorial(2 * length + 2 * mode + 1),
+        double_factorial(2 * length - 2 * mode)
+        * double_factorial(2 * length + 2 * mode + 1),
     )
     return float((length + 1) * amplitude * coefficient) / math.sqrt(4 * mode + 1)
 
 
-def verify_calibration(graph: dict[str, Any], horizons: dict[int, dict[str, Any]], checks: Checks) -> None:
-    sample, modes, rows = graph["sample_index"], graph["even_legendre_modes"], graph["route_calibration"]
+def verify_calibration(
+    graph: dict[str, Any],
+    horizons: dict[int, dict[str, Any]],
+    checks: Checks,
+) -> None:
+    sample = graph["sample_index"]
+    modes = graph["even_legendre_modes"]
+    rows = graph["route_calibration"]
     checks.require(
         len(modes) == LEGENDRE_MODES and all(finite(value) for value in modes),
         f"sample {sample} modes differ",
     )
-    checks.require(len(rows) == VALIDATION_LENGTH, f"sample {sample} calibration row count differs")
+    checks.require(
+        len(rows) == VALIDATION_LENGTH,
+        f"sample {sample} calibration row count differs",
+    )
     fields = (
         "length route_count path_homomorphism_density path_homomorphism_target "
-        "path_homomorphism_error subset_route_mean subset_route_target subset_route_error "
+        "path_homomorphism_error subset_route_mean subset_route_target "
+        "subset_route_error "
         "scaled_route_fluctuation leading_mode_prediction leading_mode_residual"
     )
     for length, row in enumerate(rows, 1):
@@ -192,15 +230,31 @@ def verify_calibration(graph: dict[str, Any], horizons: dict[int, dict[str, Any]
         require_fields(row, fields, context, checks)
         checks.require(row["length"] == length, f"{context} length differs")
         verify_count(row["route_count"], f"{context}.route_count", checks)
-        checks.require(row["route_count"] == horizons[length]["route_count"], f"{context} count differs")
+        checks.require(
+            row["route_count"] == horizons[length]["route_count"],
+            f"{context} count differs",
+        )
         p_l = Fraction(1, math.factorial(2 * length + 1))
         theta_l = Fraction(math.factorial(length + 1), math.factorial(2 * length + 1))
-        path_density, route_mean = row["path_homomorphism_density"], row["subset_route_mean"]
+        path_density = row["path_homomorphism_density"]
+        route_mean = row["subset_route_mean"]
         checks.close(row["path_homomorphism_target"], float(p_l), f"{context} p_l")
         checks.close(row["subset_route_target"], float(theta_l), f"{context} theta_l")
-        checks.close(route_mean, math.factorial(length + 1) * path_density, f"{context} normalization")
-        checks.close(row["path_homomorphism_error"], path_density - float(p_l), f"{context} path error")
-        checks.close(row["subset_route_error"], route_mean - float(theta_l), f"{context} subset error")
+        checks.close(
+            route_mean,
+            math.factorial(length + 1) * path_density,
+            f"{context} normalization",
+        )
+        checks.close(
+            row["path_homomorphism_error"],
+            path_density - float(p_l),
+            f"{context} path error",
+        )
+        checks.close(
+            row["subset_route_error"],
+            route_mean - float(theta_l),
+            f"{context} subset error",
+        )
         checks.require(
             abs(route_mean - float(theta_l)) <= max(0.03, 0.60 * float(theta_l)),
             f"{context} stochastic estimate is implausibly far from theta_l",
@@ -211,16 +265,35 @@ def verify_calibration(graph: dict[str, Any], horizons: dict[int, dict[str, Any]
             legendre_coefficient(length, mode) * modes[mode - 1]
             for mode in range(1, min(length, LEGENDRE_MODES) + 1)
         )
-        checks.close(row["leading_mode_prediction"], prediction, f"{context} Legendre prediction")
-        checks.close(row["leading_mode_residual"], scaled - prediction, f"{context} Legendre residual")
-        checks.require(abs(row["leading_mode_residual"]) <= 1.0, f"{context} residual is implausibly large")
+        checks.close(
+            row["leading_mode_prediction"],
+            prediction,
+            f"{context} Legendre prediction",
+        )
+        checks.close(
+            row["leading_mode_residual"],
+            scaled - prediction,
+            f"{context} Legendre residual",
+        )
+        checks.require(
+            abs(row["leading_mode_residual"]) <= 1.0,
+            f"{context} residual is implausibly large",
+        )
         first_projection = legendre_coefficient(length, 1)
         checks.require(first_projection > 0.0, f"{context} first projection vanished")
         support_order = 1 if first_projection != 0.0 else length
-        checks.require(Fraction(support_order, 2) == Fraction(1, 2), f"{context} OU rate is not 1/2")
+        checks.require(
+            Fraction(support_order, 2) == Fraction(1, 2),
+            f"{context} OU rate is not 1/2",
+        )
 
 
-def verify_classes(value: dict[str, Any], vertices: int, context: str, checks: Checks) -> None:
+def verify_classes(
+    value: dict[str, Any],
+    vertices: int,
+    context: str,
+    checks: Checks,
+) -> None:
     sizes = value["class_sizes"]
     checks.require(
         isinstance(sizes, list)
@@ -236,7 +309,10 @@ def verify_classes(value: dict[str, Any], vertices: int, context: str, checks: C
         sum(size == 1 for size in sizes) == value["singleton_class_count"],
         f"{context} singleton count differs",
     )
-    checks.require(max(sizes) == value["largest_class_size"], f"{context} largest class differs")
+    checks.require(
+        max(sizes) == value["largest_class_size"],
+        f"{context} largest class differs",
+    )
 
 
 def verify_closure(
@@ -368,12 +444,18 @@ def verify_predictive_closure(
         )
         checks.require(
             len(position["exact_moment_rmse"]) == 7
-            and all(finite(item) and item >= 0.0 for item in position["exact_moment_rmse"]),
+            and all(
+                finite(item) and item >= 0.0
+                for item in position["exact_moment_rmse"]
+            ),
             f"{row_context} exact moment errors are invalid",
         )
         checks.require(
             len(position["held_out_moment_rmse"]) == 7
-            and all(finite(item) and item >= 0.0 for item in position["held_out_moment_rmse"]),
+            and all(
+                finite(item) and item >= 0.0
+                for item in position["held_out_moment_rmse"]
+            ),
             f"{row_context} held-out moment errors are invalid",
         )
         checks.require(
@@ -395,7 +477,10 @@ def verify_predictive_closure(
                 target["held_out_wasserstein_1"],
             )
             checks.require(
-                all(finite(item) and -1.0e-12 <= item <= 1.0 + 1.0e-12 for item in metrics),
+                all(
+                    finite(item) and -1.0e-12 <= item <= 1.0 + 1.0e-12
+                    for item in metrics
+                ),
                 f"{row_context} distribution error is invalid",
             )
 
@@ -489,11 +574,11 @@ def verify_graph(graph: dict[str, Any], checks: Checks) -> None:
         math.sqrt(VERTICES) * scaling["transverse_residual_rms"],
         f"{context} transverse residual scaling",
     )
-    for index, residual in enumerate(scaling["coordinate_residual_rms"]):
+    for i, residual in enumerate(scaling["coordinate_residual_rms"]):
         checks.close(
-            scaling["sqrt_N_coordinate_residual_rms"][index],
+            scaling["sqrt_N_coordinate_residual_rms"][i],
             math.sqrt(VERTICES) * residual,
-            f"{context} coordinate residual {index}",
+            f"{context} coordinate residual {i}",
         )
 
     signature = graph["exact_signature"]
@@ -616,27 +701,27 @@ def verify_horizon(row: dict[str, Any], checks: Checks) -> None:
         len(within) == 21 and len(between) == 21,
         f"{context} covariance decomposition arrays differ",
     )
-    for index, covariance in enumerate(row["covariance_upper"]):
+    for i, covariance in enumerate(row["covariance_upper"]):
         checks.close(
-            within[index] + between[index],
+            within[i] + between[i],
             covariance,
-            f"{context} covariance decomposition {index}",
+            f"{context} covariance decomposition {i}",
         )
 
     diagonal = (0, 6, 11, 15, 18, 20)
     checks.close(
         decomposition["within_position_trace"],
-        sum(within[index] for index in diagonal),
+        sum(within[i] for i in diagonal),
         f"{context} within trace",
     )
     checks.close(
         decomposition["between_position_trace"],
-        sum(between[index] for index in diagonal),
+        sum(between[i] for i in diagonal),
         f"{context} between trace",
     )
     checks.close(
         decomposition["mixed_trace"],
-        sum(row["covariance_upper"][index] for index in diagonal),
+        sum(row["covariance_upper"][i] for i in diagonal),
         f"{context} mixed trace",
     )
     checks.require(
@@ -688,10 +773,10 @@ def verify_horizon(row: dict[str, Any], checks: Checks) -> None:
                 horizon * position["mean_increment"][coordinate],
                 f"{context} scaled drift",
             )
-        for index in range(21):
+        for i in range(21):
             checks.close(
-                position["p2_covariance_upper"][index],
-                horizon * horizon * position["covariance_upper"][index],
+                position["p2_covariance_upper"][i],
+                horizon * horizon * position["covariance_upper"][i],
                 f"{context} scaled covariance",
             )
 
@@ -898,9 +983,9 @@ def verify_horizon(row: dict[str, Any], checks: Checks) -> None:
     )
     checks.require(
         all(
-            lindeberg[index]["sum"] + IDENTITY_TOLERANCE
-            >= lindeberg[index + 1]["sum"]
-            for index in range(len(lindeberg) - 1)
+            lindeberg[i]["sum"] + IDENTITY_TOLERANCE
+            >= lindeberg[i + 1]["sum"]
+            for i in range(len(lindeberg) - 1)
         ),
         f"{context} Lindeberg sums are not monotone",
     )
@@ -1014,10 +1099,18 @@ def verify_run(
     )
 
 
-def verify_output(output: dict[str, Any], directory: Path, threads: int, checks: Checks) -> None:
+def verify_output(
+    output: dict[str, Any],
+    directory: Path,
+    threads: int,
+    checks: Checks,
+) -> None:
     graphs, horizons = output["graphs"], output["horizons"]
     checks.require(len(graphs) == SAMPLES, f"{directory} graph row count differs")
-    checks.require(len(horizons) == SAMPLES * len(HORIZONS), f"{directory} horizon row count differs")
+    checks.require(
+        len(horizons) == SAMPLES * len(HORIZONS),
+        f"{directory} horizon row count differs",
+    )
     checks.require(
         [row["sample_index"] for row in graphs] == list(range(SAMPLES)),
         f"{directory} graph order differs",
@@ -1033,7 +1126,11 @@ def verify_output(output: dict[str, Any], directory: Path, threads: int, checks:
         verify_horizon(row, checks)
     for graph in graphs:
         sample = graph["sample_index"]
-        rows = {row["horizon"]: row for row in horizons if row["sample_index"] == sample}
+        rows = {
+            row["horizon"]: row
+            for row in horizons
+            if row["sample_index"] == sample
+        }
         checks.require(
             all(
                 row["sample_seed"] == graph["sample_seed"]
@@ -1063,17 +1160,35 @@ def scientific_projection(output: dict[str, Any]) -> dict[str, Any]:
 def main() -> None:
     checks = Checks()
     checks.require(BENCHMARK.is_file(), f"benchmark binary is missing: {BENCHMARK}")
-    checks.require(os.access(BENCHMARK, os.X_OK), f"benchmark is not executable: {BENCHMARK}")
+    checks.require(
+        os.access(BENCHMARK, os.X_OK),
+        f"benchmark is not executable: {BENCHMARK}",
+    )
     self_test = run_checked((str(BENCHMARK), "--self-test"), timeout=15.0)
-    match = re.fullmatch(r"gap route-bridge self-tests passed: ([1-9][0-9]*) checks\n?", self_test.stdout)
-    checks.require(match is not None, f"unexpected --self-test output: {self_test.stdout!r}")
-    checks.require(not self_test.stderr, f"--self-test wrote stderr: {self_test.stderr!r}")
-    with tempfile.TemporaryDirectory(prefix="verify-gap-benchmark-") as temporary:
-        serial_directory = Path(temporary) / "serial"
-        threaded_directory = Path(temporary) / "threaded"
-        serial_result = run_checked(arguments(serial_directory, 1), timeout=30.0)
-        threaded_result = run_checked(arguments(threaded_directory, THREADS), timeout=30.0)
-        checks.require(not serial_result.stdout and not threaded_result.stdout, "sample run wrote stdout")
+    match = re.fullmatch(
+        r"gap route-bridge self-tests passed: ([1-9][0-9]*) checks\n?",
+        self_test.stdout,
+    )
+    checks.require(
+        match is not None,
+        f"unexpected --self-test output: {self_test.stdout!r}",
+    )
+    checks.require(
+        not self_test.stderr,
+        f"--self-test wrote stderr: {self_test.stderr!r}",
+    )
+    with tempfile.TemporaryDirectory(prefix="verify-gap-benchmark-") as temp:
+        serial_directory = Path(temp) / "serial"
+        threaded_directory = Path(temp) / "threaded"
+        serial_result = run_checked(command(serial_directory, 1), timeout=30.0)
+        threaded_result = run_checked(
+            command(threaded_directory, THREADS),
+            timeout=30.0,
+        )
+        checks.require(
+            not serial_result.stdout and not threaded_result.stdout,
+            "sample run wrote stdout",
+        )
         serial = load_output(serial_directory, checks)
         threaded = load_output(threaded_directory, checks)
         verify_output(serial, serial_directory, 1, checks)
@@ -1082,8 +1197,63 @@ def main() -> None:
             scientific_projection(serial) == scientific_projection(threaded),
             "serial and threaded scientific outputs differ",
         )
+
+        summary_path = Path(temp) / "summary.json"
+        analysis_result = run_checked(
+            (
+                sys.executable,
+                str(ANALYZER),
+                str(serial_directory),
+                str(threaded_directory),
+                "--output",
+                str(summary_path),
+            ),
+            timeout=30.0,
+        )
+        checks.require(not analysis_result.stdout, "analyzer wrote stdout")
+        checks.require(not analysis_result.stderr, "analyzer wrote stderr")
+        summary = parse_json(
+            summary_path.read_text(encoding="utf-8"),
+            str(summary_path),
+        )
+        accounting = summary["sample_accounting"]
+        checks.require(
+            accounting["duplicate_graph_records"] == SAMPLES,
+            "analyzer graph duplicate count differs",
+        )
+        checks.require(
+            accounting["duplicate_horizon_records"]
+            == SAMPLES * len(HORIZONS),
+            "analyzer horizon duplicate count differs",
+        )
+
+        scaling_path = Path(temp) / "scaling-summary.json"
+        scaling_result = run_checked(
+            (
+                sys.executable,
+                str(SCALING_ANALYZER),
+                str(serial_directory),
+                "--output",
+                str(scaling_path),
+            ),
+            timeout=30.0,
+        )
+        checks.require(not scaling_result.stdout, "scaling analyzer wrote stdout")
+        checks.require(not scaling_result.stderr, "scaling analyzer wrote stderr")
+        scaling = parse_json(
+            scaling_path.read_text(encoding="utf-8"),
+            str(scaling_path),
+        )
+        checks.require(
+            len(scaling["by_vertices"]) == 1,
+            "scaling analyzer vertex aggregation differs",
+        )
+        checks.require(
+            len(scaling["by_vertex_and_horizon"]) == len(HORIZONS),
+            "scaling analyzer horizon aggregation differs",
+        )
     print(f"verified {checks.count} gap benchmark checks")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -594,7 +594,7 @@ All covariance terms are bounded. Exchangeability makes the covariance for
 an overlap-one pair equal to $\gamma_{F,K}-p_Fp_K$. Only the one-point
 overlaps therefore survive after multiplication by $n$, proving the formula.
 
-# 10. Consequences for fluctuation scaling
+# 10. Fluctuation scaling in extremal and mixed sectors
 
 Theorem 5 proves the existence of a stable second-order coefficient directly
 from the central sector. It also sharpens the proposed $\sqrt n$ fluctuation

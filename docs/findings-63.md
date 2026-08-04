@@ -310,7 +310,6 @@ graphon-specific forcing theorem. It is compatible with the theory of
 finitely forcible graphons of L. Lovász and B. Szegedy, *Finitely
 forcible graphons*, Journal of Combinatorial Theory, Series B 101 (2011),
 269-301, arXiv:0901.0929, where prescribed finite subgraph densities
-can isolate individual limit objects. The present theorem is deliberately
-relative: it gives finite identification inside an algebraic central
-family and does not claim absolute forcibility in the full digraphon
-space.
+can isolate individual limit objects. The present theorem gives finite
+identification relative to an algebraic central family. Absolute
+forcibility in the full digraphon space is a separate property.

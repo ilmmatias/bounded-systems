@@ -4,6 +4,7 @@
 #include <boost/math/special_functions/beta.hpp>
 #include <chrono>
 #include <cmath>
+#include <cstddef>
 #include <limits>
 #include <numeric>
 #include <stdexcept>
@@ -29,17 +30,16 @@ double intrinsicMark(const GapCoordinate& coordinate) {
 
 PredictiveMoment predictiveTarget(const GapCoordinate& coordinate,
                                   double rootVertexCount) {
-    PredictiveMoment result{};
+    PredictiveMoment out{};
     const double mark = intrinsicMark(coordinate);
     const GapCoordinate reference = gapContinuumCoordinate(mark);
 
-    result[0] = mark;
-    for (size_t index = 0; index < kGapCoordinateCount; ++index) {
-        result[index + 1] =
-            rootVertexCount * (coordinate[index] - reference[index]);
+    out[0] = mark;
+    for (size_t i = 0; i < kGapCoordinateCount; ++i) {
+        out[i + 1] = rootVertexCount * (coordinate[i] - reference[i]);
     }
 
-    return result;
+    return out;
 }
 
 // Reference Beta laws
@@ -66,7 +66,7 @@ double weightedKolmogorov(std::vector<std::pair<double, long double>>& values,
     }
 
     long double cumulative = 0.0L;
-    double maximum = 0.0;
+    double maxError = 0.0;
     size_t first = 0;
 
     while (first < values.size()) {
@@ -80,19 +80,19 @@ double weightedKolmogorov(std::vector<std::pair<double, long double>>& values,
         }
 
         const double target = betaCdf(values[first].first, alpha, beta);
-        maximum =
-            std::max(maximum, std::abs(static_cast<double>(cumulative / total) -
-                                       target));
+        const double leftError =
+            std::abs(static_cast<double>(cumulative / total) - target);
+        maxError = std::max(maxError, leftError);
 
         cumulative += weight;
-        maximum =
-            std::max(maximum, std::abs(static_cast<double>(cumulative / total) -
-                                       target));
+        const double rightError =
+            std::abs(static_cast<double>(cumulative / total) - target);
+        maxError = std::max(maxError, rightError);
 
         first = last;
     }
 
-    return maximum;
+    return maxError;
 }
 
 size_t histogramBin(double value, size_t bins) {
@@ -121,18 +121,18 @@ double histogramKolmogorovBound(std::span<const long double> histogram,
     double maximalTargetBin = 0.0;
     double previousTarget = 0.0;
 
-    for (size_t index = 0; index < histogram.size(); ++index) {
-        cumulative += histogram[index];
+    for (size_t i = 0; i < histogram.size(); ++i) {
+        cumulative += histogram[i];
 
-        const double boundary = static_cast<double>(index + 1) /
-                                static_cast<double>(histogram.size());
+        const double boundary =
+            static_cast<double>(i + 1) / static_cast<double>(histogram.size());
         const double target = betaCdf(boundary, alpha, beta);
 
         endpointMaximum = std::max(
             endpointMaximum,
             std::abs(static_cast<double>(cumulative / total) - target));
         maximalEmpiricalBin = std::max(
-            maximalEmpiricalBin, static_cast<double>(histogram[index] / total));
+            maximalEmpiricalBin, static_cast<double>(histogram[i] / total));
         maximalTargetBin = std::max(maximalTargetBin, target - previousTarget);
         previousTarget = target;
     }
@@ -228,17 +228,17 @@ buildCandidatePartitions(const ReferenceDag& graph, const GapNodeState& state,
     const std::vector<double> features =
         makeFeatures(state, stateName, dimension);
     const size_t vertexCount = state.coordinates.size();
-    const size_t maximumClasses = static_cast<size_t>(requested.back());
+    const size_t maxClasses = static_cast<size_t>(requested.back());
 
     std::vector<std::vector<uint32_t>> leaves(1);
     leaves.front().resize(vertexCount);
     std::iota(leaves.front().begin(), leaves.front().end(), uint32_t{0});
 
-    std::vector<PredictivePartition> results;
-    size_t requestedIndex = 0;
+    std::vector<PredictivePartition> out;
+    size_t requestedPos = 0;
 
-    while (leaves.size() <= maximumClasses) {
-        if (leaves.size() == static_cast<size_t>(requested[requestedIndex])) {
+    while (leaves.size() <= maxClasses) {
+        if (leaves.size() == static_cast<size_t>(requested[requestedPos])) {
             PredictivePartition partition;
             partition.state = stateName;
             partition.featureCount = dimension;
@@ -268,19 +268,19 @@ buildCandidatePartitions(const ReferenceDag& graph, const GapNodeState& state,
                     (splitMix64(id ^ kHoldoutDomain) & 1U) == 0U);
             }
 
-            results.push_back(std::move(partition));
-            ++requestedIndex;
-            if (requestedIndex == requested.size()) {
+            out.push_back(std::move(partition));
+            ++requestedPos;
+            if (requestedPos == requested.size()) {
                 break;
             }
         }
 
         size_t selected = leaves.size();
-        for (size_t index = 0; index < leaves.size(); ++index) {
-            if (leaves[index].size() > 1 &&
+        for (size_t i = 0; i < leaves.size(); ++i) {
+            if (leaves[i].size() > 1 &&
                 (selected == leaves.size() ||
-                 leaves[index].size() > leaves[selected].size())) {
-                selected = index;
+                 leaves[i].size() > leaves[selected].size())) {
+                selected = i;
             }
         }
         if (selected == leaves.size()) {
@@ -288,7 +288,7 @@ buildCandidatePartitions(const ReferenceDag& graph, const GapNodeState& state,
         }
 
         size_t splitCoordinate = 0;
-        long double maximalVariance = -1.0L;
+        long double maxVariance = -1.0L;
         for (size_t coordinate = 0; coordinate < dimension; ++coordinate) {
             long double mean = 0.0L;
             for (uint32_t vertex : leaves[selected]) {
@@ -303,37 +303,38 @@ buildCandidatePartitions(const ReferenceDag& graph, const GapNodeState& state,
                 variance += difference * difference;
             }
 
-            if (variance > maximalVariance) {
-                maximalVariance = variance;
+            if (variance > maxVariance) {
+                maxVariance = variance;
                 splitCoordinate = coordinate;
             }
         }
 
-        std::ranges::sort(leaves[selected], [&](uint32_t left, uint32_t right) {
-            const double leftValue =
-                features[left * dimension + splitCoordinate];
-            const double rightValue =
-                features[right * dimension + splitCoordinate];
-            return leftValue < rightValue ||
-                   (leftValue == rightValue && left < right);
-        });
+        std::ranges::sort(leaves[selected],
+                          [&features, dimension,
+                           splitCoordinate](uint32_t left, uint32_t right) {
+                              const double leftValue =
+                                  features[left * dimension + splitCoordinate];
+                              const double rightValue =
+                                  features[right * dimension + splitCoordinate];
+                              return leftValue < rightValue ||
+                                     (leftValue == rightValue && left < right);
+                          });
 
         const size_t midpoint = leaves[selected].size() / 2;
         std::vector<uint32_t> rightLeaf(leaves[selected].data() + midpoint,
                                         leaves[selected].data() +
                                             leaves[selected].size());
         leaves[selected].resize(midpoint);
-        leaves.insert(leaves.begin() +
-                          static_cast<std::ptrdiff_t>(selected + 1),
+        leaves.insert(leaves.begin() + static_cast<ptrdiff_t>(selected + 1),
                       std::move(rightLeaf));
     }
 
-    if (results.size() != requested.size()) {
+    if (out.size() != requested.size()) {
         throw std::runtime_error(
             "could not realize requested predictive class counts");
     }
 
-    return results;
+    return out;
 }
 
 // Conditional-law aggregation and held-out scoring
@@ -360,16 +361,15 @@ ClassPrediction aggregateClasses(const PredictivePartition& partition,
                                  std::span<const long double> occupancy,
                                  std::span<const SourceLaw> laws,
                                  std::span<const long double> histograms,
-                                 size_t maximumBins) {
-    ClassPrediction result;
-    result.classCount = partition.classSizes.size();
-    result.allMass.assign(result.classCount, 0.0L);
-    result.trainingMass.assign(result.classCount, 0.0L);
-    result.allMean.assign(result.classCount * kPredictiveMomentCount, 0.0L);
-    result.trainingMean.assign(result.classCount * kPredictiveMomentCount,
-                               0.0L);
-    result.allHistogram.assign(result.classCount * maximumBins, 0.0L);
-    result.trainingHistogram.assign(result.classCount * maximumBins, 0.0L);
+                                 size_t maxBins) {
+    ClassPrediction out;
+    out.classCount = partition.classSizes.size();
+    out.allMass.assign(out.classCount, 0.0L);
+    out.trainingMass.assign(out.classCount, 0.0L);
+    out.allMean.assign(out.classCount * kPredictiveMomentCount, 0.0L);
+    out.trainingMean.assign(out.classCount * kPredictiveMomentCount, 0.0L);
+    out.allHistogram.assign(out.classCount * maxBins, 0.0L);
+    out.trainingHistogram.assign(out.classCount * maxBins, 0.0L);
 
     for (size_t source = 0; source < occupancy.size(); ++source) {
         const long double mass = occupancy[source];
@@ -378,52 +378,51 @@ ClassPrediction aggregateClasses(const PredictivePartition& partition,
         }
 
         const size_t sourceClass = partition.classIds[source];
-        result.allMass[sourceClass] += mass;
-        result.totalMass += mass;
+        out.allMass[sourceClass] += mass;
+        out.totalMass += mass;
 
         for (size_t coordinate = 0; coordinate < kPredictiveMomentCount;
              ++coordinate) {
             const long double value = laws[source].mean[coordinate];
-            result.allMean[sourceClass * kPredictiveMomentCount + coordinate] +=
+            out.allMean[sourceClass * kPredictiveMomentCount + coordinate] +=
                 mass * value;
-            result.globalAll[coordinate] += static_cast<double>(mass * value);
+            out.globalAll[coordinate] += static_cast<double>(mass * value);
         }
-        for (size_t bin = 0; bin < maximumBins; ++bin) {
-            result.allHistogram[sourceClass * maximumBins + bin] +=
-                mass * histograms[source * maximumBins + bin];
+        for (size_t bin = 0; bin < maxBins; ++bin) {
+            out.allHistogram[sourceClass * maxBins + bin] +=
+                mass * histograms[source * maxBins + bin];
         }
 
         if (partition.training[source] == 0) {
             continue;
         }
 
-        result.trainingMass[sourceClass] += mass;
-        result.totalTrainingMass += mass;
+        out.trainingMass[sourceClass] += mass;
+        out.totalTrainingMass += mass;
         for (size_t coordinate = 0; coordinate < kPredictiveMomentCount;
              ++coordinate) {
             const long double value = laws[source].mean[coordinate];
-            result.trainingMean[sourceClass * kPredictiveMomentCount +
-                                coordinate] += mass * value;
-            result.globalTraining[coordinate] +=
-                static_cast<double>(mass * value);
+            out.trainingMean[sourceClass * kPredictiveMomentCount +
+                             coordinate] += mass * value;
+            out.globalTraining[coordinate] += static_cast<double>(mass * value);
         }
-        for (size_t bin = 0; bin < maximumBins; ++bin) {
-            result.trainingHistogram[sourceClass * maximumBins + bin] +=
-                mass * histograms[source * maximumBins + bin];
+        for (size_t bin = 0; bin < maxBins; ++bin) {
+            out.trainingHistogram[sourceClass * maxBins + bin] +=
+                mass * histograms[source * maxBins + bin];
         }
     }
 
     for (size_t coordinate = 0; coordinate < kPredictiveMomentCount;
          ++coordinate) {
-        result.globalAll[coordinate] /= static_cast<double>(result.totalMass);
-        result.globalTraining[coordinate] =
-            result.totalTrainingMass > 0.0L
-                ? result.globalTraining[coordinate] /
-                      static_cast<double>(result.totalTrainingMass)
+        out.globalAll[coordinate] /= static_cast<double>(out.totalMass);
+        out.globalTraining[coordinate] =
+            out.totalTrainingMass > 0.0L
+                ? out.globalTraining[coordinate] /
+                      static_cast<double>(out.totalTrainingMass)
                 : std::numeric_limits<double>::quiet_NaN();
     }
 
-    return result;
+    return out;
 }
 
 PredictivePosition scorePrediction(int position, int horizon,
@@ -431,22 +430,22 @@ PredictivePosition scorePrediction(int position, int horizon,
                                    std::span<const long double> occupancy,
                                    std::span<const SourceLaw> laws,
                                    std::span<const long double> histograms,
-                                   size_t maximumBins,
+                                   size_t maxBins,
                                    std::span<const int> targetBins) {
     const ClassPrediction classes =
-        aggregateClasses(partition, occupancy, laws, histograms, maximumBins);
+        aggregateClasses(partition, occupancy, laws, histograms, maxBins);
 
-    PredictivePosition result;
-    result.position = position;
-    result.scaledPosition = static_cast<double>(position) / horizon;
-    result.trainingRouteMass = static_cast<double>(classes.totalTrainingMass);
-    result.heldOutRouteMass =
+    PredictivePosition out;
+    out.position = position;
+    out.scaledPosition = static_cast<double>(position) / horizon;
+    out.trainingRouteMass = static_cast<double>(classes.totalTrainingMass);
+    out.heldOutRouteMass =
         static_cast<double>(classes.totalMass - classes.totalTrainingMass);
 
     for (size_t sourceClass = 0; sourceClass < classes.classCount;
          ++sourceClass) {
-        result.occupiedClasses += classes.allMass[sourceClass] > 0.0L ? 1 : 0;
-        result.trainingOccupiedClasses +=
+        out.occupiedClasses += classes.allMass[sourceClass] > 0.0L ? 1 : 0;
+        out.trainingOccupiedClasses +=
             classes.trainingMass[sourceClass] > 0.0L ? 1 : 0;
     }
 
@@ -469,7 +468,7 @@ PredictivePosition scorePrediction(int position, int horizon,
 
         const size_t sourceClass = partition.classIds[source];
         if (partition.classSizes[sourceClass] == 1) {
-            result.singletonRouteMass += static_cast<double>(mass);
+            out.singletonRouteMass += static_cast<double>(mass);
         }
 
         // Exact finite-partition conditional-moment error.
@@ -493,7 +492,7 @@ PredictivePosition scorePrediction(int position, int horizon,
         for (size_t resolution = 0; resolution < targetBins.size();
              ++resolution) {
             const size_t bins = static_cast<size_t>(targetBins[resolution]);
-            const size_t block = maximumBins / bins;
+            const size_t block = maxBins / bins;
             long double cdfDifference = 0.0L;
 
             for (size_t bin = 0; bin < bins; ++bin) {
@@ -502,9 +501,9 @@ PredictivePosition scorePrediction(int position, int horizon,
 
                 for (size_t fine = bin * block; fine < (bin + 1) * block;
                      ++fine) {
-                    observed += histograms[source * maximumBins + fine];
+                    observed += histograms[source * maxBins + fine];
                     prediction +=
-                        classes.allHistogram[sourceClass * maximumBins + fine] /
+                        classes.allHistogram[sourceClass * maxBins + fine] /
                         classes.allMass[sourceClass];
                 }
 
@@ -543,7 +542,7 @@ PredictivePosition scorePrediction(int position, int horizon,
         for (size_t resolution = 0; resolution < targetBins.size();
              ++resolution) {
             const size_t bins = static_cast<size_t>(targetBins[resolution]);
-            const size_t block = maximumBins / bins;
+            const size_t block = maxBins / bins;
             long double cdfDifference = 0.0L;
 
             for (size_t bin = 0; bin < bins; ++bin) {
@@ -552,10 +551,10 @@ PredictivePosition scorePrediction(int position, int horizon,
 
                 for (size_t fine = bin * block; fine < (bin + 1) * block;
                      ++fine) {
-                    observed += histograms[source * maximumBins + fine];
+                    observed += histograms[source * maxBins + fine];
                     prediction +=
-                        classes.trainingHistogram[sourceClass * maximumBins +
-                                                  fine] /
+                        classes
+                            .trainingHistogram[sourceClass * maxBins + fine] /
                         classes.trainingMass[sourceClass];
                 }
 
@@ -570,12 +569,12 @@ PredictivePosition scorePrediction(int position, int horizon,
         }
     }
 
-    result.heldOutCoveredMass = static_cast<double>(heldOutCoveredMass);
+    out.heldOutCoveredMass = static_cast<double>(heldOutCoveredMass);
     for (size_t coordinate = 0; coordinate < kPredictiveMomentCount;
          ++coordinate) {
-        result.exactMomentRmse[coordinate] = std::sqrt(
+        out.exactMomentRmse[coordinate] = std::sqrt(
             static_cast<double>(exactSquared[coordinate] / classes.totalMass));
-        result.heldOutMomentRmse[coordinate] =
+        out.heldOutMomentRmse[coordinate] =
             heldOutCoveredMass > 0.0L
                 ? std::sqrt(static_cast<double>(heldOutSquared[coordinate] /
                                                 heldOutCoveredMass))
@@ -587,36 +586,36 @@ PredictivePosition scorePrediction(int position, int horizon,
     const long double heldOutSquaredTotal =
         std::accumulate(heldOutSquared.begin(), heldOutSquared.end(), 0.0L);
 
-    result.exactMomentR2 =
+    out.exactMomentR2 =
         exactBaseline > 0.0L
             ? 1.0 - static_cast<double>(exactSquaredTotal / exactBaseline)
             : std::numeric_limits<double>::quiet_NaN();
-    result.heldOutMomentR2 =
+    out.heldOutMomentR2 =
         heldOutBaseline > 0.0L
             ? 1.0 - static_cast<double>(heldOutSquaredTotal / heldOutBaseline)
             : std::numeric_limits<double>::quiet_NaN();
 
-    result.distributions.reserve(targetBins.size());
-    for (size_t index = 0; index < targetBins.size(); ++index) {
-        result.distributions.push_back({
-            .targetBins = targetBins[index],
+    out.distributions.reserve(targetBins.size());
+    for (size_t i = 0; i < targetBins.size(); ++i) {
+        out.distributions.push_back({
+            .targetBins = targetBins[i],
             .exactTotalVariation =
-                static_cast<double>(exactTv[index] / classes.totalMass),
-            .exactWasserstein1 = static_cast<double>(exactWasserstein[index] /
-                                                     classes.totalMass),
+                static_cast<double>(exactTv[i] / classes.totalMass),
+            .exactWasserstein1 =
+                static_cast<double>(exactWasserstein[i] / classes.totalMass),
             .heldOutTotalVariation =
                 heldOutCoveredMass > 0.0L
-                    ? static_cast<double>(heldOutTv[index] / heldOutCoveredMass)
+                    ? static_cast<double>(heldOutTv[i] / heldOutCoveredMass)
                     : std::numeric_limits<double>::quiet_NaN(),
             .heldOutWasserstein1 =
                 heldOutCoveredMass > 0.0L
-                    ? static_cast<double>(heldOutWasserstein[index] /
+                    ? static_cast<double>(heldOutWasserstein[i] /
                                           heldOutCoveredMass)
                     : std::numeric_limits<double>::quiet_NaN(),
         });
     }
 
-    return result;
+    return out;
 }
 
 } // namespace
@@ -626,43 +625,41 @@ IntrinsicStateScaling summarizeIntrinsicState(const GapNodeState& state) {
         throw std::invalid_argument("node state must not be empty");
     }
 
-    IntrinsicStateScaling result;
-    result.intrinsicMarkMinimum = std::numeric_limits<double>::infinity();
-    result.intrinsicMarkMaximum = -std::numeric_limits<double>::infinity();
+    IntrinsicStateScaling out;
+    out.intrinsicMarkMinimum = std::numeric_limits<double>::infinity();
+    out.intrinsicMarkMaximum = -std::numeric_limits<double>::infinity();
 
     std::array<long double, kGapCoordinateCount> squared{};
     long double totalSquared = 0.0L;
 
     for (const GapCoordinate& coordinate : state.coordinates) {
         const double mark = intrinsicMark(coordinate);
-        result.intrinsicMarkMinimum =
-            std::min(result.intrinsicMarkMinimum, mark);
-        result.intrinsicMarkMaximum =
-            std::max(result.intrinsicMarkMaximum, mark);
+        out.intrinsicMarkMinimum = std::min(out.intrinsicMarkMinimum, mark);
+        out.intrinsicMarkMaximum = std::max(out.intrinsicMarkMaximum, mark);
 
         const GapCoordinate reference = gapContinuumCoordinate(mark);
-        for (size_t index = 0; index < kGapCoordinateCount; ++index) {
-            const long double residual = coordinate[index] - reference[index];
-            squared[index] += residual * residual;
+        for (size_t i = 0; i < kGapCoordinateCount; ++i) {
+            const long double residual = coordinate[i] - reference[i];
+            squared[i] += residual * residual;
             totalSquared += residual * residual;
         }
     }
 
     const long double count = state.coordinates.size();
     const double rootVertexCount = std::sqrt(static_cast<double>(count));
-    result.transverseResidualRms = std::sqrt(
+    out.transverseResidualRms = std::sqrt(
         static_cast<double>(totalSquared / (count * kGapCoordinateCount)));
-    result.scaledTransverseResidualRms =
-        rootVertexCount * result.transverseResidualRms;
+    out.scaledTransverseResidualRms =
+        rootVertexCount * out.transverseResidualRms;
 
-    for (size_t index = 0; index < kGapCoordinateCount; ++index) {
-        result.coordinateResidualRms[index] =
-            std::sqrt(static_cast<double>(squared[index] / count));
-        result.scaledCoordinateResidualRms[index] =
-            rootVertexCount * result.coordinateResidualRms[index];
+    for (size_t i = 0; i < kGapCoordinateCount; ++i) {
+        out.coordinateResidualRms[i] =
+            std::sqrt(static_cast<double>(squared[i] / count));
+        out.scaledCoordinateResidualRms[i] =
+            rootVertexCount * out.coordinateResidualRms[i];
     }
 
-    return result;
+    return out;
 }
 
 std::vector<PredictivePartition>
@@ -690,17 +687,17 @@ buildPredictivePartitions(const ReferenceDag& graph, const GapNodeState& state,
     constexpr std::array<std::string_view, 3> names{
         "intrinsic_mark", "intrinsic_mark_transverse", "full_six_coordinate"};
 
-    std::vector<PredictivePartition> result;
-    result.reserve(names.size() * requestedClasses.size());
+    std::vector<PredictivePartition> out;
+    out.reserve(names.size() * requestedClasses.size());
 
     for (std::string_view name : names) {
         std::vector<PredictivePartition> candidate =
             buildCandidatePartitions(graph, state, requestedClasses, name);
-        result.insert(result.end(), std::make_move_iterator(candidate.begin()),
-                      std::make_move_iterator(candidate.end()));
+        out.insert(out.end(), std::make_move_iterator(candidate.begin()),
+                   std::make_move_iterator(candidate.end()));
     }
 
-    return result;
+    return out;
 }
 
 RouteScalingResult analyzeRouteScaling(
@@ -711,11 +708,11 @@ RouteScalingResult analyzeRouteScaling(
     double bulkFraction, int referenceBins) {
     const auto started = Clock::now();
 
-    RouteScalingResult result;
-    result.horizon = bridge.p;
-    result.valid = bridge.valid;
-    if (!result.valid) {
-        return result;
+    RouteScalingResult out;
+    out.horizon = bridge.p;
+    out.hasRoutes = bridge.hasRoutes;
+    if (!out.hasRoutes) {
+        return out;
     }
 
     if (bridge.positions.size() != static_cast<size_t>(bridge.p)) {
@@ -726,9 +723,9 @@ RouteScalingResult analyzeRouteScaling(
             "target bins must be nonempty and reference bins at least 16");
     }
 
-    const size_t maximumBins = static_cast<size_t>(targetBins.back());
+    const size_t maxBins = static_cast<size_t>(targetBins.back());
     for (int bins : targetBins) {
-        if (bins < 2 || maximumBins % static_cast<size_t>(bins) != 0) {
+        if (bins < 2 || maxBins % static_cast<size_t>(bins) != 0) {
             throw std::invalid_argument(
                 "target bins must be nested divisors of the maximum");
         }
@@ -745,7 +742,7 @@ RouteScalingResult analyzeRouteScaling(
     const auto marks = graph.latentMarks();
     const auto [bulkFirst, bulkLast] = bulkRange(horizon, bulkFraction);
 
-    // Build the graph-intrinsic target variables once per horizon.
+    // Graph-intrinsic target variables shared across route positions.
     std::vector<PredictiveMoment> canonical(vertexCount);
     std::vector<double> intrinsicMarks(vertexCount);
     for (size_t vertex = 0; vertex < vertexCount; ++vertex) {
@@ -758,11 +755,14 @@ RouteScalingResult analyzeRouteScaling(
     // Dirichlet spacing representation.
     std::vector<long double> occupancy(vertexCount, 0.0L);
     std::vector<std::pair<double, long double>> empirical(vertexCount);
-    result.routeProfile.reserve(static_cast<size_t>(horizon) + 1);
+    const size_t routeLength = static_cast<size_t>(horizon);
+    out.routeProfile.reserve(routeLength + 1);
 
     for (int position = 0; position <= horizon; ++position) {
-        const auto& left = routes.backward[position];
-        const auto& right = routes.forward[horizon - position];
+        const size_t pos = static_cast<size_t>(position);
+        const size_t remaining = static_cast<size_t>(horizon - position);
+        const auto& left = routes.backward[pos];
+        const auto& right = routes.forward[remaining];
 
         long double normalizer = 0.0L;
         for (size_t vertex = 0; vertex < vertexCount; ++vertex) {
@@ -839,13 +839,12 @@ RouteScalingResult analyzeRouteScaling(
             hasMarks ? 2.0 * horizon * profile.latentVariance
                      : std::numeric_limits<double>::quiet_NaN();
 
-        result.routeProfile.push_back(profile);
+        out.routeProfile.push_back(profile);
     }
 
-    // Prepare diagnostics retained across transition positions.
+    // Diagnostics retained across transition positions.
     for (double threshold : thresholds) {
-        result.intrinsicLindeberg.push_back(
-            {.threshold = threshold, .sum = 0.0});
+        out.intrinsicLindeberg.push_back({.threshold = threshold, .sum = 0.0});
     }
     for (const PredictivePartition& partition : partitions) {
         PredictiveClosureResult closure;
@@ -861,7 +860,7 @@ RouteScalingResult analyzeRouteScaling(
                 std::max(closure.largestClass, static_cast<size_t>(size));
         }
 
-        result.predictiveClosure.push_back(std::move(closure));
+        out.predictiveClosure.push_back(std::move(closure));
     }
 
     std::vector<SourceLaw> sourceLaws(vertexCount);
@@ -875,15 +874,17 @@ RouteScalingResult analyzeRouteScaling(
                              canonical.capacity() * sizeof(canonical.front()) +
                              intrinsicMarks.capacity() * sizeof(double) +
                              sourceLaws.capacity() * sizeof(SourceLaw);
-    result.peakBytes = baseBytes;
-    result.spacing.reserve(static_cast<size_t>(horizon));
+    out.peakBytes = baseBytes;
+    out.spacing.reserve(routeLength);
 
     // One shared traversal supplies spacing, jump, and predictive diagnostics.
     for (int position = 0; position < horizon; ++position) {
         const int remaining = horizon - position;
-        const auto& left = routes.backward[position];
-        const auto& right = routes.forward[remaining];
-        const auto& rightPrevious = routes.forward[remaining - 1];
+        const size_t pos = static_cast<size_t>(position);
+        const size_t remainingIndex = static_cast<size_t>(remaining);
+        const auto& left = routes.backward[pos];
+        const auto& right = routes.forward[remainingIndex];
+        const auto& rightPrevious = routes.forward[remainingIndex - 1];
 
         long double occupancyNormalizer = 0.0L;
         for (size_t vertex = 0; vertex < vertexCount; ++vertex) {
@@ -896,11 +897,11 @@ RouteScalingResult analyzeRouteScaling(
 
         const bool inBulk = position >= bulkFirst && position <= bulkLast;
         if (inBulk) {
-            sourceHistograms.assign(vertexCount * maximumBins, 0.0L);
+            sourceHistograms.assign(vertexCount * maxBins, 0.0L);
             std::ranges::fill(sourceLaws, SourceLaw{});
-            result.peakBytes = std::max(
-                result.peakBytes,
-                baseBytes + sourceHistograms.capacity() * sizeof(long double));
+            out.peakBytes = std::max(out.peakBytes,
+                                     baseBytes + sourceHistograms.capacity() *
+                                                     sizeof(long double));
         }
 
         std::ranges::fill(gapHistogram, 0.0L);
@@ -922,7 +923,7 @@ RouteScalingResult analyzeRouteScaling(
             }
 
             const long double denominator =
-                routes.forwardScales[remaining] * right[source];
+                routes.forwardScales[remainingIndex] * right[source];
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
                  ++edge) {
                 const size_t target = targets[edge];
@@ -938,19 +939,19 @@ RouteScalingResult analyzeRouteScaling(
                 const double markDifference =
                     intrinsicMarks[target] - intrinsicMarks[source];
                 const double meanMarkDifference =
-                    bridge.positions[position].mean[1] -
-                    bridge.positions[position].mean[0];
+                    bridge.positions[pos].mean[1] -
+                    bridge.positions[pos].mean[0];
                 const double scaledCentered =
                     rootTwoHorizon * (markDifference - meanMarkDifference);
 
-                result.macroscopicMaximalJump =
-                    std::max(result.macroscopicMaximalJump,
+                out.macroscopicMaximalJump =
+                    std::max(out.macroscopicMaximalJump,
                              horizon * std::abs(markDifference));
-                result.intrinsicFluctuationMaximalJump =
-                    std::max(result.intrinsicFluctuationMaximalJump,
+                out.intrinsicFluctuationMaximalJump =
+                    std::max(out.intrinsicFluctuationMaximalJump,
                              std::abs(scaledCentered));
 
-                for (ScaledLindebergTail& tail : result.intrinsicLindeberg) {
+                for (ScaledLindebergTail& tail : out.intrinsicLindeberg) {
                     if (std::abs(scaledCentered) > tail.threshold) {
                         tail.sum += static_cast<double>(flow * scaledCentered *
                                                         scaledCentered);
@@ -985,9 +986,9 @@ RouteScalingResult analyzeRouteScaling(
                             static_cast<double>(probability) *
                             canonical[target][coordinate];
                     }
-                    sourceHistograms[source * maximumBins +
+                    sourceHistograms[source * maxBins +
                                      histogramBin(intrinsicMarks[target],
-                                                  maximumBins)] += probability;
+                                                  maxBins)] += probability;
                 }
             }
         }
@@ -1055,21 +1056,19 @@ RouteScalingResult analyzeRouteScaling(
             spacing.sourceFractionCorrelation = nan;
         }
 
-        result.spacing.push_back(spacing);
+        out.spacing.push_back(spacing);
 
         if (inBulk) {
-            for (size_t index = 0; index < partitions.size(); ++index) {
-                result.predictiveClosure[index].positions.push_back(
-                    scorePrediction(position, horizon, partitions[index],
-                                    occupancy, sourceLaws, sourceHistograms,
-                                    maximumBins, targetBins));
+            for (size_t i = 0; i < partitions.size(); ++i) {
+                out.predictiveClosure[i].positions.push_back(scorePrediction(
+                    position, horizon, partitions[i], occupancy, sourceLaws,
+                    sourceHistograms, maxBins, targetBins));
             }
         }
     }
 
-    result.seconds =
-        std::chrono::duration<double>(Clock::now() - started).count();
-    return result;
+    out.seconds = std::chrono::duration<double>(Clock::now() - started).count();
+    return out;
 }
 
 size_t runRouteScalingSelfTests() {
@@ -1111,7 +1110,7 @@ size_t runRouteScalingSelfTests() {
         analyzeRouteScaling(graph, state, routes, bridge, partitions,
                             targetBins, thresholds, 0.2, 32);
 
-    if (!scaling.valid || scaling.routeProfile.size() != 4 ||
+    if (!scaling.hasRoutes || scaling.routeProfile.size() != 4 ||
         scaling.spacing.size() != 3 ||
         scaling.predictiveClosure.size() != partitions.size()) {
         throw std::runtime_error("route scaling self-test: analysis shape");

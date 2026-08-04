@@ -3,8 +3,6 @@
 
 from __future__ import annotations
 
-import math
-
 import sympy as sp
 
 
@@ -105,4 +103,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

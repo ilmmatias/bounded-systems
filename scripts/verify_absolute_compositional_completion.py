@@ -64,22 +64,44 @@ def main() -> None:
     # Pointwise flattening for the three continuous payload parts.
     incoming = [c0, c1, c2]
     outgoing = [r0, r1, r2]
-    variables = [x, y, z]
-    for i, variable in enumerate(variables):
-        k_in = sp.Rational(1, 2) + sp.Rational(beta.numerator, beta.denominator) * (1 - incoming[i]) / sp.Rational(d_mass.numerator, d_mass.denominator)
-        k_out = sp.Rational(1, 2) + sp.Rational(beta.numerator, beta.denominator) * (1 - outgoing[i]) / sp.Rational(c_mass.numerator, c_mass.denominator)
-        total_in = sp.Rational(source[i].numerator, source[i].denominator) + sp.Rational(beta.numerator, beta.denominator) * incoming[i] + sp.Rational(d_mass.numerator, d_mass.denominator) * k_in
-        total_out = sp.Rational(sink[i].numerator, sink[i].denominator) + sp.Rational(beta.numerator, beta.denominator) * outgoing[i] + sp.Rational(c_mass.numerator, c_mass.denominator) * k_out
-        assert sp.simplify(total_in - sp.Rational(expected_pairs[f"L{i}"][0].numerator, expected_pairs[f"L{i}"][0].denominator)) == 0
-        assert sp.simplify(total_out - sp.Rational(expected_pairs[f"L{i}"][1].numerator, expected_pairs[f"L{i}"][1].denominator)) == 0
+    for i in range(3):
+        k_in = (
+            sp.Rational(1, 2)
+            + sp.Rational(beta.numerator, beta.denominator)
+            * (1 - incoming[i])
+            / sp.Rational(d_mass.numerator, d_mass.denominator)
+        )
+        k_out = (
+            sp.Rational(1, 2)
+            + sp.Rational(beta.numerator, beta.denominator)
+            * (1 - outgoing[i])
+            / sp.Rational(c_mass.numerator, c_mass.denominator)
+        )
+        total_in = (
+            sp.Rational(source[i].numerator, source[i].denominator)
+            + sp.Rational(beta.numerator, beta.denominator) * incoming[i]
+            + sp.Rational(d_mass.numerator, d_mass.denominator) * k_in
+        )
+        total_out = (
+            sp.Rational(sink[i].numerator, sink[i].denominator)
+            + sp.Rational(beta.numerator, beta.denominator) * outgoing[i]
+            + sp.Rational(c_mass.numerator, c_mass.denominator) * k_out
+        )
+        expected_in = sp.Rational(
+            expected_pairs[f"L{i}"][0].numerator,
+            expected_pairs[f"L{i}"][0].denominator,
+        )
+        assert sp.simplify(total_in - expected_in) == 0
+        expected_out = sp.Rational(
+            expected_pairs[f"L{i}"][1].numerator,
+            expected_pairs[f"L{i}"][1].denominator,
+        )
+        assert sp.simplify(total_out - expected_out) == 0
 
     # The scaled middle-part path volume and shortcut normalization.
     middle_mass = sp.Rational(1, 36)
-    path_volume = sp.simplify(middle_mass * sp.integrate(
-        sp.Piecewise((1, sp.And(x < y, y < z)), (0, True)),
-        (y, 0, 1),
-    ))
-    # SymPy does not simplify symbolic inequalities reliably; verify on ordered region directly.
+    # SymPy does not simplify symbolic inequalities reliably on this region.
+    # Verify the ordered-region integral directly.
     ordered_path_volume = middle_mass * (z - x)
     assert sp.simplify(36 * ordered_path_volume - (z - x)) == 0
 
@@ -91,4 +113,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

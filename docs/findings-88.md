@@ -246,7 +246,7 @@ Hence every nonzero perturbation satisfies
 The $L^2$ norm is invariant under weak isomorphism, so $B$ cannot be weakly
 isomorphic to $A$.
 
-# 6. Consequence for route-based selection
+# 6. Local fibers of finite route data
 
 No finite collection of directed route densities can force the standalone gap
 kernel, even after the complete incoming and outgoing degree functions have

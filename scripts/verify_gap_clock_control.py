@@ -129,10 +129,10 @@ def run_control(path: Path, threads: int) -> dict[str, Any]:
         str(path),
         "--overwrite",
     ]
-    result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+    proc = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
 
-    if result.returncode != 0:
-        raise AssertionError(result.stderr)
+    if proc.returncode != 0:
+        raise AssertionError(proc.stderr)
 
     return load(path)
 
@@ -179,8 +179,14 @@ def verify_output(output: dict[str, Any], checks: Checks) -> None:
     for group in output["scale_groups"]:
         expected_paths = len(config["base_horizons"]) * config["paths_per_horizon"] // 2
         expected_steps = expected_paths * len(config["positions"])
-        checks.require(group["training_paths"] == expected_paths, "training path count differs")
-        checks.require(group["held_out_paths"] == expected_paths, "holdout path count differs")
+        checks.require(
+            group["training_paths"] == expected_paths,
+            "training path count differs",
+        )
+        checks.require(
+            group["held_out_paths"] == expected_paths,
+            "holdout path count differs",
+        )
         checks.require(
             group["held_out_transitions"] == expected_steps,
             "holdout transition count differs",
@@ -200,19 +206,38 @@ def verify_output(output: dict[str, Any], checks: Checks) -> None:
         for target in ("remaining_fraction", "route_time_scaled"):
             scores = group["log_score"][target]
 
-            for state in ("oracle", "clock_free_local", "normalized_clock", "exact_augmented"):
+            for state in (
+                "oracle",
+                "clock_free_local",
+                "normalized_clock",
+                "exact_augmented",
+            ):
                 finite_summary(scores[state], f"{target} {state}", checks)
 
             exact = scores["paired_differences"]["exact_augmented_minus_oracle"]
             checks.require(exact["mean"] == 0.0, f"{target}: exact state misses oracle")
-            checks.require(exact["standard_error"] == 0.0, f"{target}: exact score varies")
+            checks.require(
+                exact["standard_error"] == 0.0,
+                f"{target}: exact score varies",
+            )
 
             w1 = group["wasserstein"][target]
-            checks.require([row["x_bins"] for row in w1] == [64, 128, 256], "W1 refinements differ")
+            checks.require(
+                [row["x_bins"] for row in w1] == [64, 128, 256],
+                "W1 refinements differ",
+            )
 
             for row in w1:
-                finite_summary(row["clock_free_to_oracle"], f"{target} local W1", checks)
-                finite_summary(row["normalized_clock_to_oracle"], f"{target} clock W1", checks)
+                finite_summary(
+                    row["clock_free_to_oracle"],
+                    f"{target} local W1",
+                    checks,
+                )
+                finite_summary(
+                    row["normalized_clock_to_oracle"],
+                    f"{target} clock W1",
+                    checks,
+                )
                 checks.require(
                     row["exact_augmented_to_oracle"]["mean"] == 0.0,
                     f"{target}: exact W1 is nonzero",
@@ -220,8 +245,14 @@ def verify_output(output: dict[str, Any], checks: Checks) -> None:
 
             local = [row["clock_free_to_oracle"]["mean"] for row in w1]
             clock = [row["normalized_clock_to_oracle"]["mean"] for row in w1]
-            checks.require(max(local) - min(local) < 0.01, f"{target}: local W1 is not stable")
-            checks.require(max(clock) - min(clock) < 0.01, f"{target}: clock W1 is not stable")
+            checks.require(
+                max(local) - min(local) < 0.01,
+                f"{target}: local W1 is not stable",
+            )
+            checks.require(
+                max(clock) - min(clock) < 0.01,
+                f"{target}: clock W1 is not stable",
+            )
 
         history = group["history_positive_control"]
         checks.require(len(history) == 27, "history refinement grid differs")
@@ -260,4 +291,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -6,6 +6,5 @@
 #include <span>
 
 long peakRssKib();
-void writeGapOutput(const GapOptions& options,
-                    std::span<const GapSample> samples, size_t threads,
-                    double wallSeconds);
+void writeGapOutput(const GapOptions& opt, std::span<const GapSample> samples,
+                    size_t threads, double wallSeconds);

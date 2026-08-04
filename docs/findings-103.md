@@ -402,8 +402,8 @@ stated samples.
 
 # 7. Finite route coefficients
 
-Selected longest-horizon route-count results are shown below. The finite
-reference ratio is
+The selected longest-horizon route-count results use the finite reference
+ratio
 
 ```math
 \frac{N-p-1}{(2p+2)(2p+3)}.
@@ -434,8 +434,8 @@ b_{8192,32}={}&(
 \end{aligned}
 ```
 
-At the same point, the covariance estimate is displayed below. Parenthesized
-entries are standard errors.
+At the same point, the following covariance estimate uses parenthesized
+standard errors.
 
 ```math
 \begin{pmatrix}
@@ -643,7 +643,7 @@ leading orders $p^{-1}$, $p^{-2}$, and $p^{-3}$. These orders follow from the
 route law rather than the measured mixed covariance. Over
 $p=4,8,16,32$, the exact spacing factors have effective decay powers
 $0.90849$, $1.68712$, and $2.31044$, instead of their limiting powers $1$,
-$2$, and $3$. This finite-range distinction enters the comparisons below.
+$2$, and $3$. This finite-range distinction enters the subsequent comparisons.
 
 For $r/p\to s\in(0,1)$,
 

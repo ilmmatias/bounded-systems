@@ -15,15 +15,9 @@ struct StableWlResult {
     int separationRound = 0;
 };
 
-class WlProfile {
-  public:
-    OneRoundKey oneRoundKey(const Graph& graph) const;
+OneRoundKey oneRoundWlKey(const Graph& graph);
 
-    StableWlResult stabilize(std::span<const Graph> graphs) const;
-
-  private:
-    int initialColor(const Graph& graph, int source, int target) const;
-};
+StableWlResult stabilizeWl(std::span<const Graph> graphs);
 
 int generateWlScan();
 int generateWlReduction(int vertexCount,

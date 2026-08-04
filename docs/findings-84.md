@@ -260,7 +260,7 @@ boundary polynomial lift turns it into finitely many ordinary induced-DAG
 coordinates. Zero energy forces almost every extremal component to equal the
 completed target. The central law is therefore the selected extremal sector.
 
-# 6. Consequences
+# 6. Relations preserved by the completion
 
 The theorem removes finite decorations without requiring the payload itself
 to have constant degrees, finite rank, finite range, or finitely many rooted

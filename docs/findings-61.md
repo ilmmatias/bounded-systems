@@ -14,9 +14,9 @@ For a coherent profile $\mu=(\mu_n)_{n\geq0}$, define the level-$N$ truncation
 ```
 
 By `findings-59.md`, this finite vector determines every upward
-transition through level $N-1$ exactly. The estimates below add quantitative
-stability and show that the truncated transition laws can be recovered
-graph-intrinsically from one large sample in an extremal sector.
+transition through level $N-1$ exactly. The following estimates add
+quantitative stability and show that the truncated transition laws can be
+recovered graph-intrinsically from one large sample in an extremal sector.
 
 # 2. A metric on projective profiles
 

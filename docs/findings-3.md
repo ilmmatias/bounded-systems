@@ -1,4 +1,4 @@
-# 1. Consequences for infinite systems
+# 1. Infinite-system structure
 
 Let
 
@@ -26,7 +26,7 @@ permits
 \qquad\text{or an uncountable cardinal.}
 ```
 
-The constructions below do not depend on which of these cardinalities occurs.
+The constructions apply at each of these cardinalities.
 
 ## Reachability as a strict partial order
 
@@ -38,8 +38,8 @@ u\prec v
 
 when a positive-length finite directed path runs from $u$ to $v$. Acyclicity
 makes this relation irreflexive, and path concatenation makes it transitive. The
-direct edge relation need not be transitive, since a shortcut edge may coexist
-with a longer path having the same endpoints.
+direct edge relation may fail to be transitive because a shortcut edge can
+coexist with a longer path having the same endpoints.
 
 ## Information lost under passage to reachability
 
@@ -57,15 +57,14 @@ representation of it.
 
 ## Infinite chains and local finiteness
 
-Acyclicity forbids directed cycles but does not exclude an infinite chain,
+Acyclicity permits an infinite chain while forbidding directed cycles,
 
 ```math
 v_0\to v_1\to v_2\to\cdots.
 ```
 
-It therefore implies neither finite height nor the existence of a source or
-sink. It also does not imply well-foundedness, bounded degree, or local
-finiteness.
+An acyclic quiver can therefore have infinite height, lack both sources and
+sinks, and fail to be well founded, bounded degree, or locally finite.
 
 ## Path length as compositional depth
 
@@ -75,10 +74,10 @@ For a path $p$, the length
 |p|=k
 ```
 
-records the number of primitive channels in the composition. It is a
-compositional depth and is not identified with an external time parameter. The
-definition also permits mutually noncommunicating components; strict
-endogeneity does not imply connectivity.
+records the number of primitive channels in the composition. It measures
+compositional depth independently of any external time parameter. The
+definition also permits mutually noncommunicating components, so a strictly
+endogenous system may be disconnected.
 
 # 2. The path category
 
@@ -108,7 +107,7 @@ the definition of a bounded system.
 
 # 3. The algebraic path algebra
 
-Over a scalar field, taken below to be $\mathbb C$, define
+Over the scalar field $\mathbb C$, define
 
 ```math
 \mathbb C[G]=

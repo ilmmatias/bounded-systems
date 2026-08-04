@@ -13,7 +13,7 @@ The script verifies:
 from __future__ import annotations
 
 from fractions import Fraction
-from itertools import combinations, product
+from itertools import product
 from math import comb
 import random
 
@@ -214,4 +214,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

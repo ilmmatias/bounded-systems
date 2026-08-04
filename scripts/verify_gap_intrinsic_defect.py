@@ -45,7 +45,7 @@ def main() -> None:
 
     hxz = hxy.subs({x: x, y: z}, simultaneous=True)
     hxpz = hxy.subs({x: xp, y: z}, simultaneous=True)
-    lower = sp.Max(x, xp)
+
     # Split the square into x < xp and double by symmetry.
     gram = sp.integrate(sp.expand(hxz * hxpz), (z, xp, 1))
     gram_norm = 2 * sp.integrate(
@@ -59,4 +59,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

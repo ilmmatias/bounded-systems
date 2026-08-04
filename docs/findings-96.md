@@ -124,7 +124,7 @@ The gap Gram defect is realized by the simple-pattern expansion described in
 Consequently, the regular selector is finite in the ordinary central-DAG
 pattern algebra.
 
-# 4. Terminal selection consequence
+# 4. Selection on the regular stratum
 
 Let $\mathcal E_{\mathrm{reg}}$ be the sum of the four nonnegative forcing
 defects, with the edge-density term squared. A terminal Gibbs weight
@@ -139,8 +139,7 @@ selects the gap sector among endpoint sequences whose limiting signed degree
 coordinate remains in the regular stratum, provided the inverse temperature
 dominates the endpoint entropy as in `findings-68.md`.
 
-The resulting harmonic up law is then reconstructed from the selected
-boundary profile; it is not appended as an independent transition rule.
+The selected boundary profile then determines the harmonic up law.
 
 Exact symbolic calculations reproduce the target identities, exclude the
 finite atomic competitors, and confirm the full forcing chain on affine and

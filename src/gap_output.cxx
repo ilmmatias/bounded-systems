@@ -23,7 +23,8 @@ void printText(std::ostream& out, std::string_view text) {
 void printString(std::ostream& out, std::string_view text) {
     printText(out, "\"");
 
-    for (const unsigned char byte : text) {
+    for (char ch : text) {
+        const auto byte = static_cast<uint8_t>(ch);
         switch (byte) {
         case '"':
             printText(out, "\\\"");
@@ -72,11 +73,11 @@ template <typename Range>
 void printNumbers(std::ostream& out, const Range& values) {
     printText(out, "[");
 
-    for (size_t index = 0; index < values.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
-        printNumber(out, static_cast<double>(values[index]));
+        printNumber(out, static_cast<double>(values[i]));
     }
 
     printText(out, "]");
@@ -86,11 +87,11 @@ template <typename Range>
 void printScaledNumbers(std::ostream& out, const Range& values, double scale) {
     printText(out, "[");
 
-    for (size_t index = 0; index < values.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
-        printNumber(out, scale * static_cast<double>(values[index]));
+        printNumber(out, scale * static_cast<double>(values[i]));
     }
 
     printText(out, "]");
@@ -100,11 +101,11 @@ template <typename Range>
 void printIntegers(std::ostream& out, const Range& values) {
     printText(out, "[");
 
-    for (size_t index = 0; index < values.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
-        std::print(out, "{}", values[index]);
+        std::print(out, "{}", values[i]);
     }
 
     printText(out, "]");
@@ -117,7 +118,7 @@ void printCount(std::ostream& out, long double logCount) {
     if (std::isfinite(logCount)) {
         constexpr long double logTen = 2.3025850929940456840179914546843642L;
         const long double exponentValue = std::floor(logCount / logTen);
-        const auto exponent = static_cast<long long>(exponentValue);
+        const auto exponent = static_cast<int64_t>(exponentValue);
         const long double mantissa =
             std::exp(logCount - exponentValue * logTen);
 
@@ -205,32 +206,32 @@ void printGraph(std::ostream& out, const GapSample& sample) {
     printNumbers(out, sample.modes);
     printText(out, R"(,"route_calibration":[)");
 
-    for (size_t index = 0; index < sample.calibration.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < sample.calibration.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const RouteCalibration& check = sample.calibration[index];
-        std::print(out, R"({{"length":{},"route_count":)", check.length);
-        printCount(out, check.logCount);
+        const RouteCalibration& calibration = sample.calibration[i];
+        std::print(out, R"({{"length":{},"route_count":)", calibration.length);
+        printCount(out, calibration.logCount);
         printText(out, R"(,"path_homomorphism_density":)");
-        printNumber(out, check.pathDensity);
+        printNumber(out, calibration.pathDensity);
         printText(out, R"(,"path_homomorphism_target":)");
-        printNumber(out, check.pathTarget);
+        printNumber(out, calibration.pathTarget);
         printText(out, R"(,"path_homomorphism_error":)");
-        printNumber(out, check.pathDensity - check.pathTarget);
+        printNumber(out, calibration.pathDensity - calibration.pathTarget);
         printText(out, R"(,"subset_route_mean":)");
-        printNumber(out, check.routeMean);
+        printNumber(out, calibration.routeMean);
         printText(out, R"(,"subset_route_target":)");
-        printNumber(out, check.routeTarget);
+        printNumber(out, calibration.routeTarget);
         printText(out, R"(,"subset_route_error":)");
-        printNumber(out, check.routeMean - check.routeTarget);
+        printNumber(out, calibration.routeMean - calibration.routeTarget);
         printText(out, R"(,"scaled_route_fluctuation":)");
-        printNumber(out, check.scaledFluctuation);
+        printNumber(out, calibration.scaledFluctuation);
         printText(out, R"(,"leading_mode_prediction":)");
-        printNumber(out, check.modePrediction);
+        printNumber(out, calibration.modePrediction);
         printText(out, R"(,"leading_mode_residual":)");
-        printNumber(out, check.modeResidual);
+        printNumber(out, calibration.modeResidual);
         printText(out, "}");
     }
 
@@ -256,12 +257,12 @@ void printClosure(std::ostream& out, const ClosureResult& closure) {
     printNumber(out, closure.plateauDefect);
     printText(out, R"(,"positions":[)");
 
-    for (size_t index = 0; index < closure.positions.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < closure.positions.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const ClosurePosition& position = closure.positions[index];
+        const ClosurePosition& position = closure.positions[i];
         std::print(out, R"({{"position":{},"occupied_class_count":{})",
                    position.position, position.occupiedClasses);
         printText(out, R"(,"singleton_route_mass":)");
@@ -295,12 +296,12 @@ void printPredictiveClosure(std::ostream& out,
     printIntegers(out, closure.classSizes);
     printText(out, R"(,"positions":[)");
 
-    for (size_t index = 0; index < closure.positions.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < closure.positions.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const PredictivePosition& position = closure.positions[index];
+        const PredictivePosition& position = closure.positions[i];
         std::print(out,
                    R"({{"position":{},"normalized_position":)"
                    R"({},"occupied_classes":{},)"
@@ -354,12 +355,12 @@ void printPredictiveClosure(std::ostream& out,
 void printScaling(std::ostream& out, const RouteScalingResult& scaling) {
     printText(out, R"(,"continuum_scaling":{"route_profile":[)");
 
-    for (size_t index = 0; index < scaling.routeProfile.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < scaling.routeProfile.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const RouteProfilePosition& profile = scaling.routeProfile[index];
+        const RouteProfilePosition& profile = scaling.routeProfile[i];
         std::print(out, R"({{"position":{},"normalized_position":)",
                    profile.position);
         printNumber(out, profile.scaledPosition);
@@ -393,12 +394,12 @@ void printScaling(std::ostream& out, const RouteScalingResult& scaling) {
     }
 
     printText(out, R"(],"spacing":[)");
-    for (size_t index = 0; index < scaling.spacing.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < scaling.spacing.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const RouteSpacingPosition& spacing = scaling.spacing[index];
+        const RouteSpacingPosition& spacing = scaling.spacing[i];
         std::print(out,
                    R"({{"position":{},"remaining_edges":{},)"
                    R"("gap_mean":)",
@@ -434,24 +435,24 @@ void printScaling(std::ostream& out, const RouteScalingResult& scaling) {
     printText(out, R"(,"sqrt_2p_centered_intrinsic_maximum":)");
     printNumber(out, scaling.intrinsicFluctuationMaximalJump);
     printText(out, R"(,"lindeberg_sums":[)");
-    for (size_t index = 0; index < scaling.intrinsicLindeberg.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < scaling.intrinsicLindeberg.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
         printText(out, R"({"threshold":)");
-        printNumber(out, scaling.intrinsicLindeberg[index].threshold);
+        printNumber(out, scaling.intrinsicLindeberg[i].threshold);
         printText(out, R"(,"sum":)");
-        printNumber(out, scaling.intrinsicLindeberg[index].sum);
+        printNumber(out, scaling.intrinsicLindeberg[i].sum);
         printText(out, "}");
     }
     printText(out, "]}");
 
     printText(out, R"(,"predictive_closure":[)");
-    for (size_t index = 0; index < scaling.predictiveClosure.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < scaling.predictiveClosure.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
-        printPredictiveClosure(out, scaling.predictiveClosure[index]);
+        printPredictiveClosure(out, scaling.predictiveClosure[i]);
     }
 
     printText(out, R"(],"analysis_seconds":)");
@@ -460,80 +461,80 @@ void printScaling(std::ostream& out, const RouteScalingResult& scaling) {
 }
 
 void printHorizon(std::ostream& out, const GapSample& sample,
-                  const HorizonResult& result,
+                  const HorizonResult& horizon,
                   const RouteScalingResult& scaling) {
     printText(out, R"({"schema":"bounded-systems.gap-horizon.v2")");
     std::print(out, R"(,"sample_index":{})", sample.index);
     std::print(out, R"(,"sample_seed":"{}")", sample.seed);
     std::print(out, R"(,"vertices":{})", sample.vertexCount);
     std::print(out, R"(,"edges":{})", sample.edgeCount);
-    std::print(out, R"(,"horizon":{})", result.p);
-    std::print(out, R"(,"has_routes":{})", result.valid);
+    std::print(out, R"(,"horizon":{})", horizon.p);
+    std::print(out, R"(,"has_routes":{})", horizon.hasRoutes);
 
     printText(out, R"(,"route_count":)");
-    printCount(out, result.logCount);
+    printCount(out, horizon.logCount);
     printText(out, R"(,"next_route_count":)");
-    printCount(out, result.logNextCount);
+    printCount(out, horizon.logNextCount);
     printText(out, R"(,"route_growth_ratio":)");
-    printNumber(out, result.growth);
+    printNumber(out, horizon.growth);
     printText(out, R"(,"log_route_growth_ratio":)");
-    printNumber(out, result.logGrowth);
+    printNumber(out, horizon.logGrowth);
     printText(out, R"(,"expected_count_ratio":)");
-    printNumber(out, result.expectedGrowth);
+    printNumber(out, horizon.expectedGrowth);
     printText(out, R"(,"count_ratio_relative_error":)");
-    if (result.expectedGrowth > 0.0) {
-        printNumber(out, result.growth / result.expectedGrowth - 1.0);
+    if (horizon.expectedGrowth > 0.0) {
+        printNumber(out, horizon.growth / horizon.expectedGrowth - 1.0);
     } else {
         printText(out, "null");
     }
 
     printText(out, R"(,"audits":{"max_flow_relative_error":)");
-    printNumber(out, result.maxFlowError);
+    printNumber(out, horizon.maxFlowError);
     printText(out, R"(,"mean_flow_relative_error":)");
-    printNumber(out, result.meanFlowError);
+    printNumber(out, horizon.meanFlowError);
     printText(out, R"(,"max_conditional_row_error":)");
-    printNumber(out, result.maxRowError);
+    printNumber(out, horizon.maxRowError);
     printText(out, R"(,"max_forward_backward_log_error":)");
     printNumber(out, sample.maxLogError);
     printText(out, "}");
 
     printText(out, R"(,"mean_increment":)");
-    printNumbers(out, result.mean);
+    printNumbers(out, horizon.mean);
     printText(out, R"(,"raw_second_upper":)");
-    printNumbers(out, result.rawSecond);
+    printNumbers(out, horizon.rawSecond);
     printText(out, R"(,"covariance_upper":)");
-    printNumbers(out, result.covariance);
+    printNumbers(out, horizon.covariance);
     printText(out, R"(,"covariance_decomposition":{"within_position_upper":)");
-    printNumbers(out, result.withinPositionCovariance);
+    printNumbers(out, horizon.withinPositionCovariance);
     printText(out, R"(,"between_position_upper":)");
-    printNumbers(out, result.betweenPositionCovariance);
+    printNumbers(out, horizon.betweenPositionCovariance);
     printText(out, R"(,"within_position_trace":)");
-    printNumber(out, result.withinCovarianceTrace);
+    printNumber(out, horizon.withinCovarianceTrace);
     printText(out, R"(,"between_position_trace":)");
-    printNumber(out, result.betweenCovarianceTrace);
+    printNumber(out, horizon.betweenCovarianceTrace);
     printText(out, R"(,"mixed_trace":)");
-    printNumber(out, result.timeScale);
+    printNumber(out, horizon.timeScale);
     printText(out, R"(,"max_reconstruction_error":)");
-    printNumber(out, result.covarianceDecompositionError);
+    printNumber(out, horizon.covarianceDecompositionError);
     printText(out, "}");
     printText(out, R"(,"raw_third_symmetric":)");
-    printNumbers(out, result.rawThird);
+    printNumbers(out, horizon.rawThird);
     printText(out, R"(,"centered_third_symmetric":)");
-    printNumbers(out, result.centeredThird);
+    printNumbers(out, horizon.centeredThird);
     printText(out, R"(,"within_position_centered_third_symmetric":)");
-    printNumbers(out, result.withinPositionCenteredThird);
+    printNumbers(out, horizon.withinPositionCenteredThird);
     printText(out, R"(,"within_position_centered_third_norm":)");
-    printNumber(out, result.withinPositionThirdNorm);
+    printNumber(out, horizon.withinPositionThirdNorm);
     printText(out, R"(,"maximal_six_coordinate_jump":)");
-    printNumber(out, result.maxJump);
+    printNumber(out, horizon.maxJump);
 
     printText(out, R"(,"raw_jump_tails":[)");
-    for (size_t index = 0; index < result.tails.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < horizon.tails.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const TailResult& tail = result.tails[index];
+        const TailResult& tail = horizon.tails[i];
         printText(out, R"({"threshold":)");
         printNumber(out, tail.threshold);
         printText(out, R"(,"second_moment_tail":)");
@@ -543,34 +544,34 @@ void printHorizon(std::ostream& out, const GapSample& sample,
     printText(out, "]");
 
     std::print(out, R"(,"bulk":{{"first_position":{},"last_position":{})",
-               result.bulkFirst, result.bulkLast);
+               horizon.bulkFirst, horizon.bulkLast);
     printText(out, R"(,"max_p_drift_curve_deviation":)");
-    printNumber(out, result.driftPlateau);
+    printNumber(out, horizon.driftPlateau);
     printText(out, R"(,"max_p2_covariance_curve_deviation":)");
-    printNumber(out, result.covariancePlateau);
+    printNumber(out, horizon.covariancePlateau);
     printText(out, R"(,"scaled_coefficient_curve_deviation":)");
-    printNumber(out, result.plateauDefect);
+    printNumber(out, horizon.plateauDefect);
     printText(out, "}");
 
     printText(out, R"(,"positions":[)");
-    for (size_t index = 0; index < result.positions.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < horizon.positions.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
 
-        const PositionResult& position = result.positions[index];
+        const PositionResult& position = horizon.positions[i];
         std::print(out, R"({{"position":{},"normalized_position":)",
                    position.position);
         printNumber(out, position.scaledPosition);
         printText(out, R"(,"mean_increment":)");
         printNumbers(out, position.mean);
         printText(out, R"(,"p_mean_increment":)");
-        printScaledNumbers(out, position.mean, static_cast<double>(result.p));
+        printScaledNumbers(out, position.mean, static_cast<double>(horizon.p));
         printText(out, R"(,"covariance_upper":)");
         printNumbers(out, position.covariance);
         printText(out, R"(,"p2_covariance_upper":)");
         printScaledNumbers(out, position.covariance,
-                           static_cast<double>(result.p) * result.p);
+                           static_cast<double>(horizon.p) * horizon.p);
         printText(out, R"(,"covariance_trace":)");
         printNumber(out, position.variance);
         printText(out, R"(,"flow_relative_error":)");
@@ -582,37 +583,37 @@ void printHorizon(std::ostream& out, const GapSample& sample,
     printText(out, "]");
 
     printText(out, R"(,"legacy_uniform_partition_closure":[)");
-    for (size_t index = 0; index < result.closure.size(); ++index) {
-        if (index != 0) {
+    for (size_t i = 0; i < horizon.closure.size(); ++i) {
+        if (i != 0) {
             printText(out, ",");
         }
-        printClosure(out, result.closure[index]);
+        printClosure(out, horizon.closure[i]);
     }
     printText(out, "]");
 
     printScaling(out, scaling);
 
     printText(out, R"(,"analysis_seconds":)");
-    printNumber(out, result.seconds);
-    std::print(out, R"(,"estimated_peak_bytes":{})", result.peakBytes);
+    printNumber(out, horizon.seconds);
+    std::print(out, R"(,"estimated_peak_bytes":{})", horizon.peakBytes);
     std::println(out, "{}", "}");
 }
 
-void prepareDirectory(const GapOptions& options) {
-    std::filesystem::create_directories(options.outputDirectory);
+void prepareDirectory(const GapOptions& opt) {
+    std::filesystem::create_directories(opt.outputDirectory);
 
     constexpr std::array<std::string_view, 3> names{"run.json", "graphs.jsonl",
                                                     "horizons.jsonl"};
     for (const std::string_view name : names) {
-        const std::filesystem::path path = options.outputDirectory / name;
-        if (std::filesystem::exists(path) && !options.overwrite) {
+        const std::filesystem::path path = opt.outputDirectory / name;
+        if (std::filesystem::exists(path) && !opt.overwrite) {
             throw std::runtime_error("output file exists; pass --overwrite: " +
                                      path.string());
         }
     }
 }
 
-void printRun(std::ostream& out, const GapOptions& options,
+void printRun(std::ostream& out, const GapOptions& opt,
               std::span<const GapSample> samples, size_t threads,
               double wallSeconds) {
     size_t edgeCount = 0;
@@ -629,27 +630,27 @@ void printRun(std::ostream& out, const GapOptions& options,
     printText(out, R"(  "schema": "bounded-systems.gap-run.v2",)"
                    "\n");
     std::print(out, R"(  "configuration": {{"vertices":{},"horizons":)",
-               options.vertexCount);
-    printIntegers(out, options.horizons);
-    std::print(out, R"(,"samples":{},"master_seed":"{}")", options.sampleCount,
-               options.seed);
+               opt.vertexCount);
+    printIntegers(out, opt.horizons);
+    std::print(out, R"(,"samples":{},"master_seed":"{}")", opt.sampleCount,
+               opt.seed);
     std::print(out, R"(,"requested_threads":{},"effective_threads":{})",
-               options.threadCount, threads);
+               opt.threadCount, threads);
     printText(out, R"(,"output_directory":)");
-    printString(out, options.outputDirectory.string());
+    printString(out, opt.outputDirectory.string());
     printText(out, R"(,"closure_bins":)");
-    printIntegers(out, options.bins);
+    printIntegers(out, opt.bins);
     printText(out, R"(,"predictive_classes":)");
-    printIntegers(out, options.predictiveClasses);
+    printIntegers(out, opt.predictiveClasses);
     printText(out, R"(,"target_bins":)");
-    printIntegers(out, options.targetBins);
-    std::print(out, R"(,"reference_bins":{})", options.referenceBins);
+    printIntegers(out, opt.targetBins);
+    std::print(out, R"(,"reference_bins":{})", opt.referenceBins);
     printText(out, R"(,"lindeberg_thresholds":)");
-    printNumbers(out, options.thresholds);
+    printNumbers(out, opt.thresholds);
     std::print(out, R"(,"validation_length":{},"legendre_modes":{})",
-               options.validationLength, options.modeCount);
+               opt.validationLength, opt.modeCount);
     printText(out, R"(,"bulk_fraction":)");
-    printNumber(out, options.bulkFraction);
+    printNumber(out, opt.bulkFraction);
     std::println(out, "{}", "},");
 
     printText(out, R"(  "generator": {"kernel":"(y-x)_+",)"
@@ -679,10 +680,14 @@ void printRun(std::ostream& out, const GapOptions& options,
         out,
         R"(  "finite_sample_closure": {)"
         R"("legacy_classes":"fixed uniform bins on normalized coordinates",)"
-        R"("legacy_defect":"exact route-weighted L2 conditional-law variance; no finite-sample correction",)"
-        R"("predictive_classes":"nested balanced median partitions of standardized intrinsic features",)"
-        R"("predictive_target":"seven canonical conditional moments and nested intrinsic-mark histograms",)"
-        R"("holdout":"source vertices selected by deterministic identifier hash"},)"
+        R"("legacy_defect":"exact route-weighted L2 conditional-law variance; )"
+        R"(no finite-sample correction",)"
+        R"("predictive_classes":"nested balanced median partitions of )"
+        R"(standardized intrinsic features",)"
+        R"("predictive_target":"seven canonical conditional moments and )"
+        R"(nested intrinsic-mark histograms",)"
+        R"("holdout":"source vertices selected by deterministic identifier )"
+        R"(hash"},)"
         "\n");
     printText(out, "  \"continuum_scaling\": {"
                    "\"route_time\":\"s=r/p with delta_s=1/p\","
@@ -708,13 +713,13 @@ void printRun(std::ostream& out, const GapOptions& options,
 }
 
 std::ofstream openFile(const std::filesystem::path& path) {
-    std::filesystem::path temporary = path;
-    temporary += ".tmp";
-    std::ofstream out(temporary);
+    std::filesystem::path temp = path;
+    temp += ".tmp";
+    std::ofstream out(temp);
 
     if (!out) {
         throw std::runtime_error(
-            std::format("cannot create artifact: {}", temporary.string()));
+            std::format("cannot create artifact: {}", temp.string()));
     }
 
     return out;
@@ -728,9 +733,9 @@ void closeFile(std::ofstream& out, const std::filesystem::path& path) {
             std::format("failed while writing artifact: {}", path.string()));
     }
 
-    std::filesystem::path temporary = path;
-    temporary += ".tmp";
-    std::filesystem::rename(temporary, path);
+    std::filesystem::path temp = path;
+    temp += ".tmp";
+    std::filesystem::rename(temp, path);
 }
 
 } // namespace
@@ -743,15 +748,14 @@ long peakRssKib() {
     return usage.ru_maxrss;
 }
 
-void writeGapOutput(const GapOptions& options,
-                    std::span<const GapSample> samples, size_t threads,
-                    double wallSeconds) {
-    prepareDirectory(options);
+void writeGapOutput(const GapOptions& opt, std::span<const GapSample> samples,
+                    size_t threads, double wallSeconds) {
+    prepareDirectory(opt);
 
     const std::filesystem::path graphsPath =
-        options.outputDirectory / "graphs.jsonl";
+        opt.outputDirectory / "graphs.jsonl";
     const std::filesystem::path horizonsPath =
-        options.outputDirectory / "horizons.jsonl";
+        opt.outputDirectory / "horizons.jsonl";
     std::ofstream graphs = openFile(graphsPath);
     std::ofstream horizons = openFile(horizonsPath);
 
@@ -762,17 +766,17 @@ void writeGapOutput(const GapOptions& options,
         }
 
         printGraph(graphs, sample);
-        for (size_t index = 0; index < sample.horizons.size(); ++index) {
-            printHorizon(horizons, sample, sample.horizons[index],
-                         sample.scaling[index]);
+        for (size_t i = 0; i < sample.horizons.size(); ++i) {
+            printHorizon(horizons, sample, sample.horizons[i],
+                         sample.scaling[i]);
         }
     }
 
     closeFile(graphs, graphsPath);
     closeFile(horizons, horizonsPath);
 
-    const std::filesystem::path runPath = options.outputDirectory / "run.json";
+    const std::filesystem::path runPath = opt.outputDirectory / "run.json";
     std::ofstream run = openFile(runPath);
-    printRun(run, options, samples, threads, wallSeconds);
+    printRun(run, opt, samples, threads, wallSeconds);
     closeFile(run, runPath);
 }

@@ -232,7 +232,7 @@ The two-layer construction of `findings-69.md` is much smaller because its
 partition is detected directly by in- and outdegrees. The displayed bound
 holds uniformly in $q$ and is not minimal.
 
-# 8. Structural interpretation
+# 8. Four components of the selector
 
 The selector has four independent tasks:
 

@@ -161,7 +161,7 @@ Two cases remain open under the present identities: a finite hybrid
 arrangement with one or more buffered jumps, and an infinite accumulating
 arrangement.
 
-# 5. Refined absolute-rigidity conjecture
+# 5. Buffered-jump conjecture
 
 Proposition 2 restricts the unresolved case of `findings-97.md` to buffered
 jumps.
@@ -171,8 +171,10 @@ jumps.
 There is no nonconstant nondecreasing quantile with any nonzero buffered
 jump that satisfies both rooted composition identities almost everywhere.
 
-A proof would complete the absolute finite forcing of the standalone gap
-kernel by the four constraints of `findings-96.md`.
+A proof of the conjecture would complete absolute finite forcing of the
+standalone gap kernel by the four constraints of `findings-96.md`.
+
+# 6. Exact restrictions on jump geometry
 
 Exact symbolic calculations give the active-component differential equation,
 the jump formulas, and the impossibility of an unbuffered jump between

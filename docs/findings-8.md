@@ -611,7 +611,7 @@ Scientiarum Regiae Universitatis Hungaricae Francisco-Josephinae, Sectio
 Scientiarum Mathematicarum 3 (1927), 121-130. The form matching section 5 takes
 disjoint nonempty finite sets $V_0,V_1,\ldots$ in which every vertex of $V_n$
 with $n\ge1$ has a neighbour in $V_{n-1}$ and produces an infinite ray; the
-reference below states it in that form. Here $V_n=\mathsf P_n(v)$ and the
+article states it in that form. Here $V_n=\mathsf P_n(v)$ and the
 neighbour of a path is its length-$(n-1)$ prefix, so finiteness of each $V_n$ is
 the finite-outdegree hypothesis of section 5, and the infinitely branching
 example of section 2 violates it by having an infinite level.

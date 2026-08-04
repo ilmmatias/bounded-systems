@@ -100,11 +100,11 @@ It is explicitly given by
 Conversely, any representation of $\mathbb C[G]$ sending the node idempotents to
 pairwise orthogonal projections gives such a channel family.
 
-Thus $\mathbb C[G]$ is universal for bounded Hilbert realizations of $G$ at the
-algebraic level. The statement places no restriction on the cardinality of the
-node set and requires neither a global adjacency operator nor a uniform bound on
-the channel norms. It also introduces no probabilistic, temporal, or dynamical
-structure.
+Thus $\mathbb C[G]$ is universal for bounded Hilbert realizations of $G$ at
+the algebraic level, for arbitrary node cardinality and channel norms. The
+universal data are the source-target operators themselves; a global adjacency
+operator and probabilistic, temporal, or dynamical structure are additional
+choices.
 
 # 3. Limits of Fock-norm universality
 
@@ -187,8 +187,8 @@ Because each range lies in its target sector, this can be checked targetwise:
 \sum_{r(e)=v}T_eT_e^\ast\le Q_v.
 ```
 
-Row contractivity allows different channels to interfere within a target sector
-and does not require orthogonal ranges.
+Row contractivity permits different channels to interfere within a target
+sector while allowing nonorthogonal ranges.
 
 # 5. Contractive universality of the Fock algebra
 
@@ -339,8 +339,8 @@ narrower classes of Hilbert realizations.
 
 # 9. Representation-independent relations
 
-The relations below hold in every bounded Hilbert realization, independently of
-the norm or completion used.
+The following relations hold in every bounded Hilbert realization,
+independently of the norm or completion used.
 
 For every path $p:u\to v$, the source-target relation gives
 

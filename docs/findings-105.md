@@ -34,7 +34,7 @@ and, at position $r$, draws an outgoing edge $v\to w$ according to
 
 At each remaining horizon, the stable dynamic program normalizes the forward
 vector and accumulates its logarithmic scale. The normalized vectors determine
-the route probabilities used below.
+the route probabilities used in the analyses.
 
 Write $x_r$ for the latent mark of $V_r$, set $m=p-r$, and retain the interior
 positions $1\leq r<p$. The predicted quantity is
@@ -229,9 +229,9 @@ baseline minus augmented, with the same finite-minus-control correction as for
 the log score. Oracle PIT mean, variance, Kolmogorov distance, correlations,
 and conditional moment errors are computed directly from $C_m(Z_{r,p})$.
 
-The uncertainty unit is one graph. Every displayed uncertainty below is an
-ordinary standard error across the $32$ independent graph samples. Route draws
-from the same graph remain within that unit.
+The uncertainty unit is one graph. Every reported uncertainty is an ordinary
+standard error across the $32$ independent graph samples. Route draws from the
+same graph remain within that unit.
 
 # 4. Parameter families
 

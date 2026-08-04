@@ -15,7 +15,6 @@ from typing import Any
 RUN_SCHEMA = "bounded-systems.gap-finite-closure-run.v1"
 GRAPH_SCHEMA = "bounded-systems.gap-finite-closure-graph.v1"
 METRIC_SCHEMA = "bounded-systems.gap-finite-closure-metric.v1"
-ANALYSIS_SCHEMA = "bounded-systems.gap-finite-closure-analysis.v1"
 
 
 def reject_constant(value: str) -> None:
@@ -41,20 +40,20 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def scientific_run(run: dict[str, Any]) -> dict[str, Any]:
-    result = copy.deepcopy(run)
-    result.pop("runtime")
-    configuration = result["configuration"]
+    out = copy.deepcopy(run)
+    out.pop("runtime")
+    configuration = out["configuration"]
     configuration.pop("requested_threads")
     configuration.pop("effective_threads")
     configuration.pop("output_directory")
-    return result
+    return out
 
 
 def scientific_graphs(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    result = copy.deepcopy(records)
-    for record in result:
+    out = copy.deepcopy(records)
+    for record in out:
         record.pop("seconds")
-    return result
+    return out
 
 
 def run_study(program: Path, output: Path, threads: int) -> None:
@@ -105,8 +104,8 @@ def main() -> int:
     assert "self-tests passed" in self_test.stderr
     checks = 1
 
-    with tempfile.TemporaryDirectory(prefix="gap-finite-closure-") as temporary:
-        directory = Path(temporary)
+    with tempfile.TemporaryDirectory(prefix="gap-finite-closure-") as temp:
+        directory = Path(temp)
         serial = directory / "serial"
         threaded = directory / "threaded"
         run_study(program, serial, 1)
@@ -135,7 +134,10 @@ def main() -> int:
             assert graph["node_mark_rmse"] > 0.0
             assert graph["node_mark_max_error"] >= graph["node_mark_rmse"]
             assert all(horizon["has_routes"] for horizon in graph["horizons"])
-            assert all(horizon["route_mark_rmse"] > 0.0 for horizon in graph["horizons"])
+            assert all(
+                horizon["route_mark_rmse"] > 0.0
+                for horizon in graph["horizons"]
+            )
             checks += 4
 
         for metric in serial_metrics:
@@ -151,25 +153,22 @@ def main() -> int:
             checks += 7
 
         summary_path = directory / "summary.json"
-        markdown_path = directory / "summary.md"
-        subprocess.run(
+        analysis_result = subprocess.run(
             [
                 sys.executable,
                 str(analyzer),
                 str(serial),
-                "--json",
+                "--output",
                 str(summary_path),
-                "--markdown",
-                str(markdown_path),
             ],
             check=True,
+            capture_output=True,
+            text=True,
         )
+        assert not analysis_result.stdout
+        assert not analysis_result.stderr
         analysis = load_json(summary_path)
-        assert analysis["schema"] == ANALYSIS_SCHEMA
         assert len(analysis["comparisons"]) == 2 * 2 * 9
-        assert markdown_path.read_text(encoding="utf-8").startswith(
-            "# Finite-DAG route-closure analysis\n"
-        )
         checks += 3
 
         oracle_excess = analysis["oracle_sampling_excess"]

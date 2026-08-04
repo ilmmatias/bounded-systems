@@ -114,8 +114,7 @@ python3 "$root/scripts/analyze_gap_finite_closure.py" \
     "$output/fixed/n8192" \
     "$output/fixed/n16384" \
     "$output/fixed/n32768" \
-    --json "$output/fixed/summary.json" \
-    --markdown "$output/fixed/summary.md"
+    --output "$output/fixed/summary.json"
 
 python3 "$root/scripts/analyze_gap_finite_closure.py" \
     "$output/joint/n512" \
@@ -125,8 +124,7 @@ python3 "$root/scripts/analyze_gap_finite_closure.py" \
     "$output/joint/n8192" \
     "$output/joint/n16384" \
     "$output/joint/n32768" \
-    --json "$output/joint/summary.json" \
-    --markdown "$output/joint/summary.md"
+    --output "$output/joint/summary.json"
 
 if [[ ${RUN_FOCUSED:-1} != 0 ]]; then
     python3 "$root/scripts/analyze_gap_finite_closure.py" \
@@ -134,6 +132,5 @@ if [[ ${RUN_FOCUSED:-1} != 0 ]]; then
         "$output/focused/n8192" \
         "$output/focused/n16384" \
         "$output/focused/n32768" \
-        --json "$output/focused/summary.json" \
-        --markdown "$output/focused/summary.md"
+        --output "$output/focused/summary.json"
 fi

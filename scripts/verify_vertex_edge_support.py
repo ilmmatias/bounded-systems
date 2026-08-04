@@ -139,7 +139,9 @@ def conditional_expectation(
     return total / count
 
 
-def projections(kernel: dict[tuple[int, ...], Fraction]) -> dict[int, dict[tuple[int, ...], Fraction]]:
+def projections(
+    kernel: dict[tuple[int, ...], Fraction],
+) -> dict[int, dict[tuple[int, ...], Fraction]]:
     cond: dict[tuple[int, tuple[int, ...]], Fraction] = {}
     for mask in range(1 << C):
         for bits in ALL_LOCAL:
@@ -259,7 +261,11 @@ def run_kernel(seed: int) -> int:
 
     # Pointwise ANOVA decomposition.
     for bits in ALL_LOCAL:
-        assert sum((proj[mask][bits] for mask in range(1 << C)), Fraction(0)) == kernel[bits]
+        total = sum(
+            (proj[mask][bits] for mask in range(1 << C)),
+            Fraction(0),
+        )
+        assert total == kernel[bits]
         checks += 1
 
     # Canonicality in each selected primitive coordinate.
@@ -267,7 +273,6 @@ def run_kernel(seed: int) -> int:
         for idx in range(C):
             if not ((mask >> idx) & 1):
                 continue
-            other = [j for j in range(C) if j != idx]
             for fixed in product((0, 1), repeat=C - 1):
                 vals = []
                 for bit in (0, 1):
@@ -356,4 +361,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

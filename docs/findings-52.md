@@ -513,7 +513,7 @@ The support-order decomposition is therefore simultaneously:
 They are equivalent descriptions of the same orthogonal structure in the
 finite ordered-layer sectors.
 
-# 8. Consequences for stable coefficients
+# 8. Stable coefficients by support order
 
 The stable-coefficient problem now has an exact hierarchy. For a finite
 pattern kernel $h$, define

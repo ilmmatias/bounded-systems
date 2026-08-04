@@ -103,16 +103,17 @@ It distinguishes all $5{,}984$ isomorphism classes of simple DAGs on six nodes.
 
 # 5. Literature relation
 
-The totals 31, 302 and 5,984 in the first row of the table in section 1 are the
-numbers of acyclic digraphs on four, five and six unlabeled nodes listed as
-Sequence A003087, On-Line Encyclopedia of Integer Sequences. The computation
-reported here reproduces those values as a check on the generation procedure and
-does not establish them; the counting problem was solved by R. W. Robinson,
-*Counting unlabeled acyclic digraphs*, in Combinatorial Mathematics V, Lecture
-Notes in Mathematics 622, Springer, 1977, 28-43, by an argument that counts
-isomorphism classes without producing representatives of them, whereas the
-invariant profiles of sections 1 and 2 are evaluated on explicit representatives
-of every class.
+The totals 31, 302 and 5,984 in the first row of the table in Section 1
+are the numbers of acyclic digraphs on four, five and six unlabeled nodes
+listed as Sequence A003087, On-Line Encyclopedia of Integer Sequences. The
+computation reproduces these values as an audit of the generation
+procedure.
+
+R. W. Robinson established the counts in *Counting unlabeled acyclic
+digraphs*, in Combinatorial Mathematics V, Lecture Notes in Mathematics
+622, Springer, 1977, 28-43. His argument counts isomorphism classes without
+producing representatives, whereas the invariant profiles in Sections 1
+and 2 are evaluated on explicit representatives of every class.
 
 The directed line graph of section 3 is the line digraph studied in F. Harary
 and R. Z. Norman, *Some properties of line digraphs*, Rendiconti del Circolo

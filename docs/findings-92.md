@@ -63,20 +63,19 @@ necessarily retains unresolved boundary sectors.
 A cyclic motif such as the transitive triangle or directed $B_{2,2}$ is
 required to remove the explicit sheet ambiguity.
 
-# 3. Scope of the theorem
+# 3. Necessary cyclic information
 
-Theorem 1 states a necessary condition on any forcing family for the standalone
-gap kernel and leaves open whether that kernel is finitely forcible.
+Theorem 1 gives a necessary condition on any forcing family for the
+standalone gap kernel. Finite forcibility remains open at this stage.
 
 A finite family containing suitable undirected-cycle motifs may still be
 nonlinearly rigid. The compositional completion of `findings-85.md` succeeds
 precisely because it introduces Gram-type and square constraints whose pattern
 expansions contain cyclic incidence structure.
 
-The remaining direct problem can now be stated more narrowly:
-
-> Can finitely many graph-intrinsic degree, compositional, and cyclic Gram
-  constraints force $A(x,y)=(y-x)_+$ without an auxiliary tagged completion?
+The remaining direct problem is whether finitely many graph-intrinsic
+degree, compositional, and cyclic Gram constraints force
+$A(x,y)=(y-x)_+$ without an auxiliary tagged completion.
 
 # 4. Revised selection hierarchy
 

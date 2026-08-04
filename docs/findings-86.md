@@ -128,7 +128,7 @@ observable of the completion. Presence of the entire standalone route
 hierarchy of `findings-80.md` as a literal path hierarchy of the completed
 architecture is a separate question.
 
-# 5. Terminal selection of the harmonic law
+# 5. Harmonic law selected by the finite relational model
 
 Let $\mathcal E_{\mathrm{comp}}$ be any nonnegative finite forcing energy
 for the completed sector. At horizon $N$, assign terminal weight
@@ -156,8 +156,8 @@ shortcut probability, the continuum coordinate recovered from rooted degrees,
 and the stable finite-pattern fluctuation fields as intrinsic conditional
 observables.
 
-No independent forward transition kernel is supplied after the finite
-relational selector is chosen.
+The finite relational selector determines the forward transition kernel
+through the selected boundary profile.
 
 The selector acts on the completed multi-part architecture, and finite
 forcibility of the one-population kernel $(y-x)_+$ remains a separate

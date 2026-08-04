@@ -61,7 +61,7 @@ It is label invariant, comparable across system sizes, computable by
 sparse-matrix methods, bounded in a fixed compact subset of $\mathbb R^6$,
 and sensitive to direction, two-step flow, divergence, and reconvergence.
 
-No manually selected graph statistic has been added.
+The dictionary consists entirely of graph-derived coordinates.
 
 ## Sufficiency of the six-coordinate profile
 
@@ -242,7 +242,7 @@ a_{G,p}
 },
 ```
 
-where $a_{G,p}$ is the continuum-time scale extracted below.
+where $a_{G,p}$ is the continuum-time scale defined in Section 11.
 
 The matrix is a directly computable approximation to the continuum profile
 operator.
@@ -498,7 +498,8 @@ Along a sequence of systems, convergence
 
 means that it becomes asymptotically Markov-complete.
 
-If it does not vanish, increase the profile dictionary:
+A nonvanishing defect calls for the following refinement of the profile
+dictionary:
 
 ```math
 6\text{-coordinate signature}
@@ -527,8 +528,7 @@ be the remaining horizon, and compute the class transition matrix
 K^{(p,j)}.
 ```
 
-Choose a bulk fraction $0<\varepsilon<1/2$, for example $\varepsilon=0.2$,
-and define
+For a bulk fraction $0<\varepsilon<1/2$, such as $\varepsilon=0.2$, define
 
 ```math
 J_{\mathrm{bulk}}=
@@ -634,12 +634,12 @@ In an ordinary diffusive regime,
 \mathfrak K_{3,G_n,p_n}\to0.
 ```
 
-If it remains finite or diverges, inspect the full jump measure rather than
-forcing a diffusion approximation.
+A finite or divergent limit calls for a full jump-measure analysis rather
+than a diffusion approximation.
 
 # 11. Route-growth and gauge diagnostics
 
-Compute
+The route-growth diagnostic uses
 
 ```math
 T_0,T_1,\ldots,T_h,
@@ -844,9 +844,9 @@ The identity
 
 makes overflow or normalization errors easy to detect.
 
-# 14. Suggested output record
+# 14. Output-record schema
 
-A compact binary output record for each $(G,p)$ should contain:
+A compact binary output record for each $(G,p)$ contains:
 
 ```text
 graph_id

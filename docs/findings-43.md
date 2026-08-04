@@ -6,8 +6,8 @@ observation or 2-WL refinement depth, and $p$ is the resolved path horizon.
 They play different roles:
 
 * $n\to\infty$ constructs the continuum profile space;
-* $r\to\infty$ removes the profile collapse observed at the sizes enumerated
-  below;
+* $r\to\infty$ removes the profile collapse observed in the enumeration of
+  Section 1;
 * $p\to\infty$ constructs the operational dynamics and asymptotic harmonic
   profile.
 
@@ -33,8 +33,8 @@ so one refinement round is missing only
 distinctions.
 
 The enumeration establishes injectivity of the stabilized second-order profile
-at eight nodes. Whether two-dimensional refinement separates every finite size
-is not settled by it.
+at eight nodes. Separation by two-dimensional refinement at every finite size
+remains open.
 
 The fraction of graphs involved in collisions is
 
@@ -193,7 +193,8 @@ statement:
 > For every fixed observation depth $r$, every sequence of finite DAG profiles
 > has a convergent subsequence.
 
-Compactness alone does not prove convergence of the operational path process.
+Convergence of the operational path process additionally requires control of
+its transition laws.
 
 # 4. Stability under one-node refinement
 
@@ -261,9 +262,9 @@ r_{\mathrm{stab}}(n)=o(n).
 ```
 
 This is a hypothesis on the sequence $G_n$ rather than a property of the
-refinement. The eight-node result proves finite injectivity, but the per-class
-first-separation rounds must now be exported to estimate the growth of
-$r_{\mathrm{stab}}(n)$.
+refinement. The eight-node result proves finite injectivity. Estimating the
+growth of $r_{\mathrm{stab}}(n)$ requires the first-separation round for each
+collision class.
 
 # 5. Node profiles for operational dynamics
 
@@ -819,11 +820,12 @@ and that the $k$-variable counting logic has exactly the distinguishing power of
 $(k-1)$-dimensional Weisfeiler-Leman refinement. Taken together these give an
 obstruction to the limit taken here: at fixed refinement dimension, increasing
 the number of rounds does not separate all non-isomorphic graphs, since
-separation across all sizes requires the dimension itself to grow with $n$. The
-exhaustive computation reported in section 1 is a statement at the single size
-eight and is consistent with that lower bound; the narrower claim recorded
-there, that whether two-dimensional refinement separates every finite size is
-not settled by the enumeration, is what the lower bound leaves available.
+separation across all sizes requires the dimension itself to grow with $n$.
+
+The exhaustive computation reported in Section 1 concerns the single size
+eight and is consistent with that lower bound. The lower bound leaves open the
+narrower question recorded there: whether two-dimensional refinement separates
+every finite size.
 
 The growth of the stabilization depth is also constrained. M. Fürer,
 *Weisfeiler-Lehman refinement requires at least a linear number of iterations*,
@@ -838,11 +840,9 @@ arXiv:1905.03008. No sublinear stabilization bound is therefore available, and
 the condition $r_{\mathrm{stab}}(n)=o(n)$ required in section 4 for a diagonal
 limit is not supplied by either result.
 
-All three of these results concern undirected graphs. Whether the pair
-constructions underlying the identification and iteration lower bounds can be
-realized inside the class of acyclic digraphs used throughout this document,
-and whether the $O(n\log n)$ upper bound holds on that class, is not settled
-here.
+All three results concern undirected graphs. Their realization inside the class
+of acyclic digraphs used here, together with an $O(n\log n)$ upper bound on
+that class, remains open.
 
 The count $20{,}286{,}025$ used in section 1 is the number of acyclic digraphs
 on eight unlabeled nodes, recorded as Sequence A003087, On-Line Encyclopedia of

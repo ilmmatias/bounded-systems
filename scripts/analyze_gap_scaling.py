@@ -10,12 +10,11 @@ import statistics
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Callable, Iterable, Sequence
+from typing import Any, Iterable, Sequence
 
 RUN_SCHEMA = "bounded-systems.gap-run.v2"
 GRAPH_SCHEMA = "bounded-systems.gap-graph.v2"
 HORIZON_SCHEMA = "bounded-systems.gap-horizon.v2"
-ANALYSIS_SCHEMA = "bounded-systems.gap-scaling-analysis.v1"
 WITHIN_TRACE_LIMIT = 179.0 / 504.0
 BETWEEN_TRACE_LIMIT = 59.0 / 336.0
 CONDITIONAL_THIRD_NORM_LIMIT = math.sqrt(68_989_499.0 / 1_371_686_400.0)
@@ -69,13 +68,13 @@ def load_directory(directory: Path) -> dict[str, Any]:
     graphs = load_jsonl(directory / "graphs.jsonl")
     horizons = load_jsonl(directory / "horizons.jsonl")
 
-    for index, graph in enumerate(graphs, 1):
-        require_schema(graph, GRAPH_SCHEMA, f"{directory}/graphs.jsonl:{index}")
-    for index, horizon in enumerate(horizons, 1):
+    for i, graph in enumerate(graphs, 1):
+        require_schema(graph, GRAPH_SCHEMA, f"{directory}/graphs.jsonl:{i}")
+    for i, horizon in enumerate(horizons, 1):
         require_schema(
             horizon,
             HORIZON_SCHEMA,
-            f"{directory}/horizons.jsonl:{index}",
+            f"{directory}/horizons.jsonl:{i}",
         )
 
     configuration = run["configuration"]
@@ -95,14 +94,14 @@ def load_directory(directory: Path) -> dict[str, Any]:
 
 
 def finite_values(values: Iterable[Any]) -> list[float]:
-    result: list[float] = []
+    out: list[float] = []
     for value in values:
         if value is None or isinstance(value, bool):
             continue
         number = float(value)
         if math.isfinite(number):
-            result.append(number)
-    return result
+            out.append(number)
+    return out
 
 
 def stat(values: Iterable[Any]) -> dict[str, Any]:
@@ -283,8 +282,12 @@ def predictive_sample_rows(row: dict[str, Any]) -> list[dict[str, Any]]:
                 for position in positions
             ]
 
-            held_out_mass = sum(position["held_out_route_mass"] for position in positions)
-            covered_mass = sum(position["held_out_covered_mass"] for position in positions)
+            held_out_mass = sum(
+                position["held_out_route_mass"] for position in positions
+            )
+            covered_mass = sum(
+                position["held_out_covered_mass"] for position in positions
+            )
             output.append(
                 {
                     "vertices": row["vertices"],
@@ -444,12 +447,15 @@ def position_curves(horizons: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
                 "normalized_position": position / horizon,
                 "sample_count": len(rows),
                 "p_mean_increment": [
-                    stat(row["coefficient"]["p_mean_increment"][index] for row in rows)
-                    for index in range(6)
+                    stat(row["coefficient"]["p_mean_increment"][i] for row in rows)
+                    for i in range(6)
                 ],
                 "p2_covariance_upper": [
-                    stat(row["coefficient"]["p2_covariance_upper"][index] for row in rows)
-                    for index in range(21)
+                    stat(
+                        row["coefficient"]["p2_covariance_upper"][i]
+                        for row in rows
+                    )
+                    for i in range(21)
                 ],
                 "latent_mean": stat(row["profile"]["latent_mean"] for row in rows),
                 "intrinsic_mean": stat(
@@ -523,13 +529,7 @@ def build_summary(bundles: Sequence[dict[str, Any]]) -> dict[str, Any]:
     ]
 
     return {
-        "schema": ANALYSIS_SCHEMA,
         "inputs": [bundle["directory"] for bundle in bundles],
-        "uncertainty": (
-            "Each entry is an independent-graph sample mean with ordinary "
-            "standard error. Route positions are reduced within a graph before "
-            "uncertainty is computed."
-        ),
         "runs": [bundle["run"] for bundle in bundles],
         "route_support": route_support,
         "analytic_limits": {
@@ -551,119 +551,6 @@ def build_summary(bundles: Sequence[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-# Human-readable report
-
-
-def format_stat(value: dict[str, Any]) -> str:
-    mean = value.get("mean")
-    error = value.get("standard_error")
-    if mean is None:
-        return "null"
-    if error is None:
-        return f"{mean:.6g}"
-    return f"{mean:.6g} ± {error:.2g}"
-
-
-def render_markdown(summary: dict[str, Any]) -> str:
-    lines = [
-        "# Gap continuum-scaling summary",
-        "",
-        summary["uncertainty"],
-        "",
-        "## Intrinsic transverse scaling",
-        "",
-        "| N | samples | residual RMS | sqrt(N) residual RMS | mark oracle RMS |",
-        "|---:|---:|---:|---:|---:|",
-    ]
-
-    for row in summary["by_vertices"]:
-        lines.append(
-            f"| {row['vertices']} | {row['sample_count']} | "
-            f"{format_stat(row['transverse_residual_rms'])} | "
-            f"{format_stat(row['sqrt_N_transverse_residual_rms'])} | "
-            f"{format_stat(row['intrinsic_mark_oracle_rmse'])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Finite route support",
-            "",
-            "| N | p | graph samples | samples with routes | fraction |",
-            "|---:|---:|---:|---:|---:|",
-        ]
-    )
-    for row in summary["route_support"]:
-        lines.append(
-            f"| {row['vertices']} | {row['horizon']} | {row['sample_count']} | "
-            f"{row['route_sample_count']} | {row['route_sample_fraction']:.6g} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Route law and coefficient scaling",
-            "",
-            "| N | p | samples | latent mean max error | intrinsic mean max error | "
-            "p² within trace | p² between trace | p³ conditional third norm | "
-            "2p midpoint intrinsic variance |",
-            "|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
-        ]
-    )
-    for row in summary["by_vertex_and_horizon"]:
-        lines.append(
-            f"| {row['vertices']} | {row['horizon']} | {row['sample_count']} | "
-            f"{format_stat(row['latent_mean_max_error'])} | "
-            f"{format_stat(row['intrinsic_mean_max_error'])} | "
-            f"{format_stat(row['p2_within_covariance_trace'])} | "
-            f"{format_stat(row['p2_between_covariance_trace'])} | "
-            f"{format_stat(row['p3_within_centered_third_norm'])} | "
-            f"{format_stat(row['midpoint_two_p_intrinsic_variance'])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Empirical powers in p",
-            "",
-            "The reported power a is fitted from observable proportional to p^(-a) "
-            "within each matched graph sample.",
-            "",
-            "| N | observable | decay power |",
-            "|---:|:---|---:|",
-        ]
-    )
-    for row in summary["stabilization_exponents"]:
-        lines.append(
-            f"| {row['vertices']} | {row['observable']} | "
-            f"{format_stat(row['decay_power'])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Held-out predictive closure",
-            "",
-            "| N | p | state | classes | target bins | held-out mark RMS | "
-            "held-out transverse RMS | held-out TV | held-out W1 | held-out R² | coverage |",
-            "|---:|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|",
-        ]
-    )
-    for row in summary["predictive_closure"]:
-        lines.append(
-            f"| {row['vertices']} | {row['horizon']} | {row['state']} | "
-            f"{row['classes']} | {row['target_bins']} | "
-            f"{format_stat(row['held_out_mark_rmse'])} | "
-            f"{format_stat(row['held_out_transverse_rmse'])} | "
-            f"{format_stat(row['held_out_total_variation'])} | "
-            f"{format_stat(row['held_out_wasserstein_1'])} | "
-            f"{format_stat(row['held_out_moment_r2'])} | "
-            f"{format_stat(row['held_out_coverage'])} |"
-        )
-
-    return "\n".join(lines) + "\n"
-
-
 def clean_json(value: Any) -> Any:
     if isinstance(value, float) and not math.isfinite(value):
         return None
@@ -676,38 +563,40 @@ def clean_json(value: Any) -> Any:
 
 def write_output(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(f".{path.name}.tmp")
-    temporary.write_text(text, encoding="utf-8", newline="\n")
-    temporary.replace(path)
+    temp = path.with_name(f".{path.name}.tmp")
+    temp.write_text(text, encoding="utf-8", newline="\n")
+    temp.replace(path)
 
 
-def parse_args(arguments: Sequence[str]) -> argparse.Namespace:
+def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("inputs", nargs="+", type=Path, help="benchmark directories")
-    parser.add_argument("--json", type=Path, help="write aggregate JSON")
-    parser.add_argument("--markdown", type=Path, help="write Markdown summary")
-    return parser.parse_args(arguments)
+    parser.add_argument(
+        "directories",
+        nargs="+",
+        type=Path,
+        metavar="DIR",
+        help="benchmark directories",
+    )
+    parser.add_argument("--output", required=True, type=Path)
+    return parser.parse_args(args)
 
 
-def main(arguments: Sequence[str] | None = None) -> int:
-    options = parse_args(sys.argv[1:] if arguments is None else arguments)
+def main(args: Sequence[str] | None = None) -> int:
+    opt = parse_args(args)
 
     try:
-        bundles = [load_directory(path) for path in options.inputs]
+        bundles = [load_directory(path) for path in opt.directories]
         summary = clean_json(build_summary(bundles))
+        payload = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     except (InputError, KeyError, TypeError, ValueError) as error:
         print(f"analyze_gap_scaling.py: {error}", file=sys.stderr)
+        return 2
+
+    try:
+        write_output(opt.output, payload)
+    except OSError as error:
+        print(f"analyze_gap_scaling.py: {error}", file=sys.stderr)
         return 1
-
-    json_text = json.dumps(summary, indent=2, sort_keys=True) + "\n"
-    markdown_text = render_markdown(summary)
-
-    if options.json:
-        write_output(options.json, json_text)
-    if options.markdown:
-        write_output(options.markdown, markdown_text)
-    if not options.json and not options.markdown:
-        print(markdown_text, end="")
 
     return 0
 

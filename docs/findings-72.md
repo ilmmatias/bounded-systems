@@ -83,7 +83,7 @@ the ergodic decomposition in the central simplex then gives
 \sum_{a=1}^r\lambda_a\delta_{\xi_a}.
 ```
 
-# 4. Consequences
+# 4. Restrictions on diffuse and infinite mixtures
 
 ## Corollary 2. Diffuse mixtures are not finitely forcible
 

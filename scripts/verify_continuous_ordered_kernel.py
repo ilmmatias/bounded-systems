@@ -43,7 +43,11 @@ def integrate_01(a: Poly) -> Fraction:
     return sum((c / Fraction(i + 1) for i, c in enumerate(a)), Fraction(0))
 
 
-def assert_equal(actual: Fraction | Poly, expected: Fraction | Poly, label: str) -> None:
+def assert_equal(
+    actual: Fraction | Poly,
+    expected: Fraction | Poly,
+    label: str,
+) -> None:
     if actual != expected:
         raise AssertionError(f"{label}: expected {expected}, got {actual}")
 
@@ -95,7 +99,11 @@ def main() -> None:
     assert_equal(9 * sigma_route_1, Fraction(1, 900), "route C1")
 
     cross_projection = integrate_01(mul(h_edge, h_route))
-    assert_equal(cross_projection, Fraction(1, 1260), "edge-route projection inner product")
+    assert_equal(
+        cross_projection,
+        Fraction(1, 1260),
+        "edge-route projection inner product",
+    )
     cross_c1 = 6 * cross_projection
     assert_equal(cross_c1, Fraction(1, 210), "edge-route C1")
 
@@ -119,4 +127,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

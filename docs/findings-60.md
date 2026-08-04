@@ -2,12 +2,12 @@
 
 Although the complete projective pattern profile is an exact predictive
 state, it might still admit a continuous encoding by a fixed finite-dimensional
-vector. The result below rules out such a universal compression.
+vector. Theorem 1 rules out such a universal compression.
 
 The obstruction already appears inside the finite ordered-layer sectors.
 Their parameter dimension grows without bound, while each sector is still
 extremal, acyclic, graph-intrinsically identifiable, and covered by the
-finite-pattern continuum theorems above.
+preceding finite-pattern continuum theorems.
 
 # 2. Ordered block sectors of arbitrary dimension
 

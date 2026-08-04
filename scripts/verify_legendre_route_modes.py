@@ -40,7 +40,7 @@ def main() -> None:
             assert value == (1 if j == k else 0)
             checks += 1
 
-    # Check route covariance from the orthogonal expansion.
+    # Route covariance from the orthogonal expansion.
     for ell in range(1, 6):
         for m in range(1, 6):
             a_ell = sp.factorial(ell) / (2 * sp.factorial(2 * ell))
@@ -76,7 +76,9 @@ def main() -> None:
         for r in range(1, length + 1):
             incoming = (x**2 / 2) ** r
             outgoing = ((1 - x) ** 2 / 2) ** r
-            polys.extend([sp.expand(incoming + outgoing), sp.expand(incoming - outgoing)])
+            polys.extend(
+                [sp.expand(incoming + outgoing), sp.expand(incoming - outgoing)]
+            )
         coeff_matrix = sp.zeros(2 * length + 1, 2 * length + 1)
         for col, poly in enumerate(polys):
             p = sp.Poly(poly, x)
@@ -101,4 +103,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -204,7 +204,7 @@ energies. Once support is restricted to the two phases, the edge density
 
 determines the mixture weight $\lambda$.
 
-# 7. Terminal approximation obstruction
+# 7. Obstruction to multiplicative endpoint approximation
 
 Absolute forcing of a central mixture does not imply that one deterministic
 sequence of finite endpoints converges to that mixed profile. Homomorphism

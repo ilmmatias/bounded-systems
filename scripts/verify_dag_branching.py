@@ -10,10 +10,12 @@ and checks
 against direct labeled-extension counting.
 """
 
+from __future__ import annotations
+
 from itertools import permutations
 
 
-def is_acyclic(n, edges):
+def is_acyclic(n: int, edges: set[tuple[int, int]]) -> bool:
     adjacency = [[] for _ in range(n)]
     indegree = [0] * n
     for source, target in edges:
@@ -32,7 +34,7 @@ def is_acyclic(n, edges):
     return visited == n
 
 
-def graph_code(n, edges):
+def graph_code(n: int, edges: set[tuple[int, int]]) -> str:
     edge_set = set(edges)
     return "".join(
         "1" if (source, target) in edge_set else "0"
@@ -42,21 +44,23 @@ def graph_code(n, edges):
     )
 
 
-def relabel(edges, permutation):
+def relabel(
+    edges: set[tuple[int, int]], permutation: tuple[int, ...]
+) -> set[tuple[int, int]]:
     return {
         (permutation[source], permutation[target])
         for source, target in edges
     }
 
 
-def canonical_code(n, edges):
+def canonical_code(n: int, edges: set[tuple[int, int]]) -> str:
     return min(
         graph_code(n, relabel(edges, permutation))
         for permutation in permutations(range(n))
     )
 
 
-def automorphism_size(n, edges):
+def automorphism_size(n: int, edges: set[tuple[int, int]]) -> int:
     original = graph_code(n, edges)
     return sum(
         graph_code(n, relabel(edges, permutation)) == original
@@ -64,7 +68,9 @@ def automorphism_size(n, edges):
     )
 
 
-def delete_vertex(n, edges, vertex):
+def delete_vertex(
+    n: int, edges: set[tuple[int, int]], vertex: int
+) -> set[tuple[int, int]]:
     remaining = [item for item in range(n) if item != vertex]
     relabeling = {old: new for new, old in enumerate(remaining)}
     return {
@@ -74,7 +80,7 @@ def delete_vertex(n, edges, vertex):
     }
 
 
-def unlabeled_classes(n):
+def unlabeled_classes(n: int) -> dict[str, set[tuple[int, int]]]:
     possible_edges = [
         (source, target)
         for source in range(n)
@@ -84,9 +90,9 @@ def unlabeled_classes(n):
     representatives = {}
     for mask in range(1 << len(possible_edges)):
         edges = {
-            possible_edges[index]
-            for index in range(len(possible_edges))
-            if (mask >> index) & 1
+            possible_edges[i]
+            for i in range(len(possible_edges))
+            if (mask >> i) & 1
         }
         if not is_acyclic(n, edges):
             continue
@@ -94,7 +100,7 @@ def unlabeled_classes(n):
     return representatives
 
 
-def main():
+def main() -> None:
     levels = [unlabeled_classes(n) for n in range(5)]
     print("unlabeled class counts:", [len(level) for level in levels])
 
@@ -110,8 +116,8 @@ def main():
 
             for mask in range(1 << (2 * n)):
                 extension = set(graph)
-                for index, edge in enumerate(incident_edges):
-                    if (mask >> index) & 1:
+                for i, edge in enumerate(incident_edges):
+                    if (mask >> i) & 1:
                         extension.add(edge)
                 if is_acyclic(n + 1, extension):
                     direct_counts[canonical_code(n + 1, extension)] += 1
@@ -141,4 +147,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -37,8 +37,8 @@ T_n^-=
 
 which is the largest number of length-$n$ routes terminating at one node.
 
-These may be infinite. The operator conclusions below apply when the relevant
-quantities are finite and uniformly bounded.
+These quantities may be infinite. The following operator conclusions apply
+when the relevant quantities are finite and uniformly bounded.
 
 # 2. Exact $\ell^2$-to-$\ell^1$ growth identity
 

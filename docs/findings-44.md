@@ -458,15 +458,15 @@ Q_{p,r}\mapsto Q_{p,r}.
 
 Thus $m_{p,r}$, $Q_{p,r}$, and $C_{p,r}$ are exact isomorphism invariants.
 
-The coefficient extraction does not depend on the topological ordering used
+The coefficient extraction is invariant under the topological ordering used
 to encode the DAG.
 
 # 10. Avoiding a premature graph ensemble
 
-The coefficients above are defined per graph.
+These coefficients are defined per graph.
 
-The bounded system definition does not select a probability measure over
-non-isomorphic DAGs. In particular, two natural averages differ:
+The bounded-system definition leaves the probability measure over
+non-isomorphic DAGs unspecified. Two natural averages then differ:
 
 ## Equal unlabeled weighting
 
@@ -497,9 +497,8 @@ The corresponding labeled average is
 
 The measure comes from uniform counting of labeled adjacency structures.
 
-Neither measure is selected by the bounded system definition alone. The
-canonical procedure is therefore to compute coefficients per isomorphism
-class first and then study:
+Both measures are external sampling conventions. The canonical procedure is
+therefore to compute coefficients per isomorphism class first and then study:
 
 * universality across graph sequences;
 * conditional distributions at fixed height or density;
@@ -508,10 +507,10 @@ class first and then study:
 Keeping the ensembles separate prevents a sampling convention from being
 mistaken for derived dynamics.
 
-# 11. No need to choose a single $r_n$ immediately
+# 11. Projective refinement before diagonal selection
 
-A diagonal sequence $r_n\to\infty$ is useful computationally, but it is not
-mathematically necessary at first.
+A diagonal sequence $r_n\to\infty$ is computationally useful. The analysis can
+first be formulated projectively at each fixed refinement depth.
 
 For every fixed $r$, the profile space $\mathcal Y_r$ is compact. Let
 
@@ -553,19 +552,19 @@ n,p\to\infty
 \text{then }r\to\infty.
 ```
 
-The projective-limit route avoids an unproved estimate such as
+The projective-limit route postpones the additional estimate
 
 ```math
 r_{\mathrm{stab}}(n)=o(n)
 ```
 
-at the outset.
+until a diagonal sequence is required.
 
-The exhaustive eight-node computation already shows that stabilized
-refinement resolves all $20{,}286{,}025$ non-isomorphic DAGs, while one round
-has only $509$ collision classes. The next computation should record the
-first separation round for each of those classes, because that begins
-measuring how rapidly the projective coordinate depth must grow.
+The exhaustive eight-node computation shows that stabilized refinement
+resolves all $20{,}286{,}025$ non-isomorphic DAGs, while one round has $509$
+collision classes. The first separation round of each collision class is the
+finite datum needed to estimate the growth of the projective coordinate
+depth.
 
 # 12. Fixed-(r) continuum convergence theorem
 
@@ -681,10 +680,11 @@ the best available general upper bound at dimension two is the superlinear
 $O(n\log n)$ of M. Lichter, I. Ponomarenko, and P. Schweitzer, *Walk refinement,
 walk logic, and the iteration number of the Weisfeiler-Leman algorithm*, in 2019
 34th Annual ACM/IEEE Symposium on Logic in Computer Science, IEEE, 2019, 1-13,
-arXiv:1905.03008. No bound of the form $o(n)$ follows from either. Both concern
-undirected graphs; whether Fürer's pairs can be realized inside the
-acyclic-digraph class used here, and whether the $O(n\log n)$ bound holds on
-that class, is not settled.
+arXiv:1905.03008. No bound of the form $o(n)$ follows from either.
+
+Both concern undirected graphs. Realization of Fürer's pairs inside the
+acyclic-digraph class used here, together with the $O(n\log n)$ bound on
+that class, remains open.
 
 The convergence statement of section 12 is an instance of the scheme in
 S. N. Ethier and T. G. Kurtz, *Markov Processes: Characterization and
@@ -693,8 +693,8 @@ core with compact containment and uniqueness of the limiting martingale problem.
 Hypothesis 2 of section 12 is the generator convergence and hypothesis 6 the
 uniqueness requirement, both for the cylinder core on $\mathcal Y_r$, and the
 compactness of $\mathcal Y_r$ established in section 11 is what makes the
-compact-containment requirement automatic; uniqueness for $\mathcal G$ on that
-core is assumed and not proved.
+compact-containment requirement automatic. Uniqueness for $\mathcal G$ on that
+core enters as Hypothesis 6.
 
 The count $20{,}286{,}025$ quoted in section 11 is the number of acyclic
 digraphs on eight unlabeled nodes, recorded as Sequence A003087, On-Line

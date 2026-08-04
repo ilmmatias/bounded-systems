@@ -51,6 +51,7 @@ def beta_variance(alpha: int, beta: int) -> Fraction:
     total = alpha + beta
     return Fraction(alpha * beta, total * total * (total + 1))
 
+
 def beta_third_central(alpha: int, beta: int) -> Fraction:
     total = alpha + beta
     return Fraction(
@@ -99,11 +100,11 @@ def decay_power(points: Iterable[tuple[int, float]]) -> float:
 def polynomial_product(
     left: tuple[Fraction, ...], right: tuple[Fraction, ...]
 ) -> tuple[Fraction, ...]:
-    result = [Fraction(0) for _ in range(len(left) + len(right) - 1)]
+    out = [Fraction(0) for _ in range(len(left) + len(right) - 1)]
     for first, left_value in enumerate(left):
         for second, right_value in enumerate(right):
-            result[first + second] += left_value * right_value
-    return tuple(result)
+            out[first + second] += left_value * right_value
+    return tuple(out)
 
 
 def polynomial_integral(polynomial: tuple[Fraction, ...]) -> Fraction:
@@ -130,27 +131,27 @@ def beta_cdf_integer(value: float, alpha: int, beta: int) -> float:
 
     degree = alpha + beta - 1
     return sum(
-        math.comb(degree, index)
-        * value**index
-        * (1.0 - value) ** (degree - index)
-        for index in range(alpha, degree + 1)
+        math.comb(degree, i)
+        * value**i
+        * (1.0 - value) ** (degree - i)
+        for i in range(alpha, degree + 1)
     )
 
 
 def kolmogorov(values: list[float], alpha: int, beta: int) -> float:
     ordered = sorted(values)
     count = len(ordered)
-    maximum = 0.0
+    maxError = 0.0
 
-    for index, value in enumerate(ordered, 1):
+    for i, value in enumerate(ordered, 1):
         target = beta_cdf_integer(value, alpha, beta)
-        maximum = max(
-            maximum,
-            abs((index - 1) / count - target),
-            abs(index / count - target),
+        maxError = max(
+            maxError,
+            abs((i - 1) / count - target),
+            abs(i / count - target),
         )
 
-    return maximum
+    return maxError
 
 
 def correlation(left: list[float], right: list[float]) -> float:
@@ -367,4 +368,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

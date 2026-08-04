@@ -36,8 +36,13 @@ def main() -> None:
     b_minus = b_plus + (1 - u) * delta
     incoming_jump = sp.simplify((f_plus**2 - f_minus**2) / 6)
     outgoing_jump = sp.simplify((b_minus**2 - b_plus**2) / 6)
-    assert sp.simplify(incoming_jump - (u * f_minus * delta / 3 + u**2 * delta**2 / 6)) == 0
-    assert sp.simplify(outgoing_jump - ((1 - u) * b_plus * delta / 3 + (1 - u) ** 2 * delta**2 / 6)) == 0
+    expected_in = u * f_minus * delta / 3 + u**2 * delta**2 / 6
+    assert sp.simplify(incoming_jump - expected_in) == 0
+    expected_out = (
+        (1 - u) * b_plus * delta / 3
+        + (1 - u) ** 2 * delta**2 / 6
+    )
+    assert sp.simplify(outgoing_jump - expected_out) == 0
     checks += 2
 
     # An active component immediately on the left has zero incoming D-defect,
@@ -50,4 +55,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -7,15 +7,10 @@ import sympy as sp
 
 
 def main() -> None:
-    u, v, L, c = sp.symbols("u v L c", real=True, positive=True)
+    u, v, L = sp.symbols("u v L", real=True, positive=True)
     checks = 0
 
     q_u = L * (u - sp.Rational(1, 2))
-    q_v = L * (v - sp.Rational(1, 2))
-    w = L * (v - u)
-
-    d_in = sp.integrate(w, (v, 0, u))
-    # The preceding integral uses v as the lower coordinate; rewrite directly.
     x = sp.symbols("x", real=True)
     d_in = sp.integrate(L * (u - x), (x, 0, u))
     d_out = sp.integrate(L * (v - u), (v, u, 1))
@@ -45,4 +40,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

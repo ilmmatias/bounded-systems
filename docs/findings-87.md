@@ -140,7 +140,7 @@ t(P_3,A_\varepsilon)
 O(\varepsilon^2).
 ```
 
-# 4. Infinite-dimensional balanced directions
+# 4. Infinite-dimensional degree-preserving tangent space
 
 The example belongs to an infinite-dimensional perturbation space. For every
 smooth function $\varphi$ compactly supported inside the open triangle, the
@@ -170,9 +170,9 @@ D t(F_j,A)[H]=0
 Thus no finite pattern family separates all nearby balanced perturbations at
 first order.
 
-A finite forcing family can be nonlinearly rigid even when its first
-derivatives vanish along nonzero directions, so the first-order statement
-leaves the finite forcibility of $A$ undecided.
+Nonlinear rigidity can persist when first derivatives vanish along nonzero
+directions. The first-order obstruction therefore leaves finite forcibility
+of $A$ open.
 
 A standalone forcing theorem for $A$ must therefore use nonlinear
 higher-pattern rigidity. The compositional completion avoids this obstruction

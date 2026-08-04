@@ -9,7 +9,8 @@ x, y = sp.symbols("x y")
 
 
 def triangle_integral(expr: sp.Expr) -> sp.Expr:
-    return sp.simplify(sp.integrate(sp.integrate(sp.expand(expr), (x, 0, y)), (y, 0, 1)))
+    inner = sp.integrate(sp.expand(expr), (x, 0, y))
+    return sp.simplify(sp.integrate(inner, (y, 0, 1)))
 
 
 def q_route(m: int) -> sp.Expr:
@@ -67,4 +68,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -107,7 +107,7 @@ struct PredictiveClosureResult {
 
 struct RouteScalingResult {
     int horizon = 0;
-    bool valid = false;
+    bool hasRoutes = false;
     std::vector<RouteProfilePosition> routeProfile;
     std::vector<RouteSpacingPosition> spacing;
     double macroscopicMaximalJump = 0.0;

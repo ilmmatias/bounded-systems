@@ -45,7 +45,12 @@ def main() -> None:
 
     # Generating-kernel coefficient checks.
     for m in range(1, 9):
-        coeff = sp.series(t * sp.exp(t * (y - x)), t, 0, m + 1).removeO().expand().coeff(t, m)
+        coeff = (
+            sp.series(t * sp.exp(t * (y - x)), t, 0, m + 1)
+            .removeO()
+            .expand()
+            .coeff(t, m)
+        )
         assert sp.simplify(coeff - power_kernel(m, x, y)) == 0
         checks += 1
 
@@ -72,4 +77,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

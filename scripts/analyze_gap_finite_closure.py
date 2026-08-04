@@ -7,6 +7,7 @@ import argparse
 import json
 import math
 import statistics
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable, Sequence
@@ -14,7 +15,6 @@ from typing import Any, Iterable, Sequence
 RUN_SCHEMA = "bounded-systems.gap-finite-closure-run.v1"
 GRAPH_SCHEMA = "bounded-systems.gap-finite-closure-graph.v1"
 METRIC_SCHEMA = "bounded-systems.gap-finite-closure-metric.v1"
-ANALYSIS_SCHEMA = "bounded-systems.gap-finite-closure-analysis.v1"
 
 METRIC_FIELDS = (
     "log_score",
@@ -70,9 +70,9 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def check_schema(records: Iterable[dict[str, Any]], schema: str, path: Path) -> None:
-    for index, record in enumerate(records, 1):
+    for i, record in enumerate(records, 1):
         if record.get("schema") != schema:
-            raise ValueError(f"{path}:{index} has an unexpected schema")
+            raise ValueError(f"{path}:{i} has an unexpected schema")
 
 
 def summarize(values: Sequence[float]) -> dict[str, float | int]:
@@ -90,11 +90,11 @@ def summarize(values: Sequence[float]) -> dict[str, float | int]:
     }
 
 
-def atomic_write(path: Path, text: str) -> None:
+def write_output(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(f".{path.name}.tmp")
-    temporary.write_text(text, encoding="utf-8", newline="\n")
-    temporary.replace(path)
+    temp = path.with_name(f".{path.name}.tmp")
+    temp.write_text(text, encoding="utf-8", newline="\n")
+    temp.replace(path)
 
 
 def load_runs(directories: Sequence[Path]) -> tuple[
@@ -145,7 +145,7 @@ def aggregate_metrics(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]]
         )
         groups[key].append(record)
 
-    result = []
+    out = []
     for key, records in sorted(groups.items()):
         vertices, horizon, resolution, model, data = key
         entry = {
@@ -168,8 +168,8 @@ def aggregate_metrics(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]]
         }
         for field in METRIC_FIELDS:
             entry[field] = summarize([float(record[field]) for record in records])
-        result.append(entry)
-    return result
+        out.append(entry)
+    return out
 
 
 def paired_comparisons(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -197,7 +197,7 @@ def paired_comparisons(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]
             for record in metrics
         }
     )
-    result = []
+    out = []
     for vertices, horizon, resolution, base_bins, aux_leaves, target_bins in settings:
         graph_indices = sorted(
             {
@@ -249,7 +249,7 @@ def paired_comparisons(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]
                 corrected_wasserstein.append(finite_reduction - control_reduction)
             if not corrected_log:
                 continue
-            result.append(
+            out.append(
                 {
                     "vertices": vertices,
                     "horizon": horizon,
@@ -273,7 +273,7 @@ def paired_comparisons(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]
                     },
                 }
             )
-    return result
+    return out
 
 
 def paired_oracle_excess(metrics: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -289,7 +289,7 @@ def paired_oracle_excess(metrics: Sequence[dict[str, Any]]) -> list[dict[str, An
         and int(record["resolution_index"]) == 0
     }
     settings = sorted({(key[0], key[2]) for key in indexed})
-    result = []
+    out = []
     for vertices, horizon in settings:
         graph_indices = sorted(
             {
@@ -301,7 +301,7 @@ def paired_oracle_excess(metrics: Sequence[dict[str, Any]]) -> list[dict[str, An
                 and (vertices, key[1], horizon, "beta_control") in indexed
             }
         )
-        result.append(
+        out.append(
             {
                 "vertices": vertices,
                 "horizon": horizon,
@@ -326,20 +326,20 @@ def paired_oracle_excess(metrics: Sequence[dict[str, Any]]) -> list[dict[str, An
                 },
             }
         )
-    return result
+    return out
 
 
 def aggregate_graphs(graphs: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
     groups: dict[int, list[dict[str, Any]]] = defaultdict(list)
     for graph in graphs:
         groups[int(graph["vertices"])].append(graph)
-    result = []
+    out = []
     for vertices, records in sorted(groups.items()):
         horizons: dict[int, list[dict[str, Any]]] = defaultdict(list)
         for record in records:
             for horizon in record["horizons"]:
                 horizons[int(horizon["horizon"])].append(horizon)
-        result.append(
+        out.append(
             {
                 "vertices": vertices,
                 "graphs": len(records),
@@ -379,173 +379,43 @@ def aggregate_graphs(graphs: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
                 ],
             }
         )
-    return result
+    return out
 
 
-def number(summary: dict[str, Any], digits: int = 4) -> str:
-    mean = float(summary["mean"])
-    error = float(summary["standard_error"])
-    return f"{mean:.{digits}g} ± {error:.2g}"
-
-
-def render_markdown(analysis: dict[str, Any]) -> str:
-    lines = [
-        "# Finite-DAG route-closure analysis",
-        "",
-        "## Runs",
-        "",
-        "| $N$ | graphs | horizons | paths per horizon | wall time (s) | node $\\widehat x$ RMSE |",
-        "|---:|---:|:---|---:|---:|---:|",
-    ]
-    graph_by_vertices = {
-        entry["vertices"]: entry for entry in analysis["graph_diagnostics"]
-    }
-    for run in analysis["runs"]:
-        configuration = run["configuration"]
-        vertices = int(configuration["vertices"])
-        lines.append(
-            f"| {vertices} | {configuration['samples']} | "
-            f"{','.join(str(value) for value in configuration['horizons'])} | "
-            f"{configuration['paths_per_horizon']} | "
-            f"{run['runtime']['wall_seconds']:.4g} | "
-            f"{number(graph_by_vertices[vertices]['node_mark_rmse'])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Continuum-oracle audit",
-            "",
-            "The continuum oracle is independent of the fitted partition,",
-            "so the table uses the first resolution.",
-            "",
-            "| $N$ | $p$ | data | log score | $W_1$ | PIT mean | PIT variance | PIT KS | PIT-$x$ corr. |",
-            "|---:|---:|:---|---:|---:|---:|---:|---:|---:|",
-        ]
-    )
-    for entry in analysis["metric_aggregates"]:
-        if entry["model"] != "continuum_oracle" or entry["resolution_index"] != 0:
-            continue
-        lines.append(
-            f"| {entry['vertices']} | {entry['horizon']} | {entry['data']} | "
-            f"{number(entry['log_score'])} | {number(entry['wasserstein'])} | "
-            f"{number(entry['pit_mean'])} | {number(entry['pit_variance'])} | "
-            f"{number(entry['pit_kolmogorov'])} | "
-            f"{number(entry['pit_x_correlation'])} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Oracle audit above the sampling control",
-            "",
-            "| $N$ | $p$ | finite minus control $W_1$ | finite minus control PIT KS |",
-            "|---:|---:|---:|---:|",
-        ]
-    )
-    for entry in analysis["oracle_sampling_excess"]:
-        values = entry["finite_minus_beta_control"]
-        lines.append(
-            f"| {entry['vertices']} | {entry['horizon']} | "
-            f"{number(values['wasserstein'])} | "
-            f"{number(values['pit_kolmogorov'])} |"
-        )
-
-    maximum_resolution: dict[tuple[int, int], int] = {}
-    for entry in analysis["comparisons"]:
-        key = (entry["vertices"], entry["horizon"])
-        maximum_resolution[key] = max(
-            maximum_resolution.get(key, -1), entry["resolution_index"]
-        )
-    lines.extend(
-        [
-            "",
-            "## Paired predictive comparisons",
-            "",
-            "Positive log gain and positive Wasserstein reduction favor the",
-            "augmented state. The displayed values subtract the matched",
-            "Beta-control difference.",
-            "",
-            "| $N$ | $p$ | comparison | bins/leaves/target | corrected log gain | corrected $W_1$ reduction |",
-            "|---:|---:|:---|:---|---:|---:|",
-        ]
-    )
-    for entry in analysis["comparisons"]:
-        key = (entry["vertices"], entry["horizon"])
-        if entry["resolution_index"] != maximum_resolution[key]:
-            continue
-        lines.append(
-            f"| {entry['vertices']} | {entry['horizon']} | "
-            f"{entry['comparison']} | {entry['base_bins']}/{entry['aux_leaves']}/{entry['target_bins']} | "
-            f"{number(entry['log_gain']['control_corrected'])} | "
-            f"{number(entry['wasserstein_reduction']['control_corrected'])} |"
-        )
-
-    largest = max(entry["vertices"] for entry in analysis["comparisons"])
-    lines.extend(
-        [
-            "",
-            "## Largest-size refinement",
-            "",
-            "| $p$ | resolution | comparison | corrected log gain | corrected $W_1$ reduction |",
-            "|---:|:---|:---|---:|---:|",
-        ]
-    )
-    for entry in analysis["comparisons"]:
-        if entry["vertices"] != largest:
-            continue
-        lines.append(
-            f"| {entry['horizon']} | {entry['base_bins']}/{entry['aux_leaves']}/{entry['target_bins']} | "
-            f"{entry['comparison']} | "
-            f"{number(entry['log_gain']['control_corrected'])} | "
-            f"{number(entry['wasserstein_reduction']['control_corrected'])} |"
-        )
-    lines.append("")
-    return "\n".join(lines)
-
-
-def parse_args(arguments: Sequence[str] | None = None) -> argparse.Namespace:
+def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Aggregate finite-DAG route-closure artifacts."
     )
-    parser.add_argument("directories", nargs="+", type=Path)
-    parser.add_argument("--json", type=Path)
-    parser.add_argument("--markdown", type=Path)
-    return parser.parse_args(arguments)
+    parser.add_argument("directories", nargs="+", type=Path, metavar="DIR")
+    parser.add_argument("--output", required=True, type=Path)
+    return parser.parse_args(args)
 
 
-def main(arguments: Sequence[str] | None = None) -> int:
-    options = parse_args(arguments)
-    runs, graphs, metrics = load_runs(options.directories)
-    analysis = {
-        "schema": ANALYSIS_SCHEMA,
-        "runs": sorted(
-            runs, key=lambda run: int(run["configuration"]["vertices"])
-        ),
-        "graph_diagnostics": aggregate_graphs(graphs),
-        "metric_aggregates": aggregate_metrics(metrics),
-        "comparisons": paired_comparisons(metrics),
-        "oracle_sampling_excess": paired_oracle_excess(metrics),
-        "comparison_convention": {
-            "log_gain": (
-                "augmented minus baseline. Positive favors augmented"
+def main(args: Sequence[str] | None = None) -> int:
+    opt = parse_args(args)
+
+    try:
+        runs, graphs, metrics = load_runs(opt.directories)
+        analysis = {
+            "runs": sorted(
+                runs, key=lambda run: int(run["configuration"]["vertices"])
             ),
-            "wasserstein_reduction": (
-                "baseline minus augmented. Positive favors augmented"
-            ),
-            "control_corrected": (
-                "finite-DAG difference minus matched Beta-control difference"
-            ),
-        },
-    }
-    json_text = json.dumps(analysis, indent=2, sort_keys=True) + "\n"
-    markdown_text = render_markdown(analysis)
-    if options.json:
-        atomic_write(options.json, json_text)
-    if options.markdown:
-        atomic_write(options.markdown, markdown_text)
-    if not options.json and not options.markdown:
-        print(json_text, end="")
+            "graph_diagnostics": aggregate_graphs(graphs),
+            "metric_aggregates": aggregate_metrics(metrics),
+            "comparisons": paired_comparisons(metrics),
+            "oracle_sampling_excess": paired_oracle_excess(metrics),
+        }
+        payload = json.dumps(analysis, indent=2, sort_keys=True) + "\n"
+    except (OSError, KeyError, TypeError, ValueError) as error:
+        print(f"analyze_gap_finite_closure.py: {error}", file=sys.stderr)
+        return 2
+
+    try:
+        write_output(opt.output, payload)
+    except OSError as error:
+        print(f"analyze_gap_finite_closure.py: {error}", file=sys.stderr)
+        return 1
+
     return 0
 
 

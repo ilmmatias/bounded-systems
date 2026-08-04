@@ -10,7 +10,6 @@ non-Gaussian limit at the same normalization order.
 
 from __future__ import annotations
 
-import math
 import numpy as np
 
 
@@ -87,4 +86,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

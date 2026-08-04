@@ -40,9 +40,8 @@ S_{\lfloor ns\rfloor}
 \mathcal R(t,s).
 ```
 
-Covariance convergence alone does not prove a Gaussian functional limit;
-tightness, Lindeberg/projective conditions or corresponding chaos assumptions
-are also required.
+A Gaussian functional limit additionally requires tightness,
+Lindeberg/projective conditions, or corresponding chaos assumptions.
 
 # 2. Absence of long memory in harmonic score increments
 
@@ -176,8 +175,9 @@ a_n=\sqrt n
 The limit is Brownian with renormalized covariance $\Sigma_{\mathrm{eff}}$.
 Functional central limit theorems for additive functionals of stationary
 reversible Markov processes establish this phenomenon when the observable lies
-in the range of the square root of the resolvent operator; the route process
-constructed above is not shown to be stationary or reversible.
+in the range of the square root of the resolvent operator. Applying those
+theorems to the route process requires stationarity and reversibility as
+additional hypotheses.
 
 Thus summable route correlation renormalizes the quadratic tensor rather than
 creating a new continuum regime.

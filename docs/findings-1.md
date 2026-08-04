@@ -12,7 +12,7 @@ maps $s,t:E\to N$. The graph $(N,E,s,t)$ is acyclic, while distinct channels
 $e,f\in E$ may have the same source and target. All changes of the system are
 therefore represented internally by its channels.
 
-For the finite calculations below, fix a representative
+For the finite calculations, fix a representative
 
 ```math
 G=(N,E,s,t)
@@ -123,8 +123,8 @@ graph obtained by forgetting edge orientation.
 
 # 3. Three-node calculations
 
-The entries of the preceding table for the outgoing fork, incoming fork, chain,
-and transitive triangle are computed below.
+The entries in Section 2 for the outgoing fork, incoming fork, chain, and
+transitive triangle follow from the calculations in this section.
 
 ## Outgoing fork
 
@@ -516,8 +516,8 @@ downstream multiplicities. Nevertheless, they share identical adjacency
 eigenvalues, singular values, degree multisets, and underlying
 weighted-Laplacian spectra, as well as the same path multiplicity $ab$.
 
-The initial spectral package therefore does not determine whether the larger
-multiplicity occurs upstream or downstream.
+The initial spectral package therefore leaves the upstream placement of the
+larger multiplicity unresolved.
 
 # 7. An asymmetric Gram operator
 

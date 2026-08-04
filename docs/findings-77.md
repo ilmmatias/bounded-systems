@@ -106,7 +106,7 @@ theorem of `findings-60.md`. A finite set of equations can isolate a point in
 an infinite-dimensional compact space even when no finite coordinate map embeds
 the whole space.
 
-# 5. Process-level consequence
+# 5. Finite-observable process laws
 
 The internal kernel complexity does not obstruct finite-observable continuum
 laws. Every fixed finite family of DAG densities has exact support coefficients

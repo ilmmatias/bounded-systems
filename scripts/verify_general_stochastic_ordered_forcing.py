@@ -3,14 +3,32 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from fractions import Fraction
+from typing import NamedTuple
+
+Signature = tuple[Fraction, ...]
+Matrix = list[list[Fraction]]
 
 
-def distance_squared(left, right):
+class ForcingTerms(NamedTuple):
+    signature: Fraction
+    mass: Fraction
+    wrong_direction: Fraction
+    row: Fraction
+    column: Fraction
+    c4: Fraction
+
+
+def distance_squared(
+    left: Sequence[Fraction], right: Sequence[Fraction]
+) -> Fraction:
     return sum((x - y) ** 2 for x, y in zip(left, right))
 
 
-def target_signatures(p, w):
+def target_signatures(
+    p: Sequence[Fraction], w: Sequence[Sequence[Fraction]]
+) -> list[Signature]:
     q = len(p)
     incoming = [[Fraction(1)] + [Fraction(0)] * (q - 1) for _ in range(q)]
     outgoing = [[Fraction(1)] + [Fraction(0)] * (q - 1) for _ in range(q)]
@@ -20,6 +38,7 @@ def target_signatures(p, w):
                 p[j] * w[j][i] * incoming[j][length - 1]
                 for j in range(i)
             )
+
         for i in range(q - 1, -1, -1):
             outgoing[i][length] = sum(
                 p[j] * w[i][j] * outgoing[j][length - 1]
@@ -31,7 +50,11 @@ def target_signatures(p, w):
     ]
 
 
-def micro_signatures(masses, kernel, max_length):
+def micro_signatures(
+    masses: Sequence[Fraction],
+    kernel: Sequence[Sequence[Fraction]],
+    max_length: int,
+) -> list[Signature]:
     count = len(masses)
     incoming = [[Fraction(1)] + [Fraction(0)] * max_length for _ in range(count)]
     outgoing = [[Fraction(1)] + [Fraction(0)] * max_length for _ in range(count)]
@@ -41,6 +64,7 @@ def micro_signatures(masses, kernel, max_length):
                 masses[j] * kernel[j][i] * incoming[j][length - 1]
                 for j in range(count)
             )
+
         for i in range(count):
             outgoing[i][length] = sum(
                 masses[j] * kernel[i][j] * outgoing[j][length - 1]
@@ -52,25 +76,31 @@ def micro_signatures(masses, kernel, max_length):
     ]
 
 
-def q_polynomial(signature, targets):
+def q_polynomial(
+    signature: Signature, targets: Sequence[Signature]
+) -> Fraction:
     value = Fraction(1)
     for target in targets:
         value *= distance_squared(signature, target)
     return value
 
 
-def lagrange_value(signature, targets, index):
+def lagrange_value(
+    signature: Signature, targets: Sequence[Signature], i: int
+) -> Fraction:
     numerator = Fraction(1)
     denominator = Fraction(1)
     for j, target in enumerate(targets):
-        if j == index:
+        if j == i:
             continue
         numerator *= distance_squared(signature, target)
-        denominator *= distance_squared(targets[index], target)
+        denominator *= distance_squared(targets[i], target)
     return numerator / denominator
 
 
-def refined_target(p, w):
+def refined_target(
+    p: Sequence[Fraction], w: Sequence[Sequence[Fraction]]
+) -> tuple[list[Fraction], list[int], Matrix]:
     masses = []
     layers = []
     for layer, mass in enumerate(p):
@@ -87,7 +117,13 @@ def refined_target(p, w):
     return masses, layers, kernel
 
 
-def block_c4(masses, kernel, indicators, i, j):
+def block_c4(
+    masses: Sequence[Fraction],
+    kernel: Sequence[Sequence[Fraction]],
+    indicators: Sequence[Sequence[Fraction]],
+    i: int,
+    j: int,
+) -> Fraction:
     count = len(masses)
     total = Fraction(0)
     for x1 in range(count):
@@ -111,7 +147,12 @@ def block_c4(masses, kernel, indicators, i, j):
     return total
 
 
-def forcing_terms(p, w, masses, kernel):
+def forcing_terms(
+    p: Sequence[Fraction],
+    w: Sequence[Sequence[Fraction]],
+    masses: Sequence[Fraction],
+    kernel: Sequence[Sequence[Fraction]],
+) -> tuple[ForcingTerms, list[Signature], list[Signature], list[list[Fraction]]]:
     q = len(p)
     targets = target_signatures(p, w)
     signatures = micro_signatures(masses, kernel, q - 1)
@@ -120,17 +161,16 @@ def forcing_terms(p, w, masses, kernel):
         for signature in signatures
     ]
 
-    terms = {}
-    terms["signature"] = sum(
+    signature_defect = sum(
         mass * q_polynomial(signature, targets)
-        for mass, signature in zip(masses, signatures)
+        for mass, signature in zip(masses, signatures, strict=True)
     )
 
     recovered_masses = [
         sum(masses[a] * indicators[a][i] for a in range(len(masses)))
         for i in range(q)
     ]
-    terms["mass"] = sum(
+    mass_defect = sum(
         (recovered_masses[i] - p[i]) ** 2 for i in range(q)
     )
 
@@ -147,7 +187,6 @@ def forcing_terms(p, w, masses, kernel):
                 for b in range(len(masses))
             )
             wrong += edge_density**2
-    terms["wrong_direction"] = wrong
 
     row_defect = Fraction(0)
     column_defect = Fraction(0)
@@ -176,13 +215,18 @@ def forcing_terms(p, w, masses, kernel):
             target_c4 = p[i] ** 2 * p[j] ** 2 * w[i][j] ** 4
             c4_defect += (c4 - target_c4) ** 2
 
-    terms["row"] = row_defect
-    terms["column"] = column_defect
-    terms["c4"] = c4_defect
+    terms = ForcingTerms(
+        signature=signature_defect,
+        mass=mass_defect,
+        wrong_direction=wrong,
+        row=row_defect,
+        column=column_defect,
+        c4=c4_defect,
+    )
     return terms, targets, signatures, indicators
 
 
-def make_target(q_case):
+def make_target(q_case: int) -> tuple[tuple[Fraction, ...], Matrix]:
     if q_case == 3:
         p = (Fraction(1, 5), Fraction(3, 10), Fraction(1, 2))
         w = [[Fraction(0) for _ in range(3)] for _ in range(3)]
@@ -190,6 +234,7 @@ def make_target(q_case):
         w[0][2] = Fraction(2, 3)
         w[1][2] = Fraction(3, 4)
         return p, w
+
     if q_case == 4:
         p = (Fraction(1, 10), Fraction(1, 5), Fraction(3, 10), Fraction(2, 5))
         w = [[Fraction(0) for _ in range(4)] for _ in range(4)]
@@ -204,10 +249,11 @@ def make_target(q_case):
         for (i, j), value in values.items():
             w[i][j] = value
         return p, w
+
     raise ValueError(q_case)
 
 
-def verify_case(q_case):
+def verify_case(q_case: int) -> int:
     p, w = make_target(q_case)
     q = len(p)
     targets = target_signatures(p, w)
@@ -223,7 +269,7 @@ def verify_case(q_case):
 
     masses, layers, kernel = refined_target(p, w)
     terms, _, signatures, indicators = forcing_terms(p, w, masses, kernel)
-    assert all(value == 0 for value in terms.values())
+    assert all(value == 0 for value in terms)
     checks += len(terms)
     for micro, layer in enumerate(layers):
         assert signatures[micro] == targets[layer]
@@ -235,8 +281,8 @@ def verify_case(q_case):
     perturbed = [row[:] for row in kernel]
     source_layer = 0
     target_layer = 1
-    source_micro = [index for index, layer in enumerate(layers) if layer == source_layer]
-    target_micro = [index for index, layer in enumerate(layers) if layer == target_layer]
+    source_micro = [i for i, layer in enumerate(layers) if layer == source_layer]
+    target_micro = [i for i, layer in enumerate(layers) if layer == target_layer]
     delta = Fraction(1, 12)
     base = w[source_layer][target_layer]
     for a_index, a in enumerate(source_micro):
@@ -244,12 +290,12 @@ def verify_case(q_case):
             perturbed[a][b] = base + (delta if a_index == b_index else -delta)
 
     perturbed_terms, _, perturbed_signatures, _ = forcing_terms(p, w, masses, perturbed)
-    assert perturbed_terms["signature"] == 0
-    assert perturbed_terms["mass"] == 0
-    assert perturbed_terms["wrong_direction"] == 0
-    assert perturbed_terms["row"] == 0
-    assert perturbed_terms["column"] == 0
-    assert perturbed_terms["c4"] > 0
+    assert perturbed_terms.signature == 0
+    assert perturbed_terms.mass == 0
+    assert perturbed_terms.wrong_direction == 0
+    assert perturbed_terms.row == 0
+    assert perturbed_terms.column == 0
+    assert perturbed_terms.c4 > 0
     assert perturbed_signatures == signatures
     checks += 7
 
@@ -257,17 +303,17 @@ def verify_case(q_case):
     backward = [row[:] for row in kernel]
     backward[target_micro[0]][source_micro[0]] = Fraction(1, 7)
     backward_terms, _, _, _ = forcing_terms(p, w, masses, backward)
-    assert sum(backward_terms.values()) > 0
-    assert backward_terms["wrong_direction"] > 0
+    assert sum(backward_terms) > 0
+    assert backward_terms.wrong_direction > 0
     checks += 2
 
     return checks
 
 
-def main():
+def main() -> None:
     checks = verify_case(3) + verify_case(4)
     print(f"verified {checks} exact general stochastic ordered-forcing checks")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -160,7 +160,7 @@ Thus the obstruction identified after `findings-74.md` is not a general
 impossibility. The remaining question is kernel-specific: which continuous or
 continuum-range acyclic kernels admit finite forcing identities?
 
-# 5. Continuum and harmonic consequences
+# 5. Continuum and harmonic structure
 
 The sector is extremal and dissociated, so the following consequences hold:
 

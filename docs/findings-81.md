@@ -198,7 +198,7 @@ Once the complete rooted profile is known, the continuous latent order is a
 graph-intrinsic function of the expected incoming and outgoing relations rather
 than an external hidden coordinate.
 
-# 6. Closure and finite forcing
+# 6. Functional closure and finite-selector limits
 
 The preceding reconstruction is an exact continuum closure statement. The
 rooted degree functions determine the coordinate, the coordinate determines the

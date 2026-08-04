@@ -12,18 +12,21 @@ computes their canonical Hoeffding projections, and verifies:
 
 from __future__ import annotations
 
+from collections.abc import Callable, Iterator
 from fractions import Fraction
 from itertools import combinations, product
 from math import comb
 import random
 
+Kernel = Callable[[tuple[int, ...]], Fraction]
 
-def subsets(items: tuple[int, ...]):
+
+def subsets(items: tuple[int, ...]) -> Iterator[tuple[int, ...]]:
     for r in range(len(items) + 1):
         yield from combinations(items, r)
 
 
-def random_symmetric_kernel(q: int, k: int, rng: random.Random):
+def random_symmetric_kernel(q: int, k: int, rng: random.Random) -> Kernel:
     values: dict[tuple[int, ...], Fraction] = {}
     for xs in product(range(q), repeat=k):
         key = tuple(sorted(xs))
@@ -37,7 +40,7 @@ def random_symmetric_kernel(q: int, k: int, rng: random.Random):
 
 
 def conditional(
-    h,
+    h: Kernel,
     p: tuple[Fraction, ...],
     k: int,
     fixed: dict[int, int],
@@ -56,14 +59,19 @@ def conditional(
     return total
 
 
-def projection(h, p: tuple[Fraction, ...], k: int, xs: tuple[int, ...]) -> Fraction:
+def projection(
+    h: Kernel,
+    p: tuple[Fraction, ...],
+    k: int,
+    xs: tuple[int, ...],
+) -> Fraction:
     j = len(xs)
-    result = Fraction(0)
+    out = Fraction(0)
     indices = tuple(range(j))
     for s in subsets(indices):
         fixed = {i: xs[i] for i in s}
-        result += (-1) ** (j - len(s)) * conditional(h, p, k, fixed)
-    return result
+        out += (-1) ** (j - len(s)) * conditional(h, p, k, fixed)
+    return out
 
 
 def check_random_kernels(trials: int = 40) -> int:
@@ -206,4 +214,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

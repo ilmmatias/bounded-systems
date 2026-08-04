@@ -141,7 +141,7 @@ DAG sector whose payload block itself has continuum range.
 There exists an absolutely finitely forcible extremal central DAG sector whose
 graph-intrinsic payload block is non-step and has continuum essential range.
 
-# 5. Consequences for the selection program
+# 5. Continuum-range selection by operator transform
 
 The finite relational selector need not arise from a finite block model. It
 can select a kernel defined through an infinite singular-value spectrum and a

@@ -96,18 +96,16 @@ fi
     --overwrite
 
 python3 "$root/scripts/analyze_gap_benchmark.py" \
-    --inputs \
-        "$output/n512" \
-        "$output/n1024" \
-        "$output/n2048" \
-        "$output/n4096" \
-        "$output/n8192" \
-        "$output/calibration-n512" \
-        "$output/calibration-n1024" \
-        "$output/calibration-n2048" \
-        "$output/calibration-n4096" \
-        "$output/calibration-n8192" \
-        "$output/perf-serial" \
-        "$output/perf-parallel" \
-    --output "$output/summary.json" \
-    --markdown "$output/summary.md"
+    "$output/n512" \
+    "$output/n1024" \
+    "$output/n2048" \
+    "$output/n4096" \
+    "$output/n8192" \
+    "$output/calibration-n512" \
+    "$output/calibration-n1024" \
+    "$output/calibration-n2048" \
+    "$output/calibration-n4096" \
+    "$output/calibration-n8192" \
+    "$output/perf-serial" \
+    "$output/perf-parallel" \
+    --output "$output/summary.json"

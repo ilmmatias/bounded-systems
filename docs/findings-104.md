@@ -195,7 +195,7 @@ The dependence of the projected mixture weights on $x$ is evaluated with $64$,
 $128$, and $256$ uniform $x$-bins. The target integral uses steps
 $2\times10^{-5}$, $10^{-4}$, and $10^{-3}$ on the successive fraction
 intervals $[0,0.02]$, $[0.02,0.1]$, and $[0.1,1]$. The route-time integral uses
-successively coarser steps after $2$, $10$, and $50$. The values below use
+successively coarser steps after $2$, $10$, and $50$. The reported values use
 $256$ source bins.
 
 # 4. Conditional-law audit

@@ -60,9 +60,8 @@ possible completions, and Mobius inversion gives the converse change of
 basis.
 
 The proposition means that rooted and decorated notation can be used in
-proofs without enlarging the observable language. Every constraint
-introduced below can be expanded into finitely many ordinary finite-DAG
-frequencies.
+proofs without enlarging the observable language. Every constraint in the
+construction expands into finitely many ordinary finite-DAG frequencies.
 
 # 3. Polynomial lifting through the central boundary
 
@@ -239,7 +238,7 @@ Thus $L_i(S(x))$ is the indicator of the graph-intrinsic class having the
 target signature $s_i$. No latent layer labels occur in the final
 constraints.
 
-# 7. Consequence for finite forcing
+# 7. Finite forcing through rooted observables
 
 The path-signature constraint, the polynomial indicators, block edge
 densities, rooted block-degree defects, and block four-cycle densities are

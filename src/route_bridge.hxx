@@ -95,7 +95,7 @@ struct ClosureResult {
 
 struct HorizonResult {
     int p = 0;
-    bool valid = false;
+    bool hasRoutes = false;
     long double logCount = 0.0L;
     long double logNextCount = 0.0L;
     double growth = 0.0;

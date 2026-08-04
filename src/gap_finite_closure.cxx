@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <exception>
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <iterator>
 #include <limits>
@@ -87,7 +88,7 @@ struct HorizonGraphRecord {
 };
 
 struct GraphRecords {
-    size_t index = 0;
+    size_t sampleIndex = 0;
     uint64_t sampleSeed = 0;
     size_t edgeCount = 0;
     size_t estimatedBytes = 0;
@@ -153,10 +154,10 @@ class Rng {
 double sampleBetaInteger(int firstShape, int secondShape, Rng& rng) {
     double first = 0.0;
     double second = 0.0;
-    for (int index = 0; index < firstShape; ++index) {
+    for (int i = 0; i < firstShape; ++i) {
         first -= std::log(rng.uniformOpen());
     }
-    for (int index = 0; index < secondShape; ++index) {
+    for (int i = 0; i < secondShape; ++i) {
         second -= std::log(rng.uniformOpen());
     }
     return first / (first + second);
@@ -175,7 +176,7 @@ Integer parseInteger(std::string_view text, std::string_view option) {
 }
 
 double parseDouble(std::string_view text, std::string_view option) {
-    std::string copy(text);
+    const std::string copy(text);
     size_t used = 0;
     const double value = std::stod(copy, &used);
     if (used != copy.size() || !std::isfinite(value)) {
@@ -185,12 +186,12 @@ double parseDouble(std::string_view text, std::string_view option) {
     return value;
 }
 
-std::string_view requireValue(std::span<char*> arguments, size_t& index,
+std::string_view requireValue(std::span<char*> args, size_t& i,
                               std::string_view option) {
-    if (index + 1 >= arguments.size()) {
+    if (i + 1 >= args.size()) {
         throw std::invalid_argument(std::string(option) + " requires a value");
     }
-    return arguments[++index];
+    return args[++i];
 }
 
 std::vector<int> parseList(std::string_view text, std::string_view option) {
@@ -237,113 +238,161 @@ void printUsage(std::string_view program) {
                  "  --self-test               run internal checks only");
 }
 
-Options parseOptions(std::span<char*> arguments) {
-    Options options;
+Options parseOptions(std::span<char*> args) {
+    Options opt;
     std::vector<int> baseBins{8, 16, 32};
     std::vector<int> auxLeaves{2, 2, 2};
     std::vector<int> targetBins{32, 64, 128};
 
-    for (size_t index = 1; index < arguments.size(); ++index) {
-        const std::string_view option = arguments[index];
-        if (option == "--vertices") {
-            options.vertexCount = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--horizons") {
-            options.horizons =
-                parseList(requireValue(arguments, index, option), option);
-        } else if (option == "--samples") {
-            options.sampleCount = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--paths") {
-            options.pathsPerHorizon = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--seed") {
-            options.seed = parseInteger<uint64_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--threads") {
-            options.threads = parseInteger<size_t>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--output") {
-            options.outputDirectory = requireValue(arguments, index, option);
-        } else if (option == "--base-bins") {
-            baseBins =
-                parseList(requireValue(arguments, index, option), option);
-        } else if (option == "--aux-leaves") {
-            auxLeaves =
-                parseList(requireValue(arguments, index, option), option);
-        } else if (option == "--target-bins") {
-            targetBins =
-                parseList(requireValue(arguments, index, option), option);
-        } else if (option == "--reference-bins") {
-            options.referenceBins = parseInteger<int>(
-                requireValue(arguments, index, option), option);
-        } else if (option == "--pseudocount") {
-            options.pseudocount =
-                parseDouble(requireValue(arguments, index, option), option);
-        } else if (option == "--overwrite") {
-            options.overwrite = true;
-        } else if (option == "--self-test") {
-            options.selfTest = true;
-        } else if (option == "--help") {
-            options.help = true;
-            return options;
-        } else {
-            throw std::invalid_argument("unknown option: " +
-                                        std::string(option));
+    for (size_t i = 1; i < args.size(); ++i) {
+        const std::string_view name = args[i];
+
+        if (name == "--vertices") {
+            opt.vertexCount =
+                parseInteger<size_t>(requireValue(args, i, name), name);
+            continue;
         }
+
+        if (name == "--horizons") {
+            opt.horizons = parseList(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--samples") {
+            opt.sampleCount =
+                parseInteger<size_t>(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--paths") {
+            opt.pathsPerHorizon =
+                parseInteger<size_t>(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--seed") {
+            opt.seed =
+                parseInteger<uint64_t>(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--threads") {
+            opt.threads =
+                parseInteger<size_t>(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--output") {
+            opt.outputDirectory = requireValue(args, i, name);
+            continue;
+        }
+
+        if (name == "--base-bins") {
+            baseBins = parseList(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--aux-leaves") {
+            auxLeaves = parseList(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--target-bins") {
+            targetBins = parseList(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--reference-bins") {
+            opt.referenceBins =
+                parseInteger<int>(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--pseudocount") {
+            opt.pseudocount = parseDouble(requireValue(args, i, name), name);
+            continue;
+        }
+
+        if (name == "--overwrite") {
+            opt.overwrite = true;
+            continue;
+        }
+
+        if (name == "--self-test") {
+            opt.selfTest = true;
+            continue;
+        }
+
+        if (name == "--help") {
+            opt.help = true;
+            return opt;
+        }
+
+        throw std::invalid_argument("unknown option: " + std::string(name));
     }
 
-    if (options.selfTest || options.help) {
-        return options;
+    if (opt.selfTest || opt.help) {
+        return opt;
     }
-    if (options.vertexCount < 2) {
+
+    if (opt.vertexCount < 2) {
         throw std::invalid_argument("--vertices must be at least two");
     }
-    if (options.horizons.empty()) {
+
+    if (opt.horizons.empty()) {
         throw std::invalid_argument("--horizons is required");
     }
-    std::ranges::sort(options.horizons);
-    if (std::ranges::adjacent_find(options.horizons) !=
-            options.horizons.end() ||
-        options.horizons.front() < 2 || options.horizons.back() > 65535) {
+
+    std::ranges::sort(opt.horizons);
+
+    if (std::ranges::adjacent_find(opt.horizons) != opt.horizons.end() ||
+        opt.horizons.front() < 2 || opt.horizons.back() > 65535) {
         throw std::invalid_argument(
             "--horizons must contain distinct integers in 2..65535");
     }
-    if (options.sampleCount < 4) {
+
+    if (opt.sampleCount < 4) {
         throw std::invalid_argument("--samples must be at least four");
     }
-    if (options.pathsPerHorizon == 0) {
+
+    if (opt.pathsPerHorizon == 0) {
         throw std::invalid_argument("--paths must be positive");
     }
-    if (options.threads == 0) {
+
+    if (opt.threads == 0) {
         throw std::invalid_argument("--threads must be positive");
     }
-    if (options.outputDirectory.empty()) {
+
+    if (opt.outputDirectory.empty()) {
         throw std::invalid_argument("--output is required");
     }
-    if (baseBins.size() != auxLeaves.size() ||
-        baseBins.size() != targetBins.size() || baseBins.empty()) {
-        throw std::invalid_argument("--base-bins, --aux-leaves, and "
-                                    "--target-bins must have equal lengths");
+
+    if (baseBins.empty() || baseBins.size() != auxLeaves.size() ||
+        baseBins.size() != targetBins.size()) {
+        throw std::invalid_argument(
+            "--base-bins, --aux-leaves, and --target-bins must have equal "
+            "lengths");
     }
-    if (options.referenceBins < 64 || options.referenceBins > 4096) {
+
+    if (opt.referenceBins < 64 || opt.referenceBins > 4096) {
         throw std::invalid_argument("--reference-bins must be in 64..4096");
     }
-    if (!(options.pseudocount > 0.0)) {
+
+    if (!(opt.pseudocount > 0.0)) {
         throw std::invalid_argument("--pseudocount must be positive");
     }
 
-    for (size_t index = 0; index < baseBins.size(); ++index) {
-        if (baseBins[index] < 2 || baseBins[index] > 256 ||
-            auxLeaves[index] < 1 || auxLeaves[index] > 16 ||
-            targetBins[index] < 8 || targetBins[index] > 1024) {
+    for (size_t i = 0; i < baseBins.size(); ++i) {
+        if (baseBins[i] < 2 || baseBins[i] > 256 || auxLeaves[i] < 1 ||
+            auxLeaves[i] > 16 || targetBins[i] < 8 || targetBins[i] > 1024) {
             throw std::invalid_argument(
                 "resolution entries exceed their permitted ranges");
         }
-        options.resolutions.push_back(
-            {baseBins[index], auxLeaves[index], targetBins[index]});
+
+        opt.resolutions.push_back({baseBins[i], auxLeaves[i], targetBins[i]});
     }
-    return options;
+
+    return opt;
 }
 
 size_t drawWeighted(std::span<const long double> weights, Rng& rng) {
@@ -356,10 +405,10 @@ size_t drawWeighted(std::span<const long double> weights, Rng& rng) {
     const long double target =
         static_cast<long double>(rng.uniformOpen()) * total;
     long double cumulative = 0.0L;
-    for (size_t index = 0; index < weights.size(); ++index) {
-        cumulative += weights[index];
+    for (size_t i = 0; i < weights.size(); ++i) {
+        cumulative += weights[i];
         if (target < cumulative) {
-            return index;
+            return i;
         }
     }
     return weights.size() - 1;
@@ -416,12 +465,11 @@ std::array<double, kGapCoordinateCount>
 scaledTransverse(const GapCoordinate& coordinate, double intrinsicX,
                  double rootVertexCount) {
     const GapCoordinate reference = gapContinuumCoordinate(intrinsicX);
-    std::array<double, kGapCoordinateCount> result{};
-    for (size_t index = 0; index < result.size(); ++index) {
-        result[index] =
-            rootVertexCount * (coordinate[index] - reference[index]);
+    std::array<double, kGapCoordinateCount> out{};
+    for (size_t i = 0; i < out.size(); ++i) {
+        out[i] = rootVertexCount * (coordinate[i] - reference[i]);
     }
-    return result;
+    return out;
 }
 
 double intrinsicMark(const GapNodeState& state, uint32_t vertex) {
@@ -464,7 +512,7 @@ void appendTransitions(GraphRecords& sample, const ReferenceDag& graph,
             const int remaining = horizon - position;
 
             TransitionRecord record;
-            record.graphIndex = static_cast<uint32_t>(sample.index);
+            record.graphIndex = static_cast<uint32_t>(sample.sampleIndex);
             record.pathIndex = static_cast<uint32_t>(pathIndex);
             record.horizon = static_cast<uint16_t>(horizon);
             record.position = static_cast<uint16_t>(position);
@@ -494,25 +542,25 @@ void appendTransitions(GraphRecords& sample, const ReferenceDag& graph,
     }
 }
 
-GraphRecords sampleGraph(const Options& options, size_t index) {
+GraphRecords sampleGraph(const Options& opt, size_t sampleIndex) {
     const auto started = Clock::now();
     GraphRecords sample;
-    sample.index = index;
-    sample.sampleSeed = deriveGapSampleSeed(options.seed, index);
+    sample.sampleIndex = sampleIndex;
+    sample.sampleSeed = deriveGapSampleSeed(opt.seed, sampleIndex);
 
-    ReferenceDag graph =
-        ReferenceDag::generate(options.vertexCount, sample.sampleSeed);
+    const ReferenceDag graph =
+        ReferenceDag::generate(opt.vertexCount, sample.sampleSeed);
     const GapNodeState state = computeGapNodeState(graph);
     const LatentStateValidation validation = validateGapNodeState(graph, state);
     sample.nodeMarkRmse = validation.reconstructedMarkRmse;
     sample.nodeMarkMaxError = validation.reconstructedMarkMaxError;
     const StableRouteCounts routes =
-        computeRouteCounts(graph, static_cast<size_t>(options.horizons.back()));
+        computeRouteCounts(graph, static_cast<size_t>(opt.horizons.back()));
     sample.edgeCount = graph.edgeCount();
     sample.estimatedBytes = graph.estimatedBytes() + state.estimatedBytes() +
                             routes.estimatedBytes();
 
-    for (int horizon : options.horizons) {
+    for (const int horizon : opt.horizons) {
         HorizonGraphRecord horizonRecord;
         horizonRecord.horizon = horizon;
         horizonRecord.hasRoutes =
@@ -521,12 +569,11 @@ GraphRecords sampleGraph(const Options& options, size_t index) {
             horizonRecord.hasRoutes
                 ? routes.forwardLogs[static_cast<size_t>(horizon)]
                 : -std::numeric_limits<long double>::infinity();
-        horizonRecord.paths =
-            horizonRecord.hasRoutes ? options.pathsPerHorizon : 0;
+        horizonRecord.paths = horizonRecord.hasRoutes ? opt.pathsPerHorizon : 0;
         if (horizonRecord.hasRoutes) {
             const size_t first = sample.transitions.size();
             appendTransitions(sample, graph, state, routes, horizon,
-                              options.pathsPerHorizon, sample.sampleSeed);
+                              opt.pathsPerHorizon, sample.sampleSeed);
             double squareError = 0.0;
             for (size_t transition = first;
                  transition < sample.transitions.size(); ++transition) {
@@ -548,43 +595,46 @@ GraphRecords sampleGraph(const Options& options, size_t index) {
     return sample;
 }
 
-std::vector<GraphRecords> sampleGraphs(const Options& options,
-                                       size_t threadCount) {
-    std::vector<GraphRecords> graphs(options.sampleCount);
+std::vector<GraphRecords> sampleGraphs(const Options& opt, size_t threadCount) {
+    std::vector<GraphRecords> graphs(opt.sampleCount);
     std::atomic<size_t> next{0};
     std::exception_ptr failure;
     std::mutex failureMutex;
 
-    auto worker = [&] {
+    auto worker = [&failure, &failureMutex, &graphs, &next, &opt] {
         try {
             while (true) {
-                const size_t index =
-                    next.fetch_add(1, std::memory_order_relaxed);
-                if (index >= options.sampleCount) {
+                const size_t i = next.fetch_add(1, std::memory_order_relaxed);
+                if (i >= opt.sampleCount) {
                     return;
                 }
-                graphs[index] = sampleGraph(options, index);
+
+                graphs[i] = sampleGraph(opt, i);
             }
         } catch (...) {
-            std::scoped_lock lock(failureMutex);
+            const std::scoped_lock lock(failureMutex);
             if (!failure) {
                 failure = std::current_exception();
             }
-            next.store(options.sampleCount, std::memory_order_relaxed);
+            next.store(opt.sampleCount, std::memory_order_relaxed);
         }
     };
 
     std::vector<std::thread> workers;
     workers.reserve(threadCount);
-    for (size_t index = 0; index < threadCount; ++index) {
+
+    for (size_t i = 0; i < threadCount; ++i) {
         workers.emplace_back(worker);
     }
+
     for (std::thread& thread : workers) {
         thread.join();
     }
+
     if (failure) {
         std::rethrow_exception(failure);
     }
+
     return graphs;
 }
 
@@ -656,77 +706,77 @@ size_t auxiliaryFeatureCount(const ModelSpec& model) {
 }
 
 double auxiliaryFeature(const ModelSpec& model, const TransitionRecord& record,
-                        size_t index) {
+                        size_t feature) {
     switch (model.kind) {
     case ModelKind::latent:
     case ModelKind::intrinsic:
         break;
     case ModelKind::latentAge:
     case ModelKind::intrinsicAge:
-        if (index == 0) {
+        if (feature == 0) {
             return record.routeAge;
         }
         break;
     case ModelKind::latentHistory:
-        if (index == 0) {
+        if (feature == 0) {
             return record.routeAge;
         }
-        if (index == 1) {
+        if (feature == 1) {
             return record.previousX;
         }
-        if (index == 2) {
+        if (feature == 2) {
             return record.latentLastFraction;
         }
-        if (index == 3) {
+        if (feature == 3) {
             return record.latentQuadratic;
         }
         break;
     case ModelKind::intrinsicHistory:
-        if (index == 0) {
+        if (feature == 0) {
             return record.routeAge;
         }
-        if (index == 1) {
+        if (feature == 1) {
             return record.previousIntrinsicX;
         }
-        if (index == 2) {
+        if (feature == 2) {
             return record.intrinsicLast;
         }
-        if (index == 3) {
+        if (feature == 3) {
             return record.intrinsicQuadratic;
         }
         break;
     case ModelKind::fullState:
-        if (index < kGapCoordinateCount) {
-            return record.transverse[index];
+        if (feature < kGapCoordinateCount) {
+            return record.transverse[feature];
         }
         break;
     case ModelKind::fullAge:
-        if (index < kGapCoordinateCount) {
-            return record.transverse[index];
+        if (feature < kGapCoordinateCount) {
+            return record.transverse[feature];
         }
-        if (index == kGapCoordinateCount) {
+        if (feature == kGapCoordinateCount) {
             return record.routeAge;
         }
         break;
     case ModelKind::fullHistory:
-        if (index < kGapCoordinateCount) {
-            return record.transverse[index];
+        if (feature < kGapCoordinateCount) {
+            return record.transverse[feature];
         }
-        if (index == kGapCoordinateCount) {
+        if (feature == kGapCoordinateCount) {
             return record.routeAge;
         }
-        if (index == kGapCoordinateCount + 1) {
+        if (feature == kGapCoordinateCount + 1) {
             return record.previousIntrinsicX;
         }
-        if (index == kGapCoordinateCount + 2) {
+        if (feature == kGapCoordinateCount + 2) {
             return record.intrinsicLast;
         }
-        if (index == kGapCoordinateCount + 3) {
+        if (feature == kGapCoordinateCount + 3) {
             return record.intrinsicQuadratic;
         }
-        if (index >= kGapCoordinateCount + 4 &&
-            index < 2 * kGapCoordinateCount + 4) {
-            return record.previousTransverse[index - kGapCoordinateCount - 4];
+        if (feature >= kGapCoordinateCount + 4 &&
+            feature < 2 * kGapCoordinateCount + 4) {
+            return record.previousTransverse[feature - kGapCoordinateCount - 4];
         }
         break;
     }
@@ -766,7 +816,7 @@ struct LeafWork {
 };
 
 struct CandidateSplit {
-    bool valid = false;
+    bool found = false;
     size_t leaf = 0;
     size_t feature = 0;
     double threshold = 0.0;
@@ -781,15 +831,15 @@ double multinomialLogLikelihood(std::span<const size_t> counts) {
     if (total == 0) {
         return 0.0;
     }
-    double result = 0.0;
-    for (size_t count : counts) {
+    double score = 0.0;
+    for (const size_t count : counts) {
         if (count > 0) {
-            result += static_cast<double>(count) *
-                      std::log(static_cast<double>(count) /
-                               static_cast<double>(total));
+            score += static_cast<double>(count) *
+                     std::log(static_cast<double>(count) /
+                              static_cast<double>(total));
         }
     }
-    return result;
+    return score;
 }
 
 size_t targetBin(double value, int bins) {
@@ -809,7 +859,7 @@ CandidateSplit bestLeafSplit(const ModelSpec& model,
     }
 
     std::vector<size_t> parentCounts(static_cast<size_t>(targetBins), 0);
-    for (size_t row : leaf.rows) {
+    for (const size_t row : leaf.rows) {
         ++parentCounts[targetBin(outcomes[row], targetBins)];
     }
     const double parentLikelihood = multinomialLogLikelihood(parentCounts);
@@ -817,7 +867,8 @@ CandidateSplit bestLeafSplit(const ModelSpec& model,
 
     for (size_t feature = 0; feature < featureCount; ++feature) {
         std::vector<size_t> sorted = leaf.rows;
-        std::ranges::sort(sorted, [&](size_t left, size_t right) {
+        std::ranges::sort(sorted, [&model, &records, feature](size_t left,
+                                                              size_t right) {
             const double a = auxiliaryFeature(model, *records[left], feature);
             const double b = auxiliaryFeature(model, *records[right], feature);
             return a < b || (a == b && left < right);
@@ -834,11 +885,12 @@ CandidateSplit bestLeafSplit(const ModelSpec& model,
                 boundaries.push_back(split);
             }
         }
+
         std::vector<size_t> candidates;
         if (boundaries.size() <= 16) {
             candidates = boundaries;
         } else {
-            for (size_t numerator : {size_t{1}, size_t{2}, size_t{3}}) {
+            for (const size_t numerator : {size_t{1}, size_t{2}, size_t{3}}) {
                 const size_t target = numerator * sorted.size() / 4;
                 const auto upper = std::lower_bound(boundaries.begin(),
                                                     boundaries.end(), target);
@@ -854,7 +906,7 @@ CandidateSplit bestLeafSplit(const ModelSpec& model,
                              candidates.end());
         }
 
-        for (size_t split : candidates) {
+        for (const size_t split : candidates) {
             const double lower =
                 auxiliaryFeature(model, *records[sorted[split - 1]], feature);
             const double upper =
@@ -865,25 +917,26 @@ CandidateSplit bestLeafSplit(const ModelSpec& model,
 
             std::vector<size_t> leftCounts(static_cast<size_t>(targetBins), 0);
             std::vector<size_t> rightCounts(static_cast<size_t>(targetBins), 0);
-            for (size_t index = 0; index < split; ++index) {
-                ++leftCounts[targetBin(outcomes[sorted[index]], targetBins)];
+            for (size_t i = 0; i < split; ++i) {
+                ++leftCounts[targetBin(outcomes[sorted[i]], targetBins)];
             }
-            for (size_t index = split; index < sorted.size(); ++index) {
-                ++rightCounts[targetBin(outcomes[sorted[index]], targetBins)];
+
+            for (size_t i = split; i < sorted.size(); ++i) {
+                ++rightCounts[targetBin(outcomes[sorted[i]], targetBins)];
             }
             const double gain = multinomialLogLikelihood(leftCounts) +
                                 multinomialLogLikelihood(rightCounts) -
                                 parentLikelihood;
-            if (!best.valid || gain > best.gain + 1.0e-12) {
-                best.valid = true;
+            if (!best.found || gain > best.gain + 1.0e-12) {
+                best.found = true;
                 best.feature = feature;
                 best.threshold = std::midpoint(lower, upper);
                 best.gain = gain;
                 best.left.assign(sorted.begin(),
                                  sorted.begin() +
-                                     static_cast<std::ptrdiff_t>(split));
+                                     static_cast<ptrdiff_t>(split));
                 best.right.assign(sorted.begin() +
-                                      static_cast<std::ptrdiff_t>(split),
+                                      static_cast<ptrdiff_t>(split),
                                   sorted.end());
             }
         }
@@ -908,12 +961,12 @@ FeatureTree buildFeatureTree(const ModelSpec& model,
             CandidateSplit candidate =
                 bestLeafSplit(model, records, outcomes, leaves[leaf], leaf,
                               targetBins, minimumChild);
-            if (candidate.valid &&
-                (!best.valid || candidate.gain > best.gain + 1.0e-12)) {
+            if (candidate.found &&
+                (!best.found || candidate.gain > best.gain + 1.0e-12)) {
                 best = std::move(candidate);
             }
         }
-        if (!best.valid) {
+        if (!best.found) {
             break;
         }
 
@@ -940,7 +993,7 @@ FeatureTree buildFeatureTree(const ModelSpec& model,
 }
 
 struct ClockFit {
-    bool valid = false;
+    bool hasData = false;
     int targetBins = 0;
     std::vector<double> primaryCuts;
     std::vector<FeatureTree> trees;
@@ -976,12 +1029,13 @@ std::vector<double> quantileCuts(std::vector<double> values, int bins) {
     std::vector<double> cuts;
     cuts.reserve(static_cast<size_t>(bins - 1));
     for (int bin = 1; bin < bins; ++bin) {
-        const size_t index = static_cast<size_t>(bin) * values.size() /
-                             static_cast<size_t>(bins);
-        if (index == 0 || index >= values.size()) {
+        const size_t pos = static_cast<size_t>(bin) * values.size() /
+                           static_cast<size_t>(bins);
+        if (pos == 0 || pos >= values.size()) {
             continue;
         }
-        const double cut = std::midpoint(values[index - 1], values[index]);
+
+        const double cut = std::midpoint(values[pos - 1], values[pos]);
         if (cuts.empty() || cut > cuts.back()) {
             cuts.push_back(cut);
         }
@@ -1007,7 +1061,7 @@ fitModel(const ModelSpec& model, const Resolution& resolution, bool control,
         }
 
         ClockFit& clock = fit.clocks[static_cast<size_t>(remaining)];
-        clock.valid = true;
+        clock.hasData = true;
         clock.targetBins = resolution.targetBins;
         clock.trainingRecords = records.size();
         std::vector<double> primary;
@@ -1113,7 +1167,8 @@ fitModels(const Resolution& resolution,
     std::exception_ptr failure;
     std::mutex failureMutex;
 
-    auto worker = [&] {
+    auto worker = [&clocks, &failure, &failureMutex, &fits, &next, &resolution,
+                   maxRemaining, pseudocount] {
         try {
             while (true) {
                 const size_t task =
@@ -1121,6 +1176,7 @@ fitModels(const Resolution& resolution,
                 if (task >= taskCount) {
                     return;
                 }
+
                 const bool control = task >= kModels.size();
                 const size_t model = task % kModels.size();
                 FittedModel fit = fitModel(kModels[model], resolution, control,
@@ -1132,7 +1188,7 @@ fitModels(const Resolution& resolution,
                 }
             }
         } catch (...) {
-            std::scoped_lock lock(failureMutex);
+            const std::scoped_lock lock(failureMutex);
             if (!failure) {
                 failure = std::current_exception();
             }
@@ -1143,15 +1199,19 @@ fitModels(const Resolution& resolution,
     const size_t workers = std::min(threadCount, taskCount);
     std::vector<std::thread> threads;
     threads.reserve(workers);
-    for (size_t index = 0; index < workers; ++index) {
+
+    for (size_t i = 0; i < workers; ++i) {
         threads.emplace_back(worker);
     }
+
     for (std::thread& thread : threads) {
         thread.join();
     }
+
     if (failure) {
         std::rethrow_exception(failure);
     }
+
     return fits;
 }
 
@@ -1170,14 +1230,14 @@ Prediction histogramPrediction(const ClockFit& clock, size_t classIndex,
     const size_t bin = targetBin(value, clock.targetBins);
     const double local =
         value * static_cast<double>(bins) - static_cast<double>(bin);
-    Prediction result;
-    result.logDensity = std::log(clock.probabilities[probabilityOffset + bin] *
-                                 static_cast<double>(bins));
-    result.cdf = clock.cumulative[cumulativeOffset + bin] +
-                 local * clock.probabilities[probabilityOffset + bin];
-    result.mean = clock.means[classIndex];
-    result.variance = clock.variances[classIndex];
-    return result;
+    Prediction out;
+    out.logDensity = std::log(clock.probabilities[probabilityOffset + bin] *
+                              static_cast<double>(bins));
+    out.cdf = clock.cumulative[cumulativeOffset + bin] +
+              local * clock.probabilities[probabilityOffset + bin];
+    out.mean = clock.means[classIndex];
+    out.variance = clock.variances[classIndex];
+    return out;
 }
 
 double histogramCdf(const ClockFit& clock, size_t classIndex, double value) {
@@ -1213,15 +1273,15 @@ double betaCdf(int remaining, double value) {
 Prediction betaPrediction(int remaining, double value) {
     const double first = 2.0;
     const double second = static_cast<double>(2 * remaining - 1);
-    Prediction result;
-    result.logDensity = std::log(second * (second + 1.0)) + std::log(value) +
-                        (second - 1.0) * std::log1p(-value);
-    result.cdf = betaCdf(remaining, value);
-    result.mean = first / (first + second);
-    result.variance =
+    Prediction out;
+    out.logDensity = std::log(second * (second + 1.0)) + std::log(value) +
+                     (second - 1.0) * std::log1p(-value);
+    out.cdf = betaCdf(remaining, value);
+    out.mean = first / (first + second);
+    out.variance =
         first * second /
         ((first + second) * (first + second) * (first + second + 1.0));
-    return result;
+    return out;
 }
 
 struct PairMoments {
@@ -1312,7 +1372,7 @@ Metric evaluateModel(const FittedModel* fit, bool oracle,
             prediction = betaPrediction(static_cast<int>(remaining), value);
         } else {
             const ClockFit& clock = fit->clocks[remaining];
-            if (!clock.valid) {
+            if (!clock.hasData) {
                 continue;
             }
             classIndex = clock.classify(fit->model, *record);
@@ -1367,11 +1427,11 @@ Metric evaluateModel(const FittedModel* fit, bool oracle,
     metric.pitHistoryCorrelation = pitHistory.correlation();
 
     std::ranges::sort(pits);
-    for (size_t index = 0; index < pits.size(); ++index) {
-        const double lower = static_cast<double>(index) / count;
-        const double upper = static_cast<double>(index + 1) / count;
-        metric.pitKolmogorov = std::max(
-            {metric.pitKolmogorov, upper - pits[index], pits[index] - lower});
+    for (size_t i = 0; i < pits.size(); ++i) {
+        const double lower = static_cast<double>(i) / count;
+        const double upper = static_cast<double>(i + 1) / count;
+        metric.pitKolmogorov =
+            std::max({metric.pitKolmogorov, upper - pits[i], pits[i] - lower});
     }
 
     double weightedWasserstein = 0.0;
@@ -1431,12 +1491,12 @@ Metric evaluateModel(const FittedModel* fit, bool oracle,
 
     if (!oracle) {
         for (const ClockFit& clock : fit->clocks) {
-            if (!clock.valid) {
+            if (!clock.hasData) {
                 continue;
             }
             metric.trainingRecords += clock.trainingRecords;
             metric.realizedClasses += clock.classCount();
-            for (size_t classCount : clock.counts) {
+            for (const size_t classCount : clock.counts) {
                 if (classCount > 0 &&
                     (metric.minimumTrainingClass == 0 ||
                      classCount < metric.minimumTrainingClass)) {
@@ -1453,13 +1513,13 @@ trainingRecords(const std::vector<GraphRecords>& graphs, size_t heldOutFold) {
     std::vector<const TransitionRecord*> records;
     size_t count = 0;
     for (const GraphRecords& graph : graphs) {
-        if (graph.index % 2 != heldOutFold) {
+        if (graph.sampleIndex % 2 != heldOutFold) {
             count += graph.transitions.size();
         }
     }
     records.reserve(count);
     for (const GraphRecords& graph : graphs) {
-        if (graph.index % 2 != heldOutFold) {
+        if (graph.sampleIndex % 2 != heldOutFold) {
             for (const TransitionRecord& record : graph.transitions) {
                 records.push_back(&record);
             }
@@ -1490,15 +1550,15 @@ std::vector<const TransitionRecord*> graphRecords(const GraphRecords& graph) {
     return records;
 }
 
-std::vector<Metric> fitAndScore(const Options& options,
+std::vector<Metric> fitAndScore(const Options& opt,
                                 const std::vector<GraphRecords>& graphs,
                                 size_t threadCount) {
     std::vector<Metric> metrics;
-    const int maxRemaining = options.horizons.back() - 1;
+    const int maxRemaining = opt.horizons.back() - 1;
 
-    for (size_t resolutionIndex = 0;
-         resolutionIndex < options.resolutions.size(); ++resolutionIndex) {
-        const Resolution resolution = options.resolutions[resolutionIndex];
+    for (size_t resolutionIndex = 0; resolutionIndex < opt.resolutions.size();
+         ++resolutionIndex) {
+        const Resolution resolution = opt.resolutions[resolutionIndex];
         for (size_t heldOutFold = 0; heldOutFold < 2; ++heldOutFold) {
             const std::vector<const TransitionRecord*> training =
                 trainingRecords(graphs, heldOutFold);
@@ -1509,19 +1569,20 @@ std::vector<Metric> fitAndScore(const Options& options,
             const std::vector<std::vector<const TransitionRecord*>> clocks =
                 groupByClock(training, maxRemaining);
             const ModelFits fits = fitModels(resolution, clocks, maxRemaining,
-                                             options.pseudocount, threadCount);
+                                             opt.pseudocount, threadCount);
 
             std::vector<size_t> heldOut;
-            for (size_t index = 0; index < graphs.size(); ++index) {
-                if (graphs[index].index % 2 == heldOutFold) {
-                    heldOut.push_back(index);
+            for (size_t i = 0; i < graphs.size(); ++i) {
+                if (graphs[i].sampleIndex % 2 == heldOutFold) {
+                    heldOut.push_back(i);
                 }
             }
             std::vector<std::vector<Metric>> scored(graphs.size());
             std::atomic<size_t> next{0};
             std::exception_ptr failure;
             std::mutex failureMutex;
-            auto worker = [&] {
+            auto worker = [&failure, &failureMutex, &fits, &graphs, &heldOut,
+                           &next, &opt, &resolution, &scored, resolutionIndex] {
                 try {
                     while (true) {
                         const size_t task =
@@ -1529,37 +1590,39 @@ std::vector<Metric> fitAndScore(const Options& options,
                         if (task >= heldOut.size()) {
                             return;
                         }
+
                         const size_t graphIndex = heldOut[task];
                         const GraphRecords& graph = graphs[graphIndex];
                         const std::vector<const TransitionRecord*> records =
                             graphRecords(graph);
                         std::vector<Metric>& local = scored[graphIndex];
-                        local.reserve(options.horizons.size() * 2 *
+                        local.reserve(opt.horizons.size() * 2 *
                                       (kModels.size() + 1));
-                        for (int horizon : options.horizons) {
+
+                        for (const int horizon : opt.horizons) {
                             local.push_back(evaluateModel(
-                                nullptr, true, records, graph.index, horizon,
-                                resolutionIndex, resolution, false,
-                                options.referenceBins));
+                                nullptr, true, records, graph.sampleIndex,
+                                horizon, resolutionIndex, resolution, false,
+                                opt.referenceBins));
                             local.push_back(evaluateModel(
-                                nullptr, true, records, graph.index, horizon,
-                                resolutionIndex, resolution, true,
-                                options.referenceBins));
+                                nullptr, true, records, graph.sampleIndex,
+                                horizon, resolutionIndex, resolution, true,
+                                opt.referenceBins));
                             for (size_t model = 0; model < kModels.size();
                                  ++model) {
                                 local.push_back(evaluateModel(
                                     &fits.finite[model], false, records,
-                                    graph.index, horizon, resolutionIndex,
-                                    resolution, false, options.referenceBins));
+                                    graph.sampleIndex, horizon, resolutionIndex,
+                                    resolution, false, opt.referenceBins));
                                 local.push_back(evaluateModel(
                                     &fits.control[model], false, records,
-                                    graph.index, horizon, resolutionIndex,
-                                    resolution, true, options.referenceBins));
+                                    graph.sampleIndex, horizon, resolutionIndex,
+                                    resolution, true, opt.referenceBins));
                             }
                         }
                     }
                 } catch (...) {
-                    std::scoped_lock lock(failureMutex);
+                    const std::scoped_lock lock(failureMutex);
                     if (!failure) {
                         failure = std::current_exception();
                     }
@@ -1570,16 +1633,20 @@ std::vector<Metric> fitAndScore(const Options& options,
             const size_t workers = std::min(threadCount, heldOut.size());
             std::vector<std::thread> threads;
             threads.reserve(workers);
-            for (size_t index = 0; index < workers; ++index) {
+
+            for (size_t i = 0; i < workers; ++i) {
                 threads.emplace_back(worker);
             }
+
             for (std::thread& thread : threads) {
                 thread.join();
             }
+
             if (failure) {
                 std::rethrow_exception(failure);
             }
-            for (size_t graphIndex : heldOut) {
+
+            for (const size_t graphIndex : heldOut) {
                 metrics.insert(
                     metrics.end(),
                     std::make_move_iterator(scored[graphIndex].begin()),
@@ -1597,219 +1664,290 @@ std::vector<Metric> fitAndScore(const Options& options,
     return metrics;
 }
 
+void printText(std::ostream& out, std::string_view text) {
+    std::print(out, "{}", text);
+}
+
+void printNumber(std::ostream& out, double value) {
+    std::print(out, "{:.17g}", value);
+}
+
 void writeJsonString(std::ostream& out, std::string_view value) {
-    out.put('"');
+    printText(out, "\"");
+
     for (char character : value) {
         switch (character) {
         case '"':
-            out << "\\\"";
+            printText(out, "\\\"");
             break;
         case '\\':
-            out << "\\\\";
+            printText(out, "\\\\");
             break;
         case '\n':
-            out << "\\n";
+            printText(out, "\\n");
             break;
         case '\r':
-            out << "\\r";
+            printText(out, "\\r");
             break;
         case '\t':
-            out << "\\t";
+            printText(out, "\\t");
             break;
         default:
-            out.put(character);
+            std::print(out, "{}", character);
             break;
         }
     }
-    out.put('"');
+
+    printText(out, "\"");
 }
 
 void writeIntList(std::ostream& out, std::span<const int> values) {
-    out.put('[');
-    for (size_t index = 0; index < values.size(); ++index) {
-        if (index > 0) {
-            out.put(',');
+    printText(out, "[");
+
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (i != 0) {
+            printText(out, ",");
         }
-        out << values[index];
+
+        std::print(out, "{}", values[i]);
     }
-    out.put(']');
+
+    printText(out, "]");
+}
+
+std::filesystem::path tempPath(const std::filesystem::path& path) {
+    std::filesystem::path temp = path;
+    temp += ".tmp";
+    return temp;
 }
 
 std::ofstream openTemporary(const std::filesystem::path& path) {
-    std::ofstream out(path.string() + ".tmp");
+    const std::filesystem::path temp = tempPath(path);
+    std::ofstream out(temp);
+
     if (!out) {
-        throw std::runtime_error("cannot create output file: " + path.string());
+        throw std::runtime_error(
+            std::format("cannot create artifact: {}", temp.string()));
     }
-    out.precision(17);
+
     return out;
 }
 
 void commitTemporary(std::ofstream& out, const std::filesystem::path& path) {
     out.close();
+
     if (!out) {
-        throw std::runtime_error("failed while writing output file: " +
-                                 path.string());
+        throw std::runtime_error(
+            std::format("failed while writing artifact: {}", path.string()));
     }
-    std::filesystem::rename(path.string() + ".tmp", path);
+
+    std::filesystem::rename(tempPath(path), path);
 }
 
-void prepareOutput(const Options& options) {
-    const std::array<std::string_view, 3> names{"run.json", "graphs.jsonl",
-                                                "metrics.jsonl"};
-    std::filesystem::create_directories(options.outputDirectory);
-    for (std::string_view name : names) {
-        const std::filesystem::path path = options.outputDirectory / name;
-        if (std::filesystem::exists(path) && !options.overwrite) {
+void prepareOutput(const Options& opt) {
+    constexpr std::array<std::string_view, 3> names{
+        "run.json",
+        "graphs.jsonl",
+        "metrics.jsonl",
+    };
+
+    std::filesystem::create_directories(opt.outputDirectory);
+
+    for (const std::string_view name : names) {
+        const std::filesystem::path path = opt.outputDirectory / name;
+        if (std::filesystem::exists(path) && !opt.overwrite) {
             throw std::runtime_error(
-                "pass --overwrite to replace existing output: " +
-                path.string());
+                std::format("pass --overwrite to replace existing output: {}",
+                            path.string()));
         }
-        std::filesystem::remove(path.string() + ".tmp");
+
+        std::filesystem::remove(tempPath(path));
     }
 }
 
-void writeRun(const Options& options, size_t effectiveThreads,
-              double wallSeconds, size_t peakBytes) {
-    const std::filesystem::path path = options.outputDirectory / "run.json";
+void writeRun(const Options& opt, size_t effectiveThreads, double wallSeconds,
+              size_t peakBytes) {
+    const std::filesystem::path path = opt.outputDirectory / "run.json";
     std::ofstream out = openTemporary(path);
-    out << "{\n  \"schema\":\"bounded-systems.gap-finite-closure-run.v1\",\n";
-    out << "  \"configuration\":{\"vertices\":" << options.vertexCount
-        << ",\"horizons\":";
-    writeIntList(out, options.horizons);
-    out << ",\"samples\":" << options.sampleCount
-        << ",\"paths_per_horizon\":" << options.pathsPerHorizon
-        << ",\"master_seed\":\"" << options.seed << "\""
-        << ",\"requested_threads\":" << options.threads
-        << ",\"effective_threads\":" << effectiveThreads
-        << ",\"reference_bins\":" << options.referenceBins
-        << ",\"pseudocount\":" << options.pseudocount
-        << ",\"output_directory\":";
-    writeJsonString(
-        out, std::filesystem::absolute(options.outputDirectory).string());
-    out << "},\n  \"resolutions\":[";
-    for (size_t index = 0; index < options.resolutions.size(); ++index) {
-        if (index > 0) {
-            out.put(',');
+
+    std::print(out,
+               "{{\n"
+               "  \"schema\":\"bounded-systems.gap-finite-closure-run.v1\",\n"
+               "  \"configuration\":{{\"vertices\":{},\"horizons\":",
+               opt.vertexCount);
+    writeIntList(out, opt.horizons);
+    std::print(out,
+               ",\"samples\":{},\"paths_per_horizon\":{},"
+               "\"master_seed\":\"{}\",\"requested_threads\":{},"
+               "\"effective_threads\":{},\"reference_bins\":{},"
+               "\"pseudocount\":{:.17g},\"output_directory\":",
+               opt.sampleCount, opt.pathsPerHorizon, opt.seed, opt.threads,
+               effectiveThreads, opt.referenceBins, opt.pseudocount);
+    writeJsonString(out,
+                    std::filesystem::absolute(opt.outputDirectory).string());
+    printText(out, "},\n  \"resolutions\":[");
+
+    for (size_t i = 0; i < opt.resolutions.size(); ++i) {
+        if (i != 0) {
+            printText(out, ",");
         }
-        const Resolution& resolution = options.resolutions[index];
-        out << "{\"base_bins\":" << resolution.baseBins
-            << ",\"aux_leaves\":" << resolution.auxLeaves
-            << ",\"target_bins\":" << resolution.targetBins << '}';
+
+        const Resolution& resolution = opt.resolutions[i];
+        std::print(out,
+                   "{{\"base_bins\":{},\"aux_leaves\":{},"
+                   "\"target_bins\":{}}}",
+                   resolution.baseBins, resolution.auxLeaves,
+                   resolution.targetBins);
     }
-    out << "],\n";
-    out << "  \"generator\":{\"kernel\":\"(y-x)_+\","
-           "\"marks\":\"counter-splitmix64-uniform53-v1\","
-           "\"edge_stream\":\"counter-splitmix64-pair-v1\"},\n";
-    out << "  \"route_sampling\":{\"law\":\"uniform fixed-length route\","
-           "\"transition\":\"F_(m-1)(w)/F_m(v) on outgoing edges\","
-           "\"path_stream\":\"splitmix64-sample-horizon-path-v1\"},\n";
-    out << "  \"cross_fit\":{\"held_out_fold\":\"graph_index modulo 2\","
-           "\"clock\":\"remaining edge count m\","
-           "\"primary_bins\":\"training quantiles\","
-           "\"auxiliary_partition\":\"greedy conditional-likelihood tree\","
-           "\"uncertainty_unit\":\"held-out graph\"},\n";
-    out << "  \"estimands\":{\"continuum_oracle\":\"Beta(2,2m-1)\","
-           "\"intrinsic_mark\":\"1/2+(d_in-d_out)/N\","
-           "\"transverse\":\"sqrt(N)(X_N-chi(intrinsic_mark))\","
-           "\"target\":\"z=(x_(r+1)-x_r)/(1-x_r)\"},\n";
-    out << "  \"model_features\":{"
-           "\"latent\":[\"x\"],"
-           "\"latent_age\":[\"x\",\"r/p\"],"
-           "\"latent_history\":[\"x\",\"r/p\",\"x_(r-1)\","
-           "\"(x_r-x_(r-1))/x_r\",\"sum_(j<=r)(Delta x_j/x_r)^2\"],"
-           "\"intrinsic_mark\":[\"xhat\"],"
-           "\"intrinsic_age\":[\"xhat\",\"r/p\"],"
-           "\"intrinsic_history\":[\"xhat\",\"r/p\",\"xhat_(r-1)\","
-           "\"Delta xhat_r\",\"sum_(j<=r)(Delta xhat_j)^2/(xhat_r^2+1/N)\"],"
-           "\"full_state\":[\"xhat\",\"sqrt(N)(X_N(V_r)-chi(xhat_r))\"],"
-           "\"full_age\":[\"xhat\",\"sqrt(N)(X_N(V_r)-chi(xhat_r))\",\"r/p\"],"
-           "\"full_history\":[\"xhat\",\"sqrt(N)(X_N(V_r)-chi(xhat_r))\","
-           "\"r/p\",\"xhat_(r-1)\",\"Delta xhat_r\","
-           "\"sum_(j<=r)(Delta xhat_j)^2/(xhat_r^2+1/N)\","
-           "\"sqrt(N)(X_N(V_(r-1))-chi(xhat_(r-1)))\"]},\n";
-    out << "  \"metrics\":{\"log_score\":\"mean log predictive density\","
-           "\"wasserstein\":\"held-out W1 on common (m,16-bin latent-x) "
-           "audit strata and reference grid\","
-           "\"pit_kolmogorov\":\"exact empirical CDF defect\"},\n";
-    out << "  \"runtime\":{\"wall_seconds\":" << wallSeconds
-        << ",\"max_sample_estimated_bytes\":" << peakBytes << "}\n}\n";
+
+    printText(out, "],\n");
+    printText(out, "  \"generator\":{\"kernel\":\"(y-x)_+\","
+                   "\"marks\":\"counter-splitmix64-uniform53-v1\","
+                   "\"edge_stream\":\"counter-splitmix64-pair-v1\"},\n");
+    printText(out, "  \"route_sampling\":{"
+                   "\"law\":\"uniform fixed-length route\","
+                   "\"transition\":\"F_(m-1)(w)/F_m(v) on outgoing edges\","
+                   "\"path_stream\":\"splitmix64-sample-horizon-path-v1\"},\n");
+    printText(out, "  \"cross_fit\":{\"held_out_fold\":"
+                   "\"graph_index modulo 2\","
+                   "\"clock\":\"remaining edge count m\","
+                   "\"primary_bins\":\"training quantiles\","
+                   "\"auxiliary_partition\":"
+                   "\"greedy conditional-likelihood tree\","
+                   "\"uncertainty_unit\":\"held-out graph\"},\n");
+    printText(out, "  \"estimands\":{\"continuum_oracle\":"
+                   "\"Beta(2,2m-1)\","
+                   "\"intrinsic_mark\":\"1/2+(d_in-d_out)/N\","
+                   "\"transverse\":"
+                   "\"sqrt(N)(X_N-chi(intrinsic_mark))\","
+                   "\"target\":\"z=(x_(r+1)-x_r)/(1-x_r)\"},\n");
+    printText(out, "  \"model_features\":{"
+                   "\"latent\":[\"x\"],"
+                   "\"latent_age\":[\"x\",\"r/p\"],"
+                   "\"latent_history\":[\"x\",\"r/p\",\"x_(r-1)\","
+                   "\"(x_r-x_(r-1))/x_r\","
+                   "\"sum_(j<=r)(Delta x_j/x_r)^2\"],"
+                   "\"intrinsic_mark\":[\"xhat\"],"
+                   "\"intrinsic_age\":[\"xhat\",\"r/p\"],"
+                   "\"intrinsic_history\":[\"xhat\",\"r/p\","
+                   "\"xhat_(r-1)\",\"Delta xhat_r\","
+                   "\"sum_(j<=r)(Delta xhat_j)^2/(xhat_r^2+1/N)\"],"
+                   "\"full_state\":[\"xhat\","
+                   "\"sqrt(N)(X_N(V_r)-chi(xhat_r))\"],"
+                   "\"full_age\":[\"xhat\","
+                   "\"sqrt(N)(X_N(V_r)-chi(xhat_r))\",\"r/p\"],"
+                   "\"full_history\":[\"xhat\","
+                   "\"sqrt(N)(X_N(V_r)-chi(xhat_r))\",\"r/p\","
+                   "\"xhat_(r-1)\",\"Delta xhat_r\","
+                   "\"sum_(j<=r)(Delta xhat_j)^2/(xhat_r^2+1/N)\","
+                   "\"sqrt(N)(X_N(V_(r-1))-chi(xhat_(r-1)))\"]},\n");
+    printText(out, "  \"metrics\":{\"log_score\":"
+                   "\"mean log predictive density\","
+                   "\"wasserstein\":"
+                   "\"held-out W1 on common (m,16-bin latent-x) audit strata "
+                   "and reference grid\","
+                   "\"pit_kolmogorov\":\"exact empirical CDF defect\"},\n");
+    std::print(out,
+               "  \"runtime\":{{\"wall_seconds\":{:.17g},"
+               "\"max_sample_estimated_bytes\":{}}}\n"
+               "}}\n",
+               wallSeconds, peakBytes);
+
     commitTemporary(out, path);
 }
 
-void writeGraphs(const Options& options,
-                 const std::vector<GraphRecords>& graphs) {
-    const std::filesystem::path path = options.outputDirectory / "graphs.jsonl";
+void writeGraphs(const Options& opt, const std::vector<GraphRecords>& graphs) {
+    const std::filesystem::path path = opt.outputDirectory / "graphs.jsonl";
     std::ofstream out = openTemporary(path);
+
     for (const GraphRecords& graph : graphs) {
-        out << "{\"schema\":\"bounded-systems.gap-finite-closure-graph.v1\","
-            << "\"graph_index\":" << graph.index << ",\"sample_seed\":\""
-            << graph.sampleSeed << "\",\"vertices\":" << options.vertexCount
-            << ",\"edges\":" << graph.edgeCount
-            << ",\"node_mark_rmse\":" << graph.nodeMarkRmse
-            << ",\"node_mark_max_error\":" << graph.nodeMarkMaxError
-            << ",\"estimated_bytes\":" << graph.estimatedBytes
-            << ",\"seconds\":" << graph.seconds << ",\"horizons\":[";
-        for (size_t index = 0; index < graph.horizons.size(); ++index) {
-            if (index > 0) {
-                out.put(',');
+        std::print(out,
+                   "{{\"schema\":"
+                   "\"bounded-systems.gap-finite-closure-graph.v1\","
+                   "\"graph_index\":{},\"sample_seed\":\"{}\","
+                   "\"vertices\":{},\"edges\":{},"
+                   "\"node_mark_rmse\":{:.17g},"
+                   "\"node_mark_max_error\":{:.17g},"
+                   "\"estimated_bytes\":{},\"seconds\":{:.17g},"
+                   "\"horizons\":[",
+                   graph.sampleIndex, graph.sampleSeed, opt.vertexCount,
+                   graph.edgeCount, graph.nodeMarkRmse, graph.nodeMarkMaxError,
+                   graph.estimatedBytes, graph.seconds);
+
+        for (size_t i = 0; i < graph.horizons.size(); ++i) {
+            if (i != 0) {
+                printText(out, ",");
             }
-            const HorizonGraphRecord& horizon = graph.horizons[index];
-            out << "{\"horizon\":" << horizon.horizon
-                << ",\"has_routes\":" << (horizon.hasRoutes ? "true" : "false")
-                << ",\"paths\":" << horizon.paths << ",\"route_mark_rmse\":";
+
+            const HorizonGraphRecord& horizon = graph.horizons[i];
+            std::print(out,
+                       "{{\"horizon\":{},\"has_routes\":{},"
+                       "\"paths\":{},\"route_mark_rmse\":",
+                       horizon.horizon, horizon.hasRoutes, horizon.paths);
+
             if (horizon.hasRoutes) {
-                out << horizon.routeMarkRmse;
+                printNumber(out, horizon.routeMarkRmse);
             } else {
-                out << "null";
+                printText(out, "null");
             }
-            out << ",\"log_route_count\":";
+
+            printText(out, ",\"log_route_count\":");
             if (horizon.hasRoutes) {
-                out << static_cast<double>(horizon.logRouteCount);
+                printNumber(out, static_cast<double>(horizon.logRouteCount));
             } else {
-                out << "null";
+                printText(out, "null");
             }
-            out << '}';
+
+            printText(out, "}");
         }
-        out << "]}\n";
+
+        printText(out, "]}\n");
     }
+
     commitTemporary(out, path);
 }
 
-void writeMetrics(const Options& options, std::span<const Metric> metrics) {
-    const std::filesystem::path path =
-        options.outputDirectory / "metrics.jsonl";
+void writeMetrics(const Options& opt, std::span<const Metric> metrics) {
+    const std::filesystem::path path = opt.outputDirectory / "metrics.jsonl";
     std::ofstream out = openTemporary(path);
+
     for (const Metric& metric : metrics) {
-        out << "{\"schema\":\"bounded-systems.gap-finite-closure-metric.v1\","
-            << "\"vertices\":" << options.vertexCount
-            << ",\"graph_index\":" << metric.graphIndex
-            << ",\"horizon\":" << metric.horizon
-            << ",\"resolution_index\":" << metric.resolutionIndex
-            << ",\"base_bins\":" << metric.baseBins
-            << ",\"aux_leaves\":" << metric.auxLeaves
-            << ",\"target_bins\":" << metric.targetBins << ",\"model\":";
+        std::print(out,
+                   "{{\"schema\":"
+                   "\"bounded-systems.gap-finite-closure-metric.v1\","
+                   "\"vertices\":{},\"graph_index\":{},"
+                   "\"horizon\":{},\"resolution_index\":{},"
+                   "\"base_bins\":{},\"aux_leaves\":{},"
+                   "\"target_bins\":{},\"model\":",
+                   opt.vertexCount, metric.graphIndex, metric.horizon,
+                   metric.resolutionIndex, metric.baseBins, metric.auxLeaves,
+                   metric.targetBins);
         writeJsonString(out, metric.model);
-        out << ",\"data\":";
+        printText(out, ",\"data\":");
         writeJsonString(out, metric.data);
-        out << ",\"record_count\":" << metric.recordCount
-            << ",\"training_records\":" << metric.trainingRecords
-            << ",\"realized_classes\":" << metric.realizedClasses
-            << ",\"minimum_training_class\":" << metric.minimumTrainingClass
-            << ",\"log_score\":" << metric.logScore
-            << ",\"wasserstein\":" << metric.wasserstein
-            << ",\"pit_mean\":" << metric.pitMean
-            << ",\"pit_variance\":" << metric.pitVariance
-            << ",\"pit_kolmogorov\":" << metric.pitKolmogorov
-            << ",\"mean_residual\":" << metric.meanResidual
-            << ",\"second_residual\":" << metric.secondResidual
-            << ",\"pit_x_correlation\":" << metric.pitXCorrelation
-            << ",\"pit_age_correlation\":" << metric.pitAgeCorrelation
-            << ",\"pit_history_correlation\":" << metric.pitHistoryCorrelation
-            << ",\"max_conditional_mean_error\":"
-            << metric.maxConditionalMeanError
-            << ",\"max_conditional_variance_error\":"
-            << metric.maxConditionalVarianceError << "}\n";
+        std::print(
+            out,
+            ",\"record_count\":{},\"training_records\":{},"
+            "\"realized_classes\":{},"
+            "\"minimum_training_class\":{},"
+            "\"log_score\":{:.17g},\"wasserstein\":{:.17g},"
+            "\"pit_mean\":{:.17g},\"pit_variance\":{:.17g},"
+            "\"pit_kolmogorov\":{:.17g},"
+            "\"mean_residual\":{:.17g},"
+            "\"second_residual\":{:.17g},"
+            "\"pit_x_correlation\":{:.17g},"
+            "\"pit_age_correlation\":{:.17g},"
+            "\"pit_history_correlation\":{:.17g},"
+            "\"max_conditional_mean_error\":{:.17g},"
+            "\"max_conditional_variance_error\":{:.17g}}}\n",
+            metric.recordCount, metric.trainingRecords, metric.realizedClasses,
+            metric.minimumTrainingClass, metric.logScore, metric.wasserstein,
+            metric.pitMean, metric.pitVariance, metric.pitKolmogorov,
+            metric.meanResidual, metric.secondResidual, metric.pitXCorrelation,
+            metric.pitAgeCorrelation, metric.pitHistoryCorrelation,
+            metric.maxConditionalMeanError, metric.maxConditionalVarianceError);
     }
+
     commitTemporary(out, path);
 }
 
@@ -1843,11 +1981,11 @@ size_t runSelfTests() {
     }
 
     Rng rng(0x13bc729d05e641a7ULL);
-    for (int remaining : {1, 2, 4, 8}) {
+    for (const int remaining : {1, 2, 4, 8}) {
         constexpr size_t count = 100000;
         double sum = 0.0;
         double sumSquare = 0.0;
-        for (size_t index = 0; index < count; ++index) {
+        for (size_t i = 0; i < count; ++i) {
             const double value = sampleBetaInteger(2, 2 * remaining - 1, rng);
             sum += value;
             sumSquare += value * value;
@@ -1876,7 +2014,7 @@ size_t runSelfTests() {
     std::array<size_t, 3> routeCounts{};
     Rng routeRng(0x284d3971e6bc5a0fULL);
     constexpr size_t routeSamples = 60000;
-    for (size_t index = 0; index < routeSamples; ++index) {
+    for (size_t i = 0; i < routeSamples; ++i) {
         const std::vector<uint32_t> path =
             sampleRoute(tiny, tinyRoutes, 2, routeRng);
         requireCheck(path.size() == 3, "tiny route length", checks);
@@ -1891,24 +2029,24 @@ size_t runSelfTests() {
         }
         ++routeCounts[category];
     }
-    for (size_t count : routeCounts) {
+    for (const size_t count : routeCounts) {
         const double frequency =
             static_cast<double>(count) / static_cast<double>(routeSamples);
         requireCheck(std::abs(frequency - 1.0 / 3.0) < 0.01,
                      "uniform tiny route frequency", checks);
     }
 
-    Options options;
-    options.vertexCount = 64;
-    options.horizons = {4};
-    options.sampleCount = 4;
-    options.pathsPerHorizon = 200;
-    options.seed = 20260817;
-    options.threads = 1;
-    options.resolutions = {{4, 2, 16}};
-    options.referenceBins = 64;
-    options.pseudocount = 0.5;
-    std::vector<GraphRecords> graphs = sampleGraphs(options, 1);
+    Options opt;
+    opt.vertexCount = 64;
+    opt.horizons = {4};
+    opt.sampleCount = 4;
+    opt.pathsPerHorizon = 200;
+    opt.seed = 20260817;
+    opt.threads = 1;
+    opt.resolutions = {{4, 2, 16}};
+    opt.referenceBins = 64;
+    opt.pseudocount = 0.5;
+    const std::vector<GraphRecords> graphs = sampleGraphs(opt, 1);
     size_t transitionCount = 0;
     for (const GraphRecords& graph : graphs) {
         requireCheck(graph.horizons.front().hasRoutes,
@@ -1921,14 +2059,13 @@ size_t runSelfTests() {
                          "control transition target range", checks);
         }
     }
-    requireCheck(transitionCount ==
-                     options.sampleCount * options.pathsPerHorizon * 3,
+    requireCheck(transitionCount == opt.sampleCount * opt.pathsPerHorizon * 3,
                  "route transition count", checks);
-    const std::vector<Metric> metrics = fitAndScore(options, graphs, 1);
-    requireCheck(metrics.size() == options.sampleCount * 20,
+    const std::vector<Metric> metrics = fitAndScore(opt, graphs, 1);
+    requireCheck(metrics.size() == opt.sampleCount * 20,
                  "cross-fit metric count", checks);
     for (const Metric& metric : metrics) {
-        requireCheck(metric.recordCount == options.pathsPerHorizon * 3,
+        requireCheck(metric.recordCount == opt.pathsPerHorizon * 3,
                      "held-out metric record count", checks);
         requireCheck(std::isfinite(metric.logScore) &&
                          std::isfinite(metric.wasserstein),
@@ -1941,13 +2078,13 @@ size_t runSelfTests() {
 
 int main(int argc, char** argv) {
     try {
-        const std::span<char*> arguments(argv, static_cast<size_t>(argc));
-        const Options options = parseOptions(arguments);
-        if (options.help) {
-            printUsage(arguments.front());
+        const std::span<char*> args(argv, static_cast<size_t>(argc));
+        const Options opt = parseOptions(args);
+        if (opt.help) {
+            printUsage(args.front());
             return 0;
         }
-        if (options.selfTest) {
+        if (opt.selfTest) {
             const size_t checks = runSelfTests();
             std::println(stderr,
                          "gap-finite-closure self-tests passed: {} checks",
@@ -1955,14 +2092,12 @@ int main(int argc, char** argv) {
             return 0;
         }
 
-        prepareOutput(options);
-        const size_t effectiveThreads =
-            std::min(options.threads, options.sampleCount);
+        prepareOutput(opt);
+        const size_t effectiveThreads = std::min(opt.threads, opt.sampleCount);
         const auto started = Clock::now();
-        std::vector<GraphRecords> graphs =
-            sampleGraphs(options, effectiveThreads);
+        std::vector<GraphRecords> graphs = sampleGraphs(opt, effectiveThreads);
         std::vector<Metric> metrics =
-            fitAndScore(options, graphs, effectiveThreads);
+            fitAndScore(opt, graphs, effectiveThreads);
         const double wallSeconds =
             std::chrono::duration<double>(Clock::now() - started).count();
         size_t peakBytes = 0;
@@ -1970,15 +2105,14 @@ int main(int argc, char** argv) {
             peakBytes = std::max(peakBytes, graph.estimatedBytes);
         }
 
-        writeRun(options, effectiveThreads, wallSeconds, peakBytes);
-        writeGraphs(options, graphs);
-        writeMetrics(options, metrics);
+        writeRun(opt, effectiveThreads, wallSeconds, peakBytes);
+        writeGraphs(opt, graphs);
+        writeMetrics(opt, metrics);
         std::println(stderr,
                      "completed samples={} vertices={} paths={} threads={} "
                      "metrics={} wall_seconds={:.6f}",
-                     options.sampleCount, options.vertexCount,
-                     options.pathsPerHorizon, effectiveThreads, metrics.size(),
-                     wallSeconds);
+                     opt.sampleCount, opt.vertexCount, opt.pathsPerHorizon,
+                     effectiveThreads, metrics.size(), wallSeconds);
         return 0;
     } catch (const std::exception& error) {
         std::println(stderr, "fatal: {}", error.what());

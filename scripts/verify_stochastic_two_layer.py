@@ -74,7 +74,7 @@ def audit_edge_decomposition(max_n: int = 30) -> int:
         for c1 in range(n + 1):
             c2 = n - c1
             cross = c1 * c2
-            # Check every possible edge count in the conditional support.
+            # The conditional support contains every feasible edge count.
             for edges in range(cross + 1):
                 q = Fraction(edges, denominator)
                 h = Fraction(cross, denominator)
@@ -114,4 +114,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

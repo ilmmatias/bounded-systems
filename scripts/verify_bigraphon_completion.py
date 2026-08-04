@@ -33,13 +33,22 @@ def row_gram_defect(matrix: Matrix) -> Fraction:
     total = Fraction(0)
     for i in range(rows):
         for j in range(rows):
-            inner = sum((matrix[i][k] * matrix[j][k] for k in range(cols)), Fraction(0)) / cols
+            inner = (
+                sum(
+                    (matrix[i][k] * matrix[j][k] for k in range(cols)),
+                    Fraction(0),
+                )
+                / cols
+            )
             total += (inner - r[i] * r[j]) ** 2
     return total / (rows * rows)
 
 
 def col_gram_defect(matrix: Matrix) -> Fraction:
-    transposed = [[matrix[i][j] for i in range(len(matrix))] for j in range(len(matrix[0]))]
+    transposed = [
+        [matrix[i][j] for i in range(len(matrix))]
+        for j in range(len(matrix[0]))
+    ]
     return row_gram_defect(transposed)
 
 
@@ -101,7 +110,7 @@ def verify_payload(payload: Matrix) -> int:
 
     # The only nonzero blocks go from D,A to B,C, so no two-step route exists.
     allowed = {("D", "B"), ("A", "B"), ("A", "C")}
-    for u, v in allowed:
+    for _, v in allowed:
         for x, y in allowed:
             assert v != x
 
@@ -133,4 +142,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

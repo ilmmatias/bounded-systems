@@ -214,7 +214,7 @@ coherent profile admits at least one sequence of finite DAG endpoints
 whose uniform bridges converge to it: choose any infinite sample in the
 probability-one set of Corollary 4 and retain its finite restrictions.
 
-# 7. Central-bridge consequences
+# 7. Central bridges and finite observations
 
 The exact finite and infinite objects fit into one sequence:
 

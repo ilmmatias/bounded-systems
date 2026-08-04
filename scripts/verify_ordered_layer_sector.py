@@ -10,9 +10,9 @@ The script uses only the Python standard library. It verifies:
 from __future__ import annotations
 
 from fractions import Fraction
-from itertools import combinations, product
-from math import comb, factorial
-from typing import Dict, Iterable, Iterator, List, Sequence, Tuple
+from itertools import combinations
+from math import comb
+from typing import Dict, Iterator, List, Sequence, Tuple
 
 Composition = Tuple[int, ...]
 
@@ -35,11 +35,11 @@ def subset_pattern(marks: Sequence[int], subset: Sequence[int]) -> Composition:
 
 
 def brute_pattern_count(marks: Sequence[int], k: int) -> Dict[Composition, int]:
-    result: Dict[Composition, int] = {}
+    counts: Dict[Composition, int] = {}
     for subset in combinations(range(len(marks)), k):
         pattern = subset_pattern(marks, subset)
-        result[pattern] = result.get(pattern, 0) + 1
-    return result
+        counts[pattern] = counts.get(pattern, 0) + 1
+    return counts
 
 
 def exact_formula_count(counts: Sequence[int], pattern: Composition) -> int:
@@ -161,4 +161,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

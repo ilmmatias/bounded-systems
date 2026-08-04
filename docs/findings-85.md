@@ -198,7 +198,7 @@ It vanishes exactly when the shortcut block equals the normalized path
 composition. After substituting the graph-intrinsic part indicators, it is an
 ordinary uncolored quantum-DAG observable assembled from simple DAG patterns.
 
-# 5. Scope of the forcing result
+# 5. Completed and standalone forcing
 
 Theorem 1 constrains the completed eleven-part architecture. For the
 standalone one-population kernel

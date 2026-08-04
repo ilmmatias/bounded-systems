@@ -84,8 +84,8 @@ positive, every mark appears after a finite random time almost surely. After
 that time, the ordered nonadjacency classes recover the complete vector
 $C_n$.
 
-The finite exceptional interval before all layers appear does not affect any
-asymptotic statement below.
+The finite exceptional interval before all layers appear leaves every
+subsequent asymptotic statement unchanged.
 
 # 3. Deterministic continuum kernel
 

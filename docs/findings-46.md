@@ -30,7 +30,7 @@ and
 \sum_{G\in\mathfrak D_n}d(G,H)=n+1.
 ```
 
-It is computed by the following steps:
+The deletion multiplicities are obtained by the following procedure:
 
 * take a canonical representative of $H$;
 * delete each vertex $v$;
@@ -722,7 +722,7 @@ or integer-overflow errors.
 
 # 16. Backward finite-horizon dynamic program
 
-Once the sparse incidence files exist, compute the route counts backward.
+The route counts are computed backward from the sparse incidence files.
 
 ```text
 for H in level[N]:
@@ -742,9 +742,9 @@ U_n^{N,w}(G,H)=
 \frac{eR_{n+1,N}(H)}{R_{n,N}(G)}.
 ```
 
-Arbitrary-precision arithmetic will be needed quickly, but normalized log
-weights can be used if only probabilities and coefficient moments are
-required.
+The counts quickly require arbitrary-precision arithmetic. Normalized log
+weights suffice when the required outputs are probabilities and coefficient
+moments.
 
 # 17. Streaming coefficient accumulation
 
@@ -802,8 +802,8 @@ $b_r(x)$ and $a_r(x)$.
 
 # 18. Estimating the Jacobian from finite data
 
-Near a candidate fixed profile $x_\ast$, regress the conditional scaled
-increments against profile displacement.
+Near a candidate fixed profile $x_\ast$, the conditional scaled increments
+are regressed against profile displacement.
 
 For classes $G$ near $x_\ast$,
 
@@ -823,7 +823,7 @@ At a fixed point,
 b_r(x_\ast)=0,
 ```
 
-so estimate $J_r$ by weighted least squares:
+so a weighted least-squares estimator of $J_r$ is
 
 ```math
 \widehat J_r=

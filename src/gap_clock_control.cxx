@@ -3,7 +3,9 @@
 #include <charconv>
 #include <chrono>
 #include <cmath>
+#include <cstddef>
 #include <cstdint>
+#include <exception>
 #include <filesystem>
 #include <format>
 #include <fstream>
@@ -15,6 +17,7 @@
 #include <stdexcept>
 #include <string>
 #include <string_view>
+#include <system_error>
 #include <thread>
 #include <utility>
 #include <vector>
@@ -255,7 +258,7 @@ Options parseOptions(std::span<char*> args) {
         throw std::invalid_argument("--horizons requires at least two values");
     }
 
-    for (int p : opt.horizons) {
+    for (const int p : opt.horizons) {
         if (p < kPositionDenominator || p % kPositionDenominator != 0) {
             throw std::invalid_argument(
                 "--horizons values must be positive multiples of 8");
@@ -266,7 +269,7 @@ Options parseOptions(std::span<char*> args) {
         throw std::invalid_argument("--scales must not be empty");
     }
 
-    for (int scale : opt.scales) {
+    for (const int scale : opt.scales) {
         if (scale < 1) {
             throw std::invalid_argument("--scales values must be positive");
         }
@@ -329,7 +332,7 @@ std::vector<Cell> makeCells(std::span<const int> horizons) {
     std::vector<Cell> cells;
     cells.reserve(horizons.size() * kPositions.size());
 
-    for (int p : horizons) {
+    for (const int p : horizons) {
         for (size_t pos = 0; pos < kPositions.size(); ++pos) {
             const int r = p * kPositions[pos] / kPositionDenominator;
             const int k = p - r;
@@ -467,14 +470,14 @@ double targetCdf(const Cell& cell, double value, bool routeTime) {
 }
 
 double logSumExp(std::span<const double> values) {
-    const double maximum = *std::ranges::max_element(values);
+    const double maxLog = *std::ranges::max_element(values);
     double total = 0.0;
 
-    for (double value : values) {
-        total += std::exp(value - maximum);
+    for (const double value : values) {
+        total += std::exp(value - maxLog);
     }
 
-    return maximum + std::log(total);
+    return maxLog + std::log(total);
 }
 
 std::array<double, 4> stepScores(const RouteStep& step,
@@ -522,7 +525,7 @@ Scores scorePaths(std::span<const RoutePath> paths, std::span<const Cell> cells,
             }
         }
 
-        const double inv = 1.0 / path.steps.size();
+        const double inv = 1.0 / static_cast<double>(path.steps.size());
         scores.oracle.push_back(sum[0] * inv);
         scores.local.push_back(sum[1] * inv);
         scores.clock.push_back(sum[2] * inv);
@@ -542,7 +545,7 @@ Summary summarize(std::span<const double> values) {
         std::accumulate(values.begin(), values.end(), 0.0) / count;
     double sum = 0.0;
 
-    for (double value : values) {
+    for (const double value : values) {
         const double delta = value - mean;
         sum += delta * delta;
     }
@@ -570,7 +573,7 @@ Summary pairedDifference(std::span<const double> left,
 std::vector<double> makeGrid(bool routeTime, int maxP) {
     std::vector<double> grid{0.0};
 
-    const auto append = [&](double end, double step) {
+    const auto append = [&grid](double end, double step) {
         double value = grid.back() + step;
 
         while (value < end) {
@@ -600,7 +603,7 @@ std::vector<double> makeGrid(bool routeTime, int maxP) {
 std::vector<double> posterior(double x, std::span<const Cell> cells, int pos) {
     std::vector<double> logs(cells.size(),
                              -std::numeric_limits<double>::infinity());
-    double maximum = -std::numeric_limits<double>::infinity();
+    double maxLog = -std::numeric_limits<double>::infinity();
 
     for (size_t i = 0; i < cells.size(); ++i) {
         if (pos >= 0 && cells[i].pos != pos) {
@@ -608,19 +611,19 @@ std::vector<double> posterior(double x, std::span<const Cell> cells, int pos) {
         }
 
         logs[i] = logXDensity(cells[i], x);
-        maximum = std::max(maximum, logs[i]);
+        maxLog = std::max(maxLog, logs[i]);
     }
 
     double total = 0.0;
 
-    for (double value : logs) {
+    for (const double value : logs) {
         if (std::isfinite(value)) {
-            total += std::exp(value - maximum);
+            total += std::exp(value - maxLog);
         }
     }
 
     for (double& value : logs) {
-        value = std::isfinite(value) ? std::exp(value - maximum) / total : 0.0;
+        value = std::isfinite(value) ? std::exp(value - maxLog) / total : 0.0;
     }
 
     return logs;
@@ -718,7 +721,7 @@ W1Result wasserstein(std::span<const RoutePath> paths,
             pathClock += clockCache[offset];
         }
 
-        const double inv = 1.0 / path.steps.size();
+        const double inv = 1.0 / static_cast<double>(path.steps.size());
         pathLocal *= inv;
         pathClock *= inv;
         local.push_back(pathLocal);
@@ -759,7 +762,7 @@ double histogramWasserstein(std::span<const uint64_t> counts) {
         std::accumulate(counts.begin(), counts.end(), 0.0) + kPrior * bins;
     const double width = 1.0 / bins;
     double cumulative = 0.0;
-    double result = 0.0;
+    double distance = 0.0;
 
     for (int bin = 0; bin < bins; ++bin) {
         const double probability =
@@ -769,16 +772,16 @@ double histogramWasserstein(std::span<const uint64_t> counts) {
         const double right = cumulative + probability - (bin + 1) * width;
 
         if (left * right >= 0.0) {
-            result += 0.5 * width * (std::abs(left) + std::abs(right));
+            distance += 0.5 * width * (std::abs(left) + std::abs(right));
         } else {
-            result += width * (left * left + right * right) /
-                      (2.0 * (std::abs(left) + std::abs(right)));
+            distance += width * (left * left + right * right) /
+                        (2.0 * (std::abs(left) + std::abs(right)));
         }
 
         cumulative += probability;
     }
 
-    return result;
+    return distance;
 }
 
 HistoryResult scoreHistory(std::span<const RoutePath> paths,
@@ -810,11 +813,14 @@ HistoryResult scoreHistory(std::span<const RoutePath> paths,
         second.empty() ? std::vector<double>{}
                        : quantileCuts(std::move(second), histBins);
     const int classes = state == "joint" ? histBins * histBins : histBins;
-    std::vector<uint64_t> counts(static_cast<size_t>(classes * pitBins));
-    std::vector<uint64_t> classCounts(static_cast<size_t>(classes));
+    const size_t classCount = static_cast<size_t>(classes);
+    const size_t pitBinCount = static_cast<size_t>(pitBins);
+    std::vector<uint64_t> counts(classCount * pitBinCount);
+    std::vector<uint64_t> classCounts(classCount);
     size_t training = 0;
 
-    const auto classOf = [&](const RouteStep& step) {
+    const auto classOf = [&firstCuts, &secondCuts, histBins,
+                          state](const RouteStep& step) {
         if (state == "last_fraction") {
             return quantileBin(step.last, firstCuts);
         }
@@ -838,8 +844,8 @@ HistoryResult scoreHistory(std::span<const RoutePath> paths,
             const double u = betaCdf(cells[step.cell].k, step.z);
             const int bin =
                 std::min(static_cast<int>(u * pitBins), pitBins - 1);
-            const size_t offset =
-                static_cast<size_t>(cls) * pitBins + static_cast<size_t>(bin);
+            const size_t offset = static_cast<size_t>(cls) * pitBinCount +
+                                  static_cast<size_t>(bin);
             ++counts[offset];
             ++classCounts[static_cast<size_t>(cls)];
             ++training;
@@ -850,10 +856,8 @@ HistoryResult scoreHistory(std::span<const RoutePath> paths,
     size_t occupied = 0;
 
     for (int cls = 0; cls < classes; ++cls) {
-        const size_t offset =
-            static_cast<size_t>(cls) * static_cast<size_t>(pitBins);
-        const auto row =
-            std::span(counts).subspan(offset, static_cast<size_t>(pitBins));
+        const size_t offset = static_cast<size_t>(cls) * pitBinCount;
+        const auto row = std::span(counts).subspan(offset, pitBinCount);
         classW1[static_cast<size_t>(cls)] = histogramWasserstein(row);
         occupied += classCounts[static_cast<size_t>(cls)] > 0;
     }
@@ -878,8 +882,8 @@ HistoryResult scoreHistory(std::span<const RoutePath> paths,
             const double total =
                 static_cast<double>(classCounts[static_cast<size_t>(cls)]) +
                 kPrior * pitBins;
-            const size_t offset =
-                static_cast<size_t>(cls) * pitBins + static_cast<size_t>(bin);
+            const size_t offset = static_cast<size_t>(cls) * pitBinCount +
+                                  static_cast<size_t>(bin);
             const double probability =
                 (static_cast<double>(counts[offset]) + kPrior) / total;
 
@@ -888,7 +892,7 @@ HistoryResult scoreHistory(std::span<const RoutePath> paths,
             ++heldOut;
         }
 
-        const double inv = 1.0 / path.steps.size();
+        const double inv = 1.0 / static_cast<double>(path.steps.size());
         gains.push_back(gain * inv);
         distances.push_back(distance * inv);
     }
@@ -958,7 +962,7 @@ Audit auditConditionalLaw(std::span<const RoutePath> paths,
     const double mean = std::accumulate(pit.begin(), pit.end(), 0.0) / count;
     double variance = 0.0;
 
-    for (double value : pit) {
+    for (const double value : pit) {
         const double delta = value - mean;
         variance += delta * delta;
     }
@@ -997,41 +1001,41 @@ ScaleResult analyzeScale(const Options& opt, int scale) {
     std::vector<int> horizons;
     horizons.reserve(opt.horizons.size());
 
-    for (int p : opt.horizons) {
+    for (const int p : opt.horizons) {
         horizons.push_back(scale * p);
     }
 
     const std::vector<Cell> cells = makeCells(horizons);
     const std::vector<RoutePath> paths =
         samplePaths(horizons, opt.paths, opt.seed, scale, opt.threads);
-    ScaleResult result;
-    result.scale = scale;
-    result.horizons = horizons;
-    result.trainingPaths = horizons.size() * (opt.paths / 2);
-    result.heldOutPaths = result.trainingPaths;
-    result.heldOutTransitions = result.heldOutPaths * kPositions.size();
-    result.audit = auditConditionalLaw(paths, cells);
-    result.fractionScores = scorePaths(paths, cells, false);
-    result.routeTimeScores = scorePaths(paths, cells, true);
+    ScaleResult out;
+    out.scale = scale;
+    out.horizons = horizons;
+    out.trainingPaths = horizons.size() * (opt.paths / 2);
+    out.heldOutPaths = out.trainingPaths;
+    out.heldOutTransitions = out.heldOutPaths * kPositions.size();
+    out.audit = auditConditionalLaw(paths, cells);
+    out.fractionScores = scorePaths(paths, cells, false);
+    out.routeTimeScores = scorePaths(paths, cells, true);
 
-    for (int bins : kXBins) {
-        result.fractionW1.push_back(wasserstein(paths, cells, false, bins));
-        result.routeTimeW1.push_back(wasserstein(paths, cells, true, bins));
+    for (const int bins : kXBins) {
+        out.fractionW1.push_back(wasserstein(paths, cells, false, bins));
+        out.routeTimeW1.push_back(wasserstein(paths, cells, true, bins));
     }
 
     constexpr std::array<std::string_view, 3> states{
         "last_fraction", "quadratic_concentration", "joint"};
 
-    for (std::string_view state : states) {
-        for (int histBins : kHistoryBins) {
-            for (int pitBins : kPitBins) {
-                result.history.push_back(
+    for (const std::string_view state : states) {
+        for (const int histBins : kHistoryBins) {
+            for (const int pitBins : kPitBins) {
+                out.history.push_back(
                     scoreHistory(paths, cells, state, histBins, pitBins));
             }
         }
     }
 
-    return result;
+    return out;
 }
 
 void printInts(std::ostream& out, std::span<const int> values) {
@@ -1122,7 +1126,7 @@ void printHistory(std::ostream& out, std::span<const HistoryResult> values) {
     std::print(out, "\n    ]");
 }
 
-void writeOutput(const Options& opt, std::span<const ScaleResult> results,
+void writeOutput(const Options& opt, std::span<const ScaleResult> groups,
                  double seconds) {
     const std::filesystem::path parent = opt.output.parent_path();
 
@@ -1135,13 +1139,13 @@ void writeOutput(const Options& opt, std::span<const ScaleResult> results,
             std::format("output exists: {}", opt.output.string()));
     }
 
-    std::filesystem::path temporary = opt.output;
-    temporary += ".tmp";
-    std::ofstream out(temporary);
+    std::filesystem::path temp = opt.output;
+    temp += ".tmp";
+    std::ofstream out(temp);
 
     if (!out) {
         throw std::runtime_error(
-            std::format("cannot create artifact: {}", temporary.string()));
+            std::format("cannot create artifact: {}", temp.string()));
     }
 
     std::print(out, "{{\n"
@@ -1179,41 +1183,40 @@ void writeOutput(const Options& opt, std::span<const ScaleResult> results,
         "\"uncertainty\":\"ordinary standard error of paired path means\"}},\n"
         "  \"scale_groups\":[");
 
-    for (size_t i = 0; i < results.size(); ++i) {
+    for (size_t i = 0; i < groups.size(); ++i) {
         if (i > 0) {
             std::print(out, ",");
         }
 
-        const ScaleResult& result = results[i];
-        std::print(out, "\n    {{\"scale\":{},\"horizons\":", result.scale);
-        printInts(out, result.horizons);
-        std::print(out,
-                   ",\"training_paths\":{},\"held_out_paths\":{},"
-                   "\"held_out_transitions\":{},\n"
-                   "     \"conditional_audit\":{{"
-                   "\"pit_mean\":{:.17g},\"pit_variance\":{:.17g},"
-                   "\"pit_kolmogorov\":{:.17g},"
-                   "\"max_conditional_mean_error\":{:.17g},"
-                   "\"pit_last_fraction_correlation\":{:.17g},"
-                   "\"pit_quadratic_concentration_correlation\":{:.17g}}},\n"
-                   "     \"log_score\":{{\n"
-                   "      \"remaining_fraction\":",
-                   result.trainingPaths, result.heldOutPaths,
-                   result.heldOutTransitions, result.audit.pitMean,
-                   result.audit.pitVariance, result.audit.pitKolmogorov,
-                   result.audit.maxConditionalMeanError,
-                   result.audit.pitLastCorrelation,
-                   result.audit.pitQuadCorrelation);
-        printScores(out, result.fractionScores);
+        const ScaleResult& group = groups[i];
+        std::print(out, "\n    {{\"scale\":{},\"horizons\":", group.scale);
+        printInts(out, group.horizons);
+        std::print(
+            out,
+            ",\"training_paths\":{},\"held_out_paths\":{},"
+            "\"held_out_transitions\":{},\n"
+            "     \"conditional_audit\":{{"
+            "\"pit_mean\":{:.17g},\"pit_variance\":{:.17g},"
+            "\"pit_kolmogorov\":{:.17g},"
+            "\"max_conditional_mean_error\":{:.17g},"
+            "\"pit_last_fraction_correlation\":{:.17g},"
+            "\"pit_quadratic_concentration_correlation\":{:.17g}}},\n"
+            "     \"log_score\":{{\n"
+            "      \"remaining_fraction\":",
+            group.trainingPaths, group.heldOutPaths, group.heldOutTransitions,
+            group.audit.pitMean, group.audit.pitVariance,
+            group.audit.pitKolmogorov, group.audit.maxConditionalMeanError,
+            group.audit.pitLastCorrelation, group.audit.pitQuadCorrelation);
+        printScores(out, group.fractionScores);
         std::print(out, ",\n      \"route_time_scaled\":");
-        printScores(out, result.routeTimeScores);
+        printScores(out, group.routeTimeScores);
         std::print(out, "\n     }},\n     \"wasserstein\":{{\n");
         std::print(out, "      \"remaining_fraction\":");
-        printW1(out, result.fractionW1);
+        printW1(out, group.fractionW1);
         std::print(out, ",\n      \"route_time_scaled\":");
-        printW1(out, result.routeTimeW1);
+        printW1(out, group.routeTimeW1);
         std::print(out, "\n     }},\n     \"history_positive_control\":");
-        printHistory(out, result.history);
+        printHistory(out, group.history);
         std::print(out, "\n    }}");
     }
 
@@ -1226,11 +1229,11 @@ void writeOutput(const Options& opt, std::span<const ScaleResult> results,
     out.close();
 
     if (!out) {
-        throw std::runtime_error(std::format(
-            "failed while writing artifact: {}", temporary.string()));
+        throw std::runtime_error(
+            std::format("failed while writing artifact: {}", temp.string()));
     }
 
-    std::filesystem::rename(temporary, opt.output);
+    std::filesystem::rename(temp, opt.output);
 }
 
 size_t runSelfTests() {
@@ -1314,17 +1317,17 @@ int main(int argc, char** argv) {
         }
 
         const auto start = std::chrono::steady_clock::now();
-        std::vector<ScaleResult> results;
-        results.reserve(opt.scales.size());
+        std::vector<ScaleResult> groups;
+        groups.reserve(opt.scales.size());
 
-        for (int scale : opt.scales) {
-            results.push_back(analyzeScale(opt, scale));
+        for (const int scale : opt.scales) {
+            groups.push_back(analyzeScale(opt, scale));
         }
 
         const double seconds = std::chrono::duration<double>(
                                    std::chrono::steady_clock::now() - start)
                                    .count();
-        writeOutput(opt, results, seconds);
+        writeOutput(opt, groups, seconds);
         std::println(stderr, "wrote {} in {:.3f} seconds", opt.output.string(),
                      seconds);
         return 0;

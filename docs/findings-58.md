@@ -1,8 +1,8 @@
 # 1. A continuous ordered-kernel sector
 
 The universal theorem of `findings-56.md` applies to arbitrary extremal
-exchangeable DAG kernels. The continuous ordered sector below supplies an
-explicit non-block example with exactly computable finite-pattern
+exchangeable DAG kernels. The continuous ordered sector developed here supplies
+an explicit non-block example with exactly computable finite-pattern
 coefficients.
 
 Let

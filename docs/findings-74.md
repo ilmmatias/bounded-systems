@@ -178,7 +178,7 @@ endpoints in each phase.
 Phase weights can therefore be imposed externally by calibration, or allowed
 to emerge from relative endpoint entropy.
 
-# 6. Finite phase closure
+# 6. Adaptive closure for finite phase mixtures
 
 The multiwell construction gives a route-counting realization of the finite
 adaptive state in `findings-73.md`. At finite level, the endpoint updates both

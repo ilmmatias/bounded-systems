@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <limits>
 #include <numeric>
 #include <stdexcept>
@@ -31,6 +32,7 @@ uint64_t pairCounter(uint32_t first, uint32_t second) {
 }
 
 } // namespace
+
 GapCoordinate gapContinuumCoordinate(double x) {
     const double oneMinusX = 1.0 - x;
     const double x2 = x * x;
@@ -67,10 +69,10 @@ ReferenceDag ReferenceDag::generate(size_t vertexCount, uint64_t sampleSeed) {
     };
 
     std::vector<MarkedVertex> vertices(vertexCount);
-    for (size_t index = 0; index < vertexCount; ++index) {
-        vertices[index] = {
-            .mark = uniform01(sampleSeed ^ kMarkDomain ^ splitMix64(index)),
-            .originalId = static_cast<uint32_t>(index),
+    for (size_t i = 0; i < vertexCount; ++i) {
+        vertices[i] = {
+            .mark = uniform01(sampleSeed ^ kMarkDomain ^ splitMix64(i)),
+            .originalId = static_cast<uint32_t>(i),
         };
     }
 
@@ -89,9 +91,9 @@ ReferenceDag ReferenceDag::generate(size_t vertexCount, uint64_t sampleSeed) {
     graph.m_originalVertexIds.resize(vertexCount);
 
     const size_t pairCount = vertexCount * (vertexCount - 1) / 2;
-    const size_t expectedEdgeCount = pairCount / 3;
+    const size_t expectedEdges = pairCount / 3;
     // Keep a modest margin above the mean to avoid a full capacity doubling.
-    graph.m_outgoingTargets.reserve(expectedEdgeCount + pairCount / 24 + 1);
+    graph.m_outgoingTargets.reserve(expectedEdges + pairCount / 24 + 1);
 
     for (size_t source = 0; source < vertexCount; ++source) {
         graph.m_outgoingOffsets[source] = graph.m_outgoingTargets.size();
@@ -145,12 +147,10 @@ ReferenceDag ReferenceDag::fromTopologicalEdges(
     }
 
     for (size_t source = 0; source < vertexCount; ++source) {
-        auto first =
-            graph.m_outgoingTargets.begin() +
-            static_cast<std::ptrdiff_t>(graph.m_outgoingOffsets[source]);
-        auto last =
-            graph.m_outgoingTargets.begin() +
-            static_cast<std::ptrdiff_t>(graph.m_outgoingOffsets[source + 1]);
+        auto first = graph.m_outgoingTargets.begin() +
+                     static_cast<ptrdiff_t>(graph.m_outgoingOffsets[source]);
+        auto last = graph.m_outgoingTargets.begin() +
+                    static_cast<ptrdiff_t>(graph.m_outgoingOffsets[source + 1]);
         std::ranges::sort(first, last);
         if (std::adjacent_find(first, last) != last) {
             throw std::invalid_argument("test DAG contains a duplicate edge");
@@ -197,54 +197,52 @@ size_t GapNodeState::estimatedBytes() const {
 }
 
 GapNodeState computeGapNodeState(const ReferenceDag& graph) {
-    const size_t vertexCount = graph.vertexCount();
+    const size_t n = graph.vertexCount();
     const auto offsets = graph.outgoingOffsets();
     const auto targets = graph.outgoingTargets();
 
-    std::vector<uint64_t> outDegree(vertexCount);
-    std::vector<uint64_t> inDegree(vertexCount, 0);
-    for (size_t source = 0; source < vertexCount; ++source) {
-        outDegree[source] = offsets[source + 1] - offsets[source];
-        for (size_t edge = offsets[source]; edge < offsets[source + 1];
-             ++edge) {
-            ++inDegree[targets[edge]];
+    std::vector<uint64_t> outDeg(n);
+    std::vector<uint64_t> inDeg(n, 0);
+    for (size_t src = 0; src < n; ++src) {
+        outDeg[src] = offsets[src + 1] - offsets[src];
+        for (size_t edge = offsets[src]; edge < offsets[src + 1]; ++edge) {
+            ++inDeg[targets[edge]];
         }
     }
 
-    std::vector<uint64_t> qPlusPlus(vertexCount, 0);
-    std::vector<uint64_t> qMinusMinus(vertexCount, 0);
-    std::vector<uint64_t> qPlusMinus(vertexCount, 0);
-    std::vector<uint64_t> qMinusPlus(vertexCount, 0);
+    std::vector<uint64_t> qPlusPlus(n, 0);
+    std::vector<uint64_t> qMinusMinus(n, 0);
+    std::vector<uint64_t> qPlusMinus(n, 0);
+    std::vector<uint64_t> qMinusPlus(n, 0);
 
-    for (size_t source = 0; source < vertexCount; ++source) {
-        for (size_t edge = offsets[source]; edge < offsets[source + 1];
-             ++edge) {
-            const size_t target = targets[edge];
-            qPlusPlus[source] += outDegree[target];
-            qPlusMinus[source] += inDegree[target];
-            qMinusMinus[target] += inDegree[source];
-            qMinusPlus[target] += outDegree[source];
+    for (size_t src = 0; src < n; ++src) {
+        for (size_t edge = offsets[src]; edge < offsets[src + 1]; ++edge) {
+            const size_t dst = targets[edge];
+            qPlusPlus[src] += outDeg[dst];
+            qPlusMinus[src] += inDeg[dst];
+            qMinusMinus[dst] += inDeg[src];
+            qMinusPlus[dst] += outDeg[src];
         }
     }
 
     GapNodeState state;
-    state.signatures.resize(vertexCount);
-    state.coordinates.resize(vertexCount);
-    const double inverseN = 1.0 / static_cast<double>(vertexCount);
-    const double inverseN2 = inverseN * inverseN;
+    state.signatures.resize(n);
+    state.coordinates.resize(n);
+    const double invN = 1.0 / static_cast<double>(n);
+    const double invN2 = invN * invN;
 
-    for (size_t vertex = 0; vertex < vertexCount; ++vertex) {
+    for (size_t vertex = 0; vertex < n; ++vertex) {
         state.signatures[vertex] = {
-            outDegree[vertex],   inDegree[vertex],   qPlusPlus[vertex],
+            outDeg[vertex],      inDeg[vertex],      qPlusPlus[vertex],
             qMinusMinus[vertex], qPlusMinus[vertex], qMinusPlus[vertex],
         };
         state.coordinates[vertex] = {
-            static_cast<double>(outDegree[vertex]) * inverseN,
-            static_cast<double>(inDegree[vertex]) * inverseN,
-            static_cast<double>(qPlusPlus[vertex]) * inverseN2,
-            static_cast<double>(qMinusMinus[vertex]) * inverseN2,
-            static_cast<double>(qPlusMinus[vertex]) * inverseN2,
-            static_cast<double>(qMinusPlus[vertex]) * inverseN2,
+            static_cast<double>(outDeg[vertex]) * invN,
+            static_cast<double>(inDeg[vertex]) * invN,
+            static_cast<double>(qPlusPlus[vertex]) * invN2,
+            static_cast<double>(qMinusMinus[vertex]) * invN2,
+            static_cast<double>(qPlusMinus[vertex]) * invN2,
+            static_cast<double>(qMinusPlus[vertex]) * invN2,
         };
     }
 
@@ -261,42 +259,37 @@ LatentStateValidation validateGapNodeState(const ReferenceDag& graph,
         throw std::invalid_argument("node-state size does not match graph");
     }
 
-    LatentStateValidation result;
-    std::array<long double, kGapCoordinateCount> squaredErrors{};
-    long double markSquaredError = 0.0L;
+    LatentStateValidation out;
+    std::array<long double, kGapCoordinateCount> sqErrors{};
+    long double markSqError = 0.0L;
 
     for (size_t vertex = 0; vertex < graph.vertexCount(); ++vertex) {
         const double mark = graph.latentMarks()[vertex];
         const GapCoordinate expected = gapContinuumCoordinate(mark);
-        for (size_t coordinate = 0; coordinate < kGapCoordinateCount;
-             ++coordinate) {
+        for (size_t coord = 0; coord < kGapCoordinateCount; ++coord) {
             const long double error =
-                state.coordinates[vertex][coordinate] - expected[coordinate];
-            squaredErrors[coordinate] += error * error;
+                state.coordinates[vertex][coord] - expected[coord];
+            sqErrors[coord] += error * error;
         }
 
         const double reconstructed =
             0.5 + state.coordinates[vertex][1] - state.coordinates[vertex][0];
         const double markError = reconstructed - mark;
-        markSquaredError += static_cast<long double>(markError) * markError;
-        result.reconstructedMarkMaxError =
-            std::max(result.reconstructedMarkMaxError, std::abs(markError));
+        markSqError += static_cast<long double>(markError) * markError;
+        out.reconstructedMarkMaxError =
+            std::max(out.reconstructedMarkMaxError, std::abs(markError));
     }
 
-    long double totalSquaredError = 0.0L;
-    for (size_t coordinate = 0; coordinate < kGapCoordinateCount;
-         ++coordinate) {
-        const long double meanSquaredError =
-            squaredErrors[coordinate] /
-            static_cast<long double>(graph.vertexCount());
-        result.coordinateRmse[coordinate] =
-            std::sqrt(static_cast<double>(meanSquaredError));
-        totalSquaredError += meanSquaredError;
+    long double totalSqError = 0.0L;
+    for (size_t coord = 0; coord < kGapCoordinateCount; ++coord) {
+        const long double mse =
+            sqErrors[coord] / static_cast<long double>(graph.vertexCount());
+        out.coordinateRmse[coord] = std::sqrt(static_cast<double>(mse));
+        totalSqError += mse;
     }
 
-    result.totalCoordinateRmse =
-        std::sqrt(static_cast<double>(totalSquaredError));
-    result.reconstructedMarkRmse = std::sqrt(static_cast<double>(
-        markSquaredError / static_cast<long double>(graph.vertexCount())));
-    return result;
+    out.totalCoordinateRmse = std::sqrt(static_cast<double>(totalSqError));
+    out.reconstructedMarkRmse = std::sqrt(static_cast<double>(
+        markSqError / static_cast<long double>(graph.vertexCount())));
+    return out;
 }

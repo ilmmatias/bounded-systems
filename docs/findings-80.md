@@ -197,7 +197,7 @@ The common rate follows because every route length has a nonzero one-vertex
 projection. The route length changes the projection polynomial and covariance
 amplitude, but not the support order.
 
-# 6. Infinite-rank route state
+# 6. Infinite rank of the complete route state
 
 The functions
 

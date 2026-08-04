@@ -209,7 +209,7 @@ The case $r=1$ recovers the deterministic two-layer sector through a
 different selector. For $0<r<1$, the theorem gives an absolutely selected
 noisy sector.
 
-# 7. Terminal selection
+# 7. Selection of the stochastic two-layer sector
 
 The forcing coordinates can be inserted into the terminal energy of
 `findings-68.md`. With inverse temperature satisfying

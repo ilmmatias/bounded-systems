@@ -49,7 +49,12 @@ def generate_graph(
     p: tuple[float, float, float],
     w: tuple[float, float, float],
     rng: random.Random,
-):
+) -> tuple[
+    list[int],
+    list[int],
+    list[int],
+    dict[tuple[int, int], int],
+]:
     marks = rng.choices((0, 1, 2), weights=p, k=n)
     indeg = [0] * n
     outdeg = [0] * n
@@ -72,17 +77,17 @@ def generate_graph(
 
 
 def classify(indeg: list[int], outdeg: list[int]) -> list[int | None]:
-    result: list[int | None] = []
+    out: list[int | None] = []
     for din, dout in zip(indeg, outdeg):
         if din == 0 and dout > 0:
-            result.append(0)
+            out.append(0)
         elif din > 0 and dout > 0:
-            result.append(1)
+            out.append(1)
         elif din > 0 and dout == 0:
-            result.append(2)
+            out.append(2)
         else:
-            result.append(None)
-    return result
+            out.append(None)
+    return out
 
 
 def simulation_checks() -> int:
@@ -93,7 +98,7 @@ def simulation_checks() -> int:
     for n in (200, 400, 800, 1600):
         marks, indeg, outdeg, edge_counts = generate_graph(n, p, w, rng)
         recovered = classify(indeg, outdeg)
-        errors = sum(r != m for r, m in zip(recovered, marks))
+        errors = sum(r != m for r, m in zip(recovered, marks, strict=True))
         # The probability of an error is exponentially small at these sizes.
         assert errors == 0
         checks += n
@@ -109,7 +114,6 @@ def simulation_checks() -> int:
         assert abs(chat - w[2]) < 0.08
         checks += 6
     return checks
-
 
 
 def peel_sources(
@@ -147,7 +151,10 @@ def general_q_peeling_checks(trials: int = 500) -> int:
         edges: set[tuple[int, int]] = set()
 
         # Force one adjacent predecessor/successor witness for every vertex.
-        by_layer = {i: [v for v, mark in enumerate(marks) if mark == i] for i in range(q)}
+        by_layer = {
+            i: [v for v, mark in enumerate(marks) if mark == i]
+            for i in range(q)
+        }
         for i in range(q - 1):
             left = by_layer[i]
             right = by_layer[i + 1]
@@ -168,6 +175,7 @@ def general_q_peeling_checks(trials: int = 500) -> int:
         assert recovered == marks
         checks += n
     return checks
+
 
 def summability_check() -> int:
     p1, p2, p3 = 0.27, 0.41, 0.32
@@ -199,4 +207,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

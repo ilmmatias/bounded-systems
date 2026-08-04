@@ -85,9 +85,9 @@ that final ambiguity.
 
 The original Conjecture 3 of `findings-98.md` remains a separate
 one-dimensional rigidity question about the weaker rooted system. The
-absolute forcing theorem does not assume its resolution.
+absolute forcing theorem is independent of its resolution.
 
-# 4. Harmonic and continuum consequences
+# 4. Harmonic law and continuum structure
 
 The finite terminal-selection construction of `findings-68.md` now applies
 directly to the standalone distance sector. A terminal energy formed from
@@ -113,7 +113,7 @@ A(x,y)
 \int \mathbf 1_{\{x<z\}}\mathbf 1_{\{z<y\}}\,dz.
 ```
 
-# 5. Robustness
+# 5. Robust selection under approximate constraints
 
 Because the central-profile space is compact and the three forcing coordinates
 are continuous, the robustness theorem of `findings-67.md` applies. Small

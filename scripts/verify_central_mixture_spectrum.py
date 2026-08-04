@@ -70,7 +70,9 @@ def main() -> None:
             lhs = mixture_covariance(alpha, a, b, m)
             rhs = direct_pair_calculation(alpha, a, b, n, m)
             if lhs != rhs:
-                raise AssertionError(f"covariance mismatch at n={n}, m={m}: {lhs} != {rhs}")
+                raise AssertionError(
+                    f"covariance mismatch at n={n}, m={m}: {lhs} != {rhs}"
+                )
             checks += 1
 
     print(f"central mixture spectrum checks passed: {checks}")
@@ -79,4 +81,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

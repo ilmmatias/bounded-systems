@@ -6,10 +6,11 @@ Let
 G=(V,E,s,r)
 ```
 
-be a set-sized directed multigraph. A representative of a bounded system is
-acyclic, although the constructions below do not require acyclicity unless
-stated explicitly. Parallel channels are allowed because the pair of maps
-$s,r:E\to V$ need not be jointly injective.
+be a set-sized directed multigraph. A bounded-system representative is
+acyclic; the constructions in this section apply to general directed
+multigraphs until acyclicity is stated as a hypothesis. Parallel channels
+are allowed because the pair of maps $s,r:E\to V$ may fail to be jointly
+injective.
 
 Over a field $\mathbb K$, usually $\mathbb C$, define the algebraic path algebra
 
@@ -77,9 +78,9 @@ and
 
 Then $G$ and $H$ are isomorphic as directed multigraphs.
 
-The statement allows arbitrary node and edge cardinalities, including parallel
-channels, and applies to both finite and infinite multigraphs. Acyclicity is
-not required for the reconstruction argument.
+The statement applies to finite and infinite multigraphs with arbitrary node
+and edge cardinalities, including parallel channels. The reconstruction uses
+the marked grading rather than acyclicity.
 
 ## Proof
 

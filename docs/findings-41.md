@@ -909,5 +909,5 @@ property. Two steps taken afterwards here are outside those statements: the
 replacement of the scalar $q$ by the operator $Z_q=qI+i(\log\lambda)N$ in
 sections 5 and 6, and the nesting $\Sigma_h(\Phi(Z_q))$ of the self-energy
 inside the clock exponent in section 6, whose noncommutation with the reverse
-order is the content of section 14. Both are introduced in this document and
-neither is an instance of the scalar results.
+order is the content of Section 14. The analysis here introduces both operator
+steps beyond the cited scalar results.

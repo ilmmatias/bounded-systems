@@ -186,7 +186,7 @@ higher bipartite pattern profiles. The formulas above show equality of all
 edge coefficients. The payload forcing coordinates distinguish the completed
 sectors by Theorem 2 of `findings-75.md`.
 
-# 5. Information hierarchy
+# 5. Separation of coefficient and sector information
 
 The result separates three levels of information:
 

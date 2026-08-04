@@ -47,25 +47,30 @@ struct BuiltMatrices {
 };
 
 size_t indexOf(int row, int column, int size) {
-    return static_cast<size_t>(row) * size + column;
+    const size_t rowIndex = static_cast<size_t>(row);
+    const size_t columnIndex = static_cast<size_t>(column);
+    const size_t width = static_cast<size_t>(size);
+    return rowIndex * width + columnIndex;
 }
 
 IntegerMatrix transpose(const IntegerMatrix& matrix, int size) {
-    IntegerMatrix result(static_cast<size_t>(size) * size, 0);
+    const size_t width = static_cast<size_t>(size);
+    IntegerMatrix out(width * width, 0);
 
     for (int row = 0; row < size; ++row) {
         for (int column = 0; column < size; ++column) {
-            result[indexOf(column, row, size)] =
+            out[indexOf(column, row, size)] =
                 matrix[indexOf(row, column, size)];
         }
     }
 
-    return result;
+    return out;
 }
 
 IntegerMatrix multiply(const IntegerMatrix& left, const IntegerMatrix& right,
                        int size) {
-    IntegerMatrix result(static_cast<size_t>(size) * size, 0);
+    const size_t width = static_cast<size_t>(size);
+    IntegerMatrix out(width * width, 0);
 
     for (int row = 0; row < size; ++row) {
         for (int middle = 0; middle < size; ++middle) {
@@ -75,17 +80,18 @@ IntegerMatrix multiply(const IntegerMatrix& left, const IntegerMatrix& right,
             }
 
             for (int column = 0; column < size; ++column) {
-                result[indexOf(row, column, size)] +=
+                out[indexOf(row, column, size)] +=
                     value * right[indexOf(middle, column, size)];
             }
         }
     }
 
-    return result;
+    return out;
 }
 
 BigMatrix multiply(const BigMatrix& left, const BigMatrix& right, int size) {
-    BigMatrix result(static_cast<size_t>(size) * size, 0);
+    const size_t width = static_cast<size_t>(size);
+    BigMatrix out(width * width, 0);
 
     for (int row = 0; row < size; ++row) {
         for (int middle = 0; middle < size; ++middle) {
@@ -95,13 +101,13 @@ BigMatrix multiply(const BigMatrix& left, const BigMatrix& right, int size) {
             }
 
             for (int column = 0; column < size; ++column) {
-                result[indexOf(row, column, size)] +=
+                out[indexOf(row, column, size)] +=
                     value * right[indexOf(middle, column, size)];
             }
         }
     }
 
-    return result;
+    return out;
 }
 
 int exactRank(const IntegerMatrix& matrix, int rows, int columns) {
@@ -158,26 +164,29 @@ std::vector<BigInt> characteristicPolynomial(const IntegerMatrix& matrix,
 
     BigMatrix base(matrix.begin(), matrix.end());
     BigMatrix power = base;
-    std::vector<BigInt> traces(static_cast<size_t>(size) + 1, 0);
+    const size_t order = static_cast<size_t>(size);
+    std::vector<BigInt> traces(order + 1, 0);
 
-    for (int exponent = 1; exponent <= size; ++exponent) {
+    for (size_t exponent = 1; exponent <= order; ++exponent) {
         BigInt trace = 0;
+
         for (int diagonal = 0; diagonal < size; ++diagonal) {
             trace += power[indexOf(diagonal, diagonal, size)];
         }
 
         traces[exponent] = trace;
-        if (exponent < size) {
+        if (exponent < order) {
             power = multiply(power, base, size);
         }
     }
 
-    std::vector<BigInt> coefficients(static_cast<size_t>(size) + 1, 0);
+    std::vector<BigInt> coefficients(order + 1, 0);
     coefficients[0] = 1;
 
-    for (int degree = 1; degree <= size; ++degree) {
+    for (size_t degree = 1; degree <= order; ++degree) {
         BigInt sum = 0;
-        for (int exponent = 1; exponent <= degree; ++exponent) {
+
+        for (size_t exponent = 1; exponent <= degree; ++exponent) {
             sum += coefficients[degree - exponent] * traces[exponent];
         }
 
@@ -193,25 +202,25 @@ std::vector<BigInt> characteristicPolynomial(const IntegerMatrix& matrix,
 }
 
 std::string serializeIntegers(const std::vector<int>& values) {
-    std::string result = std::format("{}:", values.size());
+    std::string out = std::format("{}:", values.size());
 
     for (const int value : values) {
-        result += std::format("{},", value);
+        out += std::format("{},", value);
     }
 
-    return result;
+    return out;
 }
 
 std::string serializePolynomial(const IntegerMatrix& matrix, int size) {
     const auto coefficients = characteristicPolynomial(matrix, size);
-    std::string result = std::format("{}:", size);
+    std::string out = std::format("{}:", size);
 
     for (const BigInt& coefficient : coefficients) {
-        result += coefficient.str();
-        result += ',';
+        out += coefficient.str();
+        out += ',';
     }
 
-    return result;
+    return out;
 }
 
 void appendComponent(std::string& key, std::string_view name,
@@ -225,7 +234,8 @@ void appendComponent(std::string& key, std::string_view name,
 
 BuiltMatrices buildMatrices(const Graph& graph) {
     const int vertexCount = graph.vertexCount();
-    const size_t matrixSize = static_cast<size_t>(vertexCount) * vertexCount;
+    const size_t vertexSize = static_cast<size_t>(vertexCount);
+    const size_t matrixSize = vertexSize * vertexSize;
     BuiltMatrices built;
     built.vertexCount = vertexCount;
 
@@ -237,15 +247,14 @@ BuiltMatrices buildMatrices(const Graph& graph) {
         }
     }
 
-    const IntegerMatrix adjacencyTranspose = transpose(adjacency, vertexCount);
-    built.adjacencyGram = multiply(adjacencyTranspose, adjacency, vertexCount);
-    const IntegerMatrix outgoingGram =
-        multiply(adjacency, adjacencyTranspose, vertexCount);
+    const IntegerMatrix adjTranspose = transpose(adjacency, vertexCount);
+    built.adjacencyGram = multiply(adjTranspose, adjacency, vertexCount);
+    const IntegerMatrix outGram =
+        multiply(adjacency, adjTranspose, vertexCount);
 
     built.asymmetricGram.assign(matrixSize, 0);
-    for (size_t current = 0; current < matrixSize; ++current) {
-        built.asymmetricGram[current] =
-            built.adjacencyGram[current] + 2 * outgoingGram[current];
+    for (size_t i = 0; i < matrixSize; ++i) {
+        built.asymmetricGram[i] = built.adjacencyGram[i] + 2 * outGram[i];
     }
 
     built.outLaplacian.assign(matrixSize, 0);
@@ -253,31 +262,31 @@ BuiltMatrices buildMatrices(const Graph& graph) {
     built.undirectedLaplacian.assign(matrixSize, 0);
 
     for (int row = 0; row < vertexCount; ++row) {
-        int64_t outDegree = 0;
-        int64_t inDegree = 0;
-        int64_t undirectedDegree = 0;
+        int64_t outDeg = 0;
+        int64_t inDeg = 0;
+        int64_t undirectedDeg = 0;
 
         for (int column = 0; column < vertexCount; ++column) {
-            outDegree += adjacency[indexOf(row, column, vertexCount)];
-            inDegree += adjacency[indexOf(column, row, vertexCount)];
+            outDeg += adjacency[indexOf(row, column, vertexCount)];
+            inDeg += adjacency[indexOf(column, row, vertexCount)];
             if (graph.hasEdge(row, column) || graph.hasEdge(column, row)) {
-                ++undirectedDegree;
+                ++undirectedDeg;
             }
         }
 
         for (int column = 0; column < vertexCount; ++column) {
-            const size_t current = indexOf(row, column, vertexCount);
-            built.outLaplacian[current] = -adjacency[current];
-            built.inLaplacian[current] = -adjacency[current];
-            built.undirectedLaplacian[current] =
+            const size_t pos = indexOf(row, column, vertexCount);
+            built.outLaplacian[pos] = -adjacency[pos];
+            built.inLaplacian[pos] = -adjacency[pos];
+            built.undirectedLaplacian[pos] =
                 -(graph.hasEdge(row, column) || graph.hasEdge(column, row) ? 1
                                                                            : 0);
         }
 
-        built.outLaplacian[indexOf(row, row, vertexCount)] += outDegree;
-        built.inLaplacian[indexOf(row, row, vertexCount)] += inDegree;
+        built.outLaplacian[indexOf(row, row, vertexCount)] += outDeg;
+        built.inLaplacian[indexOf(row, row, vertexCount)] += inDeg;
         built.undirectedLaplacian[indexOf(row, row, vertexCount)] +=
-            undirectedDegree;
+            undirectedDeg;
     }
 
     built.orientationSkew.assign(matrixSize, 0);
@@ -344,62 +353,63 @@ BuiltMatrices buildMatrices(const Graph& graph) {
     }
 
     const int edgeCount = built.edgeCount;
-    IntegerMatrix lineAdjacency(static_cast<size_t>(edgeCount) * edgeCount, 0);
+    const size_t edgeSize = static_cast<size_t>(edgeCount);
+    IntegerMatrix lineAdj(edgeSize * edgeSize, 0);
 
     for (int first = 0; first < edgeCount; ++first) {
         for (int second = 0; second < edgeCount; ++second) {
-            if (edges[first].second == edges[second].first) {
-                lineAdjacency[indexOf(first, second, edgeCount)] = 1;
+            const size_t firstIndex = static_cast<size_t>(first);
+            const size_t secondIndex = static_cast<size_t>(second);
+
+            if (edges[firstIndex].second == edges[secondIndex].first) {
+                lineAdj[indexOf(first, second, edgeCount)] = 1;
             }
         }
     }
 
-    const IntegerMatrix lineTranspose = transpose(lineAdjacency, edgeCount);
-    const IntegerMatrix lineIncomingGram =
-        multiply(lineTranspose, lineAdjacency, edgeCount);
-    const IntegerMatrix lineOutgoingGram =
-        multiply(lineAdjacency, lineTranspose, edgeCount);
+    const IntegerMatrix lineTranspose = transpose(lineAdj, edgeCount);
+    const IntegerMatrix lineInGram =
+        multiply(lineTranspose, lineAdj, edgeCount);
+    const IntegerMatrix lineOutGram =
+        multiply(lineAdj, lineTranspose, edgeCount);
 
-    built.edgeAsymmetricGram.assign(static_cast<size_t>(edgeCount) * edgeCount,
-                                    0);
+    built.edgeAsymmetricGram.assign(edgeSize * edgeSize, 0);
 
-    for (size_t current = 0; current < built.edgeAsymmetricGram.size();
-         ++current) {
-        built.edgeAsymmetricGram[current] =
-            lineIncomingGram[current] + 2 * lineOutgoingGram[current];
+    for (size_t i = 0; i < built.edgeAsymmetricGram.size(); ++i) {
+        built.edgeAsymmetricGram[i] = lineInGram[i] + 2 * lineOutGram[i];
     }
 
     return built;
 }
 
 std::string escapeJson(std::string_view value) {
-    std::string result;
-    result.reserve(value.size());
+    std::string out;
+    out.reserve(value.size());
 
-    for (const uint8_t character : value) {
-        switch (character) {
+    for (const char ch : value) {
+        switch (ch) {
         case '"':
-            result += "\\\"";
+            out += "\\\"";
             break;
         case '\\':
-            result += "\\\\";
+            out += "\\\\";
             break;
         case '\n':
-            result += "\\n";
+            out += "\\n";
             break;
         case '\r':
-            result += "\\r";
+            out += "\\r";
             break;
         case '\t':
-            result += "\\t";
+            out += "\\t";
             break;
         default:
-            result += static_cast<char>(character);
+            out += static_cast<char>(ch);
             break;
         }
     }
 
-    return result;
+    return out;
 }
 
 using CollisionGroups = std::vector<std::vector<std::string>>;
@@ -408,9 +418,8 @@ CollisionGroups collectCollisions(const std::vector<GraphRecord>& records,
                                   const std::vector<SpectralKeys>& keys,
                                   size_t level) {
     std::map<std::string, std::vector<std::string>> groups;
-    for (size_t index = 0; index < records.size(); ++index) {
-        groups[keys[index].cumulative[level]].push_back(
-            records[index].digraph6);
+    for (size_t i = 0; i < records.size(); ++i) {
+        groups[keys[i].cumulative[level]].push_back(records[i].digraph6);
     }
 
     CollisionGroups collisions;
@@ -437,16 +446,16 @@ void writeCollisionFile(const std::filesystem::path& path,
             std::format("cannot create collision artifact: {}", path.string()));
     }
 
-    for (size_t index = 0; index < collisions.size(); ++index) {
-        std::print(output, "{{\"class\":{},\"size\":{},\"graphs\":[", index,
-                   collisions[index].size());
+    for (size_t i = 0; i < collisions.size(); ++i) {
+        std::print(output, "{{\"class\":{},\"size\":{},\"graphs\":[", i,
+                   collisions[i].size());
 
-        for (size_t graph = 0; graph < collisions[index].size(); ++graph) {
+        for (size_t graph = 0; graph < collisions[i].size(); ++graph) {
             if (graph != 0) {
                 std::print(output, ",");
             }
 
-            std::print(output, "\"{}\"", escapeJson(collisions[index][graph]));
+            std::print(output, "\"{}\"", escapeJson(collisions[i][graph]));
         }
 
         std::println(output, "]}}");
@@ -526,54 +535,54 @@ void writeTableJson(const std::filesystem::path& path, int vertexCount,
 
 } // namespace
 
-SpectralKeys SpectralProfile::keys(const Graph& graph) const {
+SpectralKeys spectralKeys(const Graph& graph) {
     const BuiltMatrices built = buildMatrices(graph);
-    SpectralKeys result;
+    SpectralKeys out;
     std::string key;
 
     appendComponent(key, "edges", std::format("{}", graph.edgeCount()));
-    result.cumulative[0] = key;
+    out.cumulative[0] = key;
 
     appendComponent(key, "ranks", serializeIntegers(built.rankProfile));
-    result.cumulative[1] = key;
+    out.cumulative[1] = key;
 
     appendComponent(
         key, "ata",
         serializePolynomial(built.adjacencyGram, built.vertexCount));
-    result.cumulative[2] = key;
+    out.cumulative[2] = key;
 
     appendComponent(key, "lout",
                     serializePolynomial(built.outLaplacian, built.vertexCount));
     appendComponent(key, "lin",
                     serializePolynomial(built.inLaplacian, built.vertexCount));
-    result.cumulative[3] = key;
+    out.cumulative[3] = key;
 
     appendComponent(
         key, "lu",
         serializePolynomial(built.undirectedLaplacian, built.vertexCount));
-    result.cumulative[4] = key;
+    out.cumulative[4] = key;
 
     appendComponent(
         key, "orientation",
         serializePolynomial(built.orientationSkew, built.vertexCount));
-    result.cumulative[5] = key;
+    out.cumulative[5] = key;
 
     appendComponent(
         key, "reachability",
         serializePolynomial(built.reachabilityGram, built.vertexCount));
-    result.cumulative[6] = key;
+    out.cumulative[6] = key;
 
     appendComponent(
         key, "q2",
         serializePolynomial(built.asymmetricGram, built.vertexCount));
-    result.cumulative[7] = key;
+    out.cumulative[7] = key;
 
     appendComponent(
         key, "edge-q2",
         serializePolynomial(built.edgeAsymmetricGram, built.edgeCount));
-    result.cumulative[8] = key;
+    out.cumulative[8] = key;
 
-    return result;
+    return out;
 }
 
 int generateSpectralArtifacts(int vertexCount,
@@ -607,19 +616,17 @@ int generateSpectralArtifacts(int vertexCount,
 
     std::println(stderr, "loaded {} DAG records", records.size());
 
-    SpectralProfile profile;
     std::vector<SpectralKeys> keys;
     keys.reserve(records.size());
 
-    for (size_t index = 0; const auto& record : records) {
-        keys.push_back(profile.keys(record.graph));
+    for (size_t i = 0; i < records.size(); ++i) {
+        const GraphRecord& record = records[i];
+        keys.push_back(spectralKeys(record.graph));
 
-        const auto completed = static_cast<size_t>(index + 1);
+        const size_t completed = i + 1;
         if (completed % 1000 == 0 || completed == records.size()) {
             std::print(stderr, "\rprofiled {} / {}", completed, records.size());
         }
-
-        ++index;
     }
 
     std::println(stderr);

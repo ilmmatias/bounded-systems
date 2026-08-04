@@ -24,13 +24,13 @@ size_t covarianceIndex(size_t first, size_t second) {
         std::swap(first, second);
     }
 
-    size_t index = 0;
+    size_t i = 0;
     for (size_t left = 0; left < kGapCoordinateCount; ++left) {
         for (size_t right = left; right < kGapCoordinateCount; ++right) {
             if (left == first && right == second) {
-                return index;
+                return i;
             }
-            ++index;
+            ++i;
         }
     }
     throw std::logic_error("invalid covariance index");
@@ -38,14 +38,13 @@ size_t covarianceIndex(size_t first, size_t second) {
 
 double covarianceFrobenius(const GapCovariance& covariance) {
     long double squared = 0.0L;
-    size_t index = 0;
+    size_t i = 0;
     for (size_t first = 0; first < kGapCoordinateCount; ++first) {
         for (size_t second = first; second < kGapCoordinateCount; ++second) {
             const int multiplicity = first == second ? 1 : 2;
-            squared += multiplicity *
-                       static_cast<long double>(covariance[index]) *
-                       covariance[index];
-            ++index;
+            squared += multiplicity * static_cast<long double>(covariance[i]) *
+                       covariance[i];
+            ++i;
         }
     }
     return std::sqrt(static_cast<double>(squared));
@@ -53,7 +52,7 @@ double covarianceFrobenius(const GapCovariance& covariance) {
 
 double thirdMomentFrobenius(const GapThirdMoment& moment) {
     long double squared = 0.0L;
-    size_t index = 0;
+    size_t i = 0;
     for (size_t first = 0; first < kGapCoordinateCount; ++first) {
         for (size_t second = first; second < kGapCoordinateCount; ++second) {
             for (size_t third = second; third < kGapCoordinateCount; ++third) {
@@ -63,10 +62,9 @@ double thirdMomentFrobenius(const GapThirdMoment& moment) {
                 } else if (first == second || second == third) {
                     multiplicity = 3;
                 }
-                squared += multiplicity *
-                           static_cast<long double>(moment[index]) *
-                           moment[index];
-                ++index;
+                squared += multiplicity * static_cast<long double>(moment[i]) *
+                           moment[i];
+                ++i;
             }
         }
     }
@@ -148,7 +146,7 @@ struct ClosureAccumulator {
 };
 
 struct ClosureWork {
-    ClosureResult result;
+    ClosureResult closure;
     std::vector<TransitionSnapshot> transitions;
 };
 
@@ -156,8 +154,8 @@ ClosurePosition finishClosurePosition(int position,
                                       ClosureAccumulator& accumulator,
                                       TransitionSnapshot& snapshot) {
     const size_t classCount = accumulator.partition->classSizes.size();
-    ClosurePosition result;
-    result.position = position;
+    ClosurePosition out;
+    out.position = position;
 
     long double totalMass = 0.0L;
     long double weightedEffectiveSize = 0.0L;
@@ -174,7 +172,7 @@ ClosurePosition finishClosurePosition(int position,
             continue;
         }
 
-        ++result.occupiedClasses;
+        ++out.occupiedClasses;
         totalMass += mass;
         snapshot.sourceMass[sourceClass] = static_cast<double>(mass);
         if (accumulator.partition->classSizes[sourceClass] == 1) {
@@ -203,26 +201,26 @@ ClosurePosition finishClosurePosition(int position,
         maximalDefect = std::max(maximalDefect, rawDefect);
     }
 
-    result.singletonMass = static_cast<double>(singletonMass);
-    result.assessableMass = static_cast<double>(totalMass);
-    result.meanEffectiveSize =
+    out.singletonMass = static_cast<double>(singletonMass);
+    out.assessableMass = static_cast<double>(totalMass);
+    out.meanEffectiveSize =
         totalMass > 0.0L
             ? static_cast<double>(weightedEffectiveSize / totalMass)
             : std::numeric_limits<double>::quiet_NaN();
-    result.rmsDefect =
+    out.rmsDefect =
         totalMass > 0.0L
             ? std::sqrt(static_cast<double>(weightedDefect / totalMass))
             : std::numeric_limits<double>::quiet_NaN();
-    result.maxDefect = totalMass > 0.0L
-                           ? std::sqrt(static_cast<double>(maximalDefect))
-                           : std::numeric_limits<double>::quiet_NaN();
-    return result;
+    out.maxDefect = totalMass > 0.0L
+                        ? std::sqrt(static_cast<double>(maximalDefect))
+                        : std::numeric_limits<double>::quiet_NaN();
+    return out;
 }
 
 void finishTransitionPlateau(ClosureWork& work) {
-    const size_t classCount = work.result.classCount;
+    const size_t classCount = work.closure.classCount;
     if (work.transitions.empty() || classCount == 0) {
-        work.result.plateauDefect = std::numeric_limits<double>::quiet_NaN();
+        work.closure.plateauDefect = std::numeric_limits<double>::quiet_NaN();
         return;
     }
 
@@ -276,7 +274,7 @@ void finishTransitionPlateau(ClosureWork& work) {
         maximalDefect = std::max(maximalDefect, squaredDefect);
     }
 
-    work.result.plateauDefect = std::sqrt(static_cast<double>(maximalDefect));
+    work.closure.plateauDefect = std::sqrt(static_cast<double>(maximalDefect));
 }
 
 std::pair<int, int> bulkRange(int horizon, double fraction) {
@@ -292,14 +290,14 @@ std::pair<int, int> bulkRange(int horizon, double fraction) {
 }
 
 std::vector<std::vector<cpp_int>> computeExactForward(const ReferenceDag& graph,
-                                                      size_t maximumHorizon) {
+                                                      size_t maxHorizon) {
     const size_t vertexCount = graph.vertexCount();
     const auto offsets = graph.outgoingOffsets();
     const auto targets = graph.outgoingTargets();
     std::vector<std::vector<cpp_int>> forward(
-        maximumHorizon + 1, std::vector<cpp_int>(vertexCount, 1));
+        maxHorizon + 1, std::vector<cpp_int>(vertexCount, 1));
 
-    for (size_t horizon = 1; horizon <= maximumHorizon; ++horizon) {
+    for (size_t horizon = 1; horizon <= maxHorizon; ++horizon) {
         std::ranges::fill(forward[horizon], 0);
         for (size_t source = 0; source < vertexCount; ++source) {
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
@@ -312,14 +310,14 @@ std::vector<std::vector<cpp_int>> computeExactForward(const ReferenceDag& graph,
 }
 
 std::vector<std::vector<cpp_int>>
-computeExactBackward(const ReferenceDag& graph, size_t maximumHorizon) {
+computeExactBackward(const ReferenceDag& graph, size_t maxHorizon) {
     const size_t vertexCount = graph.vertexCount();
     const auto offsets = graph.outgoingOffsets();
     const auto targets = graph.outgoingTargets();
     std::vector<std::vector<cpp_int>> backward(
-        maximumHorizon + 1, std::vector<cpp_int>(vertexCount, 1));
+        maxHorizon + 1, std::vector<cpp_int>(vertexCount, 1));
 
-    for (size_t horizon = 1; horizon <= maximumHorizon; ++horizon) {
+    for (size_t horizon = 1; horizon <= maxHorizon; ++horizon) {
         std::ranges::fill(backward[horizon], 0);
         for (size_t source = 0; source < vertexCount; ++source) {
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
@@ -344,18 +342,21 @@ EnumeratedRoutes enumerateRoutes(const ReferenceDag& graph,
                                  const GapNodeState& state, int horizon) {
     const auto offsets = graph.outgoingOffsets();
     const auto targets = graph.outgoingTargets();
-    EnumeratedRoutes result;
-    result.edgePositionCounts.assign(
-        static_cast<size_t>(horizon) * graph.edgeCount(), 0);
-    std::vector<size_t> routeEdges(static_cast<size_t>(horizon));
+    const size_t length = static_cast<size_t>(horizon);
+    const size_t edgeCount = graph.edgeCount();
+    EnumeratedRoutes out;
+    out.edgePositionCounts.assign(length * edgeCount, 0);
+    std::vector<size_t> routeEdges(length);
 
-    std::function<void(uint32_t, int)> visit = [&](uint32_t vertex, int depth) {
-        if (depth == horizon) {
-            ++result.routeCount;
-            for (int position = 0; position < horizon; ++position) {
-                ++result.edgePositionCounts[static_cast<size_t>(position) *
-                                                graph.edgeCount() +
-                                            routeEdges[position]];
+    std::function<void(uint32_t, size_t)> visit;
+    visit = [&offsets, &out, &routeEdges, &targets, &visit, edgeCount,
+             length](uint32_t vertex, size_t depth) {
+        if (depth == length) {
+            ++out.routeCount;
+
+            for (size_t position = 0; position < length; ++position) {
+                ++out.edgePositionCounts[position * edgeCount +
+                                         routeEdges[position]];
             }
             return;
         }
@@ -371,20 +372,20 @@ EnumeratedRoutes enumerateRoutes(const ReferenceDag& graph,
         visit(start, 0);
     }
 
-    if (result.routeCount == 0) {
-        return result;
+    if (out.routeCount == 0) {
+        return out;
     }
 
     const long double denominator =
-        result.routeCount.convert_to<long double>() * horizon;
+        out.routeCount.convert_to<long double>() * horizon;
     for (int position = 0; position < horizon; ++position) {
         for (size_t source = 0; source < graph.vertexCount(); ++source) {
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
                  ++edge) {
                 const cpp_int count =
-                    result.edgePositionCounts[static_cast<size_t>(position) *
-                                                  graph.edgeCount() +
-                                              edge];
+                    out.edgePositionCounts[static_cast<size_t>(position) *
+                                               graph.edgeCount() +
+                                           edge];
                 if (count == 0) {
                     continue;
                 }
@@ -397,7 +398,7 @@ EnumeratedRoutes enumerateRoutes(const ReferenceDag& graph,
                     difference[coordinate] =
                         state.coordinates[target][coordinate] -
                         state.coordinates[source][coordinate];
-                    result.mean[coordinate] +=
+                    out.mean[coordinate] +=
                         static_cast<double>(weight * difference[coordinate]);
                 }
 
@@ -405,7 +406,7 @@ EnumeratedRoutes enumerateRoutes(const ReferenceDag& graph,
                 for (size_t first = 0; first < kGapCoordinateCount; ++first) {
                     for (size_t second = first; second < kGapCoordinateCount;
                          ++second) {
-                        result.rawSecond[secondIndex++] += static_cast<double>(
+                        out.rawSecond[secondIndex++] += static_cast<double>(
                             weight * difference[first] * difference[second]);
                     }
                 }
@@ -416,17 +417,16 @@ EnumeratedRoutes enumerateRoutes(const ReferenceDag& graph,
                          ++second) {
                         for (size_t third = second; third < kGapCoordinateCount;
                              ++third) {
-                            result.rawThird[thirdIndex++] +=
-                                static_cast<double>(weight * difference[first] *
-                                                    difference[second] *
-                                                    difference[third]);
+                            out.rawThird[thirdIndex++] += static_cast<double>(
+                                weight * difference[first] *
+                                difference[second] * difference[third]);
                         }
                     }
                 }
             }
         }
     }
-    return result;
+    return out;
 }
 
 void requireClose(double actual, double expected, double tolerance,
@@ -471,25 +471,25 @@ StableRouteCounts computeRouteCounts(const ReferenceDag& graph,
     const long double negativeInfinity =
         -std::numeric_limits<long double>::infinity();
 
-    StableRouteCounts result;
-    result.forward.assign(maxHorizon + 1,
-                          std::vector<long double>(vertexCount, 0.0L));
-    result.backward.assign(maxHorizon + 1,
-                           std::vector<long double>(vertexCount, 0.0L));
-    result.forwardLogs.assign(maxHorizon + 1, negativeInfinity);
-    result.backwardLogs.assign(maxHorizon + 1, negativeInfinity);
-    result.forwardScales.assign(maxHorizon + 1, 0.0L);
+    StableRouteCounts out;
+    out.forward.assign(maxHorizon + 1,
+                       std::vector<long double>(vertexCount, 0.0L));
+    out.backward.assign(maxHorizon + 1,
+                        std::vector<long double>(vertexCount, 0.0L));
+    out.forwardLogs.assign(maxHorizon + 1, negativeInfinity);
+    out.backwardLogs.assign(maxHorizon + 1, negativeInfinity);
+    out.forwardScales.assign(maxHorizon + 1, 0.0L);
 
     const long double initial = 1.0L / vertexCount;
-    std::ranges::fill(result.forward[0], initial);
-    std::ranges::fill(result.backward[0], initial);
-    result.forwardLogs[0] = std::log(static_cast<long double>(vertexCount));
-    result.backwardLogs[0] = result.forwardLogs[0];
-    result.forwardScales[0] = 1.0L;
+    std::ranges::fill(out.forward[0], initial);
+    std::ranges::fill(out.backward[0], initial);
+    out.forwardLogs[0] = std::log(static_cast<long double>(vertexCount));
+    out.backwardLogs[0] = out.forwardLogs[0];
+    out.forwardScales[0] = 1.0L;
 
     for (size_t horizon = 1; horizon <= maxHorizon; ++horizon) {
-        auto& next = result.forward[horizon];
-        const auto& previous = result.forward[horizon - 1];
+        auto& next = out.forward[horizon];
+        const auto& previous = out.forward[horizon - 1];
         for (size_t source = 0; source < vertexCount; ++source) {
             long double count = 0.0L;
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
@@ -501,19 +501,19 @@ StableRouteCounts computeRouteCounts(const ReferenceDag& graph,
 
         const long double scale =
             std::accumulate(next.begin(), next.end(), 0.0L);
-        result.forwardScales[horizon] = scale;
-        if (scale > 0.0L && std::isfinite(result.forwardLogs[horizon - 1])) {
+        out.forwardScales[horizon] = scale;
+        if (scale > 0.0L && std::isfinite(out.forwardLogs[horizon - 1])) {
             for (long double& value : next) {
                 value /= scale;
             }
-            result.forwardLogs[horizon] =
-                result.forwardLogs[horizon - 1] + std::log(scale);
+            out.forwardLogs[horizon] =
+                out.forwardLogs[horizon - 1] + std::log(scale);
         }
     }
 
     for (size_t horizon = 1; horizon <= maxHorizon; ++horizon) {
-        auto& next = result.backward[horizon];
-        const auto& previous = result.backward[horizon - 1];
+        auto& next = out.backward[horizon];
+        const auto& previous = out.backward[horizon - 1];
         for (size_t source = 0; source < vertexCount; ++source) {
             const long double sourceValue = previous[source];
             for (size_t edge = offsets[source]; edge < offsets[source + 1];
@@ -524,25 +524,25 @@ StableRouteCounts computeRouteCounts(const ReferenceDag& graph,
 
         const long double scale =
             std::accumulate(next.begin(), next.end(), 0.0L);
-        if (scale > 0.0L && std::isfinite(result.backwardLogs[horizon - 1])) {
+        if (scale > 0.0L && std::isfinite(out.backwardLogs[horizon - 1])) {
             for (long double& value : next) {
                 value /= scale;
             }
-            result.backwardLogs[horizon] =
-                result.backwardLogs[horizon - 1] + std::log(scale);
+            out.backwardLogs[horizon] =
+                out.backwardLogs[horizon - 1] + std::log(scale);
         }
     }
 
     for (size_t horizon = 0; horizon <= maxHorizon; ++horizon) {
-        if (std::isfinite(result.forwardLogs[horizon]) &&
-            std::isfinite(result.backwardLogs[horizon])) {
-            result.maxLogError = std::max(
-                result.maxLogError, std::abs(result.forwardLogs[horizon] -
-                                             result.backwardLogs[horizon]));
+        if (std::isfinite(out.forwardLogs[horizon]) &&
+            std::isfinite(out.backwardLogs[horizon])) {
+            out.maxLogError =
+                std::max(out.maxLogError, std::abs(out.forwardLogs[horizon] -
+                                                   out.backwardLogs[horizon]));
         }
     }
 
-    return result;
+    return out;
 }
 
 SignatureSummary summarizeSignatures(const GapNodeState& state) {
@@ -551,28 +551,27 @@ SignatureSummary summarizeSignatures(const GapNodeState& state) {
         ++classes[signature];
     }
 
-    SignatureSummary result;
-    result.classCount = classes.size();
-    result.classSizes.reserve(classes.size());
+    SignatureSummary out;
+    out.classCount = classes.size();
+    out.classSizes.reserve(classes.size());
     for (const auto& [signature, size] : classes) {
         static_cast<void>(signature);
-        result.classSizes.push_back(size);
-        result.largestClass =
-            std::max(result.largestClass, static_cast<size_t>(size));
+        out.classSizes.push_back(size);
+        out.largestClass =
+            std::max(out.largestClass, static_cast<size_t>(size));
         if (size == 1) {
-            ++result.singletonClasses;
-            ++result.singletonNodes;
+            ++out.singletonClasses;
+            ++out.singletonNodes;
         }
     }
-    result.degenerate =
-        result.singletonNodes * 20 >= state.signatures.size() * 19;
-    return result;
+    out.degenerate = out.singletonNodes * 20 >= state.signatures.size() * 19;
+    return out;
 }
 
 std::vector<ProfilePartition> buildPartitions(const GapNodeState& state,
                                               std::span<const int> bins) {
-    std::vector<ProfilePartition> result;
-    result.reserve(bins.size());
+    std::vector<ProfilePartition> out;
+    out.reserve(bins.size());
 
     for (const int binCount : bins) {
         if (binCount < 2) {
@@ -607,10 +606,10 @@ std::vector<ProfilePartition> buildPartitions(const GapNodeState& state,
             partition.classIds[vertex] = classId;
             ++partition.classSizes[classId];
         }
-        result.push_back(std::move(partition));
+        out.push_back(std::move(partition));
     }
 
-    return result;
+    return out;
 }
 
 std::vector<double> computeLegendreModes(const ReferenceDag& graph,
@@ -635,12 +634,12 @@ std::vector<double> computeLegendreModes(const ReferenceDag& graph,
 
     const long double normalization =
         std::sqrt(static_cast<long double>(graph.vertexCount()));
-    std::vector<double> result(static_cast<size_t>(modeCount));
+    std::vector<double> out(static_cast<size_t>(modeCount));
     for (int mode = 0; mode < modeCount; ++mode) {
-        result[static_cast<size_t>(mode)] = static_cast<double>(
+        out[static_cast<size_t>(mode)] = static_cast<double>(
             sums[static_cast<size_t>(mode)] / normalization);
     }
-    return result;
+    return out;
 }
 
 std::vector<RouteCalibration>
@@ -651,14 +650,15 @@ computeCalibration(const ReferenceDag& graph, const StableRouteCounts& routes,
             "route calibration length exceeds the route workspace");
     }
 
-    std::vector<RouteCalibration> result;
-    result.reserve(static_cast<size_t>(maxLength));
+    std::vector<RouteCalibration> out;
+    out.reserve(static_cast<size_t>(maxLength));
     const long double vertexCount = graph.vertexCount();
 
     for (int length = 1; length <= maxLength; ++length) {
+        const size_t lengthIndex = static_cast<size_t>(length);
         RouteCalibration calibration;
         calibration.length = length;
-        calibration.logCount = routes.forwardLogs[length];
+        calibration.logCount = routes.forwardLogs[lengthIndex];
 
         const long double pathTarget =
             std::exp(-std::lgamma(static_cast<long double>(2 * length + 2)));
@@ -702,9 +702,9 @@ computeCalibration(const ReferenceDag& graph, const StableRouteCounts& routes,
         calibration.modePrediction = static_cast<double>(prediction);
         calibration.modeResidual =
             calibration.scaledFluctuation - calibration.modePrediction;
-        result.push_back(calibration);
+        out.push_back(calibration);
     }
-    return result;
+    return out;
 }
 
 HorizonResult analyzeHorizon(const ReferenceDag& graph,
@@ -714,7 +714,7 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
                              double bulkFraction,
                              std::span<const double> lindebergThresholds) {
     const auto started = Clock::now();
-    if (horizon < 1 || static_cast<size_t>(horizon + 1) > routes.maxHorizon()) {
+    if (horizon < 1 || static_cast<size_t>(horizon) + 1 > routes.maxHorizon()) {
         throw std::invalid_argument(
             "horizon analysis requires route counts through p + 1");
     }
@@ -722,55 +722,56 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
         throw std::invalid_argument("bulk fraction must lie in (0, 1/2)");
     }
 
-    HorizonResult result;
-    result.p = horizon;
-    result.valid = routes.hasRoutes(static_cast<size_t>(horizon));
-    result.logCount = routes.forwardLogs[horizon];
-    result.logNextCount = routes.forwardLogs[horizon + 1];
-    result.peakBytes = routes.estimatedBytes() + graph.estimatedBytes() +
-                       state.estimatedBytes();
-    if (!result.valid) {
-        result.seconds =
+    const size_t routeLength = static_cast<size_t>(horizon);
+    HorizonResult out;
+    out.p = horizon;
+    out.hasRoutes = routes.hasRoutes(routeLength);
+    out.logCount = routes.forwardLogs[routeLength];
+    out.logNextCount = routes.forwardLogs[routeLength + 1];
+    out.peakBytes = routes.estimatedBytes() + graph.estimatedBytes() +
+                    state.estimatedBytes();
+    if (!out.hasRoutes) {
+        out.seconds =
             std::chrono::duration<double>(Clock::now() - started).count();
-        return result;
+        return out;
     }
 
-    if (routes.hasRoutes(static_cast<size_t>(horizon + 1))) {
-        const long double logRatio = result.logNextCount - result.logCount;
-        result.logGrowth = static_cast<double>(logRatio);
-        result.growth = static_cast<double>(std::exp(logRatio));
+    if (routes.hasRoutes(routeLength + 1)) {
+        const long double logRatio = out.logNextCount - out.logCount;
+        out.logGrowth = static_cast<double>(logRatio);
+        out.growth = static_cast<double>(std::exp(logRatio));
     } else {
-        result.logGrowth = -std::numeric_limits<double>::infinity();
-        result.growth = 0.0;
+        out.logGrowth = -std::numeric_limits<double>::infinity();
+        out.growth = 0.0;
     }
 
     const long double numerator =
         static_cast<long double>(graph.vertexCount()) - horizon - 1;
     const long double denominator =
         static_cast<long double>(2 * horizon + 2) * (2 * horizon + 3);
-    result.expectedGrowth =
+    out.expectedGrowth =
         numerator > 0.0L ? static_cast<double>(numerator / denominator) : 0.0;
 
     const auto [bulkFirst, bulkLast] = bulkRange(horizon, bulkFraction);
-    result.bulkFirst = bulkFirst;
-    result.bulkLast = bulkLast;
+    out.bulkFirst = bulkFirst;
+    out.bulkLast = bulkLast;
 
     std::vector<ClosureWork> closureWork;
     closureWork.reserve(partitions.size());
     for (const ProfilePartition& partition : partitions) {
         ClosureWork work;
-        work.result.bins = partition.bins;
-        work.result.classCount = partition.classSizes.size();
-        work.result.classSizes = partition.classSizes;
-        work.result.minMass = 1.0;
-        work.result.rmsDefect = std::numeric_limits<double>::quiet_NaN();
-        work.result.maxDefect = std::numeric_limits<double>::quiet_NaN();
+        work.closure.bins = partition.bins;
+        work.closure.classCount = partition.classSizes.size();
+        work.closure.classSizes = partition.classSizes;
+        work.closure.minMass = 1.0;
+        work.closure.rmsDefect = std::numeric_limits<double>::quiet_NaN();
+        work.closure.maxDefect = std::numeric_limits<double>::quiet_NaN();
         for (uint32_t size : partition.classSizes) {
             if (size == 1) {
-                ++work.result.singletonClasses;
+                ++work.closure.singletonClasses;
             }
-            work.result.largestClass =
-                std::max(work.result.largestClass, static_cast<size_t>(size));
+            work.closure.largestClass =
+                std::max(work.closure.largestClass, static_cast<size_t>(size));
         }
         closureWork.push_back(std::move(work));
     }
@@ -790,12 +791,14 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
     size_t retainedTransitionBytes = 0;
     size_t temporaryPeakBytes = occupancyBytes;
 
-    result.positions.reserve(static_cast<size_t>(horizon));
+    out.positions.reserve(routeLength);
     for (int position = 0; position < horizon; ++position) {
         const int remaining = horizon - position;
-        const auto& left = routes.backward[position];
-        const auto& right = routes.forward[remaining];
-        const auto& rightPrevious = routes.forward[remaining - 1];
+        const size_t pos = static_cast<size_t>(position);
+        const size_t remainingIndex = static_cast<size_t>(remaining);
+        const auto& left = routes.backward[pos];
+        const auto& right = routes.forward[remainingIndex];
+        const auto& rightPrevious = routes.forward[remainingIndex - 1];
 
         long double occupancyNormalizer = 0.0L;
         for (size_t vertex = 0; vertex < vertexCount; ++vertex) {
@@ -810,11 +813,11 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
         }
 
         const long double flowLogError =
-            std::log(occupancyNormalizer) + routes.backwardLogs[position] +
-            routes.forwardLogs[remaining] - result.logCount;
+            std::log(occupancyNormalizer) + routes.backwardLogs[pos] +
+            routes.forwardLogs[remainingIndex] - out.logCount;
         const double flowRelativeError =
             static_cast<double>(std::abs(std::expm1(flowLogError)));
-        result.maxFlowError = std::max(result.maxFlowError, flowRelativeError);
+        out.maxFlowError = std::max(out.maxFlowError, flowRelativeError);
         meanFlowError += flowRelativeError;
 
         const bool inBulk = position >= bulkFirst && position <= bulkLast;
@@ -846,7 +849,7 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
             }
 
             const long double transitionDenominator =
-                routes.forwardScales[remaining] * right[source];
+                routes.forwardScales[remainingIndex] * right[source];
             if (!(transitionDenominator > 0.0L)) {
                 throw std::runtime_error(
                     "positive route occupancy has no outgoing continuation");
@@ -901,7 +904,7 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
                 }
 
                 const double jump = std::sqrt(static_cast<double>(jumpSquared));
-                result.maxJump = std::max(result.maxJump, jump);
+                out.maxJump = std::max(out.maxJump, jump);
                 for (size_t tail = 0; tail < lindebergThresholds.size();
                      ++tail) {
                     if (jump > lindebergThresholds[tail]) {
@@ -957,10 +960,8 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
             std::max(flowRelativeError,
                      static_cast<double>(std::abs(positionFlow - 1.0L)));
         positionResult.rowError = static_cast<double>(maximalRowError);
-        result.maxFlowError =
-            std::max(result.maxFlowError, positionResult.flowError);
-        result.maxRowError =
-            std::max(result.maxRowError, positionResult.rowError);
+        out.maxFlowError = std::max(out.maxFlowError, positionResult.flowError);
+        out.maxRowError = std::max(out.maxRowError, positionResult.rowError);
 
         for (size_t coordinate = 0; coordinate < kGapCoordinateCount;
              ++coordinate) {
@@ -969,13 +970,13 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
                 static_cast<double>(positionMean[coordinate]);
             globalMean[coordinate] += positionMean[coordinate] / horizon;
         }
-        for (size_t index = 0; index < kGapCovarianceCount; ++index) {
-            positionSecond[index] *= inverseFlow;
-            globalSecond[index] += positionSecond[index] / horizon;
+        for (size_t i = 0; i < kGapCovarianceCount; ++i) {
+            positionSecond[i] *= inverseFlow;
+            globalSecond[i] += positionSecond[i] / horizon;
         }
-        for (size_t index = 0; index < kGapThirdMomentCount; ++index) {
-            positionThird[index] *= inverseFlow;
-            globalThird[index] += positionThird[index] / horizon;
+        for (size_t i = 0; i < kGapThirdMomentCount; ++i) {
+            positionThird[i] *= inverseFlow;
+            globalThird[i] += positionThird[i] / horizon;
         }
         for (size_t tail = 0; tail < lindebergThresholds.size(); ++tail) {
             positionTails[tail] *= inverseFlow;
@@ -1021,31 +1022,31 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
                 }
             }
         }
-        result.positions.push_back(positionResult);
+        out.positions.push_back(positionResult);
 
         if (inBulk) {
-            for (size_t index = 0; index < accumulators.size(); ++index) {
+            for (size_t i = 0; i < accumulators.size(); ++i) {
                 TransitionSnapshot snapshot;
-                ClosurePosition diagnostic = finishClosurePosition(
-                    position, accumulators[index], snapshot);
-                ClosureWork& work = closureWork[index];
-                work.result.positions.push_back(diagnostic);
+                ClosurePosition diagnostic =
+                    finishClosurePosition(position, accumulators[i], snapshot);
+                ClosureWork& work = closureWork[i];
+                work.closure.positions.push_back(diagnostic);
                 if (std::isfinite(diagnostic.rmsDefect)) {
-                    work.result.rmsDefect =
-                        std::isfinite(work.result.rmsDefect)
-                            ? std::max(work.result.rmsDefect,
+                    work.closure.rmsDefect =
+                        std::isfinite(work.closure.rmsDefect)
+                            ? std::max(work.closure.rmsDefect,
                                        diagnostic.rmsDefect)
                             : diagnostic.rmsDefect;
                 }
                 if (std::isfinite(diagnostic.maxDefect)) {
-                    work.result.maxDefect =
-                        std::isfinite(work.result.maxDefect)
-                            ? std::max(work.result.maxDefect,
+                    work.closure.maxDefect =
+                        std::isfinite(work.closure.maxDefect)
+                            ? std::max(work.closure.maxDefect,
                                        diagnostic.maxDefect)
                             : diagnostic.maxDefect;
                 }
-                work.result.minMass =
-                    std::min(work.result.minMass, diagnostic.assessableMass);
+                work.closure.minMass =
+                    std::min(work.closure.minMass, diagnostic.assessableMass);
                 retainedTransitionBytes +=
                     snapshot.kernel.capacity() * sizeof(double) +
                     snapshot.sourceMass.capacity() * sizeof(double);
@@ -1058,47 +1059,47 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
         }
     }
 
-    result.meanFlowError = static_cast<double>(meanFlowError / horizon);
+    out.meanFlowError = static_cast<double>(meanFlowError / horizon);
     for (size_t coordinate = 0; coordinate < kGapCoordinateCount;
          ++coordinate) {
-        result.mean[coordinate] = static_cast<double>(globalMean[coordinate]);
+        out.mean[coordinate] = static_cast<double>(globalMean[coordinate]);
     }
 
     size_t secondIndex = 0;
     for (size_t first = 0; first < kGapCoordinateCount; ++first) {
         for (size_t second = first; second < kGapCoordinateCount; ++second) {
-            result.rawSecond[secondIndex] =
+            out.rawSecond[secondIndex] =
                 static_cast<double>(globalSecond[secondIndex]);
             const long double covariance =
                 globalSecond[secondIndex] -
                 globalMean[first] * globalMean[second];
-            result.covariance[secondIndex] = static_cast<double>(covariance);
-            result.withinPositionCovariance[secondIndex] =
+            out.covariance[secondIndex] = static_cast<double>(covariance);
+            out.withinPositionCovariance[secondIndex] =
                 static_cast<double>(globalWithinCovariance[secondIndex]);
-            result.betweenPositionCovariance[secondIndex] = static_cast<double>(
+            out.betweenPositionCovariance[secondIndex] = static_cast<double>(
                 covariance - globalWithinCovariance[secondIndex]);
-            result.covarianceDecompositionError = std::max(
-                result.covarianceDecompositionError,
-                std::abs(result.covariance[secondIndex] -
-                         result.withinPositionCovariance[secondIndex] -
-                         result.betweenPositionCovariance[secondIndex]));
+            out.covarianceDecompositionError =
+                std::max(out.covarianceDecompositionError,
+                         std::abs(out.covariance[secondIndex] -
+                                  out.withinPositionCovariance[secondIndex] -
+                                  out.betweenPositionCovariance[secondIndex]));
             if (first == second) {
-                result.timeScale += static_cast<double>(covariance);
-                result.withinCovarianceTrace +=
-                    result.withinPositionCovariance[secondIndex];
-                result.betweenCovarianceTrace +=
-                    result.betweenPositionCovariance[secondIndex];
+                out.timeScale += static_cast<double>(covariance);
+                out.withinCovarianceTrace +=
+                    out.withinPositionCovariance[secondIndex];
+                out.betweenCovarianceTrace +=
+                    out.betweenPositionCovariance[secondIndex];
             }
             ++secondIndex;
         }
     }
-    result.timeScale = std::max(0.0, result.timeScale);
+    out.timeScale = std::max(0.0, out.timeScale);
 
     size_t thirdIndex = 0;
     for (size_t first = 0; first < kGapCoordinateCount; ++first) {
         for (size_t second = first; second < kGapCoordinateCount; ++second) {
             for (size_t third = second; third < kGapCoordinateCount; ++third) {
-                result.rawThird[thirdIndex] =
+                out.rawThird[thirdIndex] =
                     static_cast<double>(globalThird[thirdIndex]);
                 const long double centered =
                     globalThird[thirdIndex] -
@@ -1110,45 +1111,42 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
                         globalSecond[covarianceIndex(first, second)] +
                     2.0L * globalMean[first] * globalMean[second] *
                         globalMean[third];
-                result.centeredThird[thirdIndex] =
-                    static_cast<double>(centered);
-                result.withinPositionCenteredThird[thirdIndex] =
+                out.centeredThird[thirdIndex] = static_cast<double>(centered);
+                out.withinPositionCenteredThird[thirdIndex] =
                     static_cast<double>(globalWithinThird[thirdIndex]);
                 ++thirdIndex;
             }
         }
     }
-    result.withinPositionThirdNorm =
-        thirdMomentFrobenius(result.withinPositionCenteredThird);
+    out.withinPositionThirdNorm =
+        thirdMomentFrobenius(out.withinPositionCenteredThird);
 
-    if (result.timeScale > 0.0) {
-        result.scaledJump = result.maxJump / std::sqrt(result.timeScale);
-        result.scaledRawThird =
-            thirdMomentFrobenius(result.rawThird) / result.timeScale;
-        result.scaledCenteredThird =
-            thirdMomentFrobenius(result.centeredThird) / result.timeScale;
+    if (out.timeScale > 0.0) {
+        out.scaledJump = out.maxJump / std::sqrt(out.timeScale);
+        out.scaledRawThird = thirdMomentFrobenius(out.rawThird) / out.timeScale;
+        out.scaledCenteredThird =
+            thirdMomentFrobenius(out.centeredThird) / out.timeScale;
     } else {
-        result.scaledJump = std::numeric_limits<double>::quiet_NaN();
-        result.scaledRawThird = std::numeric_limits<double>::quiet_NaN();
-        result.scaledCenteredThird = std::numeric_limits<double>::quiet_NaN();
+        out.scaledJump = std::numeric_limits<double>::quiet_NaN();
+        out.scaledRawThird = std::numeric_limits<double>::quiet_NaN();
+        out.scaledCenteredThird = std::numeric_limits<double>::quiet_NaN();
     }
 
-    result.tails.reserve(lindebergThresholds.size());
-    for (size_t index = 0; index < lindebergThresholds.size(); ++index) {
-        result.tails.push_back({
-            .threshold = lindebergThresholds[index],
-            .tail = static_cast<double>(globalTails[index]),
-            .scaled =
-                result.timeScale > 0.0
-                    ? static_cast<double>(globalTails[index]) / result.timeScale
-                    : std::numeric_limits<double>::quiet_NaN(),
+    out.tails.reserve(lindebergThresholds.size());
+    for (size_t i = 0; i < lindebergThresholds.size(); ++i) {
+        out.tails.push_back({
+            .threshold = lindebergThresholds[i],
+            .tail = static_cast<double>(globalTails[i]),
+            .scaled = out.timeScale > 0.0
+                          ? static_cast<double>(globalTails[i]) / out.timeScale
+                          : std::numeric_limits<double>::quiet_NaN(),
         });
     }
 
     GapCoordinate bulkMean{};
     GapCovariance bulkCovariance{};
     size_t bulkCount = 0;
-    for (const PositionResult& position : result.positions) {
+    for (const PositionResult& position : out.positions) {
         if (position.position < bulkFirst || position.position > bulkLast) {
             continue;
         }
@@ -1157,8 +1155,8 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
              ++coordinate) {
             bulkMean[coordinate] += position.mean[coordinate];
         }
-        for (size_t index = 0; index < kGapCovarianceCount; ++index) {
-            bulkCovariance[index] += position.covariance[index];
+        for (size_t i = 0; i < kGapCovarianceCount; ++i) {
+            bulkCovariance[i] += position.covariance[i];
         }
     }
     for (double& value : bulkMean) {
@@ -1168,7 +1166,7 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
         value /= static_cast<double>(bulkCount);
     }
 
-    for (const PositionResult& position : result.positions) {
+    for (const PositionResult& position : out.positions) {
         if (position.position < bulkFirst || position.position > bulkLast) {
             continue;
         }
@@ -1179,9 +1177,9 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
             meanDifference[coordinate] =
                 position.mean[coordinate] - bulkMean[coordinate];
         }
-        for (size_t index = 0; index < kGapCovarianceCount; ++index) {
-            covarianceDifference[index] =
-                position.covariance[index] - bulkCovariance[index];
+        for (size_t i = 0; i < kGapCovarianceCount; ++i) {
+            covarianceDifference[i] =
+                position.covariance[i] - bulkCovariance[i];
         }
         GapCoordinate scaledMeanDifference{};
         GapCovariance scaledCovarianceDifference{};
@@ -1190,36 +1188,33 @@ HorizonResult analyzeHorizon(const ReferenceDag& graph,
             scaledMeanDifference[coordinate] =
                 horizon * meanDifference[coordinate];
         }
-        for (size_t index = 0; index < kGapCovarianceCount; ++index) {
-            scaledCovarianceDifference[index] = static_cast<double>(horizon) *
-                                                horizon *
-                                                covarianceDifference[index];
+        for (size_t i = 0; i < kGapCovarianceCount; ++i) {
+            scaledCovarianceDifference[i] = static_cast<double>(horizon) *
+                                            horizon * covarianceDifference[i];
         }
-        result.driftPlateau =
-            std::max(result.driftPlateau, coordinateNorm(scaledMeanDifference));
-        result.covariancePlateau =
-            std::max(result.covariancePlateau,
+        out.driftPlateau =
+            std::max(out.driftPlateau, coordinateNorm(scaledMeanDifference));
+        out.covariancePlateau =
+            std::max(out.covariancePlateau,
                      covarianceFrobenius(scaledCovarianceDifference));
     }
-    result.plateauDefect =
-        std::max(result.driftPlateau, result.covariancePlateau);
+    out.plateauDefect = std::max(out.driftPlateau, out.covariancePlateau);
 
     for (ClosureWork& work : closureWork) {
-        const size_t meanKernelBytes = work.result.classCount *
-                                       work.result.classCount *
+        const size_t meanKernelBytes = work.closure.classCount *
+                                       work.closure.classCount *
                                        sizeof(long double);
         temporaryPeakBytes = std::max(temporaryPeakBytes,
                                       occupancyBytes + retainedTransitionBytes +
                                           meanKernelBytes);
         finishTransitionPlateau(work);
-        result.closure.push_back(std::move(work.result));
+        out.closure.push_back(std::move(work.closure));
     }
 
-    result.peakBytes = routes.estimatedBytes() + graph.estimatedBytes() +
-                       state.estimatedBytes() + temporaryPeakBytes;
-    result.seconds =
-        std::chrono::duration<double>(Clock::now() - started).count();
-    return result;
+    out.peakBytes = routes.estimatedBytes() + graph.estimatedBytes() +
+                    state.estimatedBytes() + temporaryPeakBytes;
+    out.seconds = std::chrono::duration<double>(Clock::now() - started).count();
+    return out;
 }
 
 size_t runRouteSelfTests() {
@@ -1252,15 +1247,13 @@ size_t runRouteSelfTests() {
             }
             checks += expectedSignatures.size();
         }
-        constexpr size_t maximumHorizon = 4;
+        constexpr size_t maxHorizon = 4;
         const StableRouteCounts stable =
-            computeRouteCounts(graph, maximumHorizon + 1);
-        const auto exactForward =
-            computeExactForward(graph, maximumHorizon + 1);
-        const auto exactBackward =
-            computeExactBackward(graph, maximumHorizon + 1);
+            computeRouteCounts(graph, maxHorizon + 1);
+        const auto exactForward = computeExactForward(graph, maxHorizon + 1);
+        const auto exactBackward = computeExactBackward(graph, maxHorizon + 1);
 
-        for (size_t horizon = 0; horizon <= maximumHorizon; ++horizon) {
+        for (size_t horizon = 0; horizon <= maxHorizon; ++horizon) {
             const cpp_int exactTotal =
                 std::accumulate(exactForward[horizon].begin(),
                                 exactForward[horizon].end(), cpp_int{0});
@@ -1308,7 +1301,7 @@ size_t runRouteSelfTests() {
             }
         }
 
-        for (int horizon = 1; horizon <= static_cast<int>(maximumHorizon);
+        for (int horizon = 1; horizon <= static_cast<int>(maxHorizon);
              ++horizon) {
             const EnumeratedRoutes enumerated =
                 enumerateRoutes(graph, state, horizon);
@@ -1333,9 +1326,12 @@ size_t runRouteSelfTests() {
                      ++source) {
                     for (size_t edge = offsets[source];
                          edge < offsets[source + 1]; ++edge) {
+                        const size_t pos = static_cast<size_t>(position);
+                        const size_t remaining =
+                            static_cast<size_t>(horizon - position - 1);
                         const cpp_int formula =
-                            exactBackward[position][source] *
-                            exactForward[horizon - position - 1][targets[edge]];
+                            exactBackward[pos][source] *
+                            exactForward[remaining][targets[edge]];
                         const cpp_int enumeratedCount =
                             enumerated
                                 .edgePositionCounts[static_cast<size_t>(
@@ -1363,16 +1359,14 @@ size_t runRouteSelfTests() {
                              "enumerated mean");
                 ++checks;
             }
-            for (size_t index = 0; index < kGapCovarianceCount; ++index) {
-                requireClose(optimized.rawSecond[index],
-                             enumerated.rawSecond[index], 1.0e-11,
-                             "enumerated second moment");
+            for (size_t i = 0; i < kGapCovarianceCount; ++i) {
+                requireClose(optimized.rawSecond[i], enumerated.rawSecond[i],
+                             1.0e-11, "enumerated second moment");
                 ++checks;
             }
-            for (size_t index = 0; index < kGapThirdMomentCount; ++index) {
-                requireClose(optimized.rawThird[index],
-                             enumerated.rawThird[index], 1.0e-11,
-                             "enumerated third moment");
+            for (size_t i = 0; i < kGapThirdMomentCount; ++i) {
+                requireClose(optimized.rawThird[i], enumerated.rawThird[i],
+                             1.0e-11, "enumerated third moment");
                 ++checks;
             }
             if (optimized.maxFlowError > 1.0e-12 ||
@@ -1407,7 +1401,7 @@ size_t runRouteSelfTests() {
     const HorizonResult routeFree = analyzeHorizon(
         shortGraph, shortState, longRoutes, 2,
         std::span<const ProfilePartition>{}, 0.2, std::span<const double>{});
-    if (routeFree.valid || routeFree.peakBytes == 0) {
+    if (routeFree.hasRoutes || routeFree.peakBytes == 0) {
         throw std::runtime_error(
             "route self-test failed: route-free workspace accounting");
     }
